@@ -1,9 +1,8 @@
 // `claude -p … --output-format json` prints one JSON envelope. With `--json-schema`, the
-// structured result is in its `structured_output` field; `result` holds free text only.
+// structured result is the parsed object in its `structured_output` field (`result` carried
+// the same JSON as a string; it is not used).
 // Failures set `is_error: true` with the message in `result`, on stdout, with exit code 1.
-// Checked 2026-11-26 with CLI 2.1.319: the error envelope and the schema validator on this
-// Mac, `structured_output` from https://code.claude.com/docs/en/headless (the live success
-// call is still pending: the CLI login had expired).
+// Observed with CLI 2.1.319 on 2026-11-26, both success and authentication failure.
 // The validator rejects the draft-2020-12 `$schema` that Zod emits by default: pass draft-07.
 
 import { execFile } from 'node:child_process'

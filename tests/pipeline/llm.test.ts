@@ -21,18 +21,19 @@ afterEach(async () => {
 
 const cached = () => readdir(cacheDir)
 
-// Trimmed from a real `claude -p --output-format json` envelope (CLI 2.1.319);
-// `structured_output` is the success field per code.claude.com/docs/en/headless.
+// Trimmed from real `claude -p --output-format json --json-schema` envelopes (CLI 2.1.319).
+// A success adds `structured_output`.
 function envelope(extra: Record<string, unknown>): string {
   return JSON.stringify({
     type: 'result',
     subtype: 'success',
     is_error: false,
     api_error_status: null,
-    num_turns: 1,
-    result: '',
-    session_id: '3b307937-fd6d-454e-a8e9-17b01d637681',
-    total_cost_usd: 0,
+    stop_reason: 'tool_use',
+    terminal_reason: 'completed',
+    num_turns: 2,
+    result: '{"ok":true}',
+    total_cost_usd: 0.01,
     ...extra,
   })
 }
