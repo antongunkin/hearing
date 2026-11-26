@@ -275,11 +275,50 @@ describe('looksLikeBotWall', () => {
     },
   )
 
-  test('a marker on a full page is not a wall, and script text does not count as page text', () => {
-    const recaptcha = '<script src="https://www.google.com/recaptcha/api.js"></script>'
+  const widget = '<div class="g-recaptcha" data-sitekey="k"></div>'
+  const shell = '<div id="root"></div>'
+  const loader = '<script src="https://www.google.com/recaptcha/api.js?render=k" async></script>'
 
-    expect(looksLikeBotWall(200, small(article + recaptcha))).toBe(false)
-    expect(looksLikeBotWall(200, small(`${recaptcha}<script>${'x();'.repeat(1000)}</script>`))).toBe(true)
+  test('a marker on a full page is not a wall, and script text does not count as page text', () => {
+    expect(looksLikeBotWall(200, small(article + widget))).toBe(false)
+    expect(looksLikeBotWall(200, small(`${widget}<script>${'x();'.repeat(1000)}</script>`))).toBe(true)
+  })
+
+  test('a thin product page that only loads reCAPTCHA is not a wall', () => {
+    expect(looksLikeBotWall(200, small(`<p>${'x'.repeat(1500)}</p>${loader}`))).toBe(false)
+  })
+
+  test.each([
+    ['the reCAPTCHA loader', loader],
+    ['the Enterprise loader', "<script data-sitekey='k' src='https://www.recaptcha.net/recaptcha/enterprise.js?onload=onRecaptcha'></script>"],
+    ['Cloudflare JS detections', '<script src="/cdn-cgi/challenge-platform/scripts/jsd/main.js"></script>'],
+    ['inline JS detections', "<script>a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';</script>"],
+    ['a site key in config', '<script>window.env={"recaptchaSiteKey":"k"}</script>'],
+    ['site keys in other spellings', '<script>var RECAPTCHA_SITE_KEY="k", reCaptchaEnterpriseSiteKey="k"</script>'],
+  ])('an app shell with %s is not a wall', (_name, embed) => {
+    expect(looksLikeBotWall(200, small(shell + embed))).toBe(false)
+  })
+
+  test.each([
+    ['a reCAPTCHA widget', widget + loader],
+    ['an hCaptcha widget', '<div class="h-captcha" data-sitekey="k"></div>'],
+    ['visible captcha text', `<p>Complete the CAPTCHA</p>${loader}`],
+    ['another challenge-platform script', '<script src="/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1"></script>'],
+  ])('an app shell with %s is a wall', (_name, content) => {
+    expect(looksLikeBotWall(200, small(shell + content))).toBe(true)
+  })
+
+  test('long unbroken markup is checked quickly', () => {
+    const pages = ['a'.repeat(100_000), 'captcha'.repeat(15_000), '<script '.repeat(20_000)]
+    const started = performance.now()
+
+    for (const blob of pages) looksLikeBotWall(200, small(`<p>${'x'.repeat(2000)}</p><script>${blob}</script>`))
+
+    expect(performance.now() - started).toBeLessThan(2000)
+  })
+
+  test.each(['captcha-200.html', 'cf-challenge.html'])('%s is a wall at status 200', async (name) => {
+    expect(looksLikeBotWall(200, (await fixture(name)).toString())).toBe(true)
   })
 
   test('an ordinary small page is not a wall', () => {
@@ -474,6 +513,16 @@ describe('render', () => {
       reason: 'bot-protection',
     })
     expect(browser.ran).not.toHaveBeenCalled()
+  })
+
+  test('an app shell with passive anti-bot scripts is rendered', async () => {
+    const site = await serve({})
+    const shell =
+      '<div id="root"></div><script src="https://www.google.com/recaptcha/api.js"></script>' +
+      '<script src="/cdn-cgi/challenge-platform/scripts/jsd/main.js"></script>'
+    stubBrowser({ body: shell }, '<html><body><p>Weight 2.1 g</p></body></html>')
+
+    expect(ok(await get(`${site.origin}/app`, { render: true })).text).toBe('Weight 2.1 g')
   })
 
   test('a redirect goes through the same checks', async () => {
