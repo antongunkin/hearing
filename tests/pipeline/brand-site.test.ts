@@ -64,9 +64,14 @@ async function fixturePages(): Promise<Ok[]> {
 async function extractFixture(change: (output: Record<string, unknown>) => void = () => {}) {
   const output = JSON.parse(await fixture('extraction.json'))
   change(output)
-  llmMock.mockResolvedValue(output)
+  // Parsed with the schema extractModel passes, as llm() would, so a reply the schema rejects fails here too.
+  llmMock.mockImplementation(async ({ schema }) => schema.parse(output))
   return extractModel(brand, await fixturePages())
 }
+
+type Output = Record<string, unknown> & { variants: Record<string, unknown>[] }
+const withVariant = (fields: Record<string, unknown>) => (output: Record<string, unknown>) =>
+  Object.assign((output as Output).variants[0], fields)
 
 describe('discoverModelUrls', () => {
   test('discovers model URLs by pattern only, each with the documents that name it', async () => {
@@ -90,6 +95,11 @@ describe('discoverModelUrls', () => {
     ])
     expect(fetchMock).toHaveBeenCalledWith(brand.scraper.catalogUrls[0], { render: false })
     expect(warn).toHaveBeenCalledWith(expect.stringContaining('robots'))
+
+    // A re-run asked to refresh fetches the catalogs again, so newly listed models are seen.
+    fetchMock.mockClear()
+    await discoverModelUrls(brand, { refresh: true })
+    for (const url of brand.scraper.catalogUrls) expect(fetchMock).toHaveBeenCalledWith(url, { render: false, refresh: true })
     // Dropped: "audeo-r" names only the family "audeo"; "Virto-P" is another generation than "virto-infinio";
     // the annex names no model. The brochure does not match the document pattern at all.
     expect(warn).toHaveBeenCalledWith('phonak: 3 documents match no model page')
@@ -175,6 +185,87 @@ describe('extractModel', () => {
     })
 
     expect(model.variants[0].weightG).toBeUndefined()
+  })
+
+  test('empty lists and objects are left out, not stored as sourced fields', async () => {
+    const { model, fieldChecks } = await extractFixture((output) =>
+      Object.assign(output, {
+        materials: { value: [], quote: 'Available colors: Sand Beige, Champagne', sourceIndex: 0 },
+        colors: { value: [], quote: 'Available colors: Sand Beige, Champagne', sourceIndex: 0 },
+        connectivity: { value: {}, quote: 'Made for iPhone', sourceIndex: 0 },
+        platform: { value: ' ', quote: 'Made for iPhone', sourceIndex: 0 },
+      }),
+    )
+
+    for (const key of ['materials', 'colors', 'connectivity', 'platform']) {
+      expect(Object.keys(model)).not.toContain(key)
+      expect(Object.keys(fieldChecks)).not.toContain(key)
+    }
+  })
+
+  test('pair-to-unit halves the quoted pair weight; an input without a mass is rejected', async () => {
+    const pair = { value: 6.2, unit: 'g', quote: 'Weight of a pair: 6.2 g', sourceIndex: 1 }
+    const { model, fieldChecks } = await extractFixture(
+      withVariant({ weightG: { ...pair, value: 99, derivation: { op: 'pair-to-unit', input: '6.2 g' } } }),
+    )
+    expect(model.variants[0].weightG).toMatchObject({
+      value: 3.1,
+      unit: 'g',
+      sourceType: 'derived',
+      derivation: { op: 'pair-to-unit', input: '6.2 g' },
+    })
+    expect(fieldChecks['variants.0.weightG']).toEqual([
+      { name: 'literal', ok: true },
+      { name: 'range', ok: true },
+    ])
+
+    for (const input of ['6.2 mm', 'a pair']) {
+      const { model: rejected } = await extractFixture(withVariant({ weightG: { ...pair, derivation: { op: 'pair-to-unit', input } } }))
+      expect(rejected.variants[0].weightG).toBeUndefined()
+    }
+  })
+
+  test('in-to-mm converts the three quoted inches in l, w, h order; two numbers or another unit are rejected', async () => {
+    const size = { value: { l: 1, w: 1, h: 1 }, unit: 'in', quote: 'Size: 1.1 x 0.3 x 0.5 in', sourceIndex: 1 }
+    const { model, fieldChecks } = await extractFixture(
+      withVariant({ dimensionsMm: { ...size, derivation: { op: 'in-to-mm', input: '1.1 x 0.3 x 0.5 in' } } }),
+    )
+    expect(model.variants[0].dimensionsMm).toMatchObject({
+      value: { l: 27.9, w: 7.6, h: 12.7 },
+      unit: 'mm',
+      sourceType: 'derived',
+      derivation: { op: 'in-to-mm', input: '1.1 x 0.3 x 0.5 in' },
+    })
+    expect(fieldChecks['variants.0.dimensionsMm']).toEqual([
+      { name: 'literal', ok: true },
+      { name: 'range', ok: true },
+    ])
+
+    for (const input of ['1.1 x 0.3 in', '1.1 x 0.3 x 0.5 mm']) {
+      const { model: rejected } = await extractFixture(withVariant({ dimensionsMm: { ...size, derivation: { op: 'in-to-mm', input } } }))
+      expect(rejected.variants[0].dimensionsMm).toBeUndefined()
+    }
+  })
+
+  test('priceUsd is stored in USD from the cited page; the LLM gives no unit for it', async () => {
+    const price = { value: 1195, quote: 'Price: $1,195 per pair', sourceIndex: 1 }
+    const { model, fieldChecks } = await extractFixture(withVariant({ priceUsd: price }))
+
+    expect(model.variants[0].priceUsd).toEqual({
+      value: 1195,
+      unit: 'USD',
+      sourceUrl: DATASHEET_URL,
+      quote: 'Price: $1,195 per pair',
+      fetchedAt: '2026-11-26T10:00:01.000Z',
+      sourceType: 'official',
+    })
+    expect(fieldChecks['variants.0.priceUsd']).toEqual([
+      { name: 'literal', ok: true },
+      { name: 'range', ok: true },
+    ])
+    // The prompt must not ask for what the schema refuses.
+    expect(llmMock.mock.calls[0][0].prompt).not.toMatch(/priceUsd[^\n]*unit/)
+    await expect(extractFixture(withVariant({ priceUsd: { ...price, unit: 'USD' } }))).rejects.toThrow()
   })
 
   test('no release date: kept in scope and flagged as a failed check', async () => {
@@ -273,7 +364,7 @@ describe('crossCheck', () => {
   })
 
   test('RISKY_PATHS cover type, connectivity and the risky variant fields', () => {
-    for (const path of ['type', 'connectivity', 'variants.0.weightG', 'variants.2.dimensionsMm', 'variants.0.ipRating', 'variants.1.power']) {
+    for (const path of ['type', 'connectivity', 'tinnitus', 'variants.0.weightG', 'variants.2.dimensionsMm', 'variants.0.ipRating', 'variants.1.power']) {
       expect(isRisky(path)).toBe(true)
     }
     for (const path of ['colors', 'variants.0.priceUsd', 'releaseDate', 'weightG']) expect(isRisky(path)).toBe(false)

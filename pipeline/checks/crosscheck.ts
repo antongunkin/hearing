@@ -2,8 +2,11 @@ import { z } from 'zod'
 import { llm, LlmOutputError, LlmUnavailableError } from '@/pipeline/llm'
 import type { CheckResult } from '@/src/lib/schema/pending'
 
-/** Fields a second, independent model reads again before a change is trusted. `*.` is any prefix. */
-export const RISKY_PATHS = ['type', '*.weightG', '*.dimensionsMm', '*.ipRating', '*.power', 'connectivity'] as const
+/**
+ * Fields a second, independent model reads again before a change is trusted. `*.` is any prefix.
+ * `tinnitus` is here (Ruling T) because it is a boolean, which the literal check cannot verify.
+ */
+export const RISKY_PATHS = ['type', '*.weightG', '*.dimensionsMm', '*.ipRating', '*.power', 'connectivity', 'tinnitus'] as const
 
 export function isRisky(path: string): boolean {
   return RISKY_PATHS.some((pattern) => (pattern.startsWith('*.') ? path.endsWith(pattern.slice(1)) : path === pattern))
@@ -17,6 +20,7 @@ const HINTS: Record<string, string> = {
   ipRating: 'the IP rating code, such as "IP68"',
   power: 'type is one of "rechargeable", "10", "312", "13", "675" (battery size); batteryHours is hours per charge; chargingCase is whether a charging case comes with it',
   connectivity: 'mfi = Made for iPhone, asha = Audio Streaming for Hearing Aids, leAudio = Bluetooth LE Audio, auracast = Auracast',
+  tinnitus: 'true if the hearing aid has a tinnitus feature such as a sound generator',
 }
 
 /** The JSON shape of `value` with its values replaced by type names, so the reader is not told the answer. */

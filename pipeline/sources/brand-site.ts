@@ -73,7 +73,7 @@ function linkDocuments(brand: Brand, modelUrls: string[], documentUrls: string[]
  * `datasheetUrlPattern` given to the model page they name. A catalog page that is skipped (robots, bot
  * protection, …) is reported and gives no links; so is the number of documents that name no model page.
  */
-export async function discoverModelUrls(brand: Brand): Promise<ModelSources[]> {
+export async function discoverModelUrls(brand: Brand, opts: { refresh?: boolean } = {}): Promise<ModelSources[]> {
   const { catalogUrls, modelUrlPattern, datasheetUrlPattern, render } = brand.scraper
   const isModel = new RegExp(modelUrlPattern)
   const isDatasheet = datasheetUrlPattern === undefined ? undefined : new RegExp(datasheetUrlPattern)
@@ -81,7 +81,8 @@ export async function discoverModelUrls(brand: Brand): Promise<ModelSources[]> {
   const datasheets = new Set<string>()
 
   for (const url of catalogUrls) {
-    const page = await fetchPage(url, { render })
+    // `refresh` skips the cached catalog, so that a re-run sees models listed since.
+    const page = await fetchPage(url, { render, refresh: opts.refresh })
     if (page.status === 'skipped') {
       console.warn(`${brand.slug}: catalog ${url} skipped: ${page.reason}${page.detail ? ` (${page.detail})` : ''}`)
       continue
@@ -157,7 +158,7 @@ Rules:
 - weightG: the weight as written, with its unit as written. Grams: no derivation. Ounces: add "derivation": {"op": "oz-to-g", "input": "<the number and unit copied from the quote, such as 0.07 oz>"}. Weight of a pair: add {"op": "pair-to-unit", "input": "<the number and unit copied from the quote>"}.
 - dimensionsMm: {"l", "w", "h"} with the unit as written. Millimetres: no derivation. Inches: add {"op": "in-to-mm", "input": "<the three numbers and the unit copied from the quote>"}.
 - power: type is "rechargeable" or the battery size "10", "312", "13" or "675"; batteryHours is the hours per charge; chargingCase is whether a charging case is included.
-- ipRating: such as "IP68". priceUsd: the listed price in US dollars, unit "USD".
+- ipRating: such as "IP68". priceUsd: the listed price in US dollars, as a number.
 - connectivity: mfi (Made for iPhone), asha (Audio Streaming for Hearing Aids on Android), leAudio (Bluetooth LE Audio), auracast (Auracast). Include only the flags the sources state.
 - tinnitus: true if the model has a tinnitus feature such as a sound generator.
 - platform: the chip or technology platform name. materials, colors: as the sources list them.`
@@ -240,10 +241,11 @@ export async function extractModel(brand: Brand, pages: Page[]): Promise<ModelCa
   const out = await llm({ prompt, schema: Extraction, provider: 'claude' })
   const fieldChecks: Record<string, CheckResult[]> = {}
 
-  /** The field as stored, with checks recorded under `path`; undefined when it cites a page it was not given. */
+  /** The field as stored, with checks recorded under `path`; undefined when it is empty or cites a page it was not given. */
   function cite<T>(path: string, field: Cited, value: T, converted?: Partial<Converted<T>>): Sourced<T> | undefined {
     const page = pages[field.sourceIndex]
-    if (page === undefined) return undefined
+    // An empty list or object would pass every check while saying nothing.
+    if (page === undefined || isEmpty(value)) return undefined
     const sourced: Sourced<T> = {
       value,
       ...(converted?.unit !== undefined && { unit: converted.unit }),
@@ -313,6 +315,14 @@ export async function extractModel(brand: Brand, pages: Page[]): Promise<ModelCa
     variants,
   })
   return { model, fieldChecks }
+}
+
+/** A blank string, or a list or object with nothing but blanks in it. `null` (the type's quote check) is not empty. */
+function isEmpty(value: unknown): boolean {
+  if (typeof value === 'string') return value.trim() === ''
+  if (Array.isArray(value)) return value.every(isEmpty)
+  if (typeof value === 'object' && value !== null) return Object.values(value).every((child) => child === undefined || isEmpty(child))
+  return false
 }
 
 /** The entries that have a value: a field without a source is absent, not null. */
