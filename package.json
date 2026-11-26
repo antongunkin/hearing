@@ -6,7 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "vitest run"
+    "test": "vitest run",
+    "update": "tsx pipeline/cli.ts update",
+    "scrape": "tsx pipeline/cli.ts scrape",
+    "fda": "tsx pipeline/cli.ts fda",
+    "apps": "tsx pipeline/cli.ts apps",
+    "reviews": "tsx pipeline/cli.ts reviews",
+    "youtube": "tsx pipeline/cli.ts youtube"
   },
   "dependencies": {
     "@google/genai": "^3.6.1",
