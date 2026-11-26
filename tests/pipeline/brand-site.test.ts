@@ -37,7 +37,7 @@ const brand: Brand = {
   scraper: {
     catalogUrls: ['https://www.phonak.com/en-us/hearing-devices/hearing-aids', 'https://www.phonak.com/en-us/support/datasheets'],
     modelUrlPattern: '^https://www\\.phonak\\.com/en-us/hearing-devices/hearing-aids/(?!product-comparison$)[a-z0-9-]+$',
-    datasheetUrlPattern: '^https://www\\.phonak\\.com/content/dam/celum/phonak/.*[Dd]atasheet.*\\.pdf$',
+    datasheetUrlPattern: '^https://www\\.phonak\\.com/content/dam/celum/phonak/.*(?:[Dd]atasheet|[Uu]ser-?[Gg]uide).*\\.pdf$',
     render: false,
   },
 }
@@ -52,7 +52,7 @@ const okPage = (url: string, text: string, html?: string): Ok => ({
 })
 
 const MODEL_URL = 'https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-sphere'
-const DATASHEET_URL = 'https://www.phonak.com/content/dam/celum/phonak/docs/PH_Datasheet_Audeo-I-Sphere_210x297_EN.pdf'
+const DATASHEET_URL = 'https://www.phonak.com/content/dam/celum/phonak/docs/ph-datasheet-audeo-i-sphere.pdf'
 
 async function fixturePages(): Promise<Ok[]> {
   return [
@@ -69,7 +69,7 @@ async function extractFixture(change: (output: Record<string, unknown>) => void 
 }
 
 describe('discoverModelUrls', () => {
-  test('discovers model URLs by pattern only', async () => {
+  test('discovers model URLs by pattern only, each with the documents that name it', async () => {
     const html = await fixture('catalog.html')
     fetchMock.mockImplementation(async (url) =>
       url === brand.scraper.catalogUrls[0]
@@ -77,14 +77,22 @@ describe('discoverModelUrls', () => {
         : { status: 'skipped', url, reason: 'robots', detail: 'disallowed' },
     )
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    const docs = 'https://www.phonak.com/content/dam/celum/phonak/docs'
 
     expect(await discoverModelUrls(brand)).toEqual([
-      MODEL_URL,
-      'https://www.phonak.com/en-us/hearing-devices/hearing-aids/virto-infinio',
-      DATASHEET_URL,
+      { modelUrl: MODEL_URL, documentUrls: [`${docs}/ph-datasheet-audeo-i-sphere.pdf`, `${docs}/PH_UserGuide_Audeo_I_Sphere.pdf`] },
+      { modelUrl: 'https://www.phonak.com/en-us/hearing-devices/hearing-aids/virto-infinio', documentUrls: [] },
+      {
+        modelUrl: 'https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-eon-sphere',
+        documentUrls: [`${docs}/ph-datasheet-audeo-eon-sphere-210x297-en-v1.00.pdf`],
+      },
+      { modelUrl: 'https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-infinio', documentUrls: [] },
     ])
     expect(fetchMock).toHaveBeenCalledWith(brand.scraper.catalogUrls[0], { render: false })
     expect(warn).toHaveBeenCalledWith(expect.stringContaining('robots'))
+    // Dropped: "audeo-r" names only the family "audeo"; "Virto-P" is another generation than "virto-infinio";
+    // the annex names no model. The brochure does not match the document pattern at all.
+    expect(warn).toHaveBeenCalledWith('phonak: 3 documents match no model page')
   })
 })
 
@@ -280,9 +288,12 @@ describe('brand configs', () => {
 
     expect(matches('phonak', MODEL_URL)).toBe(true)
     expect(matches('phonak', 'https://www.phonak.com/en-us/hearing-devices/hearing-aids/product-comparison')).toBe(false)
-    expect(new RegExp(bySlug.phonak.scraper.datasheetUrlPattern!).test(
-      'https://www.phonak.com/content/dam/celum/phonak/master-assets/en/documents/hearing-instruments/infinio/audeo-sphere/ph-datasheet-audeo-i-sphere-210x297-en.pdf.coredownload.pdf',
-    )).toBe(true)
+    const documents = new RegExp(bySlug.phonak.scraper.datasheetUrlPattern!)
+    const dam = 'https://www.phonak.com/content/dam/celum/phonak/master-assets/en/documents/hearing-instruments'
+    expect(documents.test(`${dam}/infinio/audeo-sphere/ph-datasheet-audeo-i-sphere-210x297-en.pdf.coredownload.pdf`)).toBe(true)
+    expect(documents.test(`${dam}/infinio-us/PH_UserGuide_Audeo-I-Sphere_92x125_EN-US_029-1356-03.pdf`)).toBe(true)
+    expect(documents.test(`${dam}/infinio/audeo-sphere/ph-user-guide-audeo-i-sphere-ultra-92x125-029-1356-02-en.pdf`)).toBe(true)
+    expect(documents.test(`${dam}/infinio-us/ph-flyer-infinio-digital-take-along-8.5x11-en-us.pdf`)).toBe(false)
     expect(matches('jabra-enhance', 'https://www.jabraenhance.com/product/enhanceselectm3')).toBe(true)
     expect(matches('jabra-enhance', 'https://www.jabraenhance.com/accessories')).toBe(false)
   })

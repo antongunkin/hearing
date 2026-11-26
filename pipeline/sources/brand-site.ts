@@ -16,11 +16,64 @@ type Page = Extract<FetchResult, { status: 'ok' }>
 
 export type ModelCandidate = { model: Model; fieldChecks: Record<string, CheckResult[]> }
 
+/** One model page and the documents (datasheets, user guides) that name it. */
+export type ModelSources = { modelUrl: string; documentUrls: string[] }
+
+/** File name words that say what kind of document it is, not which model. */
+const DOCUMENT_WORDS = new Set(['ph', 'datasheet', 'user', 'guide', 'userguide', 'pdf', 'coredownload', 'inline', 'en', 'us'])
+// Plain numbers (part numbers), page sizes such as 210x297 and versions such as v1. Single letters stay:
+// on Phonak they name the generation ("Naida L" is Lumity, a "Naida P" datasheet is Paradise).
+const NOT_A_NAME = /^(?:\d+|\d+x\d+|v\d+)$/
+
+/** The model words in the last path segment of a URL. */
+function nameTokens(url: string, brandWords: Set<string>): Set<string> {
+  const segment = new URL(url).pathname.split('/').filter(Boolean).at(-1) ?? ''
+  let name = segment
+  try {
+    name = decodeURIComponent(segment)
+  } catch {
+    // A malformed escape is read as written.
+  }
+  return new Set(
+    normalizeName(name)
+      .split(/[^a-z0-9]+/)
+      .filter((word) => word !== '' && !NOT_A_NAME.test(word) && !DOCUMENT_WORDS.has(word) && !brandWords.has(word)),
+  )
+}
+
 /**
- * Model pages and datasheet PDFs linked from the brand's catalog pages, model pages first, each once.
- * A catalog page that is skipped (robots, bot protection, …) is reported and gives no links.
+ * Gives each document to the model page it names. A page qualifies when every word of its name is in
+ * the document's file name, so a document never goes to a page whose generation or line it does not
+ * name ("audeo" alone, or "virto nw" without "infinio", is not enough). Of the pages that qualify, the
+ * one with the highest share of words in common wins (a document of "audeo eon sphere" goes to that
+ * page, not to "audeo sphere"); a tie, or no page, drops the document, and dropped documents are counted.
  */
-export async function discoverModelUrls(brand: Brand): Promise<string[]> {
+function linkDocuments(brand: Brand, modelUrls: string[], documentUrls: string[]): { sources: ModelSources[]; unmatched: number } {
+  const brandWords = new Set(normalizeName(`${brand.slug} ${brand.name}`).split(/[^a-z0-9]+/))
+  const models = modelUrls.map((modelUrl) => ({ modelUrl, tokens: nameTokens(modelUrl, brandWords), documentUrls: [] as string[] }))
+
+  let unmatched = 0
+  for (const documentUrl of documentUrls) {
+    const tokens = nameTokens(documentUrl, brandWords)
+    const [best, second] = models
+      .filter((model) => model.tokens.size > 0 && [...model.tokens].every((word) => tokens.has(word)))
+      .map((model) => ({ model, score: model.tokens.size / new Set([...tokens, ...model.tokens]).size }))
+      .sort((a, b) => b.score - a.score)
+    if (best === undefined || second?.score === best.score) {
+      unmatched++
+      continue
+    }
+    best.model.documentUrls.push(documentUrl)
+  }
+  return { sources: models.map(({ modelUrl, documentUrls }) => ({ modelUrl, documentUrls })), unmatched }
+}
+
+/**
+ * Model pages linked from the brand's catalog pages, each once, with the linked documents that match
+ * `datasheetUrlPattern` given to the model page they name. A catalog page that is skipped (robots, bot
+ * protection, …) is reported and gives no links; so is the number of documents that name no model page.
+ */
+export async function discoverModelUrls(brand: Brand): Promise<ModelSources[]> {
   const { catalogUrls, modelUrlPattern, datasheetUrlPattern, render } = brand.scraper
   const isModel = new RegExp(modelUrlPattern)
   const isDatasheet = datasheetUrlPattern === undefined ? undefined : new RegExp(datasheetUrlPattern)
@@ -39,7 +92,9 @@ export async function discoverModelUrls(brand: Brand): Promise<string[]> {
       else if (isDatasheet?.test(link)) datasheets.add(link)
     }
   }
-  return [...models, ...datasheets]
+  const { sources, unmatched } = linkDocuments(brand, [...models], [...datasheets])
+  if (unmatched > 0) console.warn(`${brand.slug}: ${unmatched} documents match no model page`)
+  return sources
 }
 
 // What the LLM returns. It never names a URL: the code cites the page by `sourceIndex`.
