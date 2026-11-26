@@ -95,6 +95,10 @@ export function literalCheck(field: Sourced<unknown>, sourceText: string): Check
         detail: `quote lacks derivation input "${field.derivation?.input ?? ''}" as a whole measurement`,
       }
     }
+    // Halving is right only when the source says the figure is for a pair.
+    if (field.derivation?.op === 'pair-to-unit' && !/\bpairs?\b/.test(quote)) {
+      return { name: 'literal', ok: false, detail: 'pair-to-unit, but the quote does not say "pair"' }
+    }
     return { name: 'literal', ok: true }
   }
 

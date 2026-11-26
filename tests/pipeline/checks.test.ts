@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 import type { Event } from '@/src/lib/schema/event'
-import type { Sourced } from '@/src/lib/schema/field'
+import type { Derivation, Sourced } from '@/src/lib/schema/field'
 import { isDuplicateEvent } from '@/pipeline/checks/dedupe'
 import { forbiddenCheck } from '@/pipeline/checks/forbidden'
 import { literalCheck } from '@/pipeline/checks/literal'
@@ -12,14 +12,20 @@ function field(over: { value: unknown; quote: string; unit?: string; sourceType?
   return { ...meta, sourceType: 'official', ...over }
 }
 
-function derived(over: { value: unknown; quote: string; input: string; unit?: string }): Sourced<unknown> {
+function derived(over: {
+  value: unknown
+  quote: string
+  input: string
+  unit?: string
+  op?: Derivation['op']
+}): Sourced<unknown> {
   return {
     ...meta,
     value: over.value,
     quote: over.quote,
     unit: over.unit,
     sourceType: 'derived',
-    derivation: { op: 'oz-to-g', input: over.input },
+    derivation: { op: over.op ?? 'oz-to-g', input: over.input },
   }
 }
 
@@ -96,6 +102,17 @@ describe('literalCheck', () => {
   test('derived field needs its derivation input in the quote', () => {
     expect(literalCheck(derived({ value: 1.98, quote: 'only 0.07 oz', input: '0.07 oz' }), 'only 0.07 oz').ok).toBe(true)
     expect(literalCheck(derived({ value: 1.98, quote: 'only 0.07 oz', input: '0.08 oz' }), 'only 0.07 oz').ok).toBe(false)
+  })
+
+  test('pair-to-unit needs the quote to say the measurement is for a pair', () => {
+    const pair = (quote: string) => literalCheck(derived({ value: 3.1, quote, input: '6.2 g', op: 'pair-to-unit' }), quote)
+    expect(pair('Weight of a pair: 6.2 g').ok).toBe(true)
+    expect(pair('Weight: 6.2 g (pair)').ok).toBe(true)
+    expect(pair('Pair weight 6.2 g').ok).toBe(true)
+    expect(pair('Weight: 6.2 g')).toEqual({ name: 'literal', ok: false, detail: 'pair-to-unit, but the quote does not say "pair"' })
+    expect(pair('Weight: 6.2 g, repair kit included').ok).toBe(false)
+    // Other operations need no such word.
+    expect(literalCheck(derived({ value: 1.98, quote: 'Weight: 0.07 oz', input: '0.07 oz' }), 'Weight: 0.07 oz').ok).toBe(true)
   })
 
   test('derivation input must be a whole measurement of the quote, not part of a longer number or word', () => {
