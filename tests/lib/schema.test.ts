@@ -1,8 +1,11 @@
 import { describe, expect, test } from 'vitest'
 import { z } from 'zod'
+import { Brand } from '@/src/lib/schema/brand'
+import { Event } from '@/src/lib/schema/event'
 import { sourced } from '@/src/lib/schema/field'
 import { Model } from '@/src/lib/schema/model'
 import { CandidateChange, PendingChange } from '@/src/lib/schema/pending'
+import { Reviews } from '@/src/lib/schema/reviews'
 
 const meta = {
   sourceUrl: 'https://x.com',
@@ -80,4 +83,146 @@ describe('pending changes', () => {
     const { after: _, ...withoutAfter } = pending
     expect(PendingChange.safeParse(withoutAfter).success).toBe(false)
   })
+})
+
+const brand = {
+  slug: 'phonak',
+  name: 'Phonak',
+  group: 'Sonova',
+  website: 'https://www.phonak.com',
+  imageLicense: 'none',
+  scraper: { catalogUrls: ['https://www.phonak.com/en-us'], modelUrlPattern: '/hearing-aids/', render: false },
+}
+const model = {
+  slug: 'phonak-x',
+  brand: 'phonak',
+  name: 'X',
+  aliases: [],
+  type: 'rx',
+  sameHardwareAs: [{ slug: 'unitron-y', source: { ...official, value: 'same platform' } }],
+  app: { name: 'myPhonak', androidUrl: 'https://play.google.com/store/apps/details?id=x' },
+  variants: [{ id: 'ric-90', formFactor: 'RIC', weightG: { ...official, value: 2.1 } }],
+}
+const reviews = {
+  slug: 'phonak-x',
+  customer: [{ sourceUrl: 'https://x.com', rating: 4.5, count: 10, fetchedAt: meta.fetchedAt }],
+  complaintThemes: [],
+  prosCons: { pros: [{ text: 'small', sources: ['https://x.com'] }], cons: [{ text: 'dear', sources: ['https://x.com'] }] },
+  videos: [{ id: 'dQw4w9WgXcQ_A', channel: 'c', title: 't' }],
+}
+const event = {
+  id: 'e-1',
+  type: 'new-model',
+  modelSlug: 'phonak-x',
+  date: '2026-11-26',
+  key: 'k',
+  text: 't',
+  sources: ['https://x.com'],
+}
+const pending = {
+  id: 'p-1',
+  kind: 'spec-change',
+  modelSlug: 'phonak-x',
+  path: 'name',
+  after: 'Y',
+  checks: { name: [{ name: 'literal', ok: true }] },
+  createdAt: meta.fetchedAt,
+}
+
+const records = { brand, model, reviews, event, pending }
+const schemas = { brand: Brand, model: Model, reviews: Reviews, event: Event, pending: PendingChange }
+type Kind = keyof typeof records
+
+/** A copy of the record with one nested value replaced. */
+function withValue(kind: Kind, path: string, value: unknown) {
+  const copy = structuredClone(records[kind]) as Record<string, any>
+  const keys = path.split('.')
+  const last = keys.pop()!
+  keys.reduce((node, key) => node[key], copy)[last] = value
+  return copy
+}
+
+test.each(Object.keys(records) as Kind[])('accepts a fully filled %s', (kind) => {
+  expect(schemas[kind].parse(records[kind])).toEqual(records[kind])
+})
+
+test.each<[Kind, string]>([
+  ['brand', 'extra'],
+  ['brand', 'scraper.extra'],
+  ['model', 'extra'],
+  ['model', 'app.extra'],
+  ['model', 'sameHardwareAs.0.extra'],
+  ['model', 'variants.0.wieghtG'],
+  ['model', 'variants.0.weightG.extra'],
+  ['reviews', 'extra'],
+  ['reviews', 'customer.0.extra'],
+  ['reviews', 'prosCons.extra'],
+  ['reviews', 'prosCons.pros.0.extra'],
+  ['reviews', 'videos.0.extra'],
+  ['event', 'extra'],
+  ['pending', 'extra'],
+  ['pending', 'checks.name.0.extra'],
+])('%s rejects the unknown key %s', (kind, path) => {
+  expect(schemas[kind].safeParse(withValue(kind, path, 1)).success).toBe(false)
+})
+
+test.each([
+  ['dimensionsMm', { l: 1, w: 1, h: 1 }],
+  ['power', { type: '312' }],
+  ['priceUsd', { min: 1, max: 2, perPair: true }],
+])('rejects an unknown key inside the %s value', (key, value) => {
+  const field = (extra: object) => withValue('model', `variants.0.${key}`, { ...official, value: { ...value, ...extra } })
+  expect(Model.safeParse(field({})).success).toBe(true)
+  expect(Model.safeParse(field({ extra: 1 })).success).toBe(false)
+})
+
+test.each([
+  ['connectivity', { mfi: true }],
+  ['fda', { status: 'cleared' }],
+])('rejects an unknown key inside the %s value', (key, value) => {
+  const field = (extra: object) => withValue('model', key, { ...official, value: { ...value, ...extra } })
+  expect(Model.safeParse(field({})).success).toBe(true)
+  expect(Model.safeParse(field({ extra: 1 })).success).toBe(false)
+})
+
+test('rejects an unknown key in a derivation', () => {
+  const field = { ...meta, value: 2, sourceType: 'derived', derivation: { op: 'oz-to-g', input: '1', extra: 1 } }
+  expect(sourced(z.number()).safeParse(field).success).toBe(false)
+})
+
+test('candidate change rejects unknown keys', () => {
+  const { id: _id, createdAt: _createdAt, ...change } = pending
+  expect(CandidateChange.safeParse({ ...change, extra: 1 }).success).toBe(false)
+})
+
+const slugFields: [Kind, string][] = [
+  ['brand', 'slug'],
+  ['model', 'slug'],
+  ['model', 'variants.0.id'],
+  ['model', 'sameHardwareAs.0.slug'],
+  ['reviews', 'slug'],
+  ['event', 'id'],
+  ['event', 'modelSlug'],
+  ['pending', 'id'],
+  ['pending', 'modelSlug'],
+]
+
+describe.each(['../etc', 'Upper', 'a_b', 'a--b', '-a', 'a-', ''])('malformed slug %j', (bad) => {
+  test.each(slugFields)('is rejected in %s %s', (kind, path) => {
+    expect(schemas[kind].safeParse(withValue(kind, path, bad)).success).toBe(false)
+  })
+})
+
+test.each<[Kind, string]>([
+  ['brand', 'website'],
+  ['brand', 'scraper.catalogUrls.0'],
+  ['model', 'app.androidUrl'],
+  ['event', 'sources.0'],
+  ['reviews', 'customer.0.sourceUrl'],
+  ['reviews', 'prosCons.pros.0.sources.0'],
+  ['reviews', 'prosCons.cons.0.sources.0'],
+])('%s requires an http(s) URL at %s', (kind, path) => {
+  for (const bad of ['not a url', 'javascript:alert(1)']) {
+    expect(schemas[kind].safeParse(withValue(kind, path, bad)).success).toBe(false)
+  }
 })

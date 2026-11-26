@@ -1,13 +1,14 @@
 import { z } from 'zod'
+import { HttpUrl, Slug } from './field'
 
-export const Brand = z.object({
-  slug: z.string().min(1),
+export const Brand = z.strictObject({
+  slug: Slug,
   name: z.string().min(1),
   group: z.string(),
-  website: z.string(),
+  website: HttpUrl,
   imageLicense: z.enum(['press-kit-editorial', 'none']),
-  scraper: z.object({
-    catalogUrls: z.array(z.string()),
+  scraper: z.strictObject({
+    catalogUrls: z.array(HttpUrl),
     modelUrlPattern: z.string(),
     datasheetUrlPattern: z.string().optional(),
     render: z.boolean(),

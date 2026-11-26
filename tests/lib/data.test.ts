@@ -33,6 +33,11 @@ const event = { id: 'e1', type: 'new-model', modelSlug: 'phonak-x', date: '2026-
 const pending = { id: 'p1', kind: 'new-model', modelSlug: null, path: '', after: model, checks: {}, createdAt: '2026-11-26T00:00:00Z' }
 
 describe('loadDataset', () => {
+  beforeEach(async () => {
+    await put('rejections.json', [])
+    await put('blocklist.json', [])
+  })
+
   test('loads every kind of record', async () => {
     await put('brands/phonak.json', brand)
     await put('models/phonak-x.json', model)
@@ -53,10 +58,35 @@ describe('loadDataset', () => {
     })
   })
 
-  test('treats missing directories and lists as empty', async () => {
+  test('treats missing record directories as empty', async () => {
     expect(await loadDataset(dir)).toEqual({
       brands: [], models: [], reviews: [], events: [], pending: [], rejections: [], blocklist: [],
     })
+  })
+
+  test.each(['blocklist.json', 'rejections.json'])('fails when %s is missing', async (list) => {
+    await rm(join(dir, list))
+
+    await expect(loadDataset(dir)).rejects.toThrow(list)
+  })
+
+  test.each([
+    ['brands', brand, 'slug'],
+    ['models', model, 'slug'],
+    ['reviews', reviews, 'slug'],
+    ['events', event, 'id'],
+    ['pending', pending, 'id'],
+  ])('fails when a %s file name does not match its record', async (folder, record, key) => {
+    await put(`${folder}/other.json`, record)
+
+    await expect(loadDataset(dir)).rejects.toThrow(new RegExp(`${folder}/other\\.json`))
+    await expect(loadDataset(dir)).rejects.toMatchObject({ issues: [{ path: [key] }] })
+  })
+
+  test('reports file name on a misspelled key', async () => {
+    await put('models/phonak-x.json', { ...model, succesor: 'phonak-y' })
+
+    await expect(loadDataset(dir)).rejects.toThrow(/models\/phonak-x\.json/)
   })
 
   test('reports file name on invalid model', async () => {
@@ -137,6 +167,16 @@ describe('slugs', () => {
 
   test('modelSlug is url-safe and prefixed with the brand', () => {
     expect(modelSlug('Phonak', 'Audéo Sphere™ Infinio (I90-R)')).toBe('phonak-audeo-sphere-infinio-i90-r')
+  })
+
+  test.each([
+    ['phonak', 'Phonak Audéo', 'phonak-audeo'],
+    ['Phonak', 'PHONAK® Audéo', 'phonak-audeo'],
+    ['jabra-enhance', 'Jabra Enhance Select', 'jabra-enhance-select'],
+    ['phonak', 'Phonak', 'phonak'],
+    ['phonak', 'Phonakia One', 'phonak-phonakia-one'],
+  ])('modelSlug(%j, %j) does not repeat the brand', (brandName, name, slug) => {
+    expect(modelSlug(brandName, name)).toBe(slug)
   })
 
   test('modelSlug keeps "+" models apart from their base model', () => {

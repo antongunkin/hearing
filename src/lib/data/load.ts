@@ -1,5 +1,5 @@
 import { readdir, readFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { basename, join } from 'node:path'
 import { z } from 'zod'
 import { Brand } from '../schema/brand'
 import { Event } from '../schema/event'
@@ -27,10 +27,6 @@ export class DataValidationError extends Error {
   }
 }
 
-function isMissing(error: unknown): boolean {
-  return (error as NodeJS.ErrnoException).code === 'ENOENT'
-}
-
 async function readJson<T>(file: string, schema: z.ZodType<T>): Promise<T> {
   const text = await readFile(file, 'utf8')
   let json: unknown
@@ -44,37 +40,48 @@ async function readJson<T>(file: string, schema: z.ZodType<T>): Promise<T> {
   return result.data
 }
 
-/** All `*.json` records in a directory, in file name order. A missing directory has none. */
-async function readRecords<T>(dir: string, schema: z.ZodType<T>): Promise<T[]> {
+/**
+ * All `*.json` records in a directory, in file name order. A missing directory has none.
+ * Each file must be named after its record's `key`.
+ */
+async function readRecords<K extends 'slug' | 'id', T extends Record<K, string>>(
+  dir: string,
+  schema: z.ZodType<T>,
+  key: K,
+): Promise<T[]> {
   let names: string[]
   try {
     names = await readdir(dir)
   } catch (error) {
-    if (isMissing(error)) return []
+    // Git does not keep empty directories.
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return []
     throw error
   }
   const files = names.filter((name) => name.endsWith('.json')).sort()
-  return Promise.all(files.map((name) => readJson(join(dir, name), schema)))
-}
-
-async function readList(file: string): Promise<string[]> {
-  try {
-    return await readJson(file, z.array(z.string()))
-  } catch (error) {
-    if (isMissing(error)) return []
-    throw error
-  }
+  return Promise.all(
+    files.map(async (name) => {
+      const file = join(dir, name)
+      const record = await readJson(file, schema)
+      if (record[key] !== basename(name, '.json')) {
+        const message = `${key} "${record[key]}" does not match the file name`
+        throw new DataValidationError(file, [{ code: 'custom', path: [key], message }])
+      }
+      return record
+    }),
+  )
 }
 
 export async function loadDataset(dir = 'data'): Promise<Dataset> {
+  // The two lists are required: without them blocked domains and rejected changes would come back.
+  const list = z.array(z.string())
   const [brands, models, reviews, events, pending, rejections, blocklist] = await Promise.all([
-    readRecords(join(dir, 'brands'), Brand),
-    readRecords(join(dir, 'models'), Model),
-    readRecords(join(dir, 'reviews'), Reviews),
-    readRecords(join(dir, 'events'), Event),
-    readRecords(join(dir, 'pending'), PendingChange),
-    readList(join(dir, 'rejections.json')),
-    readList(join(dir, 'blocklist.json')),
+    readRecords(join(dir, 'brands'), Brand, 'slug'),
+    readRecords(join(dir, 'models'), Model, 'slug'),
+    readRecords(join(dir, 'reviews'), Reviews, 'slug'),
+    readRecords(join(dir, 'events'), Event, 'id'),
+    readRecords(join(dir, 'pending'), PendingChange, 'id'),
+    readJson(join(dir, 'rejections.json'), list),
+    readJson(join(dir, 'blocklist.json'), list),
   ])
   return { brands, models, reviews, events, pending, rejections, blocklist }
 }

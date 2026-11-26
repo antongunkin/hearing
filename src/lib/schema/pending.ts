@@ -1,7 +1,7 @@
 import { z } from 'zod'
-import { IsoDateTime } from './field'
+import { IsoDateTime, Slug } from './field'
 
-export const CheckResult = z.object({
+export const CheckResult = z.strictObject({
   name: z.enum(['literal', 'range', 'crosscheck', 'dedupe', 'forbidden']),
   ok: z.boolean(),
   detail: z.string().optional(),
@@ -9,7 +9,7 @@ export const CheckResult = z.object({
 export type CheckResult = z.infer<typeof CheckResult>
 
 const change = {
-  modelSlug: z.string().nullable(),
+  modelSlug: Slug.nullable(),
   /** Field path such as `variants.0.weightG`. */
   path: z.string(),
   before: z.unknown().optional(),
@@ -18,15 +18,15 @@ const change = {
   checks: z.record(z.string(), z.array(CheckResult)),
 }
 
-export const PendingChange = z.object({
-  id: z.string().min(1),
+export const PendingChange = z.strictObject({
+  id: Slug,
   kind: z.enum(['new-model', 'spec-change', 'pros-cons', 'failed-check']),
   ...change,
   createdAt: IsoDateTime,
 })
 export type PendingChange = z.infer<typeof PendingChange>
 
-export const CandidateChange = z.object({
+export const CandidateChange = z.strictObject({
   kind: z.enum([
     'price',
     'app-version',

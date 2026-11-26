@@ -10,10 +10,18 @@ export function normalizeName(name: string): string {
     .trim()
 }
 
-/** File name and URL segment for a model. */
-export function modelSlug(brand: string, name: string): string {
-  return normalizeName(`${brand} ${name}`)
+function slugify(text: string): string {
+  return normalizeName(text)
     .replace(/\+/g, ' plus ') // "Pure+" must not overwrite "Pure"
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '')
+}
+
+/** File name and URL segment for a model: brand, then the name without a repeated brand. */
+export function modelSlug(brand: string, name: string): string {
+  const prefix = slugify(brand)
+  const full = slugify(name)
+  if (full === prefix) return prefix
+  const rest = full.startsWith(`${prefix}-`) ? full.slice(prefix.length + 1) : full
+  return [prefix, rest].filter(Boolean).join('-')
 }
