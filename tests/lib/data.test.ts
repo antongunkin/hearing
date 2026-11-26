@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { afterEach, beforeEach, describe, expect, test } from 'vitest'
 import { DataValidationError, loadDataset } from '@/src/lib/data/load'
-import { modelSlug, normalizeName } from '@/src/lib/data/slug'
+import { containsName, modelSlug, namesModel, normalizeName } from '@/src/lib/data/slug'
 import { deleteJson, writeJson } from '@/src/lib/data/write'
 
 let dir: string
@@ -182,5 +182,40 @@ describe('slugs', () => {
   test('modelSlug keeps "+" models apart from their base model', () => {
     expect(modelSlug('signia', 'Pure+')).toBe('signia-pure-plus')
     expect(modelSlug('signia', 'Pure')).toBe('signia-pure')
+  })
+})
+
+describe('namesModel', () => {
+  const model = (brand: string, name: string, aliases: string[] = []) => ({ brand, name, aliases })
+  const eargo7 = model('eargo', 'Eargo 7')
+  const plus = model('jabra-enhance', 'Jabra Enhance Plus')
+
+  test.each([
+    ['a number inside a rating', eargo7, 'Some Other Aid. 4.7 out of 5 stars, 120 reviews'],
+    ['a common word', plus, 'Acme hearing aid, $99 plus tax'],
+    ['a number apart from the brand', eargo7, 'Eargo: 7 day trial'],
+    ['a number after "brand hearing aids"', eargo7, 'Eargo hearing aids 7 day trial'],
+    ['a number that goes on', eargo7, 'The Eargo 7.5 and Eargo 70'],
+    ['one word without the brand', model('phonak', 'Virto'), 'A virto of patience'],
+    ['common words without the brand', model('jabra-enhance', 'Pro Max'), 'Comes in pro, max and basic plans. Pro Max'],
+  ])('%s is not the model', (_, wanted, text) => {
+    expect(namesModel(text, wanted)).toBe(false)
+  })
+
+  test.each([
+    ['a numbered model with its brand', eargo7, 'Eargo 7 hearing aids are rated 4.7 out of 5'],
+    ['trademark signs between brand and name', eargo7, 'The new EARGO®7 and its case'],
+    ['a hyphen and a line break', plus, 'Jabra-Enhance\nPlus, in stock'],
+    ['a name of several words without the brand', model('phonak', 'Audeo Sphere Infinio'), 'Audéo Sphere™ Infinio'],
+    ['a full name with diacritics', model('phonak', 'Audeo Sphere Infinio'), 'Phonak Audéo Sphere Infinio'],
+    ['an alias', model('eargo', 'Seven', ['Eargo 7']), 'Buy the Eargo 7.'],
+  ])('%s is the model', (_, wanted, text) => {
+    expect(namesModel(text, wanted)).toBe(true)
+  })
+
+  test('containsName keeps a decimal as one word', () => {
+    expect(containsName('Rated 4.7 of 5, from 1,248 reviews', '7')).toBe(false)
+    expect(containsName('Rated 4.7 of 5, from 1,248 reviews', '248')).toBe(false)
+    expect(containsName('Version 4.7. Now', 'version 4.7')).toBe(true)
   })
 })

@@ -343,19 +343,14 @@ describe('reviews', () => {
 
   test('complaintThemes asks about at most 50 reviews at once and takes only their numbers', async () => {
     const texts = Array.from({ length: 120 }, (_, i) => `review ${i}`)
-    // Every answer also tags review 0, which is only in the first batch.
-    llmMock.mockImplementation(async ({ prompt, schema }) =>
-      schema.parse({
-        reviews: [
-          ...tagged(prompt).map((index) => ({ index, themes: [] })),
-          { index: 0, themes: ['app'] },
-          { index: 1, themes: ['app'] },
-          { index: 2, themes: ['app'] },
-        ],
-      }),
-    )
+    // Only the later batches tag reviews 0-2, which belong to the first.
+    llmMock.mockImplementation(async ({ prompt, schema }) => {
+      const asked = tagged(prompt)
+      const strays = asked.includes(0) ? [] : [0, 1, 2].map((index) => ({ index, themes: ['app'] }))
+      return schema.parse({ reviews: [...asked.map((index) => ({ index, themes: [] })), ...strays] })
+    })
 
-    expect(await complaintThemes(texts)).toEqual([{ theme: 'app', share: 3 / 120, n: 3 }])
+    expect(await complaintThemes(texts)).toEqual([])
     expect(llmMock.mock.calls.map(([{ prompt }]) => tagged(prompt).length)).toEqual([50, 50, 20])
   })
 
@@ -646,6 +641,14 @@ describe('discoverThirdPartyFacts', () => {
     }
     const priced = model('phonak', 'Audeo Sphere', { type: 'rx', variants: [{ ...level('i90'), priceUsd: official }] })
     expect(await discoverThirdPartyFacts(priced)).toEqual([])
+  })
+
+  test('a page must name the model in full, as stored', async () => {
+    fetchMock.mockImplementation(async (url) => okPage(url, 'Audeo Sphere: $4,000 per pair'))
+    replies(search)
+
+    expect(await discoverThirdPartyFacts({ ...rx, name: 'Phonak Audeo Sphere' })).toEqual([])
+    expect(llmMock).toHaveBeenCalledTimes(1)
   })
 
   test('a quote over 300 characters fails the literal check', async () => {

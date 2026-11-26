@@ -7,7 +7,7 @@ import { excerpt, PROMPT_TEXT_BUDGET } from '@/pipeline/excerpt'
 import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { llm } from '@/pipeline/llm'
 import { escapeRegExp } from '@/pipeline/units'
-import { modelSlug, namesModel } from '@/src/lib/data/slug'
+import { containsName, modelSlug } from '@/src/lib/data/slug'
 import { Slug, type Sourced } from '@/src/lib/schema/field'
 import type { Model } from '@/src/lib/schema/model'
 import type { CandidateChange, CheckResult } from '@/src/lib/schema/pending'
@@ -59,7 +59,7 @@ At most ${MAX_PAGES_PER_SEARCH} URLs each. Never list pages on Google, Amazon or
     const page = await fetchPage(url, { refresh })
     if (page.status === 'skipped') {
       console.warn(`${model.slug}: ${url} skipped: ${page.reason}${page.detail ? ` (${page.detail})` : ''}`)
-    } else if (namesModel(page.text, model)) {
+    } else if ([model.name, ...model.aliases].some((name) => containsName(page.text, name))) {
       // A page that never names the model cannot be about it.
       pages.push(page)
     }
