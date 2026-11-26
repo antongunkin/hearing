@@ -226,3 +226,42 @@ test.each<[Kind, string]>([
     expect(schemas[kind].safeParse(withValue(kind, path, bad)).success).toBe(false)
   }
 })
+
+describe('third-party sources', () => {
+  const thirdParty = { ...official, sourceType: 'third-party' }
+  const range = { min: 2000, max: 4000, perPair: true }
+  const withPrice = (type: string, value: unknown) => ({
+    ...withValue('model', 'variants.0.priceUsd', { ...thirdParty, value }),
+    type,
+  })
+
+  test.each([
+    ['a price range', range],
+    ['a single price', 3000],
+  ])('are accepted for %s on an Rx model', (_label, value) => {
+    expect(Model.safeParse(withPrice('rx', value)).success).toBe(true)
+  })
+
+  test('are accepted for sameHardwareAs', () => {
+    const input = withValue('model', 'sameHardwareAs.0.source', { ...thirdParty, value: 'same platform' })
+    expect(Model.safeParse(input).success).toBe(true)
+  })
+
+  test.each(['otc', 'consumer'])('are rejected for the price of a %s model', (type) => {
+    expect(Model.safeParse(withPrice(type, 799)).error?.issues).toMatchObject([
+      { path: ['variants', 0, 'priceUsd', 'sourceType'] },
+    ])
+  })
+
+  test.each<[string, unknown]>([
+    ['variants.0.weightG', 2.1],
+    ['variants.0.ipRating', 'IP68'],
+    ['platform', 'ERA'],
+    ['app.iosVersion', '1.0'],
+  ])('are rejected for %s, naming the path', (path, value) => {
+    const input = withValue('model', path, { ...thirdParty, value })
+    const keys = path.split('.').map((key) => (/^\d+$/.test(key) ? Number(key) : key))
+
+    expect(Model.safeParse(input).error?.issues).toMatchObject([{ path: [...keys, 'sourceType'] }])
+  })
+})

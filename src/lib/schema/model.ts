@@ -26,7 +26,16 @@ export const Variant = z.strictObject({
 })
 export type Variant = z.infer<typeof Variant>
 
-export const Model = z.strictObject({
+/** Paths of the sourced values anywhere inside `node` that come from a third party. */
+function* thirdPartyPaths(node: unknown, path: (string | number)[] = []): Generator<(string | number)[]> {
+  if (node === null || typeof node !== 'object') return
+  if ('sourceType' in node && node.sourceType === 'third-party') yield path
+  for (const [key, child] of Object.entries(node)) {
+    yield* thirdPartyPaths(child, [...path, Array.isArray(node) ? Number(key) : key])
+  }
+}
+
+const ModelFields = z.strictObject({
   slug: Slug,
   brand: z.string().min(1),
   name: z.string().min(1),
@@ -58,5 +67,22 @@ export const Model = z.strictObject({
     .optional(),
   fda: sourced(z.strictObject({ status: z.string(), k510: z.string().optional() })).optional(),
   variants: z.array(Variant),
+})
+
+// Third-party sources are trusted only for hardware twins and Rx prices; every other spec must be official.
+export const Model = ModelFields.superRefine((model, ctx) => {
+  for (const path of thirdPartyPaths(model)) {
+    const [list, , field] = path
+    const allowed =
+      (list === 'sameHardwareAs' && field === 'source') ||
+      (list === 'variants' && field === 'priceUsd' && model.type === 'rx')
+    if (!allowed) {
+      ctx.addIssue({
+        code: 'custom',
+        path: [...path, 'sourceType'],
+        message: 'third-party sources are allowed only for sameHardwareAs and Rx prices',
+      })
+    }
+  }
 })
 export type Model = z.infer<typeof Model>
