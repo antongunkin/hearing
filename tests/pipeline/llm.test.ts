@@ -10,16 +10,27 @@ import { llm, LlmLimitError, LlmOutputError, LlmUnavailableError, type LlmDeps }
 
 const schema = z.strictObject({ ok: z.boolean() })
 
+const timeouts = { ...config.llm.timeoutMs }
+
 let cacheDir: string
 beforeEach(async () => {
   cacheDir = await mkdtemp(join(tmpdir(), 'llm-cache-'))
 })
 afterEach(async () => {
   vi.unstubAllEnvs()
+  Object.assign(config.llm.timeoutMs, timeouts)
   await rm(cacheDir, { recursive: true, force: true })
 })
 
 const cached = () => readdir(cacheDir)
+
+/** A call that never answers and only gives up when its signal aborts. */
+const hang = (signal: AbortSignal | null | undefined) =>
+  new Promise<never>((_resolve, reject) => {
+    signal?.addEventListener('abort', () => reject(new Error('exception sending request')))
+  })
+
+const timedOut = { name: 'LlmUnavailableError', detail: 'timeout' }
 
 // Trimmed from real `claude -p --output-format json --json-schema` envelopes (CLI 2.1.319).
 // A success adds `structured_output`.
@@ -41,7 +52,7 @@ function envelope(extra: Record<string, unknown>): string {
 const stubExec = (stdout: string) => vi.fn(async () => ({ stdout, stderr: '' }))
 
 /** Rejects the way a promisified execFile does: message holds the whole command line. */
-const stubExecFail = (stderr: string, extra: { stdout?: string; code?: number | string } = {}) =>
+const stubExecFail = (stderr: string, extra: { stdout?: string; code?: number | string; killed?: boolean } = {}) =>
   vi.fn(async (file: string, args: string[]): Promise<{ stdout: string; stderr: string }> => {
     throw Object.assign(new Error(`Command failed: ${file} ${args.join(' ')}\n${stderr}`), {
       code: 1,
@@ -88,7 +99,7 @@ describe('claude', () => {
       'WebSearch',
       '--allowedTools',
       'WebSearch',
-    ])
+    ], expect.anything())
   })
 
   test('without tools, offers none and loads nothing from the owner setup', async () => {
@@ -109,6 +120,32 @@ describe('claude', () => {
       '--tools',
       '',
     ])
+  })
+
+  test('runs on the subscription: the child env has no Anthropic key or token', async () => {
+    vi.stubEnv('ANTHROPIC_API_KEY', 'test-key')
+    vi.stubEnv('ANTHROPIC_AUTH_TOKEN', 'test-token')
+    vi.stubEnv('UNRELATED_SETTING', 'kept')
+    const exec = vi.fn<NonNullable<LlmDeps['exec']>>(async () => ({
+      stdout: envelope({ structured_output: { ok: true } }),
+      stderr: '',
+    }))
+
+    await run({ exec })
+
+    const { env, timeout } = exec.mock.calls[0][2]
+    expect(env).not.toHaveProperty('ANTHROPIC_API_KEY')
+    expect(env).not.toHaveProperty('ANTHROPIC_AUTH_TOKEN')
+    expect(env).toMatchObject({ UNRELATED_SETTING: 'kept', PATH: process.env.PATH })
+    expect(process.env.ANTHROPIC_API_KEY).toBe('test-key')
+    expect(timeout).toBe(300_000)
+  })
+
+  test('killed at the deadline → LlmUnavailableError with detail timeout, no retry', async () => {
+    const exec = stubExecFail('', { killed: true, code: undefined })
+
+    await expect(run({ exec })).rejects.toMatchObject(timedOut)
+    expect(exec).toHaveBeenCalledTimes(1)
   })
 
   test('different tools do not share a cache entry', async () => {
@@ -223,7 +260,17 @@ describe('ollama', () => {
       messages: [{ role: 'user', content: 'Return ok=true' }],
       format: z.toJSONSchema(schema),
       stream: false,
+      options: { num_ctx: 16384 },
     })
+  })
+
+  test('no answer by the deadline → LlmUnavailableError with detail timeout, no retry', async () => {
+    expect(config.llm.timeoutMs.ollama).toBe(600_000)
+    config.llm.timeoutMs.ollama = 20
+    const fetch = vi.fn<typeof globalThis.fetch>((_url, init) => hang(init?.signal))
+
+    await expect(ollama({ fetch })).rejects.toMatchObject(timedOut)
+    expect(fetch).toHaveBeenCalledTimes(1)
   })
 
   test('ECONNREFUSED → LlmUnavailableError', async () => {
@@ -265,8 +312,20 @@ describe('gemini', () => {
         responseMimeType: 'application/json',
         responseJsonSchema: z.toJSONSchema(schema),
         mediaResolution: 'MEDIA_RESOLUTION_LOW',
+        abortSignal: expect.any(AbortSignal),
       },
     })
+  })
+
+  test('no answer by the deadline → LlmUnavailableError with detail timeout, no retry', async () => {
+    expect(config.llm.timeoutMs.gemini).toBe(300_000)
+    config.llm.timeoutMs.gemini = 20
+    const client = {
+      generateContent: vi.fn((params: { config?: { abortSignal?: AbortSignal } }) => hang(params.config?.abortSignal)),
+    }
+
+    await expect(gemini({ gemini: client })).rejects.toMatchObject(timedOut)
+    expect(client.generateContent).toHaveBeenCalledTimes(1)
   })
 
   test('each video has its own cache entry', async () => {

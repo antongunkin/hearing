@@ -1,6 +1,14 @@
 /** The provider cannot be used at all: not installed, not running, not signed in. */
 export class LlmUnavailableError extends Error {
   override name = 'LlmUnavailableError'
+  /** Set when the provider did not answer by the deadline. */
+  detail?: 'timeout'
+}
+
+export function timeoutError(provider: string, ms: number, options?: ErrorOptions): LlmUnavailableError {
+  const error = new LlmUnavailableError(`${provider} timeout: no answer within ${ms / 1000} s`, options)
+  error.detail = 'timeout'
+  return error
 }
 
 /** Quota or rate limit: stop and try again later. */

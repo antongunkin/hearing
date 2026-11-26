@@ -8,9 +8,13 @@
 import { execFile } from 'node:child_process'
 import { promisify } from 'node:util'
 import { config } from '@/pipeline/config'
-import { LlmLimitError, LlmOutputError, LlmUnavailableError, parseOutput } from './errors'
+import { LlmLimitError, LlmOutputError, LlmUnavailableError, parseOutput, timeoutError } from './errors'
 
-export type Exec = (file: string, args: string[]) => Promise<{ stdout: string; stderr: string }>
+export type Exec = (
+  file: string,
+  args: string[],
+  options: { env: NodeJS.ProcessEnv; timeout: number },
+) => Promise<{ stdout: string; stderr: string }>
 
 const execFileAsync = promisify(execFile)
 
@@ -20,8 +24,9 @@ const execFileAsync = promisify(execFile)
 // 1 tool and 3.6k with them. Not `--bare`, which ignores the subscription login.
 const ISOLATION = ['--safe-mode', '--strict-mcp-config', '--no-session-persistence', '--setting-sources', '']
 
-const defaultExec: Exec = (file, args) => {
-  const call = execFileAsync(file, args, { maxBuffer: 10 * 1024 * 1024 })
+const defaultExec: Exec = (file, args, options) => {
+  // SIGKILL, so that a child that ignores SIGTERM cannot outlive the deadline.
+  const call = execFileAsync(file, args, { ...options, killSignal: 'SIGKILL', maxBuffer: 10 * 1024 * 1024 })
   call.child.stdin?.end() // otherwise `claude -p` waits for piped input
   return call
 }
@@ -76,13 +81,23 @@ export async function callClaude(
     ...(tools ? ['--allowedTools', tools.join(',')] : []),
   ]
 
+  // Either variable would take the call off the subscription and bill an API account.
+  const { ANTHROPIC_API_KEY, ANTHROPIC_AUTH_TOKEN, ...env } = process.env
+  const timeout = config.llm.timeoutMs.claude
+
   let stdout: string
   try {
-    ;({ stdout } = await exec('claude', args))
+    ;({ stdout } = await exec('claude', args, { env, timeout }))
   } catch (error) {
     // `error.message` repeats the whole command line, prompt included: never match on it.
-    const { code, stdout = '', stderr = '' } = error as { code?: unknown; stdout?: string; stderr?: string }
+    const { code, killed, stdout = '', stderr = '' } = error as {
+      code?: unknown
+      killed?: boolean
+      stdout?: string
+      stderr?: string
+    }
     if (code === 'ENOENT') throw new LlmUnavailableError('claude CLI not found in PATH')
+    if (killed) throw timeoutError('claude', timeout)
     throw failure(readEnvelope(stdout), stderr || `exit code ${code}`)
   }
 
