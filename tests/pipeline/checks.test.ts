@@ -8,15 +8,16 @@ import { rangeCheck } from '@/pipeline/checks/ranges'
 
 const meta = { sourceUrl: 'https://example.com/spec', fetchedAt: '2026-11-26T00:00:00Z' }
 
-function field(over: { value: unknown; quote: string; sourceType?: 'official' | 'third-party' }): Sourced<unknown> {
+function field(over: { value: unknown; quote: string; unit?: string; sourceType?: 'official' | 'third-party' }): Sourced<unknown> {
   return { ...meta, sourceType: 'official', ...over }
 }
 
-function derived(over: { value: unknown; quote: string; input: string }): Sourced<unknown> {
+function derived(over: { value: unknown; quote: string; input: string; unit?: string }): Sourced<unknown> {
   return {
     ...meta,
     value: over.value,
     quote: over.quote,
+    unit: over.unit,
     sourceType: 'derived',
     derivation: { op: 'oz-to-g', input: over.input },
   }
@@ -78,6 +79,75 @@ describe('literalCheck', () => {
   test('derived field needs its derivation input in the quote', () => {
     expect(literalCheck(derived({ value: 1.98, quote: 'only 0.07 oz', input: '0.07 oz' }), 'only 0.07 oz').ok).toBe(true)
     expect(literalCheck(derived({ value: 1.98, quote: 'only 0.07 oz', input: '0.08 oz' }), 'only 0.07 oz').ok).toBe(false)
+  })
+
+  describe('unit verification', () => {
+    test('rejects a unit that differs from the quote ("2.1 oz" for g)', () => {
+      const result = literalCheck(field({ value: 2.1, unit: 'g', quote: '2.1 oz' }), '2.1 oz')
+      expect(result.ok).toBe(false)
+      expect(result.detail).toMatch(/unit "g"/)
+    })
+
+    test('accepts a synonym of the unit ("2.1 grams" for g)', () => {
+      expect(literalCheck(field({ value: 2.1, unit: 'g', quote: '2.1 grams' }), '2.1 grams').ok).toBe(true)
+    })
+
+    test.each([
+      ['g', 2.1, '2.1 g'],
+      ['g', 2.1, '2.1 gram'],
+      ['g', 2.1, '2.1g'],
+      ['mg', 250, '250 mg'],
+      ['oz', 0.07, '0.07 oz'],
+      ['oz', 0.07, '0.07 ounces'],
+      ['mm', 12, '12 mm'],
+      ['mm', 12, '12 millimeters'],
+      ['mm', 12, '12 millimetres'],
+      ['cm', 1.2, '1.2 cm'],
+      ['in', 0.5, '0.5 in'],
+      ['in', 0.5, '0.5 inches'],
+      ['in', 0.5, '0.5"'],
+      ['h', 24, '24 h'],
+      ['h', 24, '24 hr'],
+      ['h', 24, '24 hours'],
+    ])('accepts unit %s with quote "%s"', (unit, value, quote) => {
+      expect(literalCheck(field({ value, unit, quote }), quote).ok).toBe(true)
+    })
+
+    test('rejects a unit that is not right after the number', () => {
+      expect(literalCheck(field({ value: 2.1, unit: 'g', quote: '2.1 each, 5 g' }), '2.1 each, 5 g').ok).toBe(false)
+    })
+
+    test('rejects a unit that only continues a longer word', () => {
+      expect(literalCheck(field({ value: 2.1, unit: 'g', quote: '2.1 gigs' }), '2.1 gigs').ok).toBe(false)
+    })
+
+    test('accepts a correct unit when another occurrence of the number has a different unit', () => {
+      const quote = 'was 2.1 oz, now 2.1 g'
+      expect(literalCheck(field({ value: 2.1, unit: 'g', quote }), quote).ok).toBe(true)
+    })
+
+    test('rejects an empty unit string', () => {
+      expect(literalCheck(field({ value: 2.1, unit: '', quote: '2.1, each' }), '2.1, each').ok).toBe(false)
+    })
+
+    test('fails a unit field whose value has no number', () => {
+      expect(literalCheck(field({ value: 'lithium', unit: 'g', quote: 'lithium battery' }), 'lithium battery').ok).toBe(false)
+    })
+
+    test('checks the unit after every number of a pair', () => {
+      const value = { min: 1200, max: 1400, perPair: true }
+      expect(literalCheck(field({ value, unit: 'g', quote: 'between 1,200 g and 1,400 g' }), 'between 1,200 g and 1,400 g').ok).toBe(true)
+      expect(literalCheck(field({ value, unit: 'g', quote: 'between 1,200 g and 1,400 oz' }), 'between 1,200 g and 1,400 oz').ok).toBe(false)
+    })
+
+    test('does not check units when the field has none', () => {
+      expect(literalCheck(field({ value: 2.1, quote: '2.1 oz' }), '2.1 oz').ok).toBe(true)
+    })
+
+    test('does not check units on derived fields', () => {
+      const result = literalCheck(derived({ value: 1.98, unit: 'g', quote: 'only 0.07 oz', input: '0.07 oz' }), 'only 0.07 oz')
+      expect(result.ok).toBe(true)
+    })
   })
 })
 
