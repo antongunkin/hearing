@@ -17,6 +17,18 @@ export function containsName(text: string, name: string): boolean {
   return needle !== '' && ` ${words(text)} `.includes(` ${needle} `)
 }
 
+/** Comparison form of a model name, without a leading brand name (`brand` is a brand slug). */
+export function nameWithoutBrand(brand: string, name: string): string {
+  const prefix = normalizeName(brand.replaceAll('-', ' '))
+  const key = normalizeName(name)
+  return key.startsWith(`${prefix} `) ? key.slice(prefix.length + 1) : key
+}
+
+/** Whether the text names the model, by its name or an alias, with or without the brand. */
+export function namesModel(text: string, model: { brand: string; name: string; aliases: string[] }): boolean {
+  return [model.name, ...model.aliases].some((name) => containsName(text, nameWithoutBrand(model.brand, name)))
+}
+
 /** Lowercase ASCII words joined by hyphens; empty when the text has no letters or digits. */
 export function slugify(text: string): string {
   return normalizeName(text)

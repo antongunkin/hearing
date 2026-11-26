@@ -7,7 +7,7 @@ import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { linksIn } from '@/pipeline/fetch/html'
 import { llm } from '@/pipeline/llm'
 import { canonicalUnit, findNumbers, parseMeasurement, toGrams, toMm, unitFollows } from '@/pipeline/units'
-import { modelSlug, normalizeName, slugify } from '@/src/lib/data/slug'
+import { modelSlug, nameWithoutBrand, normalizeName, slugify } from '@/src/lib/data/slug'
 import type { Brand } from '@/src/lib/schema/brand'
 import type { Derivation, Sourced } from '@/src/lib/schema/field'
 import { FormFactor, Model, ModelType, PowerType, type Variant } from '@/src/lib/schema/model'
@@ -318,20 +318,13 @@ function defined<T extends Record<string, unknown>>(fields: T): { [K in keyof T]
   }
 }
 
-/** Matching key of a name: normalized, with a leading brand name taken off. */
-function nameKey(brand: string, name: string): string {
-  const prefix = normalizeName(brand.replaceAll('-', ' '))
-  const key = normalizeName(name)
-  return key.startsWith(`${prefix} `) ? key.slice(prefix.length + 1) : key
-}
-
 /** The stored model of the same brand whose name or an alias is the candidate's name, written differently. */
 export function matchExistingModel(candidate: Model, models: Model[]): Model | null {
-  const key = nameKey(candidate.brand, candidate.name)
+  const key = nameWithoutBrand(candidate.brand, candidate.name)
   return (
     models.find(
       (model) =>
-        model.brand === candidate.brand && [model.name, ...model.aliases].some((name) => nameKey(model.brand, name) === key),
+        model.brand === candidate.brand && [model.name, ...model.aliases].some((name) => nameWithoutBrand(model.brand, name) === key),
     ) ?? null
   )
 }

@@ -7,7 +7,7 @@ import { excerpt, PROMPT_TEXT_BUDGET } from '@/pipeline/excerpt'
 import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { llm } from '@/pipeline/llm'
 import { escapeRegExp } from '@/pipeline/units'
-import { containsName, modelSlug } from '@/src/lib/data/slug'
+import { modelSlug, namesModel } from '@/src/lib/data/slug'
 import { Slug, type Sourced } from '@/src/lib/schema/field'
 import type { Model } from '@/src/lib/schema/model'
 import type { CandidateChange, CheckResult } from '@/src/lib/schema/pending'
@@ -24,8 +24,15 @@ const Extraction = z.strictObject({
 })
 
 const MAX_PAGES_PER_SEARCH = 5
+/** A longer quote is a passage of someone else's text, not the statement of a fact. */
+const MAX_QUOTE_CHARS = 300
 /** Words that say a price buys two hearing aids. */
 const PER_PAIR = /\b(?:pairs?|both ears|two (?:hearing aids|devices))\b/i
+
+function quoteCheck(field: Sourced<unknown>, page: Page): CheckResult {
+  if (field.quote.length > MAX_QUOTE_CHARS) return { name: 'literal', ok: false, detail: 'quote-too-long' }
+  return literalCheck(field, page.text)
+}
 
 /** Variants whose price a third party may set: those of an Rx model without a price from elsewhere. */
 function openToPrices(model: Model) {
@@ -52,7 +59,7 @@ At most ${MAX_PAGES_PER_SEARCH} URLs each. Never list pages on Google, Amazon or
     const page = await fetchPage(url, { refresh })
     if (page.status === 'skipped') {
       console.warn(`${model.slug}: ${url} skipped: ${page.reason}${page.detail ? ` (${page.detail})` : ''}`)
-    } else if ([model.name, ...model.aliases].some((name) => containsName(page.text, name))) {
+    } else if (namesModel(page.text, model)) {
       // A page that never names the model cannot be about it.
       pages.push(page)
     }
@@ -98,7 +105,7 @@ export async function discoverThirdPartyFacts(model: Model, opts: Options = {}):
 
     for (const price of found.prices) {
       const after: Price = { ...cited, value: { min: price.min, max: price.max, perPair: true }, unit: 'USD', quote: price.quote }
-      let literal = literalCheck(after, page.text)
+      let literal = quoteCheck(after, page)
       if (literal.ok && !PER_PAIR.test(price.quote)) {
         literal = { name: 'literal', ok: false, detail: 'the quote does not say the price is per pair' }
       }
@@ -118,7 +125,7 @@ export async function discoverThirdPartyFacts(model: Model, opts: Options = {}):
       known.add(slug)
       const source: Sourced<string> = { ...cited, value: twin.name, quote: twin.quote }
       twins.push({ slug, source })
-      twinChecks.push(literalCheck(source, page.text))
+      twinChecks.push(quoteCheck(source, page))
     }
   }
 

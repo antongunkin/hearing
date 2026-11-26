@@ -1,8 +1,8 @@
 {
   "items": [
-    { "id": { "kind": "youtube#video", "videoId": "aaaaaaaaaaa" }, "snippet": { "title": "Audeo Sphere review", "channelTitle": "Channel A" } },
-    { "id": { "kind": "youtube#video", "videoId": "bbbbbbbbbbb" }, "snippet": { "title": "Sphere &amp; Lumity: what&#39;s new", "channelTitle": "Channel B" } },
-    { "id": { "kind": "youtube#video", "videoId": "ccccccccccc" }, "snippet": { "title": "Unboxing", "channelTitle": "Channel C" } },
-    { "id": { "kind": "youtube#video", "videoId": "ddddddddddd" }, "snippet": { "title": "One month later", "channelTitle": "Channel D" } }
+    { "id": { "kind": "youtube#video", "videoId": "aaaaaaaaaaa" }, "snippet": { "title": "Audeo Sphere review", "channelTitle": "Channel A", "description": "A look at it." } },
+    { "id": { "kind": "youtube#video", "videoId": "bbbbbbbbbbb" }, "snippet": { "title": "Audeo Lumity review", "channelTitle": "Channel B", "description": "The older Lumity, and a spherical case." } },
+    { "id": { "kind": "youtube#video", "videoId": "ccccccccccc" }, "snippet": { "title": "Unboxing", "channelTitle": "Channel C", "description": "The Phonak Audéo Sphere out of the box." } },
+    { "id": { "kind": "youtube#video", "videoId": "ddddddddddd" }, "snippet": { "title": "Audeo Sphere &amp; me: what&#39;s new", "channelTitle": "Channel D", "description": "One month later." } }
   ]
 }

@@ -1,9 +1,11 @@
 // @vitest-environment node
-import { readFile } from 'node:fs/promises'
+import { mkdtemp, readFile, rm } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { afterEach, describe, expect, test, vi } from 'vitest'
 import { fetchPage, isBlocked, type FetchResult } from '@/pipeline/fetch/fetcher'
-import { llm } from '@/pipeline/llm'
+import { llm, LlmOutputError } from '@/pipeline/llm'
 import { fetchIosVersion } from '@/pipeline/sources/itunes'
 import { fetchFdaEvents } from '@/pipeline/sources/openfda'
 import { extractExpertProsCons, synthesizeProsCons } from '@/pipeline/sources/pros-cons'
@@ -222,6 +224,7 @@ describe('reviews', () => {
   })
 
   const RETAIL_URL = 'https://shop.example/select-550'
+  const select550 = model('jabra-enhance', 'Select 550')
   const retailReply = {
     rating: { value: 4.3, quote: '4.3 out of 5 stars' },
     count: { value: 1248, quote: 'Based on 1,248 reviews' },
@@ -231,7 +234,7 @@ describe('reviews', () => {
   test('extractRetailReviews keeps only numbers and texts that are on the page', async () => {
     replies(retailReply)
 
-    expect(await extractRetailReviews(okPage(RETAIL_URL, await fixture('reviews/retail.txt')))).toEqual({
+    expect(await extractRetailReviews(select550, okPage(RETAIL_URL, await fixture('reviews/retail.txt')))).toEqual({
       rating: 4.3,
       count: 1248,
       texts: ['The battery dies before dinner and the charger is finicky.'],
@@ -245,7 +248,7 @@ describe('reviews', () => {
   ])('extractRetailReviews → null for %s', async (_, reply) => {
     replies(reply)
 
-    expect(await extractRetailReviews(okPage(RETAIL_URL, await fixture('reviews/retail.txt')))).toBeNull()
+    expect(await extractRetailReviews(select550, okPage(RETAIL_URL, await fixture('reviews/retail.txt')))).toBeNull()
   })
 
   const ldPage = async (...blocks: unknown[]): Promise<Ok> => ({
@@ -266,14 +269,14 @@ describe('reviews', () => {
       product({ ratingValue: '4.6', ratingCount: '2,310', bestRating: '5' }),
     )
 
-    expect(await extractRetailReviews(page)).toEqual({ rating: 4.6, count: 2310, texts: ['Whistles when I hug someone.'] })
+    expect(await extractRetailReviews(select550, page)).toEqual({ rating: 4.6, count: 2310, texts: ['Whistles when I hug someone.'] })
   })
 
   test('reviewCount is preferred to ratingCount, and the same rating twice is one rating', async () => {
     replies(textsOnly)
     const block = product({ ratingValue: 4.6, reviewCount: 812, ratingCount: 2310 })
 
-    expect(await extractRetailReviews(await ldPage(block, block))).toMatchObject({ rating: 4.6, count: 812 })
+    expect(await extractRetailReviews(select550, await ldPage(block, block))).toMatchObject({ rating: 4.6, count: 812 })
   })
 
   test.each([
@@ -284,7 +287,27 @@ describe('reviews', () => {
   ])('extractRetailReviews falls back to the visible text for JSON-LD with %s', async (_, blocks) => {
     replies(retailReply)
 
-    expect(await extractRetailReviews(await ldPage(...blocks))).toMatchObject({ rating: 4.3, count: 1248 })
+    expect(await extractRetailReviews(select550, await ldPage(...blocks))).toMatchObject({ rating: 4.3, count: 1248 })
+  })
+
+  test.each([
+    ['another model', model('jabra-enhance', 'Select 300')],
+    ['a model whose name is only part of a word there', model('jabra-enhance', 'Elect 550')],
+  ])('extractRetailReviews → null, without a model call, for a page about %s', async (_, other) => {
+    const page = await ldPage(product({ ratingValue: 4.6, reviewCount: 10 }))
+
+    expect(await extractRetailReviews(other, page)).toBeNull()
+    expect(llmMock).not.toHaveBeenCalled()
+  })
+
+  test.each([
+    ['an alias', model('jabra-enhance', 'Elite', { aliases: ['Select 550'] })],
+    ['a name that repeats the brand', model('jabra-enhance', 'Jabra Enhance Select 550')],
+  ])('extractRetailReviews knows the page by %s', async (_, same) => {
+    replies(retailReply)
+    const text = (await fixture('reviews/retail.txt')).replace('Jabra Enhance ', '')
+
+    expect(await extractRetailReviews(same, okPage(RETAIL_URL, text))).toMatchObject({ rating: 4.3 })
   })
 
   test('complaintThemes computes share in code and drops n<3', async () => {
@@ -297,6 +320,7 @@ describe('reviews', () => {
         { index: 1, themes: ['battery', 'app'] },
         { index: 2, themes: ['battery'] },
         { index: 3, themes: ['battery'] },
+        ...[4, 5, 6, 7, 8, 9].map((index) => ({ index, themes: [] })),
         { index: 99, themes: ['app'] },
       ],
     })
@@ -313,6 +337,47 @@ describe('reviews', () => {
     expect(await complaintThemes(texts)).toEqual([{ theme: 'app', share: 1, n: 60 }])
     expect(llmMock.mock.calls.length).toBeGreaterThan(1)
     for (const [{ prompt }] of llmMock.mock.calls) expect(prompt.length).toBeLessThan(50_000)
+  })
+
+  const tagged = (prompt: string) => [...prompt.matchAll(/^\[(\d+)\]/gm)].map((m) => Number(m[1]))
+
+  test('complaintThemes asks about at most 50 reviews at once and takes only their numbers', async () => {
+    const texts = Array.from({ length: 120 }, (_, i) => `review ${i}`)
+    // Every answer also tags review 0, which is only in the first batch.
+    llmMock.mockImplementation(async ({ prompt, schema }) =>
+      schema.parse({
+        reviews: [
+          ...tagged(prompt).map((index) => ({ index, themes: [] })),
+          { index: 0, themes: ['app'] },
+          { index: 1, themes: ['app'] },
+          { index: 2, themes: ['app'] },
+        ],
+      }),
+    )
+
+    expect(await complaintThemes(texts)).toEqual([{ theme: 'app', share: 3 / 120, n: 3 }])
+    expect(llmMock.mock.calls.map(([{ prompt }]) => tagged(prompt).length)).toEqual([50, 50, 20])
+  })
+
+  test.each([
+    ['answers in full the second time', [[0, 1], [0, 1, 2]], 'themes'],
+    ['leaves a review out twice', [[0, 1], [0, 2]], 'error'],
+  ])('complaintThemes: a model that %s', async (_, answers, outcome) => {
+    const { llm: realLlm } = await vi.importActual<typeof import('@/pipeline/llm')>('@/pipeline/llm')
+    const cacheDir = await mkdtemp(join(tmpdir(), 'llm-'))
+    let calls = 0
+    const exec = async () => {
+      const reviews = answers[calls++].map((index) => ({ index, themes: ['app'] }))
+      return { stdout: JSON.stringify({ structured_output: { reviews } }), stderr: '' }
+    }
+    llmMock.mockImplementation((options) => realLlm(options, { exec, cacheDir }))
+
+    const result = complaintThemes(['a', 'b', 'c'])
+
+    if (outcome === 'error') await expect(result).rejects.toThrow(LlmOutputError)
+    else expect(await result).toEqual([{ theme: 'app', share: 1, n: 3 }])
+    expect(calls).toBe(2)
+    await rm(cacheDir, { recursive: true })
   })
 
   test('complaintThemes of nothing asks nothing', async () => {
@@ -336,7 +401,8 @@ describe('synthesizeProsCons', () => {
         { text: 'Comfortable', sources: ['https://invented.example'] },
         { text: 'Light', sources: [] },
         { text: 'We tested it and loved it', sources: [A] },
-        { text: 'x'.repeat(201), sources: [A] },
+        { text: 'word '.repeat(16), sources: [A] },
+        { text: 'word '.repeat(15), sources: [B] },
       ],
       cons: [
         { text: 'Short battery life', sources: [A] },
@@ -345,7 +411,10 @@ describe('synthesizeProsCons', () => {
     })
 
     expect(await synthesizeProsCons(inputs)).toEqual({
-      pros: [{ text: 'Clear speech', sources: [A, B] }],
+      pros: [
+        { text: 'Clear speech', sources: [A, B] },
+        { text: 'word '.repeat(15).trim(), sources: [B] },
+      ],
       cons: [{ text: 'Short battery life', sources: [A] }],
     })
   })
@@ -391,6 +460,27 @@ describe('extractExpertProsCons', () => {
     expect(await extractExpertProsCons(page, sphere)).toBeNull()
   })
 
+  test('points longer than 15 words, or repeating 8 words of the page in a row, are dropped', async () => {
+    const sentence = 'The battery easily lasts from early breakfast until well after the late news.'
+    replies({
+      reviewsThisModel: true,
+      pros: [
+        // Eight words in a row, whatever the case and punctuation.
+        'THE BATTERY, EASILY LASTS from early breakfast until',
+        // Seven are allowed.
+        'Battery easily lasts from early breakfast until bedtime',
+        'one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen',
+      ],
+      cons: ['Lasts from early breakfast until well after the late news'],
+    })
+
+    expect(await extractExpertProsCons(okPage(URL_, `Phonak Audeo Sphere. "'${sentence}'"`), sphere)).toEqual({
+      sourceUrl: URL_,
+      pros: ['Battery easily lasts from early breakfast until bedtime'],
+      cons: [],
+    })
+  })
+
   test('a long page is cut to the prompt budget, keeping the verdict', async () => {
     replies({ reviewsThisModel: true, pros: ['Light'], cons: [] })
     const long = okPage(URL_, `${'filler '.repeat(20_000)}Pros and cons: light. Drawbacks: none. Verdict: good.`)
@@ -406,17 +496,18 @@ describe('extractExpertProsCons', () => {
 describe('youtube', () => {
   const sphere = model('phonak', 'Audeo Sphere')
 
-  test('searchVideos returns the three most viewed of the search results', async () => {
+  test('searchVideos returns the three most viewed of the results that name the model', async () => {
     vi.stubEnv('YOUTUBE_API_KEY', 'test-key')
     const [search, videos] = [await fixture('youtube/search.json'), await fixture('youtube/videos.json')]
     const fetchStub = vi.fn<typeof fetch>(async (input) =>
       new Response(String(input).includes('/search?') ? search : videos),
     )
 
+    // The most viewed result is about another model.
     expect(await searchVideos(sphere, { fetch: fetchStub })).toEqual([
-      { id: 'bbbbbbbbbbb', channel: 'Channel B', title: "Sphere & Lumity: what's new" },
-      { id: 'ddddddddddd', channel: 'Channel D', title: 'One month later' },
+      { id: 'ddddddddddd', channel: 'Channel D', title: "Audeo Sphere & me: what's new" },
       { id: 'aaaaaaaaaaa', channel: 'Channel A', title: 'Audeo Sphere review' },
+      { id: 'ccccccccccc', channel: 'Channel C', title: 'Unboxing' },
     ])
     const [first, second] = fetchStub.mock.calls.map(([url]) => new URL(String(url)))
     expect(first.origin + first.pathname).toBe('https://www.googleapis.com/youtube/v3/search')
@@ -428,9 +519,24 @@ describe('youtube', () => {
       relevanceLanguage: 'en',
     })
     expect(second.searchParams.get('part')).toBe('statistics')
-    expect(second.searchParams.get('id')).toBe('aaaaaaaaaaa,bbbbbbbbbbb,ccccccccccc,ddddddddddd')
+    expect(second.searchParams.get('id')).toBe('aaaaaaaaaaa,ccccccccccc,ddddddddddd')
     // The key travels in a header, so that no URL in a log or an error carries it.
     expect(fetchStub.mock.calls[0][1]?.headers).toEqual({ 'x-goog-api-key': 'test-key' })
+  })
+
+  test('searchVideos knows a model by its alias, and asks no statistics when no result names it', async () => {
+    vi.stubEnv('YOUTUBE_API_KEY', 'test-key')
+    const [search, videos] = [await fixture('youtube/search.json'), await fixture('youtube/videos.json')]
+    const fetchStub = vi.fn<typeof fetch>(async (input) =>
+      new Response(String(input).includes('/search?') ? search : videos),
+    )
+
+    const aliased = model('phonak', 'Audeo L', { aliases: ['Phonak Audeo Lumity'] })
+    expect((await searchVideos(aliased, { fetch: fetchStub })).map((video) => video.id)).toEqual(['bbbbbbbbbbb'])
+
+    fetchStub.mockClear()
+    expect(await searchVideos(model('phonak', 'Virto'), { fetch: fetchStub })).toEqual([])
+    expect(fetchStub).toHaveBeenCalledTimes(1)
   })
 
   test('a missing key or a refusal is a YouTubeError', async () => {
@@ -444,15 +550,20 @@ describe('youtube', () => {
     await expect(searchVideos(sphere, { fetch: fetchStub })).rejects.toThrow(/HTTP 403 quotaExceeded/)
   })
 
-  test('analyzeVideo asks Gemini about the watch URL', async () => {
-    replies({ pros: ['clear speech'], cons: ['bulky'] })
+  test('analyzeVideo asks Gemini what the video says about this model', async () => {
+    replies({ reviewsThisModel: true, pros: ['clear speech', 'word '.repeat(16)], cons: ['bulky'] })
 
-    expect(await analyzeVideo('aaaaaaaaaaa')).toEqual({ pros: ['clear speech'], cons: ['bulky'] })
-    expect(llmMock.mock.calls[0][0]).toMatchObject({
-      provider: 'gemini',
-      youtubeUrl: 'https://www.youtube.com/watch?v=aaaaaaaaaaa',
-    })
-    await expect(analyzeVideo('../x')).rejects.toThrow('not a YouTube video id')
+    expect(await analyzeVideo('aaaaaaaaaaa', sphere)).toEqual({ pros: ['clear speech'], cons: ['bulky'] })
+    const [[options]] = llmMock.mock.calls
+    expect(options).toMatchObject({ provider: 'gemini', youtubeUrl: 'https://www.youtube.com/watch?v=aaaaaaaaaaa' })
+    expect(options.prompt).toContain('"phonak Audeo Sphere"')
+    await expect(analyzeVideo('../x', sphere)).rejects.toThrow('not a YouTube video id')
+  })
+
+  test('analyzeVideo gives nothing for a video that does not review this model', async () => {
+    replies({ reviewsThisModel: false, pros: ['clear speech'], cons: ['bulky'] })
+
+    expect(await analyzeVideo('aaaaaaaaaaa', sphere)).toEqual({ pros: [], cons: [] })
   })
 })
 
@@ -535,6 +646,21 @@ describe('discoverThirdPartyFacts', () => {
     }
     const priced = model('phonak', 'Audeo Sphere', { type: 'rx', variants: [{ ...level('i90'), priceUsd: official }] })
     expect(await discoverThirdPartyFacts(priced)).toEqual([])
+  })
+
+  test('a quote over 300 characters fails the literal check', async () => {
+    const long = `The Unitron Smile R uses the same hardware as the Phonak Audeo Sphere I90: $5,000 per pair. ${'More words. '.repeat(30)}`
+    fetchMock.mockImplementation(async (url) => okPage(url, long))
+    replies(search, {
+      prices: [{ variantIds: ['i90'], min: 5000, max: 5000, quote: long }],
+      sameHardware: [{ brand: 'Unitron', name: 'Smile R', quote: long }],
+    })
+
+    const [price, twins] = await discoverThirdPartyFacts(rx)
+
+    const tooLong = { name: 'literal', ok: false, detail: 'quote-too-long' }
+    expect(price.checks['variants.0.priceUsd'][0]).toEqual(tooLong)
+    expect(twins.checks.sameHardwareAs[0]).toEqual(tooLong)
   })
 
   test('the search names the month, and refresh reaches every page fetch', async () => {

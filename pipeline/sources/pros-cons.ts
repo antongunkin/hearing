@@ -8,6 +8,35 @@ import type { Model } from '@/src/lib/schema/model'
 import type { Reviews } from '@/src/lib/schema/reviews'
 import { productName } from './reviews'
 
+const MAX_POINT_WORDS = 15
+/** A point with this many consecutive words of its source is a quotation, not our own words. */
+const COPIED_RUN = 8
+
+/** The words of a text without case or punctuation, space separated and space padded. */
+const wordRun = (words: string[]) => ` ${words.join(' ')} `
+// An apostrophe belongs to a word only inside it, so that quote marks do not change the words.
+const wordsOf = (text: string) => text.toLowerCase().replaceAll('’', "'").match(/[\p{L}\p{N}]+(?:'[\p{L}\p{N}]+)*/gu) ?? []
+
+function repeats(point: string, source: string): boolean {
+  const words = wordsOf(point)
+  return words.some((_, i) => i + COPIED_RUN <= words.length && source.includes(wordRun(words.slice(i, i + COPIED_RUN))))
+}
+
+/**
+ * The points that may go on the site: at most 15 words, no first-hand wording, and, where the source text
+ * is at hand, no 8 of its words in a row. No review text is published verbatim, so this is not left to
+ * the prompt.
+ */
+export function publishablePoints(points: string[], sourceText = ''): string[] {
+  const source = wordRun(wordsOf(sourceText))
+  return points
+    .map((point) => point.trim())
+    .filter((point) => {
+      const length = point.split(/\s+/).length
+      return point !== '' && length <= MAX_POINT_WORDS && forbiddenCheck(point).ok && !repeats(point, source)
+    })
+}
+
 const ExpertPoints = z.strictObject({ reviewsThisModel: z.boolean(), pros: z.array(z.string()), cons: z.array(z.string()) })
 
 const VERDICT_WORDS = /\b(?:pros|cons|verdict|bottom line|drawbacks?|downsides?|like|dislike)\b/gi
@@ -31,18 +60,14 @@ ${excerpt(page.text, PROMPT_TEXT_BUDGET, VERDICT_WORDS)}`
   const out = await llm({ prompt, schema: ExpertPoints, provider: 'claude' })
   if (!out.reviewsThisModel) return null
 
-  const allowed = (points: string[]) => points.map((p) => p.trim()).filter((p) => p !== '' && forbiddenCheck(p).ok)
-  const pros = allowed(out.pros)
-  const cons = allowed(out.cons)
+  const pros = publishablePoints(out.pros, page.text)
+  const cons = publishablePoints(out.cons, page.text)
   // The URL is the page fetched, never one the model names.
   return pros.length + cons.length > 0 ? { sourceUrl: page.url, pros, cons } : null
 }
 
 const Point = z.strictObject({ text: z.string(), sources: z.array(z.string()) })
 const Synthesis = z.strictObject({ pros: z.array(Point), cons: z.array(Point) })
-
-/** A point is a short phrase; anything longer risks being a passage copied from a review. */
-const MAX_POINT_CHARS = 200
 
 export async function synthesizeProsCons(
   inputs: { sourceUrl: string; pros: string[]; cons: string[] }[],
@@ -66,10 +91,8 @@ ${sources.join('\n\n')}`
   const known = new Set(usable.map((input) => input.sourceUrl))
   const supported = (points: z.infer<typeof Point>[]) =>
     points.flatMap((point) => {
-      const text = point.text.trim()
       const cited = [...new Set(point.sources)].filter((url) => known.has(url))
-      const ok = text !== '' && text.length <= MAX_POINT_CHARS && cited.length > 0 && forbiddenCheck(text).ok
-      return ok ? [{ text, sources: cited }] : []
+      return cited.length > 0 ? publishablePoints([point.text]).map((text) => ({ text, sources: cited })) : []
     })
   const pros = supported(out.pros)
   const cons = supported(out.cons)
