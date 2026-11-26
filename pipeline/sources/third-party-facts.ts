@@ -11,7 +11,7 @@ import { containsName, modelSlug } from '@/src/lib/data/slug'
 import { Slug, type Sourced } from '@/src/lib/schema/field'
 import type { Model } from '@/src/lib/schema/model'
 import type { CandidateChange, CheckResult } from '@/src/lib/schema/pending'
-import { fetchableUrls, productName } from './reviews'
+import { currentMonth, fetchableUrls, productName } from './reviews'
 
 type Page = Extract<FetchResult, { status: 'ok' }>
 
@@ -33,9 +33,11 @@ function openToPrices(model: Model) {
   return model.variants.filter((v) => v.priceUsd === undefined || v.priceUsd.sourceType === 'third-party')
 }
 
-async function findPages(model: Model, wantPrices: boolean): Promise<Page[]> {
+type Options = { asOf?: string; refresh?: boolean }
+
+async function findPages(model: Model, wantPrices: boolean, { asOf = currentMonth(), refresh }: Options): Promise<Page[]> {
   const product = productName(model)
-  const prompt = `Search the web about the hearing aid "${product}".
+  const prompt = `Search the web about the hearing aid "${product}", as of ${asOf}.
 - priceSources: ${wantPrices ? 'URLs of published hearing aid price studies and of hearing clinic price lists that state what this model costs' : 'an empty list'}.
 - sameHardwareSources: URLs of pages stating that this model is the same hardware as a hearing aid sold under another name or brand.
 At most ${MAX_PAGES_PER_SEARCH} URLs each. Never list pages on Google, Amazon or YouTube. Only list URLs the search actually returned; empty lists are a fine answer.`
@@ -47,7 +49,7 @@ At most ${MAX_PAGES_PER_SEARCH} URLs each. Never list pages on Google, Amazon or
 
   const pages: Page[] = []
   for (const url of urls) {
-    const page = await fetchPage(url)
+    const page = await fetchPage(url, { refresh })
     if (page.status === 'skipped') {
       console.warn(`${model.slug}: ${url} skipped: ${page.reason}${page.detail ? ` (${page.detail})` : ''}`)
     } else if ([model.name, ...model.aliases].some((name) => containsName(page.text, name))) {
@@ -80,16 +82,17 @@ const passes = (checks: CheckResult[]) => checks.every((check) => check.ok)
 /**
  * Searches the web for Rx prices and hardware twins of the model, reads each page found and proposes
  * `spec-change`s, every value `sourceType: 'third-party'` and checked against the page it cites. OTC
- * prices are not searched: they come from the brand's own site.
+ * prices are not searched: they come from the brand's own site. `asOf` (`YYYY-MM`, default this month) is
+ * the month of the search; `refresh` fetches the pages again instead of using cached copies.
  */
-export async function discoverThirdPartyFacts(model: Model): Promise<CandidateChange[]> {
+export async function discoverThirdPartyFacts(model: Model, opts: Options = {}): Promise<CandidateChange[]> {
   const priceable = new Set(openToPrices(model).map((variant) => variant.id))
   const prices = new Map<number, { after: Price; checks: CheckResult[] }>()
   const twins: Twin[] = []
   const twinChecks: CheckResult[] = []
   const known = new Set([model.slug, ...model.sameHardwareAs.map((twin) => twin.slug)])
 
-  for (const page of await findPages(model, priceable.size > 0)) {
+  for (const page of await findPages(model, priceable.size > 0, opts)) {
     const found = await extract(model, page)
     const cited = { sourceUrl: page.url, fetchedAt: page.fetchedAt, sourceType: 'third-party' as const }
 

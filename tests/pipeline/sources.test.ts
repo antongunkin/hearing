@@ -6,7 +6,7 @@ import { fetchPage, isBlocked, type FetchResult } from '@/pipeline/fetch/fetcher
 import { llm } from '@/pipeline/llm'
 import { fetchIosVersion } from '@/pipeline/sources/itunes'
 import { fetchFdaEvents } from '@/pipeline/sources/openfda'
-import { synthesizeProsCons } from '@/pipeline/sources/pros-cons'
+import { extractExpertProsCons, synthesizeProsCons } from '@/pipeline/sources/pros-cons'
 import { complaintThemes, discoverReviewSources, extractRetailReviews } from '@/pipeline/sources/reviews'
 import { discoverThirdPartyFacts } from '@/pipeline/sources/third-party-facts'
 import { analyzeVideo, searchVideos, YouTubeError } from '@/pipeline/sources/youtube'
@@ -199,6 +199,20 @@ describe('reviews', () => {
     expect(llmMock.mock.calls[0][0]).toMatchObject({ provider: 'claude', tools: ['WebSearch'] })
   })
 
+  test('the search prompt names the month, so that a cached answer lasts one month', async () => {
+    vi.useFakeTimers({ now: new Date('2027-02-03T12:00:00Z') })
+    replies({ expert: [], retail: [] }, { expert: [], retail: [] })
+
+    await discoverReviewSources(model('phonak', 'Audeo Sphere'))
+    await discoverReviewSources(model('phonak', 'Audeo Sphere'), { asOf: '2027-03' })
+    vi.useRealTimers()
+
+    const [now, later] = llmMock.mock.calls.map(([options]) => options.prompt)
+    expect(now).toContain('2027-02')
+    expect(later).toContain('2027-03')
+    expect(later).not.toContain('2027-02')
+  })
+
   test('the fetcher refuses Google and Amazon under every country domain', () => {
     const blocked = (url: string) => isBlocked(new URL(url), [])
     expect(['https://google.com', 'https://play.google.com', 'https://google.de', 'https://www.amazon.co.uk', 'https://amazon.com.au./x'].map(blocked)).toEqual(
@@ -232,6 +246,45 @@ describe('reviews', () => {
     replies(reply)
 
     expect(await extractRetailReviews(okPage(RETAIL_URL, await fixture('reviews/retail.txt')))).toBeNull()
+  })
+
+  const ldPage = async (...blocks: unknown[]): Promise<Ok> => ({
+    ...okPage(RETAIL_URL, await fixture('reviews/retail.txt')),
+    html: blocks
+      .map((block) => `<script type="application/ld+json">${typeof block === 'string' ? block : JSON.stringify(block)}</script>`)
+      .join(''),
+  })
+  const aggregate = (fields: Record<string, unknown>) => ({ '@type': 'AggregateRating', ...fields })
+  const product = (fields: Record<string, unknown>) => ({ '@type': 'Product', aggregateRating: aggregate(fields) })
+  const textsOnly = { reviews: ['Whistles when I hug someone.', 'From the JSON-LD only.'] }
+
+  test('extractRetailReviews takes rating and count from JSON-LD, texts from visible text', async () => {
+    replies(textsOnly)
+    const page = await ldPage(
+      '{ not json',
+      { '@graph': [{ '@type': 'Organization', aggregateRating: aggregate({ ratingValue: 4.9, reviewCount: 90000 }) }] },
+      product({ ratingValue: '4.6', ratingCount: '2,310', bestRating: '5' }),
+    )
+
+    expect(await extractRetailReviews(page)).toEqual({ rating: 4.6, count: 2310, texts: ['Whistles when I hug someone.'] })
+  })
+
+  test('reviewCount is preferred to ratingCount, and the same rating twice is one rating', async () => {
+    replies(textsOnly)
+    const block = product({ ratingValue: 4.6, reviewCount: 812, ratingCount: 2310 })
+
+    expect(await extractRetailReviews(await ldPage(block, block))).toMatchObject({ rating: 4.6, count: 812 })
+  })
+
+  test.each([
+    ['two different ratings', [product({ ratingValue: 4.6, reviewCount: 10 }), product({ ratingValue: 3.1, reviewCount: 7 })]],
+    ['a 10-point scale', [product({ ratingValue: 4.6, reviewCount: 10, bestRating: 10 })]],
+    ['no count', [product({ ratingValue: 4.6 })]],
+    ['a store rating only', [{ '@type': 'Store', aggregateRating: aggregate({ ratingValue: 4.6, reviewCount: 10 }) }]],
+  ])('extractRetailReviews falls back to the visible text for JSON-LD with %s', async (_, blocks) => {
+    replies(retailReply)
+
+    expect(await extractRetailReviews(await ldPage(...blocks))).toMatchObject({ rating: 4.3, count: 1248 })
   })
 
   test('complaintThemes computes share in code and drops n<3', async () => {
@@ -303,6 +356,50 @@ describe('synthesizeProsCons', () => {
 
     replies({ pros: [{ text: 'Light', sources: [] }], cons: [] })
     expect(await synthesizeProsCons(inputs)).toBeNull()
+  })
+})
+
+describe('extractExpertProsCons', () => {
+  const sphere = model('phonak', 'Audeo Sphere')
+  const URL_ = 'https://reviews.example/sphere'
+  const page = okPage(URL_, 'Phonak Audeo Sphere review. Speech is clear in noise. The case is bulky.')
+
+  test('lists what the review says, cites the fetched page and drops first-hand phrasing', async () => {
+    replies({
+      reviewsThisModel: true,
+      pros: ['Clear speech in noise', 'We tested it and it is great', '  '],
+      cons: ['Bulky case'],
+    })
+
+    expect(await extractExpertProsCons(page, sphere)).toEqual({
+      sourceUrl: URL_,
+      pros: ['Clear speech in noise'],
+      cons: ['Bulky case'],
+    })
+    const [{ provider, prompt, tools }] = llmMock.mock.calls[0]
+    expect({ provider, tools }).toEqual({ provider: 'claude', tools: undefined })
+    expect(prompt).toContain('phonak Audeo Sphere')
+    expect(prompt).toContain(page.text)
+  })
+
+  test.each([
+    ['a page that is not a review of the model', { reviewsThisModel: false, pros: ['Clear'], cons: [] }],
+    ['nothing left to list', { reviewsThisModel: true, pros: ['Hands-on it feels great'], cons: [] }],
+  ])('null for %s', async (_, reply) => {
+    replies(reply)
+
+    expect(await extractExpertProsCons(page, sphere)).toBeNull()
+  })
+
+  test('a long page is cut to the prompt budget, keeping the verdict', async () => {
+    replies({ reviewsThisModel: true, pros: ['Light'], cons: [] })
+    const long = okPage(URL_, `${'filler '.repeat(20_000)}Pros and cons: light. Drawbacks: none. Verdict: good.`)
+
+    await extractExpertProsCons(long, sphere)
+
+    const [{ prompt }] = llmMock.mock.calls[0]
+    expect(prompt.length).toBeLessThan(50_000)
+    expect(prompt).toContain('Verdict: good.')
   })
 })
 
@@ -438,6 +535,21 @@ describe('discoverThirdPartyFacts', () => {
     }
     const priced = model('phonak', 'Audeo Sphere', { type: 'rx', variants: [{ ...level('i90'), priceUsd: official }] })
     expect(await discoverThirdPartyFacts(priced)).toEqual([])
+  })
+
+  test('the search names the month, and refresh reaches every page fetch', async () => {
+    await serve()
+    replies(search, { prices: [], sameHardware: [] })
+
+    await discoverThirdPartyFacts(rx, { asOf: '2027-03', refresh: true })
+
+    expect(llmMock.mock.calls[0][0].prompt).toContain('2027-03')
+    expect(fetchMock.mock.calls).toEqual([[PRICE_URL, { refresh: true }]])
+
+    replies(search, { prices: [], sameHardware: [] })
+    await discoverThirdPartyFacts(rx)
+    expect(llmMock.mock.calls[2][0].prompt).toContain(new Date().toISOString().slice(0, 7))
+    expect(fetchMock.mock.calls[1]).toEqual([PRICE_URL, { refresh: undefined }])
   })
 
   test('a skipped page, or one that does not name the model, gives nothing', async () => {

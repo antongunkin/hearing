@@ -21,6 +21,18 @@ export function visibleText(html: string): string {
     .trim()
 }
 
+/** The parsed JSON-LD blocks of the page; a block that is not valid JSON is left out. */
+export function jsonLd(html: string): unknown[] {
+  const { document } = new JSDOM(html, { virtualConsole: new VirtualConsole() }).window
+  return [...document.querySelectorAll('script[type="application/ld+json"]')].flatMap((script): unknown[] => {
+    try {
+      return [JSON.parse(script.textContent ?? '')]
+    } catch {
+      return []
+    }
+  })
+}
+
 /** Absolute http(s) targets of the page's links, without fragments, in document order, each once. */
 export function linksIn(html: string, baseUrl: string): string[] {
   const { document } = new JSDOM(html, { virtualConsole: new VirtualConsole() }).window
