@@ -98,6 +98,23 @@ describe('literalCheck', () => {
     expect(literalCheck(derived({ value: 1.98, quote: 'only 0.07 oz', input: '0.08 oz' }), 'only 0.07 oz').ok).toBe(false)
   })
 
+  test('derivation input must be a whole measurement of the quote, not part of a longer number or word', () => {
+    const check = (quote: string, input: string) => literalCheck(derived({ value: 0, quote, input }), quote)
+    // Parts of a measurement: the tail of a decimal, a thousands group, a number inside a word or a longer unit.
+    expect(check('Weight: 2.1 g', '1 g')).toEqual({ name: 'literal', ok: false, detail: 'quote lacks derivation input "1 g" as a whole measurement' })
+    expect(check('Weight: 12 g', '2 g').ok).toBe(false)
+    expect(check('Weight: 1,250 mg', '250 mg').ok).toBe(false)
+    expect(check('Weight: 2.15 g', '2.1').ok).toBe(false)
+    expect(check('Weight: 2.1 grams', '2.1 g').ok).toBe(false)
+    expect(check('Model X2 g', '2 g').ok).toBe(false)
+    // Whole measurements, wherever they stand in the quote.
+    expect(check('Weight: 2.1 g', '2.1 g').ok).toBe(true)
+    expect(check('2.1 g per pair', '2.1 g').ok).toBe(true)
+    expect(check('Size (in): 1.1 x 0.3 x 0.5 in.', '1.1 x 0.3 x 0.5 in').ok).toBe(true)
+    expect(check('a 1 g pair, then 21 g', '1 g').ok).toBe(true)
+    expect(check('Weight 2.1 g, 3 g with dome', '3 g').ok).toBe(true)
+  })
+
   describe('unit verification', () => {
     test('rejects a unit that differs from the quote ("2.1 oz" for g)', () => {
       const result = literalCheck(field({ value: 2.1, unit: 'g', quote: '2.1 oz' }), '2.1 oz')

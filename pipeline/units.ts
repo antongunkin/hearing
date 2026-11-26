@@ -35,7 +35,7 @@ const UNIT_AFTER_NUMBER = new Map<string, RegExp>(
   ]),
 )
 
-function escapeRegExp(text: string): string {
+export function escapeRegExp(text: string): string {
   return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 }
 

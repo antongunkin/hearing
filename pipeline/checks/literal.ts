@@ -1,6 +1,6 @@
 import type { CheckResult } from '@/src/lib/schema/pending'
 import type { Sourced } from '@/src/lib/schema/field'
-import { canonicalUnit, findNumbers, unitFollows } from '@/pipeline/units'
+import { canonicalUnit, escapeRegExp, findNumbers, unitFollows } from '@/pipeline/units'
 
 const ISO_DATE = /^(\d{4})-(0[1-9]|1[0-2])(?:-(0[1-9]|[12]\d|3[01]))?$/
 
@@ -70,6 +70,15 @@ function isQuoted(leaf: unknown, quote: string, numbers: { value: number }[]): b
   return true
 }
 
+/**
+ * True when `part` stands in `text` as a whole: not glued to a letter or digit, and not the tail or head
+ * of a longer number ("1 g" is not in "2.1 g", "250 mg" is not in "1,250 mg", "2.1 g" is not in "2.1 grams").
+ * Both are expected normalized.
+ */
+function containsWhole(text: string, part: string): boolean {
+  return new RegExp(String.raw`(?<![a-z0-9])(?<!\d[.,])${escapeRegExp(part)}(?![a-z0-9])(?![.,]\d)`).test(text)
+}
+
 /** Verifies that a sourced value is literally supported by the page text it cites. */
 export function literalCheck(field: Sourced<unknown>, sourceText: string): CheckResult {
   const quote = normalize(field.quote)
@@ -79,8 +88,12 @@ export function literalCheck(field: Sourced<unknown>, sourceText: string): Check
 
   if (field.sourceType === 'derived') {
     const input = field.derivation ? normalize(field.derivation.input) : ''
-    if (input === '' || !quote.includes(input)) {
-      return { name: 'literal', ok: false, detail: `quote lacks derivation input "${field.derivation?.input ?? ''}"` }
+    if (input === '' || !containsWhole(quote, input)) {
+      return {
+        name: 'literal',
+        ok: false,
+        detail: `quote lacks derivation input "${field.derivation?.input ?? ''}" as a whole measurement`,
+      }
     }
     return { name: 'literal', ok: true }
   }

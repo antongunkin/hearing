@@ -219,6 +219,12 @@ describe('extractModel', () => {
       { name: 'range', ok: true },
     ])
 
+    // A piece of the quoted number ("2 g" out of "6.2 g") is computed but fails the literal check, so it goes to review.
+    const { fieldChecks: partial } = await extractFixture(
+      withVariant({ weightG: { ...pair, derivation: { op: 'pair-to-unit', input: '2 g' } } }),
+    )
+    expect(partial['variants.0.weightG'][0]).toMatchObject({ name: 'literal', ok: false })
+
     for (const input of ['6.2 mm', 'a pair']) {
       const { model: rejected } = await extractFixture(withVariant({ weightG: { ...pair, derivation: { op: 'pair-to-unit', input } } }))
       expect(rejected.variants[0].weightG).toBeUndefined()
