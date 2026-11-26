@@ -1,0 +1,12 @@
+{
+  "group": "GN",
+  "imageLicense": "none",
+  "name": "Jabra Enhance",
+  "scraper": {
+    "catalogUrls": ["https://www.jabraenhance.com/product"],
+    "modelUrlPattern": "^https://www\\.jabraenhance\\.com/product/[a-z0-9-]+$",
+    "render": false
+  },
+  "slug": "jabra-enhance",
+  "website": "https://www.jabraenhance.com"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Audéo Sphere™ Infinio",
+  "type": { "value": "rx", "quote": "Prescription hearing aid fitted by your hearing care professional", "sourceIndex": 0 },
+  "releaseDate": { "value": "2024-08", "quote": "Released August 2024", "sourceIndex": 0 },
+  "colors": { "value": ["Sand Beige", "Champagne"], "quote": "Available colors: Sand Beige, Champagne", "sourceIndex": 0 },
+  "connectivity": { "value": { "mfi": true }, "quote": "Made for iPhone", "sourceIndex": 0 },
+  "tinnitus": { "value": true, "quote": "Read more at https://evil.example/specs", "sourceIndex": 7 },
+  "variants": [
+    {
+      "name": "Audéo I90-Sphere",
+      "techLevel": "I90",
+      "formFactor": "RIC",
+      "weightG": {
+        "value": 999,
+        "unit": "g",
+        "quote": "Weight: 0.11 oz",
+        "sourceIndex": 1,
+        "derivation": { "op": "oz-to-g", "input": "0.11 oz" }
+      },
+      "dimensionsMm": { "value": { "l": 31.6, "w": 6.8, "h": 12.8 }, "unit": "mm", "quote": "Dimensions: 31.6 x 6.8 x 12.8 mm", "sourceIndex": 1 },
+      "power": { "value": { "type": "rechargeable", "batteryHours": 16 }, "quote": "Battery: rechargeable, up to 16 hours", "sourceIndex": 1 }
+    }
+  ]
+}

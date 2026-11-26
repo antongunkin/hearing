@@ -10,7 +10,8 @@ export function normalizeName(name: string): string {
     .trim()
 }
 
-function slugify(text: string): string {
+/** Lowercase ASCII words joined by hyphens; empty when the text has no letters or digits. */
+export function slugify(text: string): string {
   return normalizeName(text)
     .replace(/\+/g, ' plus ') // "Pure+" must not overwrite "Pure"
     .replace(/[^a-z0-9]+/g, '-')

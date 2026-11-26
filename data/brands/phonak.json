@@ -1,0 +1,16 @@
+{
+  "group": "Sonova",
+  "imageLicense": "none",
+  "name": "Phonak",
+  "scraper": {
+    "catalogUrls": [
+      "https://www.phonak.com/en-us/hearing-devices/hearing-aids",
+      "https://www.phonak.com/en-us/support/datasheets"
+    ],
+    "datasheetUrlPattern": "^https://www\\.phonak\\.com/content/dam/celum/phonak/.*[Dd]atasheet.*\\.pdf$",
+    "modelUrlPattern": "^https://www\\.phonak\\.com/en-us/hearing-devices/hearing-aids/(?!product-comparison$)[a-z0-9-]+$",
+    "render": false
+  },
+  "slug": "phonak",
+  "website": "https://www.phonak.com/en-us"
+}

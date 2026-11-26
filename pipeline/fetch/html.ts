@@ -20,3 +20,16 @@ export function visibleText(html: string): string {
     .replace(/ ?\n[ \n]*/g, '\n')
     .trim()
 }
+
+/** Absolute http(s) targets of the page's links, without fragments, in document order, each once. */
+export function linksIn(html: string, baseUrl: string): string[] {
+  const { document } = new JSDOM(html, { virtualConsole: new VirtualConsole() }).window
+  const links = new Set<string>()
+  for (const anchor of document.querySelectorAll('a[href]')) {
+    const url = URL.parse(anchor.getAttribute('href') ?? '', baseUrl)
+    if (!url || !/^https?:$/.test(url.protocol)) continue
+    url.hash = ''
+    links.add(url.href)
+  }
+  return [...links]
+}
