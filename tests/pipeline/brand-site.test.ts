@@ -104,6 +104,17 @@ describe('discoverModelUrls', () => {
     // the annex names no model. The brochure does not match the document pattern at all.
     expect(warn).toHaveBeenCalledWith('phonak: 3 documents match no model page')
   })
+
+  test('a skipped catalog is reported to onSkip instead of the log', async () => {
+    fetchMock.mockImplementation(async (url) => ({ status: 'skipped', url, reason: 'bot-protection', detail: 'HTTP 403' }))
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    const onSkip = vi.fn()
+
+    expect(await discoverModelUrls(brand, { onSkip })).toEqual([])
+
+    expect(onSkip.mock.calls).toEqual(brand.scraper.catalogUrls.map((url) => [url, 'bot-protection', 'HTTP 403']))
+    expect(warn).not.toHaveBeenCalled()
+  })
 })
 
 describe('extractModel', () => {

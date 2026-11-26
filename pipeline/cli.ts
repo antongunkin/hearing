@@ -39,6 +39,8 @@ type Run = {
   limit: number
   refresh: boolean
   asOf: string
+  /** The filters of the run (`--brand`, `--limit`): work done under other filters is not this run's. */
+  scope: string
   progress: Progress
   tally: { auto: number; pending: number; dropped: number; skipped: number; failed: number }
 }
@@ -58,10 +60,17 @@ async function guard(run: Run, label: string, work: () => Promise<void>, passes 
   }
 }
 
-/** A unit of work done once per run: skipped on resume when the stopped run finished it. */
+/** A unit of work done once per run: skipped on resume when the stopped run, with the same filters, finished it. */
 async function unit(run: Run, key: string, work: () => Promise<void>, passes?: (error: unknown) => boolean): Promise<void> {
-  if (run.progress.has(key)) return
-  if (await guard(run, key, work, passes)) await run.progress.done(key)
+  const scoped = `${run.scope} ${key}`
+  if (run.progress.has(scoped)) return
+  if (await guard(run, key, work, passes)) await run.progress.done(scoped)
+}
+
+/** Counts and logs a source that gave nothing. */
+function skippedSource(run: Run, url: string, reason: string, detail?: string): void {
+  run.tally.skipped++
+  console.warn(`${url} skipped: ${reason}${detail ? ` (${detail})` : ''}`)
 }
 
 /** Drops, applies or queues one change. Risky fields are read again only for a change that is kept. */
@@ -84,8 +93,7 @@ async function handle(run: Run, change: CandidateChange): Promise<void> {
 async function page(run: Run, url: string, opts: { render?: boolean; refresh?: boolean }): Promise<Page | null> {
   const result = await fetchPage(url, opts)
   if (result.status === 'ok') return result
-  run.tally.skipped++
-  console.warn(`${url} skipped: ${result.reason}${result.detail ? ` (${result.detail})` : ''}`)
+  skippedSource(run, url, result.reason, result.detail)
   return null
 }
 
@@ -112,7 +120,8 @@ async function scrape(run: Run): Promise<void> {
   for (const brand of run.brands) {
     let groups: Awaited<ReturnType<typeof discoverModelUrls>> = []
     await guard(run, `${brand.slug} catalog`, async () => {
-      groups = (await discoverModelUrls(brand, { refresh: run.refresh })).slice(0, run.limit)
+      const onSkip = (url: string, reason: string, detail?: string) => skippedSource(run, url, reason, detail)
+      groups = (await discoverModelUrls(brand, { refresh: run.refresh, onSkip })).slice(0, run.limit)
     })
     for (const { modelUrl, documentUrls } of groups) {
       await unit(run, `scrape:${brand.slug}:${modelUrl}`, async () => {
@@ -320,6 +329,7 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
     limit,
     refresh: values.refresh,
     asOf: currentMonth(),
+    scope: `brand=${values.brand ?? '*'} limit=${values.limit ?? '*'}`,
     progress: await Progress.open(progressFile, values.resume),
     tally: { auto: 0, pending: 0, dropped: 0, skipped: 0, failed: 0 },
   }
@@ -334,6 +344,8 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
     if (!(error instanceof LlmLimitError)) throw error
     summary()
     console.error(LIMIT_MESSAGE)
+    const filters = [values.brand && `--brand ${values.brand}`, values.limit && `--limit ${values.limit}`].filter(Boolean)
+    if (filters.length > 0) console.error(`Resume with the same filters: ${filters.join(' ')}`)
     return 2
   }
   await run.progress.clear()

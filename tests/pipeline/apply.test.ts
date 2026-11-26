@@ -123,6 +123,35 @@ describe('diffModel', () => {
       change({}),
     ])
   })
+  test('type, form factor and tech level changes and removed variants are spec changes', () => {
+    const typeChecks = [{ name: 'literal' as const, ok: true }]
+    const stored = model({
+      variants: [
+        { id: 'select-500', formFactor: 'RIC', techLevel: 'Premium', priceUsd: price(1195, OLD) },
+        { id: 'select-500-bte', formFactor: 'BTE' },
+      ],
+    })
+    const candidate = model({
+      type: 'rx',
+      variants: [{ id: 'select-500', formFactor: 'BTE', techLevel: 'Advanced', priceUsd: price(1195) }],
+    })
+
+    const changes = diffModel(stored, { model: candidate, fieldChecks: { type: typeChecks } })
+
+    const base = { kind: 'spec-change', modelSlug: 'jabra-enhance-select-500' }
+    expect(changes).toEqual([
+      { ...base, path: 'type', before: 'otc', after: 'rx', checks: { type: typeChecks } },
+      { ...base, path: 'variants.0.formFactor', before: 'RIC', after: 'BTE', checks: { 'variants.0.formFactor': [] } },
+      { ...base, path: 'variants.0.techLevel', before: 'Premium', after: 'Advanced', checks: { 'variants.0.techLevel': [] } },
+      // null: the variant is no longer listed. Only a person removes it.
+      { ...base, path: 'variants.1', before: stored.variants[1], after: null, checks: { 'variants.1': [] } },
+    ])
+    for (const c of changes) expect(route(c, [])).toBe('pending')
+
+    // A tech level the candidate leaves out is kept, as any other field.
+    const quiet = model({ variants: [{ id: 'select-500', formFactor: 'RIC', priceUsd: price(1195) }, stored.variants[1]] })
+    expect(diffModel(stored, { model: quiet, fieldChecks: {} })).toEqual([])
+  })
 })
 
 describe('route', () => {

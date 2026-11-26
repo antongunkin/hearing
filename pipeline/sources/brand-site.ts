@@ -72,9 +72,13 @@ function linkDocuments(brand: Brand, modelUrls: string[], documentUrls: string[]
 /**
  * Model pages linked from the brand's catalog pages, each once, with the linked documents that match
  * `datasheetUrlPattern` given to the model page they name. A catalog page that is skipped (robots, bot
- * protection, …) is reported and gives no links; so is the number of documents that name no model page.
+ * protection, …) gives no links and is reported to `onSkip`, or logged without one; the number of
+ * documents that name no model page is logged.
  */
-export async function discoverModelUrls(brand: Brand, opts: { refresh?: boolean } = {}): Promise<ModelSources[]> {
+export async function discoverModelUrls(
+  brand: Brand,
+  opts: { refresh?: boolean; onSkip?: (url: string, reason: string, detail?: string) => void } = {},
+): Promise<ModelSources[]> {
   const { catalogUrls, modelUrlPattern, datasheetUrlPattern, render } = brand.scraper
   const isModel = new RegExp(modelUrlPattern)
   const isDatasheet = datasheetUrlPattern === undefined ? undefined : new RegExp(datasheetUrlPattern)
@@ -85,7 +89,8 @@ export async function discoverModelUrls(brand: Brand, opts: { refresh?: boolean 
     // `refresh` skips the cached catalog, so that a re-run sees models listed since.
     const page = await fetchPage(url, { render, refresh: opts.refresh })
     if (page.status === 'skipped') {
-      console.warn(`${brand.slug}: catalog ${url} skipped: ${page.reason}${page.detail ? ` (${page.detail})` : ''}`)
+      if (opts.onSkip) opts.onSkip(url, page.reason, page.detail)
+      else console.warn(`${brand.slug}: catalog ${url} skipped: ${page.reason}${page.detail ? ` (${page.detail})` : ''}`)
       continue
     }
     if (page.html === undefined) continue

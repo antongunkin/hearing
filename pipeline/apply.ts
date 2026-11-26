@@ -53,50 +53,59 @@ export function fingerprint(c: { modelSlug: string | null; path: string; after: 
 /**
  * The changes from the stored model to a freshly extracted one. A new model is one `new-model` change
  * (path `''`). Otherwise there is one change per sourced value whose value differs (an official price is
- * a `price`, anything else a `spec-change`); variants are matched by id, and a new variant is one change
- * appended to the list. A value the candidate lacks is kept: the source may have left it out this time.
+ * a `price`, anything else a `spec-change`), and a `spec-change` for a new `type`, `formFactor` or
+ * `techLevel`. Variants are matched by id: a new variant is one change appended to the list, and a stored
+ * variant the candidate no longer lists is one change with `after: null` (removal, by a person only).
+ * A value the candidate lacks is kept: the source may have left it out this time.
  */
 export function diffModel(existing: Model | null, cand: ModelCandidate): CandidateChange[] {
   if (existing === null) {
     return [{ kind: 'new-model', modelSlug: cand.model.slug, path: '', after: cand.model, checks: cand.fieldChecks }]
   }
   const changes: CandidateChange[] = []
+  const push = (kind: CandidateChange['kind'], path: string, before: unknown, after: unknown, checks: Record<string, CheckResult[]>) =>
+    changes.push({ kind, modelSlug: existing.slug, path, ...(before !== undefined && { before }), after, checks })
+
   const stored = new Map(sourcedLeaves(existing))
-  const propose = (path: string, after: unknown, checks: Record<string, CheckResult[]>) => {
+  /** A sourced value, when its value differs from the stored one. */
+  const proposeSourced = (path: string, after: Sourced<unknown>, checks: Record<string, CheckResult[]>) => {
     const before = stored.get(path)
-    if (before !== undefined && sameValue(before.value, (after as Sourced<unknown>).value)) return
-    const official = isSourced(after) && after.sourceType === 'official'
-    changes.push({
-      kind: official && path.endsWith('.priceUsd') ? 'price' : 'spec-change',
-      modelSlug: existing.slug,
-      path,
-      ...(before !== undefined && { before }),
-      after,
-      checks,
-    })
+    if (before !== undefined && sameValue(before.value, after.value)) return
+    const price = after.sourceType === 'official' && path.endsWith('.priceUsd')
+    push(price ? 'price' : 'spec-change', path, before, after, checks)
+  }
+  /** A plain field the candidate states, when it differs from the stored one. */
+  const proposePlain = (path: string, before: unknown, after: unknown) => {
+    if (after !== undefined && !sameValue(before, after)) push('spec-change', path, before, after, { [path]: cand.fieldChecks[path] ?? [] })
   }
 
   const { variants, ...fields } = cand.model
-  for (const [path, after] of sourcedLeaves(fields)) propose(path, after, { [path]: cand.fieldChecks[path] ?? [] })
+  proposePlain('type', existing.type, cand.model.type)
+  for (const [path, after] of sourcedLeaves(fields)) proposeSourced(path, after, { [path]: cand.fieldChecks[path] ?? [] })
 
   let appended = existing.variants.length
   variants.forEach((variant, i) => {
     const j = existing.variants.findIndex((v) => v.id === variant.id)
     const target = `variants.${j === -1 ? appended++ : j}`
-    // The candidate's checks, under the path the change will be stored at.
-    const checksUnder = (prefix: string) =>
-      Object.fromEntries(
-        Object.entries(cand.fieldChecks)
-          .filter(([path]) => path === prefix || path.startsWith(`${prefix}.`))
-          .map(([path, checks]) => [target + path.slice(`variants.${i}`.length), checks]),
-      )
     if (j === -1) {
-      propose(target, variant, checksUnder(`variants.${i}`))
+      // The candidate's checks, under the path the variant will be stored at.
+      const checks = Object.fromEntries(
+        Object.entries(cand.fieldChecks)
+          .filter(([path]) => path === `variants.${i}` || path.startsWith(`variants.${i}.`))
+          .map(([path, results]) => [target + path.slice(`variants.${i}`.length), results]),
+      )
+      push('spec-change', target, undefined, variant, checks)
       return
     }
+    proposePlain(`${target}.formFactor`, existing.variants[j].formFactor, variant.formFactor)
+    proposePlain(`${target}.techLevel`, existing.variants[j].techLevel, variant.techLevel)
     for (const [path, after] of sourcedLeaves(variant)) {
-      propose(`${target}.${path}`, after, { [`${target}.${path}`]: cand.fieldChecks[`variants.${i}.${path}`] ?? [] })
+      proposeSourced(`${target}.${path}`, after, { [`${target}.${path}`]: cand.fieldChecks[`variants.${i}.${path}`] ?? [] })
     }
+  })
+
+  existing.variants.forEach((variant, j) => {
+    if (!variants.some((v) => v.id === variant.id)) push('spec-change', `variants.${j}`, variant, null, { [`variants.${j}`]: [] })
   })
   return changes
 }

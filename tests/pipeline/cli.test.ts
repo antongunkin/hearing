@@ -144,16 +144,17 @@ test('LlmLimitError mid-run: exit 2, progress saved, no *.tmp, resume skips done
   expect(await main(['update', '--brand', 'jabra-enhance'], opts)).toBe(2)
 
   expect(log).toContain('Claude usage limit reached. Resume later: npm run update -- --resume')
+  expect(log).toContain('Resume with the same filters: --brand jabra-enhance')
   expect(await filesUnder(dataDir)).toEqual(
     expect.arrayContaining(['pending/jabra-enhance-select-100-model.json']),
   )
-  expect(JSON.parse(await readFile(progressFile, 'utf8'))).toEqual({ done: [`scrape:jabra-enhance:${BASE}/select-100`] })
+  expect(JSON.parse(await readFile(progressFile, 'utf8'))).toEqual({ done: [`brand=jabra-enhance limit=* scrape:jabra-enhance:${BASE}/select-100`] })
   expect([...(await filesUnder(dataDir)), ...(await filesUnder(join(dir, 'cache')))].filter((f) => f.endsWith('.tmp'))).toEqual([])
   expect(fetchFdaEvents).not.toHaveBeenCalled() // the run stopped
 
   vi.mocked(extractModel).mockReset()
   vi.mocked(extractModel).mockResolvedValueOnce(candidate('Select 200')).mockResolvedValueOnce(candidate('Select 300'))
-  expect(await main(['update', '--resume'], opts)).toBe(0)
+  expect(await main(['update', '--resume', '--brand', 'jabra-enhance'], opts)).toBe(0)
 
   // Model pages fetched on resume: the two not done.
   expect(vi.mocked(extractModel).mock.calls.map(([, pages]) => pages.map((page) => page.url))).toEqual([
@@ -173,7 +174,10 @@ test('LlmLimitError mid-run: exit 2, progress saved, no *.tmp, resume skips done
 test('per-step failures are counted and the run goes on; youtube without a key is skipped', async () => {
   const stored = model('Select 300', { app: { name: 'Jabra Enhance', iosId: '123' } })
   await writeJson(join(dataDir, 'models', `${stored.slug}.json`), stored)
-  vi.mocked(discoverModelUrls).mockResolvedValue([])
+  vi.mocked(discoverModelUrls).mockImplementation(async (_brand, opts) => {
+    opts?.onSkip?.(BASE, 'robots', 'disallowed')
+    return []
+  })
   vi.mocked(fetchFdaEvents).mockRejectedValue(new Error('openFDA 510k skipped: http-error (HTTP 500)'))
   vi.mocked(fetchIosVersion).mockResolvedValue(null)
   const shop = 'https://shop.example/select-300'
@@ -187,13 +191,14 @@ test('per-step failures are counted and the run goes on; youtube without a key i
 
   expect(await main(['update', '--refresh'], opts)).toBe(0)
 
-  expect(vi.mocked(discoverModelUrls).mock.calls[0][1]).toEqual({ refresh: true })
+  expect(vi.mocked(discoverModelUrls).mock.calls[0][1]).toMatchObject({ refresh: true })
   expect(vi.mocked(discoverThirdPartyFacts).mock.calls[0][1]).toEqual({ asOf: expect.stringMatching(/^\d{4}-\d{2}$/), refresh: true })
   const reviews = Reviews.parse(JSON.parse(await readFile(join(dataDir, 'reviews', `${stored.slug}.json`), 'utf8')))
   expect(reviews.customer).toEqual([{ sourceUrl: shop, rating: 4.2, count: 87, fetchedAt: FETCHED_AT }])
   expect(log.some((line) => line.includes('youtube skipped') && line.includes('YOUTUBE_API_KEY'))).toBe(true)
-  // Skipped: the iTunes lookup, one shop page and the youtube step. Failed: FDA and complaint themes.
-  expect(log.at(-1)).toBe('Summary: auto 1, pending 0, dropped 0, skipped sources 3, failed 2')
+  expect(log).toContain(`${BASE} skipped: robots (disallowed)`)
+  // Skipped: the catalog, the iTunes lookup, one shop page and the youtube step. Failed: FDA and complaint themes.
+  expect(log.at(-1)).toBe('Summary: auto 1, pending 0, dropped 0, skipped sources 4, failed 2')
 })
 
 test('subcommand runs only its step; --limit caps models per brand', async () => {
@@ -236,4 +241,18 @@ test('youtube: videos that review the model and the pros and cons they give go t
   expect(await read('reviews-videos')).toMatchObject({ kind: 'pros-cons', path: 'reviews.videos', after: [videos[0]] })
   expect(await read('reviews-proscons')).toMatchObject({ kind: 'pros-cons', path: 'reviews.prosCons', after: prosCons })
   expect(log.at(-1)).toBe('Summary: auto 0, pending 2, dropped 0, skipped sources 0, failed 0')
+})
+
+test('--resume with other --brand or --limit does not skip work done under the old filters', async () => {
+  const groups = ['select-100', 'select-200'].map((slug) => ({ modelUrl: `${BASE}/${slug}`, documentUrls: [] }))
+  vi.mocked(discoverModelUrls).mockResolvedValue(groups)
+  vi.mocked(extractModel).mockResolvedValueOnce(candidate('Select 100')).mockRejectedValueOnce(new LlmLimitError('usage limit'))
+  expect(await main(['update', '--brand', 'jabra-enhance', '--limit', '2'], opts)).toBe(2)
+
+  vi.mocked(extractModel).mockReset()
+  vi.mocked(extractModel).mockResolvedValue(candidate('Select 100'))
+  expect(await main(['update', '--resume', '--limit', '1'], opts)).toBe(0)
+
+  // Select 100 was done for "jabra-enhance, 2 models", not for "all brands, 1 model": done again.
+  expect(vi.mocked(extractModel).mock.calls.map(([, pages]) => pages[0].url)).toEqual([`${BASE}/select-100`])
 })
