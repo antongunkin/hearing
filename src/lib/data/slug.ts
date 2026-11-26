@@ -10,6 +10,13 @@ export function normalizeName(name: string): string {
     .trim()
 }
 
+/** Whether `name` stands in `text` as whole words, both in comparison form. False for an empty name. */
+export function containsName(text: string, name: string): boolean {
+  const words = (value: string) => normalizeName(value).split(/[^a-z0-9+]+/).filter(Boolean).join(' ')
+  const needle = words(name)
+  return needle !== '' && ` ${words(text)} `.includes(` ${needle} `)
+}
+
 /** Lowercase ASCII words joined by hyphens; empty when the text has no letters or digits. */
 export function slugify(text: string): string {
   return normalizeName(text)

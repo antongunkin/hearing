@@ -1,0 +1,8 @@
+{
+  "items": [
+    { "id": { "kind": "youtube#video", "videoId": "aaaaaaaaaaa" }, "snippet": { "title": "Audeo Sphere review", "channelTitle": "Channel A" } },
+    { "id": { "kind": "youtube#video", "videoId": "bbbbbbbbbbb" }, "snippet": { "title": "Sphere &amp; Lumity: what&#39;s new", "channelTitle": "Channel B" } },
+    { "id": { "kind": "youtube#video", "videoId": "ccccccccccc" }, "snippet": { "title": "Unboxing", "channelTitle": "Channel C" } },
+    { "id": { "kind": "youtube#video", "videoId": "ddddddddddd" }, "snippet": { "title": "One month later", "channelTitle": "Channel D" } }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "meta": { "results": { "skip": 0, "limit": 1000, "total": 3 } },
+  "results": [
+    {
+      "k_number": "K254108",
+      "applicant": "GN Hearing A/S",
+      "device_name": "Jabra Enhance Select Self-fit (Jabra Enhance Select 550)",
+      "decision_date": "2026-06-25",
+      "product_code": "QUH",
+      "decision_code": "SESE"
+    },
+    {
+      "k_number": "K261187",
+      "applicant": "Samsung Electronics Co., Ltd.",
+      "device_name": "Hearing Aid Feature",
+      "decision_date": "2026-07-31",
+      "product_code": "SCR",
+      "decision_code": "SESE"
+    },
+    {
+      "k_number": "K260413",
+      "applicant": "Levo Medical Corporation",
+      "device_name": "Levo Gen 2 Tinnitus Therapy System",
+      "decision_date": "2026-08-13",
+      "product_code": "KLW",
+      "decision_code": "SESE"
+    }
+  ]
+}

@@ -2,6 +2,7 @@ import { z } from 'zod'
 import { literalCheck } from '@/pipeline/checks/literal'
 import { rangeCheck } from '@/pipeline/checks/ranges'
 import { config } from '@/pipeline/config'
+import { excerpt, PROMPT_TEXT_BUDGET } from '@/pipeline/excerpt'
 import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { linksIn } from '@/pipeline/fetch/html'
 import { llm } from '@/pipeline/llm'
@@ -163,22 +164,7 @@ Rules:
 - tinnitus: true if the model has a tinnitus feature such as a sound generator.
 - platform: the chip or technology platform name. materials, colors: as the sources list them.`
 
-/** Page text in one prompt (Ruling M: Ollama's context and Claude's budget). */
-const PAGE_TEXT_BUDGET = 48_000
 const SPEC_WORDS = /\b(?:technical data|specifications?|weight|dimensions?|battery|grams?|mm|hours|IP\d{2}|bluetooth)\b/gi
-
-/** The part of the text that fits `max`, placed where spec words are densest. */
-function excerpt(text: string, max: number): string {
-  if (text.length <= max) return text
-  const hits = [...text.matchAll(SPEC_WORDS)].map((match) => match.index)
-  let best = { start: 0, count: 0 }
-  for (const hit of hits) {
-    const start = Math.min(Math.max(0, hit - 500), text.length - max)
-    const count = hits.filter((other) => other >= start && other < start + max).length
-    if (count > best.count) best = { start, count }
-  }
-  return text.slice(best.start, best.start + max)
-}
 
 /** Splits the budget so that short pages are whole and long pages share what is left. */
 function budgets(lengths: number[], total: number): number[] {
@@ -195,11 +181,11 @@ function budgets(lengths: number[], total: number): number[] {
 function sourcesText(pages: Page[]): string {
   const limits = budgets(
     pages.map((page) => page.text.length),
-    PAGE_TEXT_BUDGET,
+    PROMPT_TEXT_BUDGET,
   )
   // Datasheets and other documents first: they hold the spec tables.
   const order = pages.map((_, i) => i).sort((a, b) => Number(pages[a].html !== undefined) - Number(pages[b].html !== undefined))
-  return order.map((i) => `[Source ${i}] ${pages[i].url}\n${excerpt(pages[i].text, limits[i])}`).join('\n\n')
+  return order.map((i) => `[Source ${i}] ${pages[i].url}\n${excerpt(pages[i].text, limits[i], SPEC_WORDS)}`).join('\n\n')
 }
 
 const ISO_DATE = /^\d{4}-(?:0[1-9]|1[0-2])(?:-(?:0[1-9]|[12]\d|3[01]))?$/

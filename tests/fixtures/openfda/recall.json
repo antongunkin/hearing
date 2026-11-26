@@ -1,0 +1,15 @@
+{
+  "meta": { "results": { "skip": 0, "limit": 1000, "total": 1 } },
+  "results": [
+    {
+      "cfres_id": "200001",
+      "product_res_number": "Z-0001-2026",
+      "res_event_number": "90001",
+      "event_date_initiated": "2026-03-02",
+      "event_date_posted": "2026-04-10",
+      "recalling_firm": "Sonova USA Inc",
+      "product_description": "Phonak Audeo Lumity hearing aid, rechargeable",
+      "product_code": "OSM"
+    }
+  ]
+}

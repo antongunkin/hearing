@@ -31,16 +31,20 @@ export interface FetchOptions {
   blocklist?: string[]
 }
 
-/** Not scraped whatever the list says. */
-const NEVER_FETCH = ['google.com', 'amazon.com']
+/** Google and Amazon under any country domain are not scraped whatever the list says. */
+const NEVER_FETCH = /(?:^|\.)(?:google|amazon)\.(?:com?\.[a-z]{2}|[a-z]{2,3})$/
 const CACHE_DIR = '.cache/pages'
 const MAX_REDIRECTS = 5
 const TIMEOUT_MS = 30_000
 const MAX_TIMER_MS = 2 ** 31 - 1
 
-function blocks(domains: string[], url: URL): boolean {
+/** Whether the bot may not touch the URL's host: Google, Amazon, or a blocklisted domain or its subdomain. */
+export function isBlocked(url: URL, blocklist: string[]): boolean {
   const host = url.hostname.replace(/\.$/, '')
-  return domains.some((domain) => host === domain.toLowerCase() || host.endsWith(`.${domain.toLowerCase()}`))
+  return (
+    NEVER_FETCH.test(host) ||
+    blocklist.some((domain) => host === domain.toLowerCase() || host.endsWith(`.${domain.toLowerCase()}`))
+  )
 }
 
 let listed: string[] | undefined
@@ -113,11 +117,11 @@ async function follow(
  */
 export async function fetchPage(url: string, opts: FetchOptions = {}): Promise<FetchResult> {
   void config.userAgent // Throws before anything happens when the bot cannot name itself.
-  const blocklist = [...NEVER_FETCH, ...(opts.blocklist ?? (listed ??= await loadBlocklist()))]
+  const blocklist = opts.blocklist ?? (listed ??= await loadBlocklist())
 
   const refuse = (target: URL): Refusal | undefined => {
     if (!/^https?:$/.test(target.protocol)) return { reason: 'http-error', detail: `not http(s): ${target.href}` }
-    if (blocks(blocklist, target)) return { reason: 'blocklist', detail: target.hostname }
+    if (isBlocked(target, blocklist)) return { reason: 'blocklist', detail: target.hostname }
   }
   const robotsFor = async ({ origin, hostname }: URL) => {
     const robots = await readRobots(origin, (file) => follow(file, refuse, plainRequest))

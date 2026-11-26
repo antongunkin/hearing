@@ -1,0 +1,106 @@
+// FDA 510(k) clearances and recalls from openFDA. An API, but fetched like any page: honest User-Agent,
+// robots.txt and pauses included.
+import { z } from 'zod'
+import { config } from '@/pipeline/config'
+import { fetchPage } from '@/pipeline/fetch/fetcher'
+import { containsName, normalizeName } from '@/src/lib/data/slug'
+import type { Brand } from '@/src/lib/schema/brand'
+import type { Event } from '@/src/lib/schema/event'
+import type { Model } from '@/src/lib/schema/model'
+
+export type FdaEvent = { event: Omit<Event, 'id' | 'text'>; matched: boolean }
+
+// openFDA writes dates both as 2026-04-10 and 20260410.
+const FdaDate = z
+  .string()
+  .transform((date) => date.replace(/^(\d{4})(\d{2})(\d{2})$/, '$1-$2-$3'))
+  .pipe(z.iso.date())
+
+const Clearance = z.object({ k_number: z.string().min(1), applicant: z.string(), device_name: z.string(), decision_date: FdaDate })
+const Recall = z.object({
+  product_res_number: z.string().min(1),
+  cfres_id: z.string().optional(),
+  event_date_posted: FdaDate,
+  recalling_firm: z.string().default(''),
+  product_description: z.string().default(''),
+})
+
+const PAGE_SIZE = 1000
+const CDRH = 'https://www.accessdata.fda.gov/scripts/cdrh/cfdocs'
+
+/** All records of one endpoint with our product codes, dated from `since` to today. */
+async function search<T>(endpoint: '510k' | 'recall', dateField: string, since: string, record: z.ZodType<T>): Promise<T[]> {
+  const Reply = z.object({ meta: z.object({ results: z.object({ total: z.number() }) }), results: z.array(record) })
+  const codes = config.fdaProductCodes.map((code) => `"${code}"`).join('+')
+  const today = new Date().toISOString().slice(0, 10)
+  // Built by hand: openFDA reads "+" as a space, which URLSearchParams would escape.
+  const url = `${config.openFdaUrl}/${endpoint}.json?search=product_code:(${codes})+AND+${dateField}:[${since}+TO+${today}]&limit=${PAGE_SIZE}`
+
+  const records: T[] = []
+  for (;;) {
+    const page = await fetchPage(`${url}&skip=${records.length}`, { refresh: true })
+    if (page.status === 'skipped') {
+      // openFDA answers 404 when nothing matches. Anything else must not pass for "no events".
+      if (page.detail === 'HTTP 404') return records
+      throw new Error(`openFDA ${endpoint} skipped: ${page.reason}${page.detail ? ` (${page.detail})` : ''}`)
+    }
+    const { meta, results } = Reply.parse(JSON.parse(page.text))
+    records.push(...results)
+    if (results.length === 0 || records.length >= meta.results.total) return records
+  }
+}
+
+/**
+ * The stored model the FDA record is about: made by a brand the company name mentions (by brand or group
+ * name), and named in the device text. The longest name wins; two models with equally long names are
+ * ambiguous and give none.
+ */
+function matchModel(company: string, device: string, brands: Brand[], models: Model[]): Model | undefined {
+  const makers = new Set(
+    brands.filter((brand) => [brand.name, brand.group].some((name) => containsName(company, name))).map((brand) => brand.slug),
+  )
+  const [best, second] = models
+    .filter((model) => makers.has(model.brand))
+    .map((model) => ({
+      model,
+      length: Math.max(0, ...[model.name, ...model.aliases].filter((name) => containsName(device, name)).map((name) => normalizeName(name).length)),
+    }))
+    .filter((match) => match.length > 0)
+    .sort((a, b) => b.length - a.length)
+  return best && best.length !== second?.length ? best.model : undefined
+}
+
+/**
+ * Clearances decided and recalls posted since `sinceISO`. `matched` is false when no stored model could be
+ * named; the event then has `modelSlug: null`.
+ */
+export async function fetchFdaEvents(sinceISO: string, brands: Brand[], models: Model[]): Promise<FdaEvent[]> {
+  const since = z.iso.date().parse(sinceISO.slice(0, 10))
+  const clearances = await search('510k', 'decision_date', since, Clearance)
+  // By posting date: a recall can be published long after it was initiated.
+  const recalls = await search('recall', 'event_date_posted', since, Recall)
+
+  const found = (company: string, device: string, event: Omit<Event, 'id' | 'text' | 'modelSlug'>): FdaEvent => {
+    const model = matchModel(company, device, brands, models)
+    return { event: { ...event, modelSlug: model?.slug ?? null }, matched: model !== undefined }
+  }
+  return [
+    ...clearances.map((c) => {
+      const id = encodeURIComponent(c.k_number)
+      // De Novo grants (DEN…) are listed among the 510(k)s but have their own database page.
+      const source = c.k_number.startsWith('DEN') ? `${CDRH}/cfpmn/denovo.cfm?id=${id}` : `${CDRH}/cfpmn/pmn.cfm?ID=${id}`
+      return found(c.applicant, c.device_name, { type: 'fda-clearance', date: c.decision_date, key: c.k_number, sources: [source] })
+    }),
+    ...recalls.map((r) => {
+      const source = r.cfres_id
+        ? `${CDRH}/cfres/res.cfm?id=${encodeURIComponent(r.cfres_id)}`
+        : `${config.openFdaUrl}/recall.json?search=product_res_number:%22${encodeURIComponent(r.product_res_number)}%22`
+      return found(r.recalling_firm, r.product_description, {
+        type: 'fda-recall',
+        date: r.event_date_posted,
+        key: r.product_res_number,
+        sources: [source],
+      })
+    }),
+  ]
+}

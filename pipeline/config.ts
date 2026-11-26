@@ -9,6 +9,16 @@ export const config = {
   minDelayMs: 2000,
   maxDelayMs: 5000,
   releasedAfter: '2023-11-01',
+  // FDA Product Classification (21 CFR 874, panel "Ear, Nose, Throat"), read 2026-11-26 from
+  // https://api.fda.gov/device/classification.json, the API of
+  // https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfPCD/classification.cfm
+  // Air-conduction hearing aids: ESD, LRB (face plate), QUF (874.3300), OSM, QUG (874.3305, wireless),
+  // QDD, QUH (874.3325, self-fitting), SCR (874.3335, software). KLW (874.3400): tinnitus masker.
+  // Left out: bone-conduction and middle-ear implants, test equipment, ear protectors, training aids.
+  fdaProductCodes: ['ESD', 'LRB', 'QUF', 'OSM', 'QUG', 'QDD', 'QUH', 'SCR', 'KLW'],
+  openFdaUrl: 'https://api.fda.gov/device',
+  itunesLookupUrl: 'https://itunes.apple.com/lookup',
+  youtubeApiUrl: 'https://www.googleapis.com/youtube/v3',
   llm: {
     claudeModel: 'haiku',
     ollamaModel: 'qwen3:8b',
