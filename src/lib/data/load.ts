@@ -71,9 +71,15 @@ async function readRecords<K extends 'slug' | 'id', T extends Record<K, string>>
   )
 }
 
+const list = z.array(z.string())
+
+/** Domains the pipeline must not touch. The file is required: without it they would be fetched again. */
+export function loadBlocklist(dir = 'data'): Promise<string[]> {
+  return readJson(join(dir, 'blocklist.json'), list)
+}
+
 export async function loadDataset(dir = 'data'): Promise<Dataset> {
   // The two lists are required: without them blocked domains and rejected changes would come back.
-  const list = z.array(z.string())
   const [brands, models, reviews, events, pending, rejections, blocklist] = await Promise.all([
     readRecords(join(dir, 'brands'), Brand, 'slug'),
     readRecords(join(dir, 'models'), Model, 'slug'),
@@ -81,7 +87,7 @@ export async function loadDataset(dir = 'data'): Promise<Dataset> {
     readRecords(join(dir, 'events'), Event, 'id'),
     readRecords(join(dir, 'pending'), PendingChange, 'id'),
     readJson(join(dir, 'rejections.json'), list),
-    readJson(join(dir, 'blocklist.json'), list),
+    loadBlocklist(dir),
   ])
   return { brands, models, reviews, events, pending, rejections, blocklist }
 }

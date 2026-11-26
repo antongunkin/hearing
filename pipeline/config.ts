@@ -1,7 +1,10 @@
 export const config = {
   /** A getter, so the site URL is read after `.env.local` has been loaded. No personal contacts here. */
   get userAgent() {
-    return `HearingDBBot/0.1 (+${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/about-bot)`
+    const site = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/+$/, '')
+    // A bot that cannot say where to read about it does not go out at all.
+    if (!site) throw new Error('NEXT_PUBLIC_SITE_URL is not set (see .env.example): the User-Agent needs it')
+    return `HearingDBBot/0.1 (+${site}/about-bot)`
   },
   minDelayMs: 2000,
   maxDelayMs: 5000,
