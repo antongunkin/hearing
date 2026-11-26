@@ -8,7 +8,7 @@ import { looksLikeBotWall } from './bot-detect'
 import { isHtml, visibleText } from './html'
 import { pdfText } from './pdf'
 import { BrowserLaunchError, renderPage } from './render'
-import { robotsRules } from './robots'
+import { readRobots } from './robots'
 
 export type FetchResult =
   | { status: 'ok'; url: string; text: string; html?: string; contentHash: string; fetchedAt: string }
@@ -36,6 +36,7 @@ const NEVER_FETCH = ['google.com', 'amazon.com']
 const CACHE_DIR = '.cache/pages'
 const MAX_REDIRECTS = 5
 const TIMEOUT_MS = 30_000
+const MAX_TIMER_MS = 2 ** 31 - 1
 
 function blocks(domains: string[], url: URL): boolean {
   const host = url.hostname.replace(/\.$/, '')
@@ -44,17 +45,26 @@ function blocks(domains: string[], url: URL): boolean {
 
 let listed: string[] | undefined
 
-/** Per host: settles when the next request to it may start. */
-const queues = new Map<string, Promise<unknown>>()
+/** Per host: settles with the time its last request ended. */
+const queues = new Map<string, Promise<number>>()
+/** Per host: the Crawl-delay its robots.txt asks for. */
+const crawlDelays = new Map<string, number>()
 
-/** Runs requests to one host one at a time, with a random pause after each. */
+/**
+ * Runs requests to one host one at a time. Between them passes a random pause, or the host's
+ * Crawl-delay when that is longer.
+ */
 function paced<T>(host: string, request: () => Promise<T>): Promise<T> {
-  const result = (queues.get(host) ?? Promise.resolve()).then(request)
-  const pause = () => {
+  const result = (queues.get(host) ?? Promise.resolve(-Infinity)).then(async (endedAt) => {
     const { minDelayMs, maxDelayMs } = config
-    return new Promise((resolve) => setTimeout(resolve, minDelayMs + Math.random() * (maxDelayMs - minDelayMs)))
-  }
-  queues.set(host, result.then(pause, pause))
+    // Worked out only now: the robots.txt just received may have asked for a longer pause.
+    const pause = Math.max(minDelayMs + Math.random() * (maxDelayMs - minDelayMs), crawlDelays.get(host) ?? 0)
+    const wait = Math.min(endedAt + pause - Date.now(), MAX_TIMER_MS) // A longer timer fires at once.
+    if (wait > 0) await new Promise((resolve) => setTimeout(resolve, wait))
+    return request()
+  })
+  const now = () => Date.now()
+  queues.set(host, result.then(now, now))
   return result
 }
 
@@ -109,17 +119,21 @@ export async function fetchPage(url: string, opts: FetchOptions = {}): Promise<F
     if (!/^https?:$/.test(target.protocol)) return { reason: 'http-error', detail: `not http(s): ${target.href}` }
     if (blocks(blocklist, target)) return { reason: 'blocklist', detail: target.hostname }
   }
-  const rulesFor = (origin: string) => robotsRules(origin, (file) => follow(file, refuse, plainRequest))
+  const robotsFor = async ({ origin, hostname }: URL) => {
+    const robots = await readRobots(origin, (file) => follow(file, refuse, plainRequest))
+    crawlDelays.set(hostname, Math.max(crawlDelays.get(hostname) ?? 0, robots.crawlDelayMs))
+    return robots
+  }
   const check = async (target: URL): Promise<Refusal | undefined> => {
     const refusal = refuse(target)
     if (refusal) return refusal
-    const why = (await rulesFor(target.origin))(target)
+    const why = (await robotsFor(target)).refusal(target)
     if (why) return { reason: 'robots', detail: why }
   }
   const renderRequest = async (target: URL) => {
-    const rules = await rulesFor(target.origin)
+    const { refusal } = await robotsFor(target)
     // Only this origin's robots.txt is at hand, so other origins are held to the blocklist alone.
-    return renderPage(target, (sub) => !refuse(sub) && (sub.origin !== target.origin || !rules(sub)))
+    return renderPage(target, (sub) => !refuse(sub) && (sub.origin !== target.origin || !refusal(sub)))
   }
   const skipped = (refusal: Refusal): FetchResult => ({ status: 'skipped', url, ...refusal })
 

@@ -289,29 +289,63 @@ describe('looksLikeBotWall', () => {
 })
 
 describe('politeness', () => {
-  test('two requests to same host are ≥2000ms apart', async () => {
+  /** A stubbed host on fake timers, with the real delays and the shortest random pause. */
+  function fakeHost(robotsTxt?: string) {
     Object.assign(config, delays)
     vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'Date'] })
     vi.spyOn(Math, 'random').mockReturnValue(0)
     const requests: { path: string; at: number }[] = []
     vi.stubGlobal('fetch', async (input: URL) => {
       requests.push({ path: input.pathname, at: Date.now() })
-      return new Response('<p>fine</p>', {
-        status: input.pathname === '/robots.txt' ? 404 : 200,
+      const isRobots = input.pathname === '/robots.txt'
+      return new Response(isRobots ? (robotsTxt ?? '') : '<p>fine</p>', {
+        status: isRobots && robotsTxt === undefined ? 404 : 200,
         headers: { 'content-type': 'text/html' },
       })
     })
+    return requests
+  }
 
+  async function twoPages(host: string) {
     const both = Promise.all([
-      get('https://polite.test/a', { refresh: true }),
-      get('https://polite.test/b', { refresh: true }),
+      get(`https://${host}/a`, { refresh: true }),
+      get(`https://${host}/b`, { refresh: true }),
     ])
     await vi.advanceTimersByTimeAsync(30_000)
     await both
+  }
+
+  const gaps = (requests: { at: number }[]) => requests.slice(1).map((request, i) => request.at - requests[i].at)
+
+  test('two requests to same host are ≥2000ms apart', async () => {
+    const requests = fakeHost()
+
+    await twoPages('polite.test')
 
     expect(requests.map((request) => request.path)).toEqual(['/robots.txt', '/a', '/b'])
-    expect(requests[1].at - requests[0].at).toBeGreaterThanOrEqual(2000)
-    expect(requests[2].at - requests[1].at).toBeGreaterThanOrEqual(2000)
+    for (const gap of gaps(requests)) expect(gap).toBeGreaterThanOrEqual(2000)
+  })
+
+  test.each([
+    ['longer than the pause wins', 10, 10_000],
+    ['shorter than the pause does not shorten it', 1, 2000],
+  ])('a Crawl-delay for us %s', async (_name, seconds, expected) => {
+    const requests = fakeHost(
+      `User-agent: other\nCrawl-delay: 25\n\nUser-agent: HearingDBBot\nCrawl-delay: ${seconds}`,
+    )
+
+    await twoPages(`crawl-${seconds}.test`)
+
+    expect(gaps(requests)).toEqual([expected, expected])
+  })
+
+  test('an absurd Crawl-delay does not overflow into no pause', async () => {
+    const requests = fakeHost('User-agent: *\nCrawl-delay: 1000000000')
+
+    void get('https://never.test/a', { refresh: true })
+    await vi.advanceTimersByTimeAsync(30_000)
+
+    expect(requests.map((request) => request.path)).toEqual(['/robots.txt'])
   })
 
   test('sends configured User-Agent', async () => {
@@ -333,7 +367,7 @@ describe('politeness', () => {
 })
 
 describe('render', () => {
-  type Document = { status?: number; type?: string; location?: string }
+  type Document = { status?: number; type?: string; location?: string; body?: string }
 
   /**
    * Stands in for Chromium: asks the route handler about the document, then about each further request,
@@ -362,7 +396,7 @@ describe('render', () => {
             status: () => status,
             ok: () => status >= 200 && status < 300,
             headers: () => headers,
-            body: async () => Buffer.from('<html><body>as sent</body></html>'),
+            body: async () => Buffer.from(document.body ?? '<html><body>as sent</body></html>'),
           }
         },
       })
@@ -427,6 +461,18 @@ describe('render', () => {
     const browser = stubBrowser({ status: 503 }, '<p>solved</p>')
 
     expect(await get(`${site.origin}/app`, { render: true })).toMatchObject({ reason: 'bot-protection' })
+    expect(browser.ran).not.toHaveBeenCalled()
+  })
+
+  test('a bot wall as the first response is not run, even if it would clear by itself', async () => {
+    const site = await serve({})
+    const challenge = (await fixture('cf-challenge.html')).toString()
+    const browser = stubBrowser({ body: challenge }, '<html><body><p>Weight 2.1 g</p></body></html>')
+
+    expect(await get(`${site.origin}/app`, { render: true })).toMatchObject({
+      status: 'skipped',
+      reason: 'bot-protection',
+    })
     expect(browser.ran).not.toHaveBeenCalled()
   })
 

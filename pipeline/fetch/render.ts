@@ -1,4 +1,5 @@
 import { config } from '@/pipeline/config'
+import { looksLikeBotWall } from './bot-detect'
 import type { Reply } from './fetcher'
 import { isHtml } from './html'
 
@@ -12,9 +13,9 @@ export class BrowserLaunchError extends Error {
 }
 
 /**
- * Loads one URL in headless Chromium. Only a successful HTML document runs, and comes back as it stands
- * after its scripts. Anything else (a redirect, an error or challenge status, a PDF) comes back as
- * received, so that the caller applies its checks to it. `allows` filters what the page itself requests.
+ * Loads one URL in headless Chromium. Only a successful HTML document that is no bot wall runs, and
+ * comes back as it stands after its scripts. Anything else (a redirect, an error status, a challenge, a
+ * PDF) comes back as received, so that the caller applies its checks to it. `allows` filters what the page itself requests.
  */
 export async function renderPage(url: URL, allows: (url: URL) => boolean): Promise<Reply> {
   const { chromium } = await import('playwright')
@@ -45,7 +46,11 @@ export async function renderPage(url: URL, allows: (url: URL) => boolean): Promi
           location: headers.location ?? null,
           body: await response.body(),
         }
-        runs = response.ok() && isHtml(reply.contentType)
+        // A challenge is not run even when it would clear by itself: that would be getting past it.
+        runs =
+          response.ok() &&
+          isHtml(reply.contentType) &&
+          !looksLikeBotWall(reply.status, new TextDecoder().decode(reply.body))
         return runs ? route.fulfill({ response }) : route.abort('aborted')
       } catch {
         return route.abort('failed')

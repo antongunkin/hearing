@@ -2,26 +2,35 @@ import robotsParser from 'robots-parser'
 import { config } from '@/pipeline/config'
 import type { Refusal, Reply } from './fetcher'
 
-/** Why the URL (of this origin) may not be fetched, or `undefined` when it may. */
-export type RobotsRules = (url: URL) => string | undefined
+export type Robots = {
+  /** Why the URL (of this origin) may not be fetched, or `undefined` when it may. */
+  refusal: (url: URL) => string | undefined
+  /** The pause the site asks for between requests; 0 when it asks for none. */
+  crawlDelayMs: number
+}
 
-const rulesByOrigin = new Map<string, Promise<RobotsRules>>()
+const byOrigin = new Map<string, Promise<Robots>>()
 
-async function read(origin: string, get: (url: URL) => Promise<Reply | Refusal>): Promise<RobotsRules> {
+const keepOut = (why: string): Robots => ({ refusal: () => why, crawlDelayMs: 0 })
+
+async function read(origin: string, get: (url: URL) => Promise<Reply | Refusal>): Promise<Robots> {
   const file = new URL('/robots.txt', origin)
   const reply = await get(file)
   // Only a missing file means "no rules". Anything that hides the rules means "keep out".
-  if ('reason' in reply) return () => `robots.txt unavailable: ${reply.detail ?? reply.reason}`
-  if (reply.status === 404 || reply.status === 410) return () => undefined
-  if (reply.status < 200 || reply.status > 299) return () => `robots.txt: HTTP ${reply.status}`
+  if ('reason' in reply) return keepOut(`robots.txt unavailable: ${reply.detail ?? reply.reason}`)
+  if (reply.status === 404 || reply.status === 410) return { refusal: () => undefined, crawlDelayMs: 0 }
+  if (reply.status < 200 || reply.status > 299) return keepOut(`robots.txt: HTTP ${reply.status}`)
 
   const parser = robotsParser(file.href, new TextDecoder().decode(reply.body))
-  return (url) => (parser.isAllowed(url.href, config.userAgent) ? undefined : 'disallowed by robots.txt')
+  return {
+    refusal: (url) => (parser.isAllowed(url.href, config.userAgent) ? undefined : 'disallowed by robots.txt'),
+    crawlDelayMs: (parser.getCrawlDelay(config.userAgent) ?? 0) * 1000,
+  }
 }
 
-/** The rules of one origin, requested once per run. */
-export function robotsRules(origin: string, get: (url: URL) => Promise<Reply | Refusal>): Promise<RobotsRules> {
-  let rules = rulesByOrigin.get(origin)
-  if (!rules) rulesByOrigin.set(origin, (rules = read(origin, get)))
-  return rules
+/** What one origin's robots.txt says, requested once per run. */
+export function readRobots(origin: string, get: (url: URL) => Promise<Reply | Refusal>): Promise<Robots> {
+  let robots = byOrigin.get(origin)
+  if (!robots) byOrigin.set(origin, (robots = read(origin, get)))
+  return robots
 }
