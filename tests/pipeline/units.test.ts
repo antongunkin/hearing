@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { parseMeasurement, toGrams, toMm } from '@/pipeline/units'
+import { canonicalUnit, findNumbers, parseMeasurement, toGrams, toMm, unitFollows } from '@/pipeline/units'
 
 describe('parseMeasurement', () => {
   test('reads value and unit from spec text', () => {
@@ -32,6 +32,72 @@ describe('parseMeasurement', () => {
 
   test('returns null for an unsupported unit', () => {
     expect(parseMeasurement('5 lbs')).toBeNull()
+  })
+
+  test('reads leading-dot decimals', () => {
+    expect(parseMeasurement('Weight: .07 oz')).toEqual({ value: 0.07, unit: 'oz' })
+  })
+
+  test('reads thousands separators', () => {
+    expect(parseMeasurement('1,200 mg')).toEqual({ value: 1200, unit: 'mg' })
+  })
+
+  test.each([
+    ['2 ounces', 2, 'oz'],
+    ['5 grams', 5, 'g'],
+    ['12 millimeters', 12, 'mm'],
+    ['12 millimetres', 12, 'mm'],
+    ['0.5 inches', 0.5, 'in'],
+    ['0.5"', 0.5, 'in'],
+    ['24 hours', 24, 'h'],
+    ['24 hr', 24, 'h'],
+  ])('accepts the synonym in "%s"', (text, value, unit) => {
+    expect(parseMeasurement(text)).toEqual({ value, unit })
+  })
+
+  test('accepts a hyphen between number and unit', () => {
+    expect(parseMeasurement('24-hour battery')).toEqual({ value: 24, unit: 'h' })
+  })
+})
+
+describe('canonicalUnit', () => {
+  test('maps synonyms to the canonical unit, case-insensitively', () => {
+    expect(canonicalUnit('grams')).toBe('g')
+    expect(canonicalUnit('Inches')).toBe('in')
+    expect(canonicalUnit('hr')).toBe('h')
+  })
+
+  test('returns undefined for a unit outside the measurement table', () => {
+    expect(canonicalUnit('USD')).toBeUndefined()
+  })
+})
+
+describe('findNumbers', () => {
+  test('reads leading-dot decimals', () => {
+    expect(findNumbers('only .07 oz').map((n) => n.value)).toEqual([0.07])
+  })
+
+  test('reads thousands separators and returns each number', () => {
+    expect(findNumbers('1,200 to 1,400').map((n) => n.value)).toEqual([1200, 1400])
+  })
+})
+
+describe('unitFollows', () => {
+  const firstEnd = (text: string) => findNumbers(text)[0].end
+
+  test.each(['27 x 8 x 12 mm', '27 × 8 × 12 mm', '27 by 8 by 12 mm', '27x8x12 mm'])(
+    'one trailing unit covers the dimension chain in "%s"',
+    (text) => {
+      expect(unitFollows(text, firstEnd(text), 'mm')).toBe(true)
+    },
+  )
+
+  test('does not let a chain skip a non-number word', () => {
+    expect(unitFollows('2.1 each, 5 g', firstEnd('2.1 each, 5 g'), 'g')).toBe(false)
+  })
+
+  test('accepts a hyphen between number and unit', () => {
+    expect(unitFollows('24-hour battery', firstEnd('24-hour battery'), 'h')).toBe(true)
   })
 })
 
