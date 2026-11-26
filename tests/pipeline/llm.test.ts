@@ -79,8 +79,35 @@ describe('claude', () => {
       JSON.stringify(z.toJSONSchema(schema, { target: 'draft-7' })),
       '--model',
       config.llm.claudeModel,
+      '--safe-mode',
+      '--strict-mcp-config',
+      '--no-session-persistence',
+      '--setting-sources',
+      '',
+      '--tools',
+      'WebSearch',
       '--allowedTools',
       'WebSearch',
+    ])
+  })
+
+  test('without tools, offers none and loads nothing from the owner setup', async () => {
+    const exec = vi.fn<NonNullable<LlmDeps['exec']>>(async () => ({
+      stdout: envelope({ structured_output: { ok: true } }),
+      stderr: '',
+    }))
+
+    await run({ exec })
+
+    const [, args] = exec.mock.calls[0]
+    expect(args.slice(args.indexOf(config.llm.claudeModel) + 1)).toEqual([
+      '--safe-mode',
+      '--strict-mcp-config',
+      '--no-session-persistence',
+      '--setting-sources',
+      '',
+      '--tools',
+      '',
     ])
   })
 

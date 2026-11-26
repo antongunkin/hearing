@@ -14,6 +14,12 @@ export type Exec = (file: string, args: string[]) => Promise<{ stdout: string; s
 
 const execFileAsync = promisify(execFile)
 
+// Prompts carry scraped web text, so the call gets none of the owner's setup: no hooks,
+// plugins, CLAUDE.md, MCP servers or permission rules, and no built-in tools beyond the ones
+// asked for. Tested as a set with CLI 2.1.319: 339 tools and 36.8k input tokens without them,
+// 1 tool and 3.6k with them. Not `--bare`, which ignores the subscription login.
+const ISOLATION = ['--safe-mode', '--strict-mcp-config', '--no-session-persistence', '--setting-sources', '']
+
 const defaultExec: Exec = (file, args) => {
   const call = execFileAsync(file, args, { maxBuffer: 10 * 1024 * 1024 })
   call.child.stdin?.end() // otherwise `claude -p` waits for piped input
@@ -64,6 +70,9 @@ export async function callClaude(
     JSON.stringify(jsonSchema),
     '--model',
     config.llm.claudeModel,
+    ...ISOLATION,
+    '--tools',
+    tools?.join(',') ?? '', // '' disables every built-in tool
     ...(tools ? ['--allowedTools', tools.join(',')] : []),
   ]
 
