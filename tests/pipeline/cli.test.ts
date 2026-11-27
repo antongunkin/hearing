@@ -284,6 +284,59 @@ describe('scrape: predecessor, successor and app links', () => {
   })
 })
 
+describe('scrape: documents', () => {
+  const GUIDE = `${BASE}/docs/select-300-user-guide.pdf`
+  const OTHER = `${BASE}/docs/select-100-user-guide.pdf`
+  const pdfPage = (url: string, text: string): FetchResult => ({ ...okPage(url), text, contentType: 'application/pdf' })
+  const pendingFile = async (id: string) => PendingChange.parse(JSON.parse(await readFile(join(dataDir, 'pending', `${id}.json`), 'utf8')))
+
+  async function scrapeDocuments(stored: Model[]) {
+    await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), { ...brand, scraper: { ...brand.scraper, documentUrlPattern: '\\.pdf$' } })
+    for (const m of stored) await writeJson(join(dataDir, 'models', `${m.slug}.json`), m)
+    vi.mocked(discoverModelUrls).mockResolvedValue([{ modelUrl: `${BASE}/select-300`, documentUrls: [GUIDE, OTHER], inCatalog: true }])
+    vi.mocked(extractModel).mockResolvedValue(candidate('Select 300'))
+    vi.mocked(fetchPage).mockImplementation(async (url) =>
+      url === GUIDE
+        ? pdfPage(url, 'Jabra Enhance Select 300 user guide')
+        : url === OTHER
+          ? pdfPage(url, 'Jabra Enhance Select 100 user guide')
+          : okPage(url),
+    )
+    return main(['scrape', '--limit', '5'], opts)
+  }
+
+  test('a new model carries its documents with their checks, one that does not name it with a failed check', async () => {
+    expect(await scrapeDocuments([])).toBe(0)
+
+    const card = await pendingFile('jabra-enhance-select-300-model')
+    expect((card.after as Model).documents.map((d) => [d.kind, d.url])).toEqual([
+      ['user-guide', GUIDE],
+      ['user-guide', OTHER],
+    ])
+    expect(card.checks['documents.0'].every((c) => c.ok)).toBe(true)
+    expect(card.checks['documents.0']).toHaveLength(3)
+    expect(card.checks['documents.1'].find((c) => !c.ok)?.detail).toBe('the document does not name the model')
+  })
+
+  test('a stored model gets a document change per new document: applied when its three checks pass, queued when one fails', async () => {
+    expect(await scrapeDocuments([model('Select 300')])).toBe(0)
+
+    const stored = Model.parse(JSON.parse(await readFile(join(dataDir, 'models', 'jabra-enhance-select-300.json'), 'utf8')))
+    expect(stored.documents.map((d) => d.url)).toEqual([GUIDE])
+    const card = await pendingFile('jabra-enhance-select-300-documents-1')
+    expect(card).toMatchObject({ path: 'documents.1', after: { url: OTHER } })
+  })
+
+  test('a document that cannot be fetched is left out', async () => {
+    await scrapeDocuments([])
+    vi.mocked(fetchPage).mockImplementation(async (url) => ([GUIDE, OTHER].includes(url) ? { status: 'skipped', url, reason: 'http-error', detail: 'HTTP 404' } : okPage(url)))
+    await rm(join(dataDir, 'pending'), { recursive: true, force: true })
+    await main(['scrape', '--limit', '5'], opts)
+    const card = await pendingFile('jabra-enhance-select-300-model')
+    expect((card.after as Model).documents).toEqual([])
+  })
+})
+
 test('a gone brand is not scraped live', async () => {
   await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), { ...brand, status: 'gone' })
 

@@ -62,7 +62,7 @@ function nameTokens(url: string, brandWords: Set<string>): Set<string> {
  * one with the highest share of words in common wins (a document of "audeo eon sphere" goes to that
  * page, not to "audeo sphere"); a tie, or no page, drops the document, and dropped documents are counted.
  */
-function linkDocuments(
+export function linkDocuments(
   brand: Brand,
   modelUrls: string[],
   documentUrls: string[],

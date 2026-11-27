@@ -13,6 +13,7 @@ import { LlmLimitError, LlmUnavailableError } from '@/pipeline/llm'
 import { readCache } from '@/pipeline/llm/cache'
 import { Progress } from '@/pipeline/progress'
 import { priorCatalogCopies } from '@/pipeline/archive/catalog-history'
+import { checkDocument } from '@/pipeline/archive/documents'
 import { isInScope, lifecycleOf, listingIn } from '@/pipeline/archive/lifecycle'
 import { discoverModelUrls, extractModel, matchExistingModel, mergeCandidates, type ModelCandidate } from '@/pipeline/sources/brand-site'
 import { fetchIosVersion, lookupApp, type AppRecord } from '@/pipeline/sources/itunes'
@@ -262,6 +263,27 @@ async function linkChanges(run: Run, existing: Model, candidate: ModelCandidate,
   return true
 }
 
+/**
+ * Puts the documents of the model's pages that pass `checkDocument` into the candidate, with their checks
+ * under `documents.<i>`. A document the stored model already has is not read again; one that cannot be
+ * fetched as a PDF is left out.
+ */
+async function addDocuments(run: Run, brand: Brand, existing: Model | null, candidate: ModelCandidate, urls: string[]): Promise<void> {
+  const original = (url: string) => parseArchiveUrl(url)?.original ?? url
+  const stored = new Set((existing?.documents ?? []).map((d) => original(d.url)))
+  const documents: Model['documents'] = []
+  for (const url of urls) {
+    if (stored.has(original(url))) continue
+    await guard(run, `${candidate.model.slug} ${url}`, async () => {
+      const checked = await checkDocument(brand, candidate.model, url, { refresh: run.refresh })
+      if (checked === null) return
+      candidate.fieldChecks[`documents.${documents.length}`] = checked.checks
+      documents.push(checked.document)
+    })
+  }
+  candidate.model = { ...candidate.model, documents }
+}
+
 type CatalogPage = { url: string; quote: string; fetchedAt: string }
 
 /**
@@ -312,6 +334,8 @@ async function scrape(run: Run): Promise<void> {
       const candidates: ModelCandidate[] = []
       /** Whether a catalog page links a model, by slug (the pages of one family are one model). */
       const inCatalog = new Map<string, boolean>()
+      /** The document URLs the pages of a model (a family is one model) link, by slug. */
+      const documentsOf = new Map<string, Set<string>>()
       for (const { modelUrl, documentUrls, inCatalog: linked } of groups) {
         const read = await guard(run, modelUrl, async () => {
           const modelPage = await page(run, modelUrl, { render: brand.scraper.render, refresh: run.refresh })
@@ -327,6 +351,7 @@ async function scrape(run: Run): Promise<void> {
           const candidate = await extractModel(brand, pages)
           candidates.push(candidate)
           inCatalog.set(candidate.model.slug, inCatalog.get(candidate.model.slug) === true || linked)
+          documentsOf.set(candidate.model.slug, new Set([...(documentsOf.get(candidate.model.slug) ?? []), ...documentUrls]))
         })
         if (!read) complete = false
       }
@@ -347,6 +372,7 @@ async function scrape(run: Run): Promise<void> {
           console.log(`${candidate.model.slug}: found only on support pages, left to the archive command`)
           continue
         }
+        await addDocuments(run, brand, existing, candidate, [...(documentsOf.get(candidate.model.slug) ?? [])])
         for (const change of diffModel(existing, candidate)) await handle(run, change)
         if (existing !== null && !(await linkChanges(run, existing, candidate, lookups))) lookupSkipped = true
       }
