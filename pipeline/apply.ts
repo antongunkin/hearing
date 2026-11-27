@@ -89,7 +89,8 @@ export function entryChange({ path, before, after }: { path: string; before?: un
 /**
  * The changes from the stored model to a freshly extracted one. A new model is one `new-model` change
  * (path `''`). Otherwise there is one change per sourced value whose value differs (an official price is
- * a `price`, anything else a `spec-change`), and a `spec-change` for a new `type`, `formFactor` or
+ * a `price`, which fails a check when it moves too far: see `priceJump`; anything else a `spec-change`),
+ * and a `spec-change` for a new `type`, `formFactor` or
  * `techLevel`. Variants are matched by id: a new variant is one change appended to the list, and a stored
  * variant the candidate no longer lists is one change with `after: null` (removal, by a person only).
  * Hardware twins are matched by slug and proposed the same way, a changed twin as its whole new entry.

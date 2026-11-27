@@ -1,5 +1,6 @@
 // `npm run update`: every source in turn, each change dropped, applied or queued for review. A run stopped by
-// the Claude usage limit goes on with `--resume` (the message prints the command). `scrape`, `fda`, `apps`, `reviews` and `youtube` run one step.
+// the Claude usage limit goes on with `--resume` (the message prints the command). `scrape`, `fda`, `apps`,
+// `reviews` and `youtube` run one step.
 // `update` ends by recording the comparison pairs; `pairs` does only that.
 import { join, resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
@@ -126,8 +127,9 @@ function reviewsChange(run: Run, slug: string, kind: CandidateChange['kind'], fi
 /**
  * Brand sites (new models and spec changes), then third-party prices and hardware twins. A brand is one
  * unit: the pages of a model family are merged (see mergeCandidates) before they are compared with the
- * data, so each model is compared once. A brand stopped half-way is read again on resume, from the page
- * and LLM caches. A page that fails is counted and left out.
+ * data, so each model is compared once. A brand stopped half-way is read again on resume; the LLM answers
+ * for pages read before come from its cache (the pages too, without `--refresh`). A page that fails is
+ * counted and left out.
  */
 async function scrape(run: Run): Promise<void> {
   for (const brand of run.brands) {

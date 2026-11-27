@@ -267,19 +267,19 @@ export async function extractModel(brand: Brand, pages: Page[]): Promise<ModelCa
   // The type is the brand's unless a page says otherwise; a page that does is flagged for the owner. A
   // stated type is a reading of the text, like a boolean: only its quote can be looked up.
   const type = out.type?.value ?? brand.defaultType
-  const typePage = out.type && pages[out.type.sourceIndex]
-  fieldChecks.type = [
-    ...(out.type === undefined
-      ? []
-      : [
-          typePage
-            ? literalCheck({ value: null, quote: out.type.quote, sourceUrl: typePage.url, fetchedAt: typePage.fetchedAt, sourceType: 'official' }, typePage.text)
-            : { name: 'literal' as const, ok: false, detail: `cites source ${out.type.sourceIndex}, which was not given` },
-        ]),
-    out.type === undefined || out.type.value === brand.defaultType
-      ? { name: 'brand-type', ok: true }
-      : { name: 'brand-type', ok: false, detail: `the page says ${out.type.value} ("${out.type.quote}"); the brand default is ${brand.defaultType}` },
-  ]
+  fieldChecks.type = [{ name: 'brand-type', ok: true }]
+  if (out.type !== undefined) {
+    const { value, quote, sourceIndex } = out.type
+    const page = pages[sourceIndex]
+    const quoted: CheckResult = page
+      ? literalCheck({ value: null, quote, sourceUrl: page.url, fetchedAt: page.fetchedAt, sourceType: 'official' }, page.text)
+      : { name: 'literal', ok: false, detail: `cites source ${sourceIndex}, which was not given` }
+    const agrees: CheckResult =
+      value === brand.defaultType
+        ? { name: 'brand-type', ok: true }
+        : { name: 'brand-type', ok: false, detail: `the page says ${value} ("${quote}"); the brand default is ${brand.defaultType}` }
+    fieldChecks.type = [quoted, agrees]
+  }
 
   const releaseDate = out.releaseDate && ISO_DATE.test(out.releaseDate.value) ? plain('releaseDate', out.releaseDate) : undefined
   // Kept in scope (see isInScope), but never applied without a person looking at it.
