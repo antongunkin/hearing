@@ -42,7 +42,7 @@ const ROWS: [label: string, of: (c: Column) => SpecCell][] = [
       const price = c.variant?.priceUsd
       const text = cell<number | { min: number; max: number; perPair: true }>(price, formatPrice)
       return text && price && c.model.discontinued
-        ? { ...text, text: `${text.text} (last listed price, ${formatDate(priceMonth(price))})` }
+        ? { ...text, text: `${text.text} (last listed price, ${formatDate(priceMonth(price, c.model.discontinued.lastListed))})` }
         : text
     },
   ],

@@ -205,4 +205,12 @@ describe('discontinued models in the sitemap', () => {
     expect(listed).not.toContain(`${BASE}/hearing-aids/thin`)
     expect(listed.filter((url) => url.includes('thin'))).toEqual([])
   })
+
+  test('a lineage pair with an unindexed page is left out', () => {
+    const thin = Model.parse({ ...bare('thin'), successor: { slug: 'm-00', source: cited('New', '2026-11-26T00:00:00.000Z') } })
+    const listed = urls(dataset({ models: [...models.slice(0, 2), thin] }))
+
+    expect(listed.filter((url) => url.includes('thin'))).toEqual([])
+    expect(listed).toContain(`${BASE}/compare/m-00-vs-m-01`)
+  })
 })

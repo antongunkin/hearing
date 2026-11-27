@@ -56,8 +56,11 @@ export function archiveLabel(sourceUrl: string): string | undefined {
   return copy === null ? undefined : `official page, archived copy of ${formatDate(archiveMonth(copy.timestamp))}, via Internet Archive`
 }
 
-/** `YYYY-MM` a price was seen: the month of the archive copy it was read from, else the month it was fetched. */
-export function priceMonth(price: Sourced<unknown>): string {
+/** `YYYY-MM` a price was seen: the month of the archive copy it was read from, else the month it was fetched (not after `lastListed`). */
+export function priceMonth(price: Sourced<unknown>, lastListed?: string): string {
   const copy = parseArchiveUrl(price.sourceUrl)
-  return copy ? archiveMonth(copy.timestamp) : price.fetchedAt.slice(0, 7)
+  if (copy) return archiveMonth(copy.timestamp)
+  const fetched = price.fetchedAt.slice(0, 7)
+  // Never a later month than the model was last listed.
+  return lastListed !== undefined && lastListed < fetched ? lastListed : fetched
 }

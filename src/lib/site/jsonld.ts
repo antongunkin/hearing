@@ -1,4 +1,5 @@
 // schema.org data: a Product with facts only, never a Review or an AggregateRating.
+import { parseArchiveUrl } from '@/src/lib/archive-url'
 import type { Brand } from '@/src/lib/schema/brand'
 import type { Model } from '@/src/lib/schema/model'
 import { absoluteUrl } from './url'
@@ -9,7 +10,9 @@ const quantity = (value: number, unitCode: 'GRM' | 'MMT') => ({ '@type': 'Quanti
 function offer(model: Model) {
   if (model.discontinued) return undefined
   const prices = model.variants.flatMap(({ priceUsd }) =>
-    priceUsd && priceUsd.sourceType === 'official' && typeof priceUsd.value === 'number'
+    priceUsd && priceUsd.sourceType === 'official' &&
+    parseArchiveUrl(priceUsd.sourceUrl) === null &&
+    typeof priceUsd.value === 'number'
       ? [{ price: priceUsd.value, url: priceUsd.sourceUrl }]
       : [],
   )

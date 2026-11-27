@@ -61,7 +61,7 @@ export function buildCatalogIndex(models: Model[], events: Event[] = []): Catalo
         if (priceUsd === undefined) return []
         const { value, sourceUrl, sourceType } = priceUsd
         const min = typeof value === 'number' ? value : value.min
-        return [{ min, thirdParty: Number(sourceType === 'third-party'), source: { sourceUrl, sourceType }, month: priceMonth(priceUsd) }]
+        return [{ min, thirdParty: Number(sourceType === 'third-party'), source: { sourceUrl, sourceType }, month: priceMonth(priceUsd, model.discontinued?.lastListed) }]
       })
       .sort((a, b) => a.min - b.min || a.thirdParty - b.thirdParty)
     const weightGMin = lowest(model.variants.flatMap(({ weightG }) => (weightG ? [weightG.value] : [])))

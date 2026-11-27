@@ -336,6 +336,9 @@ describe('discontinued models', () => {
   test('priceMonth is the archive month of the source, else the fetch month', () => {
     expect(priceMonth(cited(1, { sourceUrl: WAYBACK_PRICE }))).toBe('2021-03')
     expect(priceMonth(cited(1))).toBe('2026-11')
+    expect(priceMonth(cited(1), '2025-06')).toBe('2025-06')
+    expect(priceMonth(cited(1), '2027-01')).toBe('2026-11')
+    expect(priceMonth(cited(1, { sourceUrl: WAYBACK_PRICE }), '2019-01')).toBe('2021-03')
   })
 
   test('a discontinued page is indexed with 3 sourced rows or 1 document, else not', () => {
@@ -404,5 +407,13 @@ describe('offers in JSON-LD', () => {
     expect(productJsonLd(onSale, brand)).not.toHaveProperty('offers.availability')
     expect(productJsonLd(discontinuedModel(), brand)).not.toHaveProperty('offers')
     expect(productJsonLd(rxThirdParty, brand)).not.toHaveProperty('offers')
+  })
+
+  test('a price read from a Web Archive copy is never an offer', () => {
+    const archived = model({
+      variants: [{ id: 'a', formFactor: 'RIC', priceUsd: cited(499, { sourceUrl: 'https://web.archive.org/web/20210315123456id_/https://maker.example/shop' }) }],
+    })
+    expect(productJsonLd(archived, brand)).not.toHaveProperty('offers')
+    expect(productJsonLd(model({ variants: [...archived.variants, ...onSale.variants] }), brand)).toMatchObject({ offers: { price: 799, url: PRICE_PAGE } })
   })
 })
