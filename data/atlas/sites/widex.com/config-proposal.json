@@ -1,0 +1,55 @@
+{
+  "checks": {
+    "catalogUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "modelUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "supportUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.1": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.2": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.3": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ]
+  },
+  "generatedAt": "2026-11-27T22:41:06.854Z",
+  "proposal": {
+    "catalogUrls": [
+      "https://www.widex.com/en-us/hearing-aids/"
+    ],
+    "modelUrlPattern": "^https://www\\.widex\\.com/en-us/hearing-aids/(?:allure/[a-z0-9-]+|smartric)/$",
+    "render": false,
+    "status": "active",
+    "supportUrls": [
+      "https://www.widex.com/en-us/support/",
+      "https://www.widex.com/en-us/support/document-library/",
+      "https://www.widex.com/en-us/support/support-for-moment-hearing-aids/",
+      "https://www.widex.com/en-us/support/accessories/"
+    ]
+  }
+}

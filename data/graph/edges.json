@@ -617,6 +617,22 @@
     "visibility": "internal"
   },
   {
+    "from": "company:ws-audiology",
+    "kind": "owns",
+    "since": "2026",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T22:34:36.342Z",
+        "kind": "company-page",
+        "quote": "© 2026, WS Audiology A/S",
+        "url": "https://www.widex.com/en/hearing-aids/"
+      }
+    ],
+    "status": "proposed",
+    "to": "brand:widex",
+    "visibility": "internal"
+  },
+  {
     "from": "company:wsa",
     "kind": "owns",
     "sources": [
@@ -755,6 +771,20 @@
     ],
     "status": "observed",
     "to": "domain:starkey.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:cdn.shopify.com",
+    "kind": "hosts-documents-for",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T22:26:13.165Z",
+        "kind": "crawl",
+        "url": "https://www.signia.net/da-dk/support/"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:signia.net",
     "visibility": "internal"
   },
   {
@@ -947,6 +977,11 @@
         "fetchedAt": "2026-11-27T17:16:18.831Z",
         "kind": "crawl",
         "url": "https://www.jabraenhance.com/hearing-aid-guide"
+      },
+      {
+        "fetchedAt": "2026-11-27T22:13:10.344Z",
+        "kind": "crawl",
+        "url": "https://www.jabraenhance.com/hearing-aid-guide"
       }
     ],
     "status": "observed",
@@ -965,6 +1000,20 @@
     ],
     "status": "observed",
     "to": "domain:costco.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:jabraenhance.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T22:15:29.188Z",
+        "kind": "crawl",
+        "url": "https://help.jabraenhance.com/setup/how-to-setup-my-replacement-hearing-aids"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:apple.com",
     "visibility": "internal"
   },
   {
@@ -1055,6 +1104,11 @@
         "fetchedAt": "2026-11-27T18:03:12.209Z",
         "kind": "crawl",
         "url": "https://www.signia.net/de-de/"
+      },
+      {
+        "fetchedAt": "2026-11-27T22:22:31.766Z",
+        "kind": "crawl",
+        "url": "https://www.signia.net/de-de/"
       }
     ],
     "status": "observed",
@@ -1142,6 +1196,16 @@
       },
       {
         "fetchedAt": "2026-11-27T18:18:04.129Z",
+        "kind": "crawl",
+        "url": "https://www.widex.com/de-de/"
+      },
+      {
+        "fetchedAt": "2026-11-27T22:30:33.928Z",
+        "kind": "crawl",
+        "url": "https://www.widex.com/cs-cz/"
+      },
+      {
+        "fetchedAt": "2026-11-27T22:30:42.890Z",
         "kind": "crawl",
         "url": "https://www.widex.com/de-de/"
       }

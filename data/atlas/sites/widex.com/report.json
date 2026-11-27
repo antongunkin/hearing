@@ -87,7 +87,7 @@
       "url": "https://www.widex.com/sitemap-fi-fi.xml"
     }
   ],
-  "generatedAt": "2026-11-27T18:22:39.162Z",
+  "generatedAt": "2026-11-27T22:35:44.031Z",
   "mode": "live",
   "outbound": [
     {
@@ -231,7 +231,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:17:43.044Z",
+        "fetchedAt": "2026-11-27T22:30:26.027Z",
         "url": "https://www.widex.com/en-us/"
       },
       "title": "Widex hearing aids & accessories | Official Widex US website",
@@ -256,7 +256,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:17:48.124Z",
+        "fetchedAt": "2026-11-27T22:30:30.014Z",
         "url": "https://www.widex.com/ar/"
       },
       "title": "المعينات السمعية والأكسسوارات من Widex | الموقع الرسمي لشركة Widex Global",
@@ -284,7 +284,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:17:53.066Z",
+        "fetchedAt": "2026-11-27T22:30:33.928Z",
         "url": "https://www.widex.com/cs-cz/"
       },
       "title": "Sluchadla Widex a příslušenství | Widex",
@@ -312,7 +312,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:17:58.787Z",
+        "fetchedAt": "2026-11-27T22:30:37.206Z",
         "url": "https://www.widex.com/da-dk/"
       },
       "title": "Widex - Find en forhandler af høreapparater nær dig | Widex",
@@ -338,7 +338,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:18:04.129Z",
+        "fetchedAt": "2026-11-27T22:30:42.890Z",
         "url": "https://www.widex.com/de-de/"
       },
       "title": "Widex Hörgeräte und Zubehör | Widex",
@@ -363,7 +363,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:18:07.366Z",
+        "fetchedAt": "2026-11-27T22:30:47.992Z",
         "url": "https://www.widex.com/de-ch/"
       },
       "title": "Widex Hörgeräte und Zubehör | Widex",
@@ -388,7 +388,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:18:11.004Z",
+        "fetchedAt": "2026-11-27T22:30:51.861Z",
         "url": "https://www.widex.com/en/"
       },
       "title": "Widex hearing aids & accessories | Official Widex Global website",
@@ -414,7 +414,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:18:15.088Z",
+        "fetchedAt": "2026-11-27T22:30:57.648Z",
         "url": "https://www.widex.com/en-au/"
       },
       "title": "Widex hearing aids & accessories | Official Widex Australia website",
@@ -440,7 +440,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:18:20.709Z",
+        "fetchedAt": "2026-11-27T22:31:02.807Z",
         "url": "https://www.widex.com/en-ca/"
       },
       "title": "Widex hearing aids & accessories | Official Widex Canada website",
@@ -469,7 +469,7 @@
         "https://azurecdn.widex.com/-/media/wsa/files/uk-modern-slavery-statement-fy23-24_signed-jm-mw.pdf?rev=991c06fae818433ab0e6047f71ffeb79"
       ],
       "ref": {
-        "fetchedAt": "2026-11-27T18:18:23.471Z",
+        "fetchedAt": "2026-11-27T22:31:06.068Z",
         "url": "https://www.widex.com/en-gb/"
       },
       "title": "Widex Hearing Aids & Hearing Care Solutions | Widex",
@@ -495,7 +495,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:18:26.929Z",
+        "fetchedAt": "2026-11-27T22:31:09.809Z",
         "url": "https://www.widex.com/en-ie/"
       },
       "title": "Widex hearing aids & accessories | Official Widex Global website",
@@ -520,7 +520,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:18:31.321Z",
+        "fetchedAt": "2026-11-27T22:31:14.478Z",
         "url": "https://www.widex.com/en-in/"
       },
       "title": "Widex hearing aids & accessories | Official Widex India website",
@@ -546,7 +546,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:18:37.473Z",
+        "fetchedAt": "2026-11-27T22:31:17.647Z",
         "url": "https://www.widex.com/en-nz/"
       },
       "title": "Widex hearing aids & accessories | Official Widex NZ website",
@@ -571,7 +571,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:18:40.787Z",
+        "fetchedAt": "2026-11-27T22:31:22.274Z",
         "url": "https://www.widex.com/en-sg/"
       },
       "title": "Widex hearing aids & accessories | Official Widex Singapore",
@@ -596,7 +596,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:18:46.031Z",
+        "fetchedAt": "2026-11-27T22:31:24.991Z",
         "url": "https://www.widex.com/en-us/"
       },
       "title": "Widex hearing aids & accessories | Official Widex US website",
@@ -622,7 +622,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:18:51.566Z",
+        "fetchedAt": "2026-11-27T22:31:28.888Z",
         "url": "https://www.widex.com/en-za/"
       },
       "title": "Widex hearing aids & accessories | Official Widex South Africa",
@@ -647,7 +647,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:18:55.011Z",
+        "fetchedAt": "2026-11-27T22:31:32.083Z",
         "url": "https://www.widex.com/es/"
       },
       "title": "Audífonos y accesorios para audífonos Widex | Widex",
@@ -673,7 +673,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:19:00.014Z",
+        "fetchedAt": "2026-11-27T22:31:35.268Z",
         "url": "https://www.widex.com/es-mx/"
       },
       "title": "Audífonos y accesorios para audífonos Widex | Widex",
@@ -699,7 +699,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:19:02.870Z",
+        "fetchedAt": "2026-11-27T22:31:38.591Z",
         "url": "https://www.widex.com/es-es/"
       },
       "title": "Audífonos y accesorios Widex | Widex España",
@@ -725,7 +725,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:19:05.988Z",
+        "fetchedAt": "2026-11-27T22:31:41.950Z",
         "url": "https://www.widex.com/fr-ca/"
       },
       "title": "Aides auditives et accessoires associées Widex | Widex",
@@ -748,7 +748,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:19:10.273Z",
+        "fetchedAt": "2026-11-27T22:31:46.405Z",
         "url": "https://www.widex.com/en-us/hearing-aids/allure/ai-ric-r-d/"
       },
       "title": "Widex Allure AI RIC R D - Rechargeable AI Hearing Aids | Widex",
@@ -771,7 +771,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:19:14.627Z",
+        "fetchedAt": "2026-11-27T22:31:50.866Z",
         "url": "https://www.widex.com/en-us/hearing-aids/allure/"
       },
       "title": "Widex Allure Hearing Aids - All Models, Features and Benefits | Widex",
@@ -796,7 +796,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:19:18.767Z",
+        "fetchedAt": "2026-11-27T22:31:56.685Z",
         "url": "https://www.widex.com/en-us/service/hearing-test/"
       },
       "title": "Free Online Hearing Test with instant results - Widex US [2026]",
@@ -819,7 +819,7 @@
       "needsRender": true,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:19:22.105Z",
+        "fetchedAt": "2026-11-27T22:32:00.006Z",
         "url": "https://www.widex.com/en-us/hearing-aids/"
       },
       "title": "Widex Hearing Aids & Devices - Get a Quality Hearing Aid | Widex",
@@ -842,7 +842,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:19:24.842Z",
+        "fetchedAt": "2026-11-27T22:32:03.725Z",
         "url": "https://www.widex.com/en-us/hearing-aids/accessories/"
       },
       "title": "Widex hearing aid accessories | Official Widex US website",
@@ -865,7 +865,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:19:27.433Z",
+        "fetchedAt": "2026-11-27T22:32:08.847Z",
         "url": "https://www.widex.com/en-us/hearing-aids/apps/"
       },
       "title": "Widex hearing aid apps | Download for Android or iPhone | Widex",
@@ -890,7 +890,7 @@
         "https://azurecdn.widex.com/-/media/widex/global/files/ebooklets/how-to-communicate-with-hearing-aid-users-com.pdf?rev=dd6f81f37b874530a3a012936d8af89e&hash=CC4E8B5C0780D5B69B8CE15198B817B9"
       ],
       "ref": {
-        "fetchedAt": "2026-11-27T18:19:30.465Z",
+        "fetchedAt": "2026-11-27T22:32:14.788Z",
         "url": "https://www.widex.com/en-us/hearing-loss/"
       },
       "title": "Early hearing loss and tinnitus signs and symptoms  | Widex",
@@ -913,7 +913,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:19:33.876Z",
+        "fetchedAt": "2026-11-27T22:32:20.866Z",
         "url": "https://www.widex.com/en-us/hearing-loss/tinnitus/"
       },
       "title": "What is Tinnitus? | About Tinnitus Symptoms, Causes, and Relief | Widex",
@@ -941,7 +941,7 @@
         "https://azurecdn.widex.com/-/media/widex/global/files/hearing-aids/moment/moment-user-connectivity-guide-simplified.pdf?rev=dd5cbf7a21dd4fb0b8a1414166441350&hash=858631727C59A935343F0036D3B7DBAE"
       ],
       "ref": {
-        "fetchedAt": "2026-11-27T18:19:39.323Z",
+        "fetchedAt": "2026-11-27T22:32:24.187Z",
         "url": "https://www.widex.com/en-us/support/support-for-moment-hearing-aids/"
       },
       "title": "Widex Moment™ hearing aids - Support & troubleshooting | Widex",
@@ -964,7 +964,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:19:43.725Z",
+        "fetchedAt": "2026-11-27T22:32:28.827Z",
         "url": "https://www.widex.com/ar/hearing-aids/allure/ai-ric-r-d/"
       },
       "title": "Widex Allure AI RIC R D – معينات سمعية تعمل بالذكاء الاصطناعي وقابلة لإعادة الشحن | Widex",
@@ -987,7 +987,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:19:49.214Z",
+        "fetchedAt": "2026-11-27T22:32:32.449Z",
         "url": "https://www.widex.com/ar/hearing-aids/allure/"
       },
       "title": "المعينات السمعية Widex Allure– جميع الطرازات والمزايا والفوائد | Widex",
@@ -1010,7 +1010,7 @@
       "needsRender": true,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:19:54.956Z",
+        "fetchedAt": "2026-11-27T22:32:37.907Z",
         "url": "https://www.widex.com/ar/hearing-aids/"
       },
       "title": "احصل على أجهزة سمعية عالية الجودة من Widex | Widex",
@@ -1033,7 +1033,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:19:59.488Z",
+        "fetchedAt": "2026-11-27T22:32:42.084Z",
         "url": "https://www.widex.com/ar/hearing-aids/accessories/"
       },
       "title": "أكسسوارات المعينات السمعية من Widex | الموقع الرسمي لشركة Widex Global",
@@ -1056,7 +1056,7 @@
       "needsRender": true,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:20:03.205Z",
+        "fetchedAt": "2026-11-27T22:32:44.712Z",
         "url": "https://www.widex.com/ar/hearing-aids/apps/"
       },
       "title": "تطبيقات Widex للمعينات السمعية | تحميل لأجهزة Android أو iPhone",
@@ -1082,7 +1082,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:20:07.973Z",
+        "fetchedAt": "2026-11-27T22:32:49.149Z",
         "url": "https://www.widex.com/da-dk/hoereapparater/allure/"
       },
       "title": "Widex Allure høreapparater - Alle modeller, funktioner og fordele | Widex",
@@ -1110,7 +1110,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:20:12.750Z",
+        "fetchedAt": "2026-11-27T22:32:54.187Z",
         "url": "https://www.widex.com/da-dk/service/hearing-test/"
       },
       "title": "Høretest - Test din hørelse gratis på kun fem minutter | Widex",
@@ -1136,7 +1136,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:20:16.930Z",
+        "fetchedAt": "2026-11-27T22:33:00.147Z",
         "url": "https://www.widex.com/da-dk/hoereapparater/"
       },
       "title": "Høreapparater - Find den bedste løsning til netop din hørelse | Widex",
@@ -1163,7 +1163,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:20:25.955Z",
+        "fetchedAt": "2026-11-27T22:33:07.728Z",
         "url": "https://www.widex.com/da-dk/support/hearing-aid-maintenance/"
       },
       "title": "Guide: Vedligeholdelse og reparation af høreapparater - Widex | Widex",
@@ -1189,7 +1189,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:20:30.892Z",
+        "fetchedAt": "2026-11-27T22:33:11.108Z",
         "url": "https://www.widex.com/da-dk/hoereapparater/apps/"
       },
       "title": "Apps til høreapparater - Skræddersy din hørelse nu - Widex",
@@ -1216,7 +1216,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:20:35.492Z",
+        "fetchedAt": "2026-11-27T22:33:15.469Z",
         "url": "https://www.widex.com/da-dk/hoereapparater/accessories/"
       },
       "title": "Tilbehør til høreapparater - Oplev smart teknologi her - Widex | Widex",
@@ -1244,7 +1244,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:20:40.082Z",
+        "fetchedAt": "2026-11-27T22:33:18.248Z",
         "url": "https://www.widex.com/da-dk/blog/global/2024-01-is-smartric-the-right-hearing-aid/"
       },
       "title": "Er SmartRIC det rigtige høreapparat for dig? | Widex",
@@ -1273,7 +1273,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:20:43.790Z",
+        "fetchedAt": "2026-11-27T22:33:21.555Z",
         "url": "https://www.widex.com/da-dk/blog/local/da-dk/tilskud-til-hoerapparater-fra-det-offentlige/"
       },
       "title": "Høreapparater fra det offentlige - Læs vores guide her | Widex",
@@ -1299,7 +1299,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:20:46.896Z",
+        "fetchedAt": "2026-11-27T22:33:26.880Z",
         "url": "https://www.widex.com/da-dk/support/"
       },
       "title": "Hjælp og service - Kontakt vores kundeservice her - Widex | Widex",
@@ -1316,7 +1316,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:20:52.409Z",
+        "fetchedAt": "2026-11-27T22:33:30.368Z",
         "url": "https://www.widex.com/de-de/hoergeraete/apps/"
       },
       "title": "Hörgeräte-Apps zur Steuerung Ihres Hörgeräts | Widex",
@@ -1340,7 +1340,7 @@
       "needsRender": true,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:20:57.548Z",
+        "fetchedAt": "2026-11-27T22:33:35.778Z",
         "url": "https://www.widex.com/de-de/service-und-support/"
       },
       "title": "Service und Support: Widex ist für Sie da! | Widex",
@@ -1363,7 +1363,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:21:03.642Z",
+        "fetchedAt": "2026-11-27T22:33:39.372Z",
         "url": "https://www.widex.com/de-ch/hearing-aids/allure/ai-ric-r-d/"
       },
       "title": "Widex Allure AI RIC R D – Wiederaufladbare Hörgeräte mit KI | Widex",
@@ -1386,7 +1386,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:21:08.651Z",
+        "fetchedAt": "2026-11-27T22:33:43.029Z",
         "url": "https://www.widex.com/de-ch/hearing-aids/allure/"
       },
       "title": "Widex Allure Hörsysteme | Modelle, Funktionen und Vorteile | Widex",
@@ -1409,7 +1409,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:21:14.381Z",
+        "fetchedAt": "2026-11-27T22:33:46.127Z",
         "url": "https://www.widex.com/de-ch/hearing-aids/smartric/"
       },
       "title": "Widex SmartRIC Hörgeräte - Alle Modelle, Funktionen und Vorteile | Widex",
@@ -1434,7 +1434,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:21:18.791Z",
+        "fetchedAt": "2026-11-27T22:33:50.471Z",
         "url": "https://www.widex.com/de-ch/service/hearing-test/"
       },
       "title": "Kostenloser Online-Hörtest mit sofortigen Ergebnissen - Widex Schweiz [2026] | Widex | Widex",
@@ -1457,7 +1457,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:21:22.629Z",
+        "fetchedAt": "2026-11-27T22:33:56.688Z",
         "url": "https://www.widex.com/de-ch/hearing-aids/"
       },
       "title": "Entdecken Sie die Premium-Hörgeräte von Widex | Widex",
@@ -1480,7 +1480,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:21:27.090Z",
+        "fetchedAt": "2026-11-27T22:34:00.987Z",
         "url": "https://www.widex.com/de-ch/hearing-aids/accessories/"
       },
       "title": "Hörgerätezubehör: Das elegante Zubehör macht Ihr Leben leichter | Widex",
@@ -1503,7 +1503,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:21:30.289Z",
+        "fetchedAt": "2026-11-27T22:34:07.619Z",
         "url": "https://www.widex.com/de-ch/hearing-aids/apps/"
       },
       "title": "Massgeschneiderte Hörgeräte-Apps und Zubehör von Widex | Widex",
@@ -1526,7 +1526,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:21:35.169Z",
+        "fetchedAt": "2026-11-27T22:34:13.107Z",
         "url": "https://www.widex.com/de-ch/hearing-loss/"
       },
       "title": "Hörverlust und Tinnitus: Anzeichen und Symptome | Widex",
@@ -1555,7 +1555,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:21:39.630Z",
+        "fetchedAt": "2026-11-27T22:34:17.005Z",
         "url": "https://www.widex.com/de-ch/hearing-loss/tinnitus/"
       },
       "title": "Was ist Tinnitus? | Widex",
@@ -1578,7 +1578,7 @@
       "needsRender": true,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:21:44.050Z",
+        "fetchedAt": "2026-11-27T22:34:20.363Z",
         "url": "https://www.widex.com/de-ch/support/"
       },
       "title": "Service und Support: Widex ist für Sie da! | Widex",
@@ -1601,7 +1601,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:21:50.112Z",
+        "fetchedAt": "2026-11-27T22:34:25.322Z",
         "url": "https://www.widex.com/en/hearing-aids/allure/ai-ric-r-d/"
       },
       "title": "Widex Allure AI RIC R D - Rechargeable AI Hearing Aids | Widex",
@@ -1624,7 +1624,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:21:56.388Z",
+        "fetchedAt": "2026-11-27T22:34:29.334Z",
         "url": "https://www.widex.com/en/hearing-aids/allure/"
       },
       "title": "Widex Allure Hearing Aids - All Models, Features and Benefits | Widex",
@@ -1649,7 +1649,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:21:59.967Z",
+        "fetchedAt": "2026-11-27T22:34:33.054Z",
         "url": "https://www.widex.com/en/service/hearing-test/"
       },
       "title": "Free Online Hearing Test with instant results - Widex Global [2026]",
@@ -1672,7 +1672,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:22:06.388Z",
+        "fetchedAt": "2026-11-27T22:34:36.342Z",
         "url": "https://www.widex.com/en/hearing-aids/"
       },
       "title": "Get Quality Hearing Aids & Devices from Widex | Widex",
@@ -1695,7 +1695,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:22:11.000Z",
+        "fetchedAt": "2026-11-27T22:34:40.243Z",
         "url": "https://www.widex.com/en/hearing-aids/accessories/"
       },
       "title": "Widex hearing aid accessories | Official Widex Global website",
@@ -1748,7 +1748,7 @@
       }
     ],
     "ref": {
-      "fetchedAt": "2026-11-27T18:14:51.300Z",
+      "fetchedAt": "2026-11-27T22:27:37.747Z",
       "url": "https://www.widex.com/robots.txt"
     },
     "sitemaps": [
@@ -1819,79 +1819,79 @@
   "sitemap": {
     "refs": [
       {
-        "fetchedAt": "2026-11-27T18:14:58.714Z",
+        "fetchedAt": "2026-11-27T22:27:46.032Z",
         "url": "https://www.widex.com/sitemap-ar.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:15:07.849Z",
+        "fetchedAt": "2026-11-27T22:27:52.906Z",
         "url": "https://www.widex.com/sitemap-cs-cz.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:15:15.068Z",
+        "fetchedAt": "2026-11-27T22:28:02.687Z",
         "url": "https://www.widex.com/sitemap-da-dk.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:15:22.510Z",
+        "fetchedAt": "2026-11-27T22:28:12.591Z",
         "url": "https://www.widex.com/sitemap-de-de.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:15:29.227Z",
+        "fetchedAt": "2026-11-27T22:28:20.546Z",
         "url": "https://www.widex.com/sitemap-de-ch.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:15:36.570Z",
+        "fetchedAt": "2026-11-27T22:28:28.173Z",
         "url": "https://www.widex.com/sitemap-en.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:15:46.187Z",
+        "fetchedAt": "2026-11-27T22:28:38.046Z",
         "url": "https://www.widex.com/sitemap-en-au.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:15:55.569Z",
+        "fetchedAt": "2026-11-27T22:28:48.149Z",
         "url": "https://www.widex.com/sitemap-en-ca.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:16:06.286Z",
+        "fetchedAt": "2026-11-27T22:28:56.348Z",
         "url": "https://www.widex.com/sitemap-en-gb.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:16:19.228Z",
+        "fetchedAt": "2026-11-27T22:29:02.726Z",
         "url": "https://www.widex.com/sitemap-en-ie.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:16:29.052Z",
+        "fetchedAt": "2026-11-27T22:29:09.648Z",
         "url": "https://www.widex.com/sitemap-en-in.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:16:39.736Z",
+        "fetchedAt": "2026-11-27T22:29:19.067Z",
         "url": "https://www.widex.com/sitemap-en-nz.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:16:47.143Z",
+        "fetchedAt": "2026-11-27T22:29:29.719Z",
         "url": "https://www.widex.com/sitemap-en-sg.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:16:54.188Z",
+        "fetchedAt": "2026-11-27T22:29:37.288Z",
         "url": "https://www.widex.com/sitemap-en-us.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:17:02.532Z",
+        "fetchedAt": "2026-11-27T22:29:44.653Z",
         "url": "https://www.widex.com/sitemap-en-za.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:17:09.627Z",
+        "fetchedAt": "2026-11-27T22:29:52.013Z",
         "url": "https://www.widex.com/sitemap-es.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:17:15.216Z",
+        "fetchedAt": "2026-11-27T22:29:59.069Z",
         "url": "https://www.widex.com/sitemap-es-mx.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:17:21.219Z",
+        "fetchedAt": "2026-11-27T22:30:06.652Z",
         "url": "https://www.widex.com/sitemap-es-es.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:17:36.148Z",
+        "fetchedAt": "2026-11-27T22:30:18.817Z",
         "url": "https://www.widex.com/sitemap-fr-ca.xml"
       }
     ],

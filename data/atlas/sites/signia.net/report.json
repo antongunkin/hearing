@@ -1,30 +1,104 @@
 {
   "archive": {
-    "sections": []
+    "sections": [
+      {
+        "byYear": {
+          "2021": 77,
+          "2022": 37,
+          "2023": 26,
+          "2024": 45,
+          "2025": 39,
+          "2026": 18
+        },
+        "latest": "20261019184147",
+        "url": "https://www.signia.net/en-us"
+      },
+      {
+        "byYear": {
+          "2021": 23,
+          "2022": 5,
+          "2023": 12,
+          "2024": 19,
+          "2025": 19,
+          "2026": 10
+        },
+        "latest": "20260829131445",
+        "url": "https://www.signia.net/en-nz"
+      },
+      {
+        "byYear": {
+          "2021": 24,
+          "2022": 3,
+          "2023": 11,
+          "2024": 15,
+          "2025": 21,
+          "2026": 9
+        },
+        "latest": "20260831032251",
+        "url": "https://www.signia.net/en-sg"
+      },
+      {
+        "byYear": {
+          "2021": 19,
+          "2022": 8,
+          "2023": 12,
+          "2024": 24,
+          "2025": 21,
+          "2026": 15
+        },
+        "latest": "20260909231611",
+        "url": "https://www.signia.net/en-au"
+      },
+      {
+        "byYear": {
+          "2021": 34,
+          "2022": 240,
+          "2023": 279,
+          "2024": 223,
+          "2025": 73,
+          "2026": 40
+        },
+        "latest": "20261109231148",
+        "url": "https://www.signia.net/en"
+      },
+      {
+        "byYear": {
+          "2021": 25,
+          "2022": 7,
+          "2023": 16,
+          "2024": 13,
+          "2025": 19,
+          "2026": 16
+        },
+        "latest": "20261006124022",
+        "url": "https://www.signia.net/en-in"
+      }
+    ]
   },
   "budget": 60,
   "domain": "signia.net",
   "failures": [
     {
-      "detail": "bot-protection",
-      "reason": "refused",
-      "url": "https://www.signia.net/en-us/support/"
+      "detail": "HTTP 404",
+      "reason": "http-error",
+      "url": "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/pure-charge-go-ix/"
+    },
+    {
+      "detail": "HTTP 404",
+      "reason": "http-error",
+      "url": "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/pure-charge-go-ix/bluetooth-connectivity-transformed/"
+    },
+    {
+      "detail": "HTTP 404",
+      "reason": "http-error",
+      "url": "https://www.signia.net/ar/hearing-loss-and-tinnitus/hearing-and-hearing-loss/"
     }
   ],
-  "generatedAt": "2026-11-27T18:04:44.727Z",
+  "generatedAt": "2026-11-27T22:27:33.226Z",
   "mode": "live",
   "outbound": [
     {
-      "count": 30,
-      "domain": "signia-pro.com",
-      "examples": [
-        "https://www.signia-pro.com/en-us/product-portfolio/integrated-xperience/silk-charge-go-ix/",
-        "https://www.signia-pro.com/en-us/",
-        "http://www.signia-pro.com/es/"
-      ]
-    },
-    {
-      "count": 28,
+      "count": 57,
       "domain": "facebook.com",
       "examples": [
         "https://www.facebook.com/signiahearingUS/",
@@ -33,7 +107,7 @@
       ]
     },
     {
-      "count": 26,
+      "count": 55,
       "domain": "instagram.com",
       "examples": [
         "https://www.instagram.com/signiahearing/",
@@ -42,7 +116,16 @@
       ]
     },
     {
-      "count": 26,
+      "count": 53,
+      "domain": "signia-pro.com",
+      "examples": [
+        "https://www.signia-pro.com/en-us/product-portfolio/integrated-xperience/silk-charge-go-ix/",
+        "https://www.signia-pro.com/en-us/",
+        "http://www.signia-pro.com/es/"
+      ]
+    },
+    {
+      "count": 45,
       "domain": "youtube.com",
       "examples": [
         "https://www.youtube.com/channel/UCywvyJjga1QY6gsraN2l_kg",
@@ -51,7 +134,7 @@
       ]
     },
     {
-      "count": 25,
+      "count": 44,
       "domain": "linkedin.com",
       "examples": [
         "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true",
@@ -59,7 +142,7 @@
       ]
     },
     {
-      "count": 4,
+      "count": 14,
       "domain": "apps.apple.com",
       "examples": [
         "https://apps.apple.com/app/signia-app/id1316911473",
@@ -68,10 +151,19 @@
       ]
     },
     {
-      "count": 3,
+      "count": 13,
       "domain": "play.google.com",
       "examples": [
-        "https://play.google.com/store/apps/details?id=com.signia.rta"
+        "https://play.google.com/store/apps/details?id=com.signia.rta",
+        "https://play.google.com/store/apps/details?id=com.wsa.henosis.signia"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "policies.google.com",
+      "examples": [
+        "https://policies.google.com/privacy",
+        "https://policies.google.com/terms"
       ]
     },
     {
@@ -86,6 +178,20 @@
       "domain": "qrfy.io",
       "examples": [
         "https://qrfy.io/p/QK8BEw2DEK"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "shoeboxonline.com",
+      "examples": [
+        "https://www.shoeboxonline.com/signia-latam"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "signia-library.com",
+      "examples": [
+        "https://www.signia-library.com/scientific_marketing/dynamic-soundscape-processing-backgrounder/"
       ]
     },
     {
@@ -124,7 +230,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:02:45.948Z",
+        "fetchedAt": "2026-11-27T22:22:07.025Z",
         "url": "https://www.signia.net/en-us/"
       },
       "title": "Signia Hearing Aids | Be Brilliant | Official Signia Website",
@@ -151,7 +257,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:02:51.587Z",
+        "fetchedAt": "2026-11-27T22:22:12.625Z",
         "url": "https://www.signia.net/es-ar/hearing-aids/"
       },
       "title": "Audífonos Signia - llevan su audición al siguiente nivel | Signia",
@@ -175,7 +281,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:02:55.713Z",
+        "fetchedAt": "2026-11-27T22:22:16.087Z",
         "url": "https://www.signia.net/ar/"
       },
       "title": "المعينات السمعية من Signia | Be Brilliant | الموقع الالكتروني الرسمي Signia | Signia",
@@ -200,7 +306,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:02:59.189Z",
+        "fetchedAt": "2026-11-27T22:22:19.246Z",
         "url": "https://www.signia.net/cs-cz/"
       },
       "title": "Se sluchadly značky Signia zazáříte | Signia | Signia",
@@ -225,7 +331,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:03:02.908Z",
+        "fetchedAt": "2026-11-27T22:22:23.525Z",
         "url": "https://www.signia.net/da-dk/"
       },
       "title": "Signia - Se vores udvalg af højteknologiske løsninger | Signia",
@@ -250,7 +356,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:03:08.010Z",
+        "fetchedAt": "2026-11-27T22:22:28.066Z",
         "url": "https://www.signia.net/de-ch/"
       },
       "title": "Signia Hörgeräte – Be Brilliant mit Signia | Signia",
@@ -277,7 +383,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:03:12.209Z",
+        "fetchedAt": "2026-11-27T22:22:31.766Z",
         "url": "https://www.signia.net/de-de/"
       },
       "title": "Signia Hörgeräte – Be Brilliant mit Signia | Signia",
@@ -302,7 +408,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:03:17.208Z",
+        "fetchedAt": "2026-11-27T22:22:35.803Z",
         "url": "https://www.signia.net/en/"
       },
       "title": "Signia Hearing Aids | Be Brilliant | Official Signia Website",
@@ -327,7 +433,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:03:22.248Z",
+        "fetchedAt": "2026-11-27T22:22:39.910Z",
         "url": "https://www.signia.net/id-id/"
       },
       "title": "Alat Bantu Dengar Signia | Be Brilliant | Situs Resmi Signia",
@@ -352,7 +458,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:03:25.870Z",
+        "fetchedAt": "2026-11-27T22:22:45.245Z",
         "url": "https://www.signia.net/en-au/"
       },
       "title": "Signia Hearing Aids & Accessories",
@@ -377,7 +483,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:03:28.889Z",
+        "fetchedAt": "2026-11-27T22:22:51.786Z",
         "url": "https://www.signia.net/en-ca/"
       },
       "title": "Signia Hearing Aids | Be Brilliant | Official Signia Website",
@@ -405,7 +511,7 @@
         "https://cdn.signia.net/-/media/wsa/files/uk-modern-slavery-statement-fy23-24_signed-jm-mw.pdf?rev=991c06fae818433ab0e6047f71ffeb79"
       ],
       "ref": {
-        "fetchedAt": "2026-11-27T18:03:33.853Z",
+        "fetchedAt": "2026-11-27T22:22:58.027Z",
         "url": "https://www.signia.net/en-gb/"
       },
       "title": "Signia Hearing Aids | Be Brilliant | Official Signia Website",
@@ -430,7 +536,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:03:36.887Z",
+        "fetchedAt": "2026-11-27T22:23:03.508Z",
         "url": "https://www.signia.net/en-in/"
       },
       "title": "Signia Hearing Aids | Be Brilliant | Official Signia Website",
@@ -455,7 +561,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:03:40.094Z",
+        "fetchedAt": "2026-11-27T22:23:08.558Z",
         "url": "https://www.signia.net/en-nz/"
       },
       "title": "Signia Hearing Aids | Be Brilliant | Official Signia Website",
@@ -480,7 +586,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:03:45.015Z",
+        "fetchedAt": "2026-11-27T22:23:12.688Z",
         "url": "https://www.signia.net/en-sg/"
       },
       "title": "Signia Hearing Aids | Be Brilliant | Official Signia Website",
@@ -506,7 +612,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:03:48.053Z",
+        "fetchedAt": "2026-11-27T22:23:16.346Z",
         "url": "https://www.signia.net/en-us/"
       },
       "title": "Signia Hearing Aids | Be Brilliant | Official Signia Website",
@@ -531,7 +637,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:03:52.297Z",
+        "fetchedAt": "2026-11-27T22:23:20.872Z",
         "url": "https://www.signia.net/en-za/"
       },
       "title": "Signia Hearing Aids | Be Brilliant | Official Signia Website",
@@ -556,7 +662,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:03:57.849Z",
+        "fetchedAt": "2026-11-27T22:23:23.907Z",
         "url": "https://www.signia.net/es/"
       },
       "title": "Sea Brillante con los audífonos Signia | Signia",
@@ -580,7 +686,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:04:01.954Z",
+        "fetchedAt": "2026-11-27T22:23:27.727Z",
         "url": "https://www.signia.net/es-es/"
       },
       "title": "Se Brillante con los audífonos Signia | Signia",
@@ -603,7 +709,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:04:04.730Z",
+        "fetchedAt": "2026-11-27T22:23:30.952Z",
         "url": "https://www.signia.net/es-mx/"
       },
       "title": "Sea Brillante con los audífonos Signia | Signia",
@@ -627,7 +733,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:04:07.648Z",
+        "fetchedAt": "2026-11-27T22:23:34.007Z",
         "url": "https://www.signia.net/fr-ca/"
       },
       "title": "Révélez-vous avec les appareils auditifs Signia | Signia",
@@ -650,7 +756,7 @@
       "needsRender": true,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:04:10.625Z",
+        "fetchedAt": "2026-11-27T22:23:38.785Z",
         "url": "https://www.signia.net/en-us/hearing-aids/multi-adaptive-xperience/pure-charge-go-max/"
       },
       "title": "Signia Pure Charge&Go MaX hearing aids | Signia | Signia",
@@ -673,7 +779,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:04:16.005Z",
+        "fetchedAt": "2026-11-27T22:23:42.130Z",
         "url": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/active-ix/"
       },
       "title": "Signia Active IX – Hearing aid earbuds | Signia",
@@ -698,7 +804,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:04:21.127Z",
+        "fetchedAt": "2026-11-27T22:23:48.146Z",
         "url": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/insio-charge-go-ix/"
       },
       "title": "Signia Insio Charge&Go IX CIC completely-in-canal hearing aids | Signia",
@@ -728,7 +834,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:04:26.605Z",
+        "fetchedAt": "2026-11-27T22:23:52.733Z",
         "url": "https://www.signia.net/en-us/hearing-aids/"
       },
       "title": "Signia Hearing Aids - All Models, Colors, Features, Benefits",
@@ -763,7 +869,7 @@
         "https://cdn.signia.net/-/media/signia/global/files/app---telecare/signia-assistant_consumer-leaflet_2020-03.pdf?rev=1ada001a8e4040f3a4204d72ce931189/"
       ],
       "ref": {
-        "fetchedAt": "2026-11-27T18:04:32.387Z",
+        "fetchedAt": "2026-11-27T22:23:58.333Z",
         "url": "https://www.signia.net/en-us/connectivity/signia-app/"
       },
       "title": "Signia App for Hearing Aids | Download for Android or iPhone",
@@ -788,7 +894,7 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:04:35.389Z",
+        "fetchedAt": "2026-11-27T22:24:04.069Z",
         "url": "https://www.signia.net/en-us/service/hearing-test/"
       },
       "title": "Free Online Frequency Hearing Test [2026] - Signia (US)",
@@ -813,22 +919,763 @@
       "needsRender": false,
       "pdfs": [],
       "ref": {
-        "fetchedAt": "2026-11-27T18:04:38.883Z",
+        "fetchedAt": "2026-11-27T22:24:07.391Z",
         "url": "https://www.signia.net/en-us/hearing/"
       },
       "title": "How do we hear? Learn how your hearing works | Signia",
       "url": "https://www.signia.net/en-us/hearing/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://policies.google.com/privacy",
+        "https://policies.google.com/terms",
+        "https://www.signia-pro.com/en-us/",
+        "https://www.youtube.com/channel/UCywvyJjga1QY6gsraN2l_kg",
+        "https://www.facebook.com/signiahearingUS/",
+        "https://www.instagram.com/signiahearing/",
+        "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true"
+      ],
+      "internalLinks": 18,
+      "jsonLdTypes": [],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:24:10.657Z",
+        "url": "https://www.signia.net/en-us/support/"
+      },
+      "title": "Support for Signia hearing aids | Signia",
+      "url": "https://www.signia.net/en-us/support/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "http://www.signia-pro.com/es/",
+        "https://www.facebook.com/people/Signia-Argentina/61575822270527/",
+        "https://www.instagram.com/signia_argentina/"
+      ],
+      "internalLinks": 17,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:24:18.207Z",
+        "url": "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/styletto-ix/"
+      },
+      "title": "Audífonos Signia Styletto IX slim RIC | Signia",
+      "url": "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/styletto-ix/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "http://www.signia-pro.com/es/",
+        "https://www.facebook.com/people/Signia-Argentina/61575822270527/",
+        "https://www.instagram.com/signia_argentina/"
+      ],
+      "internalLinks": 16,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:24:21.311Z",
+        "url": "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/silk-charge-go-ix/"
+      },
+      "title": "Audífonos Signia Silk Charge&Go IX | Signia",
+      "url": "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/silk-charge-go-ix/"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.signia.rta"
+        ],
+        "ios": [
+          "1316911473"
+        ]
+      },
+      "external": [
+        "https://play.google.com/store/apps/details?id=com.signia.rta",
+        "https://apps.apple.com/app/signia-app/id1316911473",
+        "http://www.signia-pro.com/es/",
+        "https://www.facebook.com/people/Signia-Argentina/61575822270527/",
+        "https://www.instagram.com/signia_argentina/"
+      ],
+      "internalLinks": 20,
+      "jsonLdTypes": [
+        "FAQPage"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.signia.net/-/media/signia/es/files/signia-x/folleto-motion-x-b2c.pdf?rev=3ba4f2737ca34e82aec7063a4df269de/"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:24:25.673Z",
+        "url": "https://www.signia.net/es-ar/hearing-aids/signia-xperience/motion-x/"
+      },
+      "title": "Audífonos Motion X: sea independiente para lograr sus objetivos | Signia",
+      "url": "https://www.signia.net/es-ar/hearing-aids/signia-xperience/motion-x/"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.signia.rta"
+        ],
+        "ios": [
+          "1316911473"
+        ]
+      },
+      "external": [
+        "https://play.google.com/store/apps/details?id=com.signia.rta",
+        "https://apps.apple.com/app/signia-app/id1316911473",
+        "http://www.signia-pro.com/es/",
+        "https://www.facebook.com/people/Signia-Argentina/61575822270527/",
+        "https://www.instagram.com/signia_argentina/"
+      ],
+      "internalLinks": 19,
+      "jsonLdTypes": [
+        "FAQPage"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:24:34.193Z",
+        "url": "https://www.signia.net/es-ar/connectivity/signia-app/"
+      },
+      "title": "App Signia control remoto y transmisión de audio para audífonos | Signia",
+      "url": "https://www.signia.net/es-ar/connectivity/signia-app/"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.signia.rta"
+        ],
+        "ios": [
+          "1316911473"
+        ]
+      },
+      "external": [
+        "https://play.google.com/store/apps/details?id=com.signia.rta",
+        "https://apps.apple.com/app/signia-app/id1316911473",
+        "http://www.signia-pro.com/es/",
+        "https://www.facebook.com/people/Signia-Argentina/61575822270527/",
+        "https://www.instagram.com/signia_argentina/"
+      ],
+      "internalLinks": 21,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:24:39.984Z",
+        "url": "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/"
+      },
+      "title": "Audífonos Signia Integrated Xperience - todos los modelos | Signia",
+      "url": "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "http://www.signia-pro.com/es/",
+        "https://www.facebook.com/people/Signia-Argentina/61575822270527/",
+        "https://www.instagram.com/signia_argentina/"
+      ],
+      "internalLinks": 17,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:24:44.108Z",
+        "url": "https://www.signia.net/es-ar/hearing-aids/augmented-xperience/"
+      },
+      "title": "Signia AX - Aumente su Experiencia Auditiva | Signia",
+      "url": "https://www.signia.net/es-ar/hearing-aids/augmented-xperience/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia-library.com/scientific_marketing/dynamic-soundscape-processing-backgrounder/",
+        "https://www.shoeboxonline.com/signia-latam",
+        "http://www.signia-pro.com/es/",
+        "https://www.facebook.com/people/Signia-Argentina/61575822270527/",
+        "https://www.instagram.com/signia_argentina/"
+      ],
+      "internalLinks": 18,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:24:48.444Z",
+        "url": "https://www.signia.net/es-ar/hearing-aids/signia-xperience/"
+      },
+      "title": "Signia Xperience: Escucha lo que realmente te importa | Signia",
+      "url": "https://www.signia.net/es-ar/hearing-aids/signia-xperience/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "http://www.signia-pro.com/es/",
+        "https://www.facebook.com/people/Signia-Argentina/61575822270527/",
+        "https://www.instagram.com/signia_argentina/"
+      ],
+      "internalLinks": 14,
+      "jsonLdTypes": [
+        "FAQPage"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:24:53.513Z",
+        "url": "https://www.signia.net/es-ar/service/hearing-test/"
+      },
+      "title": "Prueba de audición de frecuencias en línea gratuita [2026] - Signia",
+      "url": "https://www.signia.net/es-ar/service/hearing-test/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "http://www.signia-pro.com/es/",
+        "https://www.facebook.com/people/Signia-Argentina/61575822270527/",
+        "https://www.instagram.com/signia_argentina/"
+      ],
+      "internalLinks": 19,
+      "jsonLdTypes": [
+        "FAQPage"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:24:58.146Z",
+        "url": "https://www.signia.net/es-ar/hearing/"
+      },
+      "title": "¿Cómo oímos? Descubra cómo funciona su audición | Signia",
+      "url": "https://www.signia.net/es-ar/hearing/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "http://www.signia-pro.com/es/",
+        "https://www.facebook.com/people/Signia-Argentina/61575822270527/",
+        "https://www.instagram.com/signia_argentina/"
+      ],
+      "internalLinks": 14,
+      "jsonLdTypes": [],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:25:01.165Z",
+        "url": "https://www.signia.net/es-ar/support/"
+      },
+      "title": "Soporte para audífonos Signia | Signia",
+      "url": "https://www.signia.net/es-ar/support/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.youtube.com/signiahearing",
+        "https://www.facebook.com/signiahearing/",
+        "https://www.instagram.com/signiahearing/",
+        "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true"
+      ],
+      "internalLinks": 15,
+      "jsonLdTypes": [],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:25:04.031Z",
+        "url": "https://www.signia.net/ar/hearing-aids/multi-adaptive-xperience/pure-charge-go-max/"
+      },
+      "title": "المعينات السمعية Pure Charge&Go MaX من Signia | Signia | Signia",
+      "url": "https://www.signia.net/ar/hearing-aids/multi-adaptive-xperience/pure-charge-go-max/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.youtube.com/signiahearing",
+        "https://www.facebook.com/signiahearing/",
+        "https://www.instagram.com/signiahearing/",
+        "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true"
+      ],
+      "internalLinks": 14,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:25:09.825Z",
+        "url": "https://www.signia.net/ar/hearing-aids/multi-adaptive-xperience/"
+      },
+      "title": "المعينات السمعية من Signia والتي تعمل بتقنية Multi-adaptive Xperience |Signia | Signia",
+      "url": "https://www.signia.net/ar/hearing-aids/multi-adaptive-xperience/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.youtube.com/signiahearing",
+        "https://www.facebook.com/signiahearing/",
+        "https://www.instagram.com/signiahearing/",
+        "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true"
+      ],
+      "internalLinks": 15,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:25:15.388Z",
+        "url": "https://www.signia.net/ar/hearing-aids/multi-adaptive-xperience/acoustic-intelligence/"
+      },
+      "title": "Acoustic Intelligence™ - الذكاء الاصطناعي الفائق (AI super brain) وراء قوة المعينة السمعية Signia MaX | Signia",
+      "url": "https://www.signia.net/ar/hearing-aids/multi-adaptive-xperience/acoustic-intelligence/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.youtube.com/signiahearing",
+        "https://www.facebook.com/signiahearing/",
+        "https://www.instagram.com/signiahearing/",
+        "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true"
+      ],
+      "internalLinks": 13,
+      "jsonLdTypes": [],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:25:18.783Z",
+        "url": "https://www.signia.net/ar/support/"
+      },
+      "title": "الخدمة والدعم للمعينات السمعية من Signia | Signia",
+      "url": "https://www.signia.net/ar/support/"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.wsa.henosis.signia"
+        ],
+        "ios": [
+          "6759666876"
+        ]
+      },
+      "external": [
+        "https://play.google.com/store/apps/details?id=com.wsa.henosis.signia",
+        "https://apps.apple.com/app/signia-one/id6759666876",
+        "https://www.youtube.com/signiahearing",
+        "https://www.facebook.com/signiahearing/",
+        "https://www.instagram.com/signiahearing/",
+        "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true"
+      ],
+      "internalLinks": 22,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:25:24.726Z",
+        "url": "https://www.signia.net/ar/hearing-aids/"
+      },
+      "title": "المعينات السمعية من Signia - جميع الطرازات و الألوان و الخصائص و الميزات",
+      "url": "https://www.signia.net/ar/hearing-aids/"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.wsa.henosis.signia",
+          "com.signia.rta"
+        ],
+        "ios": [
+          "6759666876",
+          "1316911473"
+        ]
+      },
+      "external": [
+        "https://play.google.com/store/apps/details?id=com.wsa.henosis.signia",
+        "https://apps.apple.com/app/signia-one/id6759666876",
+        "https://play.google.com/store/apps/details?id=com.signia.rta",
+        "https://apps.apple.com/app/apple-store/id1316911473?pt=117814312&ct=Global%20B2C%20Signia%20App&mt=8",
+        "https://www.youtube.com/signiahearing",
+        "https://www.facebook.com/signiahearing/",
+        "https://www.instagram.com/signiahearing/",
+        "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true"
+      ],
+      "internalLinks": 17,
+      "jsonLdTypes": [
+        "FAQPage"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.signia.net/-/media/signia/global/files/app---telecare/quickguide_signia-app_2019-09.pdf?rev=73fb5453be744e2b9e21c1837eb4363d/",
+        "https://cdn.signia.net/-/media/signia/global/files/app---telecare/signia-assistant_consumer-leaflet_2020-03.pdf?rev=1ada001a8e4040f3a4204d72ce931189/",
+        "https://cdn.signia.net/-/media/signia/global/files/signia-max/si-24603---signia-max-signia-one-app-user-guide.pdf?rev=86e95357a5a749a9aed555bdfedfdaf1/"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:25:27.653Z",
+        "url": "https://www.signia.net/ar/connectivity/signia-app/"
+      },
+      "title": "تطبيق Signia للمعينات السمعية / قم بالتحميل لأنظمة تشغيل Android و iPhone.",
+      "url": "https://www.signia.net/ar/connectivity/signia-app/"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.signia.rta"
+        ],
+        "ios": [
+          "1316911473"
+        ]
+      },
+      "external": [
+        "https://play.google.com/store/apps/details?id=com.signia.rta",
+        "https://apps.apple.com/app/signia-app/id1316911473",
+        "https://www.signia-pro.com/cs-cz/",
+        "https://www.youtube.com/signiahearing",
+        "https://www.facebook.com/signiacz?locale=cs_CZ",
+        "https://www.instagram.com/signiahearing/",
+        "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true"
+      ],
+      "internalLinks": 17,
+      "jsonLdTypes": [
+        "FAQPage"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.signia.net/-/media/signia/cz/files/letaky/signia-app---navod-k-instalaci.pdf?rev=7941734ee44240728f6c55e06b5b9260/",
+        "https://cdn.signia.net/-/media/signia/cz/files/letaky/signia-asistent.pdf?rev=d03b37bd75ac4b04a6223a52bc12e60d/"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:25:33.368Z",
+        "url": "https://www.signia.net/cs-cz/konektivita/aplikace-signia-app/"
+      },
+      "title": "Aplikace Signia App - dálkové ovládání sluchadel | Signia",
+      "url": "https://www.signia.net/cs-cz/konektivita/aplikace-signia-app/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia-pro.com/da-dk/",
+        "https://www.youtube.com/channel/UCywvyJjga1QY6gsraN2l_kg",
+        "https://www.facebook.com/SigniaHearingDenmark/",
+        "https://www.instagram.com/signiahearing/",
+        "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true"
+      ],
+      "internalLinks": 18,
+      "jsonLdTypes": [],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:25:37.468Z",
+        "url": "https://www.signia.net/da-dk/hoere-apparater/multi-adaptive-xperience/pure-charge-go-max/"
+      },
+      "title": "Signia Pure Charge&Go MaX høreapparater | Signia",
+      "url": "https://www.signia.net/da-dk/hoere-apparater/multi-adaptive-xperience/pure-charge-go-max/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia-pro.com/da-dk/",
+        "https://www.youtube.com/channel/UCywvyJjga1QY6gsraN2l_kg",
+        "https://www.facebook.com/SigniaHearingDenmark/",
+        "https://www.instagram.com/signiahearing/",
+        "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true"
+      ],
+      "internalLinks": 17,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:25:42.971Z",
+        "url": "https://www.signia.net/da-dk/hoere-apparater/multi-adaptive-xperience/"
+      },
+      "title": "Multi-adaptive Xperience høreapparater | Signia",
+      "url": "https://www.signia.net/da-dk/hoere-apparater/multi-adaptive-xperience/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia-pro.com/da-dk/",
+        "https://www.youtube.com/channel/UCywvyJjga1QY6gsraN2l_kg",
+        "https://www.facebook.com/SigniaHearingDenmark/",
+        "https://www.instagram.com/signiahearing/",
+        "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true"
+      ],
+      "internalLinks": 18,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:25:48.788Z",
+        "url": "https://www.signia.net/da-dk/hoere-apparater/multi-adaptive-xperience/acoustic-intelligence/"
+      },
+      "title": "Acoustic Intelligence™ - Den flerdimensionelle AI-hjerne bag Signia MaX | Signia",
+      "url": "https://www.signia.net/da-dk/hoere-apparater/multi-adaptive-xperience/acoustic-intelligence/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia-pro.com/da-dk/",
+        "https://www.youtube.com/channel/UCywvyJjga1QY6gsraN2l_kg",
+        "https://www.facebook.com/SigniaHearingDenmark/",
+        "https://www.instagram.com/signiahearing/",
+        "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true"
+      ],
+      "internalLinks": 19,
+      "jsonLdTypes": [
+        "FAQPage"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:25:54.569Z",
+        "url": "https://www.signia.net/da-dk/service/hearing-test/"
+      },
+      "title": "Høretest - Test din hørelse gratis på kun fem minutter | Signia",
+      "url": "https://www.signia.net/da-dk/service/hearing-test/"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.wsa.henosis.signia"
+        ],
+        "ios": [
+          "6759666876"
+        ]
+      },
+      "external": [
+        "https://play.google.com/store/apps/details?id=com.wsa.henosis.signia",
+        "https://apps.apple.com/app/signia-one/id6759666876",
+        "https://www.signia-pro.com/da-dk/",
+        "https://www.youtube.com/channel/UCywvyJjga1QY6gsraN2l_kg",
+        "https://www.facebook.com/SigniaHearingDenmark/",
+        "https://www.instagram.com/signiahearing/",
+        "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true"
+      ],
+      "internalLinks": 28,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:25:57.754Z",
+        "url": "https://www.signia.net/da-dk/hoere-apparater/"
+      },
+      "title": "Høreapparater - Find høreteknologi i højeste klasse her | Signia",
+      "url": "https://www.signia.net/da-dk/hoere-apparater/"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.wsa.henosis.signia",
+          "com.signia.rta"
+        ],
+        "ios": [
+          "6759666876",
+          "1316911473"
+        ]
+      },
+      "external": [
+        "https://play.google.com/store/apps/details?id=com.wsa.henosis.signia",
+        "https://apps.apple.com/app/signia-one/id6759666876",
+        "https://play.google.com/store/apps/details?id=com.signia.rta",
+        "https://apps.apple.com/app/signia-app/id1316911473",
+        "https://www.signia-pro.com/da-dk/",
+        "https://www.youtube.com/channel/UCywvyJjga1QY6gsraN2l_kg",
+        "https://www.facebook.com/SigniaHearingDenmark/",
+        "https://www.instagram.com/signiahearing/",
+        "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true"
+      ],
+      "internalLinks": 20,
+      "jsonLdTypes": [
+        "FAQPage"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.signia.net/-/media/signia/global/files/signia-max/si-24603---signia-max-signia-one-app-user-guide.pdf?rev=86e95357a5a749a9aed555bdfedfdaf1/",
+        "https://cdn.signia.net/-/media/signia/scan/dk/files/2025/90208-signia_app-guide-pure-bct-dk-0325-web.pdf?rev=0cd6bde5108e4011b42841db252e3f64/",
+        "https://cdn.signia.net/-/media/signia/global/files/app---telecare/signia-assistant_consumer-leaflet_2020-03.pdf?rev=1ada001a8e4040f3a4204d72ce931189/"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:26:02.368Z",
+        "url": "https://www.signia.net/da-dk/forbindelse/signia-app/"
+      },
+      "title": "Signia App - Styr dine høreapparater helt diskret og enkelt | Signia",
+      "url": "https://www.signia.net/da-dk/forbindelse/signia-app/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia-pro.com/da-dk/",
+        "https://www.youtube.com/channel/UCywvyJjga1QY6gsraN2l_kg",
+        "https://www.facebook.com/SigniaHearingDenmark/",
+        "https://www.instagram.com/signiahearing/",
+        "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true"
+      ],
+      "internalLinks": 20,
+      "jsonLdTypes": [
+        "FAQPage"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:26:07.993Z",
+        "url": "https://www.signia.net/da-dk/hearing/"
+      },
+      "title": "Læs alt om øret, hørelse og høretab - Se mere her - Signia | Signia",
+      "url": "https://www.signia.net/da-dk/hearing/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia-pro.com/da-dk/",
+        "https://www.youtube.com/channel/UCywvyJjga1QY6gsraN2l_kg",
+        "https://www.facebook.com/SigniaHearingDenmark/",
+        "https://www.instagram.com/signiahearing/",
+        "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true"
+      ],
+      "internalLinks": 16,
+      "jsonLdTypes": [],
+      "needsRender": true,
+      "pdfs": [
+        "https://cdn.shopify.com/s/files/1/0571/3412/1049/files/90022-WSA-reparationsblanket-slutbruger-0426-web.pdf?v=1777551683"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:26:13.165Z",
+        "url": "https://www.signia.net/da-dk/support/"
+      },
+      "title": "Service og support - Reparation af høreapparater - Signia | Signia",
+      "url": "https://www.signia.net/da-dk/support/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia-pro.com/de-ch/",
+        "https://www.youtube.com/channel/UCywvyJjga1QY6gsraN2l_kg",
+        "https://www.facebook.com/SigniaHearingSwitzerland",
+        "https://www.instagram.com/signiahearing_switzerland/",
+        "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true"
+      ],
+      "internalLinks": 18,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:26:17.307Z",
+        "url": "https://www.signia.net/de-ch/hearing-aids/multi-adaptive-xperience/pure-charge-go-max/"
+      },
+      "title": "Signia Pure Charge&Go MaX Hörgeräte | Signia | Signia",
+      "url": "https://www.signia.net/de-ch/hearing-aids/multi-adaptive-xperience/pure-charge-go-max/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia-pro.com/de-ch/",
+        "https://www.youtube.com/channel/UCywvyJjga1QY6gsraN2l_kg",
+        "https://www.facebook.com/SigniaHearingSwitzerland",
+        "https://www.instagram.com/signiahearing_switzerland/",
+        "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true"
+      ],
+      "internalLinks": 17,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:26:22.419Z",
+        "url": "https://www.signia.net/de-ch/hearing-aids/multi-adaptive-xperience/"
+      },
+      "title": "Multi-adaptive Xperience Hörgeräte | Signia | Signia",
+      "url": "https://www.signia.net/de-ch/hearing-aids/multi-adaptive-xperience/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia-pro.com/de-ch/",
+        "https://www.youtube.com/channel/UCywvyJjga1QY6gsraN2l_kg",
+        "https://www.facebook.com/SigniaHearingSwitzerland",
+        "https://www.instagram.com/signiahearing_switzerland/",
+        "https://www.linkedin.com/company/signia-hearing/?viewAsMember=true"
+      ],
+      "internalLinks": 18,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T22:26:25.129Z",
+        "url": "https://www.signia.net/de-ch/hearing-aids/multi-adaptive-xperience/acoustic-intelligence/"
+      },
+      "title": "Acoustic Intelligence™ - Die starke KI hinter Signia MaX | Signia",
+      "url": "https://www.signia.net/de-ch/hearing-aids/multi-adaptive-xperience/acoustic-intelligence/"
     }
   ],
   "pdfHosts": [
     {
-      "count": 3,
+      "count": 12,
       "examples": [
         "https://cdn.signia.net/-/media/wsa/files/uk-modern-slavery-statement-fy23-24_signed-jm-mw.pdf?rev=991c06fae818433ab0e6047f71ffeb79",
         "https://cdn.signia.net/-/media/signia/global/files/app---telecare/quickguide_signia-app_2019-09.pdf?rev=73fb5453be744e2b9e21c1837eb4363d/",
         "https://cdn.signia.net/-/media/signia/global/files/app---telecare/signia-assistant_consumer-leaflet_2020-03.pdf?rev=1ada001a8e4040f3a4204d72ce931189/"
       ],
       "host": "cdn.signia.net"
+    },
+    {
+      "count": 1,
+      "examples": [
+        "https://cdn.shopify.com/s/files/1/0571/3412/1049/files/90022-WSA-reparationsblanket-slutbruger-0426-web.pdf?v=1777551683"
+      ],
+      "host": "cdn.shopify.com"
     }
   ],
   "redirects": [],
@@ -858,7 +1705,7 @@
       }
     ],
     "ref": {
-      "fetchedAt": "2026-11-27T17:57:57.999Z",
+      "fetchedAt": "2026-11-27T22:18:06.914Z",
       "url": "https://www.signia.net/robots.txt"
     },
     "sitemaps": [
@@ -928,83 +1775,83 @@
   "sitemap": {
     "refs": [
       {
-        "fetchedAt": "2026-11-27T17:58:07.973Z",
+        "fetchedAt": "2026-11-27T22:18:18.327Z",
         "url": "https://www.signia.net/sitemap-ar.xml"
       },
       {
-        "fetchedAt": "2026-11-27T17:58:21.588Z",
+        "fetchedAt": "2026-11-27T22:18:30.768Z",
         "url": "https://www.signia.net/sitemap-cs-cz.xml"
       },
       {
-        "fetchedAt": "2026-11-27T17:58:35.812Z",
+        "fetchedAt": "2026-11-27T22:18:42.162Z",
         "url": "https://www.signia.net/sitemap-da-dk.xml"
       },
       {
-        "fetchedAt": "2026-11-27T17:58:52.386Z",
+        "fetchedAt": "2026-11-27T22:18:55.584Z",
         "url": "https://www.signia.net/sitemap-de-ch.xml"
       },
       {
-        "fetchedAt": "2026-11-27T17:59:11.223Z",
+        "fetchedAt": "2026-11-27T22:18:59.586Z",
         "url": "https://www.signia.net/sitemap-de-de.xml"
       },
       {
-        "fetchedAt": "2026-11-27T17:59:31.230Z",
+        "fetchedAt": "2026-11-27T22:19:13.050Z",
         "url": "https://www.signia.net/sitemap-en.xml"
       },
       {
-        "fetchedAt": "2026-11-27T17:59:45.896Z",
+        "fetchedAt": "2026-11-27T22:19:21.805Z",
         "url": "https://www.signia.net/sitemap-id-id.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:00:03.107Z",
+        "fetchedAt": "2026-11-27T22:19:32.508Z",
         "url": "https://www.signia.net/sitemap-en-au.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:00:16.725Z",
+        "fetchedAt": "2026-11-27T22:19:46.759Z",
         "url": "https://www.signia.net/sitemap-en-ca.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:00:35.091Z",
+        "fetchedAt": "2026-11-27T22:19:57.912Z",
         "url": "https://www.signia.net/sitemap-en-gb.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:00:57.989Z",
+        "fetchedAt": "2026-11-27T22:20:10.090Z",
         "url": "https://www.signia.net/sitemap-en-in.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:01:12.069Z",
+        "fetchedAt": "2026-11-27T22:20:20.329Z",
         "url": "https://www.signia.net/sitemap-en-nz.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:01:28.353Z",
+        "fetchedAt": "2026-11-27T22:20:33.529Z",
         "url": "https://www.signia.net/sitemap-en-sg.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:01:33.253Z",
+        "fetchedAt": "2026-11-27T22:20:46.394Z",
         "url": "https://www.signia.net/sitemap-en-us.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:01:44.788Z",
+        "fetchedAt": "2026-11-27T22:20:59.966Z",
         "url": "https://www.signia.net/sitemap-en-za.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:01:55.806Z",
+        "fetchedAt": "2026-11-27T22:21:11.066Z",
         "url": "https://www.signia.net/sitemap-es.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:02:06.148Z",
+        "fetchedAt": "2026-11-27T22:21:19.829Z",
         "url": "https://www.signia.net/sitemap-es-es.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:02:14.966Z",
+        "fetchedAt": "2026-11-27T22:21:30.633Z",
         "url": "https://www.signia.net/sitemap-es-ar.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:02:25.009Z",
+        "fetchedAt": "2026-11-27T22:21:41.988Z",
         "url": "https://www.signia.net/sitemap-es-mx.xml"
       },
       {
-        "fetchedAt": "2026-11-27T18:02:35.008Z",
+        "fetchedAt": "2026-11-27T22:21:58.125Z",
         "url": "https://www.signia.net/sitemap-fr-ca.xml"
       }
     ],
@@ -1158,7 +2005,7 @@
       "pattern": "https://www.signia.net/en-in/blog/global/{slug}"
     },
     {
-      "count": 70,
+      "count": 71,
       "examples": [
         "https://www.signia.net/cs-cz/novinky/global/2019-05-10-guide-to-choosing-hearing-aids/",
         "https://www.signia.net/cs-cz/novinky/global/absolutni-sluch/",
@@ -1255,6 +2102,15 @@
         "https://www.signia.net/en-us/chargers-and-accessories/"
       ],
       "pattern": "https://www.signia.net/en-us/{slug}"
+    },
+    {
+      "count": 14,
+      "examples": [
+        "https://www.signia.net/da-dk/blog/",
+        "https://www.signia.net/da-dk/campaign/",
+        "https://www.signia.net/da-dk/chargers-and-accessories/"
+      ],
+      "pattern": "https://www.signia.net/da-dk/{slug}"
     },
     {
       "count": 14,
@@ -1430,6 +2286,15 @@
     {
       "count": 12,
       "examples": [
+        "https://www.signia.net/es-ar/blog/",
+        "https://www.signia.net/es-ar/chargers-and-accessories/",
+        "https://www.signia.net/es-ar/connectivity/"
+      ],
+      "pattern": "https://www.signia.net/es-ar/{slug}"
+    },
+    {
+      "count": 12,
+      "examples": [
         "https://www.signia.net/es/audifonos/",
         "https://www.signia.net/es/blog/",
         "https://www.signia.net/es/chargers-and-accessories/"
@@ -1462,15 +2327,6 @@
         "https://www.signia.net/cs-cz/sluzby-a-servis/podpora-sluchadel/insio/"
       ],
       "pattern": "https://www.signia.net/cs-cz/sluzby-a-servis/podpora-sluchadel/{slug}"
-    },
-    {
-      "count": 11,
-      "examples": [
-        "https://www.signia.net/da-dk/blog/",
-        "https://www.signia.net/da-dk/campaign/",
-        "https://www.signia.net/da-dk/chargers-and-accessories/"
-      ],
-      "pattern": "https://www.signia.net/da-dk/{slug}"
     },
     {
       "count": 11,
@@ -1628,6 +2484,15 @@
     {
       "count": 10,
       "examples": [
+        "https://www.signia.net/da-dk/hoere-apparater/andre/",
+        "https://www.signia.net/da-dk/hoere-apparater/augmented-xperience/",
+        "https://www.signia.net/da-dk/hoere-apparater/how-hearing-aids-work/"
+      ],
+      "pattern": "https://www.signia.net/da-dk/hoere-apparater/{slug}"
+    },
+    {
+      "count": 10,
+      "examples": [
         "https://www.signia.net/en-gb/local/en-gb/augmented-focus-animation/",
         "https://www.signia.net/en-gb/local/en-gb/nhs-public-sector/",
         "https://www.signia.net/en-gb/local/en-gb/signia-contrast/"
@@ -1745,15 +2610,6 @@
     {
       "count": 9,
       "examples": [
-        "https://www.signia.net/da-dk/hoere-apparater/andre/",
-        "https://www.signia.net/da-dk/hoere-apparater/augmented-xperience/",
-        "https://www.signia.net/da-dk/hoere-apparater/how-hearing-aids-work/"
-      ],
-      "pattern": "https://www.signia.net/da-dk/hoere-apparater/{slug}"
-    },
-    {
-      "count": 9,
-      "examples": [
         "https://www.signia.net/de-de/hoergeraete/augmented-xperience/",
         "https://www.signia.net/de-de/hoergeraete/hoergeraete-typen/",
         "https://www.signia.net/de-de/hoergeraete/insio/"
@@ -1853,15 +2709,6 @@
     {
       "count": 9,
       "examples": [
-        "https://www.signia.net/es-ar/chargers-and-accessories/",
-        "https://www.signia.net/es-ar/connectivity/",
-        "https://www.signia.net/es-ar/hearing-aids/"
-      ],
-      "pattern": "https://www.signia.net/es-ar/{slug}"
-    },
-    {
-      "count": 9,
-      "examples": [
         "https://www.signia.net/es-ar/hearing-aids/augmented-xperience/",
         "https://www.signia.net/es-ar/hearing-aids/how-hearing-aids-work/",
         "https://www.signia.net/es-ar/hearing-aids/insio/"
@@ -1894,6 +2741,15 @@
         "https://www.signia.net/ar/connectivity/"
       ],
       "pattern": "https://www.signia.net/ar/{slug}"
+    },
+    {
+      "count": 8,
+      "examples": [
+        "https://www.signia.net/ar/hearing-aids/integrated-xperience/active-ix/",
+        "https://www.signia.net/ar/hearing-aids/integrated-xperience/cros-ix/",
+        "https://www.signia.net/ar/hearing-aids/integrated-xperience/insio-charge-go-ix/"
+      ],
+      "pattern": "https://www.signia.net/ar/hearing-aids/integrated-xperience/{slug}"
     },
     {
       "count": 8,
@@ -2141,15 +2997,6 @@
     {
       "count": 7,
       "examples": [
-        "https://www.signia.net/ar/hearing-aids/integrated-xperience/cros-ix/",
-        "https://www.signia.net/ar/hearing-aids/integrated-xperience/insio-charge-go-ix/",
-        "https://www.signia.net/ar/hearing-aids/integrated-xperience/insio-ix/"
-      ],
-      "pattern": "https://www.signia.net/ar/hearing-aids/integrated-xperience/{slug}"
-    },
-    {
-      "count": 7,
-      "examples": [
         "https://www.signia.net/cs-cz/local/en-us/sluzby-a-servis/accessories/",
         "https://www.signia.net/cs-cz/local/en-us/sluzby-a-servis/app/",
         "https://www.signia.net/cs-cz/local/en-us/sluzby-a-servis/casto-kladene-dotazy/"
@@ -2357,6 +3204,15 @@
     {
       "count": 7,
       "examples": [
+        "https://www.signia.net/es-ar/service/contact/",
+        "https://www.signia.net/es-ar/service/cookie-policy/",
+        "https://www.signia.net/es-ar/service/corporate-information/"
+      ],
+      "pattern": "https://www.signia.net/es-ar/service/{slug}"
+    },
+    {
+      "count": 7,
+      "examples": [
         "https://www.signia.net/es-ar/support/accessories/",
         "https://www.signia.net/es-ar/support/app/",
         "https://www.signia.net/es-ar/support/compatibility/"
@@ -2461,6 +3317,15 @@
         "https://www.signia.net/cs-cz/sluzby-a-servis/kompatibilita/"
       ],
       "pattern": "https://www.signia.net/cs-cz/sluzby-a-servis/{slug}"
+    },
+    {
+      "count": 6,
+      "examples": [
+        "https://www.signia.net/da-dk/chargers-and-accessories/charging-solutions/",
+        "https://www.signia.net/da-dk/chargers-and-accessories/earwear/",
+        "https://www.signia.net/da-dk/chargers-and-accessories/streamline-mic"
+      ],
+      "pattern": "https://www.signia.net/da-dk/chargers-and-accessories/{slug}"
     },
     {
       "count": 6,
@@ -2654,15 +3519,6 @@
     {
       "count": 6,
       "examples": [
-        "https://www.signia.net/es-ar/service/contact/",
-        "https://www.signia.net/es-ar/service/cookie-policy/",
-        "https://www.signia.net/es-ar/service/corporate-information/"
-      ],
-      "pattern": "https://www.signia.net/es-ar/service/{slug}"
-    },
-    {
-      "count": 6,
-      "examples": [
         "https://www.signia.net/es-es/local/en-us/soporte/accesorios/",
         "https://www.signia.net/es-es/local/en-us/soporte/aud%C3%ADfonos/",
         "https://www.signia.net/es-es/local/en-us/soporte/compatibilidad/"
@@ -2722,15 +3578,6 @@
         "https://www.signia.net/cs-cz/sluchadla/signia-xperience/pure-312-x/"
       ],
       "pattern": "https://www.signia.net/cs-cz/sluchadla/signia-xperience/{slug}"
-    },
-    {
-      "count": 5,
-      "examples": [
-        "https://www.signia.net/da-dk/chargers-and-accessories/charging-solutions/",
-        "https://www.signia.net/da-dk/chargers-and-accessories/earwear/",
-        "https://www.signia.net/da-dk/chargers-and-accessories/streamline-mic/"
-      ],
-      "pattern": "https://www.signia.net/da-dk/chargers-and-accessories/{slug}"
     },
     {
       "count": 5,
@@ -2924,6 +3771,15 @@
     {
       "count": 5,
       "examples": [
+        "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/cros-ix/",
+        "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/insio-ix/",
+        "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/pure-charge-go-ix/"
+      ],
+      "pattern": "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
         "https://www.signia.net/es-es/audifonos/augmented-xperience/cros-ax/",
         "https://www.signia.net/es-es/audifonos/augmented-xperience/insio-charge-go-ax/",
         "https://www.signia.net/es-es/audifonos/augmented-xperience/pure-312-ax/"
@@ -3050,6 +3906,15 @@
     {
       "count": 4,
       "examples": [
+        "https://www.signia.net/ar/support/compatibility/",
+        "https://www.signia.net/ar/support/hearing-aids/",
+        "https://www.signia.net/ar/support/how-to-videos/"
+      ],
+      "pattern": "https://www.signia.net/ar/support/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
         "https://www.signia.net/cs-cz/sluch/jak-funguje-ucho-a-sluch/",
         "https://www.signia.net/cs-cz/sluch/poskozeni-sluchu-hlukem/",
         "https://www.signia.net/cs-cz/sluch/test-sluchu/"
@@ -3064,6 +3929,15 @@
         "https://www.signia.net/cs-cz/sluchadla/augmented-xperience/pure-charge-go-ax/"
       ],
       "pattern": "https://www.signia.net/cs-cz/sluchadla/augmented-xperience/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.signia.net/da-dk/forbindelse/signia-app",
+        "https://www.signia.net/da-dk/forbindelse/signia-app/",
+        "https://www.signia.net/da-dk/forbindelse/signia-assistant/"
+      ],
+      "pattern": "https://www.signia.net/da-dk/forbindelse/{slug}"
     },
     {
       "count": 4,
@@ -3257,11 +4131,11 @@
     {
       "count": 4,
       "examples": [
-        "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/cros-ix/",
-        "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/pure-charge-go-ix/",
-        "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/silk-charge-go-ix/"
+        "https://www.signia.net/es-ar/chargers-and-accessories/accessories/",
+        "https://www.signia.net/es-ar/chargers-and-accessories/charging-solutions/",
+        "https://www.signia.net/es-ar/chargers-and-accessories/earwear/"
       ],
-      "pattern": "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/{slug}"
+      "pattern": "https://www.signia.net/es-ar/chargers-and-accessories/{slug}"
     },
     {
       "count": 4,
@@ -3352,15 +4226,6 @@
         "https://www.signia.net/cs-cz/sluch/ztrata-sluchu/zdravotni-rizika/"
       ],
       "pattern": "https://www.signia.net/cs-cz/sluch/ztrata-sluchu/{slug}"
-    },
-    {
-      "count": 3,
-      "examples": [
-        "https://www.signia.net/da-dk/forbindelse/signia-app/",
-        "https://www.signia.net/da-dk/forbindelse/signia-assistant/",
-        "https://www.signia.net/da-dk/forbindelse/telecare/"
-      ],
-      "pattern": "https://www.signia.net/da-dk/forbindelse/{slug}"
     },
     {
       "count": 3,
@@ -3581,15 +4446,6 @@
     {
       "count": 3,
       "examples": [
-        "https://www.signia.net/es-ar/chargers-and-accessories/accessories/",
-        "https://www.signia.net/es-ar/chargers-and-accessories/charging-solutions/",
-        "https://www.signia.net/es-ar/chargers-and-accessories/tv-sound/"
-      ],
-      "pattern": "https://www.signia.net/es-ar/chargers-and-accessories/{slug}"
-    },
-    {
-      "count": 3,
-      "examples": [
         "https://www.signia.net/es-ar/connectivity/signia-app/",
         "https://www.signia.net/es-ar/connectivity/signia-assistant/",
         "https://www.signia.net/es-ar/connectivity/telecare/"
@@ -3688,8 +4544,14 @@
     }
   ],
   "urls": [
+    "https://cdn.shopify.com/s/files/1/0571/3412/1049/files/90022-WSA-reparationsblanket-slutbruger-0426-web.pdf?v=1777551683",
+    "https://cdn.signia.net/-/media/signia/cz/files/letaky/signia-app---navod-k-instalaci.pdf?rev=7941734ee44240728f6c55e06b5b9260/",
+    "https://cdn.signia.net/-/media/signia/cz/files/letaky/signia-asistent.pdf?rev=d03b37bd75ac4b04a6223a52bc12e60d/",
+    "https://cdn.signia.net/-/media/signia/es/files/signia-x/folleto-motion-x-b2c.pdf?rev=3ba4f2737ca34e82aec7063a4df269de/",
     "https://cdn.signia.net/-/media/signia/global/files/app---telecare/quickguide_signia-app_2019-09.pdf?rev=73fb5453be744e2b9e21c1837eb4363d/",
     "https://cdn.signia.net/-/media/signia/global/files/app---telecare/signia-assistant_consumer-leaflet_2020-03.pdf?rev=1ada001a8e4040f3a4204d72ce931189/",
+    "https://cdn.signia.net/-/media/signia/global/files/signia-max/si-24603---signia-max-signia-one-app-user-guide.pdf?rev=86e95357a5a749a9aed555bdfedfdaf1/",
+    "https://cdn.signia.net/-/media/signia/scan/dk/files/2025/90208-signia_app-guide-pure-bct-dk-0325-web.pdf?rev=0cd6bde5108e4011b42841db252e3f64/",
     "https://cdn.signia.net/-/media/wsa/files/uk-modern-slavery-statement-fy23-24_signed-jm-mw.pdf?rev=991c06fae818433ab0e6047f71ffeb79",
     "https://www.signia.net/",
     "https://www.signia.net/ar/",
@@ -3713,6 +4575,7 @@
     "https://www.signia.net/ar/hearing-aids/how-hearing-aids-work/",
     "https://www.signia.net/ar/hearing-aids/insio/",
     "https://www.signia.net/ar/hearing-aids/integrated-xperience/",
+    "https://www.signia.net/ar/hearing-aids/integrated-xperience/active-ix/",
     "https://www.signia.net/ar/hearing-aids/integrated-xperience/cros-ix/",
     "https://www.signia.net/ar/hearing-aids/integrated-xperience/insio-charge-go-ix/",
     "https://www.signia.net/ar/hearing-aids/integrated-xperience/insio-ix/",
@@ -3747,6 +4610,7 @@
     "https://www.signia.net/ar/service/privacy-notice/",
     "https://www.signia.net/ar/service/signia-app-privacy-policy/",
     "https://www.signia.net/ar/support/",
+    "https://www.signia.net/ar/support/compatibility/",
     "https://www.signia.net/ar/support/hearing-aids/",
     "https://www.signia.net/ar/support/hearing-aids/active/",
     "https://www.signia.net/ar/support/hearing-aids/insio/",
@@ -3757,6 +4621,7 @@
     "https://www.signia.net/ar/support/hearing-aids/silk/",
     "https://www.signia.net/ar/support/hearing-aids/styletto/",
     "https://www.signia.net/ar/support/how-to-videos/",
+    "https://www.signia.net/ar/support/pairing/",
     "https://www.signia.net/ar/sustainability/",
     "https://www.signia.net/ar/tinnitus/",
     "https://www.signia.net/cs-CZ",
@@ -3838,6 +4703,7 @@
     "https://www.signia.net/cs-cz/novinky/global/proc-nektere-zvuky-boli/",
     "https://www.signia.net/cs-cz/novinky/global/profesionalni-cisteni-sluchadel/",
     "https://www.signia.net/cs-cz/novinky/global/revolucni-sluchadlo-styletto-x/",
+    "https://www.signia.net/cs-cz/novinky/global/signia-new-mode-mask-feature/",
     "https://www.signia.net/cs-cz/novinky/global/sluch-a-rovnovaha/",
     "https://www.signia.net/cs-cz/novinky/global/sluch-zvirat/",
     "https://www.signia.net/cs-cz/novinky/global/sluchadla-obdobi-alergii/",
@@ -3988,13 +4854,17 @@
     "https://www.signia.net/da-dk/chargers-and-accessories/",
     "https://www.signia.net/da-dk/chargers-and-accessories/charging-solutions/",
     "https://www.signia.net/da-dk/chargers-and-accessories/earwear/",
+    "https://www.signia.net/da-dk/chargers-and-accessories/streamline-mic",
     "https://www.signia.net/da-dk/chargers-and-accessories/streamline-mic/",
     "https://www.signia.net/da-dk/chargers-and-accessories/tilbehoer/",
     "https://www.signia.net/da-dk/chargers-and-accessories/tv-sound/",
+    "https://www.signia.net/da-dk/forbindelse",
     "https://www.signia.net/da-dk/forbindelse/",
+    "https://www.signia.net/da-dk/forbindelse/signia-app",
     "https://www.signia.net/da-dk/forbindelse/signia-app/",
     "https://www.signia.net/da-dk/forbindelse/signia-assistant/",
     "https://www.signia.net/da-dk/forbindelse/telecare/",
+    "https://www.signia.net/da-dk/hearing",
     "https://www.signia.net/da-dk/hearing/",
     "https://www.signia.net/da-dk/hearing/hearing-loss/",
     "https://www.signia.net/da-dk/hearing/hearing-loss/health-risks/",
@@ -4003,6 +4873,7 @@
     "https://www.signia.net/da-dk/hearing/how-hearing-test-works/",
     "https://www.signia.net/da-dk/hearing/how-much-noise-is-safe/",
     "https://www.signia.net/da-dk/hearing/how-your-ears-work/",
+    "https://www.signia.net/da-dk/hoere-apparater",
     "https://www.signia.net/da-dk/hoere-apparater/",
     "https://www.signia.net/da-dk/hoere-apparater/andre/",
     "https://www.signia.net/da-dk/hoere-apparater/augmented-xperience/",
@@ -4033,6 +4904,7 @@
     "https://www.signia.net/da-dk/hoere-apparater/signia-xperience/pure-charge-go-x/",
     "https://www.signia.net/da-dk/hoere-apparater/signia-xperience/silk-x/",
     "https://www.signia.net/da-dk/hoere-apparater/signia-xperience/styletto-x/",
+    "https://www.signia.net/da-dk/hoere-apparater/types",
     "https://www.signia.net/da-dk/hoere-apparater/types/",
     "https://www.signia.net/da-dk/hoereklinik-taet-pa-dig/",
     "https://www.signia.net/da-dk/hoereklinik-taet-pa-dig/shops-overview/",
@@ -6119,9 +6991,13 @@
     "https://www.signia.net/es-AR",
     "https://www.signia.net/es-ES",
     "https://www.signia.net/es-ar/",
+    "https://www.signia.net/es-ar/blog/",
+    "https://www.signia.net/es-ar/blog/global/2019-08-30-how-your-hearing-affects-your-balance/",
+    "https://www.signia.net/es-ar/blog/global/signia-new-mode-mask-feature/",
     "https://www.signia.net/es-ar/chargers-and-accessories/",
     "https://www.signia.net/es-ar/chargers-and-accessories/accessories/",
     "https://www.signia.net/es-ar/chargers-and-accessories/charging-solutions/",
+    "https://www.signia.net/es-ar/chargers-and-accessories/earwear/",
     "https://www.signia.net/es-ar/chargers-and-accessories/tv-sound/",
     "https://www.signia.net/es-ar/connectivity/",
     "https://www.signia.net/es-ar/connectivity/signia-app/",
@@ -6138,6 +7014,7 @@
     "https://www.signia.net/es-ar/hearing-aids/insio/",
     "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/",
     "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/cros-ix/",
+    "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/insio-ix/",
     "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/pure-charge-go-ix/",
     "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/pure-charge-go-ix/bluetooth-connectivity-transformed/",
     "https://www.signia.net/es-ar/hearing-aids/integrated-xperience/silk-charge-go-ix/",
@@ -6163,14 +7040,18 @@
     "https://www.signia.net/es-ar/hearing/how-hearing-test-works/",
     "https://www.signia.net/es-ar/hearing/how-much-noise-is-safe/",
     "https://www.signia.net/es-ar/hearing/how-your-ears-work/",
+    "https://www.signia.net/es-ar/my-wellbeing/",
     "https://www.signia.net/es-ar/responsibility/",
     "https://www.signia.net/es-ar/service/",
     "https://www.signia.net/es-ar/service/contact/",
     "https://www.signia.net/es-ar/service/cookie-policy/",
     "https://www.signia.net/es-ar/service/corporate-information/",
     "https://www.signia.net/es-ar/service/disclaimer/",
+    "https://www.signia.net/es-ar/service/global-shop-finder/",
+    "https://www.signia.net/es-ar/service/global-shop-finder/_local/externalfetch/",
     "https://www.signia.net/es-ar/service/hearing-test/",
     "https://www.signia.net/es-ar/service/privacy-notice/",
+    "https://www.signia.net/es-ar/store-locator/",
     "https://www.signia.net/es-ar/support/",
     "https://www.signia.net/es-ar/support/accessories/",
     "https://www.signia.net/es-ar/support/app/",
@@ -6623,53 +7504,28 @@
     "https://www.signia.net/fr-ca/hearing-aids/multi-adaptive-xperience/",
     "https://www.signia.net/fr-ca/hearing-aids/multi-adaptive-xperience/acoustic-intelligence/",
     "https://www.signia.net/fr-ca/hearing-aids/multi-adaptive-xperience/pure-charge-go-max/",
-    "https://www.signia.net/fr-ca/hearing-aids/other/",
-    "https://www.signia.net/fr-ca/hearing-aids/pure/",
     "https://www.signia.net/fr-ca/hearing-aids/signia-xperience/active/",
     "https://www.signia.net/fr-ca/hearing-aids/signia-xperience/cros-x/",
     "https://www.signia.net/fr-ca/hearing-aids/signia-xperience/motion-x/",
-    "https://www.signia.net/fr-ca/hearing-aids/signia-xperience/pure-312-x/",
-    "https://www.signia.net/fr-ca/hearing-aids/signia-xperience/silk-x/",
-    "https://www.signia.net/fr-ca/hearing-aids/types/",
-    "https://www.signia.net/fr-ca/hearing/",
-    "https://www.signia.net/fr-ca/local/",
-    "https://www.signia.net/fr-ca/local/en-us/oneportal-support/",
     "https://www.signia.net/fr-ca/local/en-us/oneportal-support/compatibility/",
     "https://www.signia.net/fr-ca/local/en-us/oneportal-support/faq/",
     "https://www.signia.net/fr-ca/local/en-us/oneportal-support/how-to-videos/",
     "https://www.signia.net/fr-ca/service/contact/",
-    "https://www.signia.net/fr-ca/service/contact/thank-you/",
     "https://www.signia.net/fr-ca/service/cookie-policy/",
     "https://www.signia.net/fr-ca/service/corporate-information/",
-    "https://www.signia.net/fr-ca/service/disclaimer/",
-    "https://www.signia.net/fr-ca/service/hearing-test/",
-    "https://www.signia.net/fr-ca/service/privacy-notice/",
-    "https://www.signia.net/fr-ca/service/signia-app-privacy-policy/",
-    "https://www.signia.net/fr-ca/store-locator/",
-    "https://www.signia.net/fr-ca/store-locator/shops-overview/",
-    "https://www.signia.net/fr-ca/support/",
     "https://www.signia.net/fr-ca/support/compatibility/",
     "https://www.signia.net/fr-ca/support/faq/",
-    "https://www.signia.net/fr-ca/support/hearing-aids/pure-charge-go/",
     "https://www.signia.net/fr-ca/support/how-to-videos/",
-    "https://www.signia.net/fr-ca/support/pairing/",
-    "https://www.signia.net/fr-ca/sustainability/",
-    "https://www.signia.net/fr-ca/tinnitus/",
-    "https://www.signia.net/hu-HU",
-    "https://www.signia.net/id-ID",
     "https://www.signia.net/id-id/",
     "https://www.signia.net/id-id/blog/",
     "https://www.signia.net/id-id/chargers-and-accessories/",
     "https://www.signia.net/id-id/chargers-and-accessories/accessories/",
     "https://www.signia.net/id-id/chargers-and-accessories/charging-solutions/",
     "https://www.signia.net/id-id/chargers-and-accessories/earwear/",
-    "https://www.signia.net/id-id/chargers-and-accessories/streamline-mic/",
-    "https://www.signia.net/id-id/chargers-and-accessories/tv-sound/",
     "https://www.signia.net/id-id/connectivity/",
     "https://www.signia.net/id-id/connectivity/signia-app/",
     "https://www.signia.net/id-id/connectivity/signia-assistant/",
     "https://www.signia.net/id-id/connectivity/telecare/",
-    "https://www.signia.net/id-id/hearing-aids/",
     "https://www.signia.net/id-id/hearing-aids/augmented-xperience/",
     "https://www.signia.net/id-id/hearing-aids/augmented-xperience/cros-ax/",
     "https://www.signia.net/id-id/hearing-aids/augmented-xperience/pure-312-ax/",

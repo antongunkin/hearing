@@ -29,9 +29,15 @@
         "name": "log",
         "ok": true
       }
+    ],
+    "supportUrls.2": [
+      {
+        "name": "log",
+        "ok": true
+      }
     ]
   },
-  "generatedAt": "2026-11-27T18:52:02.176Z",
+  "generatedAt": "2026-11-27T22:37:40.882Z",
   "proposal": {
     "catalogUrls": [
       "https://www.jabraenhance.com/product"
@@ -42,7 +48,8 @@
     "status": "active",
     "supportUrls": [
       "https://www.jabraenhance.com/help",
-      "https://www.jabraenhance.com/start"
+      "https://www.jabraenhance.com/start",
+      "https://help.jabraenhance.com/user-guides"
     ]
   }
 }

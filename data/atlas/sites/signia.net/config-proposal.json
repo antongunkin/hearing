@@ -1,0 +1,55 @@
+{
+  "checks": {
+    "catalogUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "catalogUrls.1": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "catalogUrls.2": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "modelUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "supportUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.1": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ]
+  },
+  "generatedAt": "2026-11-27T22:39:27.875Z",
+  "proposal": {
+    "catalogUrls": [
+      "https://www.signia.net/en-us/hearing-aids/integrated-xperience/",
+      "https://www.signia.net/en-us/hearing-aids/multi-adaptive-xperience/",
+      "https://www.signia.net/en-us/hearing-aids/augmented-xperience/"
+    ],
+    "modelUrlPattern": "^https://www\\.signia\\.net/en-us/hearing-aids/(?:integrated-xperience|multi-adaptive-xperience|augmented-xperience|signia-xperience)/[a-z0-9-]+/(?:bluetooth-connectivity-transformed/)?$",
+    "render": false,
+    "status": "active",
+    "supportUrls": [
+      "https://www.signia.net/en-us/support/hearing-aids/",
+      "https://www.signia.net/en-us/connectivity/signia-app/"
+    ]
+  }
+}

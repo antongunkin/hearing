@@ -272,6 +272,11 @@
     "name": "William Demant Holding"
   },
   {
+    "id": "company:ws-audiology",
+    "kind": "company",
+    "name": "WS Audiology"
+  },
+  {
     "id": "company:wsa",
     "kind": "company",
     "name": "WSA"
@@ -310,6 +315,11 @@
     "id": "domain:cdn.mediavalet.com",
     "kind": "domain",
     "name": "cdn.mediavalet.com"
+  },
+  {
+    "id": "domain:cdn.shopify.com",
+    "kind": "domain",
+    "name": "cdn.shopify.com"
   },
   {
     "id": "domain:costco.com",

@@ -1,0 +1,365 @@
+{
+  "domain": "signia.net",
+  "generatedAt": "2026-11-27T22:39:27.875Z",
+  "model": "sonnet",
+  "openQuestions": [
+    "What is the URL of the document portal linked from /en-us/support/hearing-aids/?",
+    "Which model pages exist under multi-adaptive-xperience, and do they need rendering (Pure Charge&Go MaX is flagged needsRender, but the de-ch copy is not)?",
+    "Do other locales differ in the models they list, given paths like /da-dk/hoere-apparater/ and /es/audifonos/?",
+    "The report shows only some fetched pages' text; were the full model lists of the integrated-xperience catalog visible?"
+  ],
+  "sections": {
+    "archive": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:22:07.025Z",
+            "url": "https://www.signia.net/en-us/"
+          }
+        ],
+        "text": "Web Archive has copies for /en-us (latest 2026-10-19), /en, /en-nz, /en-sg, /en-au and /en-in, with the most snapshots in 2021 and 2024 for en-us."
+      }
+    ],
+    "links": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:23:16.346Z",
+            "url": "https://www.signia.net/en-us/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:22:31.766Z",
+            "url": "https://www.signia.net/de-de/"
+          }
+        ],
+        "text": "Pages link to signia-pro.com (professional site), plus social networks; one footer link goes to careers.wsa.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:23:58.333Z",
+            "url": "https://www.signia.net/en-us/connectivity/signia-app/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:26:13.165Z",
+            "url": "https://www.signia.net/da-dk/support/"
+          }
+        ],
+        "text": "Documents are hosted on cdn.signia.net; one Danish repair form is on cdn.shopify.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:23:58.333Z",
+            "url": "https://www.signia.net/en-us/connectivity/signia-app/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:24:48.444Z",
+            "url": "https://www.signia.net/es-ar/hearing-aids/signia-xperience/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:23:27.727Z",
+            "url": "https://www.signia.net/es-es/"
+          }
+        ],
+        "text": "Other external links: wsa.showpad.com, signia-library.com, shoeboxonline.com, qrfy.io."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:23:16.346Z",
+            "url": "https://www.signia.net/en-us/"
+          }
+        ],
+        "text": "The report records no redirects."
+      }
+    ],
+    "next": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:38:26.003Z",
+            "url": "https://www.signia.net/en-us/hearing-aids/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:04:08.945Z",
+            "url": "https://www.signia.net/en-us/hearing-aids/multi-adaptive-xperience/"
+          }
+        ],
+        "text": "Check whether the catalog should also include the multi-adaptive-xperience, augmented-xperience and signia-xperience listings, since the current config covers only integrated-xperience."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:23:38.785Z",
+            "url": "https://www.signia.net/en-us/hearing-aids/multi-adaptive-xperience/pure-charge-go-max/"
+          }
+        ],
+        "text": "Check that the model pattern reaches MaX models, which are flagged needsRender in the report."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:04:46.880Z",
+            "url": "https://www.signia.net/en-us/support/hearing-aids/"
+          }
+        ],
+        "text": "Find the document portal linked from the support page to locate user guide PDFs."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:04:03.554Z",
+            "url": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/"
+          }
+        ],
+        "text": "Confirm whether the current catalog page lists all integrated-xperience models, as the page text excerpts only some."
+      }
+    ],
+    "render": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:24:10.657Z",
+            "url": "https://www.signia.net/en-us/support/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:25:01.165Z",
+            "url": "https://www.signia.net/es-ar/support/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:25:18.783Z",
+            "url": "https://www.signia.net/ar/support/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:26:13.165Z",
+            "url": "https://www.signia.net/da-dk/support/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:23:38.785Z",
+            "url": "https://www.signia.net/en-us/hearing-aids/multi-adaptive-xperience/pure-charge-go-max/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:25:04.031Z",
+            "url": "https://www.signia.net/ar/hearing-aids/multi-adaptive-xperience/pure-charge-go-max/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:25:37.468Z",
+            "url": "https://www.signia.net/da-dk/hoere-apparater/multi-adaptive-xperience/pure-charge-go-max/"
+          }
+        ],
+        "text": "Most crawled pages need no scripts; the support index pages (en-us, es-ar, ar, da-dk) and the Pure Charge&Go MaX model pages (en-us, ar, da-dk) are flagged needsRender."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:24:10.657Z",
+            "url": "https://www.signia.net/en-us/support/"
+          }
+        ],
+        "text": "Page text for en-us support includes a repair-request form protected by reCAPTCHA."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:38:15.511Z",
+            "url": "https://www.signia.net/robots.txt"
+          }
+        ],
+        "text": "robots.txt disallows only the 'Opensolr Web Crawler' entirely and /sitecore/ paths for others."
+      }
+    ],
+    "structure": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:23:16.346Z",
+            "url": "https://www.signia.net/en-us/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:38:26.003Z",
+            "url": "https://www.signia.net/en-us/hearing-aids/"
+          }
+        ],
+        "text": "Platform sections under /hearing-aids/ in en-us: integrated-xperience, multi-adaptive-xperience, augmented-xperience, signia-xperience."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:23:42.130Z",
+            "url": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/active-ix/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:23:48.146Z",
+            "url": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/insio-charge-go-ix/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:38:58.689Z",
+            "url": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/cros-ix/"
+          }
+        ],
+        "text": "Model URL template: /{locale}/hearing-aids/{platform}/{model}/, e.g. integrated-xperience/active-ix/, cros-ix/, insio-charge-go-ix/."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:38:15.511Z",
+            "url": "https://www.signia.net/robots.txt"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:20:46.394Z",
+            "url": "https://www.signia.net/sitemap-en-us.xml"
+          }
+        ],
+        "text": "Each locale has its own sitemap (sitemap-{locale}.xml) and a shops-sitemap; robots.txt lists them."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:25:57.754Z",
+            "url": "https://www.signia.net/da-dk/hoere-apparater/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:22:12.625Z",
+            "url": "https://www.signia.net/es-ar/hearing-aids/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:26:22.419Z",
+            "url": "https://www.signia.net/de-ch/hearing-aids/multi-adaptive-xperience/"
+          }
+        ],
+        "text": "Locale paths differ in language: da-dk uses /hoere-apparater/, de-de /hoergeraete/, es /audifonos/, cs-cz /sluchadla/, while en-*, es-ar, de-ch use /hearing-aids/."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:20:46.394Z",
+            "url": "https://www.signia.net/sitemap-en-us.xml"
+          }
+        ],
+        "text": "The en-us sitemap carries hreflang alternates linking each page to its other locales."
+      }
+    ],
+    "what": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:23:16.346Z",
+            "url": "https://www.signia.net/en-us/"
+          }
+        ],
+        "text": "Official Signia hearing aid website, with a footer crediting WS Audiology A/S."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:38:15.511Z",
+            "url": "https://www.signia.net/robots.txt"
+          }
+        ],
+        "text": "The site is split into many locale sections (en-us, en-gb, de-de, etc.); the sitemaps list 2959 URLs."
+      }
+    ],
+    "where": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:38:26.003Z",
+            "url": "https://www.signia.net/en-us/hearing-aids/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:04:03.554Z",
+            "url": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/"
+          }
+        ],
+        "text": "The en-us catalog overview is /en-us/hearing-aids/; the Integrated Xperience listing is /en-us/hearing-aids/integrated-xperience/, which lists models such as Insio IX and Insio Charge&Go IX."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:04:43.480Z",
+            "url": "https://www.signia.net/en-us/hearing-aids/augmented-xperience/"
+          }
+        ],
+        "text": "The Augmented Xperience listing names Styletto AX, Pure Charge&Go T AX, Insio Charge&Go AX, Pure 312 AX and CROS variants."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:04:08.945Z",
+            "url": "https://www.signia.net/en-us/hearing-aids/multi-adaptive-xperience/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:23:16.346Z",
+            "url": "https://www.signia.net/en-us/"
+          }
+        ],
+        "text": "The Multi-adaptive Xperience page presents the MaX platform; the home page promotes Pure C&G MaX."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:04:46.880Z",
+            "url": "https://www.signia.net/en-us/support/hearing-aids/"
+          }
+        ],
+        "text": "Model support pages are at /en-us/support/hearing-aids/, listing Pure, Styletto, Motion, Silk, Active, Insio, Intuis and Orion; it links to a document portal for user guides and safety instructions, whose URL is not in the data."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:23:58.333Z",
+            "url": "https://www.signia.net/en-us/connectivity/signia-app/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:25:24.726Z",
+            "url": "https://www.signia.net/ar/hearing-aids/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:25:57.754Z",
+            "url": "https://www.signia.net/da-dk/hoere-apparater/"
+          }
+        ],
+        "text": "The Signia App page lists iOS app id 1316911473 and Android com.signia.rta; the ar and da-dk hearing-aids pages also list iOS 6759666876 and Android com.wsa.henosis.signia (Signia One)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:23:58.333Z",
+            "url": "https://www.signia.net/en-us/connectivity/signia-app/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:25:27.653Z",
+            "url": "https://www.signia.net/ar/connectivity/signia-app/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:24:25.673Z",
+            "url": "https://www.signia.net/es-ar/hearing-aids/signia-xperience/motion-x/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:22:58.027Z",
+            "url": "https://www.signia.net/en-gb/"
+          }
+        ],
+        "text": "PDFs found are on cdn.signia.net: app quick guide, Signia Assistant leaflet, Signia One app user guide, a Motion X brochure and a UK modern slavery statement."
+      }
+    ]
+  },
+  "summary": {
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T22:23:16.346Z",
+        "url": "https://www.signia.net/en-us/"
+      },
+      {
+        "fetchedAt": "2026-11-27T22:38:26.003Z",
+        "url": "https://www.signia.net/en-us/hearing-aids/"
+      },
+      {
+        "fetchedAt": "2026-11-27T19:04:08.945Z",
+        "url": "https://www.signia.net/en-us/hearing-aids/multi-adaptive-xperience/"
+      }
+    ],
+    "text": "signia.net is Signia's official multi-locale brand site (WS Audiology); the en-us catalog lists models under /hearing-aids/ platform sections, and the config's catalog only covers the Integrated Xperience section, not the newer Multi-adaptive Xperience (MaX) models."
+  }
+}

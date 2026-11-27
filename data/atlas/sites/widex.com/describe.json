@@ -1,0 +1,428 @@
+{
+  "domain": "widex.com",
+  "generatedAt": "2026-11-27T22:41:06.854Z",
+  "model": "sonnet",
+  "openQuestions": [
+    "Where are the model user guides and datasheets? The US document library only points to www.wsaud.com/widex, which the report did not fetch.",
+    "Does Moment Sheer have its own model page?",
+    "Is the render flag on /en-us/hearing-aids/ real, since the captured text already shows the model list?",
+    "Are older lines (Evoke, Moment) still sold in the US? Only the Moment support page links to them."
+  ],
+  "sections": {
+    "archive": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:30:26.027Z",
+            "url": "https://www.widex.com/en-us/"
+          }
+        ],
+        "text": "Web Archive has copies of /en-us (2018–2026, latest 20261115060636), plus en-nz, en-au, en-gb, en-ca and en-in (2021–2026)."
+      }
+    ],
+    "links": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:30:37.206Z",
+            "url": "https://www.widex.com/da-dk/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:30:33.928Z",
+            "url": "https://www.widex.com/cs-cz/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:31:24.991Z",
+            "url": "https://www.widex.com/en-us/"
+          }
+        ],
+        "text": "Outbound links: widexpro.com (professionals), wsa.com (corporate and careers), social networks, widexbutik.dk (Danish shop) and shop.widex.cz (Czech shop)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:40:40.768Z",
+            "url": "https://www.widex.com/en-us/support/document-library/"
+          }
+        ],
+        "text": "The US document library points to www.wsaud.com/widex."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:32:24.187Z",
+            "url": "https://www.widex.com/en-us/support/support-for-moment-hearing-aids/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:32:14.788Z",
+            "url": "https://www.widex.com/en-us/hearing-loss/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:31:06.068Z",
+            "url": "https://www.widex.com/en-gb/"
+          }
+        ],
+        "text": "The report shows PDFs on azurecdn.widex.com. They are a UK modern slavery statement, an ebooklet and a Moment connectivity guide, and none is a model datasheet."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:32:24.187Z",
+            "url": "https://www.widex.com/en-us/support/support-for-moment-hearing-aids/"
+          }
+        ],
+        "text": "The Moment support page links an issuu.com connectivity document."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:31:24.991Z",
+            "url": "https://www.widex.com/en-us/"
+          }
+        ],
+        "text": "The report records no redirects."
+      }
+    ],
+    "next": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:32:00.006Z",
+            "url": "https://www.widex.com/en-us/hearing-aids/"
+          }
+        ],
+        "text": "Check why the report marks /en-us/hearing-aids/ needsRender true although its text lists the models."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:32:00.006Z",
+            "url": "https://www.widex.com/en-us/hearing-aids/"
+          }
+        ],
+        "text": "Check for a Moment Sheer model page and whether it fits the model pattern."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:43:31.072Z",
+            "url": "https://www.widex.com/en-us/hearing-aids/allure/ric-r-d/"
+          }
+        ],
+        "text": "Widen the model pattern to the Allure RIC, BTE and ITE slugs. The current pattern allure/[a-z0-9-]+ already covers them."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:40:40.768Z",
+            "url": "https://www.widex.com/en-us/support/document-library/"
+          }
+        ],
+        "text": "Check the wsaud.com/widex portal for user guides and datasheets."
+      }
+    ],
+    "render": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:32:00.006Z",
+            "url": "https://www.widex.com/en-us/hearing-aids/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:32:37.907Z",
+            "url": "https://www.widex.com/ar/hearing-aids/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:32:44.712Z",
+            "url": "https://www.widex.com/ar/hearing-aids/apps/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:33:35.778Z",
+            "url": "https://www.widex.com/de-de/service-und-support/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:34:20.363Z",
+            "url": "https://www.widex.com/de-ch/support/"
+          }
+        ],
+        "text": "The report marks /en-us/hearing-aids/, /ar/hearing-aids/, /ar/hearing-aids/apps/, /de-de/service-und-support/ and /de-ch/support/ as needsRender. The captured text of /en-us/hearing-aids/ already lists the models, and the report gives no sign that the catalog needs scripts to show them."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:31:46.405Z",
+            "url": "https://www.widex.com/en-us/hearing-aids/allure/ai-ric-r-d/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:31:24.991Z",
+            "url": "https://www.widex.com/en-us/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:34:36.342Z",
+            "url": "https://www.widex.com/en/hearing-aids/"
+          }
+        ],
+        "text": "The model pages, the US home and the global catalog page /en/hearing-aids/ are marked needsRender false."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:34:36.342Z",
+            "url": "https://www.widex.com/en/hearing-aids/"
+          }
+        ],
+        "text": "Pages carry a location-picker overlay ('Welcome to Widex … select one of the websites below'). It lists more regions than the sitemaps cover, such as Russia."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:40:36.247Z",
+            "url": "https://www.widex.com/en-us/support/"
+          }
+        ],
+        "text": "The support contact form is protected by reCAPTCHA."
+      }
+    ],
+    "structure": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:39:57.217Z",
+            "url": "https://www.widex.com/robots.txt"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:29:37.288Z",
+            "url": "https://www.widex.com/sitemap-en-us.xml"
+          }
+        ],
+        "text": "robots.txt lists per-locale sitemaps (sitemap-<locale>.xml) and per-locale shops-sitemap pages. The report fetched 19 of them and counted 2910 URLs."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:29:37.288Z",
+            "url": "https://www.widex.com/sitemap-en-us.xml"
+          }
+        ],
+        "text": "en-us has 187 sitemap URLs; the largest sections are en-nz (232), en-au (209), en-gb (203) and en-ca (202)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:31:46.405Z",
+            "url": "https://www.widex.com/en-us/hearing-aids/allure/ai-ric-r-d/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:43:44.427Z",
+            "url": "https://www.widex.com/en-us/hearing-aids/allure/bte-r-d/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:43:55.763Z",
+            "url": "https://www.widex.com/en-us/hearing-aids/allure/ite-r-d/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:43:31.072Z",
+            "url": "https://www.widex.com/en-us/hearing-aids/allure/ric-r-d/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:44:06.094Z",
+            "url": "https://www.widex.com/en-us/hearing-aids/smartric/"
+          }
+        ],
+        "text": "US catalog URLs are /en-us/hearing-aids/allure/<slug>/ with slugs ai-ric-r-d, ric-r-d, bte-r-d and ite-r-d, plus /en-us/hearing-aids/smartric/."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:33:00.147Z",
+            "url": "https://www.widex.com/da-dk/hoereapparater/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:33:30.368Z",
+            "url": "https://www.widex.com/de-de/hoergeraete/apps/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:31:32.083Z",
+            "url": "https://www.widex.com/es/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:30:33.928Z",
+            "url": "https://www.widex.com/cs-cz/"
+          }
+        ],
+        "text": "Other locales use different path words: da-dk uses /hoereapparater/, de-de uses /hoergeraete/, es uses /audifonos/, and cs-cz uses /sluchadla/."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:40:03.708Z",
+            "url": "https://www.widex.com/en-us/support/accessories/"
+          }
+        ],
+        "text": "The en-us templates include /support/{slug}, /service/{slug}, /blog/global/{slug}, /blog/local/us/{slug}, /campaign/us/{slug}, /local/us/{slug} and /tinnitus/relief/{slug}."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:39:57.217Z",
+            "url": "https://www.widex.com/robots.txt"
+          }
+        ],
+        "text": "Some sitemap URLs expose Sitecore staging paths such as /en-us/sitecore/content/widex/widex-staging/home/hearing-aids/…. robots.txt disallows /sitecore/."
+      }
+    ],
+    "what": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:32:00.006Z",
+            "url": "https://www.widex.com/en-us/hearing-aids/"
+          }
+        ],
+        "text": "Widex consumer website, with one section per locale; the footer reads © 2026, WS Audiology A/S."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:31:24.991Z",
+            "url": "https://www.widex.com/en-us/"
+          }
+        ],
+        "text": "The start page is the US site (en-us), titled 'Official Widex US website'."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:30:51.861Z",
+            "url": "https://www.widex.com/en/"
+          }
+        ],
+        "text": "There is a Widex global site at /en/."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:31:24.991Z",
+            "url": "https://www.widex.com/en-us/"
+          }
+        ],
+        "text": "The footer links 'For Professionals'; the report shows this goes to widexpro.com."
+      }
+    ],
+    "where": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:32:00.006Z",
+            "url": "https://www.widex.com/en-us/hearing-aids/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:34:36.342Z",
+            "url": "https://www.widex.com/en/hearing-aids/"
+          }
+        ],
+        "text": "The US catalog page /en-us/hearing-aids/ lists Allure AI RIC R D, Allure RIC R D, Allure BTE R D, Allure ITE R D, SmartRIC and Moment Sheer. The /en/ global page lists the same six."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:32:00.006Z",
+            "url": "https://www.widex.com/en-us/hearing-aids/"
+          }
+        ],
+        "text": "The Moment Sheer link is on the catalog listing, but no model page URL for it appears in the report."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:31:50.866Z",
+            "url": "https://www.widex.com/en-us/hearing-aids/allure/"
+          }
+        ],
+        "text": "The Allure family overview is at /en-us/hearing-aids/allure/."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:40:36.247Z",
+            "url": "https://www.widex.com/en-us/support/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:40:01.047Z",
+            "url": "https://www.widex.com/en-us/support/compatibility/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:40:03.708Z",
+            "url": "https://www.widex.com/en-us/support/accessories/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:40:07.247Z",
+            "url": "https://www.widex.com/en-us/support/app/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:32:24.187Z",
+            "url": "https://www.widex.com/en-us/support/support-for-moment-hearing-aids/"
+          }
+        ],
+        "text": "US support pages: /en-us/support/, /support/compatibility/, /support/accessories/, /support/app/ and /support/support-for-moment-hearing-aids/."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:40:40.768Z",
+            "url": "https://www.widex.com/en-us/support/document-library/"
+          }
+        ],
+        "text": "The US document library page does not host files. It points to www.wsaud.com/widex for user guides, datasheets, safety documents and declarations of conformity."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:40:03.708Z",
+            "url": "https://www.widex.com/en-us/support/accessories/"
+          }
+        ],
+        "text": "The US accessories support page also names a 'Document portal' for PDFs."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:40:12.067Z",
+            "url": "https://www.widex.com/en-us/hearing-aids/apps/allure-app/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:40:07.247Z",
+            "url": "https://www.widex.com/en-us/support/app/"
+          },
+          {
+            "fetchedAt": "2026-11-27T22:32:08.847Z",
+            "url": "https://www.widex.com/en-us/hearing-aids/apps/"
+          }
+        ],
+        "text": "Apps: the US pages /en-us/hearing-aids/apps/ and /en-us/hearing-aids/apps/allure-app/ describe the Allure app. The support page covers the Allure and Moment apps, and the report lists evoke-app and moment-app templates."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T22:34:17.005Z",
+            "url": "https://www.widex.com/de-ch/hearing-loss/tinnitus/"
+          }
+        ],
+        "text": "Store links to the Widex Zen tinnitus app (iOS id 1195907597, Android com.widex.tinnitus) appear on the de-ch tinnitus page."
+      }
+    ]
+  },
+  "summary": {
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T22:32:00.006Z",
+        "url": "https://www.widex.com/en-us/hearing-aids/"
+      },
+      {
+        "fetchedAt": "2026-11-27T22:31:24.991Z",
+        "url": "https://www.widex.com/en-us/"
+      }
+    ],
+    "text": "Widex's official multi-locale site (WS Audiology A/S); the en-us catalog at /en-us/hearing-aids/ lists Allure (AI RIC, RIC, BTE, ITE), SmartRIC and Moment Sheer, and the report flags it as needing render while the page text shows the model list."
+  }
+}
