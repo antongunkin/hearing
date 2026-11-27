@@ -1,0 +1,50 @@
+{
+  "aliases": [],
+  "brand": "jabra-enhance",
+  "connectivity": {
+    "fetchedAt": "2026-11-27T17:16:14.435Z",
+    "quote": "Advanced Bluetooth LE Audio and Auracast™",
+    "sourceType": "official",
+    "sourceUrl": "https://www.jabraenhance.com/product/enhanceselectm3",
+    "value": {
+      "auracast": true,
+      "leAudio": true
+    }
+  },
+  "documents": [],
+  "name": "Select M3",
+  "platform": {
+    "fetchedAt": "2026-11-27T17:16:14.435Z",
+    "quote": "SoundScape™ is our proprietary speech clarity technology.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.jabraenhance.com/product/enhanceselectm3",
+    "value": "SoundScape"
+  },
+  "sameHardwareAs": [],
+  "slug": "jabra-enhance-select-m3",
+  "type": "otc",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "select-m3",
+      "power": {
+        "fetchedAt": "2026-11-27T17:16:14.435Z",
+        "quote": "3-hour charge 24-hour power",
+        "sourceType": "official",
+        "sourceUrl": "https://www.jabraenhance.com/product/enhanceselectm3",
+        "value": {
+          "batteryHours": 24,
+          "type": "rechargeable"
+        }
+      },
+      "weightG": {
+        "fetchedAt": "2026-11-27T17:16:14.435Z",
+        "quote": "Weight: 2.12 grams",
+        "sourceType": "official",
+        "sourceUrl": "https://www.jabraenhance.com/product/enhanceselectm3",
+        "unit": "g",
+        "value": 2.12
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "aliases": [],
+  "brand": "jabra-enhance",
+  "connectivity": {
+    "fetchedAt": "2026-11-27T17:17:24.340Z",
+    "quote": "The Select M1 features Bluetooth LE Audio & Auracast™",
+    "sourceType": "official",
+    "sourceUrl": "https://www.jabraenhance.com/product/enhanceselectm1",
+    "value": {
+      "auracast": true,
+      "leAudio": true
+    }
+  },
+  "documents": [],
+  "name": "Select M1",
+  "sameHardwareAs": [],
+  "slug": "jabra-enhance-select-m1",
+  "type": "otc",
+  "variants": []
+}
