@@ -17,8 +17,8 @@ type Page = Extract<FetchResult, { status: 'ok' }>
 
 export type ModelCandidate = { model: Model; fieldChecks: Record<string, CheckResult[]> }
 
-/** One model page and the documents (datasheets, user guides) that name it. */
-export type ModelSources = { modelUrl: string; documentUrls: string[] }
+/** One model page and the documents (datasheets, user guides) that name it. `inCatalog`: a catalog page links the model page (support pages alone do not count). */
+export type ModelSources = { modelUrl: string; documentUrls: string[]; inCatalog: boolean }
 
 /** File name words that say what kind of document it is, not which model. */
 const DOCUMENT_WORDS = new Set(['ph', 'datasheet', 'user', 'guide', 'userguide', 'pdf', 'coredownload', 'inline', 'en', 'us'])
@@ -49,7 +49,12 @@ function nameTokens(url: string, brandWords: Set<string>): Set<string> {
  * one with the highest share of words in common wins (a document of "audeo eon sphere" goes to that
  * page, not to "audeo sphere"); a tie, or no page, drops the document, and dropped documents are counted.
  */
-function linkDocuments(brand: Brand, modelUrls: string[], documentUrls: string[]): { sources: ModelSources[]; unmatched: number } {
+function linkDocuments(
+  brand: Brand,
+  modelUrls: string[],
+  documentUrls: string[],
+  inCatalog: Set<string>,
+): { sources: ModelSources[]; unmatched: number } {
   const brandWords = new Set(normalizeName(`${brand.slug} ${brand.name}`).split(/[^a-z0-9]+/))
   const models = modelUrls.map((modelUrl) => ({ modelUrl, tokens: nameTokens(modelUrl, brandWords), documentUrls: [] as string[] }))
 
@@ -66,14 +71,15 @@ function linkDocuments(brand: Brand, modelUrls: string[], documentUrls: string[]
     }
     best.model.documentUrls.push(documentUrl)
   }
-  return { sources: models.map(({ modelUrl, documentUrls }) => ({ modelUrl, documentUrls })), unmatched }
+  return { sources: models.map(({ modelUrl, documentUrls }) => ({ modelUrl, documentUrls, inCatalog: inCatalog.has(modelUrl) })), unmatched }
 }
 
 /**
  * Model pages linked from the brand's catalog and support pages, each once, with the linked documents that match
  * `documentUrlPattern` given to the model page they name. A catalog page that is skipped (robots, bot
  * protection, …) gives no links and is reported to `onSkip`, or logged without one; the number of
- * documents that name no model page is logged.
+ * documents that name no model page is logged. A model page linked from a catalog page is `inCatalog`, also
+ * when a support page links it too.
  */
 export async function discoverModelUrls(
   brand: Brand,
@@ -84,8 +90,10 @@ export async function discoverModelUrls(
   const isDatasheet = documentUrlPattern === undefined ? undefined : new RegExp(documentUrlPattern)
   const models = new Set<string>()
   const datasheets = new Set<string>()
+  const inCatalog = new Set<string>()
 
   for (const url of [...catalogUrls, ...(supportUrls ?? [])]) {
+    const fromCatalog = catalogUrls.includes(url)
     // `refresh` skips the cached catalog, so that a re-run sees models listed since.
     const page = await fetchPage(url, { render, refresh: opts.refresh })
     if (page.status === 'skipped') {
@@ -95,11 +103,13 @@ export async function discoverModelUrls(
     }
     if (page.html === undefined) continue
     for (const link of linksIn(page.html, page.url)) {
-      if (isModel.test(link)) models.add(link)
-      else if (isDatasheet?.test(link)) datasheets.add(link)
+      if (isModel.test(link)) {
+        models.add(link)
+        if (fromCatalog) inCatalog.add(link)
+      } else if (isDatasheet?.test(link)) datasheets.add(link)
     }
   }
-  const { sources, unmatched } = linkDocuments(brand, [...models], [...datasheets])
+  const { sources, unmatched } = linkDocuments(brand, [...models], [...datasheets], inCatalog)
   if (unmatched > 0) console.warn(`${brand.slug}: ${unmatched} documents match no model page`)
   return sources
 }

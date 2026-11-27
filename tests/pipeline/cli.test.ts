@@ -3,6 +3,7 @@ import { mkdtemp, readdir, readFile, rm, stat } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { afterEach, beforeEach, expect, test, vi } from 'vitest'
+import { priorCatalogCopies } from '@/pipeline/archive/catalog-history'
 import { crossCheck } from '@/pipeline/checks/crosscheck'
 import { main } from '@/pipeline/cli'
 import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
@@ -19,6 +20,7 @@ import { Model } from '@/src/lib/schema/model'
 import { PendingChange } from '@/src/lib/schema/pending'
 import { Reviews } from '@/src/lib/schema/reviews'
 
+vi.mock('@/pipeline/archive/catalog-history', () => ({ priorCatalogCopies: vi.fn() }))
 vi.mock('@/pipeline/fetch/fetcher', async (importOriginal) => ({
   ...(await importOriginal<typeof import('@/pipeline/fetch/fetcher')>()),
   fetchPage: vi.fn(),
@@ -125,6 +127,7 @@ beforeEach(async () => {
   vi.mocked(discoverReviewSources).mockResolvedValue({ expert: [], retail: [] })
   vi.mocked(searchVideos).mockResolvedValue([])
   vi.mocked(synthesizeProsCons).mockResolvedValue(null)
+  vi.mocked(priorCatalogCopies).mockResolvedValue([])
 })
 
 afterEach(async () => {
@@ -141,8 +144,8 @@ async function filesUnder(root: string): Promise<string[]> {
 
 test('LlmLimitError mid-run: exit 2, progress saved, no *.tmp, resume skips done brands and reads the stopped one again', async () => {
   await writeJson(join(dataDir, 'brands', 'audien.json'), { ...brand, slug: 'audien', name: 'Audien', website: 'https://audien.com' })
-  const groups = ['select-100', 'select-200', 'select-300'].map((slug) => ({ modelUrl: `${BASE}/${slug}`, documentUrls: [] }))
-  vi.mocked(discoverModelUrls).mockImplementation(async (b) => (b.slug === 'audien' ? [{ modelUrl: 'https://audien.com/atom', documentUrls: [] }] : groups))
+  const groups = ['select-100', 'select-200', 'select-300'].map((slug) => ({ modelUrl: `${BASE}/${slug}`, documentUrls: [], inCatalog: true }))
+  vi.mocked(discoverModelUrls).mockImplementation(async (b) => (b.slug === 'audien' ? [{ modelUrl: 'https://audien.com/atom', documentUrls: [], inCatalog: true }] : groups))
   const atom = candidate('Atom')
   atom.model = Model.parse({ ...atom.model, slug: 'audien-atom', brand: 'audien' })
   vi.mocked(extractModel)
@@ -188,7 +191,7 @@ test('LlmLimitError mid-run: exit 2, progress saved, no *.tmp, resume skips done
 })
 
 test('scrape: the pages of one family give one new model with the variants of all of them', async () => {
-  const groups = ['reveal-r', 'reveal-t'].map((slug) => ({ modelUrl: `${BASE}/${slug}`, documentUrls: [] }))
+  const groups = ['reveal-r', 'reveal-t'].map((slug) => ({ modelUrl: `${BASE}/${slug}`, documentUrls: [], inCatalog: true }))
   vi.mocked(discoverModelUrls).mockResolvedValue(groups)
   const style = (id: string): ModelCandidate => {
     const c = candidate('Reveal')
@@ -373,7 +376,7 @@ test('a Gemini rate limit skips the rest of the youtube step; the run goes on an
 })
 
 test('the usage-limit message names the provider and the exact command to resume with', async () => {
-  vi.mocked(discoverModelUrls).mockResolvedValue([{ modelUrl: `${BASE}/select-100`, documentUrls: [] }])
+  vi.mocked(discoverModelUrls).mockResolvedValue([{ modelUrl: `${BASE}/select-100`, documentUrls: [], inCatalog: true }])
   vi.mocked(extractModel).mockRejectedValue(new LlmLimitError('claude', 'usage limit'))
 
   expect(await main(['scrape', '--brand', 'jabra-enhance', '--limit', '3', '--refresh'], opts)).toBe(2)
@@ -382,7 +385,7 @@ test('the usage-limit message names the provider and the exact command to resume
 })
 
 test("a single step run between a stopped update and its resume leaves the update's progress alone", async () => {
-  vi.mocked(discoverModelUrls).mockResolvedValue([{ modelUrl: `${BASE}/select-100`, documentUrls: [] }])
+  vi.mocked(discoverModelUrls).mockResolvedValue([{ modelUrl: `${BASE}/select-100`, documentUrls: [], inCatalog: true }])
   vi.mocked(extractModel).mockResolvedValue(candidate('Select 100'))
   vi.mocked(fetchFdaEvents).mockRejectedValueOnce(new LlmLimitError('claude', 'usage limit'))
   expect(await main(['update'], opts)).toBe(2)
@@ -396,7 +399,7 @@ test("a single step run between a stopped update and its resume leaves the updat
 })
 
 test('--resume with other --brand or --limit does not skip work done under the old filters', async () => {
-  const groups = ['select-100', 'select-200'].map((slug) => ({ modelUrl: `${BASE}/${slug}`, documentUrls: [] }))
+  const groups = ['select-100', 'select-200'].map((slug) => ({ modelUrl: `${BASE}/${slug}`, documentUrls: [], inCatalog: true }))
   vi.mocked(discoverModelUrls).mockResolvedValue(groups)
   vi.mocked(extractModel).mockResolvedValueOnce(candidate('Select 100')).mockRejectedValueOnce(new LlmLimitError('claude', 'usage limit'))
   expect(await main(['update', '--brand', 'jabra-enhance', '--limit', '2'], opts)).toBe(2)
@@ -462,4 +465,175 @@ test('update ends by recording the pairs; one step alone does not', async () => 
 
   expect(await main(['update'], opts)).toBe(0)
   expect(await recorded()).toEqual(['jabra-enhance-select-100-vs-jabra-enhance-select-200'])
+})
+
+// Lifecycle: a stored model that the complete live catalog no longer lists, or lists again.
+const LISTED = { modelUrl: `${BASE}/select-500`, documentUrls: [], inCatalog: true }
+const copy = (fetchedAt: string, text: string): Extract<FetchResult, { status: 'ok' }> => ({ ...okPage(BASE), fetchedAt, text })
+const pendingCard = async (id: string) => PendingChange.parse(JSON.parse(await readFile(join(dataDir, 'pending', `${id}.json`), 'utf8')))
+const SOURCE = { value: 'Select 300', quote: 'Jabra Enhance Select 300', sourceUrl: `${BASE}/x`, fetchedAt: FETCHED_AT, sourceType: 'official' as const }
+
+async function storeSelect300(extra: Partial<Model> = {}): Promise<Model> {
+  const stored = model('Select 300', extra)
+  await writeJson(join(dataDir, 'models', `${stored.slug}.json`), stored)
+  return stored
+}
+
+/** A complete catalog that lists one model, Select 500. */
+function catalogLists500() {
+  vi.mocked(discoverModelUrls).mockResolvedValue([LISTED])
+  vi.mocked(extractModel).mockImplementation(async () => candidate('Select 500'))
+}
+
+test('a model missing from a complete catalog is proposed as discontinued, for review, with the month it was last listed', async () => {
+  const stored = await storeSelect300()
+  catalogLists500()
+  vi.mocked(priorCatalogCopies).mockResolvedValue([
+    copy('2026-03-05T00:00:00.000Z', 'Jabra Enhance Select 300\nBuy now'),
+    copy('2025-11-02T00:00:00.000Z', 'Jabra Enhance Select 300'),
+  ])
+
+  expect(await main(['scrape'], opts)).toBe(0)
+
+  const card = await pendingCard(`${stored.slug}-discontinued`)
+  expect(card).toMatchObject({ kind: 'spec-change', path: 'discontinued', modelSlug: stored.slug })
+  expect(card.before).toBeUndefined()
+  expect(card.after).toMatchObject({ lastListed: '2026-03', source: { value: 'Select 300', quote: 'Jabra Enhance Select 300' } })
+  expect(vi.mocked(priorCatalogCopies).mock.calls[0][0]).toEqual([BASE])
+  // The model is not changed by the proposal.
+  expect(JSON.parse(await readFile(join(dataDir, 'models', `${stored.slug}.json`), 'utf8')).discontinued).toBeUndefined()
+})
+
+test('a model no catalog copy ever named gets no proposal', async () => {
+  await storeSelect300()
+  catalogLists500()
+  vi.mocked(priorCatalogCopies).mockResolvedValue([copy('2026-03-05T00:00:00.000Z', 'Something else')])
+
+  expect(await main(['scrape'], opts)).toBe(0)
+
+  expect(await filesUnder(join(dataDir, 'pending'))).toEqual(['jabra-enhance-select-500-model.json'])
+})
+
+test('a skipped catalog page, a limit, a lost model page, or no model links at all proposes no discontinuation', async () => {
+  await storeSelect300()
+  vi.mocked(priorCatalogCopies).mockResolvedValue([copy('2026-03-05T00:00:00.000Z', 'Jabra Enhance Select 300')])
+  const pendingPaths = async () => (await filesUnder(join(dataDir, 'pending'))).filter((f) => f.includes('discontinued'))
+  catalogLists500()
+
+  // A catalog page that was skipped.
+  vi.mocked(discoverModelUrls).mockImplementation(async (_brand, o) => {
+    o?.onSkip?.(BASE, 'bot-protection', 'HTTP 403')
+    return [LISTED]
+  })
+  expect(await main(['scrape'], opts)).toBe(0)
+  expect(log).toContain('jabra-enhance: catalog incomplete, lifecycle not checked')
+  expect(await pendingPaths()).toEqual([])
+
+  // A model page that was skipped.
+  vi.mocked(discoverModelUrls).mockResolvedValue([LISTED, { ...LISTED, modelUrl: `${BASE}/select-600` }])
+  vi.mocked(fetchPage).mockImplementation(async (url) =>
+    url.endsWith('select-600') ? { status: 'skipped', url, reason: 'http-error', detail: 'HTTP 500' } : okPage(url),
+  )
+  vi.mocked(extractModel).mockImplementation(async () => candidate('Select 500'))
+  expect(await main(['scrape'], opts)).toBe(0)
+  expect(await pendingPaths()).toEqual([])
+
+  // A run under --limit.
+  vi.mocked(fetchPage).mockImplementation(async (url) => okPage(url))
+  expect(await main(['scrape', '--limit', '5'], opts)).toBe(0)
+  expect(await pendingPaths()).toEqual([])
+
+  // A catalog that links no model at all (a changed page layout).
+  vi.mocked(discoverModelUrls).mockResolvedValue([])
+  expect(await main(['scrape'], opts)).toBe(0)
+  expect(await pendingPaths()).toEqual([])
+
+  // Support pages only.
+  vi.mocked(discoverModelUrls).mockResolvedValue([{ ...LISTED, inCatalog: false }])
+  expect(await main(['scrape'], opts)).toBe(0)
+  expect(await pendingPaths()).toEqual([])
+})
+
+test('a stored model that cites a model page of the catalog is still listed', async () => {
+  const stored = await storeSelect300()
+  vi.mocked(priorCatalogCopies).mockResolvedValue([copy('2026-03-05T00:00:00.000Z', 'Jabra Enhance Select 300')])
+  vi.mocked(discoverModelUrls).mockResolvedValue([{ ...LISTED, modelUrl: `${BASE}/x` }])
+  vi.mocked(extractModel).mockResolvedValue(candidate('Select 500'))
+
+  expect(await main(['scrape'], opts)).toBe(0)
+
+  expect(await filesUnder(join(dataDir, 'pending'))).not.toContain(`${stored.slug}-discontinued.json`)
+})
+
+test('a live product page outside the catalog is flagged orphan-product-page', async () => {
+  const stored = await storeSelect300()
+  catalogLists500()
+  vi.mocked(fetchPage).mockImplementation(async (url) => ({ ...okPage(url), text: url === `${BASE}/x` ? 'Jabra Enhance Select 300 hearing aid' : 'page' }))
+
+  expect(await main(['scrape'], opts)).toBe(0)
+
+  const card = await pendingCard(`${stored.slug}-discontinued`)
+  expect(card.kind).toBe('failed-check')
+  expect(card.checks.discontinued).toEqual([{ name: 'lifecycle', ok: false, detail: 'orphan-product-page' }])
+  expect(vi.mocked(fetchPage)).toHaveBeenCalledWith(`${BASE}/x`, { render: false, refresh: true })
+})
+
+test('an own page that redirects, or answers with a refusal, is not an orphan proof', async () => {
+  const stored = await storeSelect300()
+  catalogLists500()
+  vi.mocked(priorCatalogCopies).mockResolvedValue([copy('2026-03-05T00:00:00.000Z', 'Jabra Enhance Select 300')])
+
+  vi.mocked(fetchPage).mockImplementation(async (url) =>
+    url === `${BASE}/x` ? { ...okPage(`${BASE}/elsewhere`), text: 'Jabra Enhance Select 300' } : okPage(url),
+  )
+  expect(await main(['scrape'], opts)).toBe(0)
+  expect((await pendingCard(`${stored.slug}-discontinued`)).kind).toBe('spec-change')
+
+  await rm(join(dataDir, 'pending'), { recursive: true })
+  vi.mocked(fetchPage).mockImplementation(async (url) =>
+    url === `${BASE}/x` ? { status: 'skipped', url, reason: 'rate-limited', detail: 'HTTP 429' } : okPage(url),
+  )
+  expect(await main(['scrape'], opts)).toBe(0)
+  expect((await filesUnder(join(dataDir, 'pending'))).filter((f) => f.includes('discontinued'))).toEqual([])
+})
+
+test('a discontinued model back in the catalog gets its discontinuation removed through review', async () => {
+  const stored = await storeSelect300({ discontinued: { lastListed: '2025-01', source: SOURCE } })
+  vi.mocked(discoverModelUrls).mockResolvedValue([LISTED])
+  vi.mocked(extractModel).mockResolvedValue(candidate('Select 300'))
+
+  expect(await main(['scrape'], opts)).toBe(0)
+
+  const card = await pendingCard(`${stored.slug}-discontinued`)
+  expect(card).toMatchObject({ kind: 'spec-change', path: 'discontinued', after: null })
+  expect(card.before).toMatchObject({ lastListed: '2025-01' })
+  expect(JSON.parse(await readFile(join(dataDir, 'models', `${stored.slug}.json`), 'utf8')).discontinued).toBeDefined()
+})
+
+test('a model already discontinued that the catalog still lacks gets no new proposal', async () => {
+  const stored = await storeSelect300({ discontinued: { lastListed: '2025-01', source: SOURCE } })
+  catalogLists500()
+  vi.mocked(priorCatalogCopies).mockResolvedValue([copy('2026-03-05T00:00:00.000Z', 'Jabra Enhance Select 300')])
+
+  expect(await main(['scrape'], opts)).toBe(0)
+
+  expect(await filesUnder(join(dataDir, 'pending'))).not.toContain(`${stored.slug}-discontinued.json`)
+})
+
+test('a support-only model without an official date since 2018 is left out; one with a date is left to the archive command', async () => {
+  vi.mocked(discoverModelUrls).mockResolvedValue([LISTED, { ...LISTED, modelUrl: `${BASE}/old`, inCatalog: false }, { ...LISTED, modelUrl: `${BASE}/new`, inCatalog: false }])
+  const dated = (name: string, value: string) =>
+    candidate(name).model.releaseDate === undefined
+      ? Model.parse({ ...candidate(name).model, releaseDate: { value, quote: value, sourceUrl: `${BASE}/new`, fetchedAt: FETCHED_AT, sourceType: 'official' } })
+      : candidate(name).model
+  vi.mocked(extractModel)
+    .mockResolvedValueOnce(candidate('Select 500'))
+    .mockResolvedValueOnce(candidate('Select 100'))
+    .mockResolvedValueOnce({ model: dated('Select 200', '2025-02'), fieldChecks: {} })
+
+  expect(await main(['scrape'], opts)).toBe(0)
+
+  expect(await filesUnder(join(dataDir, 'pending'))).toEqual(['jabra-enhance-select-500-model.json'])
+  expect(log).toContain('jabra-enhance-select-100: not sold since 2018 by its sources, left out')
+  expect(log).toContain('jabra-enhance-select-200: found only on support pages, left to the archive command')
 })

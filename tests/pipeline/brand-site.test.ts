@@ -88,13 +88,14 @@ describe('discoverModelUrls', () => {
     const docs = 'https://www.phonak.com/content/dam/celum/phonak/docs'
 
     expect(await discoverModelUrls(brand)).toEqual([
-      { modelUrl: MODEL_URL, documentUrls: [`${docs}/ph-datasheet-audeo-i-sphere.pdf`, `${docs}/PH_UserGuide_Audeo_I_Sphere.pdf`] },
-      { modelUrl: 'https://www.phonak.com/en-us/hearing-devices/hearing-aids/virto-infinio', documentUrls: [] },
+      { modelUrl: MODEL_URL, documentUrls: [`${docs}/ph-datasheet-audeo-i-sphere.pdf`, `${docs}/PH_UserGuide_Audeo_I_Sphere.pdf`], inCatalog: true },
+      { modelUrl: 'https://www.phonak.com/en-us/hearing-devices/hearing-aids/virto-infinio', documentUrls: [], inCatalog: true },
       {
         modelUrl: 'https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-eon-sphere',
         documentUrls: [`${docs}/ph-datasheet-audeo-eon-sphere-210x297-en-v1.00.pdf`],
+        inCatalog: true,
       },
-      { modelUrl: 'https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-infinio', documentUrls: [] },
+      { modelUrl: 'https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-infinio', documentUrls: [], inCatalog: true },
     ])
     expect(fetchMock).toHaveBeenCalledWith(brand.scraper.catalogUrls[0], { render: false })
     expect(warn).toHaveBeenCalledWith(expect.stringContaining('robots'))
@@ -120,8 +121,27 @@ describe('discoverModelUrls', () => {
         : okPage(url, 'catalog', '<p>nothing</p>'),
     )
 
-    expect(await discoverModelUrls(withSupport)).toEqual([{ modelUrl, documentUrls: [pdf] }])
+    expect(await discoverModelUrls(withSupport)).toEqual([{ modelUrl, documentUrls: [pdf], inCatalog: false }])
     expect(fetchMock).toHaveBeenCalledWith(support, { render: false })
+  })
+
+  test('inCatalog is true only for links from catalog pages', async () => {
+    const support = 'https://www.phonak.com/en-us/support/datasheets'
+    const base = 'https://www.phonak.com/en-us/hearing-devices/hearing-aids'
+    const withSupport = { ...brand, scraper: { ...brand.scraper, supportUrls: [support] } }
+    fetchMock.mockImplementation(async (url) =>
+      url === support
+        ? okPage(url, 'support', `<a href="${base}/audeo-sphere">a</a><a href="${base}/virto-infinio">v</a>`)
+        : okPage(url, 'catalog', `<a href="${base}/audeo-sphere">a</a><a href="${base}/audeo-infinio">i</a>`),
+    )
+
+    const found = await discoverModelUrls(withSupport)
+
+    expect(found.map(({ modelUrl, inCatalog }) => [modelUrl.split('/').at(-1), inCatalog])).toEqual([
+      ['audeo-sphere', true], // linked from both kinds of pages
+      ['audeo-infinio', true],
+      ['virto-infinio', false],
+    ])
   })
 
   test('a skipped catalog is reported to onSkip instead of the log', async () => {

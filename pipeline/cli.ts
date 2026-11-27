@@ -6,13 +6,14 @@ import { join, resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { parseArgs } from 'node:util'
 import { z } from 'zod'
-import { applyAuto, diffModel, enqueue, route, withCrossChecks } from '@/pipeline/apply'
+import { applyAuto, diffModel, enqueue, route, sourcedLeaves, withCrossChecks } from '@/pipeline/apply'
 import { config } from '@/pipeline/config'
 import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { LlmLimitError, LlmUnavailableError } from '@/pipeline/llm'
 import { readCache } from '@/pipeline/llm/cache'
 import { Progress } from '@/pipeline/progress'
-import { isInScope } from '@/pipeline/archive/lifecycle'
+import { priorCatalogCopies } from '@/pipeline/archive/catalog-history'
+import { isInScope, lifecycleOf, listingIn } from '@/pipeline/archive/lifecycle'
 import { discoverModelUrls, extractModel, matchExistingModel, mergeCandidates, type ModelCandidate } from '@/pipeline/sources/brand-site'
 import { fetchIosVersion } from '@/pipeline/sources/itunes'
 import { fetchFdaEvents } from '@/pipeline/sources/openfda'
@@ -20,6 +21,7 @@ import { extractExpertProsCons, synthesizeProsCons } from '@/pipeline/sources/pr
 import { complaintThemes, currentMonth, discoverReviewSources, extractRetailReviews } from '@/pipeline/sources/reviews'
 import { discoverThirdPartyFacts } from '@/pipeline/sources/third-party-facts'
 import { analyzeVideo, searchVideos, YouTubeError } from '@/pipeline/sources/youtube'
+import { parseArchiveUrl } from '@/src/lib/archive-url'
 import { loadDataset, type Dataset } from '@/src/lib/data/load'
 import { writeJson } from '@/src/lib/data/write'
 import { ComparePairs } from '@/src/lib/schema/compare-pairs'
@@ -45,6 +47,8 @@ type Run = {
   limit: number
   refresh: boolean
   asOf: string
+  /** When the run began: catalog copies fetched since are this run's, not history. */
+  startedAt: string
   /** The filters of the run (`--brand`, `--limit`): work done under other filters is not this run's. */
   scope: string
   progress: Progress
@@ -125,6 +129,64 @@ function reviewsChange(run: Run, slug: string, kind: CandidateChange['kind'], fi
   return { kind, modelSlug: slug, path: `reviews.${field}`, ...(before !== undefined && { before }), after, checks: {} }
 }
 
+/** Every `sourceUrl` a stored model cites, with a Web Archive copy counted as the page it copies. */
+function citedUrls(model: Model): Set<string> {
+  const urls = new Set<string>()
+  for (const [, field] of sourcedLeaves(model)) urls.add(parseArchiveUrl(field.sourceUrl)?.original ?? field.sourceUrl)
+  return urls
+}
+
+/** The stored model's own official page: the page it cites most often that is a model page of the brand. */
+function ownPageOf(model: Model, brand: Brand): string | undefined {
+  const isModel = new RegExp(brand.scraper.modelUrlPattern)
+  const counts = new Map<string, number>()
+  for (const [, field] of sourcedLeaves(model)) {
+    if (isModel.test(field.sourceUrl)) counts.set(field.sourceUrl, (counts.get(field.sourceUrl) ?? 0) + 1)
+  }
+  return [...counts].sort((a, b) => b[1] - a[1])[0]?.[0]
+}
+
+/**
+ * Discontinuations and returns of one brand, judged against its complete live catalog. A stored model that no
+ * catalog page lists is proposed as discontinued (always reviewed), or as an orphan when its own product page
+ * is still live; a discontinued one that is listed again is proposed back on sale. `listedUrls` are the model
+ * pages the catalog links: a model that cites one of them, or a catalog page itself, is still listed.
+ */
+async function lifecycleChanges(run: Run, brand: Brand, matched: Set<string>, listedUrls: string[]): Promise<void> {
+  const stored = run.dataset.models.filter((model) => model.brand === brand.slug)
+  const listed = new Set([...listedUrls, ...brand.scraper.catalogUrls])
+  const copies = await priorCatalogCopies(brand.scraper.catalogUrls, run.startedAt)
+  for (const model of stored) {
+    if (matched.has(model.slug)) {
+      if (model.discontinued) await handle(run, { kind: 'discontinued', modelSlug: model.slug, path: 'discontinued', before: model.discontinued, after: null, checks: {} })
+      continue
+    }
+    if (model.discontinued || [...citedUrls(model)].some((url) => listed.has(url))) continue
+
+    const listings = copies.flatMap((copy) => listingIn(model, copy) ?? [])
+    const own = ownPageOf(model, brand)
+    let liveProductPage: Page | undefined
+    if (own !== undefined) {
+      const result = await fetchPage(own, { render: brand.scraper.render, refresh: true })
+      if (result.status === 'ok' && new URL(result.url).href === new URL(own).href) liveProductPage = result
+      else if (result.status === 'skipped' && result.reason !== 'http-error') {
+        // Neither answer nor refusal to answer says the page is gone.
+        skippedSource(run, own, result.reason, result.detail)
+        console.log(`${model.slug}: own page not read, lifecycle not checked`)
+        continue
+      }
+    }
+    const lifecycle = lifecycleOf(model, { inLiveCatalog: false, listings, liveProductPage })
+    if (lifecycle === null || lifecycle.kind === 'on-sale') {
+      console.log(`${model.slug}: not in the catalog, no listing found, lifecycle not decided`)
+      continue
+    }
+    const after = { ...(lifecycle.kind === 'discontinued' && lifecycle.lastListed !== undefined && { lastListed: lifecycle.lastListed }), source: lifecycle.source }
+    const checks: CandidateChange['checks'] = lifecycle.kind === 'orphan' ? { discontinued: [{ name: 'lifecycle' as const, ok: false, detail: 'orphan-product-page' }] } : {}
+    await handle(run, { kind: 'discontinued', modelSlug: model.slug, path: 'discontinued', after, checks })
+  }
+}
+
 /**
  * Brand sites (new models and spec changes), then third-party prices and hardware twins. A brand is one
  * unit: the pages of a model family are merged (see mergeCandidates) before they are compared with the
@@ -139,28 +201,57 @@ async function scrape(run: Run): Promise<void> {
       continue
     }
     await unit(run, `scrape:${brand.slug}`, async () => {
-      const onSkip = (url: string, reason: string, detail?: string) => skippedSource(run, url, reason, detail)
-      const groups = (await discoverModelUrls(brand, { refresh: run.refresh, onSkip })).slice(0, run.limit)
+      // Lifecycle is judged only when the whole catalog was read: no `--limit`, no catalog or model page lost.
+      let complete = !Number.isFinite(run.limit)
+      const onSkip = (url: string, reason: string, detail?: string) => {
+        if (brand.scraper.catalogUrls.includes(url)) complete = false
+        skippedSource(run, url, reason, detail)
+      }
+      const found = await discoverModelUrls(brand, { refresh: run.refresh, onSkip })
+      const groups = found.slice(0, run.limit)
       const candidates: ModelCandidate[] = []
-      for (const { modelUrl, documentUrls } of groups) {
-        await guard(run, modelUrl, async () => {
+      /** Whether a catalog page links a model, by slug (the pages of one family are one model). */
+      const inCatalog = new Map<string, boolean>()
+      for (const { modelUrl, documentUrls, inCatalog: linked } of groups) {
+        const read = await guard(run, modelUrl, async () => {
           const modelPage = await page(run, modelUrl, { render: brand.scraper.render, refresh: run.refresh })
-          if (modelPage === null) return
+          if (modelPage === null) {
+            complete = false
+            return
+          }
           const pages = [modelPage]
           for (const url of documentUrls) {
             const document = await page(run, url, { refresh: run.refresh })
             if (document) pages.push(document)
           }
-          candidates.push(await extractModel(brand, pages))
+          const candidate = await extractModel(brand, pages)
+          candidates.push(candidate)
+          inCatalog.set(candidate.model.slug, inCatalog.get(candidate.model.slug) === true || linked)
         })
+        if (!read) complete = false
       }
+
+      const matched = new Set<string>()
       for (const candidate of mergeCandidates(candidates)) {
         const existing = matchExistingModel(candidate.model, run.dataset.models)
-        if (existing === null && !isInScope(candidate.model, { inLiveCatalog: true })) {
-          console.log(`${candidate.model.slug}: released before ${config.onSaleSince}, left out`)
+        const inLiveCatalog = inCatalog.get(candidate.model.slug) === true
+        if (existing !== null) {
+          if (inLiveCatalog) matched.add(existing.slug)
+        } else if (!isInScope(candidate.model, { inLiveCatalog })) {
+          console.log(`${candidate.model.slug}: not sold since ${config.onSaleSince.slice(0, 4)} by its sources, left out`)
+          continue
+        } else if (!inLiveCatalog) {
+          // Found on support pages only: the `archive` command decides whether it belongs.
+          console.log(`${candidate.model.slug}: found only on support pages, left to the archive command`)
           continue
         }
         for (const change of diffModel(existing, candidate)) await handle(run, change)
+      }
+
+      if (complete && groups.some((group) => group.inCatalog)) {
+        await lifecycleChanges(run, brand, matched, groups.filter((group) => group.inCatalog).map((group) => group.modelUrl))
+      } else {
+        console.log(`${brand.slug}: catalog incomplete, lifecycle not checked`)
       }
     })
   }
@@ -384,6 +475,7 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
     limit,
     refresh: values.refresh,
     asOf: currentMonth(),
+    startedAt: new Date().toISOString(),
     scope: `brand=${values.brand ?? '*'} limit=${values.limit ?? '*'}`,
     progress: await Progress.open(join(progressDir, `${command}.json`), values.resume),
     queued: new Set(),
