@@ -222,7 +222,7 @@ brand's `defaultType` fixes it for the next run of that brand.
 ## Scraping rules
 
 The collector sends no custom User-Agent (no bot name, nothing browser-like), obeys the `*` rules in `robots.txt` and `Crawl-delay`, pauses between requests, and skips a
-site that answers with a captcha, a 403/429 or other bot protection. Do not work around a skip. A 429 answer is skipped as `rate-limited`: a scrape goes on without that page, and an atlas step stops (exit code `2`, resumed with `--resume`). Google
+site that answers with a captcha, a 403/429 or other bot protection. Do not work around a skip. A 429 answer is skipped as `rate-limited`: a scrape goes on without that page, and an atlas step stops that site and goes on with the next (exit code `2`; see "Site atlas"). Google
 (including Shopping and Play) and Amazon are never fetched. Add a domain to `data/blocklist.json` to stop
 all requests to it.
 
@@ -296,8 +296,20 @@ commands in this order, one site at a time with `--site <domain>` or all sites w
 Each command rewrites `data/atlas/README.md`, the index: one row per site, and the candidate domains. A candidate is a
 domain linked from several reports that is not crawled. It is added to `sites.json` only by hand.
 
-Exit codes: `0` done, `1` bad arguments or no page of a site could be read, `2` stopped by a refusal (a 429, a captcha or
-other bot protection) or by the usage limit. Exit code `2` prints the command to resume with, which adds `--resume`.
+A site that refuses (a 403, 429 or 503, a captcha or other bot protection) stops only itself. `atlas:crawl` writes what
+it read before the refusal to `report.json`, with a `refused` failure (an older report stays when nothing was read);
+`atlas:describe` writes nothing for that site. The run goes on with the next site. A later `--resume` skips the refused
+site; `--site <domain>` tries it again. Nothing retries by itself. A refusal by `web.archive.org`, which every archive
+site shares, stops the whole run, and so does the usage limit.
+
+Exit codes:
+
+- `0`: done.
+- `1`: bad arguments, or a site could not be read or described: no page of it could be read, it has no `report.json`
+  yet (describe), or its describe call failed. The other sites are done; `--resume` tries the open ones again.
+- `2`: a site refused (the message lists the `--site` command for each), or the run was stopped by the usage limit or
+  by `web.archive.org`. A stopped run prints the command to resume with, which adds `--resume`.
+
 `--refresh` fetches the pages again.
 
 SEC EDGAR is always skipped: the pipeline sends no User-Agent, and EDGAR asks for one.

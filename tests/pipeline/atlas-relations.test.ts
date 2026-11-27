@@ -101,7 +101,7 @@ test('an SEC filing on another host, or a third-party source for owns, is refuse
   expect(sourceKindFor('https://xbrand.test/about', 'crawl', 'owns', ['xbrand.test'])).toBeNull()
 })
 
-test('a claim whose quote is on the page becomes a proposed internal edge with its checks', async () => {
+test('a claim whose quote is on the page becomes a proposed internal edge with its checks; a date the quote lacks is dropped', async () => {
   claims(claim({ since: '2020' }))
   const [rel] = await searchClaims({ name: 'XBrand', kind: 'brand' }, ctx)
 
@@ -111,13 +111,39 @@ test('a claim whose quote is on the page becomes a proposed internal edge with i
     from: 'company:x-group-holding',
     to: 'brand:xbrand',
     kind: 'owns',
-    since: '2020',
     visibility: 'internal',
     status: 'proposed',
     sources: [{ url: NEWS, quote: OWNS, fetchedAt: FETCHED_AT, kind: 'press-release' }],
   })
   expect(rel.entities.map((entity) => entity.id)).toEqual(['company:x-group-holding', 'brand:xbrand'])
   expect(rel.checks.quote[0].ok).toBe(true)
+})
+
+test('since stays only as far as the quote states it', async () => {
+  const bought = 'X Group Holding bought XBrand in 2020.'
+  web[NEWS] = `News. ${bought} More.`
+  claims(claim({ quote: bought, since: '2020-05' }), claim({ quote: bought, kind: 'makes-for', sourceKind: 'third-party', since: '2019' }))
+  const found = await searchClaims({ name: 'XBrand', kind: 'brand' }, ctx)
+  expect(found.map((rel) => [rel.edge.kind, rel.edge.since])).toEqual([['owns', '2020'], ['makes-for', undefined]])
+})
+
+test('a page on the live domain of a gone brand or an archive site is never a source', async () => {
+  const gone: Brand = { ...brand, slug: 'oldbrand', name: 'OldBrand', website: 'https://www.oldbrand.test/', status: 'gone' }
+  const archived: Site = { domain: 'oldsite.test', start: 'https://oldsite.test/', kind: 'brand', mode: 'archive', brands: ['xbrand'] }
+  const quote = 'OldBrand is a brand of X Group Holding.'
+  web['https://oldbrand.test/about'] = `About. ${quote}`
+  web['https://shop.oldsite.test/about'] = `About. ${OWNS}`
+  claims(
+    claim({ object: 'OldBrand', url: 'https://oldbrand.test/about', quote, sourceKind: 'company-page' }),
+    claim({ kind: 'makes-for', object: 'OldBrand', url: 'https://oldbrand.test/about', quote, sourceKind: 'press-release' }),
+    claim({ url: 'https://shop.oldsite.test/about', sourceKind: 'company-page' }),
+  )
+  const context = { brands: [brand, gone], sites: [site, archived] }
+  expect(await searchClaims({ name: 'OldBrand', kind: 'brand' }, context)).toEqual([])
+  expect(fetched()).toEqual([])
+  // The same claims count when the brand is active and the site live.
+  const live = { brands: [brand, { ...gone, status: 'active' as const }], sites: [site, { ...archived, mode: 'live' as const }] }
+  expect(await searchClaims({ name: 'OldBrand', kind: 'brand' }, live)).toHaveLength(3)
 })
 
 test('a claim whose quote is not on the page is dropped', async () => {
@@ -173,6 +199,12 @@ test('an app found by search and the same app found in the store are one graph n
   web[NEWS] = 'XBrand Remote is an app published by XBrand Inc.'
   claims(claim({ kind: 'publishes', subject: 'XBrand', subjectKind: 'brand', object: 'XBrand Remote', objectKind: 'app', quote: 'XBrand Remote is an app published by XBrand Inc.' }))
   expect((await searchClaims({ name: 'XBrand', kind: 'brand' }, ctx))[0].edge.to).toBe('app:xbrand-remote')
+
+  // An `id=` parameter is an iOS id only on the App Store.
+  const article = 'https://news.test/article?id=999'
+  web[article] = 'XBrand Remote is an app published by XBrand Inc.'
+  claims(claim({ kind: 'publishes', subject: 'XBrand', subjectKind: 'brand', object: 'XBrand Remote', objectKind: 'app', url: article, quote: 'XBrand Remote is an app published by XBrand Inc.' }))
+  expect((await searchClaims({ name: 'XBrand', kind: 'brand' }, ctx))[0].edge.to).toBe('app:xbrand-remote')
 })
 
 test('a refused page drops only the claims that cite it', async () => {
@@ -222,8 +254,13 @@ const report = (ios: string[]): SiteReport => ({ pages: [{ apps: { ios } }, { ap
 const app = (seller: string) => ({ iosId: '1', name: 'XBrand Remote', seller, url: 'https://apps.apple.com/app/id1', lookupUrl: 'https://itunes.apple.com/lookup?id=1', fetchedAt: FETCHED_AT })
 
 test('an app whose seller is the brand gives a publishes relation; another seller or a removed app gives none', async () => {
-  vi.mocked(lookupApp).mockResolvedValueOnce(app('XBrand Inc.')).mockResolvedValueOnce('removed')
-  await logReply('https://itunes.apple.com/lookup?id=1', '{"results":[{"sellerName":"XBrand Inc."}]}')
+  // The lookup writes its reply to the fetch log as it fetches, like the real one.
+  vi.mocked(lookupApp)
+    .mockImplementationOnce(async () => {
+      await logReply('https://itunes.apple.com/lookup?id=1', '{"results":[{"sellerName":"XBrand Inc."}]}')
+      return app('XBrand Inc.')
+    })
+    .mockResolvedValueOnce('removed')
   const [rel, ...rest] = await appPublishers(report(['1', '2']), brand, rawDir)
   expect(rel.checks.quote).toEqual([{ name: 'log', ok: true }, { name: 'literal', ok: true }])
   expect(rest).toEqual([])

@@ -3,6 +3,7 @@
 import { join } from 'node:path'
 import { z } from 'zod'
 import { enqueue, route } from '@/pipeline/apply'
+import { escapeRegExp } from '@/pipeline/units'
 import { readJson, type Dataset } from '@/src/lib/data/load'
 import { normalizeName, slugify } from '@/src/lib/data/slug'
 import type { Brand } from '@/src/lib/schema/brand'
@@ -11,6 +12,21 @@ import type { CandidateChange, CheckResult } from '@/src/lib/schema/pending'
 import { readGraph, upsertEdge, upsertEntity, writeGraph } from './graph-store'
 
 export type ProposedRelation = { edge: Edge; entities: Entity[]; checks: Record<string, CheckResult[]> }
+
+/** A longer quote is a passage of someone else's text, not the statement of a relation. */
+export const MAX_QUOTE_CHARS = 300
+
+/**
+ * The part of a claimed date (`YYYY` or `YYYY-MM`) that the quote states literally: the whole date, the year
+ * alone when the quote gives the year but not `YYYY-MM`, or undefined when the year is not in the quote.
+ */
+export function datedIn(quote: string, date: string | undefined): string | undefined {
+  if (date === undefined) return undefined
+  const literal = (value: string) => new RegExp(`(?<!\\d)${escapeRegExp(value)}(?!\\d)`).test(quote)
+  if (literal(date)) return date
+  const year = date.slice(0, 4)
+  return literal(year) ? year : undefined
+}
 
 /** The graph node for a name: a known brand by its slug, anything else by the slug of the name. */
 export function entityFor(name: string, kind: 'brand' | 'company' | 'app', brands: Brand[]): Entity {

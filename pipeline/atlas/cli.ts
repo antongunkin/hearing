@@ -1,5 +1,7 @@
 // `npm run atlas:crawl|atlas:describe|atlas:relations`: the site atlas, one site at a time. A run stopped by a
-// usage limit or a refusal goes on with `--resume` (the message prints the command).
+// usage limit or by the Web Archive's refusal goes on with `--resume` (the message prints the command). A site
+// that refuses stops only itself: the run goes on with the next site, and `--site <domain>` tries it again.
+import { stat } from 'node:fs/promises'
 import { join, resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { parseArgs } from 'node:util'
@@ -10,7 +12,7 @@ import { loadDataset, readJson, type Dataset } from '@/src/lib/data/load'
 import { slugify } from '@/src/lib/data/slug'
 import { writeJson } from '@/src/lib/data/write'
 import { Brand } from '@/src/lib/schema/brand'
-import { crawlSite, SiteRefusedError } from './crawl'
+import { ArchiveRefusedError, crawlSite, SiteRefusedError } from './crawl'
 import { describeSite } from './describe'
 import { readGraph, upsertEntity, writeGraph } from './graph-store'
 import { writeAtlasIndex } from './index-file'
@@ -24,6 +26,16 @@ const COMMANDS = ['crawl', 'describe', 'relations'] as const
 export type AtlasOptions = { dataDir?: string; progressDir?: string; rawDir?: string }
 
 const isMissing = (error: unknown) => (error as NodeJS.ErrnoException).code === 'ENOENT'
+
+async function exists(file: string): Promise<boolean> {
+  try {
+    await stat(file)
+    return true
+  } catch (error) {
+    if (isMissing(error)) return false
+    throw error
+  }
+}
 
 /** The brand files of the site's brands; a slug without a file (a brand not yet created) is left out. */
 async function brandsOf(site: Site, dataDir: string): Promise<Brand[]> {
@@ -106,7 +118,16 @@ async function relationsRun(chosen: Site[], ctx: { sites: Site[]; dataset: Datas
   }
 }
 
-/** Runs a command; resolves to the exit code: 0 done, 1 bad arguments, 2 stopped (usage limit or refusal). */
+/** The progress key of a site that refused: a later `--resume` skips it; `--site <domain>` tries it again. */
+const refusedKey = (domain: string) => `refused:${domain}`
+
+const message = (error: unknown) => (error instanceof Error ? error.message : String(error))
+
+/**
+ * Runs a command; resolves to the exit code: 0 done; 1 bad arguments, or a site could not be read or described
+ * (no page read, no report yet, or a failed describe call); 2 a site refused, or the run was stopped by the usage
+ * limit or the Web Archive's refusal.
+ */
 export async function atlasMain(argv: string[], opts: AtlasOptions = {}): Promise<number> {
   const { dataDir = 'data', progressDir = '.cache/progress', rawDir = RAW_DIR } = opts
   let parsed
@@ -123,7 +144,11 @@ export async function atlasMain(argv: string[], opts: AtlasOptions = {}): Promis
   const { positionals, values } = parsed
   const command = positionals[0] as (typeof COMMANDS)[number] | undefined
   if (!command || !COMMANDS.includes(command) || positionals.length > 1) {
-    console.error(`Usage: cli.ts <${COMMANDS.join('|')}> [--site <domain>] [--resume] [--refresh]`)
+    console.error(
+      `Usage: cli.ts <${COMMANDS.join('|')}> [--site <domain>] [--resume] [--refresh]\n` +
+        'Exit codes: 0 done; 1 bad arguments, or a site could not be read or described; ' +
+        '2 a site refused (try it again with --site), or the run was stopped by the usage limit or the Web Archive (go on with --resume).',
+    )
     return 1
   }
   const sites = await readJson(join(dataDir, 'atlas', 'sites.json'), Sites)
@@ -137,7 +162,19 @@ export async function atlasMain(argv: string[], opts: AtlasOptions = {}): Promis
   const unit = values.site === undefined ? '' : `-${values.site}`
   const progress = await Progress.open(join(progressDir, `atlas-${command}${unit}.json`), values.resume)
   const failed: string[] = []
+  const refused: string[] = []
   let dataset: Dataset | undefined
+  const extra = values.refresh ? ' --refresh' : ''
+  const refusedHint = () =>
+    refused.length === 0
+      ? ''
+      : `. Refused: ${refused.join(', ')}; try each again later: ${refused.map((domain) => `npm run atlas:${command} -- --site ${domain}${extra}`).join('; ')}`
+  /** A site refused: recorded, so that `--resume` skips it, and the run goes on. */
+  const refuse = async (domain: string, error: SiteRefusedError) => {
+    console.warn(`${domain}: ${error.message}; this site is stopped, the run goes on`)
+    refused.push(domain)
+    await progress.done(refusedKey(domain))
+  }
   try {
     if (command === 'relations') {
       dataset ??= await loadDataset(dataDir)
@@ -145,12 +182,37 @@ export async function atlasMain(argv: string[], opts: AtlasOptions = {}): Promis
     }
     for (const site of command === 'relations' ? [] : chosen) {
       if (progress.has(site.domain)) continue
-      if (command === 'describe') {
-        dataset ??= await loadDataset(dataDir)
-        if (await describeOne(site, { dataset, dataDir, rawDir })) await progress.done(site.domain)
+      if (progress.has(refusedKey(site.domain))) {
+        refused.push(site.domain)
         continue
       }
-      const { report, graph } = await crawlSite(site, sites, { refresh: values.refresh, brands: await brandsOf(site, dataDir) })
+      if (command === 'describe') {
+        dataset ??= await loadDataset(dataDir)
+        try {
+          if (await describeOne(site, { dataset, dataDir, rawDir })) await progress.done(site.domain)
+          else failed.push(site.domain)
+        } catch (error) {
+          // The usage limit and the Web Archive stop the run; anything else stops only this site.
+          if (error instanceof LlmLimitError || error instanceof ArchiveRefusedError) throw error
+          if (error instanceof SiteRefusedError) await refuse(site.domain, error)
+          else {
+            console.error(`${site.domain}: describe failed: ${message(error)}`)
+            failed.push(site.domain)
+          }
+        }
+        continue
+      }
+      const { report, graph, refused: refusal } = await crawlSite(site, sites, { refresh: values.refresh, brands: await brandsOf(site, dataDir) })
+      const reportFile = join(dataDir, 'atlas', 'sites', site.domain, 'report.json')
+      if (refusal) {
+        // What was read before the refusal is written, unless it is nothing and there is an older report.
+        if (report.pages.length > 0 || !(await exists(reportFile))) {
+          await writeJson(reportFile, report)
+          await writeGraph(graph(await readGraph(dataDir)), dataDir)
+        } else console.warn(`${site.domain}: no page was read before the refusal; report kept as it was`)
+        await refuse(site.domain, refusal)
+        continue
+      }
       if (report.pages.length === 0) {
         // Nothing was read: the old report is better than an empty one, and the unit stays open.
         console.warn(`${site.domain}: no page could be read (${report.failures.length} failures); report kept as it was`)
@@ -158,19 +220,24 @@ export async function atlasMain(argv: string[], opts: AtlasOptions = {}): Promis
         continue
       }
       // Only a finished crawl replaces the old report.
-      await writeJson(join(dataDir, 'atlas', 'sites', site.domain, 'report.json'), report)
+      await writeJson(reportFile, report)
       await writeGraph(graph(await readGraph(dataDir)), dataDir)
       await progress.done(site.domain)
       console.log(`${site.domain}: ${report.pages.length} pages, ${report.failures.length} failures`)
     }
   } catch (error) {
-    if (!(error instanceof SiteRefusedError || error instanceof LlmLimitError || error instanceof RelationSourceError)) throw error
+    if (!(error instanceof ArchiveRefusedError || error instanceof LlmLimitError || error instanceof RelationSourceError)) throw error
     const flags = ['--resume', ...(values.site ? ['--site', values.site] : []), ...(values.refresh ? ['--refresh'] : [])]
-    console.error(`${error.message}. Resume later: npm run atlas:${command} -- ${flags.join(' ')}`)
+    console.error(`${error.message}. Resume later: npm run atlas:${command} -- ${flags.join(' ')}${refusedHint()}`)
     await writeAtlasIndex(dataDir)
     return 2
   }
   await writeAtlasIndex(dataDir)
+  if (failed.length > 0) console.error(`Not done: ${failed.join(', ')}. Run again with --resume after fixing the cause.`)
+  if (refused.length > 0) {
+    console.error(`Stopped by refusals${refusedHint()}`)
+    return 2
+  }
   if (failed.length > 0) return 1
   await progress.clear()
   return 0

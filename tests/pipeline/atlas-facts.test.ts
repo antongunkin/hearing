@@ -96,6 +96,13 @@ describe('atlas page facts', () => {
     expect(parseSitemap(index)).toEqual({ urls: [], sitemaps: ['https://brand.test/s1.xml', 'https://brand.test/s2.xml'] })
   })
 
+  test('parseSitemap reads a loc written as CDATA', () => {
+    const set = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc><![CDATA[https://brand.test/a?x=1&y=2]]></loc></url>
+      <url><loc> <![CDATA[ https://brand.test/b ]]> </loc></url></urlset>`
+    expect(parseSitemap(set)).toEqual({ urls: ['https://brand.test/a?x=1&y=2', 'https://brand.test/b'], sitemaps: [] })
+    expect(parseSitemap(`<sitemapindex><sitemap><loc><![CDATA[https://brand.test/s.xml]]></loc></sitemap></sitemapindex>`).sitemaps).toEqual(['https://brand.test/s.xml'])
+  })
+
   test('parseSitemap ignores image, video and news locations', () => {
     const images = `<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
       <url><loc>https://brand.test/hearing-aids/a</loc>

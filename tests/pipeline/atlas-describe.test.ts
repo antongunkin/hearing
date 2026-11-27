@@ -5,7 +5,7 @@ import { join } from 'node:path'
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
 import { z } from 'zod'
 import { atlasMain } from '@/pipeline/atlas/cli'
-import { SiteRefusedError } from '@/pipeline/atlas/crawl'
+import { ArchiveRefusedError, SiteRefusedError } from '@/pipeline/atlas/crawl'
 import { checkProposal, describeSite, pickKeyPages } from '@/pipeline/atlas/describe'
 import { entityFor, queueRelation } from '@/pipeline/atlas/relation'
 import { renderSiteReadme, saveDescription } from '@/pipeline/atlas/site-files'
@@ -14,7 +14,7 @@ import { config } from '@/pipeline/config'
 import { fetchPage } from '@/pipeline/fetch/fetcher'
 import { writeGraph } from '@/pipeline/atlas/graph-store'
 import { appendLog, readLog, storeBody, type FetchLogEntry } from '@/pipeline/fetch/raw-store'
-import { llm } from '@/pipeline/llm'
+import { llm, LlmLimitError, LlmOutputError } from '@/pipeline/llm'
 import { loadDataset, type Dataset } from '@/src/lib/data/load'
 import { writeJson } from '@/src/lib/data/write'
 import type { Brand } from '@/src/lib/schema/brand'
@@ -191,6 +191,15 @@ test('describe asks Claude with the describe model and no tools', async () => {
   expect(options.prompt).toContain('up to 10 URLs')
 })
 
+test('the prompt gives each page\'s outside links as counts per domain, not the links', async () => {
+  const external = ['https://www.shop.test/de', 'https://shop.test/fr', 'https://other.test/x']
+  await describeX(site, { ...report, pages: [page(HOME, { internalLinks: 20, external }), ...report.pages.slice(1)] })
+  const [prompt] = prompts()
+  expect(prompt).toContain('"externalDomains":{"shop.test":2,"other.test":1}')
+  expect(prompt).not.toContain('https://shop.test/fr')
+  expect(prompt).not.toContain('"external":')
+})
+
 test('a statement citing a URL that is not in the fetch log is dropped', async () => {
   // Logged as a plain 200 although its text could not be read: no source either.
   await logReply(`${O}/docs/broken.pdf`, new Uint8Array([1, 2, 3]), { contentType: 'application/pdf' })
@@ -263,6 +272,24 @@ test('patterns in the proposal are checked against the report URLs', async () =>
   expect(archived['archive.catalogUrls.0']).toEqual([{ name: 'log', ok: true }])
   expect(archived['archive.catalogUrls.1']).toEqual([{ name: 'log', ok: false, detail: 'not in the report or the fetch log' }])
   expect(archived['archive.modelUrlPattern']).toEqual([{ name: 'pattern', ok: false, detail: 'matches no URL of the report' }])
+})
+
+test('a pattern is checked against the template examples and pages too, not only the cut URL list', async () => {
+  const log = await readLog(rawDir)
+  // The locale sorted after the cut at maxReportUrls: only its template (found on the whole set) has its URLs.
+  const cut: SiteReport = {
+    ...report,
+    urls: report.urls.filter((url) => !url.includes('/hearing-aids/')),
+    templates: [{ pattern: `${O}/en-us/hearing-aids/{slug}`, count: 900, examples: [`${O}/en-us/hearing-aids/a`] }],
+    pages: [page(HOME, { pdfs: [`${O}/en-us/docs/x.pdf`] })],
+  }
+  const checked = checkProposal(
+    { ...proposal, modelUrlPattern: String.raw`^https://x\.test/en-us/hearing-aids/[^/]+$`, documentUrlPattern: String.raw`/en-us/docs/.*\.pdf$` },
+    cut,
+    log,
+  )
+  expect(checked.modelUrlPattern).toEqual([{ name: 'pattern', ok: true }])
+  expect(checked.documentUrlPattern).toEqual([{ name: 'pattern', ok: true }])
 })
 
 test('an empty pattern, or one that matches every URL of the report, fails its check', async () => {
@@ -372,10 +399,12 @@ test('the summary is checked like a statement: kept with its sources, or left ou
   expect(renderSiteReadme(site, unsourced.description)).not.toContain('secret')
 })
 
-test('a refusal while fetching the extra URLs stops the step', async () => {
+test('a refusal while fetching the extra URLs stops the site; it is the archive\'s only for an archive URL', async () => {
   web[`${O}/p0`] = { skip: 'rate-limited' }
   answers(answer({ moreUrls: [`${O}/p0`] }))
-  await expect(describeX()).rejects.toThrow(SiteRefusedError)
+  const error = await describeX().catch((e: unknown) => e)
+  expect(error).toBeInstanceOf(SiteRefusedError)
+  expect(error).not.toBeInstanceOf(ArchiveRefusedError)
 })
 
 const relationClaim = (extra: Record<string, unknown> = {}) => ({
@@ -439,6 +468,28 @@ describe('relations', () => {
         refs: [HOME],
       }),
     ])
+  })
+
+  test('since stays only as far as the quote states it; a quote over 300 characters is dropped', async () => {
+    const long = `XBrand is a brand of X Group Holding, ${'and it has a long history of making hearing aids, '.repeat(6)}today.`
+    const history = `${O}/history`
+    web[history] = html(`<p>In 2019 X Group Holding acquired XBrand.</p><p>${long}</p>`)
+    answers(
+      answer({ moreUrls: [history] }),
+      answer({
+        relations: [
+          relationClaim({ since: '2019-06' }),
+          relationClaim({ kind: 'makes-for', sourceUrl: history, quote: 'In 2019 X Group Holding acquired XBrand.', since: '2019-06' }),
+          relationClaim({ kind: 'operates', sourceUrl: history, quote: long }),
+        ],
+      }),
+    )
+
+    const { relations, dropped } = await describeX()
+
+    expect(long.length).toBeGreaterThan(300)
+    expect(relations.map((rel) => [rel.edge.kind, rel.edge.since])).toEqual([['owns', undefined], ['makes-for', '2019']])
+    expect(dropped).toEqual(['relation: "X Group Holding operates xbrand" (quote longer than 300 characters)'])
   })
 
   test('an edge already verified, or rejected before, is not queued again', async () => {
@@ -643,10 +694,14 @@ describe('atlas:describe command', () => {
     vi.spyOn(console, 'error').mockImplementation(() => {})
   })
 
-  test('a site without report.json is skipped with a message', async () => {
-    expect(await run()).toBe(0)
+  test('a site without report.json is skipped with a message, and the run is not done (exit 1, progress kept)', async () => {
+    expect(await run()).toBe(1)
     expect(llm).not.toHaveBeenCalled()
     expect(console.warn).toHaveBeenCalledWith(expect.stringContaining('x.test: no report.json'))
+    // The site stays open: once its report exists, --resume describes it.
+    await writeJson(join(dataDir, siteDir, 'report.json'), report)
+    expect(await atlasMain(['describe', '--site', 'x.test', '--resume'], { dataDir, progressDir: join(dir, 'progress'), rawDir })).toBe(0)
+    expect(llm).toHaveBeenCalled()
   })
 
   test('writes the description files; notes.md is created once and never overwritten', async () => {
@@ -668,11 +723,68 @@ describe('atlas:describe command', () => {
     expect(await readFile(notesFile, 'utf8')).toBe(`${notes}- 2026-11-27: an agent's entry\n`)
   })
 
-  test('a refusal stops the command with exit code 2 and the resume command', async () => {
+  const ySite: Site = { ...site, domain: 'y.test', start: 'https://y.test/', brands: [] }
+  const both = async () => {
+    await writeJson(sitesFile(), Sites.parse([site, ySite]))
+    await writeJson(join(dataDir, siteDir, 'report.json'), report)
+    await writeJson(join(dataDir, 'atlas', 'sites', 'y.test', 'report.json'), { ...report, domain: 'y.test', start: 'https://y.test/', pages: [] })
+  }
+  const all = (...flags: string[]) => atlasMain(['describe', ...flags], { dataDir, progressDir: join(dir, 'progress'), rawDir })
+  const described = () => vi.mocked(llm).mock.calls.map(([options]) => (options.prompt.includes('"domain":"y.test"') ? 'y.test' : 'x.test'))
+
+  test('a site that refuses stops only itself: the next site is described, exit 2 names it, --resume skips it', async () => {
+    await both()
+    web[`${O}/p0`] = { skip: 'rate-limited' }
+    vi.mocked(llm).mockReset().mockResolvedValueOnce(answer({ moreUrls: [`${O}/p0`] })).mockResolvedValue(answer())
+    expect(await all()).toBe(2)
+    expect(described()).toEqual(['x.test', 'y.test'])
+    expect(await readFile(join(dataDir, 'atlas', 'sites', 'y.test', 'describe.json'), 'utf8')).toContain('"domain": "y.test"')
+    expect(console.error).toHaveBeenCalledWith(expect.stringContaining('npm run atlas:describe -- --site x.test'))
+    expect(await readFile(join(dataDir, 'atlas', 'README.md'), 'utf8')).toContain('x.test')
+
+    vi.mocked(llm).mockClear()
+    expect(await all('--resume')).toBe(2)
+    expect(llm).not.toHaveBeenCalled()
+  })
+
+  test('a refusal by web.archive.org stops the whole describe run with the resume command', async () => {
+    const arch: Site = { ...site, mode: 'archive' }
+    await writeJson(sitesFile(), Sites.parse([arch, ySite]))
+    const copy = `https://web.archive.org/web/2024id_/${O}/`
+    await writeJson(join(dataDir, siteDir, 'report.json'), { ...report, mode: 'archive', pages: [page(copy, { archiveTimestamp: '2024' })] })
+    web[`https://web.archive.org/web/2024id_/${O}/p0`] = { skip: 'rate-limited' }
+    vi.mocked(llm).mockReset().mockResolvedValueOnce(answer({ moreUrls: [`${O}/p0`] })).mockResolvedValue(answer())
+    expect(await all()).toBe(2)
+    expect(llm).toHaveBeenCalledTimes(1)
+    expect(console.error).toHaveBeenCalledWith(expect.stringContaining('npm run atlas:describe -- --resume'))
+  })
+
+  test('a failed describe call stops only its site: the next one is described, the index is written, exit 1', async () => {
+    await both()
+    vi.mocked(llm).mockReset().mockRejectedValueOnce(new LlmOutputError('claude returned invalid JSON')).mockResolvedValue(answer())
+    expect(await all()).toBe(1)
+    expect(described()).toEqual(['x.test', 'y.test'])
+    expect(console.error).toHaveBeenCalledWith(expect.stringContaining('x.test: describe failed: claude returned invalid JSON'))
+    expect(await readFile(join(dataDir, 'atlas', 'README.md'), 'utf8')).toContain('y.test')
+    // --resume tries the failed site again, and only it.
+    vi.mocked(llm).mockClear()
+    expect(await all('--resume')).toBe(0)
+    expect(described()).toEqual(['x.test'])
+  })
+
+  test('the usage limit still stops the whole run with the resume command', async () => {
+    await both()
+    vi.mocked(llm).mockReset().mockRejectedValue(new LlmLimitError('claude', 'Claude usage limit reached'))
+    expect(await all()).toBe(2)
+    expect(llm).toHaveBeenCalledTimes(1)
+    expect(console.error).toHaveBeenCalledWith(expect.stringContaining('npm run atlas:describe -- --resume'))
+  })
+
+  test('a refusal by the site exits 2 with the command to try it again', async () => {
     await writeJson(join(dataDir, siteDir, 'report.json'), report)
     web[`${O}/p0`] = { skip: 'rate-limited' }
     answers(answer({ moreUrls: [`${O}/p0`] }))
     expect(await run()).toBe(2)
-    expect(console.error).toHaveBeenCalledWith(expect.stringContaining('npm run atlas:describe -- --resume --site x.test'))
+    expect(console.error).toHaveBeenCalledWith(expect.stringContaining('npm run atlas:describe -- --site x.test'))
   })
 })

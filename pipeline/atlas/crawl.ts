@@ -11,7 +11,7 @@ import { isInternal, pageFacts, parseSitemap, sections, urlTemplates, type OkPag
 import { upsertEdge, upsertEntity } from './graph-store'
 import type { PageFacts, RobotsGroup, Site, SiteReport } from './schema'
 
-/** The step stops: the site (or the archive) asked us to slow down or keep out. Resumable. */
+/** The site asked us to slow down or keep out: that site stops (the run goes on with the next one). */
 export class SiteRefusedError extends Error {
   readonly domain: string
   readonly url: string
@@ -24,6 +24,21 @@ export class SiteRefusedError extends Error {
     this.url = url
     this.reason = reason
   }
+}
+
+/** The Web Archive refused: every archive site shares it, so the whole step stops. Resumable. */
+export class ArchiveRefusedError extends SiteRefusedError {
+  constructor(domain: string, url: string, reason: 'rate-limited' | 'bot-protection') {
+    super(domain, url, reason)
+    this.message = `web.archive.org refused ${url} (for ${domain}): ${reason}`
+    this.name = 'ArchiveRefusedError'
+  }
+}
+
+/** The refusal of a request: by the Web Archive when it went to an archive host, else by the site. */
+export function refusalOf(domain: string, url: string, reason: 'rate-limited' | 'bot-protection'): SiteRefusedError {
+  const host = URL.parse(url)?.hostname ?? ''
+  return config.archiveHosts.includes(host) ? new ArchiveRefusedError(domain, url, reason) : new SiteRefusedError(domain, url, reason)
 }
 
 type Ref = { url: string; fetchedAt: string }
@@ -94,16 +109,27 @@ export function parseRobotsTxt(text: string): { groups: RobotsGroup[]; sitemaps:
 /** Sitemap URLs and section keys: the first URL of each section seeds the crawl. */
 const sectionOf = (url: string) => sections([url])[0]?.path ?? '/'
 
-/** Archive requests that were refused for rate or protection stop the step; the rest is a failure entry. */
+/** A refusal for rate or protection (by the site or the archive); any other skip is a failure entry. */
 const isRefusal = (reason: string): reason is 'rate-limited' | 'bot-protection' => reason === 'rate-limited' || reason === 'bot-protection'
 
 type Item = { original: string; request: string }
+
+/**
+ * The URLs a report keeps, sorted and at most `config.atlas.maxReportUrls`: the `first` ones (the pages read,
+ * the examples of every URL template, the PDFs) before the rest, so that a cut never loses a whole template.
+ */
+function reportUrls(all: string[], first: string[]): string[] {
+  const known = new Set(all)
+  const kept = new Set(first.filter((url) => known.has(url)))
+  for (const url of [...all].sort()) kept.add(url)
+  return [...kept].slice(0, config.atlas.maxReportUrls).sort()
+}
 
 export async function crawlSite(
   site: Site,
   known: Site[],
   opts: CrawlOptions = {},
-): Promise<{ report: SiteReport; graph: (g: Graph) => Graph }> {
+): Promise<{ report: SiteReport; graph: (g: Graph) => Graph; refused?: SiteRefusedError }> {
   const budget = opts.budget ?? config.atlas.pageBudget
   const refresh = opts.refresh
   const archive = site.mode === 'archive'
@@ -114,10 +140,13 @@ export async function crawlSite(
   const urls = new Set<string>()
   const pages: PageFacts[] = []
 
-  /** One request through the fetcher. A refusal for rate or protection stops the step. */
+  /**
+   * One request through the fetcher. A refusal for rate or protection ends the crawl of the site (the
+   * report keeps what was read); one by the Web Archive stops the step.
+   */
   const load = async (url: string): Promise<FetchResult> => {
     const result = await fetchPage(url, { refresh })
-    if (result.status === 'skipped' && isRefusal(result.reason)) throw new SiteRefusedError(site.domain, url, result.reason)
+    if (result.status === 'skipped' && isRefusal(result.reason)) throw refusalOf(site.domain, url, result.reason)
     return result
   }
   const fail = (url: string, result: Skipped) =>
@@ -127,202 +156,213 @@ export async function crawlSite(
       return await cdx({ url, filters: ['statuscode:200'], from: sinceYear, collapse: 'timestamp:8' }, { refresh })
     } catch (error) {
       if (!(error instanceof WaybackError)) throw error
-      if (isRefusal(error.reason)) throw new SiteRefusedError(site.domain, url, error.reason)
+      if (isRefusal(error.reason)) throw new ArchiveRefusedError(site.domain, url, error.reason)
       failures.push({ url, reason: error.reason, detail: error.message })
       return undefined
     }
   }
 
-  // 4. Archive mode: one copy of the start page per year; the latest is where the walk begins.
-  let timestamp: string | undefined
-  let startRows: CdxRow[] | undefined
-  let copies: CdxRow[] = []
-  if (archive) {
-    startRows = await cdxRows(site.start)
-    copies = lastCopyPerYear(startRows ?? [], Number(sinceYear))
-    if (startRows && copies.length === 0) failures.push({ url: site.start, reason: 'no-archive-copy' })
-    timestamp = copies.at(-1)?.timestamp
-  }
-  const requestFor = (original: string) => (timestamp === undefined ? original : archiveUrl(timestamp, original, { raw: true }))
-
-  // 1. robots.txt
   const robots: SiteReport['robots'] = { ref: null, status: null, sitemaps: [], groups: [] }
-  if (!archive) {
-    const file = await load(`${origin}/robots.txt`)
-    if (file.status === 'ok') {
-      Object.assign(robots, { ref: { url: file.url, fetchedAt: file.fetchedAt }, status: 200 }, parseRobotsTxt(file.text))
-    } else {
-      fail(`${origin}/robots.txt`, file)
-      const status = /HTTP (\d{3})/.exec(file.detail ?? '')?.[1]
-      if (status) robots.status = Number(status)
-    }
-  } else if (timestamp !== undefined) {
-    const file = await load(archiveUrl(timestamp, `${origin}/robots.txt`, { raw: true }))
-    if (file.status === 'ok') {
-      robots.archived = { ref: { url: file.url, fetchedAt: file.fetchedAt }, groups: parseRobotsTxt(file.text).groups }
-    } else fail(`${origin}/robots.txt`, file)
-  }
-
-  // 2. Sitemaps: counted, never fetched page by page.
   const sitemapRefs: Ref[] = []
   const listed = new Set<string>()
-  if (!archive) {
-    const queue = robots.sitemaps.length > 0 ? [...robots.sitemaps] : [`${origin}/sitemap.xml`]
-    const queued = new Set(queue)
-    for (let fetched = 0; queue.length > 0 && fetched < config.atlas.sitemapBudget; ) {
-      const url = queue.shift()!
-      if (/\.gz$/i.test(URL.parse(url, origin)?.pathname ?? url)) {
-        failures.push({ url, reason: 'unsupported', detail: 'gzipped sitemap' })
-        continue
-      }
-      fetched++
-      const file = await load(url)
-      if (file.status !== 'ok') {
-        fail(url, file)
-        continue
-      }
-      sitemapRefs.push({ url: file.url, fetchedAt: file.fetchedAt })
-      const parsed = parseSitemap(file.html ?? file.text)
-      for (const next of parsed.sitemaps) if (!queued.has(next)) (queued.add(next), queue.push(next))
-      for (const entry of parsed.urls) {
-        const target = URL.parse(entry)
-        if (target && isInternal(target, site) && (!include || include.test(target.href))) listed.add(target.href)
-      }
-    }
-  }
-  for (const url of listed) urls.add(url)
-  const sitemapSections = sections([...listed])
-
-  // 3. Breadth-first walk.
-  const startUrl = archive ? (copies.at(-1)?.original ?? site.start) : site.start
-  const seeds = new Map<string, string>()
-  for (const url of listed) if (!seeds.has(sectionOf(url))) seeds.set(sectionOf(url), url)
-
-  const seen = new Set<string>()
   const outbound = new Map<string, { count: number; examples: string[] }>()
   const pdfs = new Set<string>()
   const linkRefs = new Map<string, Ref>()
   const pdfRefs = new Map<string, Ref>()
+  const pdfHosts = new Map<string, { count: number; examples: string[] }>()
   const redirects: SiteReport['redirects'] = []
   const redirectEdges: { to: string; ref: Ref }[] = []
-  let requests = 0
+  const coverage: SiteReport['archive']['sections'] = []
+  let refused: SiteRefusedError | undefined
 
-  const note = (map: Map<string, { count: number; examples: string[] }>, host: string, url: string) => {
-    const entry = map.get(host) ?? { count: 0, examples: [] }
-    entry.count++
-    if (entry.examples.length < SAMPLE_LIMIT && !entry.examples.includes(url)) entry.examples.push(url)
-    map.set(host, entry)
-  }
-  const pdfHosts = new Map<string, { count: number; examples: string[] }>()
+  try {
+    // 4. Archive mode: one copy of the start page per year; the latest is where the walk begins.
+    let timestamp: string | undefined
+    let startRows: CdxRow[] | undefined
+    let copies: CdxRow[] = []
+    if (archive) {
+      startRows = await cdxRows(site.start)
+      copies = lastCopyPerYear(startRows ?? [], Number(sinceYear))
+      if (startRows && copies.length === 0) failures.push({ url: site.start, reason: 'no-archive-copy' })
+      timestamp = copies.at(-1)?.timestamp
+    }
+    const requestFor = (original: string) => (timestamp === undefined ? original : archiveUrl(timestamp, original, { raw: true }))
 
-  /** Records one page's facts; returns the internal links the walk may follow. */
-  const record = (page: OkPage): string[] => {
-    const facts = pageFacts(page, site)
-    pages.push(facts)
-    const parsed = parseArchiveUrl(page.url)
-    urls.add(parsed?.original ?? page.url)
-    for (const target of facts.external) {
-      const host = bare(hostOf(target))
-      if (!host || config.archiveHosts.includes(host)) continue
-      note(outbound, host, target)
-      if (!linkRefs.has(host)) linkRefs.set(host, facts.ref)
+    // 1. robots.txt
+    if (!archive) {
+      const file = await load(`${origin}/robots.txt`)
+      if (file.status === 'ok') {
+        Object.assign(robots, { ref: { url: file.url, fetchedAt: file.fetchedAt }, status: 200 }, parseRobotsTxt(file.text))
+      } else {
+        fail(`${origin}/robots.txt`, file)
+        const status = /HTTP (\d{3})/.exec(file.detail ?? '')?.[1]
+        if (status) robots.status = Number(status)
+      }
+    } else if (timestamp !== undefined) {
+      const file = await load(archiveUrl(timestamp, `${origin}/robots.txt`, { raw: true }))
+      if (file.status === 'ok') {
+        robots.archived = { ref: { url: file.url, fetchedAt: file.fetchedAt }, groups: parseRobotsTxt(file.text).groups }
+      } else fail(`${origin}/robots.txt`, file)
     }
-    for (const target of facts.pdfs) {
-      pdfs.add(target)
-      urls.add(target)
-      const host = bare(hostOf(target))
-      note(pdfHosts, host, target)
-      if (!pdfRefs.has(host)) pdfRefs.set(host, facts.ref)
-    }
-    if (page.html === undefined) return []
-    const base = parsed?.original ?? page.url
-    const follow: string[] = []
-    for (const link of linksIn(page.html, base)) {
-      const target = URL.parse(parseArchiveUrl(link)?.original ?? link)
-      if (!target || !isInternal(target, site) || PDF.test(target.pathname) || ASSET.test(target.pathname)) continue
-      if (include && !include.test(target.href)) continue
-      urls.add(target.href)
-      follow.push(target.href)
-    }
-    return follow
-  }
 
-  /** Fetches one page of the walk; undefined when it gave nothing. */
-  const visit = async (item: Item, counted: boolean): Promise<OkPage | undefined> => {
-    const result = await load(item.request)
-    // A request that was made counts, whatever it answered; a refusal by robots or the blocklist is not one.
-    if (counted && (result.status === 'ok' || result.reason === 'http-error')) requests++
-    if (result.status !== 'ok') {
-      fail(item.original, result)
-      return undefined
-    }
-    return result
-  }
-
-  const early = copies.slice(0, -1)
-  for (const copy of early) {
-    // The yearly samples are only recorded; they do not use the page budget.
-    const page = await visit({ original: copy.original, request: archiveUrl(copy.timestamp, copy.original, { raw: true }) }, false)
-    if (page) record(page)
-  }
-
-  if (!archive || timestamp !== undefined) {
-    const first: Item = { original: new URL(startUrl).href, request: requestFor(new URL(startUrl).href) }
-    seen.add(first.original)
-    let level: Item[] = [first]
-    for (const url of seeds.values()) {
-      if (seen.has(url)) continue
-      seen.add(url)
-      level.push({ original: url, request: requestFor(url) })
-    }
-    let firstLevel = true
-    while (level.length > 0 && requests < budget) {
-      const head = firstLevel ? level.splice(0, 1) : []
-      const rank = (item: Item) => (CATALOG_LIKE.test(new URL(item.original).pathname) ? 0 : 1)
-      level = [...head, ...[...level].sort((a, b) => rank(a) - rank(b))]
-      firstLevel = false
-      const next: Item[] = []
-      for (const item of level) {
-        if (requests >= budget) break
-        const page = await visit(item, true)
-        if (!page) continue
-        const finalUrl = parseArchiveUrl(page.url)?.original ?? page.url
-        seen.add(finalUrl)
-        const landed = URL.parse(page.url)
-        if (!archive && landed && landed.hostname !== new URL(item.request).hostname) {
-          const ref = { url: item.request, fetchedAt: page.fetchedAt }
-          redirects.push({ from: item.request, to: page.url, ref })
-          if (!isInternal(landed, site)) {
-            // Someone else's page: not this site's page, and its links are not this site's links.
-            const host = bare(landed.hostname)
-            if (ENTITY_KEY.test(host) && !isAppStoreHost(host)) redirectEdges.push({ to: host, ref })
-            continue
-          }
+    // 2. Sitemaps: counted, never fetched page by page.
+    if (!archive) {
+      const queue = robots.sitemaps.length > 0 ? [...robots.sitemaps] : [`${origin}/sitemap.xml`]
+      const queued = new Set(queue)
+      for (let fetched = 0; queue.length > 0 && fetched < config.atlas.sitemapBudget; ) {
+        const url = queue.shift()!
+        if (/\.gz$/i.test(URL.parse(url, origin)?.pathname ?? url)) {
+          failures.push({ url, reason: 'unsupported', detail: 'gzipped sitemap' })
+          continue
         }
-        for (const link of record(page)) {
-          if (seen.has(link)) continue
-          seen.add(link)
-          next.push({ original: link, request: requestFor(link) })
+        fetched++
+        const file = await load(url)
+        if (file.status !== 'ok') {
+          fail(url, file)
+          continue
+        }
+        sitemapRefs.push({ url: file.url, fetchedAt: file.fetchedAt })
+        const parsed = parseSitemap(file.html ?? file.text)
+        for (const next of parsed.sitemaps) if (!queued.has(next)) (queued.add(next), queue.push(next))
+        for (const entry of parsed.urls) {
+          const target = URL.parse(entry)
+          if (target && isInternal(target, site) && (!include || include.test(target.href))) listed.add(target.href)
         }
       }
-      level = next
     }
-  }
+    const sitemapSections = sections([...listed])
 
-  // 5. Archive coverage of the key URLs.
-  const keyUrls = [site.start]
-  for (const { path } of sitemapSections) if (path !== '/') keyUrls.push(`${origin}${path}`)
-  for (const brand of opts.brands ?? []) keyUrls.push(...brand.scraper.catalogUrls, ...(brand.scraper.supportUrls ?? []))
-  const coverage: SiteReport['archive']['sections'] = []
-  for (const url of [...new Set(keyUrls)].slice(0, config.atlas.cdxSections)) {
-    const rows = url === site.start && startRows ? startRows : await cdxRows(url)
-    if (!rows) continue
-    const latest = rows.filter((row) => row.statusCode === '200').at(-1)?.timestamp
-    coverage.push({ url, byYear: copiesPerYear(rows, Number(sinceYear)), ...(latest !== undefined && { latest }) })
+    // 3. Breadth-first walk.
+    const startUrl = archive ? (copies.at(-1)?.original ?? site.start) : site.start
+    const seeds = new Map<string, string>()
+    for (const url of listed) if (!seeds.has(sectionOf(url))) seeds.set(sectionOf(url), url)
+
+    const seen = new Set<string>()
+    let requests = 0
+
+    const note = (map: Map<string, { count: number; examples: string[] }>, host: string, url: string) => {
+      const entry = map.get(host) ?? { count: 0, examples: [] }
+      entry.count++
+      if (entry.examples.length < SAMPLE_LIMIT && !entry.examples.includes(url)) entry.examples.push(url)
+      map.set(host, entry)
+    }
+
+    /** Records one page's facts; returns the internal links the walk may follow. */
+    const record = (page: OkPage): string[] => {
+      const facts = pageFacts(page, site)
+      pages.push(facts)
+      const parsed = parseArchiveUrl(page.url)
+      urls.add(parsed?.original ?? page.url)
+      for (const target of facts.external) {
+        const host = bare(hostOf(target))
+        if (!host || config.archiveHosts.includes(host)) continue
+        note(outbound, host, target)
+        if (!linkRefs.has(host)) linkRefs.set(host, facts.ref)
+      }
+      for (const target of facts.pdfs) {
+        pdfs.add(target)
+        urls.add(target)
+        const host = bare(hostOf(target))
+        note(pdfHosts, host, target)
+        if (!pdfRefs.has(host)) pdfRefs.set(host, facts.ref)
+      }
+      if (page.html === undefined) return []
+      const base = parsed?.original ?? page.url
+      const follow: string[] = []
+      for (const link of linksIn(page.html, base)) {
+        const target = URL.parse(parseArchiveUrl(link)?.original ?? link)
+        if (!target || !isInternal(target, site) || PDF.test(target.pathname) || ASSET.test(target.pathname)) continue
+        if (include && !include.test(target.href)) continue
+        urls.add(target.href)
+        follow.push(target.href)
+      }
+      return follow
+    }
+
+    /** Fetches one page of the walk; undefined when it gave nothing. */
+    const visit = async (item: Item, counted: boolean): Promise<OkPage | undefined> => {
+      const result = await load(item.request)
+      // A request that was made counts, whatever it answered; a refusal by robots or the blocklist is not one.
+      if (counted && (result.status === 'ok' || result.reason === 'http-error')) requests++
+      if (result.status !== 'ok') {
+        fail(item.original, result)
+        return undefined
+      }
+      return result
+    }
+
+    const early = copies.slice(0, -1)
+    for (const copy of early) {
+      // The yearly samples are only recorded; they do not use the page budget.
+      const page = await visit({ original: copy.original, request: archiveUrl(copy.timestamp, copy.original, { raw: true }) }, false)
+      if (page) record(page)
+    }
+
+    if (!archive || timestamp !== undefined) {
+      const first: Item = { original: new URL(startUrl).href, request: requestFor(new URL(startUrl).href) }
+      seen.add(first.original)
+      let level: Item[] = [first]
+      for (const url of seeds.values()) {
+        if (seen.has(url)) continue
+        seen.add(url)
+        level.push({ original: url, request: requestFor(url) })
+      }
+      let firstLevel = true
+      while (level.length > 0 && requests < budget) {
+        const head = firstLevel ? level.splice(0, 1) : []
+        const rank = (item: Item) => (CATALOG_LIKE.test(new URL(item.original).pathname) ? 0 : 1)
+        level = [...head, ...[...level].sort((a, b) => rank(a) - rank(b))]
+        firstLevel = false
+        const next: Item[] = []
+        for (const item of level) {
+          if (requests >= budget) break
+          const page = await visit(item, true)
+          if (!page) continue
+          const finalUrl = parseArchiveUrl(page.url)?.original ?? page.url
+          seen.add(finalUrl)
+          const landed = URL.parse(page.url)
+          if (!archive && landed && landed.hostname !== new URL(item.request).hostname) {
+            const ref = { url: item.request, fetchedAt: page.fetchedAt }
+            redirects.push({ from: item.request, to: page.url, ref })
+            if (!isInternal(landed, site)) {
+              // Someone else's page: not this site's page, and its links are not this site's links.
+              const host = bare(landed.hostname)
+              if (ENTITY_KEY.test(host) && !isAppStoreHost(host)) redirectEdges.push({ to: host, ref })
+              continue
+            }
+          }
+          for (const link of record(page)) {
+            if (seen.has(link)) continue
+            seen.add(link)
+            next.push({ original: link, request: requestFor(link) })
+          }
+        }
+        level = next
+      }
+    }
+
+    // 5. Archive coverage of the key URLs.
+    const keyUrls = [site.start]
+    for (const { path } of sitemapSections) if (path !== '/') keyUrls.push(`${origin}${path}`)
+    for (const brand of opts.brands ?? []) keyUrls.push(...brand.scraper.catalogUrls, ...(brand.scraper.supportUrls ?? []))
+    for (const url of [...new Set(keyUrls)].slice(0, config.atlas.cdxSections)) {
+      const rows = url === site.start && startRows ? startRows : await cdxRows(url)
+      if (!rows) continue
+      const latest = rows.filter((row) => row.statusCode === '200').at(-1)?.timestamp
+      coverage.push({ url, byYear: copiesPerYear(rows, Number(sinceYear)), ...(latest !== undefined && { latest }) })
+    }
+
+  } catch (error) {
+    // The site refused: no more requests to it; the report keeps what was read. The archive's refusal goes on up.
+    if (!(error instanceof SiteRefusedError) || error instanceof ArchiveRefusedError) throw error
+    refused = error
+    failures.push({ url: error.url, reason: 'refused', detail: error.reason })
   }
 
   // 6. Summaries.
+  for (const url of listed) urls.add(url)
   const all = [...urls]
+  const templates = urlTemplates(all)
   const byCount = (a: { count: number; name: string }, b: { count: number; name: string }) =>
     b.count - a.count || a.name.localeCompare(b.name)
   const report: SiteReport = {
@@ -332,9 +372,9 @@ export async function crawlSite(
     start: site.start,
     budget,
     robots,
-    sitemap: { refs: sitemapRefs, urlCount: listed.size, sections: sitemapSections },
+    sitemap: { refs: sitemapRefs, urlCount: listed.size, sections: sections([...listed]) },
     pages,
-    templates: urlTemplates(all),
+    templates,
     outbound: [...outbound]
       .map(([domain, v]) => ({ domain, ...v }))
       .sort((a, b) => byCount({ ...a, name: a.domain }, { ...b, name: b.domain })),
@@ -344,7 +384,7 @@ export async function crawlSite(
       .sort((a, b) => byCount({ ...a, name: a.host }, { ...b, name: b.host })),
     archive: { sections: coverage },
     failures,
-    urls: all.sort().slice(0, config.atlas.maxReportUrls),
+    urls: reportUrls(all, [...pages.map((page) => parseArchiveUrl(page.url)?.original ?? page.url), ...templates.flatMap((t) => t.examples), ...pdfs]),
   }
 
   // 7. Observed edges.
@@ -376,5 +416,5 @@ export async function crawlSite(
     }
     return next
   }
-  return { report, graph }
+  return { report, graph, ...(refused && { refused }) }
 }

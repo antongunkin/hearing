@@ -127,8 +127,9 @@ function decodeEntities(value: string): string {
 }
 
 /**
- * The `<loc>` values of a sitemap, entities decoded, HTTP(S) URLs only. Only unprefixed `loc` and `loc`
- * under a prefix bound to the sitemap namespace count, so image, video and news locations do not.
+ * The `<loc>` values of a sitemap, entities decoded (a CDATA section as written), HTTP(S) URLs only. Only
+ * unprefixed `loc` and `loc` under a prefix bound to the sitemap namespace count, so image, video and news
+ * locations do not.
  */
 function locs(xml: string): string[] {
   const bound = new Set<string>()
@@ -136,10 +137,11 @@ function locs(xml: string): string[] {
     if (match[2] === SITEMAP_NS && match[1] !== undefined) bound.add(match[1])
   }
   const values: string[] = []
-  for (const match of xml.matchAll(/<(?:([\w.-]+):)?loc>\s*([^<]*?)\s*<\/(?:[\w.-]+:)?loc>/g)) {
-    const [, prefix, raw] = match
+  for (const match of xml.matchAll(/<(?:([\w.-]+):)?loc>\s*(?:<!\[CDATA\[\s*([\s\S]*?)\s*\]\]>|([^<]*?))\s*<\/(?:[\w.-]+:)?loc>/g)) {
+    const [, prefix, cdata, raw] = match
     if (prefix !== undefined && !bound.has(prefix)) continue
-    values.push(decodeEntities(raw))
+    // A CDATA section holds the URL as it is: no entities to decode.
+    values.push(cdata ?? decodeEntities(raw))
   }
   return values.filter((value) => {
     const url = URL.parse(value)

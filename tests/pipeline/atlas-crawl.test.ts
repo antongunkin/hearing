@@ -1,6 +1,6 @@
 // @vitest-environment node
 import { beforeEach, expect, test, vi } from 'vitest'
-import { crawlSite, parseRobotsTxt, SiteRefusedError } from '@/pipeline/atlas/crawl'
+import { ArchiveRefusedError, crawlSite, parseRobotsTxt, SiteRefusedError } from '@/pipeline/atlas/crawl'
 import type { Site } from '@/pipeline/atlas/schema'
 import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { cdx, WaybackError, type CdxRow } from '@/pipeline/sources/wayback'
@@ -106,11 +106,37 @@ test('stays inside include and the site domain; outside links are only counted',
   expect(report.urls).not.toContain(`${origin}/careers`)
 })
 
-test('a 429 in the middle throws SiteRefusedError', async () => {
+test('a 429 in the middle ends the crawl of the site: the report keeps what was read, with a refused failure', async () => {
   web[home] = anchors('/hearing-aids', '/support')
   web[`${origin}/hearing-aids`] = { skip: 'rate-limited', detail: 'HTTP 429' }
-  await expect(crawlSite(site, [site])).rejects.toMatchObject({ reason: 'rate-limited', domain: 'brand.test', url: `${origin}/hearing-aids` })
-  await expect(crawlSite(site, [site])).rejects.toBeInstanceOf(SiteRefusedError)
+  web[`${origin}/support`] = anchors()
+  vi.mocked(cdx).mockResolvedValue([row('20200101000000')])
+  const { report, refused } = await crawlSite(site, [site])
+  expect(refused).toBeInstanceOf(SiteRefusedError)
+  expect(refused).not.toBeInstanceOf(ArchiveRefusedError)
+  expect(refused).toMatchObject({ reason: 'rate-limited', domain: 'brand.test', url: `${origin}/hearing-aids` })
+  expect(report.pages.map((p) => p.url)).toEqual([home])
+  expect(report.failures.at(-1)).toEqual({ url: `${origin}/hearing-aids`, reason: 'refused', detail: 'rate-limited' })
+  // No request to the site after the refusal, and no archive coverage either.
+  expect(requested.at(-1)).toBe(`${origin}/hearing-aids`)
+  expect(cdx).not.toHaveBeenCalled()
+  expect(report.urls).toContain(`${origin}/support`)
+})
+
+test('a refusal of robots.txt ends the crawl before any page', async () => {
+  web[`${origin}/robots.txt`] = { skip: 'bot-protection', detail: 'HTTP 403' }
+  web[home] = anchors()
+  const { report, refused } = await crawlSite(site, [site])
+  expect(refused).toMatchObject({ reason: 'bot-protection', url: `${origin}/robots.txt` })
+  expect(report.pages).toEqual([])
+  expect(requested).toEqual([`${origin}/robots.txt`])
+})
+
+test('a refusal by web.archive.org stops the step for every site', async () => {
+  const arch: Site = { ...site, mode: 'archive' }
+  vi.mocked(cdx).mockResolvedValue([row('20210901000000')])
+  web[archiveUrl('20210901000000', `${origin}/robots.txt`, { raw: true })] = { skip: 'rate-limited', detail: 'HTTP 429' }
+  await expect(crawlSite(arch, [arch])).rejects.toBeInstanceOf(ArchiveRefusedError)
 })
 
 test('robots and http-error skips are failures; only requests made use the budget', async () => {
@@ -161,6 +187,7 @@ test('archive coverage covers the start, sitemap sections and brand URLs, up to 
 test('a rate-limited CDX answer stops the step; another CDX failure is recorded', async () => {
   web[home] = anchors()
   vi.mocked(cdx).mockRejectedValue(new WaybackError('rate-limited', 'HTTP 429'))
+  await expect(crawlSite(site, [site])).rejects.toBeInstanceOf(ArchiveRefusedError)
   await expect(crawlSite(site, [site])).rejects.toMatchObject({ reason: 'rate-limited' })
   vi.mocked(cdx).mockRejectedValue(new WaybackError('robots', 'no'))
   const { report } = await crawlSite(site, [site])
@@ -185,13 +212,18 @@ test('observed edges: a redirect to another domain, a PDF host, a link to a list
   }
 })
 
-test('report urls are sorted and capped', async () => {
+test('report urls are sorted and capped; the cut keeps the pages read and examples of every template', async () => {
   const many = Array.from({ length: 3100 }, (_, i) => `/p/${String(i).padStart(5, '0')}`)
-  web[home] = anchors(...many)
-  const { report } = await crawlSite(site, [site], { budget: 1 })
+  // A locale that sorts after the cut.
+  const locale = ['/zz-en/hearing-aids/a', '/zz-en/hearing-aids/b', '/zz-en/hearing-aids/c']
+  web[home] = anchors(...many, '/zz-hearing', ...locale)
+  web[`${origin}/zz-hearing`] = anchors()
+  const { report } = await crawlSite(site, [site], { budget: 2 })
   expect(report.urls).toHaveLength(3000)
   expect(report.urls).toEqual([...report.urls].sort())
   expect(report.templates[0]).toMatchObject({ pattern: `${origin}/p/{slug}`, count: 3100 })
+  expect(report.templates.map((t) => t.pattern)).toContain(`${origin}/zz-en/hearing-aids/{slug}`)
+  expect(report.urls).toEqual(expect.arrayContaining([home, `${origin}/zz-hearing`, ...locale.map((path) => `${origin}${path}`)]))
 })
 
 test('parseRobotsTxt reads groups, the wildcard Crawl-delay and sitemaps', () => {

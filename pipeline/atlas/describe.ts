@@ -18,9 +18,9 @@ import type { Brand } from '@/src/lib/schema/brand'
 import type { Sourced } from '@/src/lib/schema/field'
 import { Edge, edgeKey, Entity } from '@/src/lib/schema/graph'
 import type { CheckResult } from '@/src/lib/schema/pending'
-import { SiteRefusedError } from './crawl'
+import { refusalOf } from './crawl'
 import { isInternal } from './facts'
-import { entityFor, type ProposedRelation } from './relation'
+import { datedIn, entityFor, MAX_QUOTE_CHARS, type ProposedRelation } from './relation'
 import { newBrandOf } from './site-files'
 import {
   bySection,
@@ -119,12 +119,29 @@ function known(url: string, report: SiteReport, log: FetchLogEntry[]): boolean {
 }
 
 /**
+ * The URLs a pattern is checked against: the report's URLs, the pages read and their PDFs, and the examples of
+ * every URL template. `report.urls` is cut at `config.atlas.maxReportUrls`; the templates were found on the
+ * whole set, so a pattern built from one of them always has its examples to match.
+ */
+function patternUrls(report: SiteReport): string[] {
+  return [
+    ...new Set([
+      ...report.urls,
+      ...report.pages.flatMap((page) => [originalOf(page.url), ...page.pdfs]),
+      ...report.templates.flatMap((template) => template.examples),
+      ...report.pdfHosts.flatMap((host) => host.examples),
+    ]),
+  ]
+}
+
+/**
  * Code checks of a brand config proposal, by field path: each URL is in the report or the fetch log
  * (`log`); each pattern is not empty, compiles, matches at least one URL of the report (a PDF URL for
  * `documentUrlPattern`) and not every one of them (`pattern`).
  */
 export function checkProposal(proposal: ConfigProposal, report: SiteReport, log: FetchLogEntry[]): Record<string, CheckResult[]> {
   const checks: Record<string, CheckResult[]> = {}
+  const all = patternUrls(report)
   const urls = (path: string, list: string[]) =>
     list.forEach((url, i) => {
       checks[`${path}.${i}`] = [
@@ -144,13 +161,13 @@ export function checkProposal(proposal: ConfigProposal, report: SiteReport, log:
       checks[path] = [{ name: 'pattern', ok: false, detail: (error as Error).message }]
       return
     }
-    const candidates = documents ? report.urls.filter((url) => PDF.test(URL.parse(url)?.pathname ?? url)) : report.urls
+    const candidates = documents ? all.filter((url) => PDF.test(URL.parse(url)?.pathname ?? url)) : all
     const fail = (detail: string): CheckResult => ({ name: 'pattern', ok: false, detail })
     // A pattern that takes every URL of the site tells model or document pages from nothing.
     checks[path] = [
       !candidates.some((url) => regex.test(url))
         ? fail(documents ? 'matches no PDF URL of the report' : 'matches no URL of the report')
-        : report.urls.length > 1 && report.urls.every((url) => regex.test(url))
+        : all.length > 1 && all.every((url) => regex.test(url))
           ? fail('matches every URL of the report')
           : { name: 'pattern', ok: true },
     ]
@@ -233,7 +250,16 @@ function promptFor(input: {
 }): string {
   const { site, brands, report, pages, unavailable, last } = input
   const { urls: _urls, ...rest } = report
-  const facts = { ...rest, outbound: report.outbound.slice(0, MAX_OUTBOUND) }
+  // Each page's outside links as counts per domain: the list itself (country selectors) would crowd the prompt.
+  const pageFacts = report.pages.map(({ external, ...facts }) => {
+    const domains: Record<string, number> = {}
+    for (const url of external) {
+      const host = URL.parse(url)?.hostname.replace(/^www\./, '')
+      if (host) domains[host] = (domains[host] ?? 0) + 1
+    }
+    return { ...facts, externalDomains: domains }
+  })
+  const facts = { ...rest, pages: pageFacts, outbound: report.outbound.slice(0, MAX_OUTBOUND) }
   const more = last
     ? '- moreUrls: this is the last round: moreUrls must be [].'
     : `- moreUrls: up to ${config.atlas.moreUrls} URLs of this site's pages you still need to read (from the report), or [] when you need none.`
@@ -343,7 +369,8 @@ export async function describeSite(
       asked.add(url)
       const result = await fetchPage(url)
       if (result.status === 'skipped') {
-        if (result.reason === 'rate-limited' || result.reason === 'bot-protection') throw new SiteRefusedError(site.domain, url, result.reason)
+        // The site's refusal stops this site; the Web Archive's (for an archive site) stops the run.
+        if (result.reason === 'rate-limited' || result.reason === 'bot-protection') throw refusalOf(site.domain, url, result.reason)
         unavailable.push(`${url} (${result.reason})`)
         continue
       }
@@ -403,7 +430,10 @@ export async function describeSite(
   return { description, proposal, checks: proposal ? checkProposal(proposal, report, log) : {}, relations, dropped, keyPages }
 }
 
-/** The relations whose source is a page Claude was given and whose quote is on it, as proposed edges. */
+/**
+ * The relations whose source is a page Claude was given and whose quote (at most `MAX_QUOTE_CHARS`) is on it,
+ * as proposed edges; `since` only as far as the quote states it.
+ */
 function proposedRelations(claims: RelationClaim[], pages: Page[], brands: Brand[], dropped: string[]): ProposedRelation[] {
   const relations: ProposedRelation[] = []
   for (const claim of claims) {
@@ -411,6 +441,10 @@ function proposedRelations(claims: RelationClaim[], pages: Page[], brands: Brand
     const page = pages.find((candidate) => candidate.url === claim.sourceUrl)
     if (!page) {
       drop('its source is not a page it was given')
+      continue
+    }
+    if (claim.quote.length > MAX_QUOTE_CHARS) {
+      drop(`quote longer than ${MAX_QUOTE_CHARS} characters`)
       continue
     }
     // The value is the relation, which the quote states in words: only the quote is looked up.
@@ -422,11 +456,13 @@ function proposedRelations(claims: RelationClaim[], pages: Page[], brands: Brand
     }
     const from = Entity.safeParse(entityFor(claim.subject, claim.subjectKind, brands))
     const to = Entity.safeParse(entityFor(claim.object, claim.objectKind, brands))
+    // A date is kept only as far as the quote states it.
+    const since = datedIn(claim.quote, claim.since)
     const edge = Edge.safeParse({
       from: from.data?.id,
       to: to.data?.id,
       kind: claim.kind,
-      ...(claim.since !== undefined && { since: claim.since }),
+      ...(since !== undefined && { since }),
       visibility: 'internal',
       status: 'proposed',
       sources: [{ url: page.ref.url, quote: claim.quote, fetchedAt: page.ref.fetchedAt, kind: 'company-page' }],

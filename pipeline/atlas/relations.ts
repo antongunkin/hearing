@@ -17,7 +17,7 @@ import type { Brand } from '@/src/lib/schema/brand'
 import type { Sourced } from '@/src/lib/schema/field'
 import type { CheckResult } from '@/src/lib/schema/pending'
 import { Edge, edgeKey, Entity, type EdgeKind, type SourceKind } from '@/src/lib/schema/graph'
-import { entityFor, type ProposedRelation } from './relation'
+import { datedIn, entityFor, MAX_QUOTE_CHARS, type ProposedRelation } from './relation'
 import type { Site, SiteReport } from './schema'
 
 /** A source the unit cannot do without refused or failed (openFDA, the App Store): the unit stops and can be resumed. */
@@ -45,9 +45,14 @@ async function recordChecks(quote: string, ref: { url: string; fetchedAt: string
   return { quote: [{ name: 'log', ok: true }, literalCheck(field, text)] }
 }
 
-/** A longer quote is a passage of someone else's text, not the statement of a relation. */
-const MAX_QUOTE_CHARS = 300
 const MAX_URLS = 8
+
+/** The iOS app id of an App Store URL (`/id123` or `?id=123`); undefined for any other host. */
+function iosIdOf(url: string): string | undefined {
+  const host = hostOf(url)
+  if (host !== 'apps.apple.com' && host !== 'itunes.apple.com') return undefined
+  return /\/id(\d+)|[?&]id=(\d+)/.exec(url)?.slice(1).find(Boolean)
+}
 
 const hostOf = (url: string) => URL.parse(url)?.hostname.replace(/^www\./, '').replace(/\.$/, '').toLowerCase() ?? ''
 const onDomain = (host: string, domain: string) => host === domain || host.endsWith(`.${domain}`)
@@ -107,9 +112,21 @@ function domainsOf(name: string, { brands, sites }: SearchContext): string[] {
 }
 
 /**
+ * The live domains of gone brands and archive sites: parked or someone else's now, so never a source (as in
+ * describe, a gone brand's pages are cited by their Web Archive copies only, which search does not return).
+ */
+function goneDomains({ brands, sites }: SearchContext): string[] {
+  return [
+    ...brands.filter((brand) => brand.status === 'gone').map((brand) => hostOf(brand.website)),
+    ...sites.filter((site) => site.mode === 'archive').map((site) => site.domain),
+  ].filter((domain) => domain !== '')
+}
+
+/**
  * Relations a web search finds for a brand or company. Every URL is fetched through the fetcher; a claim
  * stays when its page names both sides, its quote is on the page, short and names one of them, and its
- * source kind fits the host. A page that cannot be fetched drops its claims only. sec.gov is never fetched.
+ * source kind fits the host. A page that cannot be fetched drops its claims only, and so does a page on the live
+ * domain of a gone brand. sec.gov is never fetched. A date (`since`) stays only as far as the quote states it.
  */
 export async function searchClaims(subject: { name: string; kind: 'brand' | 'company' }, ctx: SearchContext): Promise<ProposedRelation[]> {
   const prompt = `Search the web about the ${subject.kind} "${subject.name}" in the hearing aid market, as of ${currentMonth()}.
@@ -127,8 +144,12 @@ At most ${MAX_URLS} pages. Never use pages on Google, Amazon or YouTube. Only us
     if (parsed) parsed.hash = ''
     return parsed?.href ?? url
   }
-  // sec.gov is left out before the fetch: no request goes to it.
-  const candidates = (await fetchableUrls(found.claims.map((claim) => claim.url))).filter((url) => !onDomain(hostOf(url), 'sec.gov')).slice(0, MAX_URLS)
+  // sec.gov and the live domains of gone brands are left out before the fetch: no request goes to them.
+  const gone = goneDomains(ctx)
+  const isGone = (url: string) => gone.some((domain) => onDomain(hostOf(url), domain))
+  const candidates = (await fetchableUrls(found.claims.map((claim) => claim.url)))
+    .filter((url) => !onDomain(hostOf(url), 'sec.gov') && !isGone(url))
+    .slice(0, MAX_URLS)
   // A page that redirects to sec.gov is refused too.
   const blocklist = [...(await loadBlocklist()), 'sec.gov']
   const pages = new Map<string, Extract<Awaited<ReturnType<typeof fetchPage>>, { status: 'ok' }>>()
@@ -144,7 +165,8 @@ At most ${MAX_URLS} pages. Never use pages on Google, Amazon or YouTube. Only us
   const relations: ProposedRelation[] = []
   for (const claim of found.claims) {
     const page = pages.get(normal(claim.url))
-    if (!page) continue
+    // A page that redirected to a gone domain is refused too.
+    if (!page || isGone(page.url)) continue
     const names = [claim.subject, claim.object]
     if (!names.every((name) => containsName(page.text, name))) continue
     if (claim.quote.length > MAX_QUOTE_CHARS || !names.some((name) => containsName(claim.quote, name))) continue
@@ -158,15 +180,17 @@ At most ${MAX_URLS} pages. Never use pages on Google, Amazon or YouTube. Only us
     if (sourceKind === null) continue
     const from = Entity.safeParse(entityFor(claim.subject, claim.subjectKind, ctx.brands))
     // An app is one node whichever way it was found: by its iOS id when the page's URL gives it.
-    const iosId = claim.objectKind === 'app' ? /\/id(\d+)|[?&]id=(\d+)/.exec(page.url)?.slice(1).find(Boolean) : undefined
+    const iosId = claim.objectKind === 'app' ? iosIdOf(page.url) : undefined
     const to = Entity.safeParse(
       iosId ? { id: `app:ios-${iosId}`, kind: 'app', name: claim.object.trim(), iosId } : entityFor(claim.object, claim.objectKind, ctx.brands),
     )
+    // A date is kept only as far as the quote states it.
+    const since = datedIn(claim.quote, claim.since)
     const edge = Edge.safeParse({
       from: from.data?.id,
       to: to.data?.id,
       kind: claim.kind,
-      ...(claim.since !== undefined && { since: claim.since }),
+      ...(since !== undefined && { since }),
       visibility: 'internal',
       status: 'proposed',
       sources: [{ url: page.url, quote: claim.quote, fetchedAt: page.fetchedAt, kind: sourceKind }],
@@ -227,7 +251,6 @@ export async function fdaApplicants(brands: Brand[], rawDir: string = RAW_DIR): 
 /** `publishes` relations from the brand to each iOS app of the report's pages whose seller is the brand or its group. */
 export async function appPublishers(report: SiteReport, brand: Brand, rawDir: string = RAW_DIR): Promise<ProposedRelation[]> {
   const ids = [...new Set(report.pages.flatMap((page) => page.apps.ios))]
-  const log = await readLog(rawDir)
   const relations: ProposedRelation[] = []
   for (const id of ids) {
     const app = await lookupApp(id)
@@ -246,6 +269,8 @@ export async function appPublishers(report: SiteReport, brand: Brand, rawDir: st
       sources: [{ url: app.lookupUrl, quote: app.seller, fetchedAt: app.fetchedAt, kind: 'app-store' }],
     })
     if (!to.success || !edge.success) continue
+    // Read after the lookup: it has just written the line of its reply.
+    const log = await readLog(rawDir)
     relations.push({ edge: edge.data, entities: [from, to.data], checks: await recordChecks(app.seller, { url: app.lookupUrl, fetchedAt: app.fetchedAt }, log, rawDir) })
   }
   return relations
