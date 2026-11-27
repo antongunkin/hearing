@@ -468,10 +468,15 @@ describe('documents and lifecycle changes', () => {
   })
 
   test('a new document passing its checks is applied automatically; a failed one is reviewed', async () => {
-    const passing = documentChange([{ name: 'document', ok: true }])
+    const passing = documentChange(Array(3).fill({ name: 'document', ok: true }))
     const failing = documentChange([{ name: 'document', ok: false, detail: 'model name not in text' }])
     expect(route(passing, [])).toBe('auto')
     expect(route(failing, [])).toBe('pending')
+    const okCheck = { name: 'document' as const, ok: true }
+    expect(route({ ...passing, checks: {} }, [])).toBe('pending')
+    expect(route(documentChange([]), [])).toBe('pending')
+    expect(route(documentChange([okCheck, okCheck]), [])).toBe('pending')
+    expect(route(documentChange([okCheck, okCheck, okCheck]), [])).toBe('auto')
     const data = dataset()
     expect(await applyAuto(passing, data, dir)).toEqual([])
     expect((await readJsonFile('models/jabra-enhance-select-500.json')).documents).toEqual([doc])

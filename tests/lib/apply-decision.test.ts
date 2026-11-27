@@ -485,6 +485,27 @@ describe('applyDecision: lifecycle, documents, lineage and brand history', () =>
     expect(() => applyDecision(dataset([successor]), successor.id, { action: 'approve' })).toThrow('not a stored model')
   })
 
+  test('lineage refuses itself and a counterpart that has another link', () => {
+    const src = field('Select 300', { sourceUrl: LIST })
+    const own = item({ kind: 'spec-change', path: 'successor', after: { slug: SLUG, source: src } })
+    expect(() => applyDecision(dataset([own]), own.id, { action: 'approve' })).toThrow('its own successor')
+    const link = item({ kind: 'spec-change', path: 'successor', after: { slug: old.slug, source: src } })
+    const busy = model({ slug: old.slug, name: 'Select 300', predecessor: { slug: 'someone-else', source: src } })
+    expect(() => applyDecision(dataset([link], { models: [model(), busy] }), link.id, { action: 'approve' })).toThrow('already has someone-else')
+  })
+
+  test('a brand history is stale when the stored one differs from both before and after', () => {
+    const fact = (n: number, text = `Fact ${n}`) => ({ date: `2020-0${n}`, text, sourceUrl: LIST, quote: text, fetchedAt: NOW })
+    const facts = (text?: string) => ({ facts: [fact(1, text), fact(2), fact(3)] })
+    const brandWith = (history: ReturnType<typeof facts>) => ({ ...dataset([]).brands[0], history })
+    const proposal = { ...pending({ kind: 'spec-change', path: 'brands/jabra-enhance.history', before: facts('A'), after: facts() }, 'brand-history'), modelSlug: null }
+    const run = (stored: ReturnType<typeof facts>) =>
+      applyDecision(dataset([proposal], { brands: [brandWith(stored)] }), proposal.id, { action: 'approve' })
+    expect(() => run(facts('Other'))).toThrow('different history')
+    expect(run(facts()).writes).toHaveLength(1)
+    expect(run(facts('A')).writes).toHaveLength(1)
+  })
+
   test('approving a brand history writes the brand', () => {
     const fact = (n: number) => ({ date: `2020-0${n}`, text: `Fact ${n}`, sourceUrl: LIST, quote: `Fact ${n}`, fetchedAt: NOW })
     const history = { facts: [fact(1), fact(2), fact(3)] }

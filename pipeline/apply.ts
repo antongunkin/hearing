@@ -205,10 +205,15 @@ const passes = (c: CandidateChange) => Object.values(c.checks).every((checks) =>
 
 const hasThirdParty = (c: CandidateChange) => changedLeaves(c).some(([, field]) => field.sourceType === 'third-party')
 
+/** The checks a new document must pass to apply itself: its URL pattern, a readable PDF, the model name in its text. */
+export const DOCUMENT_CHECKS = 3
+
 /** Drop what was rejected or changes nothing; apply small checked changes; queue the rest. Third-party values are always reviewed. */
 export function route(c: CandidateChange, rejections: string[]): 'auto' | 'pending' | 'drop' {
   if (rejections.includes(fingerprint(c)) || sameValue(c.after, c.before)) return 'drop'
-  return AUTO_KINDS.has(c.kind) && passes(c) && !hasThirdParty(c) ? 'auto' : 'pending'
+  // A document is verified only when every one of its checks ran: no checks at all is not a pass.
+  const checked = c.kind !== 'document' || (c.checks[c.path] ?? []).filter((check) => check.ok).length >= DOCUMENT_CHECKS
+  return AUTO_KINDS.has(c.kind) && checked && passes(c) && !hasThirdParty(c) ? 'auto' : 'pending'
 }
 
 /**
@@ -402,7 +407,12 @@ export function planChange(c: Change, dataset: Dataset): ChangePlan {
         const lineage = Lineage.parse(c.after)
         const other = dataset.models.find((m) => m.slug === lineage.slug)
         if (other === undefined) throw new Error(`${c.path} ${lineage.slug} of ${model.slug} is not a stored model`)
+        if (lineage.slug === model.slug) throw new Error(`${model.slug} cannot be its own ${c.path}`)
         const reverse = c.path === 'predecessor' ? 'successor' : 'predecessor'
+        const held = other[reverse]
+        if (held !== undefined && held.slug !== model.slug) {
+          throw new Error(`${other.slug} already has ${held.slug} as its ${reverse}: cannot also be ${model.slug}`)
+        }
         const linked = Model.parse({ ...structuredClone(other), [reverse]: { slug: model.slug, source: lineage.source } })
         return { writes: [modelWrite(changedModel(model, c)), modelWrite(linked)], events: [] }
       }
