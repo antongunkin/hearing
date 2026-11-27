@@ -1,12 +1,14 @@
 // A relation between companies, brands and apps that a page states: written to the graph as internal and
 // proposed, and queued for /review, where approval alone makes it public and verified.
+import { join } from 'node:path'
+import { z } from 'zod'
 import { enqueue, route } from '@/pipeline/apply'
-import type { Dataset } from '@/src/lib/data/load'
+import { readJson, type Dataset } from '@/src/lib/data/load'
 import { normalizeName, slugify } from '@/src/lib/data/slug'
 import type { Brand } from '@/src/lib/schema/brand'
 import { edgeKey, type Edge, type Entity } from '@/src/lib/schema/graph'
 import type { CandidateChange, CheckResult } from '@/src/lib/schema/pending'
-import { upsertEdge, upsertEntity, writeGraph } from './graph-store'
+import { readGraph, upsertEdge, upsertEntity, writeGraph } from './graph-store'
 
 export type ProposedRelation = { edge: Edge; entities: Entity[]; checks: Record<string, CheckResult[]> }
 
@@ -19,9 +21,13 @@ export function entityFor(name: string, kind: 'brand' | 'company' | 'app', brand
 
 /**
  * Upserts the edge as internal and proposed into `<dataDir>/graph/` and queues a `relation` change. An edge
- * already verified is left alone, and so is one that `route` drops (rejected before).
+ * already verified is left alone, and so is one that `route` drops (rejected before). The graph and the
+ * rejections are read from disk first: /review may have decided something since the run loaded `dataset`,
+ * which is brought up to date.
  */
 export async function queueRelation(rel: ProposedRelation, dataset: Dataset, dataDir: string): Promise<'queued' | 'dropped'> {
+  dataset.graph = await readGraph(dataDir)
+  dataset.rejections = await readJson(join(dataDir, 'rejections.json'), z.array(z.string()))
   const edge: Edge = { ...rel.edge, visibility: 'internal', status: 'proposed' }
   const key = edgeKey(edge)
   if (dataset.graph.edges.some((stored) => edgeKey(stored) === key && stored.status === 'verified')) return 'dropped'

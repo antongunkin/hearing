@@ -1,11 +1,8 @@
-// `atlas:describe`: Claude reads one site's crawl report and a few of its pages, and writes the site README,
-// a brand config proposal and relation proposals. Claude gets no tools: the pages it asks for are fetched
-// here, through the fetcher. Code checks every citation against the fetch log and every quote against its page.
-import { randomUUID } from 'node:crypto'
-import { mkdir, rename, rm, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+// `atlas:describe`: Claude reads one site's crawl report and a few of its pages, describes the site and
+// proposes its brand config and relations (site-files.ts writes and queues them). Claude gets no tools: the
+// pages it asks for are fetched here, through the fetcher. Code checks every citation against the fetch log
+// and every quote against its page.
 import { z } from 'zod'
-import { enqueue, route } from '@/pipeline/apply'
 import { literalCheck } from '@/pipeline/checks/literal'
 import { config } from '@/pipeline/config'
 import { excerpt, PROMPT_TEXT_BUDGET } from '@/pipeline/excerpt'
@@ -15,20 +12,19 @@ import { pdfText } from '@/pipeline/fetch/pdf'
 import { findInLog, RAW_DIR, readBody, readLog, type FetchLogEntry } from '@/pipeline/fetch/raw-store'
 import { llm } from '@/pipeline/llm'
 import { escapeRegExp } from '@/pipeline/units'
-import { archiveUrl, citableArchiveUrl, parseArchiveUrl } from '@/src/lib/archive-url'
+import { archiveUrl, parseArchiveUrl } from '@/src/lib/archive-url'
 import type { Dataset } from '@/src/lib/data/load'
-import { writeJson } from '@/src/lib/data/write'
-import { Brand } from '@/src/lib/schema/brand'
+import type { Brand } from '@/src/lib/schema/brand'
 import type { Sourced } from '@/src/lib/schema/field'
 import { Edge, edgeKey, Entity } from '@/src/lib/schema/graph'
-import type { CandidateChange, CheckResult } from '@/src/lib/schema/pending'
+import type { CheckResult } from '@/src/lib/schema/pending'
 import { SiteRefusedError } from './crawl'
 import { isInternal } from './facts'
-import { entityFor, queueRelation, type ProposedRelation } from './relation'
+import { entityFor, type ProposedRelation } from './relation'
+import { newBrandOf } from './site-files'
 import {
   bySection,
   ConfigProposal,
-  SECTION_HEADINGS,
   SECTION_KEYS,
   type Description,
   type LogRef,
@@ -112,15 +108,20 @@ export function pickKeyPages(report: SiteReport, max: number = config.atlas.keyP
   return picked
 }
 
-/** Whether the URL is a fact of the report: one of its URLs (or the original of an archive copy) or a logged reply. */
+/**
+ * Whether the URL is a fact of the report: one of its URLs or a logged reply. A Web Archive copy counts only
+ * as logged, timestamp included (in the form linked or as served), never by the page it archives.
+ */
 function known(url: string, report: SiteReport, log: FetchLogEntry[]): boolean {
-  return report.urls.includes(url) || report.urls.includes(originalOf(url)) || findInLog(log, { url }) !== undefined
+  const copy = parseArchiveUrl(url)
+  if (copy) return [url, archiveUrl(copy.timestamp, copy.original, { raw: true })].some((form) => findInLog(log, { url: form }) !== undefined)
+  return report.urls.includes(url) || findInLog(log, { url }) !== undefined
 }
 
 /**
  * Code checks of a brand config proposal, by field path: each URL is in the report or the fetch log
- * (`log`), each pattern compiles and matches at least one URL of the report, a PDF URL for
- * `documentUrlPattern` (`pattern`).
+ * (`log`); each pattern is not empty, compiles, matches at least one URL of the report (a PDF URL for
+ * `documentUrlPattern`) and not every one of them (`pattern`).
  */
 export function checkProposal(proposal: ConfigProposal, report: SiteReport, log: FetchLogEntry[]): Record<string, CheckResult[]> {
   const checks: Record<string, CheckResult[]> = {}
@@ -132,6 +133,10 @@ export function checkProposal(proposal: ConfigProposal, report: SiteReport, log:
     })
   const pattern = (path: string, source: string | undefined, documents = false) => {
     if (source === undefined) return
+    if (source.trim() === '') {
+      checks[path] = [{ name: 'pattern', ok: false, detail: 'empty pattern' }]
+      return
+    }
     let regex: RegExp
     try {
       regex = new RegExp(source)
@@ -140,10 +145,14 @@ export function checkProposal(proposal: ConfigProposal, report: SiteReport, log:
       return
     }
     const candidates = documents ? report.urls.filter((url) => PDF.test(URL.parse(url)?.pathname ?? url)) : report.urls
+    const fail = (detail: string): CheckResult => ({ name: 'pattern', ok: false, detail })
+    // A pattern that takes every URL of the site tells model or document pages from nothing.
     checks[path] = [
-      candidates.some((url) => regex.test(url))
-        ? { name: 'pattern', ok: true }
-        : { name: 'pattern', ok: false, detail: documents ? 'matches no PDF URL of the report' : 'matches no URL of the report' },
+      !candidates.some((url) => regex.test(url))
+        ? fail(documents ? 'matches no PDF URL of the report' : 'matches no URL of the report')
+        : report.urls.length > 1 && report.urls.every((url) => regex.test(url))
+          ? fail('matches every URL of the report')
+          : { name: 'pattern', ok: true },
     ]
   }
 
@@ -173,7 +182,7 @@ type RelationClaim = z.infer<typeof RelationClaim>
 
 const Output = z.strictObject({
   moreUrls: z.array(z.string()),
-  summary: z.string(),
+  summary: Cited,
   sections: bySection(z.array(Cited)),
   openQuestions: z.array(z.string()),
   proposal: ConfigProposal.nullable(),
@@ -210,7 +219,7 @@ Rules:
 - Use only the report and the pages. Never use outside knowledge and never guess; leave out what they do not show.
 - sections: short statements, one fact each. what: what the site is and whose it is. structure: its sections, URL templates and sitemaps. where: where the catalog, support pages, documents (user guides, datasheets) and apps are. render: whether pages need scripts to show their content, and other quirks or failures. links: links to other sites, redirects, document hosts. archive: Web Archive coverage. next: what the next agent should check.
 - Every statement lists in "sourceUrls" the URLs that show it, copied exactly: a "url" of the report (of a page, a ref, a redirect) or the URL of a [Page N] line.
-- summary: one line on what matters most about the site. openQuestions: what the report and the pages leave open.
+- summary: one line on what matters most about the site, with its "sourceUrls" like a statement. openQuestions: what the report and the pages leave open.
 - proposal: the scraper config of the site's brand, or null when the site is not one brand's site. catalogUrls: pages that list the models. supportUrls: pages that link to documents. modelUrlPattern: a regular expression on the full URL that matches the model pages. documentUrlPattern: one that matches the document (PDF) URLs. render: true when the pages need scripts to show their content. archive: where the Web Archive copies of the catalog are, for a site that is gone. status: "gone" when the site no longer answers or no longer sells hearing aids, otherwise "active".
 - relations: relations between companies, brands and apps that a page states in so many words. kind: owns (the subject owns the brand or company), makes-for (the subject makes the object's products), operates (the subject runs the object), publishes (the subject publishes the app), renamed-to (the subject is now called the object). sourceUrl: the URL of the [Page N] that states it. quote: an exact, character-for-character copy of that page's text that states it (one sentence, at most about 300 characters). since: "YYYY" or "YYYY-MM", only when the quote gives it.`
 
@@ -238,18 +247,6 @@ function promptFor(input: {
     'Pages:',
     ...pages.map((page, i) => `[Page ${i + 1}] ${page.url}\n${excerpt(page.text, share, SITE_WORDS)}`),
   ].join('\n\n')
-}
-
-/** The new brand a site with `newBrand` stands for, before any proposal. */
-function newBrandOf(site: Site): Brand | undefined {
-  if (!site.newBrand) return undefined
-  return {
-    ...site.newBrand,
-    website: site.start,
-    imageLicense: 'none',
-    status: 'active',
-    scraper: { catalogUrls: [], modelUrlPattern: '', render: false },
-  }
 }
 
 export type DescribeResult = {
@@ -292,12 +289,22 @@ export async function describeSite(
   }
   const keyPages = pages.map((page) => page.url)
 
-  /** Whether a fetched URL is one of the site's pages: live, or a Web Archive copy for an archive site. */
+  const include = site.include === undefined ? undefined : new RegExp(site.include)
+  /**
+   * Whether a fetched URL is one of the site's pages, within its `include` scope as the crawl has it: live,
+   * or a Web Archive copy for an archive site.
+   */
   const isSitePage = (raw: string) => {
     const copy = parseArchiveUrl(raw)
     if ((copy !== null) !== (site.mode === 'archive')) return false
     const url = URL.parse(copy?.original ?? raw)
-    return url !== null && /^https?:$/.test(url.protocol) && isInternal(url, site)
+    return url !== null && /^https?:$/.test(url.protocol) && isInternal(url, site) && (!include || include.test(url.href))
+  }
+  /** An archive site's own pages are cited by their Web Archive copies only: its live domain is someone else's now. */
+  const citable = (url: string) => {
+    if (site.mode === 'live' || parseArchiveUrl(url)) return true
+    const parsed = URL.parse(url)
+    return parsed === null || !isInternal(parsed, site)
   }
   // The copies of an archive site are asked for at the time of the newest copy the crawl read; the archive
   // serves the copy nearest to it.
@@ -357,20 +364,29 @@ export async function describeSite(
   /** The log line a cited URL stands for (the newest), when its text can be read. */
   const cite = async (url: string): Promise<LogRef | undefined> => {
     const entry = findInLog(log, { url })
-    return entry && (await textOf(entry)) !== undefined ? refOf(entry) : undefined
+    if (!entry || (await textOf(entry)) === undefined) return undefined
+    const ref = refOf(entry)
+    return citable(url) && citable(ref.url) ? ref : undefined
+  }
+  /** The statement with the sources that pass; undefined (and listed in `dropped`) when none does. */
+  const verified = async (where: string, item: z.infer<typeof Cited>): Promise<Statement | undefined> => {
+    const sources: LogRef[] = []
+    for (const url of new Set(item.sourceUrls)) {
+      const ref = await cite(url)
+      if (ref && !sources.some((s) => s.url === ref.url && s.fetchedAt === ref.fetchedAt)) sources.push(ref)
+    }
+    if (sources.length > 0) return { text: item.text, sources }
+    dropped.push(`${where}: ${JSON.stringify(item.text)}`)
+    return undefined
   }
   const sections = Object.fromEntries(SECTION_KEYS.map((key) => [key, [] as Statement[]])) as Record<SectionKey, Statement[]>
   for (const key of SECTION_KEYS) {
     for (const item of out.sections[key]) {
-      const sources: LogRef[] = []
-      for (const url of new Set(item.sourceUrls)) {
-        const ref = await cite(url)
-        if (ref && !sources.some((s) => s.url === ref.url && s.fetchedAt === ref.fetchedAt)) sources.push(ref)
-      }
-      if (sources.length === 0) dropped.push(`${key}: ${JSON.stringify(item.text)}`)
-      else sections[key].push({ text: item.text, sources })
+      const statement = await verified(key, item)
+      if (statement) sections[key].push(statement)
     }
   }
+  const summary = await verified('summary', out.summary)
 
   const newBrand = newBrandOf(site)
   const relations = proposedRelations(out.relations, pages, newBrand ? [...dataset.brands, newBrand] : dataset.brands, dropped)
@@ -379,7 +395,7 @@ export async function describeSite(
     domain: site.domain,
     generatedAt: new Date().toISOString(),
     model: config.llm.describeModel,
-    summary: out.summary,
+    ...(summary && { summary }),
     sections,
     openQuestions: out.openQuestions,
   }
@@ -423,128 +439,4 @@ function proposedRelations(claims: RelationClaim[], pages: Page[], brands: Brand
     relations.push({ edge: edge.data, entities: [from.data, to.data], checks: { quote: [literal] } })
   }
   return relations
-}
-
-/**
- * The site README: the summary, one section per key in order, each statement with numbered links to its
- * sources, and the sources as footnotes. A Web Archive copy is linked in the form a reader opens.
- */
-export function renderSiteReadme(site: Site, description: Description): string {
-  const notes: LogRef[] = []
-  const number = (ref: LogRef) => {
-    let index = notes.findIndex((note) => note.url === ref.url && note.fetchedAt === ref.fetchedAt)
-    if (index === -1) index = notes.push(ref) - 1
-    return index + 1
-  }
-  const lines = [`# ${site.domain}`, '', description.summary]
-  for (const key of SECTION_KEYS) {
-    lines.push('', `## ${SECTION_HEADINGS[key]}`, '')
-    const statements = description.sections[key]
-    if (statements.length === 0) lines.push('Nothing verified yet.')
-    for (const statement of statements) lines.push(`- ${statement.text} ${statement.sources.map((ref) => `[${number(ref)}]`).join(' ')}`)
-  }
-  if (notes.length > 0) {
-    lines.push('', ...notes.map((ref, i) => `[${i + 1}]: ${citableArchiveUrl(ref.url)} (fetched ${ref.fetchedAt})`))
-  }
-  return `${lines.join('\n')}\n`
-}
-
-/** Writes through a temp file and rename, so readers never see a partial file. */
-async function writeText(path: string, text: string): Promise<void> {
-  const tmp = `${path}.${randomUUID()}.tmp`
-  try {
-    await writeFile(tmp, text, 'utf8')
-    await rename(tmp, path)
-  } catch (error) {
-    await rm(tmp, { force: true })
-    throw error
-  }
-}
-
-/** The notes file agents keep for the site; created once, never written again by the pipeline. */
-async function createNotes(dir: string, site: Site): Promise<void> {
-  const text = `# ${site.domain}: notes
-
-Read README.md and notes.md before working with this site; append what you learn, with the date.
-
-## Log
-
-Started ${new Date().toISOString().slice(0, 10)}. Add entries below as \`- YYYY-MM-DD: what was tried and what came of it\`.
-`
-  try {
-    await writeFile(join(dir, 'notes.md'), text, { encoding: 'utf8', flag: 'wx' })
-  } catch (error) {
-    if ((error as NodeJS.ErrnoException).code !== 'EEXIST') throw error
-  }
-}
-
-/**
- * The `brand-config` change for the site's one brand: the stored brand (or the new brand of `newBrand`)
- * with the proposal's scraper, archive and status. Null for a site of several brands or none.
- */
-export function brandConfigChange(
-  site: Site,
-  result: Pick<DescribeResult, 'proposal' | 'checks' | 'keyPages'>,
-  dataset: Dataset,
-): CandidateChange | null {
-  const { proposal, checks, keyPages } = result
-  if (!proposal) return null
-  const slug = site.brands.length === 1 ? site.brands[0] : site.brands.length === 0 ? site.newBrand?.slug : undefined
-  const stored = dataset.brands.find((brand) => brand.slug === slug)
-  const base = stored ?? (site.newBrand?.slug === slug ? newBrandOf(site) : undefined)
-  if (slug === undefined || base === undefined) return null
-
-  const { archive: _archive, ...rest } = base
-  const after = Brand.parse({
-    ...rest,
-    status: proposal.status,
-    scraper: {
-      catalogUrls: proposal.catalogUrls,
-      supportUrls: proposal.supportUrls,
-      modelUrlPattern: proposal.modelUrlPattern,
-      ...(proposal.documentUrlPattern !== undefined && { documentUrlPattern: proposal.documentUrlPattern }),
-      render: proposal.render,
-    },
-    ...(proposal.archive && { archive: proposal.archive }),
-  })
-  return {
-    kind: 'brand-config',
-    modelSlug: null,
-    path: `brands/${slug}`,
-    ...(stored && { before: stored }),
-    after,
-    checks,
-    refs: [`data/atlas/sites/${site.domain}/report.json`, ...keyPages.map(citableArchiveUrl)],
-  }
-}
-
-/**
- * Writes the site's `describe.json`, `README.md`, `config-proposal.json` and (when missing) `notes.md`, and
- * queues the brand config and the relations for /review. Returns what was queued and what was not.
- */
-export async function saveDescription(
-  site: Site,
-  result: DescribeResult,
-  { dataset, dataDir }: { dataset: Dataset; dataDir: string },
-): Promise<{ proposal: 'queued' | 'dropped' | 'none'; relations: { queued: number; dropped: number } }> {
-  const dir = join(dataDir, 'atlas', 'sites', site.domain)
-  await mkdir(dir, { recursive: true })
-  await writeJson(join(dir, 'describe.json'), result.description)
-  await writeText(join(dir, 'README.md'), renderSiteReadme(site, result.description))
-  await writeJson(join(dir, 'config-proposal.json'), {
-    generatedAt: result.description.generatedAt,
-    proposal: result.proposal,
-    checks: result.checks,
-  })
-  await createNotes(dir, site)
-
-  let proposal: 'queued' | 'dropped' | 'none' = 'none'
-  const change = brandConfigChange(site, result, dataset)
-  if (change) {
-    proposal = route(change, dataset.rejections) === 'drop' ? 'dropped' : 'queued'
-    if (proposal === 'queued') await enqueue(change, dataDir)
-  }
-  const relations = { queued: 0, dropped: 0 }
-  for (const rel of result.relations) relations[await queueRelation(rel, dataset, dataDir)]++
-  return { proposal, relations }
 }

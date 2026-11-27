@@ -130,7 +130,8 @@ export const Description = z.strictObject({
   domain: z.string(),
   generatedAt: IsoDateTime,
   model: z.string(),
-  summary: z.string(),
+  /** Left out when none of its sources passed the checks. */
+  summary: Statement.optional(),
   sections: bySection(z.array(Statement)),
   openQuestions: z.array(z.string()),
 })

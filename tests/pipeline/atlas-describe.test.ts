@@ -6,11 +6,13 @@ import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
 import { z } from 'zod'
 import { atlasMain } from '@/pipeline/atlas/cli'
 import { SiteRefusedError } from '@/pipeline/atlas/crawl'
-import { checkProposal, describeSite, pickKeyPages, renderSiteReadme, saveDescription } from '@/pipeline/atlas/describe'
+import { checkProposal, describeSite, pickKeyPages } from '@/pipeline/atlas/describe'
 import { entityFor, queueRelation } from '@/pipeline/atlas/relation'
+import { renderSiteReadme, saveDescription } from '@/pipeline/atlas/site-files'
 import { SECTION_KEYS, Sites, type ConfigProposal, type Description, type PageFacts, type Site, type SiteReport } from '@/pipeline/atlas/schema'
 import { config } from '@/pipeline/config'
 import { fetchPage } from '@/pipeline/fetch/fetcher'
+import { writeGraph } from '@/pipeline/atlas/graph-store'
 import { appendLog, readLog, storeBody, type FetchLogEntry } from '@/pipeline/fetch/raw-store'
 import { llm } from '@/pipeline/llm'
 import { loadDataset, type Dataset } from '@/src/lib/data/load'
@@ -119,7 +121,7 @@ type Out = Awaited<ReturnType<typeof answer>>
 function answer(extra: Record<string, unknown> = {}) {
   return {
     moreUrls: [] as string[],
-    summary: 'XBrand sells hearing aids.',
+    summary: { text: 'XBrand sells hearing aids.', sourceUrls: [HOME] },
     sections: Object.fromEntries(SECTION_KEYS.map((key) => [key, [] as { text: string; sourceUrls: string[] }[]])),
     openQuestions: [] as string[],
     proposal: null as ConfigProposal | null,
@@ -223,7 +225,7 @@ test('a source reached through a redirect or the Web Archive counts by its final
     { text: 'A gone page was archived', sources: [{ url: landed, fetchedAt: FETCHED_AT }] },
   ])
   const readme = renderSiteReadme(site, description)
-  expect(readme).toContain('[2]: https://web.archive.org/web/20200102030405/https://x.test/gone (fetched 2026-11-27T10:00:00.000Z)')
+  expect(readme).toContain('[3]: https://web.archive.org/web/20200102030405/https://x.test/gone (fetched 2026-11-27T10:00:00.000Z)')
 })
 
 const proposal: ConfigProposal = {
@@ -251,13 +253,26 @@ test('patterns in the proposal are checked against the report URLs', async () =>
   expect(checkProposal({ ...proposal, documentUrlPattern: 'hearing-aids' }, report, log).documentUrlPattern).toEqual([
     { name: 'pattern', ok: false, detail: 'matches no PDF URL of the report' },
   ])
-  const archived = checkProposal(
-    { ...proposal, archive: { catalogUrls: [`https://web.archive.org/web/2020/${O}/hearing-aids`], modelUrlPattern: 'nothing' } },
-    report,
-    log,
-  )
+  // An archive copy counts only as logged, timestamp included; the page it archives being known is not enough.
+  await logReply(`https://web.archive.org/web/2020id_/${O}/hearing-aids`, html('<p>Archived catalog</p>'))
+  const archive = {
+    catalogUrls: [`https://web.archive.org/web/2020/${O}/hearing-aids`, `https://web.archive.org/web/2019/${O}/hearing-aids`],
+    modelUrlPattern: 'nothing',
+  }
+  const archived = checkProposal({ ...proposal, archive }, report, await readLog(rawDir))
   expect(archived['archive.catalogUrls.0']).toEqual([{ name: 'log', ok: true }])
+  expect(archived['archive.catalogUrls.1']).toEqual([{ name: 'log', ok: false, detail: 'not in the report or the fetch log' }])
   expect(archived['archive.modelUrlPattern']).toEqual([{ name: 'pattern', ok: false, detail: 'matches no URL of the report' }])
+})
+
+test('an empty pattern, or one that matches every URL of the report, fails its check', async () => {
+  const log = await readLog(rawDir)
+  const checked = checkProposal({ ...proposal, modelUrlPattern: '', documentUrlPattern: '.' }, report, log)
+  expect(checked.modelUrlPattern).toEqual([{ name: 'pattern', ok: false, detail: 'empty pattern' }])
+  expect(checked.documentUrlPattern).toEqual([{ name: 'pattern', ok: false, detail: 'matches every URL of the report' }])
+  expect(checkProposal({ ...proposal, modelUrlPattern: '^https://x\\.test/' }, report, log).modelUrlPattern).toEqual([
+    { name: 'pattern', ok: false, detail: 'matches every URL of the report' },
+  ])
 })
 
 test('asks for at most 10 more internal URLs, at most twice', async () => {
@@ -315,6 +330,46 @@ test('an archive site gets Web Archive copies of the pages it asks for, at the n
 
   expect(vi.mocked(fetchPage).mock.calls.map(([url]) => url)).toEqual([copy('2024', 'a'), copy('2021', 'b')])
   expect(prompts()[0]).toContain(`[Page 1] ${copy('2024')}\n`)
+})
+
+test('extra pages stay within the site\'s include scope', async () => {
+  for (const url of [`${O}/hearing-aids/c`, `${O}/careers`]) web[url] = html('<p>Page</p>')
+  web[`${O}/hearing-aids/d`] = { landed: `${O}/careers/d`, html: html('<p>Moved</p>') }
+  answers(answer({ moreUrls: [`${O}/hearing-aids/c`, `${O}/careers`, `${O}/hearing-aids/d`] }), answer())
+
+  await describeX({ ...site, include: 'hearing-aid' })
+
+  expect(vi.mocked(fetchPage).mock.calls.map(([url]) => url)).toEqual([`${O}/hearing-aids/c`, `${O}/hearing-aids/d`])
+  expect(prompts()[1]).toContain(`${O}/hearing-aids/d (redirects off the site)`)
+})
+
+test('an archive site cites its own pages by their Web Archive copies only, never its live domain', async () => {
+  const copy = `https://web.archive.org/web/2024id_/${O}/`
+  await logReply(copy, html('<p>Archived home</p>'))
+  // A live page of the gone domain, logged by some other step.
+  const what = [
+    { text: 'From the live domain', sourceUrls: [HOME] },
+    { text: 'From the copy', sourceUrls: [copy, HOME] },
+  ]
+  answers(answer({ summary: { text: 'Only the live domain says so', sourceUrls: [`${O}/about`] }, sections: { ...answer().sections, what } }))
+
+  const { description, dropped } = await describeX({ ...site, mode: 'archive' }, { ...report, mode: 'archive', pages: [page(copy)] })
+
+  expect(description.sections.what).toEqual([{ text: 'From the copy', sources: [{ url: copy, fetchedAt: FETCHED_AT }] }])
+  expect(description.summary).toBeUndefined()
+  expect(dropped).toEqual(['what: "From the live domain"', 'summary: "Only the live domain says so"'])
+})
+
+test('the summary is checked like a statement: kept with its sources, or left out', async () => {
+  answers(answer({ summary: { text: 'XBrand sells hearing aids.', sourceUrls: [HOME, `${O}/secret`] } }))
+  const { description } = await describeX()
+  expect(description.summary).toEqual({ text: 'XBrand sells hearing aids.', sources: [{ url: HOME, fetchedAt: FETCHED_AT }] })
+
+  answers(answer({ summary: { text: 'Owned by a secret company', sourceUrls: [`${O}/secret`] } }))
+  const unsourced = await describeX()
+  expect(unsourced.description.summary).toBeUndefined()
+  expect(unsourced.dropped).toEqual(['summary: "Owned by a secret company"'])
+  expect(renderSiteReadme(site, unsourced.description)).not.toContain('secret')
 })
 
 test('a refusal while fetching the extra URLs stops the step', async () => {
@@ -389,16 +444,31 @@ describe('relations', () => {
   test('an edge already verified, or rejected before, is not queued again', async () => {
     const entities = [entityFor('X Group Holding', 'company', [brand]), entityFor('XBrand', 'brand', [brand])]
     const verified: Edge = { ...owns, visibility: 'public', status: 'verified' }
-    const withVerified = { ...dataset, graph: { entities, edges: [verified] } }
-    expect(await queueRelation({ edge: owns, entities, checks: {} }, withVerified, dataDir)).toBe('dropped')
+    await writeGraph({ entities, edges: [verified] }, dataDir)
+    expect(await queueRelation({ edge: owns, entities, checks: {} }, dataset, dataDir)).toBe('dropped')
+    expect((await loadDataset(dataDir)).graph.edges).toEqual([verified])
 
+    await writeGraph({ entities: [], edges: [] }, dataDir)
     const { fingerprint } = await import('@/pipeline/apply')
     const rejected = fingerprint({ kind: 'relation', modelSlug: null, path: 'graph/company:x-group-holding owns brand:xbrand', after: { edge: owns, entities } })
-    expect(await queueRelation({ edge: owns, entities, checks: {} }, { ...dataset, rejections: [rejected] }, dataDir)).toBe('dropped')
+    await writeJson(join(dataDir, 'rejections.json'), [rejected])
+    expect(await queueRelation({ edge: owns, entities, checks: {} }, dataset, dataDir)).toBe('dropped')
 
     const stored = await loadDataset(dataDir)
     expect(stored.graph.edges).toEqual([])
     expect(stored.pending).toEqual([])
+  })
+
+  test('the graph is read from disk before writing: a relation verified in /review meanwhile stays verified', async () => {
+    const other: Edge = { ...owns, to: 'brand:other', visibility: 'public', status: 'verified' }
+    const entities = [entityFor('X Group Holding', 'company', [brand]), entityFor('XBrand', 'brand', [brand])]
+    // The run loaded the dataset before /review approved `other`.
+    const stale = { ...dataset, graph: { entities: [], edges: [] } }
+    await writeGraph({ entities: [...entities, { id: 'brand:other', kind: 'brand', name: 'Other' }], edges: [other] }, dataDir)
+
+    expect(await queueRelation({ edge: owns, entities, checks: {} }, stale, dataDir)).toBe('queued')
+    expect((await loadDataset(dataDir)).graph.edges).toEqual([other, owns])
+    expect(stale.graph.edges).toEqual([other, owns])
   })
 
   test('entityFor names a known brand by its slug', () => {
@@ -449,7 +519,7 @@ test('renderSiteReadme keeps the section order and numbers the sources', () => {
     domain: 'x.test',
     generatedAt: LATER,
     model: 'sonnet',
-    summary: 'XBrand sells hearing aids.',
+    summary: { text: 'XBrand sells hearing aids.', sources: [a] },
     sections: {
       ...(Object.fromEntries(SECTION_KEYS.map((key) => [key, []])) as unknown as Description['sections']),
       where: [{ text: 'Catalog at /a', sources: [a] }],
@@ -459,11 +529,11 @@ test('renderSiteReadme keeps the section order and numbers the sources', () => {
   }
   expect(renderSiteReadme(site, description)).toBe(`# x.test
 
-XBrand sells hearing aids.
+XBrand sells hearing aids. [1]
 
 ## What this site is and whose
 
-- XBrand site [1] [2]
+- XBrand site [2] [1]
 
 ## Structure
 
@@ -471,7 +541,7 @@ Nothing verified yet.
 
 ## Catalog, support, documents and apps
 
-- Catalog at /a [2]
+- Catalog at /a [1]
 
 ## Rendering and quirks
 
@@ -489,9 +559,12 @@ Nothing verified yet.
 
 Nothing verified yet.
 
-[1]: https://x.test/b (fetched 2026-11-27T11:00:00.000Z)
-[2]: https://x.test/a (fetched 2026-11-27T10:00:00.000Z)
+[1]: https://x.test/a (fetched 2026-11-27T10:00:00.000Z)
+[2]: https://x.test/b (fetched 2026-11-27T11:00:00.000Z)
 `)
+  // A summary that did not verify is left out.
+  const { summary: _summary, ...unsummarized } = description
+  expect(renderSiteReadme(site, unsummarized)).toMatch(/^# x\.test\n\n## What this site is and whose\n/)
 })
 
 test('the proposal of a one-brand site is queued as brand-config with the report and key pages as refs', async () => {

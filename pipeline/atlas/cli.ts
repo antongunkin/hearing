@@ -3,18 +3,17 @@
 import { join, resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { parseArgs } from 'node:util'
-import { z } from 'zod'
 import { RAW_DIR, readLog } from '@/pipeline/fetch/raw-store'
 import { Progress } from '@/pipeline/progress'
 import { LlmLimitError } from '@/pipeline/llm'
 import { loadDataset, readJson, type Dataset } from '@/src/lib/data/load'
 import { writeJson } from '@/src/lib/data/write'
 import { Brand } from '@/src/lib/schema/brand'
-import { Edge, Entity, Graph } from '@/src/lib/schema/graph'
 import { crawlSite, SiteRefusedError } from './crawl'
-import { describeSite, saveDescription } from './describe'
-import { writeGraph } from './graph-store'
+import { describeSite } from './describe'
+import { readGraph, writeGraph } from './graph-store'
 import { SiteReport, Sites, type Site } from './schema'
+import { saveDescription } from './site-files'
 
 const COMMANDS = ['crawl', 'describe', 'relations'] as const
 
@@ -33,18 +32,6 @@ async function brandsOf(site: Site, dataDir: string): Promise<Brand[]> {
     }
   }
   return found
-}
-
-async function readGraph(dataDir: string): Promise<Graph> {
-  const read = async <T>(name: string, schema: z.ZodType<T>): Promise<T[]> => {
-    try {
-      return await readJson(join(dataDir, 'graph', name), z.array(schema))
-    } catch (error) {
-      if (isMissing(error)) return []
-      throw error
-    }
-  }
-  return Graph.parse({ entities: await read('entities.json', Entity), edges: await read('edges.json', Edge) })
 }
 
 /** `describe` for one site; false when the site has no report yet (skipped with a message). */
