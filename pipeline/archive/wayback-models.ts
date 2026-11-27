@@ -5,11 +5,12 @@ import { config } from '@/pipeline/config'
 import { archiveDateCheck } from '@/pipeline/checks/archive-date'
 import { diffModel, sourcedLeaves } from '@/pipeline/apply'
 import { checkDocument, type OnSkip } from '@/pipeline/archive/documents'
-import { isInScope, lifecycleOf, listingIn, namesModel, type Listing } from '@/pipeline/archive/lifecycle'
-import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
+import { isInScope, lifecycleOf, listingIn, type Listing } from '@/pipeline/archive/lifecycle'
+import type { OkPage } from '@/pipeline/atlas/facts'
+import { fetchPage } from '@/pipeline/fetch/fetcher'
 import { linksIn } from '@/pipeline/fetch/html'
 import { LlmLimitError } from '@/pipeline/llm'
-import { extractModel, linkDocuments, matchExistingModel, mergeCandidates, type ModelCandidate } from '@/pipeline/sources/brand-site'
+import { extractModel, linkDocuments, matchExistingModel, mergeCandidates, sameModelName, type ModelCandidate } from '@/pipeline/sources/brand-site'
 import { earliestCopy, latestCopy, pdfCopies, WaybackError, yearlyCopies } from '@/pipeline/sources/wayback'
 import { archiveMonth, archiveUrl, citableArchiveUrl, parseArchiveUrl } from '@/src/lib/archive-url'
 import type { Brand } from '@/src/lib/schema/brand'
@@ -17,7 +18,6 @@ import type { Sourced } from '@/src/lib/schema/field'
 import type { Model } from '@/src/lib/schema/model'
 import type { CandidateChange, CheckResult } from '@/src/lib/schema/pending'
 
-type OkPage = Extract<FetchResult, { status: 'ok' }>
 /** A Web Archive copy that was read: `timestamp` and `original` are those of the copy actually served. */
 type Copy = { page: OkPage; timestamp: string; original: string }
 
@@ -45,12 +45,6 @@ function keyOf(url: string): string {
 
 const bareHost = (url: string): string => new URL(url).hostname.replace(/^www\./, '')
 
-/** The family's name matches a stored model: a name, or an alias, written differently ("Audéo Paradise" and "Paradise"). */
-function sameModelName(brand: Brand, stored: Model, candidate: Model): boolean {
-  if (matchExistingModel(candidate, [stored]) !== null) return true
-  return namesModel(stored, `${brand.name} ${candidate.name}`) || namesModel(candidate, `${brand.name} ${stored.name}`)
-}
-
 /**
  * The stored model of the brand that the candidate is, by its page's original URL or by name; null when none
  * or when more than one qualifies (then a model is not merged into a guess). An exact name wins over a looser one.
@@ -61,17 +55,12 @@ function findStored(brand: Brand, models: Model[], candidate: Model, originals: 
   if (exact !== null) return exact
   const urls = new Set(originals.map(keyOf))
   const qualifying = own.filter(
-    (stored) => sameModelName(brand, stored, candidate) || sourcedLeaves(stored).some(([, field]) => urls.has(keyOf(field.sourceUrl))),
+    (stored) =>
+      [stored.name, ...stored.aliases].some((name) => sameModelName(brand.slug, name, candidate.name)) ||
+      sourcedLeaves(stored).some(([, field]) => urls.has(keyOf(field.sourceUrl))),
   )
   return qualifying.length === 1 ? qualifying[0] : null
 }
-
-const firstLine = (page: OkPage): string | undefined =>
-  page.text
-    .split('\n')
-    .map((l) => l.trim())
-    .find((l) => l !== '')
-    ?.slice(0, 300)
 
 export async function archiveCandidates(brand: Brand, models: Model[], opts: ArchiveOpts): Promise<CandidateChange[]> {
   const gone = brand.status === 'gone'
@@ -119,7 +108,7 @@ export async function archiveCandidates(brand: Brand, models: Model[], opts: Arc
   const isModel = new RegExp(brand.archive?.modelUrlPattern ?? brand.scraper.modelUrlPattern)
   const live = new Set([...opts.liveModelUrls].map(keyOf))
   for (const catalogUrl of new Set(catalogUrls.map(originalOf))) {
-    for (const row of await yearlyCopies(catalogUrl, cdxOpts)) {
+    for (const row of (await tolerant(catalogUrl, () => yearlyCopies(catalogUrl, cdxOpts))) ?? []) {
       const copy = await read(row.timestamp, row.original)
       if (copy === null) continue
       catalogs.push(copy)
@@ -185,6 +174,19 @@ export async function archiveCandidates(brand: Brand, models: Model[], opts: Arc
     const { slug } = candidate.model
     const existing = findStored(brand, models, candidate.model, originals)
 
+    // A new model must have been on sale since 2018; asked before any PDF is fetched.
+    if (existing === null && !isInScope(candidate.model, { archiveListings: listingsOf(candidate.model) })) {
+      console.log(`${slug}: not listed or officially released since ${config.onSaleSince.slice(0, 4)}, left out`)
+      return []
+    }
+    // Where the model was last listed, else a page that names it; a model nothing names is not proposed as discontinued.
+    const lifecycle = lifecycleOf(candidate.model, { inLiveCatalog: false, listings: listingsOf(candidate.model, ...(existing === null ? [] : [existing])), namingPage: pages[0] })
+    const discontinued = lifecycle?.kind === 'discontinued' ? { ...(lifecycle.lastListed !== undefined && { lastListed: lifecycle.lastListed }), source: lifecycle.source } : undefined
+    if (existing === null && discontinued === undefined) {
+      console.log(`${slug}: no archived page or catalog copy names it, not proposed`)
+      return []
+    }
+
     // Documents that pass the three checks, with their checks under `documents.<i>`.
     const stored = new Set((existing?.documents ?? []).map((d) => originalOf(d.url)))
     const fieldChecks: Record<string, CheckResult[]> = Object.fromEntries(Object.entries(candidate.fieldChecks).filter(([path]) => !path.startsWith('documents.')))
@@ -208,40 +210,18 @@ export async function archiveCandidates(brand: Brand, models: Model[], opts: Arc
       }
     }
 
-    // Where the model was last listed, else the archived page itself names it: never "on sale".
-    const listings = listingsOf(model, ...(existing === null ? [] : [existing]))
-    const naming = pages[0]
-    const lifecycle = lifecycleOf(model, { inLiveCatalog: false, listings, namingPage: naming })
-    const discontinued = (): { value: NonNullable<Model['discontinued']>; checks: CheckResult[] } => {
-      if (lifecycle?.kind === 'discontinued') {
-        return { value: { ...(lifecycle.lastListed !== undefined && { lastListed: lifecycle.lastListed }), source: lifecycle.source }, checks: [] }
-      }
-      const quote = firstLine(naming)!
-      const source: Sourced<string> = { value: model.name, quote, sourceUrl: naming.url, fetchedAt: naming.fetchedAt, sourceType: 'official' }
-      return { value: { source }, checks: [{ name: 'lifecycle', ok: false, detail: 'the archived model page does not name the model' }] }
-    }
-
     if (existing !== null) {
       const proposed = diffModel(existing, { model, fieldChecks }).filter(
         (change) => change.kind === 'document' || (change.path === 'releaseDate' && existing.releaseDate === undefined),
       )
       if (gone && existing.discontinued === undefined) {
-        const { value, checks } = discontinued()
-        proposed.push({ kind: 'discontinued', modelSlug: existing.slug, path: 'discontinued', after: value, checks: { discontinued: checks } })
+        if (discontinued === undefined) console.log(`${existing.slug}: no archived page or catalog copy names it, discontinued not proposed`)
+        else proposed.push({ kind: 'discontinued', modelSlug: existing.slug, path: 'discontinued', after: discontinued, checks: { discontinued: [] } })
       }
       return proposed
     }
 
-    // 5. A new model must have been on sale since 2018.
-    if (!isInScope(candidate.model, { archiveListings: listingsOf(candidate.model) })) {
-      console.log(`${slug}: not listed or officially released since ${config.onSaleSince.slice(0, 4)}, left out`)
-      return []
-    }
-    const { value, checks } = discontinued()
-    return diffModel(null, {
-      model: { ...model, discontinued: value },
-      fieldChecks: { ...fieldChecks, ...(checks.length > 0 && { discontinued: checks }) },
-    })
+    return diffModel(null, { model: { ...model, discontinued }, fieldChecks })
   }
 
   /** An "on sale by" month from the earliest archive copy of the model's page, when that copy names the model. */

@@ -54,7 +54,7 @@ const ok = (url: string, text: string, html?: string, contentType = 'text/html')
 
 const model = (name: string, extra: Partial<Model> = {}): Model =>
   Model.parse({
-    slug: `acme-${name.toLowerCase().replace(/ /g, '-')}`,
+    slug: `acme-${name.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase().replace(/ /g, '-')}`,
     brand: 'acme',
     name,
     aliases: [],
@@ -127,10 +127,10 @@ describe('archiveCandidates', () => {
   })
 
   test('two stored models that qualify mean no merge: a new card', async () => {
-    archive({ catalog: { '20200301000000': ['audeo-paradise'] } })
-    pages[raw('20201101000000', pageOf('audeo-paradise'))] = ok(raw('20201101000000', pageOf('audeo-paradise')), 'Acme Audeo Paradise')
-    const changes = await archiveCandidates(brand, [model('Audeo'), model('Paradise')], options())
-    expect(changes.filter((c) => c.kind === 'new-model').map((c) => c.modelSlug)).toEqual(['acme-audeo-paradise'])
+    archive({ catalog: { '20200301000000': ['audeo-sport-paradise'] } })
+    pages[raw('20201101000000', pageOf('audeo-sport-paradise'))] = ok(raw('20201101000000', pageOf('audeo-sport-paradise')), 'Acme Audeo Sport Paradise')
+    const changes = await archiveCandidates(brand, [model('Sport Paradise'), model('Paradise')], options())
+    expect(changes.filter((c) => c.kind === 'new-model').map((c) => c.modelSlug)).toEqual(['acme-audeo-sport-paradise'])
   })
 
   test('new models are discontinued with lastListed from the latest listing, origin left to the caller', async () => {
@@ -161,19 +161,43 @@ describe('archiveCandidates', () => {
     expect(await archiveCandidates(brand, [], options())).toEqual([])
   })
 
-  test('a model whose page names it but no catalog copy does is discontinued by its page, with a failed lifecycle check when the page does not', async () => {
+  test('a model that no catalog copy and no archived page names is not proposed (also with an empty page)', async () => {
     archive({ catalog: { '20200301000000': ['zed-2'] } })
     pages[raw('20200301000000', CATALOG)] = ok(raw('20200301000000', CATALOG), 'Our products', catalogHtml('zed-2'))
-    vi.mocked(extractModel).mockResolvedValue({
-      model: model('Zed 2', { releaseDate: official('2019-04') }),
-      fieldChecks: {},
-    })
+    vi.mocked(extractModel).mockResolvedValue({ model: model('Zed 2', { releaseDate: official('2019-04') }), fieldChecks: {} })
     pages[raw('20201101000000', ZED)] = ok(raw('20201101000000', ZED), 'Welcome\nmore')
-    const [change] = await archiveCandidates(brand, [], options())
-    const after = change.after as Model
-    expect(after.discontinued).toMatchObject({ source: { quote: 'Welcome', sourceUrl: `https://web.archive.org/web/20201101000000/${ZED}` } })
-    expect(after.discontinued?.lastListed).toBeUndefined()
-    expect(change.checks.discontinued).toEqual([{ name: 'lifecycle', ok: false, detail: 'the archived model page does not name the model' }])
+    expect(await archiveCandidates(brand, [], options())).toEqual([])
+    pages[raw('20201101000000', ZED)] = ok(raw('20201101000000', ZED), '')
+    expect(await archiveCandidates(brand, [], options())).toEqual([])
+  })
+
+  test('a stored model of a gone brand that nothing names keeps its documents and date, only discontinued is skipped', async () => {
+    archive({ catalog: { '20200301000000': ['zed-2'] } })
+    pages[raw('20200301000000', CATALOG)] = ok(raw('20200301000000', CATALOG), 'Our products', catalogHtml('zed-2'))
+    pages[raw('20201101000000', ZED)] = ok(raw('20201101000000', ZED), 'Welcome')
+    vi.mocked(extractModel).mockResolvedValue({ model: model('Zed 2', { releaseDate: official('2019-04') }), fieldChecks: {} })
+    const changes = await archiveCandidates(brand, [model('Zed 2')], options())
+    expect(changes.map((c) => c.kind)).toEqual(['spec-change'])
+    expect(changes[0].path).toBe('releaseDate')
+  })
+
+  test('names are compared name to name: extra words after the name never match, a leading sub-line does', async () => {
+    const run = async (page: string, stored: string[]) => {
+      archive({ catalog: { '20200301000000': [page] } })
+      const name = page.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
+      pages[raw('20201101000000', pageOf(page))] = ok(raw('20201101000000', pageOf(page)), `Acme ${name}`)
+      const changes = await archiveCandidates(brand, stored.map((n) => model(n)), options())
+      return changes.map((c) => `${c.kind} ${c.modelSlug}`)
+    }
+    expect(await run('zed-2-pro', ['Zed 2'])).toContain('new-model acme-zed-2-pro')
+    expect(await run('zed-2', ['Zed 2 Pro'])).toContain('new-model acme-zed-2')
+    expect(await run('pure-charge-go-x', ['Pure Charge Go'])).toContain('new-model acme-pure-charge-go-x')
+    // "Audéo Paradise" on the page, "Paradise" stored: the stored model receives the changes.
+    vi.mocked(extractModel).mockResolvedValueOnce({ model: model('Audéo Paradise', { releaseDate: official('2019-04') }), fieldChecks: {} })
+    archive({ catalog: { '20200301000000': ['audeo-paradise'] } })
+    pages[raw('20201101000000', pageOf('audeo-paradise'))] = ok(raw('20201101000000', pageOf('audeo-paradise')), 'Acme Audéo Paradise')
+    const changes = await archiveCandidates(brand, [model('Paradise'), model('Zed 2')], options())
+    expect(changes.map((c) => `${c.kind} ${c.modelSlug} ${c.path}`).sort()).toEqual(['discontinued acme-paradise discontinued', 'spec-change acme-paradise releaseDate'])
   })
 
   test('without an official date the earliest copy gives an "on sale by" month', async () => {

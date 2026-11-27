@@ -499,3 +499,15 @@ export function matchExistingModel(candidate: Model, models: Model[]): Model | n
     ) ?? null
   )
 }
+
+const foldedWords = (brand: string, name: string): string[] =>
+  nameWithoutBrand(brand, name).normalize('NFD').replace(/\p{M}/gu, '').toLowerCase().split(/\s+/).filter(Boolean)
+
+/**
+ * True when two names of one brand are one model: equal after accent and case folding, or the shorter is a whole-word
+ * suffix of the longer ("Paradise" and "Audéo Paradise"). Words after the name never match ("Zed 2" is not "Zed 2 Pro").
+ */
+export function sameModelName(brand: string, a: string, b: string): boolean {
+  const [short, long] = [foldedWords(brand, a), foldedWords(brand, b)].sort((x, y) => x.length - y.length)
+  return short.length > 0 && long.slice(long.length - short.length).every((word, i) => word === short[i])
+}
