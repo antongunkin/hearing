@@ -37,17 +37,28 @@ export function stableStringify(value: unknown): string {
   )
 }
 
-/** The value without fetch dates: the same value read again later is the same change. */
-const withoutFetchDates = (value: unknown): unknown =>
-  JSON.parse(stableStringify(value ?? null), (key, node) => (key === 'fetchedAt' ? undefined : node))
+/** A sourced value as its value and unit only: the same value cited from another page or quote is the same. */
+const withoutCitations = (node: unknown): unknown => {
+  if (isSourced(node)) return { value: node.value, unit: node.unit }
+  if (typeof node !== 'object' || node === null) return node
+  if (Array.isArray(node)) return node.map(withoutCitations)
+  return Object.fromEntries(Object.entries(node).map(([key, child]) => [key, withoutCitations(child)]))
+}
 
-const sameValue = (a: unknown, b: unknown) => stableStringify(withoutFetchDates(a)) === stableStringify(withoutFetchDates(b))
+/** What a value says, as text: no citations and no fetch dates, so a value read again later is the same. */
+const substance = (value: unknown): string =>
+  stableStringify(JSON.parse(stableStringify(withoutCitations(value ?? null)), (key, node) => (key === 'fetchedAt' ? undefined : node)))
 
-/** Identifies a change across runs, so that a rejected one is not proposed again. Fetch dates are left out. */
-export function fingerprint(c: { modelSlug: string | null; path: string; after: unknown }): string {
-  return createHash('sha256')
-    .update(`${c.modelSlug}|${c.path}|${stableStringify(withoutFetchDates(c.after))}`)
-    .digest('hex')
+const sameValue = (a: unknown, b: unknown) => substance(a) === substance(b)
+
+/**
+ * Identifies a change across runs, so that a rejected one is not proposed again: by what it says, not
+ * where it was read (a sourced value counts by value and unit only). A new model counts by its slug, so a
+ * rejected model stays rejected whatever its page says next time.
+ */
+export function fingerprint(c: { kind: CandidateChange['kind']; modelSlug: string | null; path: string; after: unknown }): string {
+  const what = c.kind === 'new-model' ? 'new-model' : substance(c.after)
+  return createHash('sha256').update(`${c.modelSlug}|${c.path}|${what}`).digest('hex')
 }
 
 /**
@@ -211,19 +222,20 @@ const REVIEWS_PREFIX = 'reviews.'
 /**
  * Applies a change that `route` sent to `auto`: writes the model, reviews or event file and keeps
  * `dataset` in step. Returns the feed events it wrote: `price-change` and `app-update` when a known
- * value changes (not when it is first learned), `fda-clearance`/`fda-recall` for an FDA event. Events
- * are written before the data, and a duplicate is not written again, so a run stopped in between is
- * safe to repeat.
+ * value changes (not when it is first learned), `fda-clearance`/`fda-recall` for an FDA event. An
+ * `app-update` belongs to the app (no model, key `<iosId>:<version>`), so models that share an app give
+ * one. Events are written before the data, and a duplicate is not written again, so a run stopped in
+ * between is safe to repeat.
  */
 export async function applyAuto(c: CandidateChange, dataset: Dataset, dir = 'data'): Promise<Event[]> {
   const model = dataset.models.find((m) => m.slug === c.modelSlug) ?? null
   const brand = model && dataset.brands.find((b) => b.slug === model.brand)
   const product = model && `${brand?.name ?? model.brand} ${model.name}`
 
-  const emit = async (event: NewEvent, facts: Json): Promise<Event[]> => {
+  const emit = async (event: NewEvent, facts: Json, subject = product): Promise<Event[]> => {
     if (isDuplicateEvent({ ...event, id: 'new', text: '' }, dataset.events)) return []
     const id = slugify(`${event.date.slice(0, 10)} ${event.type} ${event.modelSlug ?? ''} ${event.key}`)
-    const written = Event.parse({ ...event, id, text: await eventText(event, product, facts) })
+    const written = Event.parse({ ...event, id, text: await eventText(event, subject, facts) })
     await writeJson(join(dir, 'events', `${id}.json`), written)
     dataset.events.push(written)
     return [written]
@@ -250,9 +262,11 @@ export async function applyAuto(c: CandidateChange, dataset: Dataset, dir = 'dat
                 { ...base, type: 'price-change', key: `${c.path}:${stableStringify(after.value)}` },
                 { variant: model.variants[Number(c.path.split('.')[1])]?.id, before: before.value, after: after.value },
               )
-            : await emit(
-                { ...base, type: 'app-update', key: String(after.value) },
+            : // One event per app release, not per model: brand apps serve every model of the brand.
+              await emit(
+                { ...base, modelSlug: null, type: 'app-update', key: `${model.app?.iosId ?? model.slug}:${after.value}` },
                 { app: model.app?.name, version: after.value },
+                brand?.name ?? model.brand,
               )
       }
       await writeJson(join(dir, 'models', `${model.slug}.json`), parsed)

@@ -6,7 +6,7 @@ import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 import { crossCheck } from '@/pipeline/checks/crosscheck'
 import { main } from '@/pipeline/cli'
 import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
-import { LlmLimitError, LlmOutputError } from '@/pipeline/llm'
+import { llm, LlmLimitError, LlmOutputError } from '@/pipeline/llm'
 import { discoverModelUrls, extractModel, type ModelCandidate } from '@/pipeline/sources/brand-site'
 import { fetchIosVersion } from '@/pipeline/sources/itunes'
 import { fetchFdaEvents } from '@/pipeline/sources/openfda'
@@ -215,6 +215,33 @@ test('subcommand runs only its step; --limit caps models per brand', async () =>
   expect(fetchFdaEvents).not.toHaveBeenCalled()
   expect(discoverReviewSources).not.toHaveBeenCalled()
   expect(await main(['update', '--brand', 'nope'], opts)).toBe(1)
+})
+
+test('apps: a new version of an app two models share gives one event, also when the run is repeated', async () => {
+  const at = { sourceUrl: 'https://apps.apple.com/us/app/x/id555', fetchedAt: FETCHED_AT, sourceType: 'official' as const }
+  const old = { value: '2.4.0', quote: '2.4.0', ...at }
+  const app = { name: 'Jabra Enhance', iosId: '555', iosVersion: old }
+  const stored = ['Select 100', 'Select 200'].map((name) => model(name, { app }))
+  for (const m of stored) await writeJson(join(dataDir, 'models', `${m.slug}.json`), m)
+  vi.mocked(fetchIosVersion).mockResolvedValue({ value: '2.5.0', quote: '2.5.0', ...at })
+  vi.mocked(llm).mockResolvedValue({ text: 'The Jabra Enhance app for iOS was updated to version 2.5.0.' })
+
+  expect(await main(['apps'], opts)).toBe(0)
+
+  const events = await filesUnder(join(dataDir, 'events'))
+  expect(events).toHaveLength(1)
+  expect(JSON.parse(await readFile(join(dataDir, 'events', events[0]), 'utf8'))).toMatchObject({ modelSlug: null, key: '555:2.5.0' })
+  for (const m of stored) {
+    const updated = Model.parse(JSON.parse(await readFile(join(dataDir, 'models', `${m.slug}.json`), 'utf8')))
+    expect(updated.app?.iosVersion?.value).toBe('2.5.0')
+  }
+  expect(log.at(-1)).toBe('Summary: auto 2, pending 0, dropped 0, skipped sources 0, failed 0')
+
+  // As if the run had stopped after the event and the first model: the second model is still on 2.4.0.
+  await writeJson(join(dataDir, 'models', `${stored[1].slug}.json`), stored[1])
+  expect(await main(['apps', '--resume'], opts)).toBe(0)
+  expect(await filesUnder(join(dataDir, 'events'))).toEqual(events)
+  expect(llm).toHaveBeenCalledTimes(1)
 })
 
 test('youtube: videos that review the model and the pros and cons they give go to review', async () => {

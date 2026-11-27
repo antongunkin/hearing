@@ -189,11 +189,34 @@ describe('route', () => {
     expect(route({ ...c, after: price(995, '2027-01-01T00:00:00.000Z') }, [fingerprint(c)])).toBe('drop')
     expect(route(change({ after: price(1195) }), [])).toBe('drop')
   })
+
+  test('a rejected value re-cited from another page or with another quote is still dropped', () => {
+    const c = change({})
+    const recited = { ...price(995), quote: 'Now only $995', sourceUrl: 'https://shop.example/select-500' }
+    expect(route({ ...c, after: recited }, [fingerprint(c)])).toBe('drop')
+    expect(route({ ...c, after: { ...recited, derivation: 'per pair / 2' } }, [fingerprint(c)])).toBe('drop')
+    expect(route({ ...c, after: price(899) }, [fingerprint(c)])).toBe('auto')
+    expect(fingerprint({ ...c, after: { ...price(995), unit: 'EUR' } })).not.toBe(fingerprint(c))
+    // The stored value cited again elsewhere changes nothing.
+    expect(route(change({ after: { ...price(1195), quote: 'Price: $1,195', sourceUrl: 'https://shop.example/x' } }), [])).toBe('drop')
+  })
+
+  test('a rejected new model re-extracted from different page text is dropped', () => {
+    const c = change({ kind: 'new-model', path: '', before: undefined, after: model(), checks: {} })
+    const again = model({
+      aliases: ['Select 500 RIC'],
+      variants: [{ id: 'select-500', formFactor: 'RIC', priceUsd: { ...price(1095), quote: 'from $1,095' }, weightG: weight(2.2) }],
+    })
+    expect(route({ ...c, after: again }, [fingerprint(c)])).toBe('drop')
+    expect(route({ ...c, modelSlug: 'jabra-enhance-select-300', after: model({ slug: 'jabra-enhance-select-300' }) }, [fingerprint(c)])).toBe(
+      'pending',
+    )
+  })
 })
 
 test('fingerprint: key order does not matter, the value does', () => {
-  const a = { modelSlug: 'm', path: 'p', after: { a: 1, b: [1, { c: 2, d: 3 }] } }
-  const b = { modelSlug: 'm', path: 'p', after: { b: [1, { d: 3, c: 2 }], a: 1 } }
+  const a = { kind: 'spec-change' as const, modelSlug: 'm', path: 'p', after: { a: 1, b: [1, { c: 2, d: 3 }] } }
+  const b = { kind: 'spec-change' as const, modelSlug: 'm', path: 'p', after: { b: [1, { d: 3, c: 2 }], a: 1 } }
   expect(fingerprint(a)).toBe(fingerprint(b))
   expect(fingerprint(a)).toMatch(/^[0-9a-f]{64}$/)
   expect(fingerprint({ ...a, after: { a: 2, b: [] } })).not.toBe(fingerprint(a))
@@ -275,6 +298,35 @@ describe('applyAuto', () => {
     expect(event).toMatchObject({ ...fda, id: '2026-06-25-fda-clearance-jabra-enhance-select-500-k254108' })
     expect(await applyAuto(c, data, dir)).toEqual([])
     expect(await readdir(join(dir, 'events'))).toEqual([`${event.id}.json`])
+  })
+
+  test('a new version of an app that models share gives one app-update event, not one per model', async () => {
+    llmMock.mockResolvedValue({ text: 'The Jabra Enhance app for iOS was updated to version 2.5.0.' })
+    const app = { name: 'Jabra Enhance', iosId: '1', iosVersion: { value: '2.4.1', quote: '2.4.1', ...at(OLD) } }
+    const other = model({ slug: 'jabra-enhance-select-300', name: 'Select 300', app })
+    const data = dataset({ models: [model({ app }), other] })
+    const newVersion = { value: '2.5.0', quote: '2.5.0', ...at(NEW), sourceUrl: 'https://apps.apple.com/us/app/x/id1' }
+    const update = (modelSlug: string) =>
+      change({ kind: 'app-version', modelSlug, path: 'app.iosVersion', before: app.iosVersion, after: newVersion, checks: {} })
+
+    const events = await applyAuto(update('jabra-enhance-select-500'), data, dir)
+    expect(events).toEqual([
+      {
+        id: expect.stringMatching(/^\d{4}-\d{2}-\d{2}-app-update-1-2-5-0$/),
+        type: 'app-update',
+        modelSlug: null,
+        date: expect.stringMatching(/^\d{4}-\d{2}-\d{2}$/),
+        key: '1:2.5.0',
+        text: 'The Jabra Enhance app for iOS was updated to version 2.5.0.',
+        sources: [newVersion.sourceUrl],
+      },
+    ])
+    expect(await applyAuto(update('jabra-enhance-select-300'), data, dir)).toEqual([])
+    expect(await readdir(join(dir, 'events'))).toEqual([`${events[0].id}.json`])
+    expect(llmMock).toHaveBeenCalledTimes(1)
+    for (const slug of ['jabra-enhance-select-500', 'jabra-enhance-select-300']) {
+      expect(Model.parse(await readJsonFile(`models/${slug}.json`)).app?.iosVersion).toEqual(newVersion)
+    }
   })
 
   test('review stats go to the reviews file of the model', async () => {
