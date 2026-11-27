@@ -1,0 +1,68 @@
+{
+  "aliases": [],
+  "brand": "widex",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:43:31.072Z",
+    "quote": "Whether you’re more ‘Silver Grey’, ‘Rose Gold’, or something in between",
+    "sourceType": "official",
+    "sourceUrl": "https://www.widex.com/en-us/hearing-aids/allure/ric-r-d/",
+    "value": [
+      "Silver Grey",
+      "Rose Gold"
+    ]
+  },
+  "documents": [],
+  "name": "Allure",
+  "platform": {
+    "fetchedAt": "2026-11-27T19:43:31.072Z",
+    "quote": "Powered by our next-generation W1 chip, the Allure platform offers a new level of speech clarity",
+    "sourceType": "official",
+    "sourceUrl": "https://www.widex.com/en-us/hearing-aids/allure/ric-r-d/",
+    "value": "W1"
+  },
+  "sameHardwareAs": [],
+  "slug": "widex-allure",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "allure-ric-r-d",
+      "power": {
+        "fetchedAt": "2026-11-27T19:43:31.072Z",
+        "quote": "designed to dry and sanitize the hearing devices while they charge.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.widex.com/en-us/hearing-aids/allure/ric-r-d/",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "BTE",
+      "id": "allure-bte-r-d",
+      "power": {
+        "fetchedAt": "2026-11-27T19:43:44.427Z",
+        "quote": "Easy rechargeable",
+        "sourceType": "official",
+        "sourceUrl": "https://www.widex.com/en-us/hearing-aids/allure/bte-r-d/",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "ITE",
+      "id": "ite-r-d",
+      "power": {
+        "fetchedAt": "2026-11-27T19:43:55.763Z",
+        "quote": "A single four-hour charge provides up to 19 hours of power with five hours of streaming.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.widex.com/en-us/hearing-aids/allure/ite-r-d/",
+        "value": {
+          "batteryHours": 19,
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

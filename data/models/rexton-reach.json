@@ -1,0 +1,20 @@
+{
+  "aliases": [],
+  "brand": "rexton",
+  "connectivity": {
+    "fetchedAt": "2026-11-27T19:01:15.526Z",
+    "quote": "Reach has MFi and ASHA protocols, so it connects seamlessly with iPhones and Android smartphones",
+    "sourceType": "official",
+    "sourceUrl": "https://www.rexton.com/en-us/hearing-aids/reach/r-li/",
+    "value": {
+      "asha": true,
+      "mfi": true
+    }
+  },
+  "documents": [],
+  "name": "Reach",
+  "sameHardwareAs": [],
+  "slug": "rexton-reach",
+  "type": "rx",
+  "variants": []
+}

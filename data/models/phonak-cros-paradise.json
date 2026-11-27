@@ -1,0 +1,53 @@
+{
+  "aliases": [],
+  "brand": "phonak",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:37:04.934Z",
+    "quote": "Color options",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/cros-paradise",
+    "value": [
+      "Sand Beige",
+      "Chestnut",
+      "Sandalwood",
+      "Silver Gray",
+      "Champagne",
+      "Beige",
+      "Velvet Black",
+      "Graphite Gray"
+    ]
+  },
+  "documents": [],
+  "name": "CROS Paradise",
+  "sameHardwareAs": [],
+  "slug": "phonak-cros-paradise",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "BTE",
+      "id": "cros-p-r",
+      "power": {
+        "fetchedAt": "2026-11-27T19:37:04.934Z",
+        "quote": "Rechargeable",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/cros-paradise",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "BTE",
+      "id": "cros-p-13",
+      "power": {
+        "fetchedAt": "2026-11-27T19:37:04.934Z",
+        "quote": "Battery: 13 zinc-air",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/cros-paradise",
+        "value": {
+          "type": "13"
+        }
+      }
+    }
+  ]
+}

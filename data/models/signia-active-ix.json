@@ -1,0 +1,43 @@
+{
+  "aliases": [],
+  "brand": "signia",
+  "connectivity": {
+    "fetchedAt": "2026-11-27T18:04:16.005Z",
+    "quote": "iPhone® and Android™ (ASHA and LE Audio) users can enjoy seamless Bluetooth® streaming",
+    "sourceType": "official",
+    "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/active-ix/",
+    "value": {
+      "asha": true,
+      "leAudio": true
+    }
+  },
+  "documents": [],
+  "name": "Active IX",
+  "platform": {
+    "fetchedAt": "2026-11-27T18:04:16.005Z",
+    "quote": "Signia Integrated Xperience",
+    "sourceType": "official",
+    "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/active-ix/",
+    "value": "Signia Integrated Xperience"
+  },
+  "sameHardwareAs": [],
+  "slug": "signia-active-ix",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "ITE",
+      "id": "active-mini-ix",
+      "power": {
+        "fetchedAt": "2026-11-27T18:04:16.005Z",
+        "quote": "Enjoy up to 21 hours of listening time and charge on the go with our handy charging case.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/active-ix/",
+        "value": {
+          "batteryHours": 21,
+          "chargingCase": true,
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

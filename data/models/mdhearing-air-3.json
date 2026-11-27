@@ -1,0 +1,34 @@
+{
+  "aliases": [],
+  "brand": "mdhearing",
+  "documents": [],
+  "name": "AIR 3",
+  "sameHardwareAs": [],
+  "slug": "mdhearing-air-3",
+  "type": "otc",
+  "variants": [
+    {
+      "formFactor": "BTE",
+      "id": "air-3",
+      "power": {
+        "fetchedAt": "2026-11-27T17:20:39.584Z",
+        "quote": "Charge overnight and enjoy up to 16 hours of reliable hearing without the hassle of replacing tiny batteries.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.mdhearingaid.com/hearing-aids/mdhearing-air/",
+        "value": {
+          "batteryHours": 16,
+          "chargingCase": true,
+          "type": "rechargeable"
+        }
+      },
+      "priceUsd": {
+        "fetchedAt": "2026-11-27T17:20:39.584Z",
+        "quote": "$297 $247/pair",
+        "sourceType": "official",
+        "sourceUrl": "https://www.mdhearingaid.com/hearing-aids/mdhearing-air/",
+        "unit": "USD",
+        "value": 297
+      }
+    }
+  ]
+}

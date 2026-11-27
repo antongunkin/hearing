@@ -1,0 +1,32 @@
+{
+  "aliases": [],
+  "brand": "signia",
+  "documents": [],
+  "name": "Pure Charge&Go BCT IX",
+  "platform": {
+    "fetchedAt": "2026-11-27T19:40:18.623Z",
+    "quote": "All the power of Signia Integrated Xperience in a small, lightweight hearing aid",
+    "sourceType": "official",
+    "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/pure-charge-go-ix/bluetooth-connectivity-transformed/",
+    "value": "Signia Integrated Xperience"
+  },
+  "sameHardwareAs": [],
+  "slug": "signia-pure-charge-go-bct-ix",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "pure-charge-go-bct-ix",
+      "power": {
+        "fetchedAt": "2026-11-27T19:40:18.623Z",
+        "quote": "an unprecedented runtime of 36 hours on a single charge",
+        "sourceType": "official",
+        "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/pure-charge-go-ix/bluetooth-connectivity-transformed/",
+        "value": {
+          "batteryHours": 36,
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

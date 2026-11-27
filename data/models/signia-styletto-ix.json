@@ -1,0 +1,37 @@
+{
+  "aliases": [],
+  "brand": "signia",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:40:47.555Z",
+    "quote": "Two more colors for the US market:\nBeige / Beige Gloss\nDeep Brown / Deep Brown Gloss",
+    "sourceType": "official",
+    "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/styletto-ix/",
+    "value": [
+      "Beige / Beige Gloss",
+      "Deep Brown / Deep Brown Gloss"
+    ]
+  },
+  "connectivity": {
+    "fetchedAt": "2026-11-27T19:40:47.555Z",
+    "quote": "Enjoy Bluetooth® streaming and hands-free calling with compatible iPhone and Androids with Bluetooth LE Audio. Compatible ASHA supported Android devices offer audio streaming only.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/styletto-ix/",
+    "value": {
+      "asha": true,
+      "leAudio": true
+    }
+  },
+  "documents": [],
+  "name": "Styletto IX",
+  "platform": {
+    "fetchedAt": "2026-11-27T19:40:47.555Z",
+    "quote": "It harnesses the full power of Signia Integrated Xperience with RealTime Conversation Enhancement technology",
+    "sourceType": "official",
+    "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/styletto-ix/",
+    "value": "Signia Integrated Xperience"
+  },
+  "sameHardwareAs": [],
+  "slug": "signia-styletto-ix",
+  "type": "rx",
+  "variants": []
+}

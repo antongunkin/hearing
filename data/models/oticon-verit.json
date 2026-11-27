@@ -1,0 +1,28 @@
+{
+  "aliases": [],
+  "brand": "oticon",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:26:47.391Z",
+    "quote": "Color: Chroma Beige",
+    "sourceType": "official",
+    "sourceUrl": "https://www.oticon.com/products/938720/oticon-verit-minirite-t",
+    "value": [
+      "Chroma Beige"
+    ]
+  },
+  "documents": [],
+  "name": "Verit",
+  "sameHardwareAs": [],
+  "slug": "oticon-verit",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "BTE",
+      "id": "minibte-t-85"
+    },
+    {
+      "formFactor": "BTE",
+      "id": "bte-t-105"
+    }
+  ]
+}

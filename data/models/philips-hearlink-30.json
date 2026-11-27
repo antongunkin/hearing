@@ -1,0 +1,82 @@
+{
+  "aliases": [],
+  "brand": "philips",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:29:50.737Z",
+    "quote": "Color: Medium Brown",
+    "sourceType": "official",
+    "sourceUrl": "https://www.hearingsolutions.philips.com/en-us/products/516670/hearlink-30-itc",
+    "value": [
+      "Medium Brown"
+    ]
+  },
+  "documents": [],
+  "name": "HearLink 30",
+  "sameHardwareAs": [],
+  "slug": "philips-hearlink-30",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "ITC",
+      "id": "hearlink-30-itc"
+    },
+    {
+      "formFactor": "ITE",
+      "id": "ite-hs"
+    },
+    {
+      "formFactor": "ITE",
+      "id": "ite-fs"
+    },
+    {
+      "formFactor": "ITC",
+      "id": "itc"
+    },
+    {
+      "formFactor": "CIC",
+      "id": "cic"
+    },
+    {
+      "formFactor": "IIC",
+      "id": "iic"
+    },
+    {
+      "formFactor": "BTE",
+      "id": "minibte-t"
+    },
+    {
+      "formFactor": "BTE",
+      "id": "minibte-t-r",
+      "power": {
+        "fetchedAt": "2026-11-27T19:30:02.247Z",
+        "quote": "Rechargeable",
+        "sourceType": "official",
+        "sourceUrl": "https://www.hearingsolutions.philips.com/en-us/products/516668/hearlink-30-ite-hs",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "RIC",
+      "id": "minirite-t-r",
+      "power": {
+        "fetchedAt": "2026-11-27T18:56:16.849Z",
+        "quote": "HearLink miniRITE T R and miniBTE T R hearing aids are rechargeable",
+        "sourceType": "official",
+        "sourceUrl": "https://www.hearingsolutions.philips.com/en-us/products/335844/hearlink-30-minirite-t-r",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "RIC",
+      "id": "minirite-t"
+    },
+    {
+      "formFactor": "CIC",
+      "id": "hearlink-30-cic"
+    }
+  ]
+}

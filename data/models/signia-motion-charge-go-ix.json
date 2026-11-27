@@ -1,0 +1,71 @@
+{
+  "aliases": [],
+  "brand": "signia",
+  "connectivity": {
+    "fetchedAt": "2026-11-27T19:41:01.163Z",
+    "quote": "you can stream audio directly from iPhones and iPads via the MFi /\"Made For iPhone\" standard, and from Android devices offering ASHA or LE Audio compatibility",
+    "sourceType": "official",
+    "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/motion-charge-go-ix/",
+    "value": {
+      "asha": true,
+      "leAudio": true,
+      "mfi": true
+    }
+  },
+  "documents": [],
+  "name": "Motion Charge&Go IX",
+  "platform": {
+    "fetchedAt": "2026-11-27T19:41:01.163Z",
+    "quote": "The power of Signia Integrated Xperience",
+    "sourceType": "official",
+    "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/motion-charge-go-ix/",
+    "value": "Signia Integrated Xperience"
+  },
+  "sameHardwareAs": [],
+  "slug": "signia-motion-charge-go-ix",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "BTE",
+      "id": "motion-charge-go-m-ix",
+      "power": {
+        "fetchedAt": "2026-11-27T19:41:01.163Z",
+        "quote": "Motion Charge&Go M IX will last up to 35 hours, or up to 30 hours with 5 hours of streaming.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/motion-charge-go-ix/",
+        "value": {
+          "batteryHours": 35,
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "BTE",
+      "id": "motion-charge-go-p-ix",
+      "power": {
+        "fetchedAt": "2026-11-27T19:41:01.163Z",
+        "quote": "Motion Charge&Go P IX will last up to 35 hours, or up to 30 hours with 5 hours of streaming.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/motion-charge-go-ix/",
+        "value": {
+          "batteryHours": 35,
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "BTE",
+      "id": "motion-charge-go-sp-ix",
+      "power": {
+        "fetchedAt": "2026-11-27T19:41:01.163Z",
+        "quote": "Motion Charge&Go SP IX will last up to 73 hours, or up to 65 hours with 5 hours of streaming",
+        "sourceType": "official",
+        "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/motion-charge-go-ix/",
+        "value": {
+          "batteryHours": 73,
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

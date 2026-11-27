@@ -1,0 +1,37 @@
+{
+  "aliases": [],
+  "brand": "oticon",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:27:15.907Z",
+    "quote": "Color: Cool Blue",
+    "sourceType": "official",
+    "sourceUrl": "https://www.oticon.com/products/938596/oticon-play-si-minirite-r",
+    "value": [
+      "Cool Blue"
+    ]
+  },
+  "documents": [],
+  "name": "Play SI",
+  "sameHardwareAs": [],
+  "slug": "oticon-play-si",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "minirite-r",
+      "power": {
+        "fetchedAt": "2026-11-27T19:27:15.907Z",
+        "quote": "Oticon Play SI miniRITE R is a discreet, rechargeable hearing aid",
+        "sourceType": "official",
+        "sourceUrl": "https://www.oticon.com/products/938596/oticon-play-si-minirite-r",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "BTE",
+      "id": "minibte-r"
+    }
+  ]
+}

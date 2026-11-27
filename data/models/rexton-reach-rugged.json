@@ -1,0 +1,39 @@
+{
+  "aliases": [],
+  "brand": "rexton",
+  "documents": [],
+  "name": "Reach Rugged",
+  "platform": {
+    "fetchedAt": "2026-11-27T17:51:35.477Z",
+    "quote": "REACH TECHNOLOGY",
+    "sourceType": "official",
+    "sourceUrl": "https://www.rexton.com/en-us/hearing-aids/reach/rugged/",
+    "value": "Reach Technology"
+  },
+  "sameHardwareAs": [],
+  "slug": "rexton-reach-rugged",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "BTE",
+      "id": "reach-rugged",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T17:51:35.477Z",
+        "quote": "Durability that exceeds IP68 standards",
+        "sourceType": "official",
+        "sourceUrl": "https://www.rexton.com/en-us/hearing-aids/reach/rugged/",
+        "value": "exceeds IP68"
+      },
+      "power": {
+        "fetchedAt": "2026-11-27T17:51:35.477Z",
+        "quote": "Up to 32 hours of battery runtime, including 5 hours of streaming",
+        "sourceType": "official",
+        "sourceUrl": "https://www.rexton.com/en-us/hearing-aids/reach/rugged/",
+        "value": {
+          "batteryHours": 32,
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

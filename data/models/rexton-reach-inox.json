@@ -1,0 +1,35 @@
+{
+  "aliases": [],
+  "brand": "rexton",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:01:25.853Z",
+    "quote": "Hearing aids are available in Black and Mocha colors",
+    "sourceType": "official",
+    "sourceUrl": "https://www.rexton.com/en-us/hearing-aids/reach/inox-cic-li/",
+    "value": [
+      "Black",
+      "Mocha"
+    ]
+  },
+  "documents": [],
+  "name": "Reach inoX",
+  "sameHardwareAs": [],
+  "slug": "rexton-reach-inox",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "CIC",
+      "id": "reach-inox-cic-li",
+      "power": {
+        "fetchedAt": "2026-11-27T19:01:25.853Z",
+        "quote": "Battery runtime up to 28 hours",
+        "sourceType": "official",
+        "sourceUrl": "https://www.rexton.com/en-us/hearing-aids/reach/inox-cic-li/",
+        "value": {
+          "batteryHours": 28,
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

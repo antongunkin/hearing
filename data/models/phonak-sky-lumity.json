@@ -1,0 +1,120 @@
+{
+  "aliases": [],
+  "brand": "phonak",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:33:45.199Z",
+    "quote": "Embrace uniqueness with a multitude of color options.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/sky-lumity-kids",
+    "value": [
+      "Beige",
+      "Lava Red",
+      "Blue Ocean",
+      "Majesty Purple",
+      "Sand Beige",
+      "Sandalwood",
+      "Chestnut",
+      "Champagne",
+      "Silver Gray",
+      "Velvet Black",
+      "Electric Green",
+      "Caribbean Pirate",
+      "Precious Pink",
+      "Graphite Gray"
+    ]
+  },
+  "documents": [],
+  "name": "Sky Lumity",
+  "platform": {
+    "fetchedAt": "2026-11-27T19:33:45.199Z",
+    "quote": "Artificial intelligence, AutoSense Sky OS 5.0, prowess for precise sound identification.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/sky-lumity-kids",
+    "value": "AutoSense Sky OS 5.0"
+  },
+  "sameHardwareAs": [],
+  "slug": "phonak-sky-lumity",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "BTE",
+      "id": "sky-l-m",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T19:33:45.199Z",
+        "quote": "Sky Lumity have an IP68 rating for dust and water protection and indicates that the hearing aid is water and dust resistant.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/sky-lumity-kids",
+        "value": "IP68"
+      },
+      "power": {
+        "fetchedAt": "2026-11-27T19:33:45.199Z",
+        "quote": "M – size 312; PR- rechargeable Lithium-ion, size – SP – 13; UP – size 675.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/sky-lumity-kids",
+        "value": {
+          "type": "312"
+        }
+      }
+    },
+    {
+      "formFactor": "BTE",
+      "id": "sky-l-sp",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T19:33:45.199Z",
+        "quote": "Sky Lumity have an IP68 rating for dust and water protection and indicates that the hearing aid is water and dust resistant.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/sky-lumity-kids",
+        "value": "IP68"
+      },
+      "power": {
+        "fetchedAt": "2026-11-27T19:33:45.199Z",
+        "quote": "M – size 312; PR- rechargeable Lithium-ion, size – SP – 13; UP – size 675.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/sky-lumity-kids",
+        "value": {
+          "type": "13"
+        }
+      }
+    },
+    {
+      "formFactor": "BTE",
+      "id": "sky-l-pr",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T19:33:45.199Z",
+        "quote": "Sky Lumity have an IP68 rating for dust and water protection and indicates that the hearing aid is water and dust resistant.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/sky-lumity-kids",
+        "value": "IP68"
+      },
+      "power": {
+        "fetchedAt": "2026-11-27T19:33:45.199Z",
+        "quote": "M – size 312; PR- rechargeable Lithium-ion, size – SP – 13; UP – size 675.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/sky-lumity-kids",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "BTE",
+      "id": "sky-l-up",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T19:33:45.199Z",
+        "quote": "Sky Lumity have an IP68 rating for dust and water protection and indicates that the hearing aid is water and dust resistant.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/sky-lumity-kids",
+        "value": "IP68"
+      },
+      "power": {
+        "fetchedAt": "2026-11-27T19:33:45.199Z",
+        "quote": "M – size 312; PR- rechargeable Lithium-ion, size – SP – 13; UP – size 675.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/sky-lumity-kids",
+        "value": {
+          "type": "675"
+        }
+      }
+    }
+  ]
+}

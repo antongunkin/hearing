@@ -1,0 +1,54 @@
+{
+  "aliases": [],
+  "brand": "lexie",
+  "colors": {
+    "fetchedAt": "2026-11-27T20:00:40.932Z",
+    "quote": "Gray",
+    "sourceType": "official",
+    "sourceUrl": "https://web.archive.org/web/20260325020737/https://lexiehearing.com/us/lexie-b1-powered-by-bose-hearing-aids",
+    "value": [
+      "Gray"
+    ]
+  },
+  "discontinued": {
+    "lastListed": "2024-12",
+    "source": {
+      "fetchedAt": "2026-11-27T19:59:03.695Z",
+      "quote": "Get back in the game with the Lexie B1 OTC hearing aids Powered by Bose",
+      "sourceType": "official",
+      "sourceUrl": "https://web.archive.org/web/20241209230724/https://lexiehearing.com/us",
+      "value": "B1"
+    }
+  },
+  "documents": [
+    {
+      "fetchedAt": "2026-11-27T20:05:22.416Z",
+      "kind": "user-guide",
+      "title": "Let’s get started.",
+      "url": "https://web.archive.org/web/20221007162421/https://lexiehearing.com/documents/Lexie_B1_Hearing_Aids_Powered_by_Bose_Quick_Start_Guide.pdf"
+    }
+  ],
+  "name": "B1",
+  "platform": {
+    "fetchedAt": "2026-11-27T20:00:40.932Z",
+    "quote": "Clear, quality sound powered by Bose",
+    "sourceType": "official",
+    "sourceUrl": "https://web.archive.org/web/20260325020737/https://lexiehearing.com/us/lexie-b1-powered-by-bose-hearing-aids",
+    "value": "Bose"
+  },
+  "releaseDate": {
+    "derivation": {
+      "input": "20221123160327",
+      "op": "earliest-archive-copy"
+    },
+    "fetchedAt": "2026-11-27T20:05:44.120Z",
+    "quote": "Lexie B1 Powered by Bose",
+    "sourceType": "derived",
+    "sourceUrl": "https://web.archive.org/web/20221123160327/https://lexiehearing.com/us/lexie-b1-powered-by-bose-hearing-aids",
+    "value": "2022-11"
+  },
+  "sameHardwareAs": [],
+  "slug": "lexie-b1",
+  "type": "otc",
+  "variants": []
+}

@@ -1,0 +1,33 @@
+{
+  "aliases": [],
+  "brand": "audien",
+  "documents": [],
+  "name": "ION Pro 2",
+  "platform": {
+    "fetchedAt": "2026-11-27T17:00:59.055Z",
+    "quote": "A2 Max™ chip",
+    "sourceType": "official",
+    "sourceUrl": "https://audienhearing.com/products/audien-ion-pro-otc-hearing-aids",
+    "value": "A2 Max™ chip"
+  },
+  "sameHardwareAs": [],
+  "slug": "audien-ion-pro-2",
+  "type": "otc",
+  "variants": [
+    {
+      "formFactor": "BTE",
+      "id": "behind-the-ear",
+      "power": {
+        "fetchedAt": "2026-11-27T17:00:59.055Z",
+        "quote": "The Ion Pro 2 provides 48 hours of power with the charging case.",
+        "sourceType": "official",
+        "sourceUrl": "https://audienhearing.com/products/audien-ion-pro-otc-hearing-aids",
+        "value": {
+          "batteryHours": 48,
+          "chargingCase": true,
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

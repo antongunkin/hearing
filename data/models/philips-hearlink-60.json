@@ -1,0 +1,42 @@
+{
+  "aliases": [],
+  "brand": "philips",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:28:14.408Z",
+    "quote": "Color: Beige",
+    "sourceType": "official",
+    "sourceUrl": "https://www.hearingsolutions.philips.com/en-us/products/951188/hearlink-60-minirite-r",
+    "value": [
+      "Beige"
+    ]
+  },
+  "connectivity": {
+    "fetchedAt": "2026-11-27T19:28:14.408Z",
+    "quote": "This hearing aid includes support for Auracast broadcast audio",
+    "sourceType": "official",
+    "sourceUrl": "https://www.hearingsolutions.philips.com/en-us/products/951188/hearlink-60-minirite-r",
+    "value": {
+      "auracast": true
+    }
+  },
+  "documents": [],
+  "name": "HearLink 60",
+  "sameHardwareAs": [],
+  "slug": "philips-hearlink-60",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "minirite-r",
+      "power": {
+        "fetchedAt": "2026-11-27T19:28:14.408Z",
+        "quote": "Rechargeable",
+        "sourceType": "official",
+        "sourceUrl": "https://www.hearingsolutions.philips.com/en-us/products/951188/hearlink-60-minirite-r",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

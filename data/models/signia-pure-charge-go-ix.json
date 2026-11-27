@@ -1,0 +1,33 @@
+{
+  "aliases": [],
+  "brand": "signia",
+  "connectivity": {
+    "fetchedAt": "2026-11-27T19:40:30.524Z",
+    "quote": "Connect to Signia Integrated Xperience via MFi, ASHA, LE Audio (with or without telecoil) and now, Bluetooth Classic.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/pure-charge-go-ix/",
+    "value": {
+      "asha": true,
+      "leAudio": true,
+      "mfi": true
+    }
+  },
+  "documents": [],
+  "name": "Pure Charge&Go IX",
+  "platform": {
+    "fetchedAt": "2026-11-27T19:40:30.524Z",
+    "quote": "Connect to Signia Integrated Xperience via MFi, ASHA, LE Audio (with or without telecoil) and now, Bluetooth Classic.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/pure-charge-go-ix/",
+    "value": "Signia Integrated Xperience"
+  },
+  "sameHardwareAs": [],
+  "slug": "signia-pure-charge-go-ix",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "pure-charge-go-bct-ix"
+    }
+  ]
+}

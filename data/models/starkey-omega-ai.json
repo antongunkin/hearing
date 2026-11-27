@@ -1,0 +1,29 @@
+{
+  "aliases": [],
+  "brand": "starkey",
+  "connectivity": {
+    "fetchedAt": "2026-11-27T19:42:32.354Z",
+    "quote": "Omega AI’s Bluetooth® Low Energy (LE) audio enables the all-new Auracast assistant",
+    "sourceType": "official",
+    "sourceUrl": "https://www.starkey.com/hearing-aids/omega-artificial-intelligence-hearing-aids",
+    "value": {
+      "auracast": true,
+      "leAudio": true
+    }
+  },
+  "discontinued": {
+    "source": {
+      "fetchedAt": "2026-11-27T20:49:25.817Z",
+      "quote": "Omega AI",
+      "sourceType": "official",
+      "sourceUrl": "https://www.starkey.com/hearing-aids/omega-artificial-intelligence-hearing-aids",
+      "value": "Omega AI"
+    }
+  },
+  "documents": [],
+  "name": "Omega AI",
+  "sameHardwareAs": [],
+  "slug": "starkey-omega-ai",
+  "type": "rx",
+  "variants": []
+}

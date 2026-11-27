@@ -1,0 +1,41 @@
+{
+  "aliases": [],
+  "brand": "phonak",
+  "connectivity": {
+    "fetchedAt": "2026-11-27T18:57:48.446Z",
+    "quote": "Access Auracast™ broadcast audio in supported public and shared spaces directly through your hearing aids",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-eon",
+    "value": {
+      "auracast": true
+    }
+  },
+  "documents": [],
+  "name": "Audéo EON R",
+  "platform": {
+    "fetchedAt": "2026-11-27T18:57:48.446Z",
+    "quote": "AutoSense OS AI 8.0 is the AI technology in Phonak Audéo EON R.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-eon",
+    "value": "AutoSense OS AI 8.0"
+  },
+  "sameHardwareAs": [],
+  "slug": "phonak-audeo-eon-r",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "audeo-eon-r",
+      "power": {
+        "fetchedAt": "2026-11-27T18:57:48.446Z",
+        "quote": "Audéo EON R offers up to 38 hours of battery life, ensuring you can go about your day with confidence.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-eon",
+        "value": {
+          "batteryHours": 38,
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

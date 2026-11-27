@@ -1,0 +1,45 @@
+{
+  "aliases": [],
+  "brand": "beltone",
+  "colors": {
+    "fetchedAt": "2026-11-27T17:07:59.897Z",
+    "quote": "microRIE - Sand",
+    "sourceType": "official",
+    "sourceUrl": "https://www.beltone.com/en-us/products/hearing-aids/beltone-illuminate",
+    "value": [
+      "Sand"
+    ]
+  },
+  "documents": [],
+  "name": "Beltone Illuminate",
+  "sameHardwareAs": [],
+  "slug": "beltone-illuminate",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "microrie",
+      "power": {
+        "fetchedAt": "2026-11-27T17:07:59.897Z",
+        "quote": "World's smallest AI rechargeable RIE hearing aid",
+        "sourceType": "official",
+        "sourceUrl": "https://www.beltone.com/en-us/products/hearing-aids/beltone-illuminate",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "RIC",
+      "id": "rie"
+    },
+    {
+      "formFactor": "ITC",
+      "id": "itc"
+    },
+    {
+      "formFactor": "CIC",
+      "id": "cic"
+    }
+  ]
+}

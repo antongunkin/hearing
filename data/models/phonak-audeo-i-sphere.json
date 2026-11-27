@@ -1,0 +1,44 @@
+{
+  "aliases": [],
+  "brand": "phonak",
+  "documents": [
+    {
+      "fetchedAt": "2026-11-27T19:34:50.428Z",
+      "kind": "datasheet",
+      "title": "S Receiver",
+      "url": "https://www.phonak.com/content/dam/celum/phonak/master-assets/en/documents/hearing-instruments/infinio/audeo-sphere/ph-datasheet-audeo-i-sphere-210x297-en.pdf.coredownload.pdf"
+    },
+    {
+      "fetchedAt": "2026-11-27T19:34:54.199Z",
+      "kind": "user-guide",
+      "title": "Phonak Audéo Sphere™",
+      "url": "https://www.phonak.com/content/dam/celum/phonak/master-assets/en/documents/hearing-instruments/infinio-us/PH_UserGuide_Audeo-I-Sphere_92x125_EN-US_029-1356-03.pdf.coredownload.pdf"
+    }
+  ],
+  "name": "Audéo I-Sphere",
+  "sameHardwareAs": [],
+  "slug": "phonak-audeo-i-sphere",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "audeo-i-sphere",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T19:34:54.199Z",
+        "quote": "These hearing aids are classified as IP68.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/content/dam/celum/phonak/master-assets/en/documents/hearing-instruments/infinio-us/PH_UserGuide_Audeo-I-Sphere_92x125_EN-US_029-1356-03.pdf.coredownload.pdf",
+        "value": "IP68"
+      },
+      "power": {
+        "fetchedAt": "2026-11-27T19:34:54.199Z",
+        "quote": "removable rechargeable lithium-ion battery.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/content/dam/celum/phonak/master-assets/en/documents/hearing-instruments/infinio-us/PH_UserGuide_Audeo-I-Sphere_92x125_EN-US_029-1356-03.pdf.coredownload.pdf",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

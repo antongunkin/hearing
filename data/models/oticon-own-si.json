@@ -1,0 +1,35 @@
+{
+  "aliases": [],
+  "brand": "oticon",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:27:50.601Z",
+    "quote": "Color: Beige",
+    "sourceType": "official",
+    "sourceUrl": "https://www.oticon.com/products/721428/oticon-own-si-invisible-in-the-canal-iic",
+    "value": [
+      "Beige"
+    ]
+  },
+  "documents": [],
+  "name": "Own SI",
+  "platform": {
+    "fetchedAt": "2026-11-27T19:27:50.601Z",
+    "quote": "They are also built with BrainHearing™ technology that supports your brain's natural way of making sense of sound.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.oticon.com/products/721428/oticon-own-si-invisible-in-the-canal-iic",
+    "value": "BrainHearing™"
+  },
+  "sameHardwareAs": [],
+  "slug": "oticon-own-si",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "IIC",
+      "id": "own-si-iic"
+    },
+    {
+      "formFactor": "CIC",
+      "id": "own-si-cic"
+    }
+  ]
+}

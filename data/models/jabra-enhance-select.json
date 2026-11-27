@@ -1,0 +1,38 @@
+{
+  "aliases": [],
+  "brand": "jabra-enhance",
+  "discontinued": {
+    "lastListed": "2025-11",
+    "source": {
+      "fetchedAt": "2026-11-27T20:16:54.309Z",
+      "quote": "Enhance Select 700",
+      "sourceType": "official",
+      "sourceUrl": "https://web.archive.org/web/20251119224549/https://www.jabraenhance.com/product",
+      "value": "Select"
+    }
+  },
+  "documents": [],
+  "name": "Select",
+  "releaseDate": {
+    "derivation": {
+      "input": "20231201093636",
+      "op": "earliest-archive-copy"
+    },
+    "fetchedAt": "2026-11-27T20:22:20.004Z",
+    "quote": "Enhance Select 300",
+    "sourceType": "derived",
+    "sourceUrl": "https://web.archive.org/web/20231201093636/https://www.jabraenhance.com/product/enhanceselect300",
+    "value": "2023-12"
+  },
+  "sameHardwareAs": [],
+  "slug": "jabra-enhance-select",
+  "tinnitus": {
+    "fetchedAt": "2026-11-27T20:18:47.639Z",
+    "quote": "Free tinnitus sound generator app and tinnitus management resources",
+    "sourceType": "official",
+    "sourceUrl": "https://web.archive.org/web/20260722190439/https://www.jabraenhance.com/product/enhanceselect300",
+    "value": true
+  },
+  "type": "otc",
+  "variants": []
+}

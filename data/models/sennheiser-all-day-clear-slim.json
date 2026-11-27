@@ -1,0 +1,35 @@
+{
+  "aliases": [],
+  "brand": "sennheiser",
+  "discontinued": {
+    "lastListed": "2025-12",
+    "source": {
+      "fetchedAt": "2026-11-27T20:42:58.777Z",
+      "quote": "All Day Clear Slim",
+      "sourceType": "official",
+      "sourceUrl": "https://web.archive.org/web/20251216044626/https://us.sennheiser-hearing.com/pages/otc-hearing-aids",
+      "value": "All Day Clear Slim"
+    }
+  },
+  "documents": [],
+  "name": "All Day Clear Slim",
+  "sameHardwareAs": [],
+  "slug": "sennheiser-all-day-clear-slim",
+  "type": "otc",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "all-day-clear-slim",
+      "power": {
+        "fetchedAt": "2026-11-27T20:43:31.427Z",
+        "quote": "Rechargeable - Up to 21 hours* on a single charge: Supports you throughout the day.",
+        "sourceType": "official",
+        "sourceUrl": "https://web.archive.org/web/20251118144408/https://us.sennheiser-hearing.com/products/sennheiser-all-day-clear-slim",
+        "value": {
+          "batteryHours": 21,
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

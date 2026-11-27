@@ -1,0 +1,37 @@
+{
+  "aliases": [],
+  "brand": "signia",
+  "colors": {
+    "fetchedAt": "2026-11-27T18:04:21.127Z",
+    "quote": "Black\nDark Brown\nMocha",
+    "sourceType": "official",
+    "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/insio-charge-go-ix/",
+    "value": [
+      "Black",
+      "Dark Brown",
+      "Mocha"
+    ]
+  },
+  "documents": [],
+  "name": "Insio Charge&Go IX",
+  "sameHardwareAs": [],
+  "slug": "signia-insio-charge-go-ix",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "CIC",
+      "id": "cic",
+      "power": {
+        "fetchedAt": "2026-11-27T18:04:21.127Z",
+        "quote": "With a battery runtime of 35 hours and a sleek, pocket-sized charging case",
+        "sourceType": "official",
+        "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/insio-charge-go-ix/",
+        "value": {
+          "batteryHours": 35,
+          "chargingCase": true,
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "aliases": [],
+  "brand": "mdhearing",
+  "documents": [],
+  "materials": {
+    "fetchedAt": "2026-11-27T17:23:57.136Z",
+    "quote": "with flexible silicone domes designed for a secure, comfortable fit",
+    "sourceType": "official",
+    "sourceUrl": "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs-pro/",
+    "value": [
+      "flexible silicone domes"
+    ]
+  },
+  "name": "NEO XS PRO",
+  "sameHardwareAs": [],
+  "slug": "mdhearing-neo-xs-pro",
+  "type": "otc",
+  "variants": [
+    {
+      "formFactor": "ITC",
+      "id": "neo-xs-pro",
+      "power": {
+        "fetchedAt": "2026-11-27T17:23:57.136Z",
+        "quote": "Charge overnight and enjoy up to 18 hours of reliable hearing without the hassle of replacing tiny batteries.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs-pro/",
+        "value": {
+          "batteryHours": 18,
+          "chargingCase": true,
+          "type": "rechargeable"
+        }
+      },
+      "priceUsd": {
+        "fetchedAt": "2026-11-27T17:23:57.136Z",
+        "quote": "$597 $447/pair",
+        "sourceType": "official",
+        "sourceUrl": "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs-pro/",
+        "unit": "USD",
+        "value": 597
+      }
+    }
+  ]
+}

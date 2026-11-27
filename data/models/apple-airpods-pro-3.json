@@ -1,0 +1,51 @@
+{
+  "aliases": [],
+  "brand": "apple",
+  "documents": [],
+  "materials": {
+    "fetchedAt": "2026-11-27T16:59:32.410Z",
+    "quote": "AirPods Pro 3 are made with 40% recycled content",
+    "sourceType": "official",
+    "sourceUrl": "https://www.apple.com/airpods-pro/specs/",
+    "value": [
+      "100% recycled aluminum in the hinge",
+      "100% recycled cobalt and 95% recycled lithium in the battery",
+      "100% recycled gold plating and tin solder in all Apple-designed printed circuit boards",
+      "100% recycled copper wire in the inductive charger",
+      "100% recycled rare earth elements in all magnets",
+      "65% recycled plastic in the case"
+    ]
+  },
+  "name": "AirPods Pro 3",
+  "platform": {
+    "fetchedAt": "2026-11-27T16:59:32.410Z",
+    "quote": "Apple H2 headphone chip",
+    "sourceType": "official",
+    "sourceUrl": "https://www.apple.com/airpods-pro/specs/",
+    "value": "Apple H2 headphone chip"
+  },
+  "sameHardwareAs": [],
+  "slug": "apple-airpods-pro-3",
+  "type": "consumer",
+  "variants": [
+    {
+      "formFactor": "earbud",
+      "id": "airpods-pro-3",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T16:59:32.410Z",
+        "quote": "Dust, sweat, and water resistant (IP57): AirPods Pro and charging case",
+        "sourceType": "official",
+        "sourceUrl": "https://www.apple.com/airpods-pro/specs/",
+        "value": "IP57"
+      },
+      "weightG": {
+        "fetchedAt": "2026-11-27T16:59:32.410Z",
+        "quote": "0.20 ounce (5.55 grams)",
+        "sourceType": "official",
+        "sourceUrl": "https://www.apple.com/airpods-pro/specs/",
+        "unit": "g",
+        "value": 5.55
+      }
+    }
+  ]
+}

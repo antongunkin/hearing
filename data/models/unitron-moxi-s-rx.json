@@ -1,0 +1,39 @@
+{
+  "aliases": [],
+  "brand": "unitron",
+  "documents": [
+    {
+      "fetchedAt": "2026-11-27T19:42:43.923Z",
+      "kind": "datasheet",
+      "title": "Unitron Moxi™ S-RX Technical data",
+      "url": "https://www.unitron.com/content/dam/celum/unitron/01_master-assets/documents/hearing-solutions/smile/moxi/specsheets/moxi-s-rx/uh-datasheet-moxi-s-rx-207x279-en.pdf.coredownload.pdf"
+    }
+  ],
+  "name": "Moxi S-RX",
+  "platform": {
+    "fetchedAt": "2026-11-27T18:11:38.280Z",
+    "quote": "Tech note: Powered by DEEPSONIC™ DNN chip and guided by Integra OS to respond in real time.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.unitron.com/en-us/hearing-solutions/hearing-aids/moxi-s-rx",
+    "value": "Integra OS"
+  },
+  "sameHardwareAs": [],
+  "slug": "unitron-moxi-s-rx",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "s9",
+      "techLevel": "S9"
+    },
+    {
+      "formFactor": "RIC",
+      "id": "s7",
+      "techLevel": "S7"
+    },
+    {
+      "formFactor": "RIC",
+      "id": "trial"
+    }
+  ]
+}

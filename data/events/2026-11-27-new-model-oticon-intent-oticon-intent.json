@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-27",
+  "id": "2026-11-27-new-model-oticon-intent-oticon-intent",
+  "key": "oticon-intent",
+  "modelSlug": "oticon-intent",
+  "sources": [
+    "https://www.oticon.com/products/663063/oticon-intent-minirite",
+    "https://www.oticon.com/products/845499/oticon-intent-minibte-r"
+  ],
+  "text": "Oticon Intent, a new hearing aid model, was added to the database on 27 November 2026.",
+  "type": "new-model"
+}

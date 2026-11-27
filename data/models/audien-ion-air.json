@@ -1,0 +1,41 @@
+{
+  "aliases": [],
+  "brand": "audien",
+  "documents": [],
+  "name": "Ion Air",
+  "platform": {
+    "fetchedAt": "2026-11-27T17:01:09.909Z",
+    "quote": "A2 MAX™ Sound Chip",
+    "sourceType": "official",
+    "sourceUrl": "https://audienhearing.com/products/ion-air",
+    "value": "A2 MAX™ Sound Chip"
+  },
+  "sameHardwareAs": [],
+  "slug": "audien-ion-air",
+  "type": "otc",
+  "variants": [
+    {
+      "formFactor": "BTE",
+      "id": "ion-air",
+      "power": {
+        "fetchedAt": "2026-11-27T17:01:09.909Z",
+        "quote": "up to 64 hours of hearing with the portable charging case",
+        "sourceType": "official",
+        "sourceUrl": "https://audienhearing.com/products/ion-air",
+        "value": {
+          "batteryHours": 64,
+          "chargingCase": true,
+          "type": "rechargeable"
+        }
+      },
+      "priceUsd": {
+        "fetchedAt": "2026-11-27T17:01:09.909Z",
+        "quote": "Hearing aids only — $489",
+        "sourceType": "official",
+        "sourceUrl": "https://audienhearing.com/products/ion-air",
+        "unit": "USD",
+        "value": 489
+      }
+    }
+  ]
+}

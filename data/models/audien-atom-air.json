@@ -1,0 +1,30 @@
+{
+  "aliases": [],
+  "brand": "audien",
+  "documents": [],
+  "name": "Atom Air",
+  "platform": {
+    "fetchedAt": "2026-11-27T17:00:48.781Z",
+    "quote": "A1 MAX™ Sound Chip",
+    "sourceType": "official",
+    "sourceUrl": "https://audienhearing.com/products/audien-atom-air-otc-hearing-aids",
+    "value": "A1 MAX™ Sound Chip"
+  },
+  "sameHardwareAs": [],
+  "slug": "audien-atom-air",
+  "type": "otc",
+  "variants": [
+    {
+      "formFactor": "ITE",
+      "id": "atom-air",
+      "priceUsd": {
+        "fetchedAt": "2026-11-27T17:00:48.781Z",
+        "quote": "Hearing aids only — $149",
+        "sourceType": "official",
+        "sourceUrl": "https://audienhearing.com/products/audien-atom-air-otc-hearing-aids",
+        "unit": "USD",
+        "value": 149
+      }
+    }
+  ]
+}

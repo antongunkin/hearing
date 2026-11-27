@@ -5,10 +5,16 @@
   "name": "Signia",
   "scraper": {
     "catalogUrls": [
-      "https://www.signia.net/en-us/hearing-aids/integrated-xperience/"
+      "https://www.signia.net/en-us/hearing-aids/integrated-xperience/",
+      "https://www.signia.net/en-us/hearing-aids/multi-adaptive-xperience/",
+      "https://www.signia.net/en-us/hearing-aids/augmented-xperience/"
     ],
-    "modelUrlPattern": "^https://www\\.signia\\.net/en-us/hearing-aids/integrated-xperience/[a-z0-9-]+/(?:bluetooth-connectivity-transformed/)?$",
-    "render": false
+    "modelUrlPattern": "^https://www\\.signia\\.net/en-us/hearing-aids/(?:integrated-xperience|multi-adaptive-xperience|augmented-xperience|signia-xperience)/[a-z0-9-]+/(?:bluetooth-connectivity-transformed/)?$",
+    "render": false,
+    "supportUrls": [
+      "https://www.signia.net/en-us/support/hearing-aids/",
+      "https://www.signia.net/en-us/connectivity/signia-app/"
+    ]
   },
   "slug": "signia",
   "status": "active",

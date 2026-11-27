@@ -1,0 +1,53 @@
+{
+  "aliases": [],
+  "brand": "beltone",
+  "documents": [],
+  "name": "Rely",
+  "sameHardwareAs": [],
+  "slug": "beltone-rely",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "rie"
+    },
+    {
+      "formFactor": "RIC",
+      "id": "minirie"
+    },
+    {
+      "formFactor": "CIC",
+      "id": "cic"
+    },
+    {
+      "formFactor": "ITE",
+      "id": "ite",
+      "power": {
+        "fetchedAt": "2026-11-27T19:22:56.753Z",
+        "quote": "Rechargeable batteries",
+        "sourceType": "official",
+        "sourceUrl": "https://www.beltone.com/en-us/products/hearing-aids/beltone-rely",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "ITC",
+      "id": "itc",
+      "power": {
+        "fetchedAt": "2026-11-27T19:22:56.753Z",
+        "quote": "Rechargeable batteries",
+        "sourceType": "official",
+        "sourceUrl": "https://www.beltone.com/en-us/products/hearing-aids/beltone-rely",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "BTE",
+      "id": "bte"
+    }
+  ]
+}

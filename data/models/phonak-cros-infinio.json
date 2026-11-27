@@ -1,0 +1,29 @@
+{
+  "aliases": [],
+  "brand": "phonak",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:35:38.294Z",
+    "quote": "Sand Beige",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/cros-infinio",
+    "value": [
+      "Sand Beige",
+      "Champagne",
+      "Silver grey",
+      "Graphite Gray"
+    ]
+  },
+  "documents": [],
+  "name": "CROS Infinio",
+  "platform": {
+    "fetchedAt": "2026-11-27T19:35:38.294Z",
+    "quote": "New powerful ERA, an ultra-responsive chip, providing uninterrupted handsfree calls**",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/cros-infinio",
+    "value": "ERA"
+  },
+  "sameHardwareAs": [],
+  "slug": "phonak-cros-infinio",
+  "type": "rx",
+  "variants": []
+}

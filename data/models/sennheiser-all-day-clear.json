@@ -1,0 +1,15 @@
+{
+  "aliases": [],
+  "brand": "sennheiser",
+  "documents": [],
+  "name": "All Day Clear",
+  "sameHardwareAs": [],
+  "slug": "sennheiser-all-day-clear",
+  "type": "otc",
+  "variants": [
+    {
+      "formFactor": "BTE",
+      "id": "all-day-clear"
+    }
+  ]
+}

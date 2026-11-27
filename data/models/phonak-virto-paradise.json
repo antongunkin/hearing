@@ -1,0 +1,92 @@
+{
+  "aliases": [],
+  "brand": "phonak",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:36:26.940Z",
+    "quote": "Color options",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/virto-paradise",
+    "value": [
+      "Blue",
+      "Brown",
+      "Pink",
+      "Red",
+      "Transp. Dyeable",
+      "Cocoa Brown",
+      "Black"
+    ]
+  },
+  "documents": [],
+  "materials": {
+    "fetchedAt": "2026-11-27T19:36:26.940Z",
+    "quote": "Virto Paradise Titanium is the 3rd generation of the world’s first hearing aid made from titanium with a 15x stronger shell than acrylic.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/virto-paradise",
+    "value": [
+      "titanium"
+    ]
+  },
+  "name": "Virto Paradise",
+  "sameHardwareAs": [],
+  "slug": "phonak-virto-paradise",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "ITE",
+      "id": "virto-p-312",
+      "power": {
+        "fetchedAt": "2026-11-27T19:36:26.940Z",
+        "quote": "312 zinc air battery",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/virto-paradise",
+        "value": {
+          "type": "312"
+        }
+      }
+    },
+    {
+      "formFactor": "ITE",
+      "id": "virto-p-312-nw-o"
+    },
+    {
+      "formFactor": "ITE",
+      "id": "virto-p-titanium",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T19:36:26.940Z",
+        "quote": "Virto P-Titanium and Virto P-10 NW O are both IP68 rated.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/virto-paradise",
+        "value": "IP68"
+      },
+      "power": {
+        "fetchedAt": "2026-11-27T19:36:26.940Z",
+        "quote": "10 zinc air battery",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/virto-paradise",
+        "value": {
+          "type": "10"
+        }
+      }
+    },
+    {
+      "formFactor": "ITE",
+      "id": "virto-p-10-nw-o",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T19:36:26.940Z",
+        "quote": "Virto P-Titanium and Virto P-10 NW O are both IP68 rated.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/virto-paradise",
+        "value": "IP68"
+      },
+      "power": {
+        "fetchedAt": "2026-11-27T19:36:26.940Z",
+        "quote": "10 zinc air battery",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/virto-paradise",
+        "value": {
+          "type": "10"
+        }
+      }
+    }
+  ]
+}

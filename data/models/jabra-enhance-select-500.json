@@ -1,0 +1,57 @@
+{
+  "aliases": [],
+  "brand": "jabra-enhance",
+  "colors": {
+    "fetchedAt": "2026-11-27T20:19:16.126Z",
+    "quote": "Color: Champagne",
+    "sourceType": "official",
+    "sourceUrl": "https://web.archive.org/web/20250913193135/https://www.jabraenhance.com/product/enhanceselect500",
+    "value": [
+      "Champagne"
+    ]
+  },
+  "connectivity": {
+    "fetchedAt": "2026-11-27T20:19:16.126Z",
+    "quote": "Ready for the future of connectivity with advanced Bluetooth LE Audio and Auracast™",
+    "sourceType": "official",
+    "sourceUrl": "https://web.archive.org/web/20250913193135/https://www.jabraenhance.com/product/enhanceselect500",
+    "value": {
+      "auracast": true,
+      "leAudio": true
+    }
+  },
+  "discontinued": {
+    "lastListed": "2024-12",
+    "source": {
+      "fetchedAt": "2026-11-27T20:16:43.507Z",
+      "quote": "Enhance Select 500",
+      "sourceType": "official",
+      "sourceUrl": "https://web.archive.org/web/20241204192223/https://www.jabraenhance.com/product",
+      "value": "Select 500"
+    }
+  },
+  "documents": [],
+  "name": "Select 500",
+  "platform": {
+    "fetchedAt": "2026-11-27T20:19:16.126Z",
+    "quote": "SoundScape™ technology combines 3 advanced features to deliver next-level listening:",
+    "sourceType": "official",
+    "sourceUrl": "https://web.archive.org/web/20250913193135/https://www.jabraenhance.com/product/enhanceselect500",
+    "value": "SoundScape™"
+  },
+  "releaseDate": {
+    "derivation": {
+      "input": "20240514210959",
+      "op": "earliest-archive-copy"
+    },
+    "fetchedAt": "2026-11-27T20:22:41.648Z",
+    "quote": "Hearing aids / Jabra Enhance Select 500",
+    "sourceType": "derived",
+    "sourceUrl": "https://web.archive.org/web/20240514210959/https://www.jabraenhance.com/product/enhanceselect500",
+    "value": "2024-05"
+  },
+  "sameHardwareAs": [],
+  "slug": "jabra-enhance-select-500",
+  "type": "otc",
+  "variants": []
+}

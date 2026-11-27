@@ -1,0 +1,25 @@
+{
+  "aliases": [],
+  "brand": "widex",
+  "documents": [],
+  "name": "SmartRIC",
+  "sameHardwareAs": [],
+  "slug": "widex-smartric",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "smartric",
+      "power": {
+        "fetchedAt": "2026-11-27T19:44:06.094Z",
+        "quote": "With a 4-hour charge, you are equipped for up to 37 hours of natural hearing.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.widex.com/en-us/hearing-aids/smartric/",
+        "value": {
+          "batteryHours": 37,
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

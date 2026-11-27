@@ -1,0 +1,40 @@
+{
+  "aliases": [],
+  "brand": "phonak",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:32:57.960Z",
+    "quote": "Shell",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/virto-infinio",
+    "value": [
+      "Black",
+      "Tan",
+      "Cocoa",
+      "Pink",
+      "Brown",
+      "Blue",
+      "Red",
+      "Transparent"
+    ]
+  },
+  "documents": [],
+  "name": "Virto R Infinio",
+  "sameHardwareAs": [],
+  "slug": "phonak-virto-r-infinio",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "ITE",
+      "id": "virto-r-infinio",
+      "power": {
+        "fetchedAt": "2026-11-27T19:32:57.960Z",
+        "quote": "Phonak Virto R Infinio is a custom-crafted rechargeable hearing aid",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/virto-infinio",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

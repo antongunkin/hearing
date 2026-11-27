@@ -1,0 +1,41 @@
+{
+  "aliases": [],
+  "brand": "rexton",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:01:20.929Z",
+    "quote": "They are available in the colors Black, Brown and Mocha",
+    "sourceType": "official",
+    "sourceUrl": "https://www.rexton.com/en-us/hearing-aids/reach/custom/",
+    "value": [
+      "Black",
+      "Brown",
+      "Mocha"
+    ]
+  },
+  "documents": [],
+  "name": "Reach Custom",
+  "sameHardwareAs": [],
+  "slug": "rexton-reach-custom",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "CIC",
+      "id": "reach-custom-cic",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T19:01:20.929Z",
+        "quote": "IP68 Certified",
+        "sourceType": "official",
+        "sourceUrl": "https://www.rexton.com/en-us/hearing-aids/reach/custom/",
+        "value": "IP68"
+      }
+    },
+    {
+      "formFactor": "ITC",
+      "id": "reach-custom-itc"
+    },
+    {
+      "formFactor": "ITE",
+      "id": "reach-custom-ite"
+    }
+  ]
+}

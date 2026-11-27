@@ -9,6 +9,38 @@
   },
   "defaultType": "otc",
   "group": "LXE Hearing",
+  "history": {
+    "facts": [
+      {
+        "date": "2026-07-17",
+        "fetchedAt": "2026-11-27T20:15:55.868Z",
+        "quote": "LXE Hearing, the parent company of Eargo, Lexie Hearing, Go Hearing, and hearX, has announced it is winding down its US operations after failing to identify a viable path forward following restructuring efforts.",
+        "sourceUrl": "https://hearingreview.com/hearing-products/hearing-aids/otc/lxe-hearing-announces-wind-down-of-us-operations-affecting-eargo-lexie-and-go-brands",
+        "text": "LXE Hearing, parent of Eargo, announced it is winding down its US operations after failing to find a viable path forward."
+      },
+      {
+        "date": "2026-07-17",
+        "fetchedAt": "2026-11-27T20:15:55.868Z",
+        "quote": "The company did not announce any asset sales, brand acquisitions, or third-party partnerships related to the wind-down at the time of this writing.",
+        "sourceUrl": "https://hearingreview.com/hearing-products/hearing-aids/otc/lxe-hearing-announces-wind-down-of-us-operations-affecting-eargo-lexie-and-go-brands",
+        "text": "The company said it did not announce any asset sales, brand acquisitions, or third-party partnerships tied to the wind-down."
+      },
+      {
+        "date": "2026-07-15",
+        "fetchedAt": "2026-11-27T20:16:00.132Z",
+        "quote": "LXE has not committed to providing further software or firmware updates. It also cautions that the apps will eventually become unavailable for new downloads, although no removal date has been announced.",
+        "sourceUrl": "https://www.hearingtracker.com/news/eargo-and-lexie-parent-lxe-hearing-begins-u-s-wind-down",
+        "text": "The Eargo and Lexie mobile apps remained operational for now, but the company warned they would not remain available indefinitely and has not committed to further software or firmware updates."
+      },
+      {
+        "date": "2026-07-17",
+        "fetchedAt": "2026-11-27T20:15:55.868Z",
+        "quote": "According to the company’s announcement, customer service representatives will remain available through at least Sept 15, 2026, and will be able to assist with troubleshooting, eligible refunds, and active warranty claims.",
+        "sourceUrl": "https://hearingreview.com/hearing-products/hearing-aids/otc/lxe-hearing-announces-wind-down-of-us-operations-affecting-eargo-lexie-and-go-brands",
+        "text": "Customer service representatives remain available through at least September 15, 2026, to help with troubleshooting, eligible refunds, and active warranty claims."
+      }
+    ]
+  },
   "historySources": [
     "https://www.ropesgray.com/en/news-and-events/news/2025/03/eargo-and-hearx-close-merger-announce-new-combined-company-lxe-hearing",
     "https://hearingreview.com/hearing-products/hearing-aids/otc/lxe-hearing-announces-wind-down-of-us-operations-affecting-eargo-lexie-and-go-brands",

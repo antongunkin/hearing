@@ -10,9 +10,9 @@
         "url": "https://api.fda.gov/device/510k.json?search=product_code:(%22ESD%22+%22LRB%22+%22QUF%22+%22OSM%22+%22QUG%22+%22QDD%22+%22QUH%22+%22SCR%22+%22KLW%22)+AND+decision_date:[2018-01-01+TO+2026-11-27]&limit=1000&skip=0"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "fda-applicant:apple-inc",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:apple",
@@ -25,9 +25,9 @@
         "url": "https://itunes.apple.com/lookup?id=375380948"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "app:ios-375380948",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:beltone",
@@ -40,9 +40,9 @@
         "url": "https://itunes.apple.com/lookup?id=1161360579"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "app:ios-1161360579",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:bernafon",
@@ -55,9 +55,9 @@
         "url": "https://itunes.apple.com/lookup?id=1597062293"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "app:ios-1597062293",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:eargo",
@@ -70,9 +70,9 @@
         "url": "https://api.fda.gov/device/510k.json?search=product_code:(%22ESD%22+%22LRB%22+%22QUF%22+%22OSM%22+%22QUG%22+%22QDD%22+%22QUH%22+%22SCR%22+%22KLW%22)+AND+decision_date:[2018-01-01+TO+2026-11-27]&limit=1000&skip=0"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "fda-applicant:eargo-inc",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:jabra-enhance",
@@ -100,9 +100,9 @@
         "url": "https://itunes.apple.com/lookup?id=1597064213"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "app:ios-1597064213",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:resound",
@@ -115,9 +115,9 @@
         "url": "https://itunes.apple.com/lookup?id=1134918918"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "app:ios-1134918918",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:resound",
@@ -130,9 +130,9 @@
         "url": "https://itunes.apple.com/lookup?id=928432517"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "app:ios-928432517",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:resound",
@@ -145,9 +145,9 @@
         "url": "https://www.resound.com/en-us/help/apps/smart-3d"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "app:resound-smart-3d",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:sennheiser",
@@ -160,9 +160,9 @@
         "url": "https://itunes.apple.com/lookup?id=1408526071"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "app:ios-1408526071",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:sennheiser",
@@ -175,9 +175,9 @@
         "url": "https://itunes.apple.com/lookup?id=1611165453"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "app:ios-1611165453",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:sennheiser",
@@ -190,9 +190,9 @@
         "url": "https://itunes.apple.com/lookup?id=1632398035"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "app:ios-1632398035",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:sennheiser",
@@ -205,9 +205,9 @@
         "url": "https://itunes.apple.com/lookup?id=6448098057"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "app:ios-6448098057",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:starkey",
@@ -220,9 +220,9 @@
         "url": "https://api.fda.gov/device/510k.json?search=product_code:(%22ESD%22+%22LRB%22+%22QUF%22+%22OSM%22+%22QUG%22+%22QDD%22+%22QUH%22+%22SCR%22+%22KLW%22)+AND+decision_date:[2018-01-01+TO+2026-11-27]&limit=1000&skip=0"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "fda-applicant:starkey-laboratories-inc",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:starkey",
@@ -235,9 +235,9 @@
         "url": "https://itunes.apple.com/lookup?id=1549559068"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "app:ios-1549559068",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:starkey",
@@ -250,9 +250,9 @@
         "url": "https://itunes.apple.com/lookup?id=336938292"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "app:ios-336938292",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:starkey",
@@ -265,9 +265,9 @@
         "url": "https://itunes.apple.com/lookup?id=6449296331"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "app:ios-6449296331",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:starkey",
@@ -280,9 +280,9 @@
         "url": "https://itunes.apple.com/lookup?id=966601084"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "app:ios-966601084",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:unitron",
@@ -295,9 +295,9 @@
         "url": "https://itunes.apple.com/lookup?id=1256680977"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "app:ios-1256680977",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:widex",
@@ -310,9 +310,9 @@
         "url": "https://itunes.apple.com/lookup?id=1195907597"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "app:ios-1195907597",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "company:demant",
@@ -325,9 +325,9 @@
         "url": "https://www.demant.com/about/our-history"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "brand:philips",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "company:demant",
@@ -340,9 +340,9 @@
         "url": "https://www.demant.com/about/our-history"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "brand:bernafon",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "company:demant",
@@ -355,9 +355,9 @@
         "url": "https://www.demant.com/about/sound-audio-and-good-hearing"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "company:audika-group",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "company:gn",
@@ -370,9 +370,9 @@
         "url": "https://api.fda.gov/device/510k.json?search=product_code:(%22ESD%22+%22LRB%22+%22QUF%22+%22OSM%22+%22QUG%22+%22QDD%22+%22QUH%22+%22SCR%22+%22KLW%22)+AND+decision_date:[2018-01-01+TO+2026-11-27]&limit=1000&skip=0"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "fda-applicant:gn-hearing-a-s",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "company:gn-hearing-a-s",
@@ -385,12 +385,12 @@
         "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/enzo-q"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "brand:resound",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
-    "from": "company:gn-store-nord-a-s",
+    "from": "company:gn",
     "kind": "owns",
     "sources": [
       {
@@ -400,9 +400,9 @@
         "url": "https://www.gn.com/About/GN-Group"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "brand:beltone",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "company:gn-store-nord-a-s",
@@ -415,9 +415,9 @@
         "url": "https://www.gn.com/About/GN-Group"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "brand:danavox",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "company:gn-store-nord-a-s",
@@ -430,12 +430,12 @@
         "url": "https://www.gn.com/About/GN-Group"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "brand:interton",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
-    "from": "company:gn-store-nord-a-s",
+    "from": "company:gn",
     "kind": "owns",
     "sources": [
       {
@@ -445,9 +445,9 @@
         "url": "https://www.gn.com/About/GN-Group"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "brand:resound",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "company:lxe-hearing",
@@ -461,9 +461,9 @@
         "url": "https://www.hearingtracker.com/news/eargo-and-lexie-parent-lxe-hearing-begins-u-s-wind-down"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "brand:eargo",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "company:lxe-hearing",
@@ -476,12 +476,12 @@
         "url": "https://hearingreview.com/hearing-products/hearing-aids/otc/lxe-hearing-announces-wind-down-of-us-operations-affecting-eargo-lexie-and-go-brands"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "brand:lexie-hearing",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
-    "from": "company:lxe-hearing-inc",
+    "from": "company:lxe-hearing",
     "kind": "owns",
     "sources": [
       {
@@ -491,9 +491,9 @@
         "url": "https://web.archive.org/web/20261015074000id_/https://lexiehearing.com/us/terms-web"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "brand:lexie",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "company:lxe-hearing-inc",
@@ -506,9 +506,9 @@
         "url": "https://web.archive.org/web/20261015074000id_/https://lexiehearing.com/us/terms-web"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "app:lexie-hearing-app",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "company:phonak-holding-ag",
@@ -521,9 +521,9 @@
         "url": "https://www.sonova.com/company/"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "company:sonova",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "company:sonova",
@@ -536,9 +536,9 @@
         "url": "https://api.fda.gov/device/510k.json?search=product_code:(%22ESD%22+%22LRB%22+%22QUF%22+%22OSM%22+%22QUG%22+%22QDD%22+%22QUH%22+%22SCR%22+%22KLW%22)+AND+decision_date:[2018-01-01+TO+2026-11-27]&limit=1000&skip=0"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "fda-applicant:sonova-ag",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "company:sonova",
@@ -551,9 +551,9 @@
         "url": "https://www.phonak.com/en-us/support/user-guides/accessories"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "brand:phonak",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "company:sonova",
@@ -567,9 +567,9 @@
         "url": "https://www.sonova.com/"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "company:hear-the-world-foundation",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "company:sonova-consumer-hearing-usa-llc",
@@ -582,9 +582,9 @@
         "url": "https://us.sennheiser-hearing.com/agents.md"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "brand:sennheiser",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "company:william-demant-foundation",
@@ -597,9 +597,9 @@
         "url": "https://www.demant.com/about/our-business"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "company:demant",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "company:william-demant-holding",
@@ -612,9 +612,9 @@
         "url": "https://www.demant.com/about/our-history"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "company:demant-a-s",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "company:ws-audiology",
@@ -628,12 +628,12 @@
         "url": "https://www.widex.com/en/hearing-aids/"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "brand:widex",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
-    "from": "company:wsa",
+    "from": "company:ws-audiology",
     "kind": "owns",
     "sources": [
       {
@@ -643,9 +643,9 @@
         "url": "https://www.wsa.com/brands/"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "brand:signia",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "domain:assets-we.cas.dgs.com",

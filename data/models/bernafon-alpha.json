@@ -1,0 +1,27 @@
+{
+  "aliases": [],
+  "brand": "bernafon",
+  "colors": {
+    "fetchedAt": "2026-11-27T17:13:51.450Z",
+    "quote": "Color: Antique Bronze, Metallic Anthracite",
+    "sourceType": "official",
+    "sourceUrl": "https://www.bernafon.us/products/391550/alpha-minirite-t",
+    "value": [
+      "Antique Bronze",
+      "Metallic Anthracite"
+    ]
+  },
+  "documents": [],
+  "name": "Alpha",
+  "sameHardwareAs": [],
+  "slug": "bernafon-alpha",
+  "tinnitus": {
+    "fetchedAt": "2026-11-27T17:13:51.450Z",
+    "quote": "Treats tinnitus",
+    "sourceType": "official",
+    "sourceUrl": "https://www.bernafon.us/products/391550/alpha-minirite-t",
+    "value": true
+  },
+  "type": "rx",
+  "variants": []
+}

@@ -1,0 +1,34 @@
+{
+  "aliases": [],
+  "brand": "audien",
+  "documents": [],
+  "name": "Ion IQ",
+  "sameHardwareAs": [],
+  "slug": "audien-ion-iq",
+  "type": "otc",
+  "variants": [
+    {
+      "formFactor": "BTE",
+      "id": "behind-the-ear",
+      "power": {
+        "fetchedAt": "2026-11-27T17:01:04.431Z",
+        "quote": "64-Hour Battery Life With Case",
+        "sourceType": "official",
+        "sourceUrl": "https://audienhearing.com/products/ion-iq",
+        "value": {
+          "batteryHours": 64,
+          "chargingCase": true,
+          "type": "rechargeable"
+        }
+      },
+      "priceUsd": {
+        "fetchedAt": "2026-11-27T17:01:04.431Z",
+        "quote": "Hearing aids only — $689",
+        "sourceType": "official",
+        "sourceUrl": "https://audienhearing.com/products/ion-iq",
+        "unit": "USD",
+        "value": 689
+      }
+    }
+  ]
+}

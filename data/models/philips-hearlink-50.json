@@ -1,0 +1,70 @@
+{
+  "aliases": [],
+  "brand": "philips",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:28:26.152Z",
+    "quote": "Color: Beige",
+    "sourceType": "official",
+    "sourceUrl": "https://www.hearingsolutions.philips.com/en-us/products/663067/hearlink-50-minirite",
+    "value": [
+      "Beige"
+    ]
+  },
+  "connectivity": {
+    "fetchedAt": "2026-11-27T19:28:26.152Z",
+    "quote": "HearLink 50 also features LE Audio for wider connectivity options and hands-free calls on more smart devices.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.hearingsolutions.philips.com/en-us/products/663067/hearlink-50-minirite",
+    "value": {
+      "leAudio": true
+    }
+  },
+  "documents": [],
+  "name": "HearLink 50",
+  "platform": {
+    "fetchedAt": "2026-11-27T19:31:16.600Z",
+    "quote": "Includes SoundMap 3 technology to deliver exceptional access to clean, clear speech.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.hearingsolutions.philips.com/en-us/products/723992/hearlink-50-iic",
+    "value": "SoundMap 3"
+  },
+  "sameHardwareAs": [],
+  "slug": "philips-hearlink-50",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "minirite",
+      "power": {
+        "fetchedAt": "2026-11-27T19:28:26.152Z",
+        "quote": "HearLink 50 is a rechargeable hearing aid",
+        "sourceType": "official",
+        "sourceUrl": "https://www.hearingsolutions.philips.com/en-us/products/663067/hearlink-50-minirite",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "BTE",
+      "id": "minibte-r",
+      "power": {
+        "fetchedAt": "2026-11-27T19:28:26.152Z",
+        "quote": "HearLink 60 and HearLink 50 miniRITE and miniBTE R hearing aids are rechargeable",
+        "sourceType": "official",
+        "sourceUrl": "https://www.hearingsolutions.philips.com/en-us/products/663067/hearlink-50-minirite",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "IIC",
+      "id": "iic"
+    },
+    {
+      "formFactor": "CIC",
+      "id": "cic"
+    }
+  ]
+}

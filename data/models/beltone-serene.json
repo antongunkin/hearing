@@ -1,0 +1,49 @@
+{
+  "aliases": [],
+  "brand": "beltone",
+  "connectivity": {
+    "fetchedAt": "2026-11-27T17:08:13.649Z",
+    "quote": "Beltone Serene™ is the first hearing aid to connect to Bluetooth LE Audio and Auracast.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.beltone.com/en-us/products/hearing-aids/beltone-serene",
+    "value": {
+      "auracast": true,
+      "leAudio": true
+    }
+  },
+  "documents": [],
+  "name": "Serene",
+  "sameHardwareAs": [],
+  "slug": "beltone-serene",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "rie"
+    },
+    {
+      "formFactor": "RIC",
+      "id": "microrie"
+    },
+    {
+      "formFactor": "CIC",
+      "id": "cic"
+    },
+    {
+      "formFactor": "ITE",
+      "id": "ite"
+    },
+    {
+      "formFactor": "ITC",
+      "id": "itc"
+    },
+    {
+      "formFactor": "BTE",
+      "id": "bte"
+    },
+    {
+      "formFactor": "BTE",
+      "id": "powerbte"
+    }
+  ]
+}

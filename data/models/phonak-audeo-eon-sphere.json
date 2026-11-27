@@ -1,0 +1,57 @@
+{
+  "aliases": [],
+  "brand": "phonak",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:32:02.837Z",
+    "quote": "Sienna Red",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-eon-sphere",
+    "value": [
+      "Sienna Red",
+      "Sand Beige",
+      "Sandalwood",
+      "Chestnut",
+      "Champagne",
+      "Silver Grey",
+      "Graphite Gray",
+      "Velvet Black"
+    ]
+  },
+  "connectivity": {
+    "fetchedAt": "2026-11-27T19:32:02.837Z",
+    "quote": "Access Auracast™ broadcast audio in supported public and shared spaces directly through your hearing aids",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-eon-sphere",
+    "value": {
+      "auracast": true
+    }
+  },
+  "documents": [],
+  "name": "Audéo EON Sphere",
+  "platform": {
+    "fetchedAt": "2026-11-27T19:32:02.837Z",
+    "quote": "It runs on the HYPERSONIC AI chip with exclusive Spheric Speech Clarity 3.0..",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-eon-sphere",
+    "value": "HYPERSONIC AI chip"
+  },
+  "sameHardwareAs": [],
+  "slug": "phonak-audeo-eon-sphere",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "audeo-eon-sphere",
+      "power": {
+        "fetchedAt": "2026-11-27T19:32:02.837Z",
+        "quote": "Recharge and go with up to 38 hours of battery life*",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-eon-sphere",
+        "value": {
+          "batteryHours": 38,
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

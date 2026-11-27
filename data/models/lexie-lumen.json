@@ -1,0 +1,31 @@
+{
+  "aliases": [],
+  "brand": "lexie",
+  "discontinued": {
+    "lastListed": "2024-12",
+    "source": {
+      "fetchedAt": "2026-11-27T19:59:03.695Z",
+      "quote": "Lexie Lumen",
+      "sourceType": "official",
+      "sourceUrl": "https://web.archive.org/web/20241209230724/https://lexiehearing.com/us",
+      "value": "Lumen"
+    }
+  },
+  "documents": [],
+  "name": "Lumen",
+  "releaseDate": {
+    "derivation": {
+      "input": "20201027025932",
+      "op": "earliest-archive-copy"
+    },
+    "fetchedAt": "2026-11-27T20:04:48.250Z",
+    "quote": "Lexie Lumen",
+    "sourceType": "derived",
+    "sourceUrl": "https://web.archive.org/web/20201027025932/https://lexiehearing.com/us/lexie-lumen-hearing-aid.html",
+    "value": "2020-10"
+  },
+  "sameHardwareAs": [],
+  "slug": "lexie-lumen",
+  "type": "otc",
+  "variants": []
+}

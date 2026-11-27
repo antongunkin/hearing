@@ -1,0 +1,46 @@
+{
+  "aliases": [],
+  "brand": "beltone",
+  "colors": {
+    "fetchedAt": "2026-11-27T17:08:02.919Z",
+    "quote": "Sand",
+    "sourceType": "official",
+    "sourceUrl": "https://www.beltone.com/en-us/products/hearing-aids/beltone-envision",
+    "value": [
+      "Sand"
+    ]
+  },
+  "connectivity": {
+    "fetchedAt": "2026-11-27T17:08:02.919Z",
+    "quote": "Beltone Envision hearing aids use Bluetooth Low Energy (LE) Audio for the clearest Bluetooth experience yet.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.beltone.com/en-us/products/hearing-aids/beltone-envision",
+    "value": {
+      "leAudio": true
+    }
+  },
+  "documents": [],
+  "name": "Envision",
+  "sameHardwareAs": [],
+  "slug": "beltone-envision",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "microrie",
+      "power": {
+        "fetchedAt": "2026-11-27T17:08:02.919Z",
+        "quote": "Rechargeable for All-Day Power",
+        "sourceType": "official",
+        "sourceUrl": "https://www.beltone.com/en-us/products/hearing-aids/beltone-envision",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "RIC",
+      "id": "rie"
+    }
+  ]
+}

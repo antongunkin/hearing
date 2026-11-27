@@ -1,0 +1,42 @@
+{
+  "aliases": [],
+  "brand": "mdhearing",
+  "documents": [],
+  "materials": {
+    "fetchedAt": "2026-11-27T17:24:03.690Z",
+    "quote": "It utilizes flexible silicone domes for a snug fit in your ear canal",
+    "sourceType": "official",
+    "sourceUrl": "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs/",
+    "value": [
+      "silicone"
+    ]
+  },
+  "name": "NEO XS",
+  "sameHardwareAs": [],
+  "slug": "mdhearing-neo-xs",
+  "type": "otc",
+  "variants": [
+    {
+      "formFactor": "CIC",
+      "id": "neo-xs",
+      "power": {
+        "fetchedAt": "2026-11-27T17:24:03.690Z",
+        "quote": "18 hours on a single charge",
+        "sourceType": "official",
+        "sourceUrl": "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs/",
+        "value": {
+          "batteryHours": 18,
+          "type": "rechargeable"
+        }
+      },
+      "priceUsd": {
+        "fetchedAt": "2026-11-27T17:24:03.690Z",
+        "quote": "$297 $247/pair",
+        "sourceType": "official",
+        "sourceUrl": "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs/",
+        "unit": "USD",
+        "value": 297
+      }
+    }
+  ]
+}

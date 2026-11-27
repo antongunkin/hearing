@@ -1,0 +1,36 @@
+{
+  "aliases": [],
+  "brand": "lexie",
+  "discontinued": {
+    "lastListed": "2024-12",
+    "source": {
+      "fetchedAt": "2026-11-27T19:59:03.695Z",
+      "quote": "NEW! The Lexie B2 Plus self-fitting OTC hearing aids Powered by Bose!",
+      "sourceType": "official",
+      "sourceUrl": "https://web.archive.org/web/20241209230724/https://lexiehearing.com/us",
+      "value": "B2"
+    }
+  },
+  "documents": [],
+  "name": "B2",
+  "releaseDate": {
+    "derivation": {
+      "input": "20221017192645",
+      "op": "earliest-archive-copy"
+    },
+    "fetchedAt": "2026-11-27T20:05:10.453Z",
+    "quote": "Lexie B2 Powered by Bose",
+    "sourceType": "derived",
+    "sourceUrl": "https://web.archive.org/web/20221017192645/https://lexiehearing.com/us/lexie-b2-powered-by-bose-hearing-aids",
+    "value": "2022-10"
+  },
+  "sameHardwareAs": [],
+  "slug": "lexie-b2",
+  "type": "otc",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "b2"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "aliases": [],
+  "brand": "resound",
+  "colors": {
+    "fetchedAt": "2026-11-27T17:45:41.977Z",
+    "quote": "ReSound Sensia comes in a wide range of colors to match your style.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-sensia",
+    "value": [
+      "Sparkling Silver",
+      "Sand",
+      "Gold",
+      "Bronze",
+      "Warm Grey",
+      "Graphite",
+      "Espresso",
+      "Deep Black",
+      "Navy Blue",
+      "Red",
+      "Anthracite",
+      "Light Beige",
+      "Beige",
+      "Medium Brown",
+      "Brown",
+      "Dark Brown"
+    ]
+  },
+  "connectivity": {
+    "fetchedAt": "2026-11-27T17:45:41.977Z",
+    "quote": "ReSound Sensia delivers the clearest streamed sound experience with Bluetooth Low Energy (LE) Audio and Auracast broadcast audio.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-sensia",
+    "value": {
+      "auracast": true,
+      "leAudio": true
+    }
+  },
+  "documents": [],
+  "name": "Sensia",
+  "sameHardwareAs": [],
+  "slug": "resound-sensia",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "microrie",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T17:45:41.977Z",
+        "quote": "ReSound Sensia is IP68-rated with protective nanocoating inside and out.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-sensia",
+        "value": "IP68"
+      }
+    },
+    {
+      "formFactor": "RIC",
+      "id": "rie",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T17:45:41.977Z",
+        "quote": "ReSound Sensia is IP68-rated with protective nanocoating inside and out.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-sensia",
+        "value": "IP68"
+      }
+    },
+    {
+      "formFactor": "ITE",
+      "id": "custom-ite",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T17:45:41.977Z",
+        "quote": "All IP68-rated, in a wide range of colors and technology levels.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-sensia",
+        "value": "IP68"
+      }
+    },
+    {
+      "formFactor": "ITC",
+      "id": "custom-itc",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T17:45:41.977Z",
+        "quote": "All IP68-rated, in a wide range of colors and technology levels.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-sensia",
+        "value": "IP68"
+      }
+    },
+    {
+      "formFactor": "CIC",
+      "id": "custom-cic",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T17:45:41.977Z",
+        "quote": "All IP68-rated, in a wide range of colors and technology levels.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-sensia",
+        "value": "IP68"
+      }
+    }
+  ]
+}

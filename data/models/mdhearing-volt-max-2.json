@@ -1,0 +1,34 @@
+{
+  "aliases": [],
+  "brand": "mdhearing",
+  "documents": [],
+  "name": "VOLT MAX 2",
+  "sameHardwareAs": [],
+  "slug": "mdhearing-volt-max-2",
+  "type": "otc",
+  "variants": [
+    {
+      "formFactor": "BTE",
+      "id": "volt-max-2",
+      "power": {
+        "fetchedAt": "2026-11-27T17:23:41.241Z",
+        "quote": "Charge overnight and enjoy up to 15 hours of reliable hearing without the hassle of replacing tiny batteries.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt-max/",
+        "value": {
+          "batteryHours": 15,
+          "chargingCase": true,
+          "type": "rechargeable"
+        }
+      },
+      "priceUsd": {
+        "fetchedAt": "2026-11-27T17:23:41.241Z",
+        "quote": "$597 $447/pair",
+        "sourceType": "official",
+        "sourceUrl": "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt-max/",
+        "unit": "USD",
+        "value": 597
+      }
+    }
+  ]
+}

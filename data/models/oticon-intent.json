@@ -1,0 +1,33 @@
+{
+  "aliases": [],
+  "brand": "oticon",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:26:27.385Z",
+    "quote": "Color: Chroma Beige",
+    "sourceType": "official",
+    "sourceUrl": "https://www.oticon.com/products/663063/oticon-intent-minirite",
+    "value": [
+      "Chroma Beige"
+    ]
+  },
+  "documents": [],
+  "name": "Intent",
+  "sameHardwareAs": [],
+  "slug": "oticon-intent",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "BTE",
+      "id": "minibte-r",
+      "power": {
+        "fetchedAt": "2026-11-27T19:26:37.870Z",
+        "quote": "discreet, rechargeable hearing aid",
+        "sourceType": "official",
+        "sourceUrl": "https://www.oticon.com/products/845499/oticon-intent-minibte-r",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "aliases": [],
+  "brand": "resound",
+  "colors": {
+    "fetchedAt": "2026-11-27T17:45:50.950Z",
+    "quote": "Choose from a variety of beautiful color options.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-enzo-ia",
+    "value": [
+      "Sparkling Silver",
+      "Sand",
+      "Gold",
+      "Bronze",
+      "Warm Gray",
+      "Graphite",
+      "Espresso",
+      "Deep Black",
+      "Navy Blue",
+      "Red"
+    ]
+  },
+  "connectivity": {
+    "fetchedAt": "2026-11-27T17:45:50.950Z",
+    "quote": "World's first Super Power made for Bluetooth® LE Audio and Auracast™",
+    "sourceType": "official",
+    "sourceUrl": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-enzo-ia",
+    "value": {
+      "auracast": true,
+      "leAudio": true
+    }
+  },
+  "documents": [],
+  "name": "Enzo IA",
+  "sameHardwareAs": [],
+  "slug": "resound-enzo-ia",
+  "type": "rx",
+  "variants": []
+}

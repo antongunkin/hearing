@@ -1,0 +1,22 @@
+{
+  "aliases": [],
+  "brand": "phonak",
+  "documents": [],
+  "name": "Lyric",
+  "platform": {
+    "fetchedAt": "2026-11-27T19:34:11.346Z",
+    "quote": "Our analogue chip offers ultra-low power consumption, which enables you to experience uninterrupted use for months at a time.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/lyric",
+    "value": "analogue chip"
+  },
+  "sameHardwareAs": [],
+  "slug": "phonak-lyric",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "IIC",
+      "id": "lyric"
+    }
+  ]
+}

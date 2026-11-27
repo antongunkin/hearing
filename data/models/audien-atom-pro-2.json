@@ -1,0 +1,40 @@
+{
+  "aliases": [],
+  "brand": "audien",
+  "documents": [],
+  "name": "Atom Pro 2",
+  "platform": {
+    "fetchedAt": "2026-11-27T17:00:53.727Z",
+    "quote": "All-new A2™ sound chip",
+    "sourceType": "official",
+    "sourceUrl": "https://audienhearing.com/products/atom-pro-2",
+    "value": "A2"
+  },
+  "sameHardwareAs": [],
+  "slug": "audien-atom-pro-2",
+  "type": "otc",
+  "variants": [
+    {
+      "formFactor": "ITE",
+      "id": "atom-pro-2",
+      "power": {
+        "fetchedAt": "2026-11-27T17:00:53.727Z",
+        "quote": "One pair + charging case",
+        "sourceType": "official",
+        "sourceUrl": "https://audienhearing.com/products/atom-pro-2",
+        "value": {
+          "chargingCase": true,
+          "type": "rechargeable"
+        }
+      },
+      "priceUsd": {
+        "fetchedAt": "2026-11-27T17:00:53.727Z",
+        "quote": "Hearing aids only — $289",
+        "sourceType": "official",
+        "sourceUrl": "https://audienhearing.com/products/atom-pro-2",
+        "unit": "USD",
+        "value": 289
+      }
+    }
+  ]
+}

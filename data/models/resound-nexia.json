@@ -1,0 +1,24 @@
+{
+  "aliases": [],
+  "brand": "resound",
+  "connectivity": {
+    "fetchedAt": "2026-11-27T17:45:47.952Z",
+    "quote": "Made for Auracast™.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-nexia",
+    "value": {
+      "auracast": true
+    }
+  },
+  "documents": [],
+  "name": "Nexia",
+  "sameHardwareAs": [],
+  "slug": "resound-nexia",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "BTE",
+      "id": "bte"
+    }
+  ]
+}

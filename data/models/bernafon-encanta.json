@@ -1,0 +1,33 @@
+{
+  "aliases": [],
+  "brand": "bernafon",
+  "connectivity": {
+    "fetchedAt": "2026-11-27T17:13:39.596Z",
+    "quote": "including with Android phones with new Bluetooth® LE Audio",
+    "sourceType": "official",
+    "sourceUrl": "https://www.bernafon.us/products/663068/encanta-minirite",
+    "value": {
+      "leAudio": true
+    }
+  },
+  "documents": [],
+  "name": "Encanta",
+  "sameHardwareAs": [],
+  "slug": "bernafon-encanta",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "minirite",
+      "power": {
+        "fetchedAt": "2026-11-27T17:13:39.596Z",
+        "quote": "Bernafon Encanta miniRITE is a sleek, rechargeable hearing aid",
+        "sourceType": "official",
+        "sourceUrl": "https://www.bernafon.us/products/663068/encanta-minirite",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

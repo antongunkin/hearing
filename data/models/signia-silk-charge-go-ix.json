@@ -1,0 +1,20 @@
+{
+  "aliases": [],
+  "brand": "signia",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:41:29.265Z",
+    "quote": "Available in two colors, mocha and black",
+    "sourceType": "official",
+    "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/silk-charge-go-ix/",
+    "value": [
+      "mocha",
+      "black"
+    ]
+  },
+  "documents": [],
+  "name": "Silk Charge&Go IX",
+  "sameHardwareAs": [],
+  "slug": "signia-silk-charge-go-ix",
+  "type": "rx",
+  "variants": []
+}

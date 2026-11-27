@@ -1,0 +1,87 @@
+{
+  "aliases": [],
+  "brand": "jabra-enhance",
+  "connectivity": {
+    "fetchedAt": "2026-11-27T20:20:29.097Z",
+    "quote": "The Select 700 features Bluetooth Low Energy Audio and Bluetooth Auracast™",
+    "sourceType": "official",
+    "sourceUrl": "https://web.archive.org/web/20260818041650/https://www.jabraenhance.com/product/enhanceselect700",
+    "value": {
+      "auracast": true,
+      "leAudio": true
+    }
+  },
+  "discontinued": {
+    "lastListed": "2025-11",
+    "source": {
+      "fetchedAt": "2026-11-27T20:16:54.309Z",
+      "quote": "Enhance Select 700",
+      "sourceType": "official",
+      "sourceUrl": "https://web.archive.org/web/20251119224549/https://www.jabraenhance.com/product",
+      "value": "Select 700"
+    }
+  },
+  "documents": [],
+  "name": "Select 700",
+  "platform": {
+    "fetchedAt": "2026-11-27T20:20:29.097Z",
+    "quote": "SoundScape™ technology combines advanced features to deliver next-level listening",
+    "sourceType": "official",
+    "sourceUrl": "https://web.archive.org/web/20260818041650/https://www.jabraenhance.com/product/enhanceselect700",
+    "value": "SoundScape™"
+  },
+  "releaseDate": {
+    "derivation": {
+      "input": "20250922113403",
+      "op": "earliest-archive-copy"
+    },
+    "fetchedAt": "2026-11-27T20:23:14.370Z",
+    "quote": "Hearing aids / Jabra Enhance Select 700",
+    "sourceType": "derived",
+    "sourceUrl": "https://web.archive.org/web/20250922113403/https://www.jabraenhance.com/product/enhanceselect700",
+    "value": "2025-09"
+  },
+  "sameHardwareAs": [],
+  "slug": "jabra-enhance-select-700",
+  "tinnitus": {
+    "fetchedAt": "2026-11-27T20:20:29.097Z",
+    "quote": "Free tinnitus sound generator app and tinnitus management resources",
+    "sourceType": "official",
+    "sourceUrl": "https://web.archive.org/web/20260818041650/https://www.jabraenhance.com/product/enhanceselect700",
+    "value": true
+  },
+  "type": "otc",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "select-700",
+      "power": {
+        "fetchedAt": "2026-11-27T20:20:29.097Z",
+        "quote": "3-hour charge 24-hour power",
+        "sourceType": "official",
+        "sourceUrl": "https://web.archive.org/web/20260818041650/https://www.jabraenhance.com/product/enhanceselect700",
+        "value": {
+          "batteryHours": 24,
+          "chargingCase": true,
+          "type": "rechargeable"
+        }
+      },
+      "priceUsd": {
+        "fetchedAt": "2026-11-27T20:20:29.097Z",
+        "quote": "$1,995 or as low as $65/mo* per pair",
+        "sourceType": "official",
+        "sourceUrl": "https://web.archive.org/web/20260818041650/https://www.jabraenhance.com/product/enhanceselect700",
+        "unit": "USD",
+        "value": 1995
+      },
+      "weightG": {
+        "fetchedAt": "2026-11-27T20:20:29.097Z",
+        "quote": "Weight: 2.12 grams",
+        "sourceType": "official",
+        "sourceUrl": "https://web.archive.org/web/20260818041650/https://www.jabraenhance.com/product/enhanceselect700",
+        "unit": "g",
+        "value": 2.12
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "aliases": [],
+  "brand": "phonak",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:36:11.672Z",
+    "quote": "Beige\nSand Beige\nChestnut\nChampagne\nSilver Gray\nGraphite Gray\nVelvet Black",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/cros-l",
+    "value": [
+      "Beige",
+      "Sand Beige",
+      "Chestnut",
+      "Champagne",
+      "Silver Gray",
+      "Graphite Gray",
+      "Velvet Black"
+    ]
+  },
+  "documents": [],
+  "name": "CROS Lumity",
+  "sameHardwareAs": [],
+  "slug": "phonak-cros-lumity",
+  "type": "rx",
+  "variants": []
+}

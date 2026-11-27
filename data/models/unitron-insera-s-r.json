@@ -1,0 +1,130 @@
+{
+  "aliases": [],
+  "brand": "unitron",
+  "documents": [
+    {
+      "fetchedAt": "2026-11-27T19:43:01.648Z",
+      "kind": "datasheet",
+      "title": "Technical data",
+      "url": "https://www.unitron.com/content/dam/celum/unitron/01_master-assets/documents/hearing-solutions/smile/insera/insera-s-r/data-sheets/uh-datasheet-insera-s-r-207x279-en.pdf.coredownload.pdf"
+    }
+  ],
+  "name": "Insera S-R",
+  "platform": {
+    "fetchedAt": "2026-11-27T18:11:42.053Z",
+    "quote": "More reasons to love the Smile platform: the industry-changing Insera™ S-R has arrived.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.unitron.com/en-us/hearing-solutions/hearing-aids/insera-s-r",
+    "value": "Smile"
+  },
+  "sameHardwareAs": [],
+  "slug": "unitron-insera-s-r",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "ITE",
+      "id": "s9",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T18:11:42.053Z",
+        "quote": "IP68-rated durability with proven wax protection",
+        "sourceType": "official",
+        "sourceUrl": "https://www.unitron.com/en-us/hearing-solutions/hearing-aids/insera-s-r",
+        "value": "IP68"
+      },
+      "power": {
+        "fetchedAt": "2026-11-27T18:11:42.053Z",
+        "quote": "fully featured custom rechargeable hearing aid",
+        "sourceType": "official",
+        "sourceUrl": "https://www.unitron.com/en-us/hearing-solutions/hearing-aids/insera-s-r",
+        "value": {
+          "type": "rechargeable"
+        }
+      },
+      "techLevel": "S9"
+    },
+    {
+      "formFactor": "ITE",
+      "id": "s7",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T18:11:42.053Z",
+        "quote": "IP68-rated durability with proven wax protection",
+        "sourceType": "official",
+        "sourceUrl": "https://www.unitron.com/en-us/hearing-solutions/hearing-aids/insera-s-r",
+        "value": "IP68"
+      },
+      "power": {
+        "fetchedAt": "2026-11-27T18:11:42.053Z",
+        "quote": "fully featured custom rechargeable hearing aid",
+        "sourceType": "official",
+        "sourceUrl": "https://www.unitron.com/en-us/hearing-solutions/hearing-aids/insera-s-r",
+        "value": {
+          "type": "rechargeable"
+        }
+      },
+      "techLevel": "S7"
+    },
+    {
+      "formFactor": "ITE",
+      "id": "s5",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T18:11:42.053Z",
+        "quote": "IP68-rated durability with proven wax protection",
+        "sourceType": "official",
+        "sourceUrl": "https://www.unitron.com/en-us/hearing-solutions/hearing-aids/insera-s-r",
+        "value": "IP68"
+      },
+      "power": {
+        "fetchedAt": "2026-11-27T18:11:42.053Z",
+        "quote": "fully featured custom rechargeable hearing aid",
+        "sourceType": "official",
+        "sourceUrl": "https://www.unitron.com/en-us/hearing-solutions/hearing-aids/insera-s-r",
+        "value": {
+          "type": "rechargeable"
+        }
+      },
+      "techLevel": "S5"
+    },
+    {
+      "formFactor": "ITE",
+      "id": "s3",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T18:11:42.053Z",
+        "quote": "IP68-rated durability with proven wax protection",
+        "sourceType": "official",
+        "sourceUrl": "https://www.unitron.com/en-us/hearing-solutions/hearing-aids/insera-s-r",
+        "value": "IP68"
+      },
+      "power": {
+        "fetchedAt": "2026-11-27T18:11:42.053Z",
+        "quote": "fully featured custom rechargeable hearing aid",
+        "sourceType": "official",
+        "sourceUrl": "https://www.unitron.com/en-us/hearing-solutions/hearing-aids/insera-s-r",
+        "value": {
+          "type": "rechargeable"
+        }
+      },
+      "techLevel": "S3"
+    },
+    {
+      "formFactor": "ITE",
+      "id": "s1",
+      "ipRating": {
+        "fetchedAt": "2026-11-27T18:11:42.053Z",
+        "quote": "IP68-rated durability with proven wax protection",
+        "sourceType": "official",
+        "sourceUrl": "https://www.unitron.com/en-us/hearing-solutions/hearing-aids/insera-s-r",
+        "value": "IP68"
+      },
+      "power": {
+        "fetchedAt": "2026-11-27T18:11:42.053Z",
+        "quote": "fully featured custom rechargeable hearing aid",
+        "sourceType": "official",
+        "sourceUrl": "https://www.unitron.com/en-us/hearing-solutions/hearing-aids/insera-s-r",
+        "value": {
+          "type": "rechargeable"
+        }
+      },
+      "techLevel": "S1"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "aliases": [],
+  "brand": "phonak",
+  "documents": [],
+  "name": "Naída Paradise",
+  "sameHardwareAs": [],
+  "slug": "phonak-naida-paradise",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "BTE",
+      "id": "naida-p-pr",
+      "power": {
+        "fetchedAt": "2026-11-27T19:36:50.013Z",
+        "quote": "If you recharge your Naída P-PR overnight, you can expect to enjoy 16 hours of hearing including 4 hours of Bluetooth® classic streaming and 4 hours of TV streaming.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/naida-paradise",
+        "value": {
+          "batteryHours": 16,
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "BTE",
+      "id": "naida-p-up",
+      "power": {
+        "fetchedAt": "2026-11-27T19:36:50.013Z",
+        "quote": "Replaceable 675 battery",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/naida-paradise",
+        "value": {
+          "type": "675"
+        }
+      }
+    }
+  ]
+}

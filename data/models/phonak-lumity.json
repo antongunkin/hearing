@@ -1,0 +1,24 @@
+{
+  "aliases": [],
+  "brand": "phonak",
+  "documents": [],
+  "name": "Lumity",
+  "sameHardwareAs": [],
+  "slug": "phonak-lumity",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "lumity",
+      "power": {
+        "fetchedAt": "2026-11-27T19:34:00.953Z",
+        "quote": "Fully rechargeable",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/lumity-hearing-aids",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

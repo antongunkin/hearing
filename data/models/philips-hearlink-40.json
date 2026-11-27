@@ -1,0 +1,55 @@
+{
+  "aliases": [],
+  "brand": "philips",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:28:56.286Z",
+    "quote": "Color: Grey, Dark Grey",
+    "sourceType": "official",
+    "sourceUrl": "https://www.hearingsolutions.philips.com/en-us/products/533052/hearlink-40-minirite-t-r",
+    "value": [
+      "Grey",
+      "Dark Grey"
+    ]
+  },
+  "documents": [],
+  "name": "HearLink 40",
+  "sameHardwareAs": [],
+  "slug": "philips-hearlink-40",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "minirite-t-r",
+      "power": {
+        "fetchedAt": "2026-11-27T19:28:56.286Z",
+        "quote": "HearLink miniRITE T R and miniBTE T R hearing aids are rechargeable so you can stay active and feel connected at home or on the move.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.hearingsolutions.philips.com/en-us/products/533052/hearlink-40-minirite-t-r",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "RIC",
+      "id": "minirite-t"
+    },
+    {
+      "formFactor": "BTE",
+      "id": "minibte-t-r",
+      "power": {
+        "fetchedAt": "2026-11-27T19:28:56.286Z",
+        "quote": "HearLink miniRITE T R and miniBTE T R hearing aids are rechargeable so you can stay active and feel connected at home or on the move.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.hearingsolutions.philips.com/en-us/products/533052/hearlink-40-minirite-t-r",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "BTE",
+      "id": "minibte-t"
+    }
+  ]
+}

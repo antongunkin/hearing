@@ -1,0 +1,25 @@
+{
+  "aliases": [],
+  "brand": "phonak",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:34:24.919Z",
+    "quote": "Color options to match your lifestyle",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-infinio",
+    "value": [
+      "Sand Beige",
+      "Sandalwood",
+      "Chestnut",
+      "Champagne",
+      "Silver grey",
+      "Graphite Gray",
+      "Velvet Black"
+    ]
+  },
+  "documents": [],
+  "name": "Audéo Infinio",
+  "sameHardwareAs": [],
+  "slug": "phonak-audeo-infinio",
+  "type": "rx",
+  "variants": []
+}

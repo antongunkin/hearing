@@ -1,0 +1,57 @@
+{
+  "aliases": [],
+  "brand": "phonak",
+  "documents": [],
+  "materials": {
+    "fetchedAt": "2026-11-27T19:35:21.448Z",
+    "quote": "Medical grade titanium",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/virto-infinio-nw",
+    "value": [
+      "Medical grade titanium"
+    ]
+  },
+  "name": "Virto Infinio",
+  "platform": {
+    "fetchedAt": "2026-11-27T19:35:21.448Z",
+    "quote": "Powered by the revolutionary technology of the Phonak Infinio platform, it delivers exceptional sound quality from the first use.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/virto-infinio-nw",
+    "value": "Infinio"
+  },
+  "sameHardwareAs": [],
+  "slug": "phonak-virto-infinio",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "ITE",
+      "id": "virto-r-infinio",
+      "power": {
+        "fetchedAt": "2026-11-27T19:35:21.448Z",
+        "quote": "Rechargeable",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/virto-infinio-nw",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "ITE",
+      "id": "virto-i-titanium"
+    },
+    {
+      "formFactor": "ITE",
+      "id": "virto-i-10-nw-o",
+      "power": {
+        "fetchedAt": "2026-11-27T19:35:21.448Z",
+        "quote": "ZnAir battery 10",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/virto-infinio-nw",
+        "value": {
+          "type": "10"
+        }
+      }
+    }
+  ]
+}

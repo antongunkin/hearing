@@ -1,0 +1,45 @@
+{
+  "aliases": [],
+  "brand": "resound",
+  "colors": {
+    "fetchedAt": "2026-11-27T17:45:44.776Z",
+    "quote": "Sound comes alive in a spectacular fashion with classic and contemporary colors, including new navy blue and red.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-vivia",
+    "value": [
+      "Sparkling Silver",
+      "Sand",
+      "Gold",
+      "Bronze",
+      "Warm Grey",
+      "Graphite",
+      "Espresso",
+      "Deep Black",
+      "Navy Blue",
+      "Red"
+    ]
+  },
+  "connectivity": {
+    "fetchedAt": "2026-11-27T17:45:44.776Z",
+    "quote": "ReSound Vivia seamlessly connects to both Bluetooth LE Audio and Auracast for future-proof connectivity.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-vivia",
+    "value": {
+      "auracast": true,
+      "leAudio": true
+    }
+  },
+  "documents": [],
+  "name": "Vivia",
+  "platform": {
+    "fetchedAt": "2026-11-27T17:45:44.776Z",
+    "quote": "The Deep Neural Network (DNN) chip in our hearing aids – trained with the sounds of real life",
+    "sourceType": "official",
+    "sourceUrl": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-vivia",
+    "value": "Deep Neural Network (DNN) chip"
+  },
+  "sameHardwareAs": [],
+  "slug": "resound-vivia",
+  "type": "rx",
+  "variants": []
+}

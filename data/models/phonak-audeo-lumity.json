@@ -1,0 +1,24 @@
+{
+  "aliases": [],
+  "brand": "phonak",
+  "documents": [],
+  "name": "Audéo Lumity",
+  "sameHardwareAs": [],
+  "slug": "phonak-audeo-lumity",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "l-312",
+      "techLevel": ""
+    },
+    {
+      "formFactor": "RIC",
+      "id": "l-r"
+    },
+    {
+      "formFactor": "RIC",
+      "id": "l-rt"
+    }
+  ]
+}

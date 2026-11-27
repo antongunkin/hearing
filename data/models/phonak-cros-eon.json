@@ -1,0 +1,26 @@
+{
+  "aliases": [],
+  "brand": "phonak",
+  "connectivity": {
+    "fetchedAt": "2026-11-27T19:33:11.720Z",
+    "quote": "CROS EON R with Audéo EON R supports Made for All Bluetooth streaming and Auracast broadcast audio.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/cros-eon",
+    "value": {
+      "auracast": true
+    }
+  },
+  "documents": [],
+  "name": "CROS EON",
+  "platform": {
+    "fetchedAt": "2026-11-27T19:33:11.720Z",
+    "quote": "Meet the Phonak EON family",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/cros-eon",
+    "value": "EON"
+  },
+  "sameHardwareAs": [],
+  "slug": "phonak-cros-eon",
+  "type": "rx",
+  "variants": []
+}

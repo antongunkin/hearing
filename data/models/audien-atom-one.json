@@ -1,0 +1,23 @@
+{
+  "aliases": [],
+  "brand": "audien",
+  "documents": [],
+  "name": "Atom ONE",
+  "sameHardwareAs": [],
+  "slug": "audien-atom-one",
+  "type": "otc",
+  "variants": [
+    {
+      "formFactor": "ITE",
+      "id": "atom-one",
+      "priceUsd": {
+        "fetchedAt": "2026-11-27T17:00:56.217Z",
+        "quote": "Hearing aids only — $98",
+        "sourceType": "official",
+        "sourceUrl": "https://audienhearing.com/products/audien-atom-one-hearing-aid",
+        "unit": "USD",
+        "value": 98
+      }
+    }
+  ]
+}

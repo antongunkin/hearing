@@ -1,0 +1,35 @@
+{
+  "aliases": [],
+  "brand": "beltone",
+  "connectivity": {
+    "fetchedAt": "2026-11-27T17:08:08.469Z",
+    "quote": "endless opportunities to connect with Bluetooth® Low Energy (LE) Audio and Auracast™ broadcast audio",
+    "sourceType": "official",
+    "sourceUrl": "https://www.beltone.com/en-us/products/hearing-aids/beltone-boost-max-s",
+    "value": {
+      "auracast": true,
+      "leAudio": true
+    }
+  },
+  "documents": [],
+  "name": "Boost Max S",
+  "sameHardwareAs": [],
+  "slug": "beltone-boost-max-s",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "BTE",
+      "id": "super-power-behind-the-ear-spbte",
+      "power": {
+        "fetchedAt": "2026-11-27T17:08:08.469Z",
+        "quote": "Beltone Boost Max S utilizes rechargeable hearing aids that give you up to 28 hours* of use on a single charge.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.beltone.com/en-us/products/hearing-aids/beltone-boost-max-s",
+        "value": {
+          "batteryHours": 28,
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

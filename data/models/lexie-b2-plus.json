@@ -1,0 +1,47 @@
+{
+  "aliases": [],
+  "brand": "lexie",
+  "connectivity": {
+    "fetchedAt": "2026-11-27T20:01:30.768Z",
+    "quote": "Before purchasing a Lexie hearing aid, please confirm your device is compatible with Audio Streaming for Hearing Aids (ASHA)",
+    "sourceType": "official",
+    "sourceUrl": "https://web.archive.org/web/20260521195638/https://lexiehearing.com/us/lexie-b2-plus-powered-by-bose-hearing-aids?",
+    "value": {
+      "asha": true
+    }
+  },
+  "discontinued": {
+    "lastListed": "2024-12",
+    "source": {
+      "fetchedAt": "2026-11-27T19:59:03.695Z",
+      "quote": "NEW! The Lexie B2 Plus self-fitting OTC hearing aids Powered by Bose!",
+      "sourceType": "official",
+      "sourceUrl": "https://web.archive.org/web/20241209230724/https://lexiehearing.com/us",
+      "value": "B2 Plus"
+    }
+  },
+  "documents": [],
+  "name": "B2 Plus",
+  "platform": {
+    "fetchedAt": "2026-11-27T20:01:30.768Z",
+    "quote": "Powered by Bose sound technology for more customization and control.",
+    "sourceType": "official",
+    "sourceUrl": "https://web.archive.org/web/20260521195638/https://lexiehearing.com/us/lexie-b2-plus-powered-by-bose-hearing-aids?",
+    "value": "Bose sound technology"
+  },
+  "releaseDate": {
+    "derivation": {
+      "input": "20240226163741",
+      "op": "earliest-archive-copy"
+    },
+    "fetchedAt": "2026-11-27T20:06:05.932Z",
+    "quote": "NEW! The Lexie B2 Plus self-fitting OTC hearing aids Powered by Bose!",
+    "sourceType": "derived",
+    "sourceUrl": "https://web.archive.org/web/20240226163741/https://lexiehearing.com/us/lexie-b2-plus-powered-by-bose-hearing-aids",
+    "value": "2024-02"
+  },
+  "sameHardwareAs": [],
+  "slug": "lexie-b2-plus",
+  "type": "otc",
+  "variants": []
+}

@@ -1,0 +1,52 @@
+{
+  "aliases": [],
+  "brand": "phonak",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:33:31.539Z",
+    "quote": "Choose your shine",
+    "sourceType": "official",
+    "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/naida-l",
+    "value": [
+      "Beige",
+      "Sand Beige",
+      "Chestnut",
+      "Silver Gray",
+      "Sandalwood",
+      "Champagne",
+      "Graphite Gray",
+      "Velvet Black"
+    ]
+  },
+  "documents": [],
+  "name": "Naída Lumity",
+  "sameHardwareAs": [],
+  "slug": "phonak-naida-lumity",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "BTE",
+      "id": "l-m"
+    },
+    {
+      "formFactor": "BTE",
+      "id": "l-up"
+    },
+    {
+      "formFactor": "BTE",
+      "id": "l-pr",
+      "power": {
+        "fetchedAt": "2026-11-27T19:33:31.539Z",
+        "quote": "Rechargeable",
+        "sourceType": "official",
+        "sourceUrl": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/naida-l",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "BTE",
+      "id": "l-sp"
+    }
+  ]
+}

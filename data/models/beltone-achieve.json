@@ -1,0 +1,62 @@
+{
+  "aliases": [],
+  "brand": "beltone",
+  "documents": [],
+  "name": "Achieve",
+  "sameHardwareAs": [],
+  "slug": "beltone-achieve",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "minirie"
+    },
+    {
+      "formFactor": "RIC",
+      "id": "rie"
+    },
+    {
+      "formFactor": "CIC",
+      "id": "cic"
+    },
+    {
+      "formFactor": "ITE",
+      "id": "ite",
+      "power": {
+        "fetchedAt": "2026-11-27T17:08:16.787Z",
+        "quote": "Rechargeable batteries",
+        "sourceType": "official",
+        "sourceUrl": "https://www.beltone.com/en-us/products/hearing-aids/beltone-achieve",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "ITC",
+      "id": "itc",
+      "power": {
+        "fetchedAt": "2026-11-27T17:08:16.787Z",
+        "quote": "Rechargeable batteries",
+        "sourceType": "official",
+        "sourceUrl": "https://www.beltone.com/en-us/products/hearing-aids/beltone-achieve",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "BTE",
+      "id": "bte",
+      "power": {
+        "fetchedAt": "2026-11-27T17:08:16.787Z",
+        "quote": "Rechargeable",
+        "sourceType": "official",
+        "sourceUrl": "https://www.beltone.com/en-us/products/hearing-aids/beltone-achieve",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

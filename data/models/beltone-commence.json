@@ -1,0 +1,45 @@
+{
+  "aliases": [],
+  "brand": "beltone",
+  "colors": {
+    "fetchedAt": "2026-11-27T17:08:05.901Z",
+    "quote": "miniRIE - Sand (Shimmering)",
+    "sourceType": "official",
+    "sourceUrl": "https://www.beltone.com/en-us/products/hearing-aids/beltone-commence",
+    "value": [
+      "Sand (Shimmering)"
+    ]
+  },
+  "documents": [],
+  "name": "Commence",
+  "sameHardwareAs": [],
+  "slug": "beltone-commence",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "minirie",
+      "power": {
+        "fetchedAt": "2026-11-27T17:08:05.901Z",
+        "quote": "Rechargeable battery",
+        "sourceType": "official",
+        "sourceUrl": "https://www.beltone.com/en-us/products/hearing-aids/beltone-commence",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    },
+    {
+      "formFactor": "RIC",
+      "id": "rie"
+    },
+    {
+      "formFactor": "ITC",
+      "id": "itc"
+    },
+    {
+      "formFactor": "CIC",
+      "id": "cic"
+    }
+  ]
+}

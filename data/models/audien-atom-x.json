@@ -1,0 +1,26 @@
+{
+  "aliases": [],
+  "brand": "audien",
+  "documents": [],
+  "name": "Atom X",
+  "platform": {
+    "fetchedAt": "2026-11-27T17:00:44.133Z",
+    "quote": "developed the A2™ Max processing",
+    "sourceType": "official",
+    "sourceUrl": "https://audienhearing.com/products/the-audien-atom-x-otc-hearing-aid",
+    "value": "A2™ Max"
+  },
+  "sameHardwareAs": [],
+  "slug": "audien-atom-x",
+  "type": "otc",
+  "variants": [
+    {
+      "formFactor": "ITE",
+      "id": "atom-x-2nd-gen"
+    },
+    {
+      "formFactor": "ITE",
+      "id": "atom-x-connect"
+    }
+  ]
+}

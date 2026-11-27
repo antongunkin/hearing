@@ -1,0 +1,40 @@
+{
+  "aliases": [],
+  "brand": "jabra-enhance",
+  "colors": {
+    "fetchedAt": "2026-11-27T20:18:20.267Z",
+    "quote": "Color: Gray",
+    "sourceType": "official",
+    "sourceUrl": "https://web.archive.org/web/20240118005920/https://www.jabraenhance.com/product/enhanceselect50",
+    "value": [
+      "Gray"
+    ]
+  },
+  "discontinued": {
+    "lastListed": "2025-11",
+    "source": {
+      "fetchedAt": "2026-11-27T20:16:54.309Z",
+      "quote": "Enhance Select 700",
+      "sourceType": "official",
+      "sourceUrl": "https://web.archive.org/web/20251119224549/https://www.jabraenhance.com/product",
+      "value": "Enhance Select"
+    }
+  },
+  "documents": [],
+  "name": "Enhance Select",
+  "releaseDate": {
+    "derivation": {
+      "input": "20221127042728",
+      "op": "earliest-archive-copy"
+    },
+    "fetchedAt": "2026-11-27T20:21:55.841Z",
+    "quote": "Enhance Select 50",
+    "sourceType": "derived",
+    "sourceUrl": "https://web.archive.org/web/20221127042728/https://www.jabraenhance.com/product/enhanceselect50",
+    "value": "2022-11"
+  },
+  "sameHardwareAs": [],
+  "slug": "jabra-enhance-enhance-select",
+  "type": "otc",
+  "variants": []
+}

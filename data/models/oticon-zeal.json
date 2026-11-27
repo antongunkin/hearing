@@ -1,0 +1,43 @@
+{
+  "aliases": [],
+  "brand": "oticon",
+  "colors": {
+    "fetchedAt": "2026-11-27T19:27:38.608Z",
+    "quote": "Color: , Matte Black",
+    "sourceType": "official",
+    "sourceUrl": "https://www.oticon.com/products/832165/oticon-zeal-nxt-in-the-ear",
+    "value": [
+      "Matte Black"
+    ]
+  },
+  "connectivity": {
+    "fetchedAt": "2026-11-27T19:27:38.608Z",
+    "quote": "Oticon Zeal also features Bluetooth® LE Audio technology for high-quality streaming, hands-free calls, and receiving Auracast™ broadcasts.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.oticon.com/products/832165/oticon-zeal-nxt-in-the-ear",
+    "value": {
+      "auracast": true,
+      "leAudio": true
+    }
+  },
+  "documents": [],
+  "name": "Zeal",
+  "sameHardwareAs": [],
+  "slug": "oticon-zeal",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "ITE",
+      "id": "nxt-in-the-ear",
+      "power": {
+        "fetchedAt": "2026-11-27T19:27:38.608Z",
+        "quote": "Oticon Zeal is a discreet and rechargeable in-the-ear hearing aid.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.oticon.com/products/832165/oticon-zeal-nxt-in-the-ear",
+        "value": {
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

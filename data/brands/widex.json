@@ -4,9 +4,17 @@
   "imageLicense": "none",
   "name": "Widex",
   "scraper": {
-    "catalogUrls": ["https://www.widex.com/en-us/hearing-aids/"],
+    "catalogUrls": [
+      "https://www.widex.com/en-us/hearing-aids/"
+    ],
     "modelUrlPattern": "^https://www\\.widex\\.com/en-us/hearing-aids/(?:allure/[a-z0-9-]+|smartric)/$",
-    "render": false
+    "render": false,
+    "supportUrls": [
+      "https://www.widex.com/en-us/support/",
+      "https://www.widex.com/en-us/support/document-library/",
+      "https://www.widex.com/en-us/support/support-for-moment-hearing-aids/",
+      "https://www.widex.com/en-us/support/accessories/"
+    ]
   },
   "slug": "widex",
   "status": "active",

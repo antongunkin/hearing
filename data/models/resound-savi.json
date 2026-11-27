@@ -1,0 +1,48 @@
+{
+  "aliases": [],
+  "brand": "resound",
+  "colors": {
+    "fetchedAt": "2026-11-27T17:46:20.628Z",
+    "quote": "Sparkling Silver",
+    "sourceType": "official",
+    "sourceUrl": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-savi",
+    "value": [
+      "Sparkling Silver",
+      "Sand",
+      "Bronze",
+      "Espresso",
+      "Deep Black",
+      "Anthracite",
+      "Light Beige",
+      "Beige",
+      "Medium Brown",
+      "Brown",
+      "Dark Brown"
+    ]
+  },
+  "connectivity": {
+    "fetchedAt": "2026-11-27T17:46:20.628Z",
+    "quote": "ReSound Savi is the world’s first hearing aid of its kind to connect to both Bluetooth Low Energy (LE) Audio and Auracast™ broadcast audio.",
+    "sourceType": "official",
+    "sourceUrl": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-savi",
+    "value": {
+      "auracast": true,
+      "leAudio": true
+    }
+  },
+  "documents": [],
+  "name": "Savi",
+  "sameHardwareAs": [],
+  "slug": "resound-savi",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "ITC",
+      "id": "itc"
+    },
+    {
+      "formFactor": "CIC",
+      "id": "cic"
+    }
+  ]
+}
