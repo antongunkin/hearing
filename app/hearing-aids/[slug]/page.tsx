@@ -12,10 +12,12 @@ import { SourceNote } from '@/src/components/SourceNote'
 import { SpecTable } from '@/src/components/SpecTable'
 import { YouTubeEmbed } from '@/src/components/YouTubeEmbed'
 import { loadDataset } from '@/src/lib/data/load'
-import type { Model } from '@/src/lib/schema/model'
+import { buildCatalogIndex } from '@/src/lib/site/catalog-index'
 import { TYPE_LABELS } from '@/src/lib/site/format'
 import { productJsonLd } from '@/src/lib/site/jsonld'
+import { competitorsOf, pairSlug } from '@/src/lib/site/pairs'
 import { pressImage } from '@/src/lib/site/press-image'
+import { brandOf, productName } from '@/src/lib/site/product'
 import { specColumns, specRows } from '@/src/lib/site/spec-rows'
 import { canonical } from '@/src/lib/site/url'
 
@@ -35,13 +37,7 @@ async function find(slug: string) {
   const data = await dataset()
   const model = data.models.find((m) => m.slug === slug)
   if (!model) notFound()
-  const brandOf = (of: Model) => {
-    const brand = data.brands.find((b) => b.slug === of.brand)
-    if (!brand) throw new Error(`model ${of.slug} names an unknown brand: ${of.brand}`)
-    return brand
-  }
-  const brand = brandOf(model)
-  return { data, model, brand, brandOf, product: `${brand.name} ${model.name}` }
+  return { data, model, brand: brandOf(model, data.brands), product: productName(model, data.brands) }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -56,12 +52,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ModelPage({ params }: Props) {
   const { slug } = await params
-  const { data, model, brand, brandOf, product } = await find(slug)
+  const { data, model, brand, product } = await find(slug)
   const reviews = data.reviews.find((r) => r.slug === slug)
   const image = await pressImage(slug, brand)
   const styles = [...new Set(model.variants.map((variant) => variant.formFactor))]
-  // The closest competitors are chosen by the comparison pages, which are not built yet.
-  const competitors: Model[] = []
+  const competitors = competitorsOf(slug, buildCatalogIndex(data.models)).map((other) => ({
+    pair: pairSlug(slug, other),
+    name: productName(data.models.find((m) => m.slug === other)!, data.brands),
+  }))
 
   return (
     <main className="page">
@@ -142,7 +140,7 @@ export default async function ModelPage({ params }: Props) {
                 <li key={twin.slug}>
                   {other ? (
                     <Link href={`/hearing-aids/${other.slug}`}>
-                      {brandOf(other).name} {other.name}
+                      {productName(other, data.brands)}
                     </Link>
                   ) : (
                     twin.source.value
@@ -159,10 +157,10 @@ export default async function ModelPage({ params }: Props) {
         <section aria-labelledby="competitors-heading">
           <h2 id="competitors-heading">Closest competitors</h2>
           <ul>
-            {competitors.map((other) => (
-              <li key={other.slug}>
-                <Link href={`/hearing-aids/${other.slug}`}>
-                  {brandOf(other).name} {other.name}
+            {competitors.map(({ pair, name }) => (
+              <li key={pair}>
+                <Link href={`/compare/${pair}`} prefetch={false}>
+                  {product} vs {name}
                 </Link>
               </li>
             ))}

@@ -1,10 +1,11 @@
 import { z } from 'zod'
+import { SLUG_PATTERN } from './slug-pattern'
 
 // http(s) only: these URLs come from scraped pages and end up as links on the site.
 export const HttpUrl = z.url({ protocol: /^https?$/ })
 export const IsoDateTime = z.iso.datetime()
 // Slugs and ids become file names and URL segments.
-export const Slug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
+export const Slug = z.string().regex(SLUG_PATTERN)
 
 export const SourceType = z.enum(['official', 'third-party', 'derived'])
 export type SourceType = z.infer<typeof SourceType>

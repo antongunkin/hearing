@@ -169,6 +169,24 @@ main {
   width: 14rem;
 }
 
+/* Product names head these columns: they wrap, and on a phone the columns narrow, so that two fit. */
+.compare-table thead th {
+  white-space: normal;
+}
+@media (max-width: 40rem) {
+  .compare-table .data-table th,
+  .compare-table .data-table td {
+    padding-inline: 0.4rem;
+  }
+  .compare-table .data-table tr > :first-child {
+    width: 6.5rem;
+    min-width: 6.5rem;
+  }
+  .compare-table .data-table td {
+    min-width: 6rem;
+  }
+}
+
 /* Sources */
 .source {
   margin-left: 0.4rem;
@@ -223,6 +241,19 @@ main {
   width: 7rem;
   padding: 0.25rem 0.5rem;
   font: inherit;
+  border: 1px solid #7b8796;
+  border-radius: 4px;
+}
+.filters .pick {
+  flex-direction: column;
+  align-items: stretch;
+  font-weight: 700;
+}
+.filters select {
+  min-width: 0;
+  padding: 0.4rem 0.5rem;
+  font: inherit;
+  font-weight: 400;
   border: 1px solid #7b8796;
   border-radius: 4px;
 }

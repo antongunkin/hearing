@@ -1,15 +1,22 @@
 // Ratings per shop and complaint themes with their shares. Never review text, never an average across shops.
+import { useId } from 'react'
 import type { Reviews } from '@/src/lib/schema/reviews'
 import { formatDate, formatNumber, hostname } from '@/src/lib/site/format'
 
 /** `sound-quality` → `Sound quality`. */
 const themeLabel = (theme: string) => (theme.charAt(0).toUpperCase() + theme.slice(1)).replaceAll('-', ' ')
 
-export function ReviewSummary({ customer, complaintThemes }: Pick<Reviews, 'customer' | 'complaintThemes'>) {
+type Props = Pick<Reviews, 'customer' | 'complaintThemes'> & {
+  /** Whose reviews, for a page that shows more than one product. */
+  product?: string
+}
+
+export function ReviewSummary({ customer, complaintThemes, product }: Props) {
+  const heading = useId()
   if (customer.length === 0 && complaintThemes.length === 0) return null
   return (
-    <section aria-labelledby="reviews-heading">
-      <h2 id="reviews-heading">Customer reviews</h2>
+    <section aria-labelledby={heading}>
+      <h2 id={heading}>{product ? `Customer reviews: ${product}` : 'Customer reviews'}</h2>
       {customer.length > 0 && (
         <div className="table-scroll" role="region" aria-label="Ratings by source" tabIndex={0}>
           <table className="data-table">

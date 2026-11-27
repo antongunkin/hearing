@@ -1,3 +1,4 @@
+import { useId } from 'react'
 import type { Reviews } from '@/src/lib/schema/reviews'
 import { hostname } from '@/src/lib/site/format'
 
@@ -26,11 +27,13 @@ function PointList({ title, points }: { title: string; points: Points }) {
   )
 }
 
-export function ProsCons({ prosCons }: { prosCons: Reviews['prosCons'] }) {
+/** `product` names whose points these are, for a page that shows more than one product. */
+export function ProsCons({ prosCons, product }: { prosCons: Reviews['prosCons']; product?: string }) {
+  const heading = useId()
   if (!prosCons || prosCons.pros.length + prosCons.cons.length === 0) return null
   return (
-    <section aria-labelledby="pros-cons-heading">
-      <h2 id="pros-cons-heading">Pros and cons</h2>
+    <section aria-labelledby={heading}>
+      <h2 id={heading}>{product ? `Pros and cons: ${product}` : 'Pros and cons'}</h2>
       <p className="note">Based on published reviews and customer feedback</p>
       <div className="pros-cons">
         <PointList title="Pros" points={prosCons.pros} />
