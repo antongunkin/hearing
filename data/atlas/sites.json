@@ -1,0 +1,220 @@
+[
+  {
+    "domain": "apple.com",
+    "start": "https://www.apple.com/airpods-pro/",
+    "kind": "brand",
+    "mode": "live",
+    "brands": [
+      "apple"
+    ],
+    "include": "^https://www\\.apple\\.com/airpods-pro/"
+  },
+  {
+    "domain": "audienhearing.com",
+    "start": "https://audienhearing.com",
+    "kind": "brand",
+    "mode": "live",
+    "brands": [
+      "audien"
+    ]
+  },
+  {
+    "domain": "beltone.com",
+    "start": "https://www.beltone.com/en-us",
+    "kind": "brand",
+    "mode": "live",
+    "brands": [
+      "beltone"
+    ]
+  },
+  {
+    "domain": "bernafon.us",
+    "start": "https://www.bernafon.us",
+    "kind": "brand",
+    "mode": "live",
+    "brands": [
+      "bernafon"
+    ]
+  },
+  {
+    "domain": "jabraenhance.com",
+    "start": "https://www.jabraenhance.com",
+    "kind": "brand",
+    "mode": "live",
+    "brands": [
+      "jabra-enhance"
+    ]
+  },
+  {
+    "domain": "costco.com",
+    "start": "https://www.costco.com/hearing-aid-center.html",
+    "kind": "brand",
+    "mode": "live",
+    "brands": [
+      "kirkland-signature"
+    ],
+    "include": "hearing-aid"
+  },
+  {
+    "domain": "mdhearingaid.com",
+    "start": "https://www.mdhearingaid.com",
+    "kind": "brand",
+    "mode": "live",
+    "brands": [
+      "mdhearing"
+    ]
+  },
+  {
+    "domain": "oticon.com",
+    "start": "https://www.oticon.com",
+    "kind": "brand",
+    "mode": "live",
+    "brands": [
+      "oticon"
+    ]
+  },
+  {
+    "domain": "hearingsolutions.philips.com",
+    "start": "https://www.hearingsolutions.philips.com/en-us",
+    "kind": "brand",
+    "mode": "live",
+    "brands": [
+      "philips"
+    ]
+  },
+  {
+    "domain": "phonak.com",
+    "start": "https://www.phonak.com/en-us",
+    "kind": "brand",
+    "mode": "live",
+    "brands": [
+      "phonak"
+    ]
+  },
+  {
+    "domain": "resound.com",
+    "start": "https://www.resound.com/en-us",
+    "kind": "brand",
+    "mode": "live",
+    "brands": [
+      "resound"
+    ]
+  },
+  {
+    "domain": "rexton.com",
+    "start": "https://www.rexton.com/en-us",
+    "kind": "brand",
+    "mode": "live",
+    "brands": [
+      "rexton"
+    ]
+  },
+  {
+    "domain": "us.sennheiser-hearing.com",
+    "start": "https://us.sennheiser-hearing.com",
+    "kind": "brand",
+    "mode": "live",
+    "brands": [
+      "sennheiser"
+    ]
+  },
+  {
+    "domain": "signia.net",
+    "start": "https://www.signia.net/en-us",
+    "kind": "brand",
+    "mode": "live",
+    "brands": [
+      "signia"
+    ]
+  },
+  {
+    "domain": "starkey.com",
+    "start": "https://www.starkey.com",
+    "kind": "brand",
+    "mode": "live",
+    "brands": [
+      "starkey"
+    ]
+  },
+  {
+    "domain": "unitron.com",
+    "start": "https://www.unitron.com/en-us",
+    "kind": "brand",
+    "mode": "live",
+    "brands": [
+      "unitron"
+    ]
+  },
+  {
+    "domain": "widex.com",
+    "start": "https://www.widex.com/en-us",
+    "kind": "brand",
+    "mode": "live",
+    "brands": [
+      "widex"
+    ]
+  },
+  {
+    "domain": "sonova.com",
+    "start": "https://www.sonova.com",
+    "kind": "group",
+    "mode": "live",
+    "brands": [],
+    "company": "Sonova"
+  },
+  {
+    "domain": "demant.com",
+    "start": "https://www.demant.com",
+    "kind": "group",
+    "mode": "live",
+    "brands": [],
+    "company": "Demant"
+  },
+  {
+    "domain": "wsa.com",
+    "start": "https://www.wsa.com",
+    "kind": "group",
+    "mode": "live",
+    "brands": [],
+    "company": "WS Audiology"
+  },
+  {
+    "domain": "gn.com",
+    "start": "https://www.gn.com",
+    "kind": "group",
+    "mode": "live",
+    "brands": [],
+    "company": "GN"
+  },
+  {
+    "domain": "eargo.com",
+    "start": "https://www.eargo.com",
+    "kind": "brand",
+    "mode": "archive",
+    "brands": [
+      "eargo"
+    ]
+  },
+  {
+    "domain": "lexiehearing.com",
+    "start": "https://lexiehearing.com/us",
+    "kind": "brand",
+    "mode": "archive",
+    "brands": [
+      "lexie"
+    ]
+  },
+  {
+    "domain": "livelyhearing.com",
+    "start": "https://www.livelyhearing.com",
+    "kind": "brand",
+    "mode": "archive",
+    "brands": [],
+    "newBrand": {
+      "slug": "lively",
+      "name": "Lively",
+      "group": "GN",
+      "defaultType": "otc"
+    }
+  }
+]

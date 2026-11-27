@@ -13,7 +13,10 @@
     "apps": "tsx pipeline/cli.ts apps",
     "reviews": "tsx pipeline/cli.ts reviews",
     "youtube": "tsx pipeline/cli.ts youtube",
-    "pairs": "tsx pipeline/cli.ts pairs"
+    "pairs": "tsx pipeline/cli.ts pairs",
+    "atlas:crawl": "tsx pipeline/atlas/cli.ts crawl",
+    "atlas:describe": "tsx pipeline/atlas/cli.ts describe",
+    "atlas:relations": "tsx pipeline/atlas/cli.ts relations"
   },
   "dependencies": {
     "@google/genai": "^3.6.1",
