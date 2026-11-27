@@ -93,3 +93,25 @@ Summary: 5 REJECT (bernafon, eargo, resound, rexton, sennheiser) and 9 APPROVE-W
 ## unitron: APPROVE-WITH-NOTE
 - The catalog and pattern are unchanged (`insera-s-r`, `moxi-s-rx`). `documentUrlPattern` `^https://www\.unitron\.com/content/dam/.+\.pdf(\.coredownload\.pdf)?$` matches all 78 PDFs, all on unitron.com. `/professionals/hearing-aid-resources` links 23 datasheets, for example `uh-datasheet-moxi-s-rx-….pdf.coredownload.pdf`.
 - Note: the user-guide subpages are picked inconsistently. `/support/user-guides/blu` (an older platform, not crawled) is included, while `/smile`, `/vivante` and `/previous-platforms` in the report are not. `/support/user-guides/accessories` is flagged needsRender, although its 2 PDFs were read without render.
+
+## Second round: gone brands (2026-11-27)
+
+Cards `industry-brands-eargo` and `industry-brands-lexie` were checked against the same report, schema and rule 6. `applyDecision` can edit only a `new-model` card (`skipPaths`), so a `brand-config` card cannot be approved with corrections. Both were rejected through `applyDecision`, and their fingerprints are in `data/rejections.json`. The corrected configs below pass the `Brand` schema and were run over every URL in the reports.
+
+### eargo: REJECT (second time)
+- `archive.catalogUrls` is again a Web Archive URL (`web/20260417045936id_/…/products-hearing-aids/`). `ownHosts` would then include `web.archive.org`.
+- `modelUrlPattern` is unchanged and still matches no URL in the report. No `archive.modelUrlPattern` and no document pattern were given.
+- Proposed instead:
+  - `archive.catalogUrls`: `https://www.eargo.com/`, `https://shop.eargo.com/store`, `https://www.eargo.com/products-hearing-aids`. The home copies from 2018 to 2024 link the shop model pages. `/store` is linked from the 2018 copy. The catalog copy is from 2026-04-17.
+  - `modelUrlPattern` (in `scraper` and `archive`): `^https?://(?:shop\.eargo\.com/eargo-[a-z0-9-]+|(?:www\.)?eargo\.com/guides/(?:eargo-[a-z0-9-]+|link-by-eargo))/?$`. It matches 11 URLs: the 7 `shop.eargo.com/eargo-*` pages and the 4 guides pages. It does not match `/eargo-difference`, `/eargo-101`, the blog or the legal pages.
+  - No `documentUrlPattern`. The only PDF host in the report is `d9jpa82qnx9c8.cloudfront.net`, which is not a brand host, and the archive's PDF lookup searches only `eargo.com`.
+
+### lexie: REJECT
+- All three `archive.catalogUrls` are Web Archive URLs, so `web.archive.org` would be an own host.
+- `modelUrlPattern` `…/us/(?:products|hearing-aids)/…` matches no URL in the report. The real model pages are `/us/lexie-*-hearing-aid(s)`.
+- `documentUrlPattern` matches the 4 `www.lexiehearing.com/documents/…pdf` files. Archive originals can lack `www.` or use http, so the pattern should allow both.
+- Proposed instead:
+  - `archive.catalogUrls`: `https://lexiehearing.com/us` (copies from 2021 to 2026).
+  - `modelUrlPattern` (in `scraper` and `archive`): `^https?://(?:www\.)?lexiehearing\.com/us/lexie-[a-z0-9-]+-hearing-aids?(?:\.html)?$`. It matches the B1, B2, B2 Plus and Lumen pages, but not `/us/accessories/…`, `support-lexie-*`, `lexie-privacy-policy` or `lexie-rewards`.
+  - `documentUrlPattern`: `^https?://(?:www\.)?lexiehearing\.com/documents/.+\.pdf$`. The `supportUrls` from the card stay as they are.
+  - The 2025 and 2026 home copies have no links, so B3 and H1 model pages are not reached from the catalog.
