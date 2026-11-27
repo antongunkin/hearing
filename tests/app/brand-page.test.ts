@@ -20,7 +20,7 @@ const brand = (slug: string) => ({
 
 test('a brand page with no models is not indexed; one with models is', async () => {
   const model = Model.parse({ slug: 'full-one', brand: 'full', name: 'One', aliases: [], type: 'rx', sameHardwareAs: [], variants: [] })
-  data.value = { brands: [brand('full'), brand('empty')], models: [model], reviews: [], events: [], pending: [], rejections: [], blocklist: [], comparePairs: [] }
+  data.value = { brands: [brand('full'), brand('empty')], models: [model], reviews: [], events: [], pending: [], rejections: [], blocklist: [], comparePairs: [], graph: { entities: [], edges: [] } }
   const metadata = (slug: string) => generateMetadata({ params: Promise.resolve({ brand: slug }) })
 
   expect((await metadata('empty')).robots).toEqual({ index: false, follow: true })

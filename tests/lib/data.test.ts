@@ -49,6 +49,8 @@ describe('loadDataset', () => {
     await put('rejections.json', ['abc'])
     await put('blocklist.json', ['example.com'])
     await put('compare-pairs.json', ['phonak-x-vs-phonak-y'])
+    await put('graph/entities.json', [{ id: 'brand:phonak', kind: 'brand', name: 'Phonak' }])
+    await put('graph/edges.json', [])
 
     expect(await loadDataset(dir)).toEqual({
       brands: [brand],
@@ -59,13 +61,25 @@ describe('loadDataset', () => {
       rejections: ['abc'],
       blocklist: ['example.com'],
       comparePairs: ['phonak-x-vs-phonak-y'],
+      graph: { entities: [{ id: 'brand:phonak', kind: 'brand', name: 'Phonak' }], edges: [] },
     })
   })
 
   test('treats missing record directories as empty', async () => {
     expect(await loadDataset(dir)).toEqual({
       brands: [], models: [], reviews: [], events: [], pending: [], rejections: [], blocklist: [], comparePairs: [],
+      graph: { entities: [], edges: [] },
     })
+  })
+
+  test('refuses a graph edge to an entity that is not in the graph', async () => {
+    await put('graph/entities.json', [])
+    await put('graph/edges.json', [{
+      from: 'company:gn-store-nord', to: 'brand:phonak', kind: 'owns', visibility: 'internal', status: 'proposed',
+      sources: [{ url: 'https://www.gnhearing.com/about', fetchedAt: '2026-11-26T10:00:00Z', kind: 'company-page' }],
+    }])
+
+    await expect(loadDataset(dir)).rejects.toThrow('unknown entity brand:phonak')
   })
 
   test.each(['blocklist.json', 'rejections.json'])('fails when %s is missing', async (list) => {

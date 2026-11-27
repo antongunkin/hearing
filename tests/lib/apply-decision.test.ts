@@ -66,6 +66,7 @@ const dataset = (items: PendingChange[], extra: Partial<Dataset> = {}): Dataset 
   rejections: [],
   blocklist: [],
   comparePairs: [],
+  graph: { entities: [], edges: [] },
   ...extra,
 })
 

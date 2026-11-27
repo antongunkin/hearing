@@ -3,6 +3,7 @@ import { basename, join } from 'node:path'
 import { z } from 'zod'
 import { Brand } from '../schema/brand'
 import { ComparePairs } from '../schema/compare-pairs'
+import { Edge, Entity, Graph } from '../schema/graph'
 import { Event } from '../schema/event'
 import { Model } from '../schema/model'
 import { PendingChange } from '../schema/pending'
@@ -18,6 +19,8 @@ export type Dataset = {
   blocklist: string[]
   /** Pair slugs that have had a comparison page. */
   comparePairs: string[]
+  /** Company and site graph: `graph/entities.json` and `graph/edges.json`. */
+  graph: Graph
 }
 
 export class DataValidationError extends Error {
@@ -77,6 +80,27 @@ async function readRecords<K extends 'slug' | 'id', T extends Record<K, string>>
 
 const list = z.array(z.string())
 
+/** `fallback` when the file is missing; a file that is there must be right. */
+async function readOptionalJson<T>(file: string, schema: z.ZodType<T>, fallback: T): Promise<T> {
+  try {
+    return await readJson(file, schema)
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return fallback
+    throw error
+  }
+}
+
+/** The graph is checked as a whole, so an edge to a missing entity is refused. */
+async function loadGraph(dir: string): Promise<Graph> {
+  const [entities, edges] = await Promise.all([
+    readOptionalJson(join(dir, 'graph', 'entities.json'), z.array(Entity), []),
+    readOptionalJson(join(dir, 'graph', 'edges.json'), z.array(Edge), []),
+  ])
+  const result = Graph.safeParse({ entities, edges })
+  if (!result.success) throw new DataValidationError(join(dir, 'graph'), result.error.issues)
+  return result.data
+}
+
 /** No file yet means no pair has been recorded; a file that is there must be right. */
 async function loadComparePairs(dir: string): Promise<string[]> {
   try {
@@ -94,7 +118,7 @@ export function loadBlocklist(dir = 'data'): Promise<string[]> {
 
 export async function loadDataset(dir = 'data'): Promise<Dataset> {
   // The two lists are required: without them blocked domains and rejected changes would come back.
-  const [brands, models, reviews, events, pending, rejections, blocklist, comparePairs] = await Promise.all([
+  const [brands, models, reviews, events, pending, rejections, blocklist, comparePairs, graph] = await Promise.all([
     readRecords(join(dir, 'brands'), Brand, 'slug'),
     readRecords(join(dir, 'models'), Model, 'slug'),
     readRecords(join(dir, 'reviews'), Reviews, 'slug'),
@@ -103,6 +127,7 @@ export async function loadDataset(dir = 'data'): Promise<Dataset> {
     readJson(join(dir, 'rejections.json'), list),
     loadBlocklist(dir),
     loadComparePairs(dir),
+    loadGraph(dir),
   ])
-  return { brands, models, reviews, events, pending, rejections, blocklist, comparePairs }
+  return { brands, models, reviews, events, pending, rejections, blocklist, comparePairs, graph }
 }

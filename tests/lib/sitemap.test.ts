@@ -47,6 +47,7 @@ const dataset = (fields: Partial<Dataset> = {}): Dataset => ({
   rejections: [],
   blocklist: [],
   comparePairs: [],
+  graph: { entities: [], edges: [] },
   ...fields,
 })
 
