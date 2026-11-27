@@ -61,24 +61,30 @@ export function namesModel(text: string, model: { brand: string; name: string; a
   })
 }
 
-/** Words that may follow a model name in a device text without being a further model word: form factors, "self-fit". */
+/** Words that may follow a model name without being a further model word: form factors, "self-fit". */
 const DESCRIPTOR_WORDS = new Set(['aid', 'aids', 'bte', 'cic', 'device', 'fit', 'hearing', 'iic', 'ite', 'ric', 'rechargeable', 'self', 'system'])
 
 /** Words that join two model names in one device text: "Select 300 and Select 550" names neither alone. */
-const CONNECTOR_WORDS = new Set(['and', 'or', 'vs', 'with'])
+const LIST_WORDS = new Set(['and', 'or', 'vs'])
+
+/** A technology level or variant token: "90", "5", "P90-R" (as "p90", "r"), "R", "RT", "UP". */
+const isVariantWord = (word: string | undefined) => word !== undefined && (/\d/.test(word) || /^[a-z]{1,2}$/.test(word))
 
 /**
- * Whether `name` stands in `text` as whole words and no further model word follows it: "Pure" does not name
- * "Pure Charge&Go X". A descriptor word may follow; a connector word on either side makes the text a list.
+ * Whether `name` stands in `text` as whole words and the model name ends there: nothing follows, or only
+ * descriptors and variant tokens, or a description starting with "with". A further model word ("Charge&Go X"
+ * after "Pure") means a longer model, and a list ("and", "or", "vs") names several. "with" may also come before
+ * the name ("Hearing aid with Jabra Enhance Select 550").
  */
 export function endsName(text: string, name: string): boolean {
   const hay = wordsOf(normalizeName(text))
   const needle = wordsOf(normalizeName(name))
   if (needle.length === 0) return false
   return hay.some((_, i) => {
-    if (!needle.every((word, k) => hay[i + k] === word) || CONNECTOR_WORDS.has(hay[i - 1])) return false
-    const next = hay[i + needle.length]
-    return next === undefined || DESCRIPTOR_WORDS.has(next)
+    if (!needle.every((word, k) => hay[i + k] === word) || LIST_WORDS.has(hay[i - 1])) return false
+    let next = i + needle.length
+    while (next < hay.length && (isVariantWord(hay[next]) || DESCRIPTOR_WORDS.has(hay[next]))) next++
+    return next === hay.length || hay[next] === 'with'
   })
 }
 

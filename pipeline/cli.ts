@@ -447,7 +447,8 @@ async function scrape(run: Run): Promise<void> {
 async function fda(run: Run): Promise<void> {
   await unit(run, 'fda', async () => {
     const models = run.dataset.models.filter((model) => run.brands.some((brand) => brand.slug === model.brand))
-    const found = await fetchFdaEvents(config.eventsSince, run.brands, models)
+    // Every brand of the dataset names the sibling exclusion, even under `--brand`; only the models are the run's.
+    const found = await fetchFdaEvents(config.eventsSince, run.dataset.brands, models)
     const unmatched = found.filter((event) => !event.matched).length
     if (unmatched > 0) console.log(`fda: ${unmatched} events name no stored model, left out`)
     for (const { event, matched } of found) {
@@ -464,7 +465,7 @@ async function fda(run: Run): Promise<void> {
 async function fdaStatuses(run: Run, models: Model[]): Promise<void> {
   const latest = new Map<string, Clearance510k>()
   for (const clearance of await fetchClearances(config.onSaleSince)) {
-    const model = matchModel(clearance.applicant, clearance.deviceName, run.brands, models)
+    const model = matchModel(clearance.applicant, clearance.deviceName, run.dataset.brands, models)
     if (model === undefined) continue
     const kept = latest.get(model.slug)
     if (kept === undefined || clearance.decisionDate > kept.decisionDate) latest.set(model.slug, clearance)

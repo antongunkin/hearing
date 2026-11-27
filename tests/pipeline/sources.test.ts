@@ -244,6 +244,27 @@ describe('matchModel', () => {
     expect(matchModel('GN Hearing A/S', 'Jabra Enhance Pro Max', brands, pro)).toBeUndefined()
   })
 
+  test('realistic FDA device names: a variant, a description after "with", or a code still names the model', () => {
+    const phonak = [brand('phonak', 'Phonak', 'Sonova')]
+    expect(matchModel('Phonak AG', 'Phonak Audéo Paradise with Bluetooth', phonak, [model('phonak', 'Audéo Paradise')])?.name).toBe('Audéo Paradise')
+    expect(matchModel('Phonak AG', 'Phonak Audéo Lumity 90-R', phonak, [model('phonak', 'Audéo Lumity')])?.name).toBe('Audéo Lumity')
+    expect(matchModel('GN Hearing A/S', 'Hearing aid with Jabra Enhance Select 550', brands, [model('jabra-enhance', 'Select 550')])?.name).toBe(
+      'Select 550',
+    )
+  })
+
+  test('a shorter stored name is not taken by a device text that goes on with a model word', () => {
+    const signia = [brand('signia', 'Signia', 'WSA')]
+    expect(matchModel('Signia Ltd', 'Signia Pure Charge&Go X', signia, [model('signia', 'Pure')])).toBeUndefined()
+    expect(matchModel('GN Hearing A/S', 'Jabra Enhance Zed 2 Pro', brands, [model('jabra-enhance', 'Zed')])).toBeUndefined()
+  })
+
+  test('a sibling brand that is not among the selected models still excludes the match', () => {
+    // `brands` is every brand of the dataset; `models` are only those of the selected brand.
+    const all = [...brands, brand('resound', 'ReSound', 'GN')]
+    expect(matchModel('GN Hearing A/S', 'ReSound ONE', all, [model('jabra-enhance', 'ONE')])).toBeUndefined()
+  })
+
   test('a shorter stored name does not take a longer model the device text names', () => {
     expect(matchModel('GN Hearing A/S', 'Jabra Enhance Pure Charge&Go X', brands, [model('jabra-enhance', 'Pure')])).toBeUndefined()
     expect(
