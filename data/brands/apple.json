@@ -4,9 +4,17 @@
   "imageLicense": "none",
   "name": "Apple",
   "scraper": {
-    "catalogUrls": ["https://www.apple.com/airpods-pro/"],
+    "catalogUrls": [
+      "https://www.apple.com/airpods-pro/",
+      "https://www.apple.com/airpods-pro/compare/"
+    ],
+    "documentUrlPattern": "^https://www\\.apple\\.com/environment/pdf/products/airpods/.*\\.pdf$",
     "modelUrlPattern": "^https://www\\.apple\\.com/airpods-pro/specs/$",
-    "render": false
+    "render": false,
+    "supportUrls": [
+      "https://www.apple.com/airpods-pro/specs/",
+      "https://www.apple.com/airpods-pro/hearing-health/"
+    ]
   },
   "slug": "apple",
   "status": "active",

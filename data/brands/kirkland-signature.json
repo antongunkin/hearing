@@ -4,9 +4,14 @@
   "imageLicense": "none",
   "name": "Kirkland Signature",
   "scraper": {
-    "catalogUrls": ["https://www.costco.com/hearing-aid-center.html"],
+    "catalogUrls": [
+      "https://www.costco.com/f/-/hearing-aid-center"
+    ],
     "modelUrlPattern": "^https://www\\.costco\\.com/(?:p/-/)?kirkland-signature-[a-z0-9.-]*hearing-aid[a-z0-9.-]*(?:/\\d+|\\.product\\.\\d+\\.html)$",
-    "render": false
+    "render": false,
+    "supportUrls": [
+      "https://www.costco.com/f/-/hearing-aid-center"
+    ]
   },
   "slug": "kirkland-signature",
   "status": "active",

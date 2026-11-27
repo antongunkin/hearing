@@ -4,9 +4,14 @@
   "imageLicense": "none",
   "name": "Beltone",
   "scraper": {
-    "catalogUrls": ["https://www.beltone.com/en-us/products/hearing-aids"],
+    "catalogUrls": [
+      "https://www.beltone.com/en-us/products/hearing-aids"
+    ],
     "modelUrlPattern": "^https://www\\.beltone\\.com/en-us/products/hearing-aids/beltone-[a-z0-9-]+$",
-    "render": false
+    "render": false,
+    "supportUrls": [
+      "https://www.beltone.com/en-us/help-center/hearing-aids-support"
+    ]
   },
   "slug": "beltone",
   "status": "active",

@@ -7,8 +7,16 @@
     "catalogUrls": [
       "https://www.unitron.com/en-us/hearing-solutions/hearing-aids"
     ],
+    "documentUrlPattern": "^https://www\\.unitron\\.com/content/dam/.+\\.pdf(\\.coredownload\\.pdf)?$",
     "modelUrlPattern": "^https://www\\.unitron\\.com/en-us/hearing-solutions/hearing-aids/(?!product-comparison$)[a-z0-9-]+$",
-    "render": false
+    "render": false,
+    "supportUrls": [
+      "https://www.unitron.com/en-us/support/user-guides",
+      "https://www.unitron.com/en-us/support/user-guides/blu",
+      "https://www.unitron.com/en-us/support/user-guides/app",
+      "https://www.unitron.com/en-us/support/user-guides/accessories",
+      "https://www.unitron.com/en-us/professionals/hearing-aid-resources"
+    ]
   },
   "slug": "unitron",
   "status": "active",

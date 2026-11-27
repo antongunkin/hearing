@@ -4,9 +4,16 @@
   "imageLicense": "none",
   "name": "Oticon",
   "scraper": {
-    "catalogUrls": ["https://www.oticon.com/products/hearing-aids"],
+    "catalogUrls": [
+      "https://www.oticon.com/products/hearing-aids"
+    ],
+    "documentUrlPattern": "^https://(?:damcdn\\.demant\\.com|p3\\.aprimocdn\\.net|assets\\.ha\\.demant\\.com)/.+\\.pdf",
     "modelUrlPattern": "^https://www\\.oticon\\.com/products/\\d+/oticon-(?!(?:cros|jet-px|more|opn|own(?!-si)|play-px|real|ruby|siya|xceed|zircon)(?:-|$))[a-z0-9-]+$",
-    "render": false
+    "render": false,
+    "supportUrls": [
+      "https://www.oticon.com/support/compatibility-guide",
+      "https://www.oticon.com/products/app"
+    ]
   },
   "slug": "oticon",
   "status": "active",

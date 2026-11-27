@@ -7,8 +7,12 @@
     "catalogUrls": [
       "https://www.hearingsolutions.philips.com/en-us/products/hearing-aids"
     ],
-    "modelUrlPattern": "^https://www\\.hearingsolutions\\.philips\\.com/en-us/products/\\d+/hearlink-(?!30-)[a-z0-9-]+$",
-    "render": false
+    "documentUrlPattern": "^https://damcdn\\.demant\\.com/[0-9a-f-]+/.+\\.pdf$",
+    "modelUrlPattern": "^https://www\\.hearingsolutions\\.philips\\.com/en-us/products/\\d+/hearlink-[a-z0-9-]+$",
+    "render": false,
+    "supportUrls": [
+      "https://www.hearingsolutions.philips.com/en-us/products/hearlink-2-app"
+    ]
   },
   "slug": "philips",
   "status": "active",
