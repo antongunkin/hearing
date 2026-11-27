@@ -22,7 +22,6 @@ import { archiveCandidates } from '@/pipeline/archive/wayback-models'
 import { WaybackError } from '@/pipeline/sources/wayback'
 import { discoverModelUrls, extractModel, matchExistingModel, mergeCandidates, type ModelCandidate } from '@/pipeline/sources/brand-site'
 import { fetchIosVersion, lookupApp, type AppRecord } from '@/pipeline/sources/itunes'
-import { literalCheck } from '@/pipeline/checks/literal'
 import { fetchClearances, fetchFdaEvents, matchModel, type Clearance510k } from '@/pipeline/sources/openfda'
 import { findInLog, readBody, readLog, type FetchLogEntry, type LogRef } from '@/pipeline/fetch/raw-store'
 import { extractExpertProsCons, synthesizeProsCons } from '@/pipeline/sources/pros-cons'
@@ -490,15 +489,26 @@ async function fdaStatuses(run: Run, models: Model[]): Promise<void> {
       ...(before !== undefined && { before }),
       after,
       // Only the quote is checked against the record: the status and K-number are read from that same record.
-      checks: { fda: [literalCheck({ ...after, value: null }, await recordText(clearance.ref, log))] },
+      checks: { fda: [await recordCheck(clearance.ref, clearance.kNumber, clearance.deviceName, log)] },
     })
   }
 }
 
-/** The openFDA record page as it was logged: the text the quote must occur in. Empty when the log has no body for it. */
-async function recordText(ref: LogRef, log: FetchLogEntry[]): Promise<string> {
+/**
+ * Whether the logged openFDA page holds one record with this K-number and this device name. The page is read
+ * as parsed JSON, so escapes in the text do not matter, and the K-number and name must be in the same record.
+ */
+async function recordCheck(ref: LogRef, kNumber: string, deviceName: string, log: FetchLogEntry[]): Promise<CheckResult> {
   const hash = findInLog(log, ref)?.bodyHash
-  return hash === undefined ? '' : new TextDecoder().decode(await readBody(hash))
+  if (hash === undefined) return { name: 'literal', ok: false, detail: 'record page not in the fetch log' }
+  let page: { results?: { k_number?: unknown; device_name?: unknown }[] }
+  try {
+    page = JSON.parse(new TextDecoder().decode(await readBody(hash)))
+  } catch {
+    return { name: 'literal', ok: false, detail: 'logged record page is not JSON' }
+  }
+  const held = (page.results ?? []).some((record) => record.k_number === kNumber && record.device_name === deviceName)
+  return held ? { name: 'literal', ok: true } : { name: 'literal', ok: false, detail: 'K-number and device name not in one logged record' }
 }
 
 /** iOS app versions from the App Store; models that share an app are looked up once. */

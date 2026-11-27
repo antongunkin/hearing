@@ -4,7 +4,7 @@ import { z } from 'zod'
 import { config } from '@/pipeline/config'
 import { fetchPage } from '@/pipeline/fetch/fetcher'
 import type { LogRef } from '@/pipeline/fetch/raw-store'
-import { containsName, normalizeName } from '@/src/lib/data/slug'
+import { containsName, endsName, namesModel, normalizeName } from '@/src/lib/data/slug'
 import type { Brand } from '@/src/lib/schema/brand'
 import type { Event } from '@/src/lib/schema/event'
 import type { Model } from '@/src/lib/schema/model'
@@ -78,23 +78,31 @@ export async function fetchClearances(sinceISO: string): Promise<Clearance510k[]
 }
 
 /**
- * The stored model the FDA record is about: made by a brand the company name mentions (by brand or group
- * name), and named in the device text. The longest name wins; two models with equally long names are
- * ambiguous and give none.
+ * The stored model the FDA record is about. Its company must be a brand or group of a brand (`brands`). A device
+ * text that names a brand of that group is about that brand's models only. A model name counts only when the
+ * device text names it as a whole model (`endsName`), and a weak name (see `namesModel`) only after its brand.
+ * The longest name wins; two models with equally long names are ambiguous and give none.
  */
 export function matchModel(company: string, device: string, brands: Brand[], models: Model[]): Model | undefined {
-  const makers = new Set(
-    brands.filter((brand) => [brand.name, brand.group].some((name) => containsName(company, name))).map((brand) => brand.slug),
-  )
+  const groupBrands = brands.filter((brand) => [brand.name, brand.group].some((name) => containsName(company, name)))
+  const named = groupBrands.filter((brand) => containsName(device, brand.name))
+  const owners = new Set((named.length > 0 ? named : groupBrands).map((brand) => brand.slug))
   const [best, second] = models
-    .filter((model) => makers.has(model.brand))
-    .map((model) => ({
-      model,
-      length: Math.max(0, ...[model.name, ...model.aliases].filter((name) => containsName(device, name)).map((name) => normalizeName(name).length)),
-    }))
+    .filter((model) => owners.has(model.brand))
+    .map((model) => ({ model, length: nameLength(device, model) }))
     .filter((match) => match.length > 0)
     .sort((a, b) => b.length - a.length)
   return best && best.length !== second?.length ? best.model : undefined
+}
+
+/** The length of the model's longest name that the device text names as the whole model; 0 when none does. */
+function nameLength(device: string, model: Model): number {
+  return Math.max(
+    0,
+    ...[model.name, ...model.aliases]
+      .filter((name) => namesModel(device, { brand: model.brand, name, aliases: [] }) && endsName(device, name))
+      .map((name) => normalizeName(name).length),
+  )
 }
 
 /**

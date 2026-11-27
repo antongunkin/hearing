@@ -228,7 +228,27 @@ describe('matchModel', () => {
 
   test('a company named by a brand group matches that brand, and the longest model name in the device text wins', () => {
     expect(matchModel('GN Hearing A/S', 'Jabra Enhance Select Self-fit (Jabra Enhance Select 550)', brands, models)?.slug).toBe('jabra-enhance-select-550')
-    expect(matchModel('Phonak AG', 'Lumity 30', brands, models)?.slug).toBe('phonak-lumity')
+    expect(matchModel('Phonak AG', 'Phonak Lumity', brands, models)?.slug).toBe('phonak-lumity')
+  })
+
+  test('a sibling brand of the group does not take a record that names another brand', () => {
+    const group = [...brands, brand('resound', 'ReSound', 'GN')]
+    expect(matchModel('GN Hearing A/S', 'Jabra Enhance Select 550', group, [model('resound', 'ONE')])).toBeUndefined()
+    expect(matchModel('GN Hearing A/S', 'ReSound ONE', group, [model('resound', 'ONE'), model('jabra-enhance', 'ONE')])?.slug).toBe('resound-one')
+  })
+
+  test('a weak name matches only after its brand, and a common word matches only as a whole model', () => {
+    const pro = [model('jabra-enhance', 'Pro')]
+    expect(matchModel('GN Hearing A/S', 'Pro Self-fit', brands, pro)).toBeUndefined()
+    expect(matchModel('GN Hearing A/S', 'Jabra Enhance Pro Self-fit', brands, pro)?.slug).toBe('jabra-enhance-pro')
+    expect(matchModel('GN Hearing A/S', 'Jabra Enhance Pro Max', brands, pro)).toBeUndefined()
+  })
+
+  test('a shorter stored name does not take a longer model the device text names', () => {
+    expect(matchModel('GN Hearing A/S', 'Jabra Enhance Pure Charge&Go X', brands, [model('jabra-enhance', 'Pure')])).toBeUndefined()
+    expect(
+      matchModel('GN Hearing A/S', 'Jabra Enhance Pure Charge&Go X', brands, [model('jabra-enhance', 'Pure'), model('jabra-enhance', 'Pure Charge&Go X')])?.slug,
+    ).toBe('jabra-enhance-pure-charge-go-x')
   })
 
   test('another company, or a device text naming no stored model, matches none', () => {

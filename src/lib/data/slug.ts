@@ -61,6 +61,27 @@ export function namesModel(text: string, model: { brand: string; name: string; a
   })
 }
 
+/** Words that may follow a model name in a device text without being a further model word: form factors, "self-fit". */
+const DESCRIPTOR_WORDS = new Set(['aid', 'aids', 'bte', 'cic', 'device', 'fit', 'hearing', 'iic', 'ite', 'ric', 'rechargeable', 'self', 'system'])
+
+/** Words that join two model names in one device text: "Select 300 and Select 550" names neither alone. */
+const CONNECTOR_WORDS = new Set(['and', 'or', 'vs', 'with'])
+
+/**
+ * Whether `name` stands in `text` as whole words and no further model word follows it: "Pure" does not name
+ * "Pure Charge&Go X". A descriptor word may follow; a connector word on either side makes the text a list.
+ */
+export function endsName(text: string, name: string): boolean {
+  const hay = wordsOf(normalizeName(text))
+  const needle = wordsOf(normalizeName(name))
+  if (needle.length === 0) return false
+  return hay.some((_, i) => {
+    if (!needle.every((word, k) => hay[i + k] === word) || CONNECTOR_WORDS.has(hay[i - 1])) return false
+    const next = hay[i + needle.length]
+    return next === undefined || DESCRIPTOR_WORDS.has(next)
+  })
+}
+
 /** Lowercase ASCII words joined by hyphens; empty when the text has no letters or digits. */
 export function slugify(text: string): string {
   return normalizeName(text)

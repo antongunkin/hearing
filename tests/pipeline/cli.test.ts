@@ -1231,7 +1231,7 @@ describe('fda status from 510(k) records', () => {
     ])
     vi.mocked(readBody).mockResolvedValue(new TextEncoder().encode(text))
   }
-  const RECORD = JSON.stringify({ k_number: 'K254108', device_name: DEVICE })
+  const RECORD = JSON.stringify({ results: [{ k_number: 'K254108', device_name: DEVICE }] })
 
   beforeEach(async () => {
     await writeJson(join(dataDir, 'models', 'jabra-enhance-select-550.json'), model('Select 550'))
@@ -1263,13 +1263,24 @@ describe('fda status from 510(k) records', () => {
     expect((await pendingCard('jabra-enhance-select-550-fda')).after).toMatchObject({ value: { status: '510(k) cleared', k510: 'K254108' } })
   })
 
-  test('a De Novo record is named as such', async () => {
-    vi.mocked(fetchClearances).mockResolvedValue([clearance({ kNumber: 'DEN230001' })])
-    logRecord(JSON.stringify({ k_number: 'DEN230001', device_name: DEVICE }))
+  test('a De Novo record is named as such and links the De Novo page', async () => {
+    const DEN = 'https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/denovo.cfm?id=DEN230001'
+    vi.mocked(fetchClearances).mockResolvedValue([clearance({ kNumber: 'DEN230001', cdrhUrl: DEN })])
+    logRecord(JSON.stringify({ results: [{ k_number: 'DEN230001', device_name: DEVICE }] }))
 
     expect(await main(['fda'], opts)).toBe(0)
 
-    expect((await pendingCard('jabra-enhance-select-550-fda')).after).toMatchObject({ value: { status: 'De Novo granted', k510: 'DEN230001' } })
+    expect((await pendingCard('jabra-enhance-select-550-fda')).after).toMatchObject({ value: { status: 'De Novo granted', k510: 'DEN230001' }, sourceUrl: DEN })
+  })
+
+  test('a device name with JSON escapes is found in the parsed record', async () => {
+    const quoted = 'Jabra Enhance Select 550 "Self-fit" \\ X'
+    vi.mocked(fetchClearances).mockResolvedValue([clearance({ deviceName: quoted })])
+    logRecord(JSON.stringify({ results: [{ k_number: 'K254108', device_name: quoted }] }))
+
+    expect(await main(['fda'], opts)).toBe(0)
+
+    expect((await pendingCard('jabra-enhance-select-550-fda')).checks.fda).toEqual([{ name: 'literal', ok: true }])
   })
 
   test('without a matching record fda stays empty', async () => {
@@ -1292,12 +1303,14 @@ describe('fda status from 510(k) records', () => {
     expect(await filesUnder(join(dataDir, 'pending'))).toEqual([])
   })
 
-  test('a quote the logged record does not contain fails its literal check', async () => {
+  test('a K-number and device name that are not in one logged record fail the check', async () => {
     vi.mocked(fetchClearances).mockResolvedValue([clearance()])
-    logRecord(JSON.stringify({ k_number: 'K254108', device_name: 'Some other device' }))
+    logRecord(JSON.stringify({ results: [{ k_number: 'K254108', device_name: 'Some other device' }, { k_number: 'K999999', device_name: DEVICE }] }))
 
     expect(await main(['fda'], opts)).toBe(0)
 
-    expect((await pendingCard('jabra-enhance-select-550-fda')).checks.fda).toEqual([{ name: 'literal', ok: false, detail: 'quote not found in source text' }])
+    expect((await pendingCard('jabra-enhance-select-550-fda')).checks.fda).toEqual([
+      { name: 'literal', ok: false, detail: 'K-number and device name not in one logged record' },
+    ])
   })
 })
