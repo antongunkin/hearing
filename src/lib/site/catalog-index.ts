@@ -2,6 +2,8 @@
 import type { Event } from '@/src/lib/schema/event'
 import type { Sourced } from '@/src/lib/schema/field'
 import type { FormFactor, Model, ModelType, PowerType } from '@/src/lib/schema/model'
+import { priceMonth } from './format'
+import { isIndexable } from './indexing'
 
 export type CatalogItem = {
   slug: string
@@ -12,13 +14,22 @@ export type CatalogItem = {
   formFactors: FormFactor[]
   powerTypes: PowerType[]
   connectivity: { mfi?: boolean; asha?: boolean; leAudio?: boolean; auracast?: boolean }
+  /** Not set for a discontinued model: see `lastListedPrice`. */
   priceMin?: number
-  /** Where `priceMin` is stated. Not the quote: the index is sent to the browser. */
+  /** Where `priceMin` (or `lastListedPrice`) is stated. Not the quote: the index is sent to the browser. */
   priceSource?: Pick<Sourced<unknown>, 'sourceUrl' | 'sourceType'>
   releaseDate?: string
   /** When the model was added to the database: orders models without a release date, never shown as one. */
   addedOn?: string
   weightGMin?: number
+  /** Present for a discontinued model. */
+  discontinued?: { lastListed?: string }
+  /** The price of a discontinued model, kept apart from `priceMin` so that no price filter or sort sees it. */
+  lastListedPrice?: { min: number; month: string }
+  /** Slug of the model that replaced this one. */
+  successor?: string
+  /** Whether the model's page may be indexed (see `isIndexable`). */
+  indexable: boolean
 }
 
 export type CatalogFilter = {
@@ -28,6 +39,8 @@ export type CatalogFilter = {
   auracast?: boolean
   brand?: string[]
   priceMax?: number
+  /** Models no longer sold are left out unless this is set. */
+  includeDiscontinued?: boolean
 }
 
 const unique = <T>(values: T[]) => [...new Set(values)]
@@ -48,7 +61,7 @@ export function buildCatalogIndex(models: Model[], events: Event[] = []): Catalo
         if (priceUsd === undefined) return []
         const { value, sourceUrl, sourceType } = priceUsd
         const min = typeof value === 'number' ? value : value.min
-        return [{ min, thirdParty: Number(sourceType === 'third-party'), source: { sourceUrl, sourceType } }]
+        return [{ min, thirdParty: Number(sourceType === 'third-party'), source: { sourceUrl, sourceType }, month: priceMonth(priceUsd) }]
       })
       .sort((a, b) => a.min - b.min || a.thirdParty - b.thirdParty)
     const weightGMin = lowest(model.variants.flatMap(({ weightG }) => (weightG ? [weightG.value] : [])))
@@ -60,7 +73,12 @@ export function buildCatalogIndex(models: Model[], events: Event[] = []): Catalo
       formFactors: unique(model.variants.map((variant) => variant.formFactor)),
       powerTypes: unique(model.variants.flatMap(({ power }) => (power ? [power.value.type] : []))),
       connectivity: model.connectivity?.value ?? {},
-      ...(price && { priceMin: price.min, priceSource: price.source }),
+      ...(price && { priceSource: price.source }),
+      ...(price && !model.discontinued && { priceMin: price.min }),
+      ...(price && model.discontinued && { lastListedPrice: { min: price.min, month: price.month } }),
+      ...(model.discontinued && { discontinued: { ...(model.discontinued.lastListed && { lastListed: model.discontinued.lastListed }) } }),
+      ...(model.successor && { successor: model.successor.slug }),
+      indexable: isIndexable(model),
       ...(model.releaseDate && { releaseDate: model.releaseDate.value }),
       ...(added && { addedOn: added }),
       ...(weightGMin !== undefined && { weightGMin }),
@@ -79,6 +97,7 @@ const mayBe = <T>(known: T[], wanted: T[] | undefined) =>
 export function filterCatalog(items: CatalogItem[], f: CatalogFilter): CatalogItem[] {
   return items.filter(
     (item) =>
+      (f.includeDiscontinued || item.discontinued === undefined) &&
       mayBe([item.type], f.type) &&
       mayBe(item.formFactors, f.formFactor) &&
       mayBe(item.powerTypes, f.power) &&

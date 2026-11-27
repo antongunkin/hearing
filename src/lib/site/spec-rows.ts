@@ -1,7 +1,7 @@
 // Specifications as table rows: one column per variant, every cell with its source.
 import type { Sourced } from '@/src/lib/schema/field'
 import type { Model, Variant } from '@/src/lib/schema/model'
-import { formatDate, formatNumber, formatPrice, powerLabel } from './format'
+import { formatDate, formatNumber, formatPrice, powerLabel, priceMonth } from './format'
 
 export type SpecCell = { text: string; source: Sourced<unknown> } | null
 export type SpecRow = { label: string; cells: SpecCell[] }
@@ -36,7 +36,16 @@ type Connectivity = keyof NonNullable<Model['connectivity']>['value']
 const connectivity = (flag: Connectivity) => (c: Column) => cell(c.model.connectivity, (value) => yesNo(value[flag]))
 
 const ROWS: [label: string, of: (c: Column) => SpecCell][] = [
-  ['Price', (c) => cell<number | { min: number; max: number; perPair: true }>(c.variant?.priceUsd, formatPrice)],
+  [
+    'Price',
+    (c) => {
+      const price = c.variant?.priceUsd
+      const text = cell<number | { min: number; max: number; perPair: true }>(price, formatPrice)
+      return text && price && c.model.discontinued
+        ? { ...text, text: `${text.text} (last listed price, ${formatDate(priceMonth(price))})` }
+        : text
+    },
+  ],
   ['Weight', (c) => cell(c.variant?.weightG, (g) => `${formatNumber(g)} g`)],
   ['Dimensions (L × W × H)', (c) => cell(c.variant?.dimensionsMm, ({ l, w, h }) => `${l} × ${w} × ${h} mm`)],
   ['Battery', (c) => cell(c.variant?.power, (p) => powerLabel(p.type))],
@@ -54,7 +63,14 @@ const ROWS: [label: string, of: (c: Column) => SpecCell][] = [
   ['Platform', (c) => cell(c.model.platform, (platform) => platform)],
   ['Materials', (c) => cell(c.model.materials, (materials) => materials.join(', '))],
   ['Colors', (c) => cell(c.model.colors, (colors) => colors.join(', '))],
-  ['Released', (c) => cell(c.model.releaseDate, formatDate)],
+  [
+    'Released',
+    (c) => {
+      const date = c.model.releaseDate
+      const derived = date?.sourceType === 'derived' && date.derivation?.op === 'earliest-archive-copy'
+      return cell(date, (value) => (derived ? `On sale by ${formatDate(value)}` : formatDate(value)))
+    },
+  ],
   ['FDA status', (c) => cell(c.model.fda, ({ status, k510 }) => (k510 ? `${status} (${k510})` : status))],
   [
     'iPhone app version',

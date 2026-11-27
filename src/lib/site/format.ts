@@ -1,4 +1,6 @@
 // How values read on the site. Client-safe: types only from the schemas.
+import { archiveMonth, parseArchiveUrl } from '@/src/lib/archive-url'
+import type { Sourced } from '@/src/lib/schema/field'
 import type { Variant } from '@/src/lib/schema/model'
 
 type Price = NonNullable<Variant['priceUsd']>['value']
@@ -47,3 +49,15 @@ export const EVENT_LABELS = {
 
 /** `rechargeable` or a disposable battery size. */
 export const powerLabel = (type: string) => (type === 'rechargeable' ? 'Rechargeable' : `Size ${type} disposable`)
+
+/** How a Web Archive copy is cited; undefined for a URL that is not an archive copy. */
+export function archiveLabel(sourceUrl: string): string | undefined {
+  const copy = parseArchiveUrl(sourceUrl)
+  return copy === null ? undefined : `official page, archived copy of ${formatDate(archiveMonth(copy.timestamp))}, via Internet Archive`
+}
+
+/** `YYYY-MM` a price was seen: the month of the archive copy it was read from, else the month it was fetched. */
+export function priceMonth(price: Sourced<unknown>): string {
+  const copy = parseArchiveUrl(price.sourceUrl)
+  return copy ? archiveMonth(copy.timestamp) : price.fetchedAt.slice(0, 7)
+}

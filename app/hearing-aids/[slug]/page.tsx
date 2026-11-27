@@ -14,6 +14,7 @@ import { YouTubeEmbed } from '@/src/components/YouTubeEmbed'
 import { loadDataset } from '@/src/lib/data/load'
 import { buildCatalogIndex } from '@/src/lib/site/catalog-index'
 import { TYPE_LABELS } from '@/src/lib/site/format'
+import { isIndexable } from '@/src/lib/site/indexing'
 import { productJsonLd } from '@/src/lib/site/jsonld'
 import { competitorsOf, pairSlug } from '@/src/lib/site/pairs'
 import { pressImage } from '@/src/lib/site/press-image'
@@ -42,11 +43,12 @@ async function find(slug: string) {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const { product } = await find(slug)
+  const { product, model } = await find(slug)
   return {
     title: `${product} specifications`,
     description: `${product}: specifications, price, battery and published review summaries, with sources.`,
     alternates: canonical(`/hearing-aids/${slug}`),
+    ...(!isIndexable(model) && { robots: { index: false } }),
   }
 }
 

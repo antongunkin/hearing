@@ -190,3 +190,19 @@ describe('robots', () => {
     expect(robots()).not.toHaveProperty('sitemap')
   })
 })
+
+describe('discontinued models in the sitemap', () => {
+  const bare = (slug: string) =>
+    model(slug, { discontinued: { source: { ...cited('Old', '2026-11-26T00:00:00.000Z') } } })
+
+  test('are left out, with their pairs, unless indexed', () => {
+    const thin = bare('thin')
+    const document = { kind: 'user-guide', title: 'Guide', url: 'https://maker.example/g.pdf', fetchedAt: '2026-11-26T00:00:00.000Z' }
+    const documented = { ...bare('documented'), documents: [document] } as Model
+    const listed = urls(dataset({ models: [...models.slice(0, 2), thin, documented] }))
+
+    expect(listed).toContain(`${BASE}/hearing-aids/documented`)
+    expect(listed).not.toContain(`${BASE}/hearing-aids/thin`)
+    expect(listed.filter((url) => url.includes('thin'))).toEqual([])
+  })
+})

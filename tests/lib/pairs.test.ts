@@ -10,6 +10,7 @@ const item = (slug: string, fields: Partial<CatalogItem> = {}): CatalogItem => (
   formFactors: [],
   powerTypes: [],
   connectivity: {},
+  indexable: true,
   ...fields,
 })
 
@@ -186,5 +187,36 @@ describe('pair slugs', () => {
     ]) {
       expect(parsePairSlug(bad), bad).toBeNull()
     }
+  })
+})
+
+describe('discontinued models', () => {
+  const items = [
+    item('on-sale'),
+    item('other-on-sale'),
+    item('old', { discontinued: {}, successor: 'new' }),
+    item('new', { indexable: false }),
+    item('older', { discontinued: {} }),
+  ]
+
+  test("have no competitors and are no one's competitor", () => {
+    expect(competitorsOf('old', items)).toEqual([])
+    expect(competitorsOf('on-sale', items)).not.toContain('old')
+    expect(competitorsOf('on-sale', items)).not.toContain('older')
+  })
+
+  test('curated pairs add every predecessor-successor pair', () => {
+    const slugs = selectCuratedPairs(items).map(([a, b]) => pairSlug(a, b))
+
+    expect(slugs).toContain('new-vs-old')
+    expect(slugs).toContain('new-vs-on-sale')
+    expect(slugs.some((pair) => pair.includes('older'))).toBe(false)
+  })
+
+  test('a published pair needs both pages indexable', () => {
+    const slugs = (list: CatalogItem[]) => publishedPairs(list, []).map(([a, b]) => pairSlug(a, b))
+
+    expect(slugs(items)).not.toContain('new-vs-old')
+    expect(slugs(items.map((i) => ({ ...i, indexable: true })))).toContain('new-vs-old')
   })
 })

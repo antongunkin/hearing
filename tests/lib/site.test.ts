@@ -5,8 +5,9 @@ import { afterEach, describe, expect, test, vi } from 'vitest'
 import { Brand } from '@/src/lib/schema/brand'
 import { Model } from '@/src/lib/schema/model'
 import { buildCatalogIndex, filterCatalog, latestFirst, type CatalogItem } from '@/src/lib/site/catalog-index'
-import { formatDate, formatPrice } from '@/src/lib/site/format'
+import { archiveLabel, formatDate, formatPrice, priceMonth } from '@/src/lib/site/format'
 import { productJsonLd } from '@/src/lib/site/jsonld'
+import { isIndexable } from '@/src/lib/site/indexing'
 import { pressImage } from '@/src/lib/site/press-image'
 import { specColumns, specRows } from '@/src/lib/site/spec-rows'
 
@@ -67,6 +68,7 @@ const item = (fields: Partial<CatalogItem> & { slug: string }): CatalogItem => (
   formFactors: [],
   powerTypes: [],
   connectivity: {},
+  indexable: true,
   ...fields,
 })
 
@@ -136,6 +138,7 @@ describe('catalog', () => {
         priceSource: { sourceUrl: 'https://maker.example/spec', sourceType: 'official' },
         releaseDate: '2025-03-15',
         weightGMin: 1.9,
+        indexable: true,
       },
     ])
   })
@@ -254,6 +257,7 @@ describe('productJsonLd', () => {
       name: 'Acme One',
       brand: { '@type': 'Brand', name: 'Acme' },
       url: 'https://site.example/hearing-aids/acme-one',
+      offers: { '@type': 'Offer', price: 1495, priceCurrency: 'USD', url: 'https://maker.example/spec' },
       weight: { '@type': 'QuantitativeValue', value: 2.5, unitCode: 'GRM' },
       depth: { '@type': 'QuantitativeValue', value: 27, unitCode: 'MMT' },
       width: { '@type': 'QuantitativeValue', value: 8, unitCode: 'MMT' },
@@ -293,5 +297,112 @@ describe('pressImage', () => {
 
     expect(await pressImage('acme-one', licensed, found)).toBeUndefined()
     expect(await pressImage('acme-one', licensed, join(found, 'nope'))).toBeUndefined()
+  })
+})
+
+const WAYBACK_PRICE = 'https://web.archive.org/web/20210315123456id_/https://maker.example/shop'
+const discontinuedModel = (fields: Record<string, unknown> = {}) =>
+  model({
+    slug: 'acme-old',
+    discontinued: { lastListed: '2021-03', source: cited('Old') },
+    variants: [{ id: 'old-ric', formFactor: 'RIC', priceUsd: cited(999, { sourceUrl: WAYBACK_PRICE }) }],
+    ...fields,
+  })
+
+describe('discontinued models', () => {
+  const onSale = item({ slug: 'on-sale', priceMin: 800 })
+  const old = item({ slug: 'old', discontinued: {}, lastListedPrice: { min: 100, month: '2021-03' } })
+
+  test('the catalog hides them unless asked, and keeps them out of price filters', () => {
+    expect(filterCatalog([onSale, old], {}).map((i) => i.slug)).toEqual(['on-sale'])
+    expect(filterCatalog([onSale, old], { includeDiscontinued: true }).map((i) => i.slug)).toEqual(['on-sale', 'old'])
+    expect(filterCatalog([onSale, old], { includeDiscontinued: true, priceMax: 5000 }).map((i) => i.slug)).toEqual(['on-sale'])
+  })
+
+  test('the index keeps their price apart from priceMin, with status, successor and indexing', () => {
+    const [index] = buildCatalogIndex([
+      discontinuedModel({ successor: { slug: 'acme-new', source: cited('Replaced by New') } }),
+    ])
+
+    expect(index).toMatchObject({
+      discontinued: { lastListed: '2021-03' },
+      lastListedPrice: { min: 999, month: '2021-03' },
+      successor: 'acme-new',
+      indexable: false,
+    })
+    expect(index).not.toHaveProperty('priceMin')
+  })
+
+  test('priceMonth is the archive month of the source, else the fetch month', () => {
+    expect(priceMonth(cited(1, { sourceUrl: WAYBACK_PRICE }))).toBe('2021-03')
+    expect(priceMonth(cited(1))).toBe('2026-11')
+  })
+
+  test('a discontinued page is indexed with 3 sourced rows or 1 document, else not', () => {
+    const rows = (n: number) => ({
+      variants: [
+        {
+          id: 'old-ric',
+          formFactor: 'RIC',
+          ...(n > 0 && { weightG: cited(2) }),
+          ...(n > 1 && { ipRating: cited('IP68') }),
+          ...(n > 2 && { priceUsd: cited(900) }),
+        },
+      ],
+    })
+    expect(isIndexable(discontinuedModel(rows(2)))).toBe(false)
+    expect(isIndexable(discontinuedModel(rows(3)))).toBe(true)
+    const document = { kind: 'user-guide', title: 'Guide', url: 'https://maker.example/g.pdf', fetchedAt: '2026-11-26T00:00:00.000Z' }
+    expect(isIndexable(discontinuedModel({ ...rows(0), documents: [document] }))).toBe(true)
+    expect(isIndexable(model({ variants: [] }))).toBe(true)
+  })
+
+  test('the price reads as the last listed price; an archive date reads "On sale by"', () => {
+    const rows = specRows([
+      discontinuedModel({
+        releaseDate: cited('2019-05', {
+          sourceType: 'derived',
+          derivation: { op: 'earliest-archive-copy', input: '20190512000000' },
+        }),
+      }),
+    ])
+
+    expect(rows.find((r) => r.label === 'Price')?.cells[0]?.text).toBe('$999 (last listed price, Mar 2021)')
+    expect(rows.find((r) => r.label === 'Released')?.cells[0]?.text).toBe('On sale by May 2019')
+  })
+})
+
+describe('archiveLabel', () => {
+  test.each([
+    ['https://web.archive.org/web/20210315123456/https://www.eargo.com/neo', 'official page, archived copy of Mar 2021, via Internet Archive'],
+    ['https://web.archive.org/web/2019/eargo.com/', 'official page, archived copy of Jan 2019, via Internet Archive'],
+    ['https://www.phonak.com/x', undefined],
+    ['https://web.archive.org/web/nonsense/x', undefined],
+  ])('archiveLabel(%s)', (url, label) => expect(archiveLabel(url)).toBe(label))
+})
+
+describe('offers in JSON-LD', () => {
+  const PRICE_PAGE = 'https://maker.example/shop'
+  const onSale = model({
+    variants: [
+      { id: 'a', formFactor: 'RIC', priceUsd: cited(999, { sourceUrl: 'https://maker.example/other' }) },
+      { id: 'b', formFactor: 'BTE', priceUsd: cited(799, { sourceUrl: PRICE_PAGE }) },
+    ],
+  })
+  const rxThirdParty = model({
+    type: 'rx',
+    variants: [
+      { id: 'a', formFactor: 'RIC', priceUsd: cited({ min: 3000, max: 5000, perPair: true }, { sourceType: 'third-party' }) },
+      { id: 'b', formFactor: 'BTE', priceUsd: cited(2500, { sourceType: 'third-party' }) },
+    ],
+  })
+
+  test('the lowest official price of a model on sale, none for discontinued or a third-party range', () => {
+    expect(productJsonLd(onSale, brand)).toMatchObject({
+      offers: { '@type': 'Offer', price: 799, priceCurrency: 'USD', url: PRICE_PAGE },
+    })
+    expect(productJsonLd(onSale, brand)).not.toHaveProperty('offers.availability')
+    expect(productJsonLd(discontinuedModel(), brand)).not.toHaveProperty('offers')
+    expect(productJsonLd(rxThirdParty, brand)).not.toHaveProperty('offers')
   })
 })

@@ -1,5 +1,6 @@
 import type { Sourced } from '@/src/lib/schema/field'
-import { hostname } from '@/src/lib/site/format'
+import { archiveMonth, citableArchiveUrl, parseArchiveUrl } from '@/src/lib/archive-url'
+import { archiveLabel, formatDate, hostname } from '@/src/lib/site/format'
 
 function LinkIcon() {
   return (
@@ -20,9 +21,19 @@ export function SourceNote({ source }: { source: Pick<Sourced<unknown>, 'sourceU
       </a>
     )
   }
-  const label = derivation ? `Source: ${host} (converted from ${derivation.input})` : `Source: ${host}`
+  const archived = archiveLabel(sourceUrl)
+  const copy = parseArchiveUrl(sourceUrl)
+  const label = archived
+    ? derivation?.op === 'earliest-archive-copy' && copy
+      ? `On sale by ${formatDate(archiveMonth(copy.timestamp))} (archived copy). Source: ${archived}`
+      : derivation?.op === 'absent-from-catalog'
+        ? `Not listed in the maker's catalog (${derivation.input}). Source: ${archived}`
+        : `Source: ${archived}`
+    : derivation
+      ? `Source: ${host} (converted from ${derivation.input})`
+      : `Source: ${host}`
   return (
-    <a className="source" href={sourceUrl} aria-label={label} title={label}>
+    <a className="source" href={citableArchiveUrl(sourceUrl)} aria-label={label} title={label}>
       <LinkIcon />
     </a>
   )

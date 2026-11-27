@@ -5,6 +5,7 @@ import { afterEach, beforeAll, describe, expect, test, vi } from 'vitest'
 import { AdSlot } from '@/src/components/AdSlot'
 import { BuyBoxSlot } from '@/src/components/BuyBoxSlot'
 import { CatalogFilters } from '@/src/components/CatalogFilters'
+import { SourceNote } from '@/src/components/SourceNote'
 import { ProsCons } from '@/src/components/ProsCons'
 import { ReviewSummary } from '@/src/components/ReviewSummary'
 import { YouTubeEmbed } from '@/src/components/YouTubeEmbed'
@@ -119,6 +120,7 @@ describe('CatalogFilters', () => {
     formFactors: [],
     powerTypes: [],
     connectivity: {},
+    indexable: true,
     ...fields,
   })
   const items = [
@@ -193,5 +195,23 @@ describe('CatalogFilters', () => {
     expect(labels).toContain('BTE')
     expect(labels).not.toContain('CIC')
     expect(labels).toContain('Acme')
+  })
+})
+
+describe('SourceNote on an archive copy', () => {
+  test('labels the archived date and links the copy without the raw flag', () => {
+    const html = renderToStaticMarkup(
+      <SourceNote
+        source={{
+          sourceUrl: 'https://web.archive.org/web/20190512000000id_/https://maker.example/one',
+          sourceType: 'derived',
+          derivation: { op: 'earliest-archive-copy', input: '20190512000000' },
+        }}
+      />,
+    )
+
+    expect(html).toContain('href="https://web.archive.org/web/20190512000000/https://maker.example/one"')
+    expect(html).toContain('On sale by May 2019 (archived copy)')
+    expect(html).toContain('archived copy of May 2019, via Internet Archive')
   })
 })

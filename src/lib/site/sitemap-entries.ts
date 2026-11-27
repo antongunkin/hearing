@@ -2,6 +2,7 @@
 import type { Dataset } from '@/src/lib/data/load'
 import { buildCatalogIndex } from './catalog-index'
 import { ownershipTable } from './companies'
+import { isIndexable } from './indexing'
 import { pairSlug, publishedPairs } from './pairs'
 import { SERVICE_PAGES } from './service-pages'
 
@@ -34,7 +35,7 @@ export function buildSitemapEntries(dataset: Dataset, baseUrl: string): SitemapE
   return [
     entry('/', [...modelDates, ...eventDates]),
     entry('/hearing-aids', modelDates),
-    ...models.map(({ slug }) => entry(`/hearing-aids/${slug}`, pageDates(slug))),
+    ...models.filter(isIndexable).map(({ slug }) => entry(`/hearing-aids/${slug}`, pageDates(slug))),
     ...publishedPairs(buildCatalogIndex(models, events), comparePairs).map(([a, b]) =>
       entry(`/compare/${pairSlug(a, b)}`, [...pageDates(a), ...pageDates(b)]),
     ),

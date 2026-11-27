@@ -32,9 +32,9 @@ function closeness(a: CatalogItem, b: CatalogItem): number {
 /** The slugs of the `k` models closest to `slug`, closest first; of equally close ones, by slug. */
 export function competitorsOf(slug: string, items: CatalogItem[], k = 10): string[] {
   const model = items.find((item) => item.slug === slug)
-  if (!model) return []
+  if (!model || model.discontinued) return []
   return items
-    .filter((item) => item.slug !== slug)
+    .filter((item) => item.slug !== slug && !item.discontinued)
     .map((item) => ({ slug: item.slug, score: closeness(model, item) }))
     .sort((a, b) => b.score - a.score || bySlug(a.slug, b.slug))
     .slice(0, k)
@@ -61,24 +61,27 @@ function inOrder(pairs: [string, string][]): [string, string][] {
   return [...bySlugOfPair.keys()].sort(bySlug).map((key) => bySlugOfPair.get(key)!)
 }
 
-/** Each model with each of its closest competitors, once each. */
+/** Each model on sale with each of its closest competitors, once each; and each model with its successor. */
 export function selectCuratedPairs(items: CatalogItem[], k = 10): [string, string][] {
-  return inOrder(
-    items.flatMap(({ slug }) =>
-      competitorsOf(slug, items, k).map((other): [string, string] => (slug < other ? [slug, other] : [other, slug])),
+  const listed = new Set(items.map((item) => item.slug))
+  const ordered = (a: string, b: string): [string, string] => (a < b ? [a, b] : [b, a])
+  return inOrder([
+    ...items.flatMap(({ slug }) => competitorsOf(slug, items, k).map((other) => ordered(slug, other))),
+    ...items.flatMap(({ slug, successor }) =>
+      successor !== undefined && successor !== slug && listed.has(successor) ? [ordered(slug, successor)] : [],
     ),
-  )
+  ])
 }
 
 /**
  * The pairs that get a page: the curated ones, and every pair recorded before (`stored`, pair slugs) whose
- * models are both still there, so that a published page does not vanish when a closer competitor arrives.
+ * models are both still there, and only pairs of two indexable pages, so that a published page does not vanish when a closer competitor arrives.
  */
 export function publishedPairs(items: CatalogItem[], stored: string[], k = 10): [string, string][] {
-  const listed = new Set(items.map((item) => item.slug))
+  const listed = new Set(items.filter((item) => item.indexable).map((item) => item.slug))
   const kept = stored.flatMap((text) => {
     const pair = parsePairSlug(text)
     return pair?.every((slug) => listed.has(slug)) ? [pair] : []
   })
-  return inOrder([...selectCuratedPairs(items, k), ...kept])
+  return inOrder([...selectCuratedPairs(items, k), ...kept]).filter((pair) => pair.every((slug) => listed.has(slug)))
 }
