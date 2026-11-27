@@ -1,0 +1,186 @@
+{
+  "domain": "eargo.com",
+  "generatedAt": "2026-11-27T19:11:39.995Z",
+  "model": "sonnet",
+  "openQuestions": [
+    "Does the archive hold copies of /products-hearing-aids and the model pages? The CDX lookup failed.",
+    "Why did the Oct 2026 snapshots refuse connections? Are they really missing?",
+    "Is the site still selling? Which models were on sale at the end?",
+    "Where are the PDFs for Eargo 5 to 8, SE and LINK?",
+    "Is there an Eargo app listing? None was found."
+  ],
+  "sections": {
+    "archive": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:43:16.187Z",
+            "url": "https://web.archive.org/web/20181223225142id_/https://eargo.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:43:52.774Z",
+            "url": "https://web.archive.org/web/20231220065941id_/https://www.eargo.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:44:13.471Z",
+            "url": "https://web.archive.org/web/20261008224430id_/https://eargo.com/"
+          }
+        ],
+        "text": "The archived home page with a title and readable text is from Dec 2018, Dec 2019, Dec 2021, Dec 2022 and Dec 2023. The Oct 2026 home snapshot has a title and 5 internal links."
+      }
+    ],
+    "links": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:43:16.187Z",
+            "url": "https://web.archive.org/web/20181223225142id_/https://eargo.com/"
+          }
+        ],
+        "text": "The pages link to social sites (facebook, twitter, instagram, youtube, linkedin) and, in 2018 and 2019, to press (techcrunch, geekwire). The one document host is d9jpa82qnx9c8.cloudfront.net."
+      }
+    ],
+    "next": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:44:24.556Z",
+            "url": "https://web.archive.org/web/20261015060520id_/https://www.eargo.com/guides/"
+          }
+        ],
+        "text": "Look for archived copies of the guides pages for Eargo 7, 8, SE and LINK, and for PDF guides."
+      }
+    ],
+    "render": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:43:59.912Z",
+            "url": "https://web.archive.org/web/20241217023829id_/https://www.eargo.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:44:06.043Z",
+            "url": "https://web.archive.org/web/20251203025303id_/https://www.eargo.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:43:29.731Z",
+            "url": "https://web.archive.org/web/20201224022251id_/https://eargo.com/#organization"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:44:24.556Z",
+            "url": "https://web.archive.org/web/20261015060520id_/https://www.eargo.com/guides/"
+          }
+        ],
+        "text": "The 2024 and 2025 home page snapshots, the 2020 #organization snapshot and the 2026 guides page were flagged as needing scripts. The 2024 and 2025 home snapshots and the 2020 snapshot had no internal links. The 2025 snapshot text was empty."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:43:16.187Z",
+            "url": "https://web.archive.org/web/20181223225142id_/https://eargo.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:43:52.774Z",
+            "url": "https://web.archive.org/web/20231220065941id_/https://www.eargo.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:44:13.471Z",
+            "url": "https://web.archive.org/web/20261008224430id_/https://eargo.com/"
+          }
+        ],
+        "text": "The 2018 to 2023 snapshots and the Oct 2026 home page were flagged as not needing scripts."
+      }
+    ],
+    "structure": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:43:08.605Z",
+            "url": "https://web.archive.org/web/20260412005842id_/https://www.eargo.com/robots.txt"
+          }
+        ],
+        "text": "The archived robots.txt allows /products-hearing-aids, /guides, /faq, /store-locator, /blog and other paths, and lists no sitemaps."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:43:16.187Z",
+            "url": "https://web.archive.org/web/20181223225142id_/https://eargo.com/"
+          }
+        ],
+        "text": "The 2018 site had sections for Products, How it works, Reviews, Shop and Store locator, plus About, Careers, Support, FAQ, User guides and How-to videos."
+      }
+    ],
+    "what": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:44:24.556Z",
+            "url": "https://web.archive.org/web/20261015060520id_/https://www.eargo.com/guides/"
+          }
+        ],
+        "text": "Eargo's own brand site. The pages show Eargo Inc. as the copyright holder."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:43:16.187Z",
+            "url": "https://web.archive.org/web/20181223225142id_/https://eargo.com/"
+          }
+        ],
+        "text": "The 2018 home page sold the Eargo Max and Eargo Plus rechargeable hearing devices and accessories."
+      }
+    ],
+    "where": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:44:24.556Z",
+            "url": "https://web.archive.org/web/20261015060520id_/https://www.eargo.com/guides/"
+          }
+        ],
+        "text": "The guides hub /guides/ lists the devices Eargo 8, Eargo SE, LINK by Eargo and Eargo 7, with a 'View more' link. Each device has a page of its own: /guides/eargo-7/, /guides/eargo-8/, /guides/eargo-se/ and /guides/link-by-eargo/."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:43:16.187Z",
+            "url": "https://web.archive.org/web/20181223225142id_/https://eargo.com/"
+          }
+        ],
+        "text": "The 2018 home page links one PDF, the Eargo Max user guide, on cloudfront.net."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:44:24.556Z",
+            "url": "https://web.archive.org/web/20261015060520id_/https://www.eargo.com/guides/"
+          }
+        ],
+        "text": "The report found no app store links on any page it read."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:44:24.556Z",
+            "url": "https://web.archive.org/web/20261015060520id_/https://www.eargo.com/guides/"
+          }
+        ],
+        "text": "The guides page mentions the Eargo Mobile App only in a setup video topic."
+      }
+    ]
+  },
+  "summary": {
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:44:24.556Z",
+        "url": "https://web.archive.org/web/20261015060520id_/https://www.eargo.com/guides/"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:44:13.471Z",
+        "url": "https://web.archive.org/web/20261008224430id_/https://eargo.com/"
+      }
+    ],
+    "text": "eargo.com is Eargo's own brand site, now only readable through the Web Archive. The live site refuses connections. The archive holds snapshots from 2018 to 2026, and the 2026 guides page lists Eargo 8, Eargo SE, LINK by Eargo and Eargo 7."
+  }
+}

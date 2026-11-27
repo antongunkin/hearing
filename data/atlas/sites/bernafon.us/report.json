@@ -1,0 +1,2062 @@
+{
+  "archive": {
+    "sections": [
+      {
+        "byYear": {
+          "2024": 51,
+          "2025": 72,
+          "2026": 42
+        },
+        "latest": "20261126181720",
+        "url": "https://www.bernafon.us"
+      },
+      {
+        "byYear": {
+          "2024": 8,
+          "2025": 7,
+          "2026": 6
+        },
+        "latest": "20260711212528",
+        "url": "https://www.bernafon.us/support"
+      },
+      {
+        "byYear": {
+          "2024": 6,
+          "2025": 3,
+          "2026": 2
+        },
+        "latest": "20260617104913",
+        "url": "https://www.bernafon.us/products"
+      },
+      {
+        "byYear": {
+          "2024": 6,
+          "2025": 5,
+          "2026": 1
+        },
+        "latest": "20260314165858",
+        "url": "https://www.bernafon.us/for-professionals"
+      },
+      {
+        "byYear": {
+          "2024": 2,
+          "2025": 6,
+          "2026": 2
+        },
+        "latest": "20260908032720",
+        "url": "https://www.bernafon.us/about-us"
+      },
+      {
+        "byYear": {
+          "2024": 5,
+          "2025": 6,
+          "2026": 1
+        },
+        "latest": "20260421001644",
+        "url": "https://www.bernafon.us/hearing-loss"
+      }
+    ]
+  },
+  "budget": 60,
+  "domain": "bernafon.us",
+  "failures": [
+    {
+      "detail": "HTTP 404",
+      "reason": "http-error",
+      "url": "https://www.bernafon.us/system/not-found"
+    }
+  ],
+  "generatedAt": "2026-11-27T17:15:40.802Z",
+  "mode": "live",
+  "outbound": [
+    {
+      "count": 59,
+      "domain": "app.certexpress.com",
+      "examples": [
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ]
+    },
+    {
+      "count": 59,
+      "domain": "bernafon.com",
+      "examples": [
+        "https://www.bernafon.com/about-us/trademark-information"
+      ]
+    },
+    {
+      "count": 10,
+      "domain": "apps.apple.com",
+      "examples": [
+        "https://apps.apple.com/gb/app/bernafon-app/id1597062293"
+      ]
+    },
+    {
+      "count": 9,
+      "domain": "play.google.com",
+      "examples": [
+        "https://play.google.com/store/apps/details?id=com.bernafon.bernafonapp&hl=en&gl=uk",
+        "https://play.google.com/store/apps/details?id=com.bernafon.bernafonapp"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "calendly.com",
+      "examples": [
+        "https://calendly.com/kygl"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "support.apple.com",
+      "examples": [
+        "http://support.apple.com/en-us/HT205189"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "tools.google.com",
+      "examples": [
+        "https://tools.google.com/dlpage/gaoptout"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 31,
+      "jsonLdTypes": [
+        "CreativeWork"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:11:37.122Z",
+        "url": "https://www.bernafon.us/"
+      },
+      "title": "Bernafon hearing aids | Hear your day, your way",
+      "url": "https://www.bernafon.us/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 28,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:11:40.408Z",
+        "url": "https://www.bernafon.us/hearing-loss"
+      },
+      "title": "Hearing loss | Explore our expert knowledge | Bernafon hearing aids",
+      "url": "https://www.bernafon.us/hearing-loss"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 28,
+      "jsonLdTypes": [
+        "CreativeWork"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:11:43.424Z",
+        "url": "https://www.bernafon.us/hearing-test"
+      },
+      "title": "Bernafon | Online hearing test",
+      "url": "https://www.bernafon.us/hearing-test"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 28,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:11:46.297Z",
+        "url": "https://www.bernafon.us/products"
+      },
+      "title": "Hearing products | Bernafon hearing aids | Your hearing. Our passion.",
+      "url": "https://www.bernafon.us/products"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 28,
+      "jsonLdTypes": [
+        "CreativeWork"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:11:49.449Z",
+        "url": "https://www.bernafon.us/support"
+      },
+      "title": "How can we help you? | Bernafon hearing aids | Support",
+      "url": "https://www.bernafon.us/support"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 29,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:11:52.085Z",
+        "url": "https://www.bernafon.us/about-us"
+      },
+      "title": "About Bernafon",
+      "url": "https://www.bernafon.us/about-us"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.bernafon.bernafonapp"
+        ],
+        "ios": [
+          "1597062293"
+        ]
+      },
+      "external": [
+        "https://apps.apple.com/gb/app/bernafon-app/id1597062293",
+        "https://play.google.com/store/apps/details?id=com.bernafon.bernafonapp&hl=en&gl=uk",
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 29,
+      "jsonLdTypes": [
+        "CreativeWork"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:11:55.944Z",
+        "url": "https://www.bernafon.us/check-compatibility"
+      },
+      "title": "Check compatibility",
+      "url": "https://www.bernafon.us/check-compatibility"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 30,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:12:00.825Z",
+        "url": "https://www.bernafon.us/for-professionals"
+      },
+      "title": "Bernafon for hearing professionals | The Sound Experience",
+      "url": "https://www.bernafon.us/for-professionals"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 28,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:12:06.471Z",
+        "url": "https://www.bernafon.us/hearing-loss/what-is-hearing-loss"
+      },
+      "title": "What is hearing loss? | Learn with the experts | Bernafon",
+      "url": "https://www.bernafon.us/hearing-loss/what-is-hearing-loss"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 28,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:12:09.797Z",
+        "url": "https://www.bernafon.us/hearing-loss/free-online-hearing-test"
+      },
+      "title": "Take a free online hearing test | Bernafon hearing aids",
+      "url": "https://www.bernafon.us/hearing-loss/free-online-hearing-test"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 28,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:12:12.579Z",
+        "url": "https://www.bernafon.us/hearing-loss/how-hearing-works"
+      },
+      "title": "How hearing works | Discover with the experts | Bernafon",
+      "url": "https://www.bernafon.us/hearing-loss/how-hearing-works"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 28,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:12:16.548Z",
+        "url": "https://www.bernafon.us/hearing-loss/hearing-loss-simulator"
+      },
+      "title": "Hearing loss simulator",
+      "url": "https://www.bernafon.us/hearing-loss/hearing-loss-simulator"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:12:21.542Z",
+        "url": "https://www.bernafon.us/products/hearing-aids"
+      },
+      "title": "Find the best hearing aid | Bernafon | Your hearing. Our passion.",
+      "url": "https://www.bernafon.us/products/hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 28,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:12:26.098Z",
+        "url": "https://www.bernafon.us/products/accessories"
+      },
+      "title": "Accessories | Bernafon hearing aids | Your hearing. Our passion.",
+      "url": "https://www.bernafon.us/products/accessories"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.bernafon.bernafonapp"
+        ],
+        "ios": [
+          "1597062293"
+        ]
+      },
+      "external": [
+        "https://apps.apple.com/gb/app/bernafon-app/id1597062293",
+        "https://play.google.com/store/apps/details?id=com.bernafon.bernafonapp&hl=en&gl=uk",
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 28,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://damcdn.demant.com/075f6109-e666-4353-822a-b18500c06403/277454US_IFU_BE_App_1.4.0_24.2_Original%20file.pdf",
+        "https://damcdn.demant.com/577d4eb7-5b6e-49b3-bf1e-b126007be6f8/275408US_IFU_BE_App_1.3.0_24.1_Original%20file.pdf",
+        "https://damcdn.demant.com/eb629e18-ef5b-4e4c-b404-b233007e2b81/266886UK_IFU_BE_App_1.2.0_H2-23_Original%20file.pdf",
+        "https://damcdn.demant.com/f5f6ccb0-fc53-476f-974e-b23300822c2d/223849_BF_RC-App_IFU_2.3_20-H2_UK_Original%20file.pdf",
+        "https://damcdn.demant.com/fc8bcc03-08e3-4617-98b0-b23b00d9b7e4/283770US_IFU_BE_App_25.1_1.5.0_Original%20file.pdf",
+        "https://damcdn.demant.com/42092567-6a09-4c75-9a14-b34000af225d/292205US_IFU_BE_App_25.2_1.6.0_Original%20file.pdf",
+        "https://damcdn.demant.com/d1284e49-0333-4d2e-9e3e-b2b101253c2f/15500-0116%20-%20Bernafon%20-%20Hands-Free%20Communication%20Guide_01.25_Original%20file.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:12:29.375Z",
+        "url": "https://www.bernafon.us/products/bernafon-app"
+      },
+      "title": "Bernafon App | Hearing aid app | Making everyday life easier",
+      "url": "https://www.bernafon.us/products/bernafon-app"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 28,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [
+        "https://assets.ha.demant.com/-/media/project/hearing-aid/bernafon/shared/pdfs/countries/us/s-1130702uk_pdf_be_charger_compatability_overview_26_1.pdf?rev=1ea85f00db5c4688a05cebe15ce29f9b&hash=E381D243039498D6EC218A32E6160C73",
+        "https://assets.ha.demant.com/-/media/project/hearing-aid/bernafon/shared/pdfs/countries/us/s-1129905uk_pdf_be_cros_compatibility_overview_26_1.pdf?rev=11b9eba07bd64e2a8c37c657c8f75913&hash=078CC843A2269062CC265A36AA1B1DB8"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:12:32.319Z",
+        "url": "https://www.bernafon.us/support/compatibility-guide"
+      },
+      "title": "Compatibility guide",
+      "url": "https://www.bernafon.us/support/compatibility-guide"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 40,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList",
+        "CollectionPage"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:12:34.914Z",
+        "url": "https://www.bernafon.us/support/pairing"
+      },
+      "title": "How to pair hearing aids with other devices | Bernafon hearing aids",
+      "url": "https://www.bernafon.us/support/pairing"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 35,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:12:37.827Z",
+        "url": "https://www.bernafon.us/support/life-with-a-hearing-aid"
+      },
+      "title": "Everyday hearing aid use | Good advice for you from Bernafon",
+      "url": "https://www.bernafon.us/support/life-with-a-hearing-aid"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 39,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:12:41.596Z",
+        "url": "https://www.bernafon.us/support/bernafon-app"
+      },
+      "title": "App support | Bernafon App for hearing aids | Remote Fitting",
+      "url": "https://www.bernafon.us/support/bernafon-app"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 33,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:12:46.057Z",
+        "url": "https://www.bernafon.us/support/care-and-cleaning"
+      },
+      "title": "Hearing aid cleaning and care | Good advice for you from Bernafon",
+      "url": "https://www.bernafon.us/support/care-and-cleaning"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 29,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:12:48.320Z",
+        "url": "https://www.bernafon.us/support/batteries-and-charging"
+      },
+      "title": "Batteries and charging | Good advice for you from Bernafon",
+      "url": "https://www.bernafon.us/support/batteries-and-charging"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 35,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:12:51.119Z",
+        "url": "https://www.bernafon.us/support/troubleshooting"
+      },
+      "title": "Troubleshooting | Bernafon hearing aids | Find a solution here",
+      "url": "https://www.bernafon.us/support/troubleshooting"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 30,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:12:54.915Z",
+        "url": "https://www.bernafon.us/products/hearing-aids/family/encanta"
+      },
+      "title": "Bernafon Encanta hearing aids | Great hearing is personal",
+      "url": "https://www.bernafon.us/products/hearing-aids/family/encanta"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 31,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:12:59.874Z",
+        "url": "https://www.bernafon.us/products/hearing-aids/family/alpha-xt"
+      },
+      "title": "Alpha XT",
+      "url": "https://www.bernafon.us/products/hearing-aids/family/alpha-xt"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 29,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:13:03.968Z",
+        "url": "https://www.bernafon.us/products/hearing-aids/family/alpha"
+      },
+      "title": "alpha",
+      "url": "https://www.bernafon.us/products/hearing-aids/family/alpha"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.bernafon.bernafonapp"
+        ],
+        "ios": [
+          "1597062293"
+        ]
+      },
+      "external": [
+        "https://apps.apple.com/gb/app/bernafon-app/id1597062293",
+        "https://play.google.com/store/apps/details?id=com.bernafon.bernafonapp&hl=en&gl=uk",
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 29,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:13:06.698Z",
+        "url": "https://www.bernafon.us/for-professionals/the-encanta-family"
+      },
+      "title": "For professionals | Bernafon Encanta hearing aids",
+      "url": "https://www.bernafon.us/for-professionals/the-encanta-family"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 28,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:13:10.219Z",
+        "url": "https://www.bernafon.us/for-professionals/become-a-partner"
+      },
+      "title": "Partner with Bernafon | For hearing care professionals",
+      "url": "https://www.bernafon.us/for-professionals/become-a-partner"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 28,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://assets.ha.demant.com/-/media/project/hearing-aid/bernafon/shared/pdfs/countries/us/20261_bernafoncom_oasis_update.pdf?rev=2273771812fe4c6b895fa5689f3d5132&hash=FA97D328C767BC18A16B9AEE4BEC1454",
+        "https://assets.ha.demant.com/-/media/project/hearing-aid/bernafon/shared/pdfs/countries/us/286496us_ifu_be_oasisnxt_fs_252.pdf?rev=8d03e6d4e79942d38fad97a31701d3c6&hash=C6536C10E70019335A98E25D9A994D9C"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:13:12.628Z",
+        "url": "https://www.bernafon.us/for-professionals/fitting-software"
+      },
+      "title": "Bernafon | OASISnxt fitting software",
+      "url": "https://www.bernafon.us/for-professionals/fitting-software"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 28,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://damcdn.demant.com/accef1fd-5457-427e-b589-b1da0071067e/281334US_TD_BE_Alpha_MNR_T_22.1_Original%20file.pdf",
+        "https://damcdn.demant.com/340b2bf5-88fb-44ca-8f51-b1d8008e2664/281333US_TD_BE_Alpha_XT_MNR_T_23.1_Original%20file.pdf",
+        "https://damcdn.demant.com/886fb5da-6f37-4a18-8d42-b12b00ea4548/275389US_TD_BE_Alpha_XT_MNR_TR_23.1_Original%20file.pdf",
+        "https://damcdn.demant.com/3c3db41a-b914-4b56-867f-b22d008ad500/283287US_TD_BE_CROS_MNR_T_R_25.1_Original%20file.pdf",
+        "https://damcdn.demant.com/b9b03e7e-d0f9-4033-ae30-b12b00ea4688/275386US_TD_BE_Encanta_MNR_24_1_Original%20file.pdf",
+        "https://damcdn.demant.com/239a1caf-5f36-4a57-885a-b14000fe1eb0/15500-0073%20-%20Bernafon%20Encanta%20CBR%20-%2008-24_Original%20file.pdf",
+        "https://damcdn.demant.com/0453b150-7535-4a45-b4f2-b1e200eecbe5/15500-0092%20-%20Bernafon%20-%20Portfolio%20Matrix_Original%20file.pdf",
+        "https://damcdn.demant.com/be859c5c-c1c8-4470-8373-b13f01056886/24-570106%20-%2015500-0304%20-%20RM%20-%20H1%202024%20-%20B2B%20Product%20Matrix%20-%20V5_Original%20file.pdf",
+        "https://damcdn.demant.com/f5f6ccb0-fc53-476f-974e-b23300822c2d/223849_BF_RC-App_IFU_2.3_20-H2_UK_Original%20file.pdf",
+        "https://damcdn.demant.com/6d2c267c-0da4-44c7-bf03-b12a007e888d/275467US_BF_TV-A_IFU_2020_Original%20file.pdf",
+        "https://damcdn.demant.com/8da67936-ea4f-4d7f-ada6-b1d3016b3e8a/281332US_IFU_%20BF%20AH%20MNR%20T%20MNR%20TR%20H2-22_Original%20file.pdf",
+        "https://damcdn.demant.com/22d256cb-52d3-46fa-a3e8-b1d200643e9b/281357US_IFU_BE_Alpha_XT_MNR%20T_%20MNR-TR_Original%20file.pdf",
+        "https://damcdn.demant.com/54237391-e9e0-4add-b82d-b125008df2e4/275409US_IFU_BE_Alpha_XT_MNR_TR_Original%20file.pdf",
+        "https://damcdn.demant.com/d1284e49-0333-4d2e-9e3e-b2b101253c2f/15500-0116%20-%20Bernafon%20-%20Hands-Free%20Communication%20Guide_01.25_Original%20file.pdf",
+        "https://damcdn.demant.com/2fbd158e-d509-406d-90a2-b13f01057017/24-566405%20-%2015500-0302%20-%20RM%20-%20H1%202024%20-%20Getting%20Started%20Guide%20-%20V4_Original%20file.pdf",
+        "https://damcdn.demant.com/d9ca4f65-41b4-487b-82d0-b2ed0133b3ca/15500-0478-Bernafon-LE%20Adapter%20Pairing%20and%20FAQ%20Guide_Original%20file.pdf",
+        "https://damcdn.demant.com/e8731903-a31e-47b7-b23d-b13f01057624/24-568157%20-%2015500-0308%20-%20RM%20-%20H1%202024%20-%20Oasis%20Fitting%20Guide%20-%20V2_Original%20file.pdf",
+        "https://damcdn.demant.com/e1da1019-170f-4921-b342-b13f01056a7e/24-577167%20-%2015500-0077%20-%20RM%20-%20H1%202024%20-%20Bernafon%20Launch%20Letter%20-%20V2_Original%20file.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:13:16.581Z",
+        "url": "https://www.bernafon.us/for-professionals/resource-centre"
+      },
+      "title": "Resource center",
+      "url": "https://www.bernafon.us/for-professionals/resource-centre"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://calendly.com/kygl",
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 28,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:13:19.366Z",
+        "url": "https://www.bernafon.us/for-professionals/training"
+      },
+      "title": "Training & Education | Bernafon Encanta hearing aids",
+      "url": "https://www.bernafon.us/for-professionals/training"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 29,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:13:24.505Z",
+        "url": "https://www.bernafon.us/about-us/contact-us"
+      },
+      "title": "Contact us | Bernafon",
+      "url": "https://www.bernafon.us/about-us/contact-us"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://tools.google.com/dlpage/gaoptout",
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 29,
+      "jsonLdTypes": [
+        "CreativeWork"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:13:29.367Z",
+        "url": "https://www.bernafon.us/about-us/privacy-policy"
+      },
+      "title": "Privacy Notice | About Bernafon",
+      "url": "https://www.bernafon.us/about-us/privacy-policy"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 28,
+      "jsonLdTypes": [
+        "CreativeWork"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:13:33.108Z",
+        "url": "https://www.bernafon.us/about-us/terms-of-sale"
+      },
+      "title": "Terms of Sale | About Bernafon",
+      "url": "https://www.bernafon.us/about-us/terms-of-sale"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 35,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:13:35.950Z",
+        "url": "https://www.bernafon.us/products/hearing-aids/category/behind-the-ear"
+      },
+      "title": "Discreet behind-the-ear hearing aids",
+      "url": "https://www.bernafon.us/products/hearing-aids/category/behind-the-ear"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://damcdn.demant.com/b9b03e7e-d0f9-4033-ae30-b12b00ea4688/275386US_TD_BE_Encanta_MNR_24_1_Original%20file.pdf",
+        "https://damcdn.demant.com/239a1caf-5f36-4a57-885a-b14000fe1eb0/15500-0073%20-%20Bernafon%20Encanta%20CBR%20-%2008-24_Original%20file.pdf",
+        "https://damcdn.demant.com/0453b150-7535-4a45-b4f2-b1e200eecbe5/15500-0092%20-%20Bernafon%20-%20Portfolio%20Matrix_Original%20file.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:13:39.596Z",
+        "url": "https://www.bernafon.us/products/663068/encanta-minirite"
+      },
+      "title": "Encanta miniRITE",
+      "url": "https://www.bernafon.us/products/663068/encanta-minirite"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://damcdn.demant.com/54237391-e9e0-4add-b82d-b125008df2e4/275409US_IFU_BE_Alpha_XT_MNR_TR_Original%20file.pdf",
+        "https://damcdn.demant.com/22d256cb-52d3-46fa-a3e8-b1d200643e9b/281357US_IFU_BE_Alpha_XT_MNR%20T_%20MNR-TR_Original%20file.pdf",
+        "https://damcdn.demant.com/b7577e8c-d7cb-4c43-9795-b26c00d56fb8/282070US_IFU_BE_Charger_MNR_TR_MNB_TR_25.1_Original%20file.pdf",
+        "https://damcdn.demant.com/886fb5da-6f37-4a18-8d42-b12b00ea4548/275389US_TD_BE_Alpha_XT_MNR_TR_23.1_Original%20file.pdf",
+        "https://damcdn.demant.com/5787e876-aff6-4eb9-98c0-b24400b96fc7/284087US_TD_BE_Charger_MNR_T_R_25.1_Original%20file.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:13:43.476Z",
+        "url": "https://www.bernafon.us/products/521423/alpha-xt-minirite-t-r"
+      },
+      "title": "Alpha XT miniRITE T R",
+      "url": "https://www.bernafon.us/products/521423/alpha-xt-minirite-t-r"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 32,
+      "jsonLdTypes": [
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://damcdn.demant.com/22d256cb-52d3-46fa-a3e8-b1d200643e9b/281357US_IFU_BE_Alpha_XT_MNR%20T_%20MNR-TR_Original%20file.pdf",
+        "https://damcdn.demant.com/340b2bf5-88fb-44ca-8f51-b1d8008e2664/281333US_TD_BE_Alpha_XT_MNR_T_23.1_Original%20file.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:13:46.434Z",
+        "url": "https://www.bernafon.us/products/521422/alpha-xt-minirite-t"
+      },
+      "title": "Alpha XT miniRITE T",
+      "url": "https://www.bernafon.us/products/521422/alpha-xt-minirite-t"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 31,
+      "jsonLdTypes": [
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://damcdn.demant.com/8da67936-ea4f-4d7f-ada6-b1d3016b3e8a/281332US_IFU_%20BF%20AH%20MNR%20T%20MNR%20TR%20H2-22_Original%20file.pdf",
+        "https://damcdn.demant.com/accef1fd-5457-427e-b589-b1da0071067e/281334US_TD_BE_Alpha_MNR_T_22.1_Original%20file.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:13:51.450Z",
+        "url": "https://www.bernafon.us/products/391550/alpha-minirite-t"
+      },
+      "title": "Alpha miniRITE T",
+      "url": "https://www.bernafon.us/products/391550/alpha-minirite-t"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": [
+          "1597062293"
+        ]
+      },
+      "external": [
+        "https://apps.apple.com/gb/app/bernafon-app/id1597062293",
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 30,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:13:53.842Z",
+        "url": "https://www.bernafon.us/support/pairing/apple/how-to-pair-hearing-aids-with-iphone"
+      },
+      "title": "How to pair your hearing aids with iPhone® | Bernafon hearing aids",
+      "url": "https://www.bernafon.us/support/pairing/apple/how-to-pair-hearing-aids-with-iphone"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": [
+          "1597062293"
+        ]
+      },
+      "external": [
+        "https://apps.apple.com/gb/app/bernafon-app/id1597062293",
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 31,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:13:56.495Z",
+        "url": "https://www.bernafon.us/support/pairing/apple/how-to-pair-hearing-aids-with-ipad"
+      },
+      "title": "How to pair your hearing aids with iPad® | Bernafon hearing aids",
+      "url": "https://www.bernafon.us/support/pairing/apple/how-to-pair-hearing-aids-with-ipad"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": [
+          "1597062293"
+        ]
+      },
+      "external": [
+        "https://apps.apple.com/gb/app/bernafon-app/id1597062293",
+        "http://support.apple.com/en-us/HT205189",
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 31,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:14:00.456Z",
+        "url": "https://www.bernafon.us/support/pairing/apple/how-to-pair-hearing-aids-with-apple-watch"
+      },
+      "title": "How to pair your hearing aids with Apple Watch | Bernafon",
+      "url": "https://www.bernafon.us/support/pairing/apple/how-to-pair-hearing-aids-with-apple-watch"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 31,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:14:05.250Z",
+        "url": "https://www.bernafon.us/support/pairing/apple/how-to-pair-hearing-aids-with-mac"
+      },
+      "title": "How to connect your hearing aids with Mac computers | Bernafon",
+      "url": "https://www.bernafon.us/support/pairing/apple/how-to-pair-hearing-aids-with-mac"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 30,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:14:09.114Z",
+        "url": "https://www.bernafon.us/support/pairing/apple/how-to-unpair-hearing-aids-from-apple-devices"
+      },
+      "title": "How to unpair from Apple devices | Bernafon hearing aids",
+      "url": "https://www.bernafon.us/support/pairing/apple/how-to-unpair-hearing-aids-from-apple-devices"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.bernafon.bernafonapp"
+        ],
+        "ios": []
+      },
+      "external": [
+        "https://play.google.com/store/apps/details?id=com.bernafon.bernafonapp",
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 31,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:14:12.470Z",
+        "url": "https://www.bernafon.us/support/pairing/android/how-to-pair-hearing-aids-with-android-devices"
+      },
+      "title": "How to pair your hearing aids with Android phones | Bernafon",
+      "url": "https://www.bernafon.us/support/pairing/android/how-to-pair-hearing-aids-with-android-devices"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 30,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:14:15.406Z",
+        "url": "https://www.bernafon.us/support/pairing/android/how-to-unpair-hearing-aids-from-android-devices"
+      },
+      "title": "How to unpair your hearing aids from Android phones | Bernafon",
+      "url": "https://www.bernafon.us/support/pairing/android/how-to-unpair-hearing-aids-from-android-devices"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.bernafon.bernafonapp"
+        ],
+        "ios": []
+      },
+      "external": [
+        "https://play.google.com/store/apps/details?id=com.bernafon.bernafonapp",
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 31,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:14:18.340Z",
+        "url": "https://www.bernafon.us/support/pairing/android/how-to-pair-with-android-using-fast-pair"
+      },
+      "title": "How to pair your hearing aids with an Android™ device using Google Fast Pair | Bernafon hearing aids",
+      "url": "https://www.bernafon.us/support/pairing/android/how-to-pair-with-android-using-fast-pair"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.bernafon.bernafonapp"
+        ],
+        "ios": [
+          "1597062293"
+        ]
+      },
+      "external": [
+        "https://apps.apple.com/gb/app/bernafon-app/id1597062293",
+        "https://play.google.com/store/apps/details?id=com.bernafon.bernafonapp",
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 30,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:14:22.921Z",
+        "url": "https://www.bernafon.us/support/pairing/tvs-and-other-systems-with-sound/how-to-pair-hearing-aids-with-tv-adapter"
+      },
+      "title": "How to pair your hearing aids with a TV adapter (TV-A) | Bernafon",
+      "url": "https://www.bernafon.us/support/pairing/tvs-and-other-systems-with-sound/how-to-pair-hearing-aids-with-tv-adapter"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 31,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:14:25.792Z",
+        "url": "https://www.bernafon.us/support/pairing/tvs-and-other-systems-with-sound/how-to-pair-hearing-aids-with-computer"
+      },
+      "title": "How to pair your hearing aids with a computer | Bernafon",
+      "url": "https://www.bernafon.us/support/pairing/tvs-and-other-systems-with-sound/how-to-pair-hearing-aids-with-computer"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 30,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:14:28.080Z",
+        "url": "https://www.bernafon.us/support/pairing/tvs-and-other-systems-with-sound/how-to-unpair-hearing-aids-from-computer"
+      },
+      "title": "How to unpair your hearing aids from a computer",
+      "url": "https://www.bernafon.us/support/pairing/tvs-and-other-systems-with-sound/how-to-unpair-hearing-aids-from-computer"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 31,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:14:31.908Z",
+        "url": "https://www.bernafon.us/support/pairing/hearing-aid-accessories/how-to-pair-hearing-aids-with-soundclip-a"
+      },
+      "title": "How to pair SoundClip-A with your hearing aids | Bernafon",
+      "url": "https://www.bernafon.us/support/pairing/hearing-aid-accessories/how-to-pair-hearing-aids-with-soundclip-a"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 30,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:14:36.770Z",
+        "url": "https://www.bernafon.us/support/life-with-a-hearing-aid/basic-hearing-aid-use/how-to-put-on-and-remove-hearing-aids"
+      },
+      "title": "How to put on hearing aids | Advice for you from Bernafon",
+      "url": "https://www.bernafon.us/support/life-with-a-hearing-aid/basic-hearing-aid-use/how-to-put-on-and-remove-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 30,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:14:40.302Z",
+        "url": "https://www.bernafon.us/support/life-with-a-hearing-aid/basic-hearing-aid-use/how-to-turn-hearing-aids-on-and-off"
+      },
+      "title": "How to turn your hearing aids on and off | Advice from Bernafon",
+      "url": "https://www.bernafon.us/support/life-with-a-hearing-aid/basic-hearing-aid-use/how-to-turn-hearing-aids-on-and-off"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 31,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:14:42.488Z",
+        "url": "https://www.bernafon.us/support/life-with-a-hearing-aid/basic-hearing-aid-use/first-days-with-new-hearing-aids"
+      },
+      "title": "Your first days with new hearing aids | Advice from Bernafon",
+      "url": "https://www.bernafon.us/support/life-with-a-hearing-aid/basic-hearing-aid-use/first-days-with-new-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 32,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:14:46.517Z",
+        "url": "https://www.bernafon.us/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-make-hands-free-calls-with-hearing-aids"
+      },
+      "title": "How to have hands-free calls with your hearing aids | Bernafon",
+      "url": "https://www.bernafon.us/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-make-hands-free-calls-with-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:14:51.333Z",
+        "url": "https://www.bernafon.us/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-listen-to-music-with-hearing-aids"
+      },
+      "title": "How to listen to music with your hearing aids | Advice from Bernafon",
+      "url": "https://www.bernafon.us/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-listen-to-music-with-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.bernafon.bernafonapp"
+        ],
+        "ios": [
+          "1597062293"
+        ]
+      },
+      "external": [
+        "https://apps.apple.com/gb/app/bernafon-app/id1597062293",
+        "https://play.google.com/store/apps/details?id=com.bernafon.bernafonapp",
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 31,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:14:53.856Z",
+        "url": "https://www.bernafon.us/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-listen-to-auracast-broadcast"
+      },
+      "title": "How to listen to Auracast | Advice from Bernafon hearing aids",
+      "url": "https://www.bernafon.us/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-listen-to-auracast-broadcast"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 30,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:14:59.094Z",
+        "url": "https://www.bernafon.us/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-share-audio-using-auracast"
+      },
+      "title": "How to share audio using Auracast™ broadcast technology | Advice from Bernafon hearing aids",
+      "url": "https://www.bernafon.us/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-share-audio-using-auracast"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.bernafon.bernafonapp"
+        ],
+        "ios": [
+          "1597062293"
+        ]
+      },
+      "external": [
+        "https://apps.apple.com/gb/app/bernafon-app/id1597062293",
+        "https://play.google.com/store/apps/details?id=com.bernafon.bernafonapp",
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 30,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:15:01.920Z",
+        "url": "https://www.bernafon.us/support/bernafon-app/help-with-the-bernafon-app/how-to-adjust-volume-and-change-program"
+      },
+      "title": "How to adjust volume and programs | Bernafon App for hearing aids",
+      "url": "https://www.bernafon.us/support/bernafon-app/help-with-the-bernafon-app/how-to-adjust-volume-and-change-program"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.bernafon.bernafonapp"
+        ],
+        "ios": [
+          "1597062293"
+        ]
+      },
+      "external": [
+        "https://apps.apple.com/gb/app/bernafon-app/id1597062293",
+        "https://play.google.com/store/apps/details?id=com.bernafon.bernafonapp",
+        "https://www.bernafon.com/about-us/trademark-information",
+        "https://app.certexpress.com/?c=3749532b487842456d3065762f614441564e777a:3b4ac28c968569dc000387cecf9a2037"
+      ],
+      "internalLinks": 30,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "HowTo",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:15:05.901Z",
+        "url": "https://www.bernafon.us/support/bernafon-app/help-with-the-bernafon-app/how-to-adjust-surrounding-sounds-with-sound-equalizer"
+      },
+      "title": "Sound equalizer in the Bernafon App | Bernafon App for hearing aids",
+      "url": "https://www.bernafon.us/support/bernafon-app/help-with-the-bernafon-app/how-to-adjust-surrounding-sounds-with-sound-equalizer"
+    }
+  ],
+  "pdfHosts": [
+    {
+      "count": 37,
+      "examples": [
+        "https://damcdn.demant.com/075f6109-e666-4353-822a-b18500c06403/277454US_IFU_BE_App_1.4.0_24.2_Original%20file.pdf",
+        "https://damcdn.demant.com/577d4eb7-5b6e-49b3-bf1e-b126007be6f8/275408US_IFU_BE_App_1.3.0_24.1_Original%20file.pdf",
+        "https://damcdn.demant.com/eb629e18-ef5b-4e4c-b404-b233007e2b81/266886UK_IFU_BE_App_1.2.0_H2-23_Original%20file.pdf"
+      ],
+      "host": "damcdn.demant.com"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://assets.ha.demant.com/-/media/project/hearing-aid/bernafon/shared/pdfs/countries/us/s-1130702uk_pdf_be_charger_compatability_overview_26_1.pdf?rev=1ea85f00db5c4688a05cebe15ce29f9b&hash=E381D243039498D6EC218A32E6160C73",
+        "https://assets.ha.demant.com/-/media/project/hearing-aid/bernafon/shared/pdfs/countries/us/s-1129905uk_pdf_be_cros_compatibility_overview_26_1.pdf?rev=11b9eba07bd64e2a8c37c657c8f75913&hash=078CC843A2269062CC265A36AA1B1DB8",
+        "https://assets.ha.demant.com/-/media/project/hearing-aid/bernafon/shared/pdfs/countries/us/20261_bernafoncom_oasis_update.pdf?rev=2273771812fe4c6b895fa5689f3d5132&hash=FA97D328C767BC18A16B9AEE4BEC1454"
+      ],
+      "host": "assets.ha.demant.com"
+    }
+  ],
+  "redirects": [],
+  "robots": {
+    "groups": [
+      {
+        "allow": [
+          "/"
+        ],
+        "disallow": [],
+        "userAgents": [
+          "*"
+        ]
+      }
+    ],
+    "ref": {
+      "fetchedAt": "2026-11-27T17:11:28.292Z",
+      "url": "https://www.bernafon.us/robots.txt"
+    },
+    "sitemaps": [
+      "https://www.bernafon.us/sitemap.xml"
+    ],
+    "status": 200
+  },
+  "sitemap": {
+    "refs": [
+      {
+        "fetchedAt": "2026-11-27T17:11:33.595Z",
+        "url": "https://www.bernafon.us/sitemap.xml"
+      }
+    ],
+    "sections": [
+      {
+        "count": 66,
+        "path": "/support"
+      },
+      {
+        "count": 25,
+        "path": "/products"
+      },
+      {
+        "count": 12,
+        "path": "/for-professionals"
+      },
+      {
+        "count": 9,
+        "path": "/about-us"
+      },
+      {
+        "count": 5,
+        "path": "/hearing-loss"
+      },
+      {
+        "count": 1,
+        "path": "/"
+      },
+      {
+        "count": 1,
+        "path": "/check-compatibility"
+      },
+      {
+        "count": 1,
+        "path": "/hearing-test"
+      },
+      {
+        "count": 1,
+        "path": "/system"
+      }
+    ],
+    "urlCount": 121
+  },
+  "start": "https://www.bernafon.us",
+  "templates": [
+    {
+      "count": 9,
+      "examples": [
+        "https://www.bernafon.us/support/bernafon-app/help-with-the-bernafon-app/how-to-access-troubleshooting-in-bernafon-app",
+        "https://www.bernafon.us/support/bernafon-app/help-with-the-bernafon-app/how-to-adjust-sound-while-streaming",
+        "https://www.bernafon.us/support/bernafon-app/help-with-the-bernafon-app/how-to-adjust-surrounding-sounds-with-sound-equalizer"
+      ],
+      "pattern": "https://www.bernafon.us/support/bernafon-app/help-with-the-bernafon-app/{slug}"
+    },
+    {
+      "count": 8,
+      "examples": [
+        "https://www.bernafon.us/about-us",
+        "https://www.bernafon.us/check-compatibility",
+        "https://www.bernafon.us/for-professionals"
+      ],
+      "pattern": "https://www.bernafon.us/{slug}"
+    },
+    {
+      "count": 8,
+      "examples": [
+        "https://www.bernafon.us/about-us/contact-us",
+        "https://www.bernafon.us/about-us/cookie-policy",
+        "https://www.bernafon.us/about-us/declarations-of-conformity"
+      ],
+      "pattern": "https://www.bernafon.us/about-us/{slug}"
+    },
+    {
+      "count": 8,
+      "examples": [
+        "https://www.bernafon.us/products/accessories/216688/tv-a-tv-adapter",
+        "https://www.bernafon.us/products/accessories/368542/soundclip-a",
+        "https://www.bernafon.us/products/accessories/605210/bernafon-charger-plus"
+      ],
+      "pattern": "https://www.bernafon.us/products/accessories/{n}/{slug}"
+    },
+    {
+      "count": 7,
+      "examples": [
+        "https://www.bernafon.us/support/batteries-and-charging",
+        "https://www.bernafon.us/support/bernafon-app",
+        "https://www.bernafon.us/support/care-and-cleaning"
+      ],
+      "pattern": "https://www.bernafon.us/support/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.bernafon.us/for-professionals/become-a-partner",
+        "https://www.bernafon.us/for-professionals/fitting-software",
+        "https://www.bernafon.us/for-professionals/resource-centre"
+      ],
+      "pattern": "https://www.bernafon.us/for-professionals/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.bernafon.us/products/391550/alpha-minirite-t",
+        "https://www.bernafon.us/products/403917/cros-and-bicros-minirite-t-r",
+        "https://www.bernafon.us/products/521422/alpha-xt-minirite-t"
+      ],
+      "pattern": "https://www.bernafon.us/products/{n}/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.bernafon.us/products/hearing-aids/family/alpha",
+        "https://www.bernafon.us/products/hearing-aids/family/alpha-xt",
+        "https://www.bernafon.us/products/hearing-aids/family/encanta"
+      ],
+      "pattern": "https://www.bernafon.us/products/hearing-aids/family/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.bernafon.us/support/care-and-cleaning/basic-hearing-aid-use/how-to-clean-hearing-aids",
+        "https://www.bernafon.us/support/care-and-cleaning/basic-hearing-aid-use/how-to-clean-your-ears",
+        "https://www.bernafon.us/support/care-and-cleaning/basic-hearing-aid-use/how-to-replace-earpieces-on-hearing-aids"
+      ],
+      "pattern": "https://www.bernafon.us/support/care-and-cleaning/basic-hearing-aid-use/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.bernafon.us/support/pairing/apple/how-to-pair-hearing-aids-with-apple-watch",
+        "https://www.bernafon.us/support/pairing/apple/how-to-pair-hearing-aids-with-ipad",
+        "https://www.bernafon.us/support/pairing/apple/how-to-pair-hearing-aids-with-iphone"
+      ],
+      "pattern": "https://www.bernafon.us/support/pairing/apple/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://assets.ha.demant.com/-/media/project/hearing-aid/bernafon/shared/pdfs/countries/us/20261_bernafoncom_oasis_update.pdf?rev=2273771812fe4c6b895fa5689f3d5132&hash=FA97D328C767BC18A16B9AEE4BEC1454",
+        "https://assets.ha.demant.com/-/media/project/hearing-aid/bernafon/shared/pdfs/countries/us/286496us_ifu_be_oasisnxt_fs_252.pdf?rev=8d03e6d4e79942d38fad97a31701d3c6&hash=C6536C10E70019335A98E25D9A994D9C",
+        "https://assets.ha.demant.com/-/media/project/hearing-aid/bernafon/shared/pdfs/countries/us/s-1129905uk_pdf_be_cros_compatibility_overview_26_1.pdf?rev=11b9eba07bd64e2a8c37c657c8f75913&hash=078CC843A2269062CC265A36AA1B1DB8"
+      ],
+      "pattern": "https://assets.ha.demant.com/-/media/project/hearing-aid/bernafon/shared/pdfs/countries/us/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.bernafon.us/hearing-loss/free-online-hearing-test",
+        "https://www.bernafon.us/hearing-loss/hearing-loss-simulator",
+        "https://www.bernafon.us/hearing-loss/how-hearing-works"
+      ],
+      "pattern": "https://www.bernafon.us/hearing-loss/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.bernafon.us/products/accessories",
+        "https://www.bernafon.us/products/bernafon-app",
+        "https://www.bernafon.us/products/hearing-aids"
+      ],
+      "pattern": "https://www.bernafon.us/products/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.bernafon.us/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-listen-to-auracast-broadcast",
+        "https://www.bernafon.us/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-listen-to-music-with-hearing-aids",
+        "https://www.bernafon.us/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-make-hands-free-calls-with-hearing-aids"
+      ],
+      "pattern": "https://www.bernafon.us/support/life-with-a-hearing-aid/connecting-to-other-devices/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.bernafon.us/support/pairing/android",
+        "https://www.bernafon.us/support/pairing/apple",
+        "https://www.bernafon.us/support/pairing/hearing-aid-accessories"
+      ],
+      "pattern": "https://www.bernafon.us/support/pairing/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.bernafon.us/support/troubleshooting/android",
+        "https://www.bernafon.us/support/troubleshooting/apple",
+        "https://www.bernafon.us/support/troubleshooting/bernafon-app"
+      ],
+      "pattern": "https://www.bernafon.us/support/troubleshooting/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.bernafon.us/for-professionals/blog/bluetooth-hearing-aids-connectivity-problems",
+        "https://www.bernafon.us/for-professionals/blog/bluetooth-hearing-aids-how-they-work",
+        "https://www.bernafon.us/for-professionals/blog/pouvoir-de-la-positivite"
+      ],
+      "pattern": "https://www.bernafon.us/for-professionals/blog/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.bernafon.us/sitecore/content/hearing-aid/bernafon/bernafon-main/home/support/care-and-cleaning",
+        "https://www.bernafon.us/sitecore/content/hearing-aid/bernafon/bernafon-main/home/support/compatibility-guide",
+        "https://www.bernafon.us/sitecore/content/hearing-aid/bernafon/bernafon-main/home/support/pairing"
+      ],
+      "pattern": "https://www.bernafon.us/sitecore/content/hearing-aid/bernafon/bernafon-main/home/support/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.bernafon.us/support/bernafon-app/help-with-the-bernafon-app",
+        "https://www.bernafon.us/support/bernafon-app/remote-fitting",
+        "https://www.bernafon.us/support/bernafon-app/update-your-hearing-aids"
+      ],
+      "pattern": "https://www.bernafon.us/support/bernafon-app/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.bernafon.us/support/life-with-a-hearing-aid/basic-hearing-aid-use/first-days-with-new-hearing-aids",
+        "https://www.bernafon.us/support/life-with-a-hearing-aid/basic-hearing-aid-use/how-to-put-on-and-remove-hearing-aids",
+        "https://www.bernafon.us/support/life-with-a-hearing-aid/basic-hearing-aid-use/how-to-turn-hearing-aids-on-and-off"
+      ],
+      "pattern": "https://www.bernafon.us/support/life-with-a-hearing-aid/basic-hearing-aid-use/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.bernafon.us/support/pairing/android/how-to-pair-hearing-aids-with-android-devices",
+        "https://www.bernafon.us/support/pairing/android/how-to-pair-with-android-using-fast-pair",
+        "https://www.bernafon.us/support/pairing/android/how-to-unpair-hearing-aids-from-android-devices"
+      ],
+      "pattern": "https://www.bernafon.us/support/pairing/android/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.bernafon.us/support/pairing/tvs-and-other-systems-with-sound/how-to-pair-hearing-aids-with-computer",
+        "https://www.bernafon.us/support/pairing/tvs-and-other-systems-with-sound/how-to-pair-hearing-aids-with-tv-adapter",
+        "https://www.bernafon.us/support/pairing/tvs-and-other-systems-with-sound/how-to-unpair-hearing-aids-from-computer"
+      ],
+      "pattern": "https://www.bernafon.us/support/pairing/tvs-and-other-systems-with-sound/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.bernafon.us/support/troubleshooting/bernafon-app/problems-connecting-hearing-aids-to-other-devices",
+        "https://www.bernafon.us/support/troubleshooting/bernafon-app/solving-problems-with-remote-fitting",
+        "https://www.bernafon.us/support/troubleshooting/bernafon-app/why-does-bernafon-app-only-show-one-hearing-aid"
+      ],
+      "pattern": "https://www.bernafon.us/support/troubleshooting/bernafon-app/{slug}"
+    }
+  ],
+  "urls": [
+    "https://assets.ha.demant.com/-/media/project/hearing-aid/bernafon/shared/pdfs/countries/us/20261_bernafoncom_oasis_update.pdf?rev=2273771812fe4c6b895fa5689f3d5132&hash=FA97D328C767BC18A16B9AEE4BEC1454",
+    "https://assets.ha.demant.com/-/media/project/hearing-aid/bernafon/shared/pdfs/countries/us/286496us_ifu_be_oasisnxt_fs_252.pdf?rev=8d03e6d4e79942d38fad97a31701d3c6&hash=C6536C10E70019335A98E25D9A994D9C",
+    "https://assets.ha.demant.com/-/media/project/hearing-aid/bernafon/shared/pdfs/countries/us/s-1129905uk_pdf_be_cros_compatibility_overview_26_1.pdf?rev=11b9eba07bd64e2a8c37c657c8f75913&hash=078CC843A2269062CC265A36AA1B1DB8",
+    "https://assets.ha.demant.com/-/media/project/hearing-aid/bernafon/shared/pdfs/countries/us/s-1130702uk_pdf_be_charger_compatability_overview_26_1.pdf?rev=1ea85f00db5c4688a05cebe15ce29f9b&hash=E381D243039498D6EC218A32E6160C73",
+    "https://damcdn.demant.com/0453b150-7535-4a45-b4f2-b1e200eecbe5/15500-0092%20-%20Bernafon%20-%20Portfolio%20Matrix_Original%20file.pdf",
+    "https://damcdn.demant.com/075f6109-e666-4353-822a-b18500c06403/277454US_IFU_BE_App_1.4.0_24.2_Original%20file.pdf",
+    "https://damcdn.demant.com/22d256cb-52d3-46fa-a3e8-b1d200643e9b/281357US_IFU_BE_Alpha_XT_MNR%20T_%20MNR-TR_Original%20file.pdf",
+    "https://damcdn.demant.com/239a1caf-5f36-4a57-885a-b14000fe1eb0/15500-0073%20-%20Bernafon%20Encanta%20CBR%20-%2008-24_Original%20file.pdf",
+    "https://damcdn.demant.com/2fbd158e-d509-406d-90a2-b13f01057017/24-566405%20-%2015500-0302%20-%20RM%20-%20H1%202024%20-%20Getting%20Started%20Guide%20-%20V4_Original%20file.pdf",
+    "https://damcdn.demant.com/340b2bf5-88fb-44ca-8f51-b1d8008e2664/281333US_TD_BE_Alpha_XT_MNR_T_23.1_Original%20file.pdf",
+    "https://damcdn.demant.com/3c3db41a-b914-4b56-867f-b22d008ad500/283287US_TD_BE_CROS_MNR_T_R_25.1_Original%20file.pdf",
+    "https://damcdn.demant.com/42092567-6a09-4c75-9a14-b34000af225d/292205US_IFU_BE_App_25.2_1.6.0_Original%20file.pdf",
+    "https://damcdn.demant.com/54237391-e9e0-4add-b82d-b125008df2e4/275409US_IFU_BE_Alpha_XT_MNR_TR_Original%20file.pdf",
+    "https://damcdn.demant.com/577d4eb7-5b6e-49b3-bf1e-b126007be6f8/275408US_IFU_BE_App_1.3.0_24.1_Original%20file.pdf",
+    "https://damcdn.demant.com/5787e876-aff6-4eb9-98c0-b24400b96fc7/284087US_TD_BE_Charger_MNR_T_R_25.1_Original%20file.pdf",
+    "https://damcdn.demant.com/6d2c267c-0da4-44c7-bf03-b12a007e888d/275467US_BF_TV-A_IFU_2020_Original%20file.pdf",
+    "https://damcdn.demant.com/886fb5da-6f37-4a18-8d42-b12b00ea4548/275389US_TD_BE_Alpha_XT_MNR_TR_23.1_Original%20file.pdf",
+    "https://damcdn.demant.com/8da67936-ea4f-4d7f-ada6-b1d3016b3e8a/281332US_IFU_%20BF%20AH%20MNR%20T%20MNR%20TR%20H2-22_Original%20file.pdf",
+    "https://damcdn.demant.com/accef1fd-5457-427e-b589-b1da0071067e/281334US_TD_BE_Alpha_MNR_T_22.1_Original%20file.pdf",
+    "https://damcdn.demant.com/b7577e8c-d7cb-4c43-9795-b26c00d56fb8/282070US_IFU_BE_Charger_MNR_TR_MNB_TR_25.1_Original%20file.pdf",
+    "https://damcdn.demant.com/b9b03e7e-d0f9-4033-ae30-b12b00ea4688/275386US_TD_BE_Encanta_MNR_24_1_Original%20file.pdf",
+    "https://damcdn.demant.com/be859c5c-c1c8-4470-8373-b13f01056886/24-570106%20-%2015500-0304%20-%20RM%20-%20H1%202024%20-%20B2B%20Product%20Matrix%20-%20V5_Original%20file.pdf",
+    "https://damcdn.demant.com/d1284e49-0333-4d2e-9e3e-b2b101253c2f/15500-0116%20-%20Bernafon%20-%20Hands-Free%20Communication%20Guide_01.25_Original%20file.pdf",
+    "https://damcdn.demant.com/d9ca4f65-41b4-487b-82d0-b2ed0133b3ca/15500-0478-Bernafon-LE%20Adapter%20Pairing%20and%20FAQ%20Guide_Original%20file.pdf",
+    "https://damcdn.demant.com/e1da1019-170f-4921-b342-b13f01056a7e/24-577167%20-%2015500-0077%20-%20RM%20-%20H1%202024%20-%20Bernafon%20Launch%20Letter%20-%20V2_Original%20file.pdf",
+    "https://damcdn.demant.com/e8731903-a31e-47b7-b23d-b13f01057624/24-568157%20-%2015500-0308%20-%20RM%20-%20H1%202024%20-%20Oasis%20Fitting%20Guide%20-%20V2_Original%20file.pdf",
+    "https://damcdn.demant.com/eb629e18-ef5b-4e4c-b404-b233007e2b81/266886UK_IFU_BE_App_1.2.0_H2-23_Original%20file.pdf",
+    "https://damcdn.demant.com/f5f6ccb0-fc53-476f-974e-b23300822c2d/223849_BF_RC-App_IFU_2.3_20-H2_UK_Original%20file.pdf",
+    "https://damcdn.demant.com/fc8bcc03-08e3-4617-98b0-b23b00d9b7e4/283770US_IFU_BE_App_25.1_1.5.0_Original%20file.pdf",
+    "https://www.bernafon.us/",
+    "https://www.bernafon.us/about-us",
+    "https://www.bernafon.us/about-us/contact-us",
+    "https://www.bernafon.us/about-us/cookie-policy",
+    "https://www.bernafon.us/about-us/declarations-of-conformity",
+    "https://www.bernafon.us/about-us/disclaimer",
+    "https://www.bernafon.us/about-us/marketsites",
+    "https://www.bernafon.us/about-us/privacy-notice-bernafon-app",
+    "https://www.bernafon.us/about-us/privacy-policy",
+    "https://www.bernafon.us/about-us/terms-of-sale",
+    "https://www.bernafon.us/check-compatibility",
+    "https://www.bernafon.us/for-professionals",
+    "https://www.bernafon.us/for-professionals/become-a-partner",
+    "https://www.bernafon.us/for-professionals/become-a-partner/form",
+    "https://www.bernafon.us/for-professionals/blog/bluetooth-hearing-aids-connectivity-problems",
+    "https://www.bernafon.us/for-professionals/blog/bluetooth-hearing-aids-how-they-work",
+    "https://www.bernafon.us/for-professionals/blog/pouvoir-de-la-positivite",
+    "https://www.bernafon.us/for-professionals/fitting-software",
+    "https://www.bernafon.us/for-professionals/fitting-software/download-oasis",
+    "https://www.bernafon.us/for-professionals/fitting-software/remote-fitting",
+    "https://www.bernafon.us/for-professionals/resource-centre",
+    "https://www.bernafon.us/for-professionals/the-encanta-family",
+    "https://www.bernafon.us/for-professionals/training",
+    "https://www.bernafon.us/hearing-loss",
+    "https://www.bernafon.us/hearing-loss/free-online-hearing-test",
+    "https://www.bernafon.us/hearing-loss/hearing-loss-simulator",
+    "https://www.bernafon.us/hearing-loss/how-hearing-works",
+    "https://www.bernafon.us/hearing-loss/what-is-hearing-loss",
+    "https://www.bernafon.us/hearing-test",
+    "https://www.bernafon.us/products",
+    "https://www.bernafon.us/products/391550/alpha-minirite-t",
+    "https://www.bernafon.us/products/403917/cros-and-bicros-minirite-t-r",
+    "https://www.bernafon.us/products/521422/alpha-xt-minirite-t",
+    "https://www.bernafon.us/products/521423/alpha-xt-minirite-t-r",
+    "https://www.bernafon.us/products/663068/encanta-minirite",
+    "https://www.bernafon.us/products/accessories",
+    "https://www.bernafon.us/products/accessories/216688/tv-a-tv-adapter",
+    "https://www.bernafon.us/products/accessories/368542/soundclip-a",
+    "https://www.bernafon.us/products/accessories/605210/bernafon-charger-plus",
+    "https://www.bernafon.us/products/accessories/605310/bernafon-charger",
+    "https://www.bernafon.us/products/accessories/606391/bernafon-app",
+    "https://www.bernafon.us/products/accessories/672161/bernafon-charger",
+    "https://www.bernafon.us/products/accessories/728460/bernafon-charger-plus",
+    "https://www.bernafon.us/products/accessories/761763/easy-le-adapter",
+    "https://www.bernafon.us/products/bernafon-app",
+    "https://www.bernafon.us/products/hearing-aids",
+    "https://www.bernafon.us/products/hearing-aids/category",
+    "https://www.bernafon.us/products/hearing-aids/category/behind-the-ear",
+    "https://www.bernafon.us/products/hearing-aids/family/alpha",
+    "https://www.bernafon.us/products/hearing-aids/family/alpha-xt",
+    "https://www.bernafon.us/products/hearing-aids/family/encanta",
+    "https://www.bernafon.us/products/hearing-aids/family/leox",
+    "https://www.bernafon.us/products/hearing-aids/family/viron",
+    "https://www.bernafon.us/products/music",
+    "https://www.bernafon.us/sitecore/content/hearing-aid/bernafon/bernafon-main/home/support/care-and-cleaning",
+    "https://www.bernafon.us/sitecore/content/hearing-aid/bernafon/bernafon-main/home/support/compatibility-guide",
+    "https://www.bernafon.us/sitecore/content/hearing-aid/bernafon/bernafon-main/home/support/pairing",
+    "https://www.bernafon.us/sitecore/content/hearing-aid/bernafon/bernafon-main/home/support/pairing/apple/how-to-pair-hearing-aids-with-iphone",
+    "https://www.bernafon.us/sitecore/content/hearing-aid/bernafon/bernafon-main/home/support/pairing/hearing-aid-accessories/how-to-pair-hearing-aids-with-soundclip-a",
+    "https://www.bernafon.us/sitecore/content/hearing-aid/bernafon/bernafon-main/home/support/pairing/tvs-and-other-systems-with-sound/how-to-pair-hearing-aids-with-tv-adapter",
+    "https://www.bernafon.us/sitecore/content/hearing-aid/bernafon/bernafon-main/home/support/troubleshooting/apple/why-can-i-not-stream-from-ios-to-hearing-aids",
+    "https://www.bernafon.us/support",
+    "https://www.bernafon.us/support/batteries-and-charging",
+    "https://www.bernafon.us/support/batteries-and-charging/rechargeable-batteries",
+    "https://www.bernafon.us/support/batteries-and-charging/rechargeable-batteries/how-to-charge-rechargeable-hearing-aids",
+    "https://www.bernafon.us/support/bernafon-app",
+    "https://www.bernafon.us/support/bernafon-app/help-with-the-bernafon-app",
+    "https://www.bernafon.us/support/bernafon-app/help-with-the-bernafon-app/how-to-access-troubleshooting-in-bernafon-app",
+    "https://www.bernafon.us/support/bernafon-app/help-with-the-bernafon-app/how-to-adjust-sound-while-streaming",
+    "https://www.bernafon.us/support/bernafon-app/help-with-the-bernafon-app/how-to-adjust-surrounding-sounds-with-sound-equalizer",
+    "https://www.bernafon.us/support/bernafon-app/help-with-the-bernafon-app/how-to-adjust-volume-and-change-program",
+    "https://www.bernafon.us/support/bernafon-app/help-with-the-bernafon-app/how-to-unpair-tv-adapter-using-the-app",
+    "https://www.bernafon.us/support/bernafon-app/help-with-the-bernafon-app/how-to-use-find-my-hearing-aids",
+    "https://www.bernafon.us/support/bernafon-app/help-with-the-bernafon-app/how-to-use-hearingcoach",
+    "https://www.bernafon.us/support/bernafon-app/help-with-the-bernafon-app/how-to-use-iphone-or-ipad-as-remote-microphone",
+    "https://www.bernafon.us/support/bernafon-app/help-with-the-bernafon-app/how-to-use-tinnitus-soundsupport-program",
+    "https://www.bernafon.us/support/bernafon-app/remote-fitting",
+    "https://www.bernafon.us/support/bernafon-app/remote-fitting/how-to-use-remote-fitting",
+    "https://www.bernafon.us/support/bernafon-app/update-your-hearing-aids",
+    "https://www.bernafon.us/support/bernafon-app/update-your-hearing-aids/how-to-update-hearing-aid-firmware",
+    "https://www.bernafon.us/support/care-and-cleaning",
+    "https://www.bernafon.us/support/care-and-cleaning/basic-hearing-aid-use",
+    "https://www.bernafon.us/support/care-and-cleaning/basic-hearing-aid-use/how-to-clean-hearing-aids",
+    "https://www.bernafon.us/support/care-and-cleaning/basic-hearing-aid-use/how-to-clean-your-ears",
+    "https://www.bernafon.us/support/care-and-cleaning/basic-hearing-aid-use/how-to-replace-earpieces-on-hearing-aids",
+    "https://www.bernafon.us/support/care-and-cleaning/basic-hearing-aid-use/how-to-replace-wax-filter-on-hearing-aids",
+    "https://www.bernafon.us/support/care-and-cleaning/basic-hearing-aid-use/how-to-take-good-care-of-hearing-aids",
+    "https://www.bernafon.us/support/compatibility-guide",
+    "https://www.bernafon.us/support/life-with-a-hearing-aid",
+    "https://www.bernafon.us/support/life-with-a-hearing-aid/basic-hearing-aid-use",
+    "https://www.bernafon.us/support/life-with-a-hearing-aid/basic-hearing-aid-use/first-days-with-new-hearing-aids",
+    "https://www.bernafon.us/support/life-with-a-hearing-aid/basic-hearing-aid-use/how-to-put-on-and-remove-hearing-aids",
+    "https://www.bernafon.us/support/life-with-a-hearing-aid/basic-hearing-aid-use/how-to-turn-hearing-aids-on-and-off",
+    "https://www.bernafon.us/support/life-with-a-hearing-aid/connecting-to-other-devices",
+    "https://www.bernafon.us/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-listen-to-auracast-broadcast",
+    "https://www.bernafon.us/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-listen-to-music-with-hearing-aids",
+    "https://www.bernafon.us/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-make-hands-free-calls-with-hearing-aids",
+    "https://www.bernafon.us/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-share-audio-using-auracast",
+    "https://www.bernafon.us/support/pairing",
+    "https://www.bernafon.us/support/pairing/android",
+    "https://www.bernafon.us/support/pairing/android/how-to-pair-hearing-aids-with-android-devices",
+    "https://www.bernafon.us/support/pairing/android/how-to-pair-with-android-using-fast-pair",
+    "https://www.bernafon.us/support/pairing/android/how-to-unpair-hearing-aids-from-android-devices",
+    "https://www.bernafon.us/support/pairing/apple",
+    "https://www.bernafon.us/support/pairing/apple/how-to-pair-hearing-aids-with-apple-watch",
+    "https://www.bernafon.us/support/pairing/apple/how-to-pair-hearing-aids-with-ipad",
+    "https://www.bernafon.us/support/pairing/apple/how-to-pair-hearing-aids-with-iphone",
+    "https://www.bernafon.us/support/pairing/apple/how-to-pair-hearing-aids-with-mac",
+    "https://www.bernafon.us/support/pairing/apple/how-to-unpair-hearing-aids-from-apple-devices",
+    "https://www.bernafon.us/support/pairing/hearing-aid-accessories",
+    "https://www.bernafon.us/support/pairing/hearing-aid-accessories/how-to-pair-hearing-aids-with-soundclip-a",
+    "https://www.bernafon.us/support/pairing/tvs-and-other-systems-with-sound",
+    "https://www.bernafon.us/support/pairing/tvs-and-other-systems-with-sound/how-to-pair-hearing-aids-with-computer",
+    "https://www.bernafon.us/support/pairing/tvs-and-other-systems-with-sound/how-to-pair-hearing-aids-with-tv-adapter",
+    "https://www.bernafon.us/support/pairing/tvs-and-other-systems-with-sound/how-to-unpair-hearing-aids-from-computer",
+    "https://www.bernafon.us/support/troubleshooting",
+    "https://www.bernafon.us/support/troubleshooting/android",
+    "https://www.bernafon.us/support/troubleshooting/android/why-cant-i-stream-sound-from-android-device-to-hearing-aids",
+    "https://www.bernafon.us/support/troubleshooting/apple",
+    "https://www.bernafon.us/support/troubleshooting/apple/why-can-i-not-stream-from-ios-to-hearing-aids",
+    "https://www.bernafon.us/support/troubleshooting/bernafon-app",
+    "https://www.bernafon.us/support/troubleshooting/bernafon-app/problems-connecting-hearing-aids-to-other-devices",
+    "https://www.bernafon.us/support/troubleshooting/bernafon-app/solving-problems-with-remote-fitting",
+    "https://www.bernafon.us/support/troubleshooting/bernafon-app/why-does-bernafon-app-only-show-one-hearing-aid",
+    "https://www.bernafon.us/support/troubleshooting/hearing-aids",
+    "https://www.bernafon.us/support/troubleshooting/hearing-aids/problems-with-sound-from-hearing-aids",
+    "https://www.bernafon.us/support/troubleshooting/hearing-aids/why-are-my-hearing-aids-beeping",
+    "https://www.bernafon.us/system/not-found",
+    "https://www.bernafon.us/terms-of-sale"
+  ]
+}

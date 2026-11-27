@@ -1,0 +1,55 @@
+{
+  "checks": {
+    "catalogUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "documentUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "modelUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "supportUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.1": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.2": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ]
+  },
+  "generatedAt": "2026-11-27T19:00:45.337Z",
+  "proposal": {
+    "catalogUrls": [
+      "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids"
+    ],
+    "documentUrlPattern": "^https://www\\.resound\\.com/-/media/.+\\.pdf$",
+    "modelUrlPattern": "^https://www\\.resound\\.com/en-us/hearing-aids/resound-hearing-aids/[a-z0-9-]+$",
+    "render": false,
+    "status": "active",
+    "supportUrls": [
+      "https://www.resound.com/en-us/help/hearing-aids",
+      "https://www.resound.com/en-us/help/accessories",
+      "https://www.resound.com/en-us/help/apps"
+    ]
+  }
+}

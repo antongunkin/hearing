@@ -1,0 +1,1880 @@
+{
+  "archive": {
+    "sections": []
+  },
+  "budget": 60,
+  "domain": "mdhearingaid.com",
+  "failures": [
+    {
+      "detail": "bot-protection",
+      "reason": "refused",
+      "url": "https://support.mdhearingaid.com/hc/en-us/categories/6199036545431-Manuals-and-Guides"
+    }
+  ],
+  "generatedAt": "2026-11-27T17:25:00.632Z",
+  "mode": "live",
+  "outbound": [
+    {
+      "count": 45,
+      "domain": "bbb.org",
+      "examples": [
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ]
+    },
+    {
+      "count": 44,
+      "domain": "orderstatus.mdhearing.com",
+      "examples": [
+        "https://orderstatus.mdhearing.com/"
+      ]
+    },
+    {
+      "count": 3,
+      "domain": "hopkinsmedicine.org",
+      "examples": [
+        "https://www.hopkinsmedicine.org/health/wellness-and-prevention/the-hidden-risks-of-hearing-loss",
+        "https://www.hopkinsmedicine.org/health/conditions-and-diseases/hearing-loss"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "account.mdhearing.com",
+      "examples": [
+        "https://account.mdhearing.com/engage/orders"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "affirm.com",
+      "examples": [
+        "https://www.affirm.com/how-it-works"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "ncbi.nlm.nih.gov",
+      "examples": [
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6439810/"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "nidcd.nih.gov",
+      "examples": [
+        "https://www.nidcd.nih.gov/health/age-related-hearing-loss",
+        "https://www.nidcd.nih.gov/health/hearing-aids"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "accessdata.fda.gov",
+      "examples": [
+        "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfRL/rl.cfm"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "linkedin.com",
+      "examples": [
+        "https://www.linkedin.com/company/mdhearing"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "mdambassador.thinkific.com",
+      "examples": [
+        "https://mdambassador.thinkific.com/order?ct=f0366fba-3811-4c2b-873f-33703d9ccf6e"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "mdtmag.com",
+      "examples": [
+        "http://www.mdtmag.com/blogs/2015/05/listen-new-hearing-aid-design-earful"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "who.int",
+      "examples": [
+        "https://www.who.int/en/news-room/fact-sheets/detail/deafness-and-hearing-loss"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.hopkinsmedicine.org/health/wellness-and-prevention/the-hidden-risks-of-hearing-loss",
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6439810/",
+        "https://www.affirm.com/how-it-works",
+        "https://account.mdhearing.com/engage/orders",
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 46,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:19:58.359Z",
+        "url": "https://www.mdhearingaid.com/"
+      },
+      "title": "MDHearing Black Friday | Affordable Hearing Aids Online",
+      "url": "https://www.mdhearingaid.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:20:07.024Z",
+        "url": "https://www.mdhearingaid.com/batteries/mdhearing/size-312/"
+      },
+      "title": "MDHearing 312 Hearing Aid Batteries",
+      "url": "https://www.mdhearingaid.com/batteries/mdhearing/size-312/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.who.int/en/news-room/fact-sheets/detail/deafness-and-hearing-loss",
+        "https://www.hopkinsmedicine.org/health/conditions-and-diseases/hearing-loss",
+        "https://www.nidcd.nih.gov/health/age-related-hearing-loss",
+        "https://www.nidcd.nih.gov/health/hearing-aids",
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:20:15.971Z",
+        "url": "https://www.mdhearingaid.com/blog/10-signs-of-hearing-loss-getting-worse/"
+      },
+      "title": "10 Signs Your Hearing Loss Is Getting Worse",
+      "url": "https://www.mdhearingaid.com/blog/10-signs-of-hearing-loss-getting-worse/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 51,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:20:21.970Z",
+        "url": "https://www.mdhearingaid.com/catalog/series-selector/"
+      },
+      "title": "Select Your Hearing Aid Series | MDHearing.com",
+      "url": "https://www.mdhearingaid.com/catalog/series-selector/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 45,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:20:30.283Z",
+        "url": "https://www.mdhearingaid.com/hearing-aid-comparisons/"
+      },
+      "title": "Black Friday Hearing Aid Comparison | MDHearing",
+      "url": "https://www.mdhearingaid.com/hearing-aid-comparisons/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 40,
+      "jsonLdTypes": [
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:20:39.584Z",
+        "url": "https://www.mdhearingaid.com/hearing-aids/mdhearing-air/"
+      },
+      "title": "Black Friday | Save $50 on the MDHearing AIR",
+      "url": "https://www.mdhearingaid.com/hearing-aids/mdhearing-air/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 39,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:20:47.584Z",
+        "url": "https://www.mdhearingaid.com/hearing-test/"
+      },
+      "title": "Try This FREE Hearing Test Online in Less Than 8 Minutes!",
+      "url": "https://www.mdhearingaid.com/hearing-test/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 38,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:20:53.879Z",
+        "url": "https://www.mdhearingaid.com/reviews/hearing-aids/"
+      },
+      "title": "MDHearing Reviews | MDHearing",
+      "url": "https://www.mdhearingaid.com/reviews/hearing-aids/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:21:00.264Z",
+        "url": "https://www.mdhearingaid.com/video-guides/"
+      },
+      "title": "Video Guides for all MDHearing Hearing Aids",
+      "url": "https://www.mdhearingaid.com/video-guides/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 39,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:21:09.656Z",
+        "url": "https://www.mdhearingaid.com/why-mdhearing/"
+      },
+      "title": "Why 1M+ Users Buy Hearing Aids Online From MDHearing?",
+      "url": "https://www.mdhearingaid.com/why-mdhearing/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 38,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:21:17.595Z",
+        "url": "https://www.mdhearingaid.com/about-us/"
+      },
+      "title": "The MDHearing Mission",
+      "url": "https://www.mdhearingaid.com/about-us/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 78,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:21:25.636Z",
+        "url": "https://www.mdhearingaid.com/catalog/"
+      },
+      "title": "Shop MDHearing Accessories | MDHearing.com",
+      "url": "https://www.mdhearingaid.com/catalog/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 38,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:21:33.087Z",
+        "url": "https://www.mdhearingaid.com/affiliate-program/"
+      },
+      "title": "MDHearing Affiliate Program - Partner With MDHearing",
+      "url": "https://www.mdhearingaid.com/affiliate-program/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://mdambassador.thinkific.com/order?ct=f0366fba-3811-4c2b-873f-33703d9ccf6e",
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 38,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:21:42.723Z",
+        "url": "https://www.mdhearingaid.com/ambassador-program/"
+      },
+      "title": "Become an MDHearing Ambassador",
+      "url": "https://www.mdhearingaid.com/ambassador-program/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 49,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:21:48.544Z",
+        "url": "https://www.mdhearingaid.com/blog-list/"
+      },
+      "title": "Affordable Hearing Aids Online | MDHearing",
+      "url": "https://www.mdhearingaid.com/blog-list/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 38,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:21:54.864Z",
+        "url": "https://www.mdhearingaid.com/blog-list-lp/"
+      },
+      "title": "Blog | MDHearingAid",
+      "url": "https://www.mdhearingaid.com/blog-list-lp/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:22:02.552Z",
+        "url": "https://www.mdhearingaid.com/care-plans/"
+      },
+      "title": "MDHearing Care Plans",
+      "url": "https://www.mdhearingaid.com/care-plans/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.linkedin.com/company/mdhearing",
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 39,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:22:08.012Z",
+        "url": "https://www.mdhearingaid.com/careers/"
+      },
+      "title": "MDHearing Careers",
+      "url": "https://www.mdhearingaid.com/careers/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfRL/rl.cfm",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 38,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:22:15.880Z",
+        "url": "https://www.mdhearingaid.com/contact-us/"
+      },
+      "title": "Contact MDHearing",
+      "url": "https://www.mdhearingaid.com/contact-us/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.hopkinsmedicine.org/health/wellness-and-prevention/the-hidden-risks-of-hearing-loss",
+        "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6439810/",
+        "https://www.affirm.com/how-it-works",
+        "https://account.mdhearing.com/engage/orders",
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 47,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:22:24.336Z",
+        "url": "https://www.mdhearingaid.com/home/control/"
+      },
+      "title": "Affordable Hearing Aids Online | MDHearing",
+      "url": "https://www.mdhearingaid.com/home/control/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:22:33.519Z",
+        "url": "https://www.mdhearingaid.com/lp/costco-comparison/"
+      },
+      "title": "Hearing Aid Comparison | Price, Cost, Features | MDHearing",
+      "url": "https://www.mdhearingaid.com/lp/costco-comparison/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 50,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:22:41.710Z",
+        "url": "https://www.mdhearingaid.com/news-list/"
+      },
+      "title": "Affordable Hearing Aids Online | MDHearing",
+      "url": "https://www.mdhearingaid.com/news-list/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 38,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:22:50.018Z",
+        "url": "https://www.mdhearingaid.com/news-list-lp/"
+      },
+      "title": "News | MDHearingAid",
+      "url": "https://www.mdhearingaid.com/news-list-lp/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "http://www.mdtmag.com/blogs/2015/05/listen-new-hearing-aid-design-earful",
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 40,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:23:00.516Z",
+        "url": "https://www.mdhearingaid.com/news/3286-2/"
+      },
+      "title": "Medical Devices Today Cover MDHearingAid FIT Design",
+      "url": "https://www.mdhearingaid.com/news/3286-2/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 40,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:23:08.979Z",
+        "url": "https://www.mdhearingaid.com/protection/"
+      },
+      "title": "MDHearing Protection Plan",
+      "url": "https://www.mdhearingaid.com/protection/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 38,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:23:18.183Z",
+        "url": "https://www.mdhearingaid.com/terms-and-conditions/"
+      },
+      "title": "Terms and Conditions",
+      "url": "https://www.mdhearingaid.com/terms-and-conditions/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 4,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://static.mdhearingaid.com/collateral/QuietTV-SeriesAV-Manual_Web.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:23:24.902Z",
+        "url": "https://www.mdhearingaid.com/tv-headphones/quiettv/"
+      },
+      "title": "MDHearing QuietTV | Wireless TV Headphones",
+      "url": "https://www.mdhearingaid.com/tv-headphones/quiettv/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 39,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://static.mdhearingaid.com/collateral/MDHearingAid_ReceiptAddendum_web.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:23:32.493Z",
+        "url": "https://www.mdhearingaid.com/warranty-and-returns/"
+      },
+      "title": "Warranty and Return Policy",
+      "url": "https://www.mdhearingaid.com/warranty-and-returns/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 40,
+      "jsonLdTypes": [
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:23:41.241Z",
+        "url": "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt-max/"
+      },
+      "title": "Black Friday | Save $150 on the MDHearing VOLT MAX 2",
+      "url": "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt-max/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 40,
+      "jsonLdTypes": [
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:23:48.289Z",
+        "url": "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt/"
+      },
+      "title": "Black Friday | Save $100 on the MDHearing VOLT 4",
+      "url": "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 40,
+      "jsonLdTypes": [
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:23:57.136Z",
+        "url": "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs-pro/"
+      },
+      "title": "Black Friday | Save $150 on the MDHearing NEO XS PRO",
+      "url": "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs-pro/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 40,
+      "jsonLdTypes": [
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:24:03.690Z",
+        "url": "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs/"
+      },
+      "title": "Black Friday | Save $50 on the MDHearing NEO XS",
+      "url": "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 45,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:24:07.666Z",
+        "url": "https://www.mdhearingaid.com/hearing-aid-comparisons/"
+      },
+      "title": "Black Friday Hearing Aid Comparison | MDHearing",
+      "url": "https://www.mdhearingaid.com/hearing-aid-comparisons/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 78,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:24:11.645Z",
+        "url": "https://www.mdhearingaid.com/catalog/"
+      },
+      "title": "Shop MDHearing Accessories | MDHearing.com",
+      "url": "https://www.mdhearingaid.com/catalog/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 40,
+      "jsonLdTypes": [
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:24:14.987Z",
+        "url": "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt-max/"
+      },
+      "title": "Black Friday | Save $150 on the MDHearing VOLT MAX 2",
+      "url": "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt-max/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 40,
+      "jsonLdTypes": [
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:24:19.575Z",
+        "url": "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs/"
+      },
+      "title": "Black Friday | Save $50 on the MDHearing NEO XS",
+      "url": "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 40,
+      "jsonLdTypes": [
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:24:22.113Z",
+        "url": "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt/"
+      },
+      "title": "Black Friday | Save $100 on the MDHearing VOLT 4",
+      "url": "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 38,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:24:27.258Z",
+        "url": "https://www.mdhearingaid.com/reviews/hearing-aids/"
+      },
+      "title": "MDHearing Reviews | MDHearing",
+      "url": "https://www.mdhearingaid.com/reviews/hearing-aids/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 39,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:24:31.202Z",
+        "url": "https://www.mdhearingaid.com/why-mdhearing/"
+      },
+      "title": "Why 1M+ Users Buy Hearing Aids Online From MDHearing?",
+      "url": "https://www.mdhearingaid.com/why-mdhearing/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:24:34.714Z",
+        "url": "https://www.mdhearingaid.com/video-guides/"
+      },
+      "title": "Video Guides for all MDHearing Hearing Aids",
+      "url": "https://www.mdhearingaid.com/video-guides/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 39,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:24:38.667Z",
+        "url": "https://www.mdhearingaid.com/hearing-test/"
+      },
+      "title": "Try This FREE Hearing Test Online in Less Than 8 Minutes!",
+      "url": "https://www.mdhearingaid.com/hearing-test/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 40,
+      "jsonLdTypes": [
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:24:42.532Z",
+        "url": "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs-pro/"
+      },
+      "title": "Black Friday | Save $150 on the MDHearing NEO XS PRO",
+      "url": "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs-pro/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:24:44.787Z",
+        "url": "https://www.mdhearingaid.com/hearing-aid-comparisons/styles/"
+      },
+      "title": "Hearing Aid Styles: In-Ear vs. Behind-Ear | MDHearing",
+      "url": "https://www.mdhearingaid.com/hearing-aid-comparisons/styles/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 39,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:24:48.791Z",
+        "url": "https://www.mdhearingaid.com/hearing-aids/recommend/"
+      },
+      "title": "MDHearing Hearing Recommendation",
+      "url": "https://www.mdhearingaid.com/hearing-aids/recommend/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://orderstatus.mdhearing.com/",
+        "https://www.bbb.org/us/il/chicago/profile/hearing-assistive-devices/mdhearing-0654-88378112/"
+      ],
+      "internalLinks": 78,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:24:54.754Z",
+        "url": "https://www.mdhearingaid.com/catalog/"
+      },
+      "title": "Shop MDHearing Accessories | MDHearing.com",
+      "url": "https://www.mdhearingaid.com/catalog/"
+    }
+  ],
+  "pdfHosts": [
+    {
+      "count": 2,
+      "examples": [
+        "https://static.mdhearingaid.com/collateral/QuietTV-SeriesAV-Manual_Web.pdf",
+        "https://static.mdhearingaid.com/collateral/MDHearingAid_ReceiptAddendum_web.pdf"
+      ],
+      "host": "static.mdhearingaid.com"
+    }
+  ],
+  "redirects": [],
+  "robots": {
+    "groups": [
+      {
+        "allow": [
+          "/"
+        ],
+        "disallow": [],
+        "userAgents": [
+          "*"
+        ]
+      }
+    ],
+    "ref": {
+      "fetchedAt": "2026-11-27T17:19:51.981Z",
+      "url": "https://www.mdhearingaid.com/robots.txt"
+    },
+    "sitemaps": [
+      "https://www.mdhearingaid.com/sitemap.xml"
+    ],
+    "status": 200
+  },
+  "sitemap": {
+    "refs": [
+      {
+        "fetchedAt": "2026-11-27T17:19:55.271Z",
+        "url": "https://www.mdhearingaid.com/sitemap.xml"
+      }
+    ],
+    "sections": [
+      {
+        "count": 277,
+        "path": "/blog"
+      },
+      {
+        "count": 45,
+        "path": "/news"
+      },
+      {
+        "count": 31,
+        "path": "/blog-list"
+      },
+      {
+        "count": 18,
+        "path": "/hearing-aids"
+      },
+      {
+        "count": 6,
+        "path": "/lp"
+      },
+      {
+        "count": 5,
+        "path": "/news-list"
+      },
+      {
+        "count": 5,
+        "path": "/reviews"
+      },
+      {
+        "count": 4,
+        "path": "/batteries"
+      },
+      {
+        "count": 3,
+        "path": "/hearing-aid-comparisons"
+      },
+      {
+        "count": 3,
+        "path": "/home"
+      },
+      {
+        "count": 2,
+        "path": "/hearing-test"
+      },
+      {
+        "count": 1,
+        "path": "/"
+      },
+      {
+        "count": 1,
+        "path": "/about-us"
+      },
+      {
+        "count": 1,
+        "path": "/accessories"
+      },
+      {
+        "count": 1,
+        "path": "/affiliate-program"
+      },
+      {
+        "count": 1,
+        "path": "/ambassador-program"
+      },
+      {
+        "count": 1,
+        "path": "/blog-list-lp"
+      },
+      {
+        "count": 1,
+        "path": "/care-plans"
+      },
+      {
+        "count": 1,
+        "path": "/careers"
+      },
+      {
+        "count": 1,
+        "path": "/catalog"
+      },
+      {
+        "count": 1,
+        "path": "/contact-us"
+      },
+      {
+        "count": 1,
+        "path": "/news-list-lp"
+      },
+      {
+        "count": 1,
+        "path": "/protection"
+      },
+      {
+        "count": 1,
+        "path": "/terms-and-conditions"
+      },
+      {
+        "count": 1,
+        "path": "/tv-headphones"
+      },
+      {
+        "count": 1,
+        "path": "/video-guides"
+      },
+      {
+        "count": 1,
+        "path": "/warranty-and-returns"
+      },
+      {
+        "count": 1,
+        "path": "/why-mdhearing"
+      }
+    ],
+    "urlCount": 416
+  },
+  "start": "https://www.mdhearingaid.com",
+  "templates": [
+    {
+      "count": 278,
+      "examples": [
+        "https://www.mdhearingaid.com/blog/10-signs-of-hearing-loss-getting-worse",
+        "https://www.mdhearingaid.com/blog/10-signs-of-hearing-loss-getting-worse/",
+        "https://www.mdhearingaid.com/blog/21-days-to-better-hearing"
+      ],
+      "pattern": "https://www.mdhearingaid.com/blog/{slug}"
+    },
+    {
+      "count": 46,
+      "examples": [
+        "https://www.mdhearingaid.com/news/3286-2",
+        "https://www.mdhearingaid.com/news/3286-2/",
+        "https://www.mdhearingaid.com/news/art-norman-of-nbc-interviews-dr-cherukuri-on-hearing-loss"
+      ],
+      "pattern": "https://www.mdhearingaid.com/news/{slug}"
+    },
+    {
+      "count": 42,
+      "examples": [
+        "https://www.mdhearingaid.com/about-us",
+        "https://www.mdhearingaid.com/about-us/",
+        "https://www.mdhearingaid.com/accessories"
+      ],
+      "pattern": "https://www.mdhearingaid.com/{slug}"
+    },
+    {
+      "count": 42,
+      "examples": [
+        "https://www.mdhearingaid.com/catalog/a-dm",
+        "https://www.mdhearingaid.com/catalog/a-tb-aa",
+        "https://www.mdhearingaid.com/catalog/av-dm"
+      ],
+      "pattern": "https://www.mdhearingaid.com/catalog/{slug}"
+    },
+    {
+      "count": 30,
+      "examples": [
+        "https://www.mdhearingaid.com/blog-list/page/10",
+        "https://www.mdhearingaid.com/blog-list/page/11",
+        "https://www.mdhearingaid.com/blog-list/page/12"
+      ],
+      "pattern": "https://www.mdhearingaid.com/blog-list/page/{slug}"
+    },
+    {
+      "count": 22,
+      "examples": [
+        "https://cart.mdhearingaid.com/cgi-bin/UCEditor",
+        "https://cart.mdhearingaid.com/cgi-bin/UCEditor?MerchantID=SCIND&ClearCoupon=true&ADD=AIR3-BOGO-297&COUPON=50BF26&SinglePageCheckout=true",
+        "https://cart.mdhearingaid.com/cgi-bin/UCEditor?MerchantID=SCIND&ClearCoupon=true&ADD=NEOXS-BOGO-297&COUPON=50BF26&SinglePageCheckout=true"
+      ],
+      "pattern": "https://cart.mdhearingaid.com/cgi-bin/{slug}"
+    },
+    {
+      "count": 13,
+      "examples": [
+        "https://www.mdhearingaid.com/hearing-aids/mdhearing-air",
+        "https://www.mdhearingaid.com/hearing-aids/mdhearing-air/",
+        "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo"
+      ],
+      "pattern": "https://www.mdhearingaid.com/hearing-aids/{slug}"
+    },
+    {
+      "count": 8,
+      "examples": [
+        "https://www.mdhearingaid.com/catalog/series/1/?mdh-series-tag-id=1",
+        "https://www.mdhearingaid.com/catalog/series/22/?mdh-series-tag-id=22",
+        "https://www.mdhearingaid.com/catalog/series/23/?mdh-series-tag-id=23"
+      ],
+      "pattern": "https://www.mdhearingaid.com/catalog/series/{slug}"
+    },
+    {
+      "count": 8,
+      "examples": [
+        "https://www.mdhearingaid.com/lp/costco-comparison",
+        "https://www.mdhearingaid.com/lp/costco-comparison/",
+        "https://www.mdhearingaid.com/lp/faqs-for-existing-users"
+      ],
+      "pattern": "https://www.mdhearingaid.com/lp/{slug}"
+    },
+    {
+      "count": 6,
+      "examples": [
+        "https://support.mdhearingaid.com/hc/en-us/articles/31989441052311",
+        "https://support.mdhearingaid.com/hc/en-us/articles/31989576405783",
+        "https://support.mdhearingaid.com/hc/en-us/articles/31992735657495"
+      ],
+      "pattern": "https://support.mdhearingaid.com/hc/en-us/articles/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.mdhearingaid.com/catalog/series-selector/air",
+        "https://www.mdhearingaid.com/catalog/series-selector/neo",
+        "https://www.mdhearingaid.com/catalog/series-selector/pro"
+      ],
+      "pattern": "https://www.mdhearingaid.com/catalog/series-selector/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.mdhearingaid.com/home/control",
+        "https://www.mdhearingaid.com/home/control/",
+        "https://www.mdhearingaid.com/home/v1"
+      ],
+      "pattern": "https://www.mdhearingaid.com/home/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.mdhearingaid.com/news-list/page/2",
+        "https://www.mdhearingaid.com/news-list/page/3",
+        "https://www.mdhearingaid.com/news-list/page/4"
+      ],
+      "pattern": "https://www.mdhearingaid.com/news-list/page/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.mdhearingaid.com/reviews/hearing-aids/mdhearing-air",
+        "https://www.mdhearingaid.com/reviews/hearing-aids/mdhearing-neo-xs",
+        "https://www.mdhearingaid.com/reviews/hearing-aids/mdhearing-volt"
+      ],
+      "pattern": "https://www.mdhearingaid.com/reviews/hearing-aids/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.mdhearingaid.com/hearing-aid-comparisons/control",
+        "https://www.mdhearingaid.com/hearing-aid-comparisons/styles",
+        "https://www.mdhearingaid.com/hearing-aid-comparisons/styles/"
+      ],
+      "pattern": "https://www.mdhearingaid.com/hearing-aid-comparisons/{slug}"
+    }
+  ],
+  "urls": [
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?MerchantID=SCIND&ClearCoupon=true&ADD=AIR3-BOGO-297&COUPON=50BF26&SinglePageCheckout=true",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?MerchantID=SCIND&ClearCoupon=true&ADD=NEOXS-BOGO-297&COUPON=50BF26&SinglePageCheckout=true",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?MerchantID=SCIND&ClearCoupon=true&ADD=NEOXS-BOGO-297&SinglePageCheckout=true",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?MerchantID=SCIND&ClearCoupon=true&ADD=NXSPRO-BOGO-597&COUPON=150BF26&SinglePageCheckout=true",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?MerchantID=SCIND&ClearCoupon=true&ADD=NXSPRO-BOGO-597&SinglePageCheckout=true",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?MerchantID=SCIND&ClearCoupon=true&ADD=VOLT4-BOGO-397&COUPON=100BF26&SinglePageCheckout=true",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?MerchantID=SCIND&ClearCoupon=true&ADD=VOLT4-BOGO-397&SinglePageCheckout=true",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?MerchantID=SCIND&ClearCoupon=true&ADD=VOLTM2-BOGO-597&COUPON=150BF26&SinglePageCheckout=true",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?MerchantID=SCIND&ClearCoupon=true&ADD=VOLTM2-BOGO-597&SinglePageCheckout=true",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?merchantId=SCIND&ADD=BATT312-16CARD-5&SinglePageCheckout=true",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?merchantId=SCIND&ADD=BATT312-BOX-33&SinglePageCheckout=true",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?merchantId=SCIND&ADD=CARE-Q126-1M-26&SinglePageCheckout=true",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?merchantId=SCIND&ADD=CAREPL-Q126-1M-33&SinglePageCheckout=true",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?merchantId=SCIND&ADD=PROT-Q126-1M-16",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?merchantId=SCIND&ADD=PROT-Q126-1M-16&SinglePageCheckout=true",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?merchantId=SCIND&ADD=PROT-Q126-1Y-160",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?merchantId=SCIND&ClearCoupon=true&ADD=AIR3-BOGO-297&COUPON=50BF26&SinglePageCheckout=true",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?merchantId=SCIND&ClearCoupon=true&ADD=NEOXS-BOGO-297&COUPON=50BF26&SinglePageCheckout=true",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?merchantId=SCIND&ClearCoupon=true&ADD=NXSPRO-BOGO-597&COUPON=150BF26&SinglePageCheckout=true",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?merchantId=SCIND&ClearCoupon=true&ADD=VOLT4-BOGO-397&COUPON=100BF26&SinglePageCheckout=true",
+    "https://cart.mdhearingaid.com/cgi-bin/UCEditor?merchantId=SCIND&ClearCoupon=true&ADD=VOLTM2-BOGO-597&COUPON=150BF26&SinglePageCheckout=true",
+    "https://static.mdhearingaid.com/collateral/MDHearingAid_ReceiptAddendum_web.pdf",
+    "https://static.mdhearingaid.com/collateral/QuietTV-SeriesAV-Manual_Web.pdf",
+    "https://support.mdhearingaid.com/hc/en-us",
+    "https://support.mdhearingaid.com/hc/en-us/articles/31989441052311",
+    "https://support.mdhearingaid.com/hc/en-us/articles/31989576405783",
+    "https://support.mdhearingaid.com/hc/en-us/articles/31992735657495",
+    "https://support.mdhearingaid.com/hc/en-us/articles/31996659532055",
+    "https://support.mdhearingaid.com/hc/en-us/articles/31996724410775",
+    "https://support.mdhearingaid.com/hc/en-us/articles/31996908312599",
+    "https://support.mdhearingaid.com/hc/en-us/categories/6199036545431-Manuals-and-Guides",
+    "https://www.mdhearingaid.com/",
+    "https://www.mdhearingaid.com/about-us",
+    "https://www.mdhearingaid.com/about-us/",
+    "https://www.mdhearingaid.com/accessories",
+    "https://www.mdhearingaid.com/affiliate-program",
+    "https://www.mdhearingaid.com/affiliate-program/",
+    "https://www.mdhearingaid.com/ambassador-program",
+    "https://www.mdhearingaid.com/ambassador-program/",
+    "https://www.mdhearingaid.com/batteries/mdhearing/size-312",
+    "https://www.mdhearingaid.com/batteries/mdhearing/size-312/",
+    "https://www.mdhearingaid.com/batteries/mdhearing/size-312/16-pack",
+    "https://www.mdhearingaid.com/batteries/rayovac/size-312/16-pack",
+    "https://www.mdhearingaid.com/batteries/rayovac/size-312/64-pack",
+    "https://www.mdhearingaid.com/blog-list",
+    "https://www.mdhearingaid.com/blog-list-lp",
+    "https://www.mdhearingaid.com/blog-list-lp/",
+    "https://www.mdhearingaid.com/blog-list/",
+    "https://www.mdhearingaid.com/blog-list/page/10",
+    "https://www.mdhearingaid.com/blog-list/page/11",
+    "https://www.mdhearingaid.com/blog-list/page/12",
+    "https://www.mdhearingaid.com/blog-list/page/13",
+    "https://www.mdhearingaid.com/blog-list/page/14",
+    "https://www.mdhearingaid.com/blog-list/page/15",
+    "https://www.mdhearingaid.com/blog-list/page/16",
+    "https://www.mdhearingaid.com/blog-list/page/17",
+    "https://www.mdhearingaid.com/blog-list/page/18",
+    "https://www.mdhearingaid.com/blog-list/page/19",
+    "https://www.mdhearingaid.com/blog-list/page/2",
+    "https://www.mdhearingaid.com/blog-list/page/20",
+    "https://www.mdhearingaid.com/blog-list/page/21",
+    "https://www.mdhearingaid.com/blog-list/page/22",
+    "https://www.mdhearingaid.com/blog-list/page/23",
+    "https://www.mdhearingaid.com/blog-list/page/24",
+    "https://www.mdhearingaid.com/blog-list/page/25",
+    "https://www.mdhearingaid.com/blog-list/page/26",
+    "https://www.mdhearingaid.com/blog-list/page/27",
+    "https://www.mdhearingaid.com/blog-list/page/28",
+    "https://www.mdhearingaid.com/blog-list/page/29",
+    "https://www.mdhearingaid.com/blog-list/page/3",
+    "https://www.mdhearingaid.com/blog-list/page/30",
+    "https://www.mdhearingaid.com/blog-list/page/31",
+    "https://www.mdhearingaid.com/blog-list/page/4",
+    "https://www.mdhearingaid.com/blog-list/page/5",
+    "https://www.mdhearingaid.com/blog-list/page/6",
+    "https://www.mdhearingaid.com/blog-list/page/7",
+    "https://www.mdhearingaid.com/blog-list/page/8",
+    "https://www.mdhearingaid.com/blog-list/page/9",
+    "https://www.mdhearingaid.com/blog/10-signs-of-hearing-loss-getting-worse",
+    "https://www.mdhearingaid.com/blog/10-signs-of-hearing-loss-getting-worse/",
+    "https://www.mdhearingaid.com/blog/21-days-to-better-hearing",
+    "https://www.mdhearingaid.com/blog/5-places-to-protect-your-hearing-this-fathers-day",
+    "https://www.mdhearingaid.com/blog/5-questions-about-buying-from-mdhearingaid-answered",
+    "https://www.mdhearingaid.com/blog/5-ways-to-maintain-your-independence-and-stay-young",
+    "https://www.mdhearingaid.com/blog/6-problems-with-hearing-aids",
+    "https://www.mdhearingaid.com/blog/6-real-dangers-of-hearing-loss",
+    "https://www.mdhearingaid.com/blog/7-surprising-causes-of-hearing-loss",
+    "https://www.mdhearingaid.com/blog/8-mothers-day-activities-for-mothers-with-hearing-loss",
+    "https://www.mdhearingaid.com/blog/a-donation-to-our-warriors",
+    "https://www.mdhearingaid.com/blog/a-new-year-of-better-habits-and-better-hearing",
+    "https://www.mdhearingaid.com/blog/advice-for-wives-whose-husbands-dont-listen",
+    "https://www.mdhearingaid.com/blog/age-related-hearing-loss-mom",
+    "https://www.mdhearingaid.com/blog/allergies-and-hearing",
+    "https://www.mdhearingaid.com/blog/alzheimers-and-hearing-loss",
+    "https://www.mdhearingaid.com/blog/amazon-hearing-aids",
+    "https://www.mdhearingaid.com/blog/an-informative-discussion-about-hearing-loss-dementia-and-alzheimers-disease",
+    "https://www.mdhearingaid.com/blog/analog-hearing-aids",
+    "https://www.mdhearingaid.com/blog/apple-airpod-hearing-aids",
+    "https://www.mdhearingaid.com/blog/ask-a-stupid-question-day",
+    "https://www.mdhearingaid.com/blog/at-home-hearing-tests",
+    "https://www.mdhearingaid.com/blog/audien-hearing",
+    "https://www.mdhearingaid.com/blog/audiometer",
+    "https://www.mdhearingaid.com/blog/auditory-neuropathy",
+    "https://www.mdhearingaid.com/blog/best-buy-hearing-aids",
+    "https://www.mdhearingaid.com/blog/best-hearing-aid-for-music",
+    "https://www.mdhearingaid.com/blog/best-hearing-aids-for-noisy-environments",
+    "https://www.mdhearingaid.com/blog/best-vibrating-alarm-clocks",
+    "https://www.mdhearingaid.com/blog/better-hearing-without-spending-thousands",
+    "https://www.mdhearingaid.com/blog/bluetooth-hearing-aids-lifeear",
+    "https://www.mdhearingaid.com/blog/bose-hearing-aid",
+    "https://www.mdhearingaid.com/blog/buy-hearing-aids-online",
+    "https://www.mdhearingaid.com/blog/buying-hearing-aids-buyers-guide",
+    "https://www.mdhearingaid.com/blog/buying-hearing-aids-for-others",
+    "https://www.mdhearingaid.com/blog/can-better-hearing-lead-to-longer-life",
+    "https://www.mdhearingaid.com/blog/can-hearing-aids-cause-hearing-loss",
+    "https://www.mdhearingaid.com/blog/can-hearing-aids-prevent-further-hearing-loss",
+    "https://www.mdhearingaid.com/blog/can-untreated-hearing-loss-lead-to-cognitive-disorders",
+    "https://www.mdhearingaid.com/blog/can-you-hear-me-say-i-love-you",
+    "https://www.mdhearingaid.com/blog/can-you-hear-those-2014-resolutions",
+    "https://www.mdhearingaid.com/blog/cant-hear-out-of-one-ear",
+    "https://www.mdhearingaid.com/blog/changing-the-stigma-of-hearing-aids",
+    "https://www.mdhearingaid.com/blog/cheap-vs-affordable-hearing-aids-whats-the-difference",
+    "https://www.mdhearingaid.com/blog/choosing-an-mdhearing-aid-staff-reviews",
+    "https://www.mdhearingaid.com/blog/cicada-noise",
+    "https://www.mdhearingaid.com/blog/cleaning-hearing-aids-a-complete-how-to-guide",
+    "https://www.mdhearingaid.com/blog/cochlear-implant-vs-hearing-aid",
+    "https://www.mdhearingaid.com/blog/common-myths-and-facts-about-hearing-aids",
+    "https://www.mdhearingaid.com/blog/communication-in-relationships",
+    "https://www.mdhearingaid.com/blog/comparison-md-hearing-aid-air-vs-more-expensive-devices",
+    "https://www.mdhearingaid.com/blog/conductive-hearing-loss",
+    "https://www.mdhearingaid.com/blog/cost-of-hearing-aids",
+    "https://www.mdhearingaid.com/blog/costco-hearing-aids",
+    "https://www.mdhearingaid.com/blog/covid-19",
+    "https://www.mdhearingaid.com/blog/covid-and-hearing-loss",
+    "https://www.mdhearingaid.com/blog/cvs-hearing-aids",
+    "https://www.mdhearingaid.com/blog/decibel-chart",
+    "https://www.mdhearingaid.com/blog/difference-between-otc-and-prescription-hearing-aids",
+    "https://www.mdhearingaid.com/blog/digital-hearing-aid-channels-bands-whats-the-difference",
+    "https://www.mdhearingaid.com/blog/digital-hearing-aids",
+    "https://www.mdhearingaid.com/blog/directional-microphones-in-hearing-aids",
+    "https://www.mdhearingaid.com/blog/discover-how-to-get-the-most-out-of-your-online-hearing-aids",
+    "https://www.mdhearingaid.com/blog/do-cheap-hearing-aids-work-well",
+    "https://www.mdhearingaid.com/blog/do-i-need-a-hearing-aid-should-i-get-a-hearing-aid",
+    "https://www.mdhearingaid.com/blog/do-i-need-custom-hearing-aids",
+    "https://www.mdhearingaid.com/blog/do-i-need-one-or-two-hearing-aids",
+    "https://www.mdhearingaid.com/blog/does-medicare-cover-hearing-aids",
+    "https://www.mdhearingaid.com/blog/does-tinnitus-go-away",
+    "https://www.mdhearingaid.com/blog/does-your-parent-need-hearing-aids",
+    "https://www.mdhearingaid.com/blog/douglas-chooses-mdhearingaid-over-custom-made",
+    "https://www.mdhearingaid.com/blog/ear-candling",
+    "https://www.mdhearingaid.com/blog/eargo-hearing-aids",
+    "https://www.mdhearingaid.com/blog/elehear-hearing-aids-review",
+    "https://www.mdhearingaid.com/blog/face-masks-hearing-loss",
+    "https://www.mdhearingaid.com/blog/fall-prevention-awareness-day",
+    "https://www.mdhearingaid.com/blog/fda-seeks-to-make-low-cost-otc-hearing-aids-readily-available-to-millions-of-americans",
+    "https://www.mdhearingaid.com/blog/fit-as-a-gift",
+    "https://www.mdhearingaid.com/blog/free-hearing-aids-for-seniors",
+    "https://www.mdhearingaid.com/blog/french-horn-players-at-high-risk-for-hearing-loss",
+    "https://www.mdhearingaid.com/blog/fsa-eligible-expenses",
+    "https://www.mdhearingaid.com/blog/hard-of-hearing-deaf",
+    "https://www.mdhearingaid.com/blog/hear-today-gone-tomorrow-how-to-avoid-needing-hearing-aids",
+    "https://www.mdhearingaid.com/blog/hearing-aid-app-for-android",
+    "https://www.mdhearingaid.com/blog/hearing-aid-buyers-guide",
+    "https://www.mdhearingaid.com/blog/hearing-aid-dehumidifiers",
+    "https://www.mdhearingaid.com/blog/hearing-aid-features-buyers-guide",
+    "https://www.mdhearingaid.com/blog/hearing-aid-insurance-does-it-exist",
+    "https://www.mdhearingaid.com/blog/hearing-aid-maintenance-care-checklist",
+    "https://www.mdhearingaid.com/blog/hearing-aid-supplies",
+    "https://www.mdhearingaid.com/blog/hearing-aids-and-comfort",
+    "https://www.mdhearingaid.com/blog/hearing-aids-bird-songs-and-rustling-leaves",
+    "https://www.mdhearingaid.com/blog/hearing-aids-during-the-pandemic",
+    "https://www.mdhearingaid.com/blog/hearing-aids-for-parents",
+    "https://www.mdhearingaid.com/blog/hearing-aids-solve-veterans-most-common-disability",
+    "https://www.mdhearingaid.com/blog/hearing-and-balance",
+    "https://www.mdhearingaid.com/blog/hearing-assist-hearing-aids",
+    "https://www.mdhearingaid.com/blog/hearing-difficulty-in-noisy-holiday-environments",
+    "https://www.mdhearingaid.com/blog/hearing-health-for-grandparents-day",
+    "https://www.mdhearingaid.com/blog/hearing-health-going-online",
+    "https://www.mdhearingaid.com/blog/hearing-instrument-specialist-vs-audiologist",
+    "https://www.mdhearingaid.com/blog/hearing-issues-clogged-ear",
+    "https://www.mdhearingaid.com/blog/hearing-issues-crackling-in-ears",
+    "https://www.mdhearingaid.com/blog/hearing-issues-ear-popping",
+    "https://www.mdhearingaid.com/blog/hearing-issues-ear-tubes",
+    "https://www.mdhearingaid.com/blog/hearing-issues-misophonia",
+    "https://www.mdhearingaid.com/blog/hearing-issues-water-in-your-ear",
+    "https://www.mdhearingaid.com/blog/hearing-loss",
+    "https://www.mdhearingaid.com/blog/hearing-loss-and-mental-health",
+    "https://www.mdhearingaid.com/blog/hearing-loss-and-the-big-game",
+    "https://www.mdhearingaid.com/blog/hearing-loss-in-the-military",
+    "https://www.mdhearingaid.com/blog/hearing-loss-in-veterans",
+    "https://www.mdhearingaid.com/blog/hearing-loss-is-no-longer-for-the-old",
+    "https://www.mdhearingaid.com/blog/hearing-protection-month",
+    "https://www.mdhearingaid.com/blog/hearing-tips-for-healthy-aging",
+    "https://www.mdhearingaid.com/blog/heart-disease-and-hearing-loss",
+    "https://www.mdhearingaid.com/blog/hearusa",
+    "https://www.mdhearingaid.com/blog/help-ive-fallen-and-i-cant-hear-you-the-link-between-balance-and-hearing-loss",
+    "https://www.mdhearingaid.com/blog/help-with-hearing-loss-and-romance",
+    "https://www.mdhearingaid.com/blog/high-frequency-hearing-loss",
+    "https://www.mdhearingaid.com/blog/honey-why-wont-you-listen",
+    "https://www.mdhearingaid.com/blog/how-do-hearing-aids-work",
+    "https://www.mdhearingaid.com/blog/how-do-hearing-aids-work-to-help-you-hear",
+    "https://www.mdhearingaid.com/blog/how-do-i-get-dad-to-wear-hearing-aids",
+    "https://www.mdhearingaid.com/blog/how-do-speech-in-noise-tests-work",
+    "https://www.mdhearingaid.com/blog/how-hearing-aids-can-change-your-life",
+    "https://www.mdhearingaid.com/blog/how-hearing-aids-improve-quality-of-life",
+    "https://www.mdhearingaid.com/blog/how-to-care-for-your-hearing-aids-a-guide-to-hearing-aid-cleaning-and-maintenance",
+    "https://www.mdhearingaid.com/blog/how-to-clean-your-hearing-aids",
+    "https://www.mdhearingaid.com/blog/how-to-convince-someone-you-love-they-need-a-hearing-aid",
+    "https://www.mdhearingaid.com/blog/how-to-discover-the-best-feature-of-your-new-hearing-aid",
+    "https://www.mdhearingaid.com/blog/how-to-have-the-you-may-need-a-hearing-aid-conversation",
+    "https://www.mdhearingaid.com/blog/how-to-improve-hearing",
+    "https://www.mdhearingaid.com/blog/how-to-prevent-hearing-loss-damage",
+    "https://www.mdhearingaid.com/blog/how-to-tell-someone-that-they-need-a-hearing-aid",
+    "https://www.mdhearingaid.com/blog/how-to-wear-hearing-aids-with-glasses-or-accessories",
+    "https://www.mdhearingaid.com/blog/hunting-ear-protection",
+    "https://www.mdhearingaid.com/blog/i-said-can-you-please-pass-the-gravy",
+    "https://www.mdhearingaid.com/blog/if-an-iphone-can-do-it-why-not-mdhearingaid",
+    "https://www.mdhearingaid.com/blog/impulse-noise-fireworks-safety",
+    "https://www.mdhearingaid.com/blog/in-ear-hearing-aids",
+    "https://www.mdhearingaid.com/blog/in-need-of-an-affordable-hearing-aid",
+    "https://www.mdhearingaid.com/blog/introducing-the-mdhearing-neo",
+    "https://www.mdhearingaid.com/blog/introducing-the-neo-xs-pro",
+    "https://www.mdhearingaid.com/blog/introducing-the-volt-max-2",
+    "https://www.mdhearingaid.com/blog/invisible-hearing-aids",
+    "https://www.mdhearingaid.com/blog/is-hearing-loss-reversible",
+    "https://www.mdhearingaid.com/blog/is-our-technology-causing-us-to-go-deaf",
+    "https://www.mdhearingaid.com/blog/itchy-ear",
+    "https://www.mdhearingaid.com/blog/jabra-hearing-aids",
+    "https://www.mdhearingaid.com/blog/joe-namath-hearing-aids",
+    "https://www.mdhearingaid.com/blog/just-how-loud-is-just-too-loud",
+    "https://www.mdhearingaid.com/blog/keep-your-hearing-aids-happy-in-cold-weather",
+    "https://www.mdhearingaid.com/blog/learn-about-phones-for-people-with-hearing-loss",
+    "https://www.mdhearingaid.com/blog/lexie-hearing-aids",
+    "https://www.mdhearingaid.com/blog/lifeear-mdhearing-apps",
+    "https://www.mdhearingaid.com/blog/listenclear",
+    "https://www.mdhearingaid.com/blog/lively-hearing-aids",
+    "https://www.mdhearingaid.com/blog/living-with-someone-with-hearing-loss",
+    "https://www.mdhearingaid.com/blog/making-better-hearing-affordable-md-hearing-aid",
+    "https://www.mdhearingaid.com/blog/md-hearing-aid-overview",
+    "https://www.mdhearingaid.com/blog/md-hearing-aids-product-ratings",
+    "https://www.mdhearingaid.com/blog/md-hearing-assistive-listening-devices",
+    "https://www.mdhearingaid.com/blog/md-hearing-assistive-living-devices",
+    "https://www.mdhearingaid.com/blog/md-hearing-audiologist-testing",
+    "https://www.mdhearingaid.com/blog/md-hearing-choosing-the-right-hearing-aid",
+    "https://www.mdhearingaid.com/blog/md-hearing-development-of-hearing-aids",
+    "https://www.mdhearingaid.com/blog/md-hearing-digital-vs-analog-hearing-aids",
+    "https://www.mdhearingaid.com/blog/md-hearing-hearing-aid-batteries",
+    "https://www.mdhearingaid.com/blog/md-hearing-hearing-aid-prices",
+    "https://www.mdhearingaid.com/blog/md-hearing-hearing-aids-currently-available",
+    "https://www.mdhearingaid.com/blog/md-hearing-hearing-aids-vs-psaps",
+    "https://www.mdhearingaid.com/blog/md-hearing-low-cost-vs-expensive-hearing-aids",
+    "https://www.mdhearingaid.com/blog/md-hearing-low-prices",
+    "https://www.mdhearingaid.com/blog/md-hearing-one-size-fits-most",
+    "https://www.mdhearingaid.com/blog/md-hearing-the-need-for-low-cost-hearing-aids",
+    "https://www.mdhearingaid.com/blog/md-hearing-types-of-hearing-loss",
+    "https://www.mdhearingaid.com/blog/md-hearing-untreated-hearing-loss",
+    "https://www.mdhearingaid.com/blog/mdhearing-head-of-audiology-conferences-2023",
+    "https://www.mdhearingaid.com/blog/mdhearing-mdcoach-app",
+    "https://www.mdhearingaid.com/blog/mdhearing-neo-xs",
+    "https://www.mdhearingaid.com/blog/mdhearing-receives-fda-510k-approval",
+    "https://www.mdhearingaid.com/blog/mdhearingaid-a-truly-affordable-hearing-aid",
+    "https://www.mdhearingaid.com/blog/mdhearingaid-air",
+    "https://www.mdhearingaid.com/blog/mdhearingaid-an-option-for-the-under-and-uninsured-with-hearing-loss",
+    "https://www.mdhearingaid.com/blog/mdhearingaid-coupon-promo-and-discount-codes",
+    "https://www.mdhearingaid.com/blog/mdhearingaid-fit-tekthing-review",
+    "https://www.mdhearingaid.com/blog/mdhearingaid-pro",
+    "https://www.mdhearingaid.com/blog/mdhearingaid-will-work-for-you",
+    "https://www.mdhearingaid.com/blog/mdhearings-fda-otc-comments",
+    "https://www.mdhearingaid.com/blog/meet-the-mdhearingaid-volt-plus",
+    "https://www.mdhearingaid.com/blog/miracle-ear",
+    "https://www.mdhearingaid.com/blog/mobile-phones-compatible-with-hearing-aids",
+    "https://www.mdhearingaid.com/blog/most-important-hearing-aid-features",
+    "https://www.mdhearingaid.com/blog/nano-hearing-aids",
+    "https://www.mdhearingaid.com/blog/nano-hearing-aids-sued-by-vermont-ag",
+    "https://www.mdhearingaid.com/blog/need-hearing-aids",
+    "https://www.mdhearingaid.com/blog/new-hearing-aids",
+    "https://www.mdhearingaid.com/blog/new-hearing-aids-mdhearingaid",
+    "https://www.mdhearingaid.com/blog/new-year-new-you-no-more-hearing-aid-excuses",
+    "https://www.mdhearingaid.com/blog/new-year-resolutions",
+    "https://www.mdhearingaid.com/blog/nuance-audio-hearing-glasses",
+    "https://www.mdhearingaid.com/blog/old-man-winter-and-the-hearing-aid",
+    "https://www.mdhearingaid.com/blog/older-americans",
+    "https://www.mdhearingaid.com/blog/otc-hearing-aid-glasses",
+    "https://www.mdhearingaid.com/blog/otc-hearing-aids-can-be-tax-deductible",
+    "https://www.mdhearingaid.com/blog/oticon-hearing-aids",
+    "https://www.mdhearingaid.com/blog/our-7-favorite-sounds-of-summer",
+    "https://www.mdhearingaid.com/blog/over-the-counter-otc-hearing-aids",
+    "https://www.mdhearingaid.com/blog/phonak-hearing-aids",
+    "https://www.mdhearingaid.com/blog/presbycusis",
+    "https://www.mdhearingaid.com/blog/presidents-with-hearing-loss",
+    "https://www.mdhearingaid.com/blog/protect-and-care-for-your-hearing-aids-the-smart-way",
+    "https://www.mdhearingaid.com/blog/rechargeable-hearing-aids",
+    "https://www.mdhearingaid.com/blog/remote-audiology-jobs",
+    "https://www.mdhearingaid.com/blog/resound-hearing-aids",
+    "https://www.mdhearingaid.com/blog/reverse-slope-hearing-loss",
+    "https://www.mdhearingaid.com/blog/sams-club-hearing-aids",
+    "https://www.mdhearingaid.com/blog/save-big-money-with-these-hearing-aid-tips-and-tricks",
+    "https://www.mdhearingaid.com/blog/say-hello-to-volt-max",
+    "https://www.mdhearingaid.com/blog/selective-hearing",
+    "https://www.mdhearingaid.com/blog/sensorineural-hearing-loss",
+    "https://www.mdhearingaid.com/blog/service-dogs",
+    "https://www.mdhearingaid.com/blog/shop-for-a-cause-this-memorial-day-weekend",
+    "https://www.mdhearingaid.com/blog/signia-hearing-aids",
+    "https://www.mdhearingaid.com/blog/signs-of-hearing-loss",
+    "https://www.mdhearingaid.com/blog/signs-of-hearing-loss-in-older-adults",
+    "https://www.mdhearingaid.com/blog/starkey-hearing-aids",
+    "https://www.mdhearingaid.com/blog/stay-tuned",
+    "https://www.mdhearingaid.com/blog/students-invent-a-quieter-leaf-blower",
+    "https://www.mdhearingaid.com/blog/study-proves-mdhearingaid-is-the-best-low-cost-alternative",
+    "https://www.mdhearingaid.com/blog/summer-hearing-aid-care-maintenance-tips",
+    "https://www.mdhearingaid.com/blog/target-hearing-aids",
+    "https://www.mdhearingaid.com/blog/the-effects-of-hearing-loss",
+    "https://www.mdhearingaid.com/blog/the-history-of-audiology",
+    "https://www.mdhearingaid.com/blog/the-link-between-hearing-loss-and-alzheimers-disease",
+    "https://www.mdhearingaid.com/blog/the-md-hearing-aid-acoustitone-pro-on-fox",
+    "https://www.mdhearingaid.com/blog/the-mdhearing-aid-air-featured-in-research",
+    "https://www.mdhearingaid.com/blog/the-occlusion-effect",
+    "https://www.mdhearingaid.com/blog/the-truth-about-bte-hearing-aids",
+    "https://www.mdhearingaid.com/blog/time-to-buy-a-new-hearing-aid",
+    "https://www.mdhearingaid.com/blog/tinnitus-hearing-loss-and-hearing-aids-an-overview",
+    "https://www.mdhearingaid.com/blog/tinnitus-treatment-the-best-treatments-in-2021",
+    "https://www.mdhearingaid.com/blog/tips-for-first-time-hearing-aid-users",
+    "https://www.mdhearingaid.com/blog/tips-for-living-with-tinnitus",
+    "https://www.mdhearingaid.com/blog/top-clinic-hearing-aid-brands",
+    "https://www.mdhearingaid.com/blog/top-hearing-aid-brands",
+    "https://www.mdhearingaid.com/blog/traveling-with-hearing-aids",
+    "https://www.mdhearingaid.com/blog/troubleshooting-common-hearing-aid-problems",
+    "https://www.mdhearingaid.com/blog/truhearing",
+    "https://www.mdhearingaid.com/blog/tv-headphones",
+    "https://www.mdhearingaid.com/blog/tv-headphones-buyers-guide",
+    "https://www.mdhearingaid.com/blog/types-of-hearing-aids-buyers-guide",
+    "https://www.mdhearingaid.com/blog/types-of-hearing-loss",
+    "https://www.mdhearingaid.com/blog/unitron-hearing-aids",
+    "https://www.mdhearingaid.com/blog/use-hsa-fsa-to-pay-for-hearing-aids",
+    "https://www.mdhearingaid.com/blog/using-cell-phones-with-hearing-aids-positioning-telecoils-and-compatibility",
+    "https://www.mdhearingaid.com/blog/using-your-smartphone-as-a-hearing-aid",
+    "https://www.mdhearingaid.com/blog/va-hearing-aids",
+    "https://www.mdhearingaid.com/blog/vitamins-and-a-healthy-diet",
+    "https://www.mdhearingaid.com/blog/walgreens-hearing-aids",
+    "https://www.mdhearingaid.com/blog/walmart-hearing-aids",
+    "https://www.mdhearingaid.com/blog/warning-headphones-and-earbuds-can-break-your-hearing",
+    "https://www.mdhearingaid.com/blog/waterproof-hearing-aids",
+    "https://www.mdhearingaid.com/blog/what-is-an-audiogram",
+    "https://www.mdhearingaid.com/blog/what-is-an-audiologist",
+    "https://www.mdhearingaid.com/blog/what-is-cookie-bite-hearing-loss",
+    "https://www.mdhearingaid.com/blog/what-real-customers-say-about-md-hearing-aid-air",
+    "https://www.mdhearingaid.com/blog/what-to-expect-at-audiology-appointment",
+    "https://www.mdhearingaid.com/blog/why-are-hearing-aids-so-expensive",
+    "https://www.mdhearingaid.com/blog/why-is-hearing-loss-more-common-in-men",
+    "https://www.mdhearingaid.com/blog/why-is-upgrading-your-hearing-aids-important",
+    "https://www.mdhearingaid.com/blog/why-your-headphones-are-too-loud",
+    "https://www.mdhearingaid.com/blog/winter-ear-protection",
+    "https://www.mdhearingaid.com/blog/wireless-headphones-for-tv",
+    "https://www.mdhearingaid.com/blog/yanny-vs-laurel-why-do-we-hear-different-words",
+    "https://www.mdhearingaid.com/blog/your-level-of-hearing-loss",
+    "https://www.mdhearingaid.com/blog/your-voice-with-hearing-aids",
+    "https://www.mdhearingaid.com/care-plans",
+    "https://www.mdhearingaid.com/care-plans/",
+    "https://www.mdhearingaid.com/careers",
+    "https://www.mdhearingaid.com/careers/",
+    "https://www.mdhearingaid.com/catalog",
+    "https://www.mdhearingaid.com/catalog/",
+    "https://www.mdhearingaid.com/catalog/?mdh-series-tag-id=all",
+    "https://www.mdhearingaid.com/catalog/a-dm",
+    "https://www.mdhearingaid.com/catalog/a-tb-aa",
+    "https://www.mdhearingaid.com/catalog/av-dm",
+    "https://www.mdhearingaid.com/catalog/av-tip",
+    "https://www.mdhearingaid.com/catalog/batt10",
+    "https://www.mdhearingaid.com/catalog/batt13",
+    "https://www.mdhearingaid.com/catalog/batt312",
+    "https://www.mdhearingaid.com/catalog/blower",
+    "https://www.mdhearingaid.com/catalog/brush-loop-set",
+    "https://www.mdhearingaid.com/catalog/brush-set",
+    "https://www.mdhearingaid.com/catalog/chrgbase-mv",
+    "https://www.mdhearingaid.com/catalog/chrgcase-aa",
+    "https://www.mdhearingaid.com/catalog/chrgcase-avv",
+    "https://www.mdhearingaid.com/catalog/chrgcase-ev",
+    "https://www.mdhearingaid.com/catalog/chrgcase-ev-b",
+    "https://www.mdhearingaid.com/catalog/chrgcase-hn",
+    "https://www.mdhearingaid.com/catalog/chrgcase-hv",
+    "https://www.mdhearingaid.com/catalog/chrgcase-rn",
+    "https://www.mdhearingaid.com/catalog/chrgcase-rn-b",
+    "https://www.mdhearingaid.com/catalog/dehumidifier",
+    "https://www.mdhearingaid.com/catalog/dome",
+    "https://www.mdhearingaid.com/catalog/dome-pack",
+    "https://www.mdhearingaid.com/catalog/drybox",
+    "https://www.mdhearingaid.com/catalog/e-tb-ea",
+    "https://www.mdhearingaid.com/catalog/e-tb-ev",
+    "https://www.mdhearingaid.com/catalog/earrinse",
+    "https://www.mdhearingaid.com/catalog/h-chrg-cord",
+    "https://www.mdhearingaid.com/catalog/h-dm-db",
+    "https://www.mdhearingaid.com/catalog/h-dm-ptl",
+    "https://www.mdhearingaid.com/catalog/h-tb-ha",
+    "https://www.mdhearingaid.com/catalog/h-tb-hp",
+    "https://www.mdhearingaid.com/catalog/i-tb-ia",
+    "https://www.mdhearingaid.com/catalog/i-tb-ip",
+    "https://www.mdhearingaid.com/catalog/i-tb-iv",
+    "https://www.mdhearingaid.com/catalog/i-tip",
+    "https://www.mdhearingaid.com/catalog/lotion-ear",
+    "https://www.mdhearingaid.com/catalog/pm-wg",
+    "https://www.mdhearingaid.com/catalog/r-dm",
+    "https://www.mdhearingaid.com/catalog/r-dm-oval",
+    "https://www.mdhearingaid.com/catalog/series-selector",
+    "https://www.mdhearingaid.com/catalog/series-selector/",
+    "https://www.mdhearingaid.com/catalog/series-selector/?mdh-series-tag-id=none",
+    "https://www.mdhearingaid.com/catalog/series-selector/air",
+    "https://www.mdhearingaid.com/catalog/series-selector/neo",
+    "https://www.mdhearingaid.com/catalog/series-selector/pro",
+    "https://www.mdhearingaid.com/catalog/series-selector/volt",
+    "https://www.mdhearingaid.com/catalog/series/1/?mdh-series-tag-id=1",
+    "https://www.mdhearingaid.com/catalog/series/22/?mdh-series-tag-id=22",
+    "https://www.mdhearingaid.com/catalog/series/23/?mdh-series-tag-id=23",
+    "https://www.mdhearingaid.com/catalog/series/24/?mdh-series-tag-id=24",
+    "https://www.mdhearingaid.com/catalog/series/31/?mdh-series-tag-id=31",
+    "https://www.mdhearingaid.com/catalog/series/32/?mdh-series-tag-id=32",
+    "https://www.mdhearingaid.com/catalog/series/36/?mdh-series-tag-id=36",
+    "https://www.mdhearingaid.com/catalog/series/39/?mdh-series-tag-id=39",
+    "https://www.mdhearingaid.com/contact-us",
+    "https://www.mdhearingaid.com/contact-us/",
+    "https://www.mdhearingaid.com/contact-us/?utm_source=chatgpt.com",
+    "https://www.mdhearingaid.com/hearing-aid-comparisons",
+    "https://www.mdhearingaid.com/hearing-aid-comparisons/",
+    "https://www.mdhearingaid.com/hearing-aid-comparisons/control",
+    "https://www.mdhearingaid.com/hearing-aid-comparisons/styles",
+    "https://www.mdhearingaid.com/hearing-aid-comparisons/styles/",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-air",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-air/",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-air/control",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-family",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs-pro",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs-pro/",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs-pro/care",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs-pro/control",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs/",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs/care",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs/control",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo/per-ear",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo/per-ear/upsell-air",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt-max",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt-max/",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt-max/care",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt-max/control",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt/",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt/care",
+    "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt/control",
+    "https://www.mdhearingaid.com/hearing-aids/recommend/",
+    "https://www.mdhearingaid.com/hearing-test",
+    "https://www.mdhearingaid.com/hearing-test/",
+    "https://www.mdhearingaid.com/hearing-test/control",
+    "https://www.mdhearingaid.com/home/control",
+    "https://www.mdhearingaid.com/home/control/",
+    "https://www.mdhearingaid.com/home/v1",
+    "https://www.mdhearingaid.com/home/v4",
+    "https://www.mdhearingaid.com/lp/costco-comparison",
+    "https://www.mdhearingaid.com/lp/costco-comparison/",
+    "https://www.mdhearingaid.com/lp/faqs-for-existing-users",
+    "https://www.mdhearingaid.com/lp/faqs-for-new-users",
+    "https://www.mdhearingaid.com/lp/hear-better",
+    "https://www.mdhearingaid.com/lp/optical-partnership",
+    "https://www.mdhearingaid.com/lp/referral-sign-up/",
+    "https://www.mdhearingaid.com/lp/select-care-plan",
+    "https://www.mdhearingaid.com/news-list",
+    "https://www.mdhearingaid.com/news-list-lp",
+    "https://www.mdhearingaid.com/news-list-lp/",
+    "https://www.mdhearingaid.com/news-list/",
+    "https://www.mdhearingaid.com/news-list/page/2",
+    "https://www.mdhearingaid.com/news-list/page/3",
+    "https://www.mdhearingaid.com/news-list/page/4",
+    "https://www.mdhearingaid.com/news-list/page/5",
+    "https://www.mdhearingaid.com/news/3286-2",
+    "https://www.mdhearingaid.com/news/3286-2/",
+    "https://www.mdhearingaid.com/news/art-norman-of-nbc-interviews-dr-cherukuri-on-hearing-loss",
+    "https://www.mdhearingaid.com/news/cell-phone-inspires-ear-specialist-to-design-affordable-hearing-aid",
+    "https://www.mdhearingaid.com/news/chicago-tribune-now-hear-this",
+    "https://www.mdhearingaid.com/news/chicago-tribune-seeks-medical-advice-from-dr-cherukuri",
+    "https://www.mdhearingaid.com/news/chicagoland-tv-asks-dr-cherukuri-about-todays-hearing-issues",
+    "https://www.mdhearingaid.com/news/christmas-gift-mdhearingaid-makes-hearing-affordable-for-senior-citizens",
+    "https://www.mdhearingaid.com/news/crains-business-innovator-sreek-cherukuri-m-d",
+    "https://www.mdhearingaid.com/news/do-you-hear-what-i-hear-can-you-hear-me-now-can-you-hear",
+    "https://www.mdhearingaid.com/news/dr-cherukuri-contributes-to-thrillest-tech-article",
+    "https://www.mdhearingaid.com/news/dr-cherukuri-on-kathryn-raaker-radio-show",
+    "https://www.mdhearingaid.com/news/dr-cherukuri-speaks-about-the-dangers-of-wearing-earbuds-on-nbcs-today-show",
+    "https://www.mdhearingaid.com/news/dr-cherukuri-talks-hearing-aids-with-ct-corporation",
+    "https://www.mdhearingaid.com/news/ent-audiology-news-features-fit",
+    "https://www.mdhearingaid.com/news/evan-and-deb-on-whnz-interview-dr-sreek-cherukuri-about-hearing",
+    "https://www.mdhearingaid.com/news/examiner-com-reviews-the-mdhearingaid-fit",
+    "https://www.mdhearingaid.com/news/fit-featured-in-medical-design-and-outsourcing",
+    "https://www.mdhearingaid.com/news/founder-of-mdhearingaid-featured-in-crains-chicago-tribune",
+    "https://www.mdhearingaid.com/news/fox-32-headphone-hearing-loss-now-30-higher",
+    "https://www.mdhearingaid.com/news/fox-news-dr-manny-ask-dr-sreek-cherukuri-about-hearing-loss",
+    "https://www.mdhearingaid.com/news/fox-tv-tips-to-prevent-future-hearing-loss",
+    "https://www.mdhearingaid.com/news/grand-magazine-discovers-that-psaps-are-not-hearing-aids",
+    "https://www.mdhearingaid.com/news/hearing-aid-giveaway-lifeear",
+    "https://www.mdhearingaid.com/news/hearing-aids-can-increase-your-life-span-radio-interview",
+    "https://www.mdhearingaid.com/news/hearing-loss-and-alzheimers-fox-tv-investigates-the-potential-link-between-them",
+    "https://www.mdhearingaid.com/news/hearing-loss-not-just-for-the-old-fox-32",
+    "https://www.mdhearingaid.com/news/india-tribune",
+    "https://www.mdhearingaid.com/news/lifeear-testimonial-chicago-fox32",
+    "https://www.mdhearingaid.com/news/local-doctor-creates-simple-affordable-hearing-aid",
+    "https://www.mdhearingaid.com/news/mdhearingaid-disrupts-affordable-hearing-aid-market-by-adding-t-coils-to-its-new-air-product-line",
+    "https://www.mdhearingaid.com/news/mdhearingaid-on-atlanta-and-company-with-christine-pullara",
+    "https://www.mdhearingaid.com/news/mdhearingaid-on-fox-17-morning-news-grand-rapids-michigan",
+    "https://www.mdhearingaid.com/news/mdhearingaid-on-the-more-show-with-monica-jackson-kvvu-las-vegas",
+    "https://www.mdhearingaid.com/news/mdhearingaid-on-your-life-a-to-z-ktvk-phoenix",
+    "https://www.mdhearingaid.com/news/mdhearingaid-pro-on-fox-5-san-diego",
+    "https://www.mdhearingaid.com/news/nbc-5-lifeear",
+    "https://www.mdhearingaid.com/news/new-avenues-break-the-cost-barrier",
+    "https://www.mdhearingaid.com/news/oakland-press-how-to-get-your-loved-one-to-listen-to-you",
+    "https://www.mdhearingaid.com/news/say-what-generation-deaf-gets-a-warning-from-doctors",
+    "https://www.mdhearingaid.com/news/study-presented-at-aaohns-meeting-positively-evaluates-the-mdhearingaid",
+    "https://www.mdhearingaid.com/news/testing-testingcan-you-hear-better-now",
+    "https://www.mdhearingaid.com/news/the-mdhearingaid-acoustitone-pro-on-fox5-las-vegas",
+    "https://www.mdhearingaid.com/news/the-times-reaches-out-to-dr-cherukuri-for-an-interview",
+    "https://www.mdhearingaid.com/news/todays-medical-developments-chats-with-dr-cherukuri",
+    "https://www.mdhearingaid.com/news/when-alzheimers-isnt-alzheimers",
+    "https://www.mdhearingaid.com/pace/",
+    "https://www.mdhearingaid.com/privacy-policy",
+    "https://www.mdhearingaid.com/privacy-policy/",
+    "https://www.mdhearingaid.com/protection",
+    "https://www.mdhearingaid.com/protection/",
+    "https://www.mdhearingaid.com/reviews/hearing-aids",
+    "https://www.mdhearingaid.com/reviews/hearing-aids/",
+    "https://www.mdhearingaid.com/reviews/hearing-aids/mdhearing-air",
+    "https://www.mdhearingaid.com/reviews/hearing-aids/mdhearing-neo-xs",
+    "https://www.mdhearingaid.com/reviews/hearing-aids/mdhearing-volt",
+    "https://www.mdhearingaid.com/reviews/hearing-aids/mdhearing-volt-max",
+    "https://www.mdhearingaid.com/terms-and-conditions",
+    "https://www.mdhearingaid.com/terms-and-conditions/",
+    "https://www.mdhearingaid.com/tv-headphones/quiettv",
+    "https://www.mdhearingaid.com/tv-headphones/quiettv/",
+    "https://www.mdhearingaid.com/video-guides",
+    "https://www.mdhearingaid.com/video-guides/",
+    "https://www.mdhearingaid.com/warranty-and-returns",
+    "https://www.mdhearingaid.com/warranty-and-returns/",
+    "https://www.mdhearingaid.com/why-mdhearing",
+    "https://www.mdhearingaid.com/why-mdhearing/"
+  ]
+}

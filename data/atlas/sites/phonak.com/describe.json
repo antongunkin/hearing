@@ -1,0 +1,252 @@
+{
+  "domain": "phonak.com",
+  "generatedAt": "2026-11-27T18:58:53.139Z",
+  "model": "sonnet",
+  "openQuestions": [
+    "What are the actual PDF URLs and host of the datasheets and user guides? The page text shows only 'View' buttons.",
+    "Does the catalog page list every model, or only some of them? The page text is cut off.",
+    "Does the listed model URL pattern match all models in the en-us catalog, for example the Lyric and Sky Lumity pages?"
+  ],
+  "sections": {
+    "archive": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:57:34.958Z",
+            "url": "https://www.phonak.com/en-us/hearing-devices/hearing-aids"
+          }
+        ],
+        "text": "The report shows no Web Archive coverage, because the site is live."
+      }
+    ],
+    "links": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:57:34.958Z",
+            "url": "https://www.phonak.com/en-us/hearing-devices/hearing-aids"
+          }
+        ],
+        "text": "The report lists no outbound links, redirects or PDF hosts."
+      }
+    ],
+    "next": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:58:23.906Z",
+            "url": "https://www.phonak.com/en-us/support/datasheets"
+          }
+        ],
+        "text": "Find the PDF URLs behind the 'View' buttons on the datasheet and user guide pages, and check the current documentUrlPattern against them."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:57:34.958Z",
+            "url": "https://www.phonak.com/en-us/hearing-devices/hearing-aids"
+          }
+        ],
+        "text": "Check that the model pattern excludes non-model pages under /hearing-devices/hearing-aids and covers all listed models, including Lyric, Sky Lumity, Naída Lumity and Virto R Infinio."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:58:27.063Z",
+            "url": "https://www.phonak.com/en-us/support/user-guides/infinio"
+          }
+        ],
+        "text": "Check other user guide pages, such as Lumity, Paradise, Marvel and Lyric, which are listed in the menu but were not shown."
+      }
+    ],
+    "render": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:57:34.958Z",
+            "url": "https://www.phonak.com/en-us/hearing-devices/hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:58:23.906Z",
+            "url": "https://www.phonak.com/en-us/support/datasheets"
+          }
+        ],
+        "text": "The catalog, support, user guide and datasheet pages return their content as text without scripts, though the text is cut off in places."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:58:27.063Z",
+            "url": "https://www.phonak.com/en-us/support/user-guides/infinio"
+          }
+        ],
+        "text": "The document pages show 'View' and 'Share' buttons with no PDF URL in the page text."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:57:31.950Z",
+            "url": "https://www.phonak.com/robots.txt"
+          }
+        ],
+        "text": "robots.txt disallows /resources/ and various confirmation pages for all user agents."
+      }
+    ],
+    "structure": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:57:31.950Z",
+            "url": "https://www.phonak.com/robots.txt"
+          }
+        ],
+        "text": "The sitemaps list 9322 URLs across locale prefixes such as /en-us (690 URLs), /en-uk, /en-int and /de-de."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:57:48.446Z",
+            "url": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-eon"
+          }
+        ],
+        "text": "The en-us model URL template is /en-us/hearing-devices/hearing-aids/{slug}, with 27 URLs, for example audeo-eon, audeo-eon-sphere and audeo-fit."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:58:34.778Z",
+            "url": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/product-comparison"
+          }
+        ],
+        "text": "A product-comparison page sits under the same path and is not a model page."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:57:31.950Z",
+            "url": "https://www.phonak.com/robots.txt"
+          }
+        ],
+        "text": "Other locales use translated paths, such as /de-de/hoerloesungen/hoersysteme/{slug} and /fr-fr/systemes-auditifs/aides-auditives/{slug}."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:39:58.005Z",
+            "url": "https://www.phonak.com/en-us/sitemap.xml"
+          }
+        ],
+        "text": "The en-us knowledge base has 285 articles at /en-us/support/knowledge-base/articles/{slug}."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:57:31.950Z",
+            "url": "https://www.phonak.com/robots.txt"
+          }
+        ],
+        "text": "robots.txt lists a sitemap per locale, including https://www.phonak.com/en-us/sitemap.xml."
+      }
+    ],
+    "what": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:57:39.207Z",
+            "url": "https://www.phonak.com/en-us/support/user-guides/accessories"
+          }
+        ],
+        "text": "Phonak is a hearing aid brand site; the footer reads 'Phonak – A Sonova brand'."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:57:34.958Z",
+            "url": "https://www.phonak.com/en-us/hearing-devices/hearing-aids"
+          }
+        ],
+        "text": "The site sells hearing aids, accessories, Roger microphones, earplugs and apps, and has a professional section."
+      }
+    ],
+    "where": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:57:34.958Z",
+            "url": "https://www.phonak.com/en-us/hearing-devices/hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:58:34.778Z",
+            "url": "https://www.phonak.com/en-us/hearing-devices/hearing-aids/product-comparison"
+          }
+        ],
+        "text": "The catalog is https://www.phonak.com/en-us/hearing-devices/hearing-aids, with a side-by-side comparison page."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:58:23.906Z",
+            "url": "https://www.phonak.com/en-us/support/datasheets"
+          }
+        ],
+        "text": "Datasheets are at /en-us/support/datasheets, organised by Infinio, Lumity, Paradise, Marvel, Belong and Lyric platform tabs."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:58:27.063Z",
+            "url": "https://www.phonak.com/en-us/support/user-guides/infinio"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:58:30.815Z",
+            "url": "https://www.phonak.com/en-us/support/user-guides/eon"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:57:39.207Z",
+            "url": "https://www.phonak.com/en-us/support/user-guides/accessories"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:57:42.246Z",
+            "url": "https://www.phonak.com/en-us/support/user-guides/apps"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:57:46.312Z",
+            "url": "https://www.phonak.com/en-us/support/user-guides/chargers"
+          }
+        ],
+        "text": "User guides are split by page: /support/user-guides/infinio, /eon, /accessories, /apps and /chargers."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:57:53.645Z",
+            "url": "https://www.phonak.com/en-us/hearing-devices/apps/myphonak"
+          }
+        ],
+        "text": "The myPhonak app page is /en-us/hearing-devices/apps/myphonak, with a user guide archive back to version 4.0.4."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:58:00.630Z",
+            "url": "https://www.phonak.com/en-us/support/phone-compatibility"
+          }
+        ],
+        "text": "The phone compatibility checker is at /en-us/support/phone-compatibility."
+      }
+    ]
+  },
+  "summary": {
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:57:34.958Z",
+        "url": "https://www.phonak.com/en-us/hearing-devices/hearing-aids"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:58:23.906Z",
+        "url": "https://www.phonak.com/en-us/support/datasheets"
+      }
+    ],
+    "text": "Phonak's live, multi-locale brand site (Sonova brand) with model pages under /hearing-devices/hearing-aids and datasheets and user guides under /support; the en-us catalog and support pages are readable as plain page text."
+  }
+}

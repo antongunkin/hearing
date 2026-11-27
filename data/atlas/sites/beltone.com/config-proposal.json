@@ -1,0 +1,34 @@
+{
+  "checks": {
+    "catalogUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "modelUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "supportUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ]
+  },
+  "generatedAt": "2026-11-27T18:49:30.419Z",
+  "proposal": {
+    "catalogUrls": [
+      "https://www.beltone.com/en-us/products/hearing-aids"
+    ],
+    "modelUrlPattern": "^https://www\\.beltone\\.com/en-us/products/hearing-aids/beltone-[a-z0-9-]+$",
+    "render": false,
+    "status": "active",
+    "supportUrls": [
+      "https://www.beltone.com/en-us/help-center/hearing-aids-support"
+    ]
+  }
+}

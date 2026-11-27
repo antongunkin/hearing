@@ -1,0 +1,1620 @@
+{
+  "archive": {
+    "sections": []
+  },
+  "budget": 60,
+  "domain": "jabraenhance.com",
+  "failures": [
+    {
+      "detail": "disallowed by robots.txt",
+      "reason": "robots",
+      "url": "https://www.jabraenhance.com/refer"
+    },
+    {
+      "detail": "HTTP 404",
+      "reason": "http-error",
+      "url": "https://help.jabraenhance.com/getting-started/finding-your-comfortable-hearing-aid-fit"
+    },
+    {
+      "detail": "bot-protection",
+      "reason": "refused",
+      "url": "https://help.jabraenhance.com/troubleshooting-our-products"
+    }
+  ],
+  "generatedAt": "2026-11-27T17:18:09.153Z",
+  "mode": "live",
+  "outbound": [
+    {
+      "count": 31,
+      "domain": "youtube.com",
+      "examples": [
+        "https://www.youtube.com/@JabraEnhance",
+        "https://www.youtube.com/watch?v=bmiEOQdPNjo",
+        "https://www.youtube.com/watch?v=WeewhRem8Ds"
+      ]
+    },
+    {
+      "count": 24,
+      "domain": "bbb.org",
+      "examples": [
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823"
+      ]
+    },
+    {
+      "count": 24,
+      "domain": "facebook.com",
+      "examples": [
+        "https://facebook.com/JabraEnhance"
+      ]
+    },
+    {
+      "count": 24,
+      "domain": "instagram.com",
+      "examples": [
+        "https://instagram.com/JabraEnhance"
+      ]
+    },
+    {
+      "count": 24,
+      "domain": "twitter.com",
+      "examples": [
+        "https://twitter.com/JabraEnhance"
+      ]
+    },
+    {
+      "count": 7,
+      "domain": "doi.org",
+      "examples": [
+        "https://doi.org/10.4236/etsn.2022.111002",
+        "https://doi.org/10.1080/14992027.2018.1506168",
+        "https://doi.org/10.1044/2022_AJA-21-00191"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "apps.apple.com",
+      "examples": [
+        "https://apps.apple.com/us/app/id1502033340",
+        "https://apps.apple.com/us/app/jabra-enhance-select/id1502033340"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "hearingreview.com",
+      "examples": [
+        "https://hearingreview.com/hearing-loss/hearing-loss-prevention/risk-factors/hearing-loss-associated-comorbidities-know"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "play.google.com",
+      "examples": [
+        "https://play.google.com/store/apps/details?id=com.lively.app"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "sciencedirect.com",
+      "examples": [
+        "https://www.sciencedirect.com/science/article/pii/S1388245718302803",
+        "https://www.sciencedirect.com/science/article/pii/S1388245718302803?via%3Dihub"
+      ]
+    },
+    {
+      "count": 3,
+      "domain": "yotpo.com",
+      "examples": [
+        "https://www.yotpo.com/powered-by-yotpo/"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "amazon.com",
+      "examples": [
+        "https://www.amazon.com/Wisesorb-Dessicant-Indicating-Non-Woven-Dehumidifiers/dp/B09MLTBZ1C/ref=sr_1_3?crid=3432EDG009FG4&dib=eyJ2IjoiMSJ9.9gm-pj1ajnparOlku0idYJRJGmvIxdqQlZhIAZ3QUgG9mHdBLn3RI4ldrRE-N1ZHEx7jF7gfITmhZM1jScoGvkxWCEkKquRSD_EVT9BdWs96nok-tuNsSGpNTRbc9hsRqL4ic_kv5ZwGc0Pk9NOQga6fvuDR6voAC9LuoGkUAqdETtzXiyik-_Dd5nv_8kWMoFV6fHQyq7nOQ12IJgCvkDLMASC_CYbJrgyohjncSyE.ym7Iipkjn-X8mw5YzkMUOARZzXuXzRaopBwPkgcl1uI&dib_tag=se&keywords=silica%2Bgel%2Bwith%2Bcolor%2Bindicator%2B0.5%2Bgram%2Bpackets&qid=1749747738&sprefix=silica%2Bgel%2Bwith%2Bcolor%2Bindicator%2B0.5%2Bgram%2Bpackets%2Caps%2C95&sr=8-3&th=1",
+        "https://www.amazon.com/PerfectDry-Dehumidifier-Accessory-Moisture-Amplifiers/dp/B095DYF6VG?ref_=ast_sto_dp"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "fda.gov",
+      "examples": [
+        "https://www.fda.gov/medical-devices/consumer-products/hearing-aids"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "carbonliteracy.com",
+      "examples": [
+        "https://carbonliteracy.com/addressing-the-carbon-cost-of-hearing-aids/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "colorado.gov",
+      "examples": [
+        "https://www.colorado.gov/pacific/dora/Hearing_Aid_Provider"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "dopl.idaho.gov",
+      "examples": [
+        "https://dopl.idaho.gov/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "gn.wd3.myworkdayjobs.com",
+      "examples": [
+        "https://gn.wd3.myworkdayjobs.com/en-US/GN-Careers/jobs?q=li-jabrahearing"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "jabra.com",
+      "examples": [
+        "https://www.jabra.com/footerpages/warranty-and-service-consumer"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "jamanetwork.com",
+      "examples": [
+        "https://jamanetwork.com/journals/jamaotolaryngology/fullarticle/2645909"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "maine.gov",
+      "examples": [
+        "https://www.maine.gov/professionallicensing"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "nal.gov.au",
+      "examples": [
+        "https://www.nal.gov.au/nal_products/cosi/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "ncbi.nlm.nih.gov",
+      "examples": [
+        "https://www.ncbi.nlm.nih.gov/books/NBK74399/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "okhc.org",
+      "examples": [
+        "https://okhc.org/the-impact-of-hearing-aid-use-on-overall-health-and-well-being/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oregon.gov",
+      "examples": [
+        "https://www.oregon.gov/OHA/PH/HLO/Pages/Contact-Us.aspx"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "stephanepigeon.com",
+      "examples": [
+        "https://stephanepigeon.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "tdlr.texas.gov",
+      "examples": [
+        "https://www.tdlr.texas.gov/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "who.int",
+      "examples": [
+        "https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "zoom.us",
+      "examples": [
+        "https://zoom.us/test"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 18,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:16:10.550Z",
+        "url": "https://www.jabraenhance.com/"
+      },
+      "title": "Jabra Enhance Select Hearing Aids - Buy Online",
+      "url": "https://www.jabraenhance.com/"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.lively.app"
+        ],
+        "ios": [
+          "1502033340"
+        ]
+      },
+      "external": [
+        "https://apps.apple.com/us/app/id1502033340",
+        "https://play.google.com/store/apps/details?id=com.lively.app",
+        "https://www.yotpo.com/powered-by-yotpo/",
+        "https://hearingreview.com/hearing-loss/hearing-loss-prevention/risk-factors/hearing-loss-associated-comorbidities-know",
+        "https://www.sciencedirect.com/science/article/pii/S1388245718302803",
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 26,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList",
+        "ProductGroup",
+        "FAQPage"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.jabraenhance.com/shared/userguides/enhance-select-m3.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:16:14.435Z",
+        "url": "https://www.jabraenhance.com/product/enhanceselectm3"
+      },
+      "title": "Jabra Enhance Select M3 - Jabra Enhance",
+      "url": "https://www.jabraenhance.com/product/enhanceselectm3"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://okhc.org/the-impact-of-hearing-aid-use-on-overall-health-and-well-being/",
+        "https://carbonliteracy.com/addressing-the-carbon-cost-of-hearing-aids/",
+        "https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss",
+        "https://www.fda.gov/medical-devices/consumer-products/hearing-aids",
+        "https://www.ncbi.nlm.nih.gov/books/NBK74399/",
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 17,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.hearingloss.org/wp-content/uploads/2023/09/HLAA_Hearing_Loss_Facts_and_Statistics.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:16:18.831Z",
+        "url": "https://www.jabraenhance.com/hearing-aid-guide"
+      },
+      "title": "Consumer's guide to hearing aids - Jabra Enhance",
+      "url": "https://www.jabraenhance.com/hearing-aid-guide"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 16,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:16:21.618Z",
+        "url": "https://www.jabraenhance.com/hearing-care"
+      },
+      "title": "Jabra Enhance Audiology Team - Experts in Hearing Care, Technology & Research",
+      "url": "https://www.jabraenhance.com/hearing-care"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 25,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:16:23.960Z",
+        "url": "https://www.jabraenhance.com/blog"
+      },
+      "title": "Jabra Enhance blog - Hearing aid, health & product guides",
+      "url": "https://www.jabraenhance.com/blog"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 35,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:16:27.739Z",
+        "url": "https://www.jabraenhance.com/accessories"
+      },
+      "title": "Accessories - Jabra Enhance",
+      "url": "https://www.jabraenhance.com/accessories"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 16,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:16:32.183Z",
+        "url": "https://www.jabraenhance.com/contact-us"
+      },
+      "title": "Contact Us - Jabra Enhance",
+      "url": "https://www.jabraenhance.com/contact-us"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [],
+      "internalLinks": 0,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:16:03.249Z",
+        "url": "https://www.jabraenhance.com/copp/sitemap-accessories.xml"
+      },
+      "url": "https://www.jabraenhance.com/copp/sitemap-accessories.xml"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 32,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.jabraenhance.com/shared/userguides/enhance-select-m3.pdf",
+        "https://cdn.jabraenhance.com/shared/userguides/enhance-select-m2.pdf",
+        "https://cdn.jabraenhance.com/shared/userguides/enhance-select-m1.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:16:34.459Z",
+        "url": "https://www.jabraenhance.com/help"
+      },
+      "title": "Help Center - Jabra Enhance",
+      "url": "https://www.jabraenhance.com/help"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 21,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [
+        "https://sound-files.jabraenhance.com/rechargeable-getting-started-guide.pdf",
+        "https://sound-files.jabraenhance.com/battery-powered-getting-started-guide.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:16:38.707Z",
+        "url": "https://www.jabraenhance.com/start"
+      },
+      "title": "Welcome to Jabra Enhance - Jabra Enhance",
+      "url": "https://www.jabraenhance.com/start"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [],
+      "internalLinks": 0,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:16:40.955Z",
+        "url": "https://www.jabraenhance.com/survey"
+      },
+      "title": "Online Hearing Test - Jabra Enhance",
+      "url": "https://www.jabraenhance.com/survey"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gn.wd3.myworkdayjobs.com/en-US/GN-Careers/jobs?q=li-jabrahearing",
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 16,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:16:43.286Z",
+        "url": "https://www.jabraenhance.com/about"
+      },
+      "title": "About Us - Jabra Enhance",
+      "url": "https://www.jabraenhance.com/about"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 15,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:16:48.116Z",
+        "url": "https://www.jabraenhance.com/authorized-resellers"
+      },
+      "title": "Authorized Resellers - Jabra Enhance",
+      "url": "https://www.jabraenhance.com/authorized-resellers"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 15,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:16:50.252Z",
+        "url": "https://www.jabraenhance.com/compatibility"
+      },
+      "title": "Compatibility check - Jabra Enhance",
+      "url": "https://www.jabraenhance.com/compatibility"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.fda.gov/medical-devices/consumer-products/hearing-aids",
+        "https://www.youtube.com/watch?v=bmiEOQdPNjo",
+        "https://www.youtube.com/watch?v=WeewhRem8Ds",
+        "https://hearingreview.com/hearing-loss/hearing-loss-prevention/risk-factors/hearing-loss-associated-comorbidities-know",
+        "https://www.sciencedirect.com/science/article/pii/S1388245718302803?via%3Dihub",
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 19,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:16:53.836Z",
+        "url": "https://www.jabraenhance.com/faq"
+      },
+      "title": "Frequently Asked Questions - Jabra Enhance",
+      "url": "https://www.jabraenhance.com/faq"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.nal.gov.au/nal_products/cosi/",
+        "https://jamanetwork.com/journals/jamaotolaryngology/fullarticle/2645909",
+        "https://doi.org/10.4236/etsn.2022.111002",
+        "https://doi.org/10.1080/14992027.2018.1506168",
+        "https://doi.org/10.1044/2022_AJA-21-00191",
+        "https://doi.org/10.3766/jaaa.27.6.1",
+        "https://doi.org/10.1186/s12938-018-0531-3",
+        "https://doi.org/10.1089/tmj.2009.0111",
+        "https://doi.org/10.1080/14992027.2020.1805804",
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 16,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:16:56.856Z",
+        "url": "https://www.jabraenhance.com/for-audiologists"
+      },
+      "title": "For Audiologists - Jabra Enhance",
+      "url": "https://www.jabraenhance.com/for-audiologists"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 15,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:17:02.062Z",
+        "url": "https://www.jabraenhance.com/how-it-works"
+      },
+      "title": "Jabra Enhance - Here's how it works.",
+      "url": "https://www.jabraenhance.com/how-it-works"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 17,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:17:06.985Z",
+        "url": "https://www.jabraenhance.com/privacy"
+      },
+      "title": "Privacy Policy - Jabra Enhance",
+      "url": "https://www.jabraenhance.com/privacy"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 16,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:17:09.934Z",
+        "url": "https://www.jabraenhance.com/reviews"
+      },
+      "title": "Reviews - Jabra Enhance",
+      "url": "https://www.jabraenhance.com/reviews"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://stephanepigeon.com/",
+        "https://www.jabra.com/footerpages/warranty-and-service-consumer",
+        "https://www.colorado.gov/pacific/dora/Hearing_Aid_Provider",
+        "https://dopl.idaho.gov/",
+        "https://www.maine.gov/professionallicensing",
+        "https://www.oregon.gov/OHA/PH/HLO/Pages/Contact-Us.aspx",
+        "https://www.tdlr.texas.gov/",
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 18,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:17:13.435Z",
+        "url": "https://www.jabraenhance.com/terms-and-conditions"
+      },
+      "title": "Terms and Conditions - Jabra Enhance",
+      "url": "https://www.jabraenhance.com/terms-and-conditions"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 19,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:17:17.166Z",
+        "url": "https://www.jabraenhance.com/product"
+      },
+      "title": "Jabra Enhance Select Hearing Aids - Jabra Enhance",
+      "url": "https://www.jabraenhance.com/product"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.lively.app"
+        ],
+        "ios": [
+          "1502033340"
+        ]
+      },
+      "external": [
+        "https://apps.apple.com/us/app/id1502033340",
+        "https://play.google.com/store/apps/details?id=com.lively.app",
+        "https://www.yotpo.com/powered-by-yotpo/",
+        "https://hearingreview.com/hearing-loss/hearing-loss-prevention/risk-factors/hearing-loss-associated-comorbidities-know",
+        "https://www.sciencedirect.com/science/article/pii/S1388245718302803",
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 26,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList",
+        "ProductGroup",
+        "FAQPage"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.jabraenhance.com/shared/userguides/enhance-select-m2.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:17:19.389Z",
+        "url": "https://www.jabraenhance.com/product/enhanceselectm2"
+      },
+      "title": "Jabra Enhance Select M2 - Jabra Enhance",
+      "url": "https://www.jabraenhance.com/product/enhanceselectm2"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.lively.app"
+        ],
+        "ios": [
+          "1502033340"
+        ]
+      },
+      "external": [
+        "https://apps.apple.com/us/app/id1502033340",
+        "https://play.google.com/store/apps/details?id=com.lively.app",
+        "https://www.yotpo.com/powered-by-yotpo/",
+        "https://hearingreview.com/hearing-loss/hearing-loss-prevention/risk-factors/hearing-loss-associated-comorbidities-know",
+        "https://www.sciencedirect.com/science/article/pii/S1388245718302803",
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 26,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList",
+        "ProductGroup",
+        "FAQPage"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.jabraenhance.com/shared/userguides/enhance-select-m1.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:17:24.340Z",
+        "url": "https://www.jabraenhance.com/product/enhanceselectm1"
+      },
+      "title": "Jabra Enhance Select M1 - Jabra Enhance",
+      "url": "https://www.jabraenhance.com/product/enhanceselectm1"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 15,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.hearingloss.org/wp-content/uploads/2023/09/HLAA_Hearing_Loss_Facts_and_Statistics.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:17:27.909Z",
+        "url": "https://www.jabraenhance.com/blog/online-hearing-test"
+      },
+      "title": "Free online hearing test designed by audiologists - 5 mins",
+      "url": "https://www.jabraenhance.com/blog/online-hearing-test"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.youtube.com/watch?v=T2Ba9bSxsYI&t=277s",
+        "https://www.youtube.com/watch?v=T2Ba9bSxsYI&t=584s",
+        "https://www.youtube.com/watch?v=T2Ba9bSxsYI&t=13m42s",
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 15,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:17:30.401Z",
+        "url": "https://www.jabraenhance.com/blog/adam-savage-hearing-aids"
+      },
+      "title": "Adam Savage & Jabra Enhance explore how hearing aids work",
+      "url": "https://www.jabraenhance.com/blog/adam-savage-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.bbb.org/us/mn/bloomington/profile/hearing-assistive-devices/jabra-enhance-0704-1000068823",
+        "https://facebook.com/JabraEnhance",
+        "https://www.youtube.com/@JabraEnhance",
+        "https://twitter.com/JabraEnhance",
+        "https://instagram.com/JabraEnhance"
+      ],
+      "internalLinks": 18,
+      "jsonLdTypes": [
+        "Organization",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:17:33.359Z",
+        "url": "https://www.jabraenhance.com/product/m3-vs-500"
+      },
+      "title": "Compare Jabra Enhance Select M3 vs. 500 - Jabra Enhance",
+      "url": "https://www.jabraenhance.com/product/m3-vs-500"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.amazon.com/Wisesorb-Dessicant-Indicating-Non-Woven-Dehumidifiers/dp/B09MLTBZ1C/ref=sr_1_3?crid=3432EDG009FG4&dib=eyJ2IjoiMSJ9.9gm-pj1ajnparOlku0idYJRJGmvIxdqQlZhIAZ3QUgG9mHdBLn3RI4ldrRE-N1ZHEx7jF7gfITmhZM1jScoGvkxWCEkKquRSD_EVT9BdWs96nok-tuNsSGpNTRbc9hsRqL4ic_kv5ZwGc0Pk9NOQga6fvuDR6voAC9LuoGkUAqdETtzXiyik-_Dd5nv_8kWMoFV6fHQyq7nOQ12IJgCvkDLMASC_CYbJrgyohjncSyE.ym7Iipkjn-X8mw5YzkMUOARZzXuXzRaopBwPkgcl1uI&dib_tag=se&keywords=silica%2Bgel%2Bwith%2Bcolor%2Bindicator%2B0.5%2Bgram%2Bpackets&qid=1749747738&sprefix=silica%2Bgel%2Bwith%2Bcolor%2Bindicator%2B0.5%2Bgram%2Bpackets%2Caps%2C95&sr=8-3&th=1",
+        "https://www.amazon.com/PerfectDry-Dehumidifier-Accessory-Moisture-Amplifiers/dp/B095DYF6VG?ref_=ast_sto_dp"
+      ],
+      "internalLinks": 12,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:17:40.107Z",
+        "url": "https://help.jabraenhance.com/-cleaning-your-hearing-aids/how-to-clean-your-hearing-aids-and-how-often"
+      },
+      "title": "How and when to clean your hearing aids - Jabra Enhance",
+      "url": "https://help.jabraenhance.com/-cleaning-your-hearing-aids/how-to-clean-your-hearing-aids-and-how-often"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.youtube.com/watch?v=m2-Aa8DY7BA",
+        "https://www.youtube.com/watch?v=4Qo3LWQR_FQ"
+      ],
+      "internalLinks": 15,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:17:47.872Z",
+        "url": "https://help.jabraenhance.com/devices/what-to-do-if-one-hearing-aid-stops-working"
+      },
+      "title": "What to do if one hearing aid stops working - Jabra Enhance",
+      "url": "https://help.jabraenhance.com/devices/what-to-do-if-one-hearing-aid-stops-working"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [],
+      "internalLinks": 20,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:17:51.388Z",
+        "url": "https://help.jabraenhance.com/setup/how-to-setup-your-hearing-aids"
+      },
+      "title": "How to set up M Series hearing aids - Jabra Enhance",
+      "url": "https://help.jabraenhance.com/setup/how-to-setup-your-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.lively.app"
+        ],
+        "ios": [
+          "1502033340"
+        ]
+      },
+      "external": [
+        "https://apps.apple.com/us/app/jabra-enhance-select/id1502033340",
+        "https://play.google.com/store/apps/details?id=com.lively.app"
+      ],
+      "internalLinks": 9,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:17:56.018Z",
+        "url": "https://help.jabraenhance.com/connecting-to-your-phone-app/how-to-connect-to-the-jabra-enhance-select-app"
+      },
+      "title": "How to connect to the Jabra Enhance Select app - Jabra Enhance",
+      "url": "https://help.jabraenhance.com/connecting-to-your-phone-app/how-to-connect-to-the-jabra-enhance-select-app"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://zoom.us/test"
+      ],
+      "internalLinks": 10,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:17:59.733Z",
+        "url": "https://help.jabraenhance.com/appointments/zoom-troubleshooting"
+      },
+      "title": "Tips for joining your Zoom appointment - Jabra Enhance",
+      "url": "https://help.jabraenhance.com/appointments/zoom-troubleshooting"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [],
+      "internalLinks": 11,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:18:04.437Z",
+        "url": "https://help.jabraenhance.com/personalization/how-personalize-your-hearing-aids-with-the-self-tuning-test"
+      },
+      "title": "How to personalize your hearing aids with the self-tuning test - Jabra Enhance",
+      "url": "https://help.jabraenhance.com/personalization/how-personalize-your-hearing-aids-with-the-self-tuning-test"
+    }
+  ],
+  "pdfHosts": [
+    {
+      "count": 6,
+      "examples": [
+        "https://cdn.jabraenhance.com/shared/userguides/enhance-select-m3.pdf",
+        "https://cdn.jabraenhance.com/shared/userguides/enhance-select-m2.pdf",
+        "https://cdn.jabraenhance.com/shared/userguides/enhance-select-m1.pdf"
+      ],
+      "host": "cdn.jabraenhance.com"
+    },
+    {
+      "count": 2,
+      "examples": [
+        "https://www.hearingloss.org/wp-content/uploads/2023/09/HLAA_Hearing_Loss_Facts_and_Statistics.pdf"
+      ],
+      "host": "hearingloss.org"
+    },
+    {
+      "count": 2,
+      "examples": [
+        "https://sound-files.jabraenhance.com/rechargeable-getting-started-guide.pdf",
+        "https://sound-files.jabraenhance.com/battery-powered-getting-started-guide.pdf"
+      ],
+      "host": "sound-files.jabraenhance.com"
+    }
+  ],
+  "redirects": [],
+  "robots": {
+    "groups": [
+      {
+        "allow": [],
+        "disallow": [
+          "/purchase*",
+          "/cart*",
+          "/refer*",
+          "/referral",
+          "/articles*",
+          "/_next/static/*",
+          "/accessories/receiver-wire-sf2c-lp",
+          "/accessories/receiver-wire-sf3-lp",
+          "/accessories/sport-lock-sf2c-lp",
+          "/accessories/sport-lock-sf3-lp",
+          "/account*",
+          "/activate",
+          "/copp/_next/static/*",
+          "/getapp",
+          "/hearing-health-survey",
+          "/my-account*",
+          "/schedule*"
+        ],
+        "userAgents": [
+          "*"
+        ]
+      }
+    ],
+    "ref": {
+      "fetchedAt": "2026-11-27T17:15:45.098Z",
+      "url": "https://www.jabraenhance.com/robots.txt"
+    },
+    "sitemaps": [
+      "https://www.jabraenhance.com/sitemap.xml",
+      "https://www.jabraenhance.com/sitemap-products.xml",
+      "https://www.jabraenhance.com/blog/sitemap.xml",
+      "https://www.jabraenhance.com/copp/sitemap.xml",
+      "https://www.jabraenhance.com/copp/sitemap-accessories.xml"
+    ],
+    "status": 200
+  },
+  "sitemap": {
+    "refs": [
+      {
+        "fetchedAt": "2026-11-27T17:15:49.364Z",
+        "url": "https://www.jabraenhance.com/sitemap.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:15:53.102Z",
+        "url": "https://www.jabraenhance.com/sitemap-products.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:15:55.678Z",
+        "url": "https://www.jabraenhance.com/blog/sitemap.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:16:00.599Z",
+        "url": "https://www.jabraenhance.com/copp/sitemap.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:16:03.249Z",
+        "url": "https://www.jabraenhance.com/copp/sitemap-accessories.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:16:07.741Z",
+        "url": "https://www.jabraenhance.com/sitemap-0.xml"
+      }
+    ],
+    "sections": [
+      {
+        "count": 36,
+        "path": "/start"
+      },
+      {
+        "count": 19,
+        "path": "/accessories"
+      },
+      {
+        "count": 12,
+        "path": "/product"
+      },
+      {
+        "count": 11,
+        "path": "/blog"
+      },
+      {
+        "count": 6,
+        "path": "/refer"
+      },
+      {
+        "count": 1,
+        "path": "/"
+      },
+      {
+        "count": 1,
+        "path": "/about"
+      },
+      {
+        "count": 1,
+        "path": "/authorized-resellers"
+      },
+      {
+        "count": 1,
+        "path": "/compatibility"
+      },
+      {
+        "count": 1,
+        "path": "/contact-us"
+      },
+      {
+        "count": 1,
+        "path": "/copp"
+      },
+      {
+        "count": 1,
+        "path": "/faq"
+      },
+      {
+        "count": 1,
+        "path": "/for-audiologists"
+      },
+      {
+        "count": 1,
+        "path": "/hearing-aid-guide"
+      },
+      {
+        "count": 1,
+        "path": "/hearing-care"
+      },
+      {
+        "count": 1,
+        "path": "/help"
+      },
+      {
+        "count": 1,
+        "path": "/how-it-works"
+      },
+      {
+        "count": 1,
+        "path": "/privacy"
+      },
+      {
+        "count": 1,
+        "path": "/reviews"
+      },
+      {
+        "count": 1,
+        "path": "/survey"
+      },
+      {
+        "count": 1,
+        "path": "/terms-and-conditions"
+      }
+    ],
+    "urlCount": 100
+  },
+  "start": "https://www.jabraenhance.com",
+  "templates": [
+    {
+      "count": 28,
+      "examples": [
+        "https://www.jabraenhance.com/about",
+        "https://www.jabraenhance.com/accessories",
+        "https://www.jabraenhance.com/authorized-resellers"
+      ],
+      "pattern": "https://www.jabraenhance.com/{slug}"
+    },
+    {
+      "count": 18,
+      "examples": [
+        "https://www.jabraenhance.com/accessories/carrying-case",
+        "https://www.jabraenhance.com/accessories/charging-case",
+        "https://www.jabraenhance.com/accessories/cleaning-kit"
+      ],
+      "pattern": "https://www.jabraenhance.com/accessories/{slug}"
+    },
+    {
+      "count": 12,
+      "examples": [
+        "https://help.jabraenhance.com/-cleaning-your-hearing-aids",
+        "https://help.jabraenhance.com/account",
+        "https://help.jabraenhance.com/appointments"
+      ],
+      "pattern": "https://help.jabraenhance.com/{slug}"
+    },
+    {
+      "count": 11,
+      "examples": [
+        "https://www.jabraenhance.com/product/700-vs-100",
+        "https://www.jabraenhance.com/product/700-vs-200",
+        "https://www.jabraenhance.com/product/700-vs-50"
+      ],
+      "pattern": "https://www.jabraenhance.com/product/{slug}"
+    },
+    {
+      "count": 9,
+      "examples": [
+        "https://help.jabraenhance.com/setup/getting-started-whats-in-the-box",
+        "https://help.jabraenhance.com/setup/getting-started-with-your-retail-purchase",
+        "https://help.jabraenhance.com/setup/how-to-insert-and-remove-your-hearing-aids"
+      ],
+      "pattern": "https://help.jabraenhance.com/setup/{slug}"
+    },
+    {
+      "count": 8,
+      "examples": [
+        "https://help.jabraenhance.com/-cleaning-your-hearing-aids/how-to-change-the-wax-guards",
+        "https://help.jabraenhance.com/-cleaning-your-hearing-aids/how-to-change-the-wax-guards?from_search=222776937",
+        "https://help.jabraenhance.com/-cleaning-your-hearing-aids/how-to-clean-your-hearing-aids-and-how-often"
+      ],
+      "pattern": "https://help.jabraenhance.com/-cleaning-your-hearing-aids/{slug}"
+    },
+    {
+      "count": 7,
+      "examples": [
+        "https://www.jabraenhance.com/start/enhance-select-100",
+        "https://www.jabraenhance.com/start/enhance-select-200",
+        "https://www.jabraenhance.com/start/enhance-select-300"
+      ],
+      "pattern": "https://www.jabraenhance.com/start/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://help.jabraenhance.com/app-phone-connectivity/android-12-troubleshooting",
+        "https://help.jabraenhance.com/app-phone-connectivity/how-to-restart-your-devices?from_search=243013971",
+        "https://help.jabraenhance.com/app-phone-connectivity/how-to-unpair-and-re-pair-your-hearing-aids"
+      ],
+      "pattern": "https://help.jabraenhance.com/app-phone-connectivity/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.jabraenhance.com/blog/adam-savage-hearing-aids",
+        "https://www.jabraenhance.com/blog/adam-savage-virtual-audiology",
+        "https://www.jabraenhance.com/blog/online-hearing-test"
+      ],
+      "pattern": "https://www.jabraenhance.com/blog/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.jabraenhance.com/refer/ineligible",
+        "https://www.jabraenhance.com/refer/print",
+        "https://www.jabraenhance.com/refer/terms-and-conditions"
+      ],
+      "pattern": "https://www.jabraenhance.com/refer/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.jabraenhance.com/start/enhance-select-100/basics",
+        "https://www.jabraenhance.com/start/enhance-select-100/charge",
+        "https://www.jabraenhance.com/start/enhance-select-100/connect"
+      ],
+      "pattern": "https://www.jabraenhance.com/start/enhance-select-100/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.jabraenhance.com/start/enhance-select-200/basics",
+        "https://www.jabraenhance.com/start/enhance-select-200/charge",
+        "https://www.jabraenhance.com/start/enhance-select-200/connect"
+      ],
+      "pattern": "https://www.jabraenhance.com/start/enhance-select-200/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.jabraenhance.com/start/enhance-select-300/basics",
+        "https://www.jabraenhance.com/start/enhance-select-300/charge",
+        "https://www.jabraenhance.com/start/enhance-select-300/connect"
+      ],
+      "pattern": "https://www.jabraenhance.com/start/enhance-select-300/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.jabraenhance.com/start/enhance-select-50/basics",
+        "https://www.jabraenhance.com/start/enhance-select-50/charge",
+        "https://www.jabraenhance.com/start/enhance-select-50/connect"
+      ],
+      "pattern": "https://www.jabraenhance.com/start/enhance-select-50/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.jabraenhance.com/start/enhance-select-500/basics",
+        "https://www.jabraenhance.com/start/enhance-select-500/charge",
+        "https://www.jabraenhance.com/start/enhance-select-500/connect"
+      ],
+      "pattern": "https://www.jabraenhance.com/start/enhance-select-500/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.jabraenhance.com/start/enhance-select-50r/basics",
+        "https://www.jabraenhance.com/start/enhance-select-50r/charge",
+        "https://www.jabraenhance.com/start/enhance-select-50r/connect"
+      ],
+      "pattern": "https://www.jabraenhance.com/start/enhance-select-50r/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.jabraenhance.com/start/enhance-select-700/basics",
+        "https://www.jabraenhance.com/start/enhance-select-700/charge",
+        "https://www.jabraenhance.com/start/enhance-select-700/connect"
+      ],
+      "pattern": "https://www.jabraenhance.com/start/enhance-select-700/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://cdn.jabraenhance.com/shared/userguides/enhance-select-m1.pdf",
+        "https://cdn.jabraenhance.com/shared/userguides/enhance-select-m2.pdf",
+        "https://cdn.jabraenhance.com/shared/userguides/enhance-select-m3.pdf"
+      ],
+      "pattern": "https://cdn.jabraenhance.com/shared/userguides/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://help.jabraenhance.com/getting-proper-fit/finding-your-comfortable-hearing-aid-fit",
+        "https://help.jabraenhance.com/getting-proper-fit/how-to-measure-the-length-for-the-receiver-wire",
+        "https://help.jabraenhance.com/getting-proper-fit/which-hearing-aid-dome-is-right-for-me"
+      ],
+      "pattern": "https://help.jabraenhance.com/getting-proper-fit/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://help.jabraenhance.com/personalization/how-do-i-upload-an-audiogram",
+        "https://help.jabraenhance.com/personalization/how-personalize-your-hearing-aids-with-the-self-tuning-test",
+        "https://help.jabraenhance.com/personalization/what-is-the-self-tuning-test"
+      ],
+      "pattern": "https://help.jabraenhance.com/personalization/{slug}"
+    }
+  ],
+  "urls": [
+    "http://jabraenhance.com/my-account",
+    "https://cdn.jabraenhance.com/shared/userguides/enhance-select-m1.pdf",
+    "https://cdn.jabraenhance.com/shared/userguides/enhance-select-m2.pdf",
+    "https://cdn.jabraenhance.com/shared/userguides/enhance-select-m3.pdf",
+    "https://help.jabraenhance.com/-cleaning-your-hearing-aids",
+    "https://help.jabraenhance.com/-cleaning-your-hearing-aids/how-to-change-the-wax-guards",
+    "https://help.jabraenhance.com/-cleaning-your-hearing-aids/how-to-change-the-wax-guards?from_search=222776937",
+    "https://help.jabraenhance.com/-cleaning-your-hearing-aids/how-to-clean-your-hearing-aids-and-how-often",
+    "https://help.jabraenhance.com/-cleaning-your-hearing-aids/how-to-replace-your-hearing-aid-domes",
+    "https://help.jabraenhance.com/-cleaning-your-hearing-aids/how-to-replace-your-hearing-aid-domes?from_search=243014420",
+    "https://help.jabraenhance.com/-cleaning-your-hearing-aids/how-to-replace-your-hearing-aid-mic-filters",
+    "https://help.jabraenhance.com/-cleaning-your-hearing-aids/how-to-replace-your-hearing-aid-mic-filters?from_search=222777395",
+    "https://help.jabraenhance.com/-cleaning-your-hearing-aids/how-to-replace-your-receiver-wires",
+    "https://help.jabraenhance.com/account",
+    "https://help.jabraenhance.com/account-management/how-do-i-change-my-password",
+    "https://help.jabraenhance.com/account-management/using-the-my-account-portal",
+    "https://help.jabraenhance.com/app-phone-connectivity/android-12-troubleshooting",
+    "https://help.jabraenhance.com/app-phone-connectivity/how-to-restart-your-devices?from_search=243013971",
+    "https://help.jabraenhance.com/app-phone-connectivity/how-to-unpair-and-re-pair-your-hearing-aids",
+    "https://help.jabraenhance.com/app-phone-connectivity/troubleshooting-the-self-tuning-test",
+    "https://help.jabraenhance.com/app-phone-connectivity/troubleshooting-your-connection-to-the-jabra-enhance-select-app",
+    "https://help.jabraenhance.com/appointments",
+    "https://help.jabraenhance.com/appointments/zoom-troubleshooting",
+    "https://help.jabraenhance.com/audiology-services-appointments",
+    "https://help.jabraenhance.com/audiology-services/your-guide-to-tinnitus-support-with-jabra-enhance",
+    "https://help.jabraenhance.com/connecting-to-your-phone-app",
+    "https://help.jabraenhance.com/connecting-to-your-phone-app/how-to-connect-to-the-jabra-enhance-select-app",
+    "https://help.jabraenhance.com/daily-usage-and-maintainance",
+    "https://help.jabraenhance.com/daily-usage-and-maintainance/how-to-clean-your-hearing-aids-and-how-often",
+    "https://help.jabraenhance.com/devices",
+    "https://help.jabraenhance.com/devices/photographing-your-hearing-aids?from_search=243014657",
+    "https://help.jabraenhance.com/devices/what-to-do-if-one-hearing-aid-stops-working",
+    "https://help.jabraenhance.com/getting-proper-fit/finding-your-comfortable-hearing-aid-fit",
+    "https://help.jabraenhance.com/getting-proper-fit/how-to-measure-the-length-for-the-receiver-wire",
+    "https://help.jabraenhance.com/getting-proper-fit/which-hearing-aid-dome-is-right-for-me",
+    "https://help.jabraenhance.com/getting-started",
+    "https://help.jabraenhance.com/getting-started/finding-your-comfortable-hearing-aid-fit",
+    "https://help.jabraenhance.com/optimizing-your-sound/top-features-of-your-hearing-aid-explained",
+    "https://help.jabraenhance.com/personalization",
+    "https://help.jabraenhance.com/personalization/how-do-i-upload-an-audiogram",
+    "https://help.jabraenhance.com/personalization/how-personalize-your-hearing-aids-with-the-self-tuning-test",
+    "https://help.jabraenhance.com/personalization/what-is-the-self-tuning-test",
+    "https://help.jabraenhance.com/retail-third-party-purchases/purchases-on-retail-partners-faq",
+    "https://help.jabraenhance.com/returnswarrantyandshipping",
+    "https://help.jabraenhance.com/setup",
+    "https://help.jabraenhance.com/setup/getting-started-whats-in-the-box",
+    "https://help.jabraenhance.com/setup/getting-started-with-your-retail-purchase",
+    "https://help.jabraenhance.com/setup/how-to-insert-and-remove-your-hearing-aids",
+    "https://help.jabraenhance.com/setup/how-to-setup-my-replacement-hearing-aids",
+    "https://help.jabraenhance.com/setup/how-to-setup-your-hearing-aids",
+    "https://help.jabraenhance.com/setup/imported-article-16-mar-17-44",
+    "https://help.jabraenhance.com/setup/setting-up-jabra-enhance-hearing-aids-for-a-loved-one",
+    "https://help.jabraenhance.com/setup/turn-your-hearing-aids-on-and-off",
+    "https://help.jabraenhance.com/setup/what-to-expect-with-your-new-ears-aka-hearing-aids",
+    "https://help.jabraenhance.com/troubleshooting-our-products",
+    "https://help.jabraenhance.com/user-guides/userguides",
+    "https://jabraenhance.com/help",
+    "https://sound-files.jabraenhance.com/battery-powered-getting-started-guide.pdf",
+    "https://sound-files.jabraenhance.com/rechargeable-getting-started-guide.pdf",
+    "https://www.hearingloss.org/wp-content/uploads/2023/09/HLAA_Hearing_Loss_Facts_and_Statistics.pdf",
+    "https://www.jabraenhance.com/",
+    "https://www.jabraenhance.com/about",
+    "https://www.jabraenhance.com/accessories",
+    "https://www.jabraenhance.com/accessories/carrying-case",
+    "https://www.jabraenhance.com/accessories/charging-case",
+    "https://www.jabraenhance.com/accessories/cleaning-kit",
+    "https://www.jabraenhance.com/accessories/closed-domes",
+    "https://www.jabraenhance.com/accessories/desktop-charger",
+    "https://www.jabraenhance.com/accessories/mic-filter-bundle",
+    "https://www.jabraenhance.com/accessories/multi-mic-plus",
+    "https://www.jabraenhance.com/accessories/open-domes",
+    "https://www.jabraenhance.com/accessories/receiver-wire-sf2c-mp",
+    "https://www.jabraenhance.com/accessories/receiver-wire-sf3-mp",
+    "https://www.jabraenhance.com/accessories/sport-lock-sf2c-mp",
+    "https://www.jabraenhance.com/accessories/sport-lock-sf3-mp",
+    "https://www.jabraenhance.com/accessories/tulip-domes",
+    "https://www.jabraenhance.com/accessories/tv-streamer",
+    "https://www.jabraenhance.com/accessories/tv-streamer-plus",
+    "https://www.jabraenhance.com/accessories/upkeep-kit",
+    "https://www.jabraenhance.com/accessories/usb-c-cable-and-plug",
+    "https://www.jabraenhance.com/accessories/wax-guard-bundle",
+    "https://www.jabraenhance.com/account/auth?from=%2Fmy-account",
+    "https://www.jabraenhance.com/authorized-resellers",
+    "https://www.jabraenhance.com/blog",
+    "https://www.jabraenhance.com/blog/adam-savage-hearing-aids",
+    "https://www.jabraenhance.com/blog/adam-savage-virtual-audiology",
+    "https://www.jabraenhance.com/blog/online-hearing-test",
+    "https://www.jabraenhance.com/blog/receiver-in-ear",
+    "https://www.jabraenhance.com/blog/tinnitus",
+    "https://www.jabraenhance.com/blog?category=hearing-aids",
+    "https://www.jabraenhance.com/blog?category=hearing-loss-health",
+    "https://www.jabraenhance.com/blog?category=product-news",
+    "https://www.jabraenhance.com/blog?category=product-news&page=2",
+    "https://www.jabraenhance.com/blog?page=2",
+    "https://www.jabraenhance.com/cdn-cgi/l/email-protection",
+    "https://www.jabraenhance.com/compatibility",
+    "https://www.jabraenhance.com/contact-us",
+    "https://www.jabraenhance.com/copp/sitemap-accessories.xml",
+    "https://www.jabraenhance.com/faq",
+    "https://www.jabraenhance.com/for-audiologists",
+    "https://www.jabraenhance.com/hearing-aid-guide",
+    "https://www.jabraenhance.com/hearing-care",
+    "https://www.jabraenhance.com/help",
+    "https://www.jabraenhance.com/help/user-guides",
+    "https://www.jabraenhance.com/how-it-works",
+    "https://www.jabraenhance.com/my-account",
+    "https://www.jabraenhance.com/privacy",
+    "https://www.jabraenhance.com/product",
+    "https://www.jabraenhance.com/product/700-vs-100",
+    "https://www.jabraenhance.com/product/700-vs-200",
+    "https://www.jabraenhance.com/product/700-vs-50",
+    "https://www.jabraenhance.com/product/enhanceselectm1",
+    "https://www.jabraenhance.com/product/enhanceselectm2",
+    "https://www.jabraenhance.com/product/enhanceselectm3",
+    "https://www.jabraenhance.com/product/m3-vs-100",
+    "https://www.jabraenhance.com/product/m3-vs-200",
+    "https://www.jabraenhance.com/product/m3-vs-300",
+    "https://www.jabraenhance.com/product/m3-vs-50",
+    "https://www.jabraenhance.com/product/m3-vs-500",
+    "https://www.jabraenhance.com/refer",
+    "https://www.jabraenhance.com/refer/ineligible",
+    "https://www.jabraenhance.com/refer/print",
+    "https://www.jabraenhance.com/refer/terms-and-conditions",
+    "https://www.jabraenhance.com/refer/thank-you-copied",
+    "https://www.jabraenhance.com/refer/thank-you-emailed",
+    "https://www.jabraenhance.com/reviews",
+    "https://www.jabraenhance.com/schedule/new?type=HEARING-CONSULTATION",
+    "https://www.jabraenhance.com/start",
+    "https://www.jabraenhance.com/start/enhance-select-100",
+    "https://www.jabraenhance.com/start/enhance-select-100/basics",
+    "https://www.jabraenhance.com/start/enhance-select-100/charge",
+    "https://www.jabraenhance.com/start/enhance-select-100/connect",
+    "https://www.jabraenhance.com/start/enhance-select-100/wear",
+    "https://www.jabraenhance.com/start/enhance-select-200",
+    "https://www.jabraenhance.com/start/enhance-select-200/basics",
+    "https://www.jabraenhance.com/start/enhance-select-200/charge",
+    "https://www.jabraenhance.com/start/enhance-select-200/connect",
+    "https://www.jabraenhance.com/start/enhance-select-200/wear",
+    "https://www.jabraenhance.com/start/enhance-select-300",
+    "https://www.jabraenhance.com/start/enhance-select-300/basics",
+    "https://www.jabraenhance.com/start/enhance-select-300/charge",
+    "https://www.jabraenhance.com/start/enhance-select-300/connect",
+    "https://www.jabraenhance.com/start/enhance-select-300/wear",
+    "https://www.jabraenhance.com/start/enhance-select-50",
+    "https://www.jabraenhance.com/start/enhance-select-50/basics",
+    "https://www.jabraenhance.com/start/enhance-select-50/charge",
+    "https://www.jabraenhance.com/start/enhance-select-50/connect",
+    "https://www.jabraenhance.com/start/enhance-select-50/wear",
+    "https://www.jabraenhance.com/start/enhance-select-500",
+    "https://www.jabraenhance.com/start/enhance-select-500/basics",
+    "https://www.jabraenhance.com/start/enhance-select-500/charge",
+    "https://www.jabraenhance.com/start/enhance-select-500/connect",
+    "https://www.jabraenhance.com/start/enhance-select-500/wear",
+    "https://www.jabraenhance.com/start/enhance-select-50r",
+    "https://www.jabraenhance.com/start/enhance-select-50r/basics",
+    "https://www.jabraenhance.com/start/enhance-select-50r/charge",
+    "https://www.jabraenhance.com/start/enhance-select-50r/connect",
+    "https://www.jabraenhance.com/start/enhance-select-50r/wear",
+    "https://www.jabraenhance.com/start/enhance-select-700",
+    "https://www.jabraenhance.com/start/enhance-select-700/basics",
+    "https://www.jabraenhance.com/start/enhance-select-700/charge",
+    "https://www.jabraenhance.com/start/enhance-select-700/connect",
+    "https://www.jabraenhance.com/start/enhance-select-700/wear",
+    "https://www.jabraenhance.com/survey",
+    "https://www.jabraenhance.com/survey?mode=RECOMMENDATION1_TONE_DIRECT",
+    "https://www.jabraenhance.com/survey?mode=REINIT",
+    "https://www.jabraenhance.com/terms-and-conditions",
+    "https://www.jabraenhance.com/tone"
+  ]
+}

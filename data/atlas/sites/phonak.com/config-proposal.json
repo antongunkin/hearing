@@ -1,0 +1,56 @@
+{
+  "checks": {
+    "catalogUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "documentUrlPattern": [
+      {
+        "detail": "matches no PDF URL of the report",
+        "name": "pattern",
+        "ok": false
+      }
+    ],
+    "modelUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "supportUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.1": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.2": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ]
+  },
+  "generatedAt": "2026-11-27T18:58:53.139Z",
+  "proposal": {
+    "catalogUrls": [
+      "https://www.phonak.com/en-us/hearing-devices/hearing-aids"
+    ],
+    "documentUrlPattern": "^https://www\\.phonak\\.com/content/dam/celum/phonak/.*(?:[Dd]atasheet|[Uu]ser-?[Gg]uide).*\\.pdf$",
+    "modelUrlPattern": "^https://www\\.phonak\\.com/en-us/hearing-devices/hearing-aids/(?!product-comparison$)[a-z0-9-]+$",
+    "render": false,
+    "status": "active",
+    "supportUrls": [
+      "https://www.phonak.com/en-us/support/datasheets",
+      "https://www.phonak.com/en-us/support/user-guides/infinio",
+      "https://www.phonak.com/en-us/support/user-guides/eon"
+    ]
+  }
+}

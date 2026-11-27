@@ -1,0 +1,2294 @@
+{
+  "archive": {
+    "sections": [
+      {
+        "byYear": {
+          "2018": 174,
+          "2019": 30,
+          "2020": 29,
+          "2021": 57,
+          "2022": 40,
+          "2023": 39,
+          "2024": 50,
+          "2025": 52,
+          "2026": 29
+        },
+        "latest": "20261107102112",
+        "url": "https://www.gn.com"
+      },
+      {
+        "byYear": {
+          "2018": 9,
+          "2019": 2,
+          "2020": 3,
+          "2021": 8,
+          "2022": 4,
+          "2023": 8,
+          "2024": 5,
+          "2025": 10,
+          "2026": 6
+        },
+        "latest": "20260708191241",
+        "url": "https://www.gn.com/About"
+      },
+      {
+        "byYear": {
+          "2018": 17,
+          "2019": 5,
+          "2020": 6,
+          "2021": 8,
+          "2022": 6,
+          "2023": 8,
+          "2024": 4,
+          "2025": 7,
+          "2026": 7
+        },
+        "latest": "20261111004840",
+        "url": "https://www.gn.com/Investor"
+      },
+      {
+        "byYear": {
+          "2023": 6,
+          "2024": 8,
+          "2025": 7,
+          "2026": 3
+        },
+        "latest": "20260708180249",
+        "url": "https://www.gn.com/Solutions"
+      },
+      {
+        "byYear": {
+          "2020": 3,
+          "2021": 3,
+          "2022": 8,
+          "2023": 9,
+          "2024": 9,
+          "2025": 6,
+          "2026": 6
+        },
+        "latest": "20260708161723",
+        "url": "https://www.gn.com/Working-with-us"
+      },
+      {
+        "byYear": {
+          "2018": 9,
+          "2019": 7,
+          "2020": 4,
+          "2021": 6,
+          "2022": 6,
+          "2023": 9,
+          "2024": 10,
+          "2025": 13,
+          "2026": 9
+        },
+        "latest": "20260710142156",
+        "url": "https://www.gn.com/Newsroom"
+      }
+    ]
+  },
+  "budget": 60,
+  "domain": "gn.com",
+  "failures": [
+    {
+      "detail": "HTTP 404",
+      "reason": "http-error",
+      "url": "https://www.gn.com/%7B%7Bdocument.url%7D%7D"
+    },
+    {
+      "detail": "HTTP 404",
+      "reason": "http-error",
+      "url": "https://www.gn.com/Investor/%7B%7Bdocument.url%7D%7D"
+    },
+    {
+      "detail": "HTTP 500",
+      "reason": "http-error",
+      "url": "https://www.gn.com/Investor/Shareholder"
+    }
+  ],
+  "generatedAt": "2026-11-27T18:42:50.652Z",
+  "mode": "live",
+  "outbound": [
+    {
+      "count": 56,
+      "domain": "facebook.com",
+      "examples": [
+        "https://www.facebook.com/gnstorenord",
+        "https://www.facebook.com/policy.php"
+      ]
+    },
+    {
+      "count": 56,
+      "domain": "gngroup.wd502.myworkdayjobs.com",
+      "examples": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers?q=global%20graduate"
+      ]
+    },
+    {
+      "count": 56,
+      "domain": "linkedin.com",
+      "examples": [
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.linkedin.com/legal/privacy-policy"
+      ]
+    },
+    {
+      "count": 56,
+      "domain": "twitter.com",
+      "examples": [
+        "https://twitter.com/gnstorenord",
+        "https://twitter.com/en/privacy"
+      ]
+    },
+    {
+      "count": 55,
+      "domain": "gnfoundation.dk",
+      "examples": [
+        "https://gnfoundation.dk/"
+      ]
+    },
+    {
+      "count": 55,
+      "domain": "instagram.com",
+      "examples": [
+        "https://www.instagram.com/gngraduates/"
+      ]
+    },
+    {
+      "count": 6,
+      "domain": "jabra.com",
+      "examples": [
+        "https://www.jabra.com/business/office-headsets",
+        "https://www.jabra.com/business/video-conferencing",
+        "https://www.jabra.com/business/contact-center-headsets"
+      ]
+    },
+    {
+      "count": 6,
+      "domain": "mcas-proxyweb.mcas.ms",
+      "examples": [
+        "https://mcas-proxyweb.mcas.ms/certificate-checker?login=false&originalUrl=https%3A%2F%2Fsteelseries.com.mcas.ms%2Fgg%3FMcasTsid%3D10489&McasCSRF=c24f9f9040652c53b5596c71e4d02133cd4cd5d51dd669a979f4062a4116002e&McasTsid=10489",
+        "https://mcas-proxyweb.mcas.ms/certificate-checker?login=false&originalUrl=https%3A%2F%2Fsteelseries.com.mcas.ms%2Fgg%2Fmoments%3FMcasTsid%3D10489&McasCSRF=c24f9f9040652c53b5596c71e4d02133cd4cd5d51dd669a979f4062a4116002e&McasTsid=10489",
+        "https://mcas-proxyweb.mcas.ms/certificate-checker?login=false&originalUrl=https%3A%2F%2Fsteelseries.com.mcas.ms%2Fgg%2Fsonar%3FMcasTsid%3D10489&McasCSRF=c24f9f9040652c53b5596c71e4d02133cd4cd5d51dd669a979f4062a4116002e&McasTsid=10489"
+      ]
+    },
+    {
+      "count": 5,
+      "domain": "eur03.safelinks.protection.outlook.com",
+      "examples": [
+        "https://eur03.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.msci.com%2F&data=02%7C01%7Cskpilgaard%40gn.com%7Cc730db204f704843f1d008d86931555e%7C5007a0102aef460aa4935d61927182be%7C0%7C0%7C637375007898036737&sdata=8QKOFPKRAY1EJGMDeJfRSVyf9KgS%2Ft2EJXMoyed83YA%3D&reserved=0",
+        "https://eur03.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.unglobalcompact.org%2Fwhat-is-gc%2Fparticipants%2F10974-GN-Store-Nord&data=02%7C01%7Cskpilgaard%40gn.com%7Cc730db204f704843f1d008d86931555e%7C5007a0102aef460aa4935d61927182be%7C0%7C0%7C637375007898046730&sdata=stuIbCj7YvrfGPyzMgJlM9jKW33J3Gz2v%2FIGg6b2Ee8%3D&reserved=0",
+        "https://eur03.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.sustainalytics.com%2Fesg-rating%2Fgn-store-nord-a-s%2F1008793963&data=05%7C01%7Cskpilgaard%40gn.com%7C5cb885552a4f4e47482808db0838db29%7C5007a0102aef460aa4935d61927182be%7C0%7C0%7C638112812534843719%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=MXeA4WXyM09%2BV%2F7SFhf1tYO1Wae9by60hlqdPw4sKYw%3D&reserved=0"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "steelseries.com",
+      "examples": [
+        "https://steelseries.com/",
+        "https://steelseries.com/gg"
+      ]
+    },
+    {
+      "count": 3,
+      "domain": "portal.computershare.dk",
+      "examples": [
+        "https://portal.computershare.dk/portal/index.asp?page=login&asident=25370&lan=en",
+        "https://portal.computershare.dk/portal/index.asp?page=login&asident=25370&lan=EN"
+      ]
+    },
+    {
+      "count": 3,
+      "domain": "privacyportal-eu.onetrust.com",
+      "examples": [
+        "https://privacyportal-eu.onetrust.com/webform/4c166da3-c2d4-4751-bbdb-9d0adf1bf864/f6b3adea-5764-4c6f-b962-07f8343d86ed",
+        "https://privacyportal-eu.onetrust.com/webform/4c166da3-c2d4-4751-bbdb-9d0adf1bf864/b7d98407-0979-41ac-8134-388364d88f2d"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "falcom.net",
+      "examples": [
+        "https://falcom.net/"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "jabraenhance.com",
+      "examples": [
+        "http://www.jabraenhance.com/",
+        "https://www.jabraenhance.com/"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "resound.com",
+      "examples": [
+        "https://www.resound.com/"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "support.microsoft.com",
+      "examples": [
+        "https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies",
+        "https://support.microsoft.com/en-us/help/4468242/microsoft-edge-browsing-data-and-privacy-microsoft-privacy"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "tcstream.tv",
+      "examples": [
+        "https://tcstream.tv/gn/260311/nFlay3guk.html",
+        "https://tcstream.tv/gn/260311/nFlay3gdk.html"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "beltone.com",
+      "examples": [
+        "https://www.beltone.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "blueparrott.com",
+      "examples": [
+        "https://www.blueparrott.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "corporategovernance.dk",
+      "examples": [
+        "https://corporategovernance.dk/gaeldende-anbefalinger-god-selskabsledelse"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "danavox.com",
+      "examples": [
+        "https://www.danavox.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "datatilsynet.dk",
+      "examples": [
+        "http://www.datatilsynet.dk/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "globenewswire.com",
+      "examples": [
+        "https://www.globenewswire.com/Tracker?data=EOtqMzopAimyOgmTcqbFqM3xZMuXDE85ETxevSXacBxhFUu54_krgf_mkFWNVm9PRJ37UellDN4pX8BMrXgxKT1OlAYvyECfFxm8r02KbZAOhcvLgNPpu3XdXYEEyMZmodriSqQpgwrRWQSD1n9172YD97qYThHTidmoCUlts5H4TytpRdwi63jWdFYO8ing"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "gn.wd3.myworkdayjobs.com",
+      "examples": [
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "gnnord.speakup.report",
+      "examples": [
+        "https://gnnord.speakup.report/GNNord"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "help.instagram.com",
+      "examples": [
+        "https://help.instagram.com/519522125107875"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "interton.com",
+      "examples": [
+        "https://www.interton.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "kontrolfreek.com",
+      "examples": [
+        "https://www.kontrolfreek.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "policies.google.com",
+      "examples": [
+        "https://policies.google.com/privacy?hl=en-US"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "support.apple.com",
+      "examples": [
+        "https://support.apple.com/en-us/HT201265"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "support.google.com",
+      "examples": [
+        "https://support.google.com/chrome/answer/95647?hl=en"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "support.mozilla.org",
+      "examples": [
+        "https://support.mozilla.org/en-US/kb/delete-cookies-remove-info-websites-stored"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "tcocertified.com",
+      "examples": [
+        "https://tcocertified.com/product-finder/index/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "youtube.com",
+      "examples": [
+        "https://www.youtube.com/playlist?list=PLBSfFxBVC2M5O7oI4v7g7rpkhnyB2_U3Y"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 42,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:38:20.833Z",
+        "url": "https://www.gn.com/"
+      },
+      "title": "GN Group",
+      "url": "https://www.gn.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:38:24.002Z",
+        "url": "https://www.gn.com/About"
+      },
+      "title": "About GN",
+      "url": "https://www.gn.com/About"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:38:27.614Z",
+        "url": "https://www.gn.com/Solutions"
+      },
+      "title": "Technology",
+      "url": "https://www.gn.com/Solutions"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:38:30.852Z",
+        "url": "https://www.gn.com/Working-with-us"
+      },
+      "title": "Working with us",
+      "url": "https://www.gn.com/Working-with-us"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:38:34.298Z",
+        "url": "https://www.gn.com/Investor"
+      },
+      "title": "Investor in GN",
+      "url": "https://www.gn.com/Investor"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 40,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:38:36.737Z",
+        "url": "https://www.gn.com/Newsroom"
+      },
+      "title": "Newsroom",
+      "url": "https://www.gn.com/Newsroom"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 38,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Prospectus.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2020/Q4/Q3-Interim-Report-2020/GNSN--Interim-Report-Q3-2020.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2020/Annual-Report-2019/GN-Annual-Report-2019.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2019/Annual-Report-2018/GN-Annual-Report-2018.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Articles-of-association_EN.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Trust-Deed-including-forms-of-Global-Notes.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Agency-Agreement.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Supplement.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2021/Annual-Report-2020/GN-Annual-Report-2020.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Second-Supplement_November-2021.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Second-Supplemental-Trust-Deed.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Final-terms-for-EUR-50m-notes.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Final-terms-for-GBP-40m.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:38:40.528Z",
+        "url": "https://www.gn.com/About/Document-download-center/Bonds-and-warrants-and-EMTN"
+      },
+      "title": "EMTN Programme",
+      "url": "https://www.gn.com/About/Document-download-center/Bonds-and-warrants-and-EMTN"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:38:44.507Z",
+        "url": "https://www.gn.com/About/Document-download-center"
+      },
+      "title": "Documents",
+      "url": "https://www.gn.com/About/Document-download-center"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://www.resound.com/",
+        "https://www.jabra.com/business/office-headsets",
+        "https://www.jabra.com/business/video-conferencing",
+        "https://www.jabra.com/business/contact-center-headsets",
+        "https://steelseries.com/",
+        "https://falcom.net/",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:38:47.259Z",
+        "url": "https://www.gn.com/Solutions/Products"
+      },
+      "title": "Products",
+      "url": "https://www.gn.com/Solutions/Products"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:38:50.565Z",
+        "url": "https://www.gn.com/Newsroom/News/2026/November/Regulatory-approvals-have-been-met"
+      },
+      "title": "Regulatory approvals have been met",
+      "url": "https://www.gn.com/Newsroom/News/2026/November/Regulatory-approvals-have-been-met"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:38:59.322Z",
+        "url": "https://www.gn.com/Investor/Investment-case"
+      },
+      "title": "Investment case",
+      "url": "https://www.gn.com/Investor/Investment-case"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:39:03.110Z",
+        "url": "https://www.gn.com/Investor/Financial-reports"
+      },
+      "title": "Financial reports",
+      "url": "https://www.gn.com/Investor/Financial-reports"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:39:08.282Z",
+        "url": "https://www.gn.com/Newsroom/News"
+      },
+      "title": "News archive",
+      "url": "https://www.gn.com/Newsroom/News"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://eur03.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.msci.com%2F&data=02%7C01%7Cskpilgaard%40gn.com%7Cc730db204f704843f1d008d86931555e%7C5007a0102aef460aa4935d61927182be%7C0%7C0%7C637375007898036737&sdata=8QKOFPKRAY1EJGMDeJfRSVyf9KgS%2Ft2EJXMoyed83YA%3D&reserved=0",
+        "https://eur03.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.unglobalcompact.org%2Fwhat-is-gc%2Fparticipants%2F10974-GN-Store-Nord&data=02%7C01%7Cskpilgaard%40gn.com%7Cc730db204f704843f1d008d86931555e%7C5007a0102aef460aa4935d61927182be%7C0%7C0%7C637375007898046730&sdata=stuIbCj7YvrfGPyzMgJlM9jKW33J3Gz2v%2FIGg6b2Ee8%3D&reserved=0",
+        "https://eur03.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.sustainalytics.com%2Fesg-rating%2Fgn-store-nord-a-s%2F1008793963&data=05%7C01%7Cskpilgaard%40gn.com%7C5cb885552a4f4e47482808db0838db29%7C5007a0102aef460aa4935d61927182be%7C0%7C0%7C638112812534843719%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=MXeA4WXyM09%2BV%2F7SFhf1tYO1Wae9by60hlqdPw4sKYw%3D&reserved=0",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:39:11.605Z",
+        "url": "https://www.gn.com/Investor/ESG"
+      },
+      "title": "ESG",
+      "url": "https://www.gn.com/Investor/ESG"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:39:17.047Z",
+        "url": "https://www.gn.com/Investor/Investor-Relation-team-and-policy"
+      },
+      "title": "Investor Relation team and policy",
+      "url": "https://www.gn.com/Investor/Investor-Relation-team-and-policy"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://portal.computershare.dk/portal/index.asp?page=login&asident=25370&lan=en",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:39:19.486Z",
+        "url": "https://www.gn.com/Investor/AGM"
+      },
+      "title": "Annual general meeting",
+      "url": "https://www.gn.com/Investor/AGM"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://portal.computershare.dk/portal/index.asp?page=login&asident=25370&lan=en",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 38,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:39:24.983Z",
+        "url": "https://www.gn.com/Investor/Share-information"
+      },
+      "title": "Share information",
+      "url": "https://www.gn.com/Investor/Share-information"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:39:27.410Z",
+        "url": "https://www.gn.com/Newsroom/Media-library"
+      },
+      "title": "Media library",
+      "url": "https://www.gn.com/Newsroom/Media-library"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:39:30.155Z",
+        "url": "https://www.gn.com/Newsroom/Media-library?images"
+      },
+      "title": "Media library",
+      "url": "https://www.gn.com/Newsroom/Media-library?images"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:39:32.797Z",
+        "url": "https://www.gn.com/Newsroom/Media-library?videos"
+      },
+      "title": "Media library",
+      "url": "https://www.gn.com/Newsroom/Media-library?videos"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://www.jabra.com/contact",
+        "https://privacyportal-eu.onetrust.com/webform/4c166da3-c2d4-4751-bbdb-9d0adf1bf864/f6b3adea-5764-4c6f-b962-07f8343d86ed",
+        "https://privacyportal-eu.onetrust.com/webform/4c166da3-c2d4-4751-bbdb-9d0adf1bf864/b7d98407-0979-41ac-8134-388364d88f2d",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:39:38.228Z",
+        "url": "https://www.gn.com/Contact"
+      },
+      "title": "Contact GN",
+      "url": "https://www.gn.com/Contact"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:39:42.224Z",
+        "url": "https://www.gn.com/search"
+      },
+      "title": "Search",
+      "url": "https://www.gn.com/search"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:39:46.492Z",
+        "url": "https://www.gn.com/About/Our-Commitments"
+      },
+      "title": "Our Commitments",
+      "url": "https://www.gn.com/About/Our-Commitments"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:39:50.153Z",
+        "url": "https://www.gn.com/About/Strategic-focus-for-GN"
+      },
+      "title": "Strategic focus for GN",
+      "url": "https://www.gn.com/About/Strategic-focus-for-GN"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 39,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:39:55.042Z",
+        "url": "https://www.gn.com/About/Corporate-sustainability"
+      },
+      "title": "Sustainability I ESG",
+      "url": "https://www.gn.com/About/Corporate-sustainability"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 38,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:39:58.932Z",
+        "url": "https://www.gn.com/About/Management"
+      },
+      "title": "GN Executive Leadership & Board",
+      "url": "https://www.gn.com/About/Management"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://www.youtube.com/playlist?list=PLBSfFxBVC2M5O7oI4v7g7rpkhnyB2_U3Y",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:40:01.526Z",
+        "url": "https://www.gn.com/About/Heritage"
+      },
+      "title": "Heritage",
+      "url": "https://www.gn.com/About/Heritage"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:40:03.911Z",
+        "url": "https://www.gn.com/Solutions/Inspired-by-people"
+      },
+      "title": "Inspired by people",
+      "url": "https://www.gn.com/Solutions/Inspired-by-people"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:40:06.746Z",
+        "url": "https://www.gn.com/Solutions/Innovation"
+      },
+      "title": "Innovation",
+      "url": "https://www.gn.com/Solutions/Innovation"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:40:10.317Z",
+        "url": "https://www.gn.com/Working-with-us/Life-at-GN"
+      },
+      "title": "Life at GN",
+      "url": "https://www.gn.com/Working-with-us/Life-at-GN"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers?q=global%20graduate",
+        "https://www.instagram.com/gngraduates/",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:40:13.496Z",
+        "url": "https://www.gn.com/Working-with-us/Graduate-Program"
+      },
+      "title": "GN Graduate Program",
+      "url": "https://www.gn.com/Working-with-us/Graduate-Program"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://www.globenewswire.com/Tracker?data=EOtqMzopAimyOgmTcqbFqM3xZMuXDE85ETxevSXacBxhFUu54_krgf_mkFWNVm9PRJ37UellDN4pX8BMrXgxKT1OlAYvyECfFxm8r02KbZAOhcvLgNPpu3XdXYEEyMZmodriSqQpgwrRWQSD1n9172YD97qYThHTidmoCUlts5H4TytpRdwi63jWdFYO8ing",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 38,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:40:16.927Z",
+        "url": "https://www.gn.com/Newsroom/Announcement?id=3396016&lang=en&date=20261105&title=interim-report-q3-2026-successful-product-launches-leading-to-2-organic-revenue-growth-and-margin-expansion"
+      },
+      "title": "Interim Report Q3 2026: Successful product launches leading to 2% organic revenue growth and margin expansion - [Nov 05, 2026]",
+      "url": "https://www.gn.com/Newsroom/Announcement?id=3396016&lang=en&date=20261105&title=interim-report-q3-2026-successful-product-launches-leading-to-2-organic-revenue-growth-and-margin-expansion"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://steelseries.com/",
+        "https://steelseries.com/gg",
+        "https://mcas-proxyweb.mcas.ms/certificate-checker?login=false&originalUrl=https%3A%2F%2Fsteelseries.com.mcas.ms%2Fgg%3FMcasTsid%3D10489&McasCSRF=c24f9f9040652c53b5596c71e4d02133cd4cd5d51dd669a979f4062a4116002e&McasTsid=10489",
+        "https://mcas-proxyweb.mcas.ms/certificate-checker?login=false&originalUrl=https%3A%2F%2Fsteelseries.com.mcas.ms%2Fgg%2Fmoments%3FMcasTsid%3D10489&McasCSRF=c24f9f9040652c53b5596c71e4d02133cd4cd5d51dd669a979f4062a4116002e&McasTsid=10489",
+        "https://mcas-proxyweb.mcas.ms/certificate-checker?login=false&originalUrl=https%3A%2F%2Fsteelseries.com.mcas.ms%2Fgg%2Fsonar%3FMcasTsid%3D10489&McasCSRF=c24f9f9040652c53b5596c71e4d02133cd4cd5d51dd669a979f4062a4116002e&McasTsid=10489",
+        "https://mcas-proxyweb.mcas.ms/certificate-checker?login=false&originalUrl=https%3A%2F%2Fwww.kontrolfreek.com.mcas.ms%2F%3FMcasTsid%3D10489&McasCSRF=c24f9f9040652c53b5596c71e4d02133cd4cd5d51dd669a979f4062a4116002e&McasTsid=10489",
+        "https://mcas-proxyweb.mcas.ms/certificate-checker?login=false&originalUrl=https%3A%2F%2Fwww.nahimic.com.mcas.ms%2F%3FMcasTsid%3D10489&McasCSRF=c24f9f9040652c53b5596c71e4d02133cd4cd5d51dd669a979f4062a4116002e&McasTsid=10489",
+        "https://mcas-proxyweb.mcas.ms/certificate-checker?login=false&originalUrl=https%3A%2F%2Fwww.gn.com.mcas.ms%2F%3FMcasTsid%3D10489&McasCSRF=c24f9f9040652c53b5596c71e4d02133cd4cd5d51dd669a979f4062a4116002e&McasTsid=10489",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:40:22.444Z",
+        "url": "https://www.gn.com/Newsroom/News/2026/September/SteelSeries-unleashes-Sensei-Pro-and-Rival-Pro-series"
+      },
+      "title": "SteelSeries unleashes Sensei Pro and Rival Pro series",
+      "url": "https://www.gn.com/Newsroom/News/2026/September/SteelSeries-unleashes-Sensei-Pro-and-Rival-Pro-series"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:40:26.292Z",
+        "url": "https://www.gn.com/Newsroom/News/2026/September/SteelSeries-introduces-the-Aeon-Pro"
+      },
+      "title": "SteelSeries introduces the Aeon Pro",
+      "url": "https://www.gn.com/Newsroom/News/2026/September/SteelSeries-introduces-the-Aeon-Pro"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:40:29.357Z",
+        "url": "https://www.gn.com/Newsroom/News/2026/September/Jabra-Reach-brings-single-cable-simplicity-to-video-meeting-collaboration"
+      },
+      "title": "Jabra Reach brings single-cable simplicity to video meeting collaboration",
+      "url": "https://www.gn.com/Newsroom/News/2026/September/Jabra-Reach-brings-single-cable-simplicity-to-video-meeting-collaboration"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://www.resound.com/",
+        "https://www.beltone.com/",
+        "https://www.interton.com/",
+        "https://www.danavox.com/",
+        "http://www.jabraenhance.com/",
+        "https://www.jabraenhance.com/",
+        "https://www.jabra.com/",
+        "https://www.blueparrott.com/",
+        "https://falcom.net/",
+        "https://steelseries.com/",
+        "https://www.kontrolfreek.com/",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:40:34.188Z",
+        "url": "https://www.gn.com/About/GN-Group"
+      },
+      "title": "GN Group",
+      "url": "https://www.gn.com/About/GN-Group"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:40:39.847Z",
+        "url": "https://www.gn.com/security-center"
+      },
+      "title": "Security center",
+      "url": "https://www.gn.com/security-center"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnnord.speakup.report/GNNord",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:40:42.839Z",
+        "url": "https://www.gn.com/About/Corporate-sustainability/Whistleblower"
+      },
+      "title": "Whistleblower hotline",
+      "url": "https://www.gn.com/About/Corporate-sustainability/Whistleblower"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:40:46.810Z",
+        "url": "https://www.gn.com/Legal-notice"
+      },
+      "title": "Legal notice",
+      "url": "https://www.gn.com/Legal-notice"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:40:50.091Z",
+        "url": "https://www.gn.com/Cookie-policy"
+      },
+      "title": "Cookie policy",
+      "url": "https://www.gn.com/Cookie-policy"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:40:52.787Z",
+        "url": "https://www.gn.com/Copyright"
+      },
+      "title": "Copyright",
+      "url": "https://www.gn.com/Copyright"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://eur03.safelinks.protection.outlook.com/?url=https%3A%2F%2Fprivacyportal-eu.onetrust.com%2Fwebform%2F4c166da3-c2d4-4751-bbdb-9d0adf1bf864%2Fb7d98407-0979-41ac-8134-388364d88f2d&data=04%7C01%7Cmlpedersen%40gn.com%7Ccb3e2e48a39844fa018608d91b7d2482%7C5007a0102aef460aa4935d61927182be%7C0%7C0%7C637571046581850419%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=F2ucE8%2FnTBi64sc8T6nFjdJ1C%2FhjXdytWFoQ%2BRvRPCM%3D&reserved=0",
+        "https://eur03.safelinks.protection.outlook.com/?url=https%3A%2F%2Fprivacyportal-eu.onetrust.com%2Fwebform%2F4c166da3-c2d4-4751-bbdb-9d0adf1bf864%2Ff6b3adea-5764-4c6f-b962-07f8343d86ed&data=04%7C01%7Cmlpedersen%40gn.com%7Ccb3e2e48a39844fa018608d91b7d2482%7C5007a0102aef460aa4935d61927182be%7C0%7C0%7C637571046581840425%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=xtLJ5L7XWpZcND9yngf2n4pydRSvDwheZlSS1MlDRrg%3D&reserved=0",
+        "https://www.facebook.com/policy.php",
+        "https://www.linkedin.com/legal/privacy-policy",
+        "https://help.instagram.com/519522125107875",
+        "https://twitter.com/en/privacy",
+        "https://policies.google.com/privacy?hl=en-US",
+        "https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies",
+        "https://support.google.com/chrome/answer/95647?hl=en",
+        "https://support.mozilla.org/en-US/kb/delete-cookies-remove-info-websites-stored",
+        "https://support.apple.com/en-us/HT201265",
+        "https://support.microsoft.com/en-us/help/4468242/microsoft-edge-browsing-data-and-privacy-microsoft-privacy",
+        "https://privacyportal-eu.onetrust.com/webform/4c166da3-c2d4-4751-bbdb-9d0adf1bf864/f6b3adea-5764-4c6f-b962-07f8343d86ed",
+        "http://www.datatilsynet.dk/",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:40:56.735Z",
+        "url": "https://www.gn.com/Privacy-Policy"
+      },
+      "title": "Privacy Policy",
+      "url": "https://www.gn.com/Privacy-Policy"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "http://www.jabra.com/perform-55",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:41:00.155Z",
+        "url": "https://www.gn.com/Newsroom/News/2026/October/Jabra-introduces-Perform-Plus-and-Perform-55"
+      },
+      "title": "Jabra introduces Perform Plus and Perform 55",
+      "url": "https://www.gn.com/Newsroom/News/2026/October/Jabra-introduces-Perform-Plus-and-Perform-55"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:41:16.366Z",
+        "url": "https://www.gn.com/About"
+      },
+      "title": "About GN",
+      "url": "https://www.gn.com/About"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [],
+      "internalLinks": 0,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:41:19.543Z",
+        "url": "https://www.gn.com/-/media/Files/Financial%20Download%20Center/2021/Q2/GNSN%20-%20Interim%20Report%20Q2%202021"
+      },
+      "url": "https://www.gn.com/-/media/Files/Financial%20Download%20Center/2021/Q2/GNSN%20-%20Interim%20Report%20Q2%202021"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [],
+      "internalLinks": 0,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:41:23.820Z",
+        "url": "https://www.gn.com/-/media/Files/Financial%20Download%20Center/2021/Q3/GNSN%20-%20Interim%20Report%20Q3%202021"
+      },
+      "url": "https://www.gn.com/-/media/Files/Financial%20Download%20Center/2021/Q3/GNSN%20-%20Interim%20Report%20Q3%202021"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:41:37.498Z",
+        "url": "https://www.gn.com/About/Document-download-center"
+      },
+      "title": "Documents",
+      "url": "https://www.gn.com/About/Document-download-center"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://tcstream.tv/gn/260311/nFlay3guk.html",
+        "https://tcstream.tv/gn/260311/nFlay3gdk.html",
+        "https://portal.computershare.dk/portal/index.asp?page=login&asident=25370&lan=EN",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf",
+        "https://www.gn.com/-/media/Files/AGM/2026/Notice-of-Annual-General-Meeting-2026.pdf",
+        "https://www.gn.com/-/media/Files/AGM/2026/Appendix-1--Board-of-Directors--individual-candidates-proposed-for-re-election.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Remuneration-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/AGM/2026/Registration-Proxy-Postal-vote-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Articles-of-Association-EN.pdf",
+        "https://www.gn.com/-/media/Files/AGM/2026/Information-on-handling-of-personal-data.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:41:40.175Z",
+        "url": "https://www.gn.com/Investor/AGM/AGM2026"
+      },
+      "url": "https://www.gn.com/Investor/AGM/AGM2026"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:41:43.233Z",
+        "url": "https://www.gn.com/Investor/Share-information/Share-graph"
+      },
+      "title": "Share graph",
+      "url": "https://www.gn.com/Investor/Share-information/Share-graph"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 38,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:41:53.199Z",
+        "url": "https://www.gn.com/Office-locator"
+      },
+      "title": "Office locator",
+      "url": "https://www.gn.com/Office-locator"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:41:58.481Z",
+        "url": "https://www.gn.com/Search"
+      },
+      "title": "Search",
+      "url": "https://www.gn.com/Search"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://tcocertified.com/product-finder/index/",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:42:01.914Z",
+        "url": "https://www.gn.com/About/Corporate-sustainability/ESG-portal"
+      },
+      "url": "https://www.gn.com/About/Corporate-sustainability/ESG-portal"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:42:04.407Z",
+        "url": "https://www.gn.com/About/Corporate-sustainability/Our-business-standards"
+      },
+      "title": "Our business standards",
+      "url": "https://www.gn.com/About/Corporate-sustainability/Our-business-standards"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Audit-Committee-Charter.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Remuneration-and-Nomination-Committee-Charter.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Technology--Innovation-Committee-Charter.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:42:07.820Z",
+        "url": "https://www.gn.com/About/Management/Board-committees"
+      },
+      "title": "Board committees",
+      "url": "https://www.gn.com/About/Management/Board-committees"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://corporategovernance.dk/gaeldende-anbefalinger-god-selskabsledelse",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:42:11.609Z",
+        "url": "https://www.gn.com/About/Management/Corporate-governance"
+      },
+      "title": "Corporate governance",
+      "url": "https://www.gn.com/About/Management/Corporate-governance"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:42:16.715Z",
+        "url": "https://www.gn.com/Working-with-us/Graduate-Program/RD-track"
+      },
+      "title": "Engineering track",
+      "url": "https://www.gn.com/Working-with-us/Graduate-Program/RD-track"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gngroup.wd502.myworkdayjobs.com/GN-Careers",
+        "https://gnfoundation.dk/",
+        "https://www.linkedin.com/company/gn-store-nord",
+        "https://www.facebook.com/gnstorenord",
+        "https://twitter.com/gnstorenord",
+        "https://www.instagram.com/gngraduates/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:42:19.188Z",
+        "url": "https://www.gn.com/Working-with-us/Graduate-Program/Marketing-track"
+      },
+      "title": "Marketing track",
+      "url": "https://www.gn.com/Working-with-us/Graduate-Program/Marketing-track"
+    }
+  ],
+  "pdfHosts": [
+    {
+      "count": 187,
+      "examples": [
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+        "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf"
+      ],
+      "host": "gn.com"
+    }
+  ],
+  "redirects": [],
+  "robots": {
+    "groups": [
+      {
+        "allow": [
+          "/"
+        ],
+        "disallow": [],
+        "userAgents": [
+          "*"
+        ]
+      }
+    ],
+    "ref": {
+      "fetchedAt": "2026-11-27T18:38:12.582Z",
+      "url": "https://www.gn.com/robots.txt"
+    },
+    "sitemaps": [
+      "https://www.gn.com/sitemap.xml"
+    ],
+    "status": 200
+  },
+  "sitemap": {
+    "refs": [
+      {
+        "fetchedAt": "2026-11-27T18:38:16.162Z",
+        "url": "https://www.gn.com/sitemap.xml"
+      }
+    ],
+    "sections": [
+      {
+        "count": 18,
+        "path": "/About"
+      },
+      {
+        "count": 7,
+        "path": "/Investor"
+      },
+      {
+        "count": 4,
+        "path": "/Solutions"
+      },
+      {
+        "count": 4,
+        "path": "/Working-with-us"
+      },
+      {
+        "count": 2,
+        "path": "/Newsroom"
+      },
+      {
+        "count": 1,
+        "path": "/"
+      }
+    ],
+    "urlCount": 36
+  },
+  "start": "https://www.gn.com",
+  "templates": [
+    {
+      "count": 17,
+      "examples": [
+        "https://www.gn.com/%7B%7Bdocument.url%7D%7D",
+        "https://www.gn.com/%7B%7BselectedOffice.Website%7D%7D",
+        "https://www.gn.com/About"
+      ],
+      "pattern": "https://www.gn.com/{slug}"
+    },
+    {
+      "count": 14,
+      "examples": [
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Agency-Agreement.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Articles-of-Association-EN.pdf",
+        "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Articles-of-association_EN.pdf"
+      ],
+      "pattern": "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/{slug}"
+    },
+    {
+      "count": 9,
+      "examples": [
+        "https://www.gn.com/Investor/%7B%7Bdocument.url%7D%7D",
+        "https://www.gn.com/Investor/AGM",
+        "https://www.gn.com/Investor/ESG"
+      ],
+      "pattern": "https://www.gn.com/Investor/{slug}"
+    },
+    {
+      "count": 7,
+      "examples": [
+        "https://www.gn.com/About/Corporate-sustainability",
+        "https://www.gn.com/About/Document-download-center",
+        "https://www.gn.com/About/GN-Group"
+      ],
+      "pattern": "https://www.gn.com/About/{slug}"
+    },
+    {
+      "count": 7,
+      "examples": [
+        "https://www.gn.com/About/Corporate-sustainability/ESG-data",
+        "https://www.gn.com/About/Corporate-sustainability/ESG-portal",
+        "https://www.gn.com/About/Corporate-sustainability/Environment"
+      ],
+      "pattern": "https://www.gn.com/About/Corporate-sustainability/{slug}"
+    },
+    {
+      "count": 6,
+      "examples": [
+        "https://www.gn.com/Newsroom/Announcement",
+        "https://www.gn.com/Newsroom/Announcement?id=3396016&lang=en&date=20261105&title=interim-report-q3-2026-successful-product-launches-leading-to-2-organic-revenue-growth-and-margin-expansion",
+        "https://www.gn.com/Newsroom/Media-library"
+      ],
+      "pattern": "https://www.gn.com/Newsroom/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.gn.com/Working-with-us/Graduate-Program/Finance-track",
+        "https://www.gn.com/Working-with-us/Graduate-Program/Global-Operations-track",
+        "https://www.gn.com/Working-with-us/Graduate-Program/Marketing-track"
+      ],
+      "pattern": "https://www.gn.com/Working-with-us/Graduate-Program/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.gn.com/-/media/Files/AGM/2026/Appendix-1--Board-of-Directors--individual-candidates-proposed-for-re-election.pdf",
+        "https://www.gn.com/-/media/Files/AGM/2026/Information-on-handling-of-personal-data.pdf",
+        "https://www.gn.com/-/media/Files/AGM/2026/Notice-of-Annual-General-Meeting-2026.pdf"
+      ],
+      "pattern": "https://www.gn.com/-/media/Files/AGM/{n}/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.gn.com/Investor/Share-information/Historical-share-prices",
+        "https://www.gn.com/Investor/Share-information/Investment-calculator",
+        "https://www.gn.com/Investor/Share-information/Latest-share-trades"
+      ],
+      "pattern": "https://www.gn.com/Investor/Share-information/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.gn.com/Newsroom/News/2026/September/Jabra-Reach-brings-single-cable-simplicity-to-video-meeting-collaboration",
+        "https://www.gn.com/Newsroom/News/2026/September/SteelSeries-introduces-the-Aeon-Pro",
+        "https://www.gn.com/Newsroom/News/2026/September/SteelSeries-unleashes-Sensei-Pro-and-Rival-Pro-series"
+      ],
+      "pattern": "https://www.gn.com/Newsroom/News/{n}/September/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.gn.com/Solutions/Innovation",
+        "https://www.gn.com/Solutions/Inspired-by-people",
+        "https://www.gn.com/Solutions/Products"
+      ],
+      "pattern": "https://www.gn.com/Solutions/{slug}"
+    }
+  ],
+  "urls": [
+    "http://www.gn.com/",
+    "http://www.gn.com/About",
+    "http://www.gn.com/About/Document-download-center",
+    "https://www.gn.com/",
+    "https://www.gn.com/%7B%7Bdocument.url%7D%7D",
+    "https://www.gn.com/%7B%7BselectedOffice.Website%7D%7D",
+    "https://www.gn.com/-/media/Files/AGM/2026/Appendix-1--Board-of-Directors--individual-candidates-proposed-for-re-election.pdf",
+    "https://www.gn.com/-/media/Files/AGM/2026/Information-on-handling-of-personal-data.pdf",
+    "https://www.gn.com/-/media/Files/AGM/2026/Notice-of-Annual-General-Meeting-2026.pdf",
+    "https://www.gn.com/-/media/Files/AGM/2026/Registration-Proxy-Postal-vote-2026.pdf",
+    "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Agency-Agreement.pdf",
+    "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Articles-of-Association-EN.pdf",
+    "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Articles-of-association_EN.pdf",
+    "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Final-terms-for-EUR-50m-notes.pdf",
+    "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Final-terms-for-GBP-40m.pdf",
+    "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Audit-Committee-Charter.pdf",
+    "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Remuneration-and-Nomination-Committee-Charter.pdf",
+    "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Tax-Policy.pdf",
+    "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/GN-Technology--Innovation-Committee-Charter.pdf",
+    "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Prospectus.pdf",
+    "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Second-Supplement_November-2021.pdf",
+    "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Second-Supplemental-Trust-Deed.pdf",
+    "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Supplement.pdf",
+    "https://www.gn.com/-/media/Files/Document-Download-Center/Corporate-governance/Trust-Deed-including-forms-of-Global-Notes.pdf",
+    "https://www.gn.com/-/media/Files/Financial%20Download%20Center/2021/Q2/GNSN%20-%20Interim%20Report%20Q2%202021",
+    "https://www.gn.com/-/media/Files/Financial%20Download%20Center/2021/Q3/GNSN%20-%20Interim%20Report%20Q3%202021",
+    "https://www.gn.com/-/media/Files/Financial-Download-Center/2019/Annual-Report-2018/GN-Annual-Report-2018.pdf",
+    "https://www.gn.com/-/media/Files/Financial-Download-Center/2020/Annual-Report-2019/GN-Annual-Report-2019.pdf",
+    "https://www.gn.com/-/media/Files/Financial-Download-Center/2020/Q4/Q3-Interim-Report-2020/GNSN--Interim-Report-Q3-2020.pdf",
+    "https://www.gn.com/-/media/Files/Financial-Download-Center/2021/Annual-Report-2020/GN-Annual-Report-2020.pdf",
+    "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Annual-Report-2025.pdf",
+    "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q1/GN-Remuneration-Report-2025.pdf",
+    "https://www.gn.com/-/media/Files/Financial-Download-Center/2026/Q4/GN-Interim-Report-Q3-2026.pdf",
+    "https://www.gn.com/About",
+    "https://www.gn.com/About/Corporate-sustainability",
+    "https://www.gn.com/About/Corporate-sustainability/ESG-data",
+    "https://www.gn.com/About/Corporate-sustainability/ESG-portal",
+    "https://www.gn.com/About/Corporate-sustainability/Environment",
+    "https://www.gn.com/About/Corporate-sustainability/Governance",
+    "https://www.gn.com/About/Corporate-sustainability/Our-business-standards",
+    "https://www.gn.com/About/Corporate-sustainability/Social",
+    "https://www.gn.com/About/Corporate-sustainability/Whistleblower",
+    "https://www.gn.com/About/Document-download-center",
+    "https://www.gn.com/About/Document-download-center/Bonds-and-warrants-and-EMTN",
+    "https://www.gn.com/About/Document-download-center/Project-Violet",
+    "https://www.gn.com/About/GN-Group",
+    "https://www.gn.com/About/Heritage",
+    "https://www.gn.com/About/Management",
+    "https://www.gn.com/About/Management/Board-committees",
+    "https://www.gn.com/About/Management/Corporate-governance",
+    "https://www.gn.com/About/Our-Commitments",
+    "https://www.gn.com/About/Strategic-focus-for-GN",
+    "https://www.gn.com/Contact",
+    "https://www.gn.com/Cookie-policy",
+    "https://www.gn.com/Copyright",
+    "https://www.gn.com/Investor",
+    "https://www.gn.com/Investor/%7B%7Bdocument.url%7D%7D",
+    "https://www.gn.com/Investor/AGM",
+    "https://www.gn.com/Investor/AGM/AGM2023",
+    "https://www.gn.com/Investor/AGM/AGM2026",
+    "https://www.gn.com/Investor/ESG",
+    "https://www.gn.com/Investor/Financial-reports",
+    "https://www.gn.com/Investor/Investment-case",
+    "https://www.gn.com/Investor/Investor-Relation-team-and-policy",
+    "https://www.gn.com/Investor/Key-figures",
+    "https://www.gn.com/Investor/Share-information",
+    "https://www.gn.com/Investor/Share-information/Historical-share-prices",
+    "https://www.gn.com/Investor/Share-information/Investment-calculator",
+    "https://www.gn.com/Investor/Share-information/Latest-share-trades",
+    "https://www.gn.com/Investor/Share-information/Share-graph",
+    "https://www.gn.com/Investor/Shareholder",
+    "https://www.gn.com/Legal-notice",
+    "https://www.gn.com/Newsroom",
+    "https://www.gn.com/Newsroom/Announcement",
+    "https://www.gn.com/Newsroom/Announcement?id=3396016&lang=en&date=20261105&title=interim-report-q3-2026-successful-product-launches-leading-to-2-organic-revenue-growth-and-margin-expansion",
+    "https://www.gn.com/Newsroom/Media-library",
+    "https://www.gn.com/Newsroom/Media-library?images",
+    "https://www.gn.com/Newsroom/Media-library?videos",
+    "https://www.gn.com/Newsroom/News",
+    "https://www.gn.com/Newsroom/News/2026/November/Regulatory-approvals-have-been-met",
+    "https://www.gn.com/Newsroom/News/2026/October/Jabra-introduces-Perform-Plus-and-Perform-55",
+    "https://www.gn.com/Newsroom/News/2026/September/Jabra-Reach-brings-single-cable-simplicity-to-video-meeting-collaboration",
+    "https://www.gn.com/Newsroom/News/2026/September/SteelSeries-introduces-the-Aeon-Pro",
+    "https://www.gn.com/Newsroom/News/2026/September/SteelSeries-unleashes-Sensei-Pro-and-Rival-Pro-series",
+    "https://www.gn.com/Office-locator",
+    "https://www.gn.com/Privacy-Policy",
+    "https://www.gn.com/Search",
+    "https://www.gn.com/Security-center",
+    "https://www.gn.com/Solutions",
+    "https://www.gn.com/Solutions/Innovation",
+    "https://www.gn.com/Solutions/Inspired-by-people",
+    "https://www.gn.com/Solutions/Products",
+    "https://www.gn.com/Working-with-us",
+    "https://www.gn.com/Working-with-us/Graduate-Program",
+    "https://www.gn.com/Working-with-us/Graduate-Program/Finance-track",
+    "https://www.gn.com/Working-with-us/Graduate-Program/Global-Operations-track",
+    "https://www.gn.com/Working-with-us/Graduate-Program/Marketing-track",
+    "https://www.gn.com/Working-with-us/Graduate-Program/People-and-Communication-track",
+    "https://www.gn.com/Working-with-us/Graduate-Program/RD-track",
+    "https://www.gn.com/Working-with-us/Life-at-GN",
+    "https://www.gn.com/Working-with-us/Life-at-GN/Older-profiles",
+    "https://www.gn.com/investor/Share-information",
+    "https://www.gn.com/search",
+    "https://www.gn.com/security-center"
+  ]
+}

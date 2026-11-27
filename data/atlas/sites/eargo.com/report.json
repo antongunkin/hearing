@@ -1,0 +1,798 @@
+{
+  "archive": {
+    "sections": [
+      {
+        "byYear": {
+          "2018": 11,
+          "2019": 35,
+          "2020": 28,
+          "2021": 24,
+          "2022": 51,
+          "2023": 90,
+          "2024": 92,
+          "2025": 37,
+          "2026": 15
+        },
+        "latest": "20261008224430",
+        "url": "https://www.eargo.com"
+      }
+    ]
+  },
+  "budget": 60,
+  "domain": "eargo.com",
+  "failures": [
+    {
+      "detail": "https://web.archive.org/web/20261008224430id_/https://eargo.com/guides/: ECONNREFUSED",
+      "reason": "http-error",
+      "url": "https://eargo.com/guides/"
+    },
+    {
+      "detail": "https://web.archive.org/web/20261008224430id_/https://eargo.com/privacy/: ECONNREFUSED",
+      "reason": "http-error",
+      "url": "https://eargo.com/privacy/"
+    },
+    {
+      "detail": "https://web.archive.org/web/20261008224430id_/https://eargo.com/terms-of-use/: ECONNREFUSED",
+      "reason": "http-error",
+      "url": "https://eargo.com/terms-of-use/"
+    },
+    {
+      "detail": "https://web.archive.org/web/20261008224430id_/https://www.eargo.com/guides/eargo-8/: ECONNREFUSED",
+      "reason": "http-error",
+      "url": "https://www.eargo.com/guides/eargo-8/"
+    },
+    {
+      "detail": "https://web.archive.org/web/20261008224430id_/https://www.eargo.com/guides/eargo-se/: ECONNREFUSED",
+      "reason": "http-error",
+      "url": "https://www.eargo.com/guides/eargo-se/"
+    },
+    {
+      "detail": "https://web.archive.org/web/20261008224430id_/https://www.eargo.com/guides/link-by-eargo/: ECONNREFUSED",
+      "reason": "http-error",
+      "url": "https://www.eargo.com/guides/link-by-eargo/"
+    },
+    {
+      "detail": "https://web.archive.org/web/20261008224430id_/https://www.eargo.com/guides/eargo-7/: ECONNREFUSED",
+      "reason": "http-error",
+      "url": "https://www.eargo.com/guides/eargo-7/"
+    },
+    {
+      "detail": "https://web.archive.org/web/20261008224430id_/https://www.eargo.com/: ECONNREFUSED",
+      "reason": "http-error",
+      "url": "https://www.eargo.com/"
+    },
+    {
+      "detail": "https://web.archive.org/web/20261008224430id_/https://www.eargo.com/privacy/: ECONNREFUSED",
+      "reason": "http-error",
+      "url": "https://www.eargo.com/privacy/"
+    },
+    {
+      "detail": "https://web.archive.org/web/20261008224430id_/https://www.eargo.com/terms-of-use/: ECONNREFUSED",
+      "reason": "http-error",
+      "url": "https://www.eargo.com/terms-of-use/"
+    },
+    {
+      "detail": "Web Archive CDX skipped: http-error (https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fwww.eargo.com%2Fproducts-hearing-aids&from=2018&filter=statuscode%3A200&collapse=timestamp%3A8&output=json&fl=timestamp%2Coriginal%2Cstatuscode%2Cmimetype%2Cdigest: ECONNREFUSED)",
+      "reason": "http-error",
+      "url": "https://www.eargo.com/products-hearing-aids"
+    }
+  ],
+  "generatedAt": "2026-11-27T18:45:20.770Z",
+  "mode": "archive",
+  "outbound": [
+    {
+      "count": 5,
+      "domain": "facebook.com",
+      "examples": [
+        "https://www.facebook.com/eargohearing"
+      ]
+    },
+    {
+      "count": 5,
+      "domain": "fonts.google.com",
+      "examples": [
+        "https://fonts.google.com/specimen/Inter"
+      ]
+    },
+    {
+      "count": 5,
+      "domain": "instagram.com",
+      "examples": [
+        "https://www.instagram.com/eargo_hearing",
+        "https://www.instagram.com/eargo_hearing/"
+      ]
+    },
+    {
+      "count": 5,
+      "domain": "linkedin.com",
+      "examples": [
+        "https://www.linkedin.com/company/eargo"
+      ]
+    },
+    {
+      "count": 5,
+      "domain": "twitter.com",
+      "examples": [
+        "https://www.twitter.com/eargo",
+        "https://twitter.com/eargo"
+      ]
+    },
+    {
+      "count": 5,
+      "domain": "youtube.com",
+      "examples": [
+        "https://www.youtube.com/channel/UCNEd3jeMQdapvGmVKGjZmjw",
+        "https://www.youtube.com/c/EargoHearing"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "geekwire.com",
+      "examples": [
+        "https://www.geekwire.com/2015/maveron-backed-eargo-looks-to-reinvent-the-hearing-aid-with-rechargeable-devices-modeled-on-a-fishing-fly/"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "techcrunch.com",
+      "examples": [
+        "https://techcrunch.com/2015/06/25/with-13-million-from-maveron-eargo-is-the-hearing-aid-of-the-future/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "hearinghealthmatters.org",
+      "examples": [
+        "http://hearinghealthmatters.org/hearingeconomics/2016/retail-hearing-aid-price-functions-part-2/"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "archiveTimestamp": "20181223225142",
+      "external": [
+        "https://www.facebook.com/eargohearing",
+        "https://www.twitter.com/eargo",
+        "https://www.instagram.com/eargo_hearing",
+        "https://www.youtube.com/channel/UCNEd3jeMQdapvGmVKGjZmjw",
+        "https://www.linkedin.com/company/eargo",
+        "http://hearinghealthmatters.org/hearingeconomics/2016/retail-hearing-aid-price-functions-part-2/",
+        "https://techcrunch.com/2015/06/25/with-13-million-from-maveron-eargo-is-the-hearing-aid-of-the-future/",
+        "https://www.geekwire.com/2015/maveron-backed-eargo-looks-to-reinvent-the-hearing-aid-with-rechargeable-devices-modeled-on-a-fishing-fly/"
+      ],
+      "internalLinks": 23,
+      "jsonLdTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://d9jpa82qnx9c8.cloudfront.net/assets/EARGO_Max_User_Guide-4f92e3ee45d8db01eed8a5dceb747df1.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:43:16.187Z",
+        "url": "https://web.archive.org/web/20181223225142id_/https://eargo.com/"
+      },
+      "title": "Eargo | A Revolutionary New Hearing Aid",
+      "url": "https://web.archive.org/web/20181223225142id_/https://eargo.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "archiveTimestamp": "20191207152708",
+      "external": [
+        "https://www.facebook.com/eargohearing",
+        "https://www.twitter.com/eargo",
+        "https://www.instagram.com/eargo_hearing",
+        "https://www.youtube.com/channel/UCNEd3jeMQdapvGmVKGjZmjw",
+        "https://www.linkedin.com/company/eargo",
+        "https://techcrunch.com/2015/06/25/with-13-million-from-maveron-eargo-is-the-hearing-aid-of-the-future/",
+        "https://www.geekwire.com/2015/maveron-backed-eargo-looks-to-reinvent-the-hearing-aid-with-rechargeable-devices-modeled-on-a-fishing-fly/"
+      ],
+      "internalLinks": 25,
+      "jsonLdTypes": [
+        "Organization",
+        "WebPage"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:43:22.595Z",
+        "url": "https://web.archive.org/web/20191207152708id_/https://eargo.com/"
+      },
+      "title": "Eargo | A Revolutionary New Hearing Aid",
+      "url": "https://web.archive.org/web/20191207152708id_/https://eargo.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "archiveTimestamp": "20201224022251",
+      "external": [],
+      "internalLinks": 0,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:43:29.731Z",
+        "url": "https://web.archive.org/web/20201224022251id_/https://eargo.com/#organization"
+      },
+      "title": "Eargo",
+      "url": "https://web.archive.org/web/20201224022251id_/https://eargo.com/#organization"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "archiveTimestamp": "20211216224734",
+      "external": [
+        "https://www.facebook.com/eargohearing",
+        "https://twitter.com/eargo",
+        "https://www.instagram.com/eargo_hearing/",
+        "https://www.youtube.com/c/EargoHearing",
+        "https://www.linkedin.com/company/eargo",
+        "https://fonts.google.com/specimen/Inter"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:43:36.675Z",
+        "url": "https://web.archive.org/web/20211216224734id_/https://www.eargo.com/"
+      },
+      "title": "Eargo | A Revolutionary New Hearing Aid",
+      "url": "https://web.archive.org/web/20211216224734id_/https://www.eargo.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "archiveTimestamp": "20221228173811",
+      "external": [
+        "https://www.facebook.com/eargohearing",
+        "https://twitter.com/eargo",
+        "https://www.instagram.com/eargo_hearing/",
+        "https://www.youtube.com/c/EargoHearing",
+        "https://www.linkedin.com/company/eargo",
+        "https://fonts.google.com/specimen/Inter"
+      ],
+      "internalLinks": 38,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:43:42.599Z",
+        "url": "https://web.archive.org/web/20221228173811id_/https://www.eargo.com/"
+      },
+      "title": "Eargo | A Revolutionary New Hearing Aid",
+      "url": "https://web.archive.org/web/20221228173811id_/https://www.eargo.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "archiveTimestamp": "20231220065941",
+      "external": [
+        "https://www.facebook.com/eargohearing",
+        "https://twitter.com/eargo",
+        "https://www.instagram.com/eargo_hearing/",
+        "https://www.youtube.com/c/EargoHearing",
+        "https://www.linkedin.com/company/eargo",
+        "https://fonts.google.com/specimen/Inter"
+      ],
+      "internalLinks": 39,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:43:52.774Z",
+        "url": "https://web.archive.org/web/20231220065941id_/https://www.eargo.com/"
+      },
+      "title": "Eargo | A Revolutionary New Hearing Aid",
+      "url": "https://web.archive.org/web/20231220065941id_/https://www.eargo.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "archiveTimestamp": "20241217023829",
+      "external": [],
+      "internalLinks": 0,
+      "jsonLdTypes": [],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:43:59.912Z",
+        "url": "https://web.archive.org/web/20241217023829id_/https://www.eargo.com/"
+      },
+      "url": "https://web.archive.org/web/20241217023829id_/https://www.eargo.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "archiveTimestamp": "20251203025303",
+      "external": [],
+      "internalLinks": 0,
+      "jsonLdTypes": [],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:44:06.043Z",
+        "url": "https://web.archive.org/web/20251203025303id_/https://www.eargo.com/"
+      },
+      "url": "https://web.archive.org/web/20251203025303id_/https://www.eargo.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "archiveTimestamp": "20261008224430",
+      "external": [
+        "https://fonts.google.com/specimen/Inter"
+      ],
+      "internalLinks": 5,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:44:13.471Z",
+        "url": "https://web.archive.org/web/20261008224430id_/https://eargo.com/"
+      },
+      "title": "Eargo | A Revolutionary New Hearing Aid",
+      "url": "https://web.archive.org/web/20261008224430id_/https://eargo.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "archiveTimestamp": "20261015060520",
+      "external": [
+        "https://fonts.google.com/specimen/Inter"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:44:24.556Z",
+        "url": "https://web.archive.org/web/20261015060520id_/https://www.eargo.com/guides/"
+      },
+      "title": "Eargo How-to Guides and Videos | Eargo",
+      "url": "https://web.archive.org/web/20261015060520id_/https://www.eargo.com/guides/"
+    }
+  ],
+  "pdfHosts": [
+    {
+      "count": 1,
+      "examples": [
+        "https://d9jpa82qnx9c8.cloudfront.net/assets/EARGO_Max_User_Guide-4f92e3ee45d8db01eed8a5dceb747df1.pdf"
+      ],
+      "host": "d9jpa82qnx9c8.cloudfront.net"
+    }
+  ],
+  "redirects": [],
+  "robots": {
+    "archived": {
+      "groups": [
+        {
+          "allow": [
+            "/",
+            "/products-hearing-aids",
+            "/financing",
+            "/insurance",
+            "/health-plans",
+            "/professionals",
+            "/eargo-difference",
+            "/our-brand",
+            "/reviews",
+            "/stories",
+            "/guides",
+            "/hearing-health/hearing-screener",
+            "/hearing-aid-comparison",
+            "/faq",
+            "/ways-to-pay",
+            "/store-locator",
+            "/blog"
+          ],
+          "disallow": [
+            "/lp/",
+            "/unsubscribe",
+            "/hearing-aid-explorer",
+            "/register",
+            "/thankyou-in",
+            "/thankyou-sk",
+            "/blog/wp-admin/",
+            "/blog/16-ways-maintain-good-hearing-health/",
+            "/blog/eargo-teams-with-musicares-to-provide-improved-hearing-to-musicians/",
+            "/blog/finally-hearing-aid-gets-job-done/",
+            "/blog/checkout/",
+            "/bestbuy",
+            "/fedform",
+            "/insurance-form",
+            "/federal_2",
+            "/federalthankyou3",
+            "/federalthankyou",
+            "/federalthankyou-apqto",
+            "/federalthankyou-apq",
+            "/reg-welcome",
+            "/sample-kit",
+            "/schedule",
+            "/hearing-health/hearing-check/nohl",
+            "/hearing-health/hearing-check/hl2",
+            "/hearing-health/hearing-check/hl3",
+            "/hearing-health/hearing-check/hl4",
+            "/hearing-health/hearing-check/hl5",
+            "/hearing-health/hearing-check/alt-nohl",
+            "/hearing-health/hearing-check/alt-hl",
+            "/federalthankyou3",
+            "/federalthankyou-other",
+            "/federalthankyou-apq",
+            "/federalthankyou-apqto",
+            "/victra",
+            "/victra-nohl",
+            "/victra-hl4",
+            "/victra-hl3",
+            "/victra-hl5",
+            "/victra-hl2",
+            "/victra-alt-nohl",
+            "/victra-alt-hl",
+            "/b8ta",
+            "/federal",
+            "/thankyou-sk-um",
+            "/thankyou-in-um",
+            "/inmotion",
+            "/hearing-health/causes-of-hearing-loss",
+            "/hearing-health/signs-of-hearing-loss",
+            "/hearing-health/treatment-of-hearing-loss",
+            "/hearing-health/faq",
+            "/our-solutions/eargo-app",
+            "/our-solutions/professional-support",
+            "/victra-plp",
+            "/image-library"
+          ],
+          "userAgents": [
+            "*"
+          ]
+        },
+        {
+          "allow": [
+            "/"
+          ],
+          "disallow": [],
+          "userAgents": [
+            "*"
+          ]
+        },
+        {
+          "allow": [
+            "/"
+          ],
+          "disallow": [],
+          "userAgents": [
+            "OAI-SearchBot"
+          ]
+        },
+        {
+          "allow": [
+            "/"
+          ],
+          "disallow": [],
+          "userAgents": [
+            "ChatGPT-User"
+          ]
+        },
+        {
+          "allow": [],
+          "disallow": [
+            "/"
+          ],
+          "userAgents": [
+            "GPTBot"
+          ]
+        },
+        {
+          "allow": [
+            "/"
+          ],
+          "disallow": [],
+          "userAgents": [
+            "Claude-SearchBot"
+          ]
+        },
+        {
+          "allow": [
+            "/"
+          ],
+          "disallow": [],
+          "userAgents": [
+            "Claude-User"
+          ]
+        },
+        {
+          "allow": [],
+          "disallow": [
+            "/"
+          ],
+          "userAgents": [
+            "ClaudeBot"
+          ]
+        },
+        {
+          "allow": [
+            "/"
+          ],
+          "disallow": [],
+          "userAgents": [
+            "PerplexityBot"
+          ]
+        },
+        {
+          "allow": [
+            "/"
+          ],
+          "disallow": [],
+          "userAgents": [
+            "Perplexity-User"
+          ]
+        },
+        {
+          "allow": [],
+          "disallow": [
+            "/"
+          ],
+          "userAgents": [
+            "Google-Extended"
+          ]
+        },
+        {
+          "allow": [
+            "/"
+          ],
+          "disallow": [],
+          "userAgents": [
+            "Applebot"
+          ]
+        },
+        {
+          "allow": [],
+          "disallow": [
+            "/"
+          ],
+          "userAgents": [
+            "Applebot-Extended"
+          ]
+        },
+        {
+          "allow": [
+            "/"
+          ],
+          "disallow": [],
+          "userAgents": [
+            "Amzn-SearchBot"
+          ]
+        },
+        {
+          "allow": [],
+          "disallow": [
+            "/"
+          ],
+          "userAgents": [
+            "Amazonbot"
+          ]
+        },
+        {
+          "allow": [],
+          "disallow": [
+            "/"
+          ],
+          "userAgents": [
+            "CCBot"
+          ]
+        }
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:43:08.605Z",
+        "url": "https://web.archive.org/web/20260412005842id_/https://www.eargo.com/robots.txt"
+      }
+    },
+    "groups": [],
+    "ref": null,
+    "sitemaps": [],
+    "status": null
+  },
+  "sitemap": {
+    "refs": [],
+    "sections": [],
+    "urlCount": 0
+  },
+  "start": "https://www.eargo.com",
+  "templates": [
+    {
+      "count": 27,
+      "examples": [
+        "https://www.eargo.com/blog/",
+        "https://www.eargo.com/datarequests",
+        "https://www.eargo.com/eargo-difference"
+      ],
+      "pattern": "https://www.eargo.com/{slug}"
+    },
+    {
+      "count": 19,
+      "examples": [
+        "https://eargo.com/cart",
+        "https://eargo.com/federal",
+        "https://eargo.com/guides"
+      ],
+      "pattern": "https://eargo.com/{slug}"
+    },
+    {
+      "count": 11,
+      "examples": [
+        "https://shop.eargo.com/accessories",
+        "https://shop.eargo.com/eargo-5",
+        "https://shop.eargo.com/eargo-6"
+      ],
+      "pattern": "https://shop.eargo.com/{slug}"
+    },
+    {
+      "count": 6,
+      "examples": [
+        "https://www.eargo.com/hearing-health/causes-of-hearing-loss",
+        "https://www.eargo.com/hearing-health/faq",
+        "https://www.eargo.com/hearing-health/hearing-check"
+      ],
+      "pattern": "https://www.eargo.com/hearing-health/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.eargo.com/blog/success-story/a-daughters-tale-of-hearing-loss",
+        "https://www.eargo.com/blog/success-story/a-metal-drummers-ears-face-the-music",
+        "https://www.eargo.com/blog/success-story/hearing-loss-where-youd-least-expect-it"
+      ],
+      "pattern": "https://www.eargo.com/blog/success-story/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.eargo.com/guides/eargo-7/",
+        "https://www.eargo.com/guides/eargo-8/",
+        "https://www.eargo.com/guides/eargo-se/"
+      ],
+      "pattern": "https://www.eargo.com/guides/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://eargo.com/company/aboutus",
+        "https://eargo.com/company/careers",
+        "https://eargo.com/company/news"
+      ],
+      "pattern": "https://eargo.com/company/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://eargo.com/misc/privacy",
+        "https://eargo.com/misc/terms-of-use",
+        "https://eargo.com/misc/warranty"
+      ],
+      "pattern": "https://eargo.com/misc/{slug}"
+    }
+  ],
+  "urls": [
+    "http://support.eargo.com/",
+    "https://blog.eargo.com/",
+    "https://d9jpa82qnx9c8.cloudfront.net/assets/EARGO_Max_User_Guide-4f92e3ee45d8db01eed8a5dceb747df1.pdf",
+    "https://eargo.com/",
+    "https://eargo.com/#organization",
+    "https://eargo.com/cart",
+    "https://eargo.com/company/aboutus",
+    "https://eargo.com/company/careers",
+    "https://eargo.com/company/news",
+    "https://eargo.com/federal",
+    "https://eargo.com/guides",
+    "https://eargo.com/guides/",
+    "https://eargo.com/health-plans",
+    "https://eargo.com/hearing-aid-comparison",
+    "https://eargo.com/hearing-health/hearing-screener",
+    "https://eargo.com/help/faq",
+    "https://eargo.com/how-it-works",
+    "https://eargo.com/military-discount",
+    "https://eargo.com/misc/privacy",
+    "https://eargo.com/misc/terms-of-use",
+    "https://eargo.com/misc/warranty",
+    "https://eargo.com/press",
+    "https://eargo.com/privacy/",
+    "https://eargo.com/products-hearing-aids",
+    "https://eargo.com/professionals",
+    "https://eargo.com/refer",
+    "https://eargo.com/reviews",
+    "https://eargo.com/schedule",
+    "https://eargo.com/showme",
+    "https://eargo.com/store-locator",
+    "https://eargo.com/storelocator",
+    "https://eargo.com/terms-of-use/",
+    "https://help.eargo.com/",
+    "https://help.eargo.com/en/",
+    "https://ir.eargo.com/",
+    "https://ir.eargo.com/corporate-governance/leadership",
+    "https://shop.eargo.com/",
+    "https://shop.eargo.com/accessories",
+    "https://shop.eargo.com/eargo-5",
+    "https://shop.eargo.com/eargo-6",
+    "https://shop.eargo.com/eargo-7",
+    "https://shop.eargo.com/eargo-max",
+    "https://shop.eargo.com/eargo-neo",
+    "https://shop.eargo.com/eargo-neo-hifi",
+    "https://shop.eargo.com/eargo-neo?cart=1",
+    "https://shop.eargo.com/eargo-plus",
+    "https://shop.eargo.com/login",
+    "https://shop.eargo.com/store",
+    "https://www.eargo.com/",
+    "https://www.eargo.com/blog/",
+    "https://www.eargo.com/blog/success-story/a-daughters-tale-of-hearing-loss",
+    "https://www.eargo.com/blog/success-story/a-metal-drummers-ears-face-the-music",
+    "https://www.eargo.com/blog/success-story/hearing-loss-where-youd-least-expect-it",
+    "https://www.eargo.com/blog/success-story/olympian-rowdy-gaines-journey-to-gold-medal-hearing",
+    "https://www.eargo.com/company/about-us",
+    "https://www.eargo.com/company/careers",
+    "https://www.eargo.com/datarequests",
+    "https://www.eargo.com/eargo-difference",
+    "https://www.eargo.com/faq",
+    "https://www.eargo.com/financing",
+    "https://www.eargo.com/guides",
+    "https://www.eargo.com/guides/",
+    "https://www.eargo.com/guides/eargo-7/",
+    "https://www.eargo.com/guides/eargo-8/",
+    "https://www.eargo.com/guides/eargo-se/",
+    "https://www.eargo.com/guides/link-by-eargo/",
+    "https://www.eargo.com/health-plans",
+    "https://www.eargo.com/healthcare-workers-discount",
+    "https://www.eargo.com/hearing-aid-comparison",
+    "https://www.eargo.com/hearing-health/causes-of-hearing-loss",
+    "https://www.eargo.com/hearing-health/faq",
+    "https://www.eargo.com/hearing-health/hearing-check",
+    "https://www.eargo.com/hearing-health/hearing-screener",
+    "https://www.eargo.com/hearing-health/signs-of-hearing-loss",
+    "https://www.eargo.com/hearing-health/treatment-of-hearing-loss",
+    "https://www.eargo.com/insurance",
+    "https://www.eargo.com/military-discount",
+    "https://www.eargo.com/our-brand",
+    "https://www.eargo.com/our-solutions/eargo-app",
+    "https://www.eargo.com/our-solutions/professional-support",
+    "https://www.eargo.com/privacy",
+    "https://www.eargo.com/privacy/",
+    "https://www.eargo.com/products-hearing-aids",
+    "https://www.eargo.com/professional-support.html",
+    "https://www.eargo.com/professionals",
+    "https://www.eargo.com/reviews",
+    "https://www.eargo.com/sample-kit",
+    "https://www.eargo.com/store-locator",
+    "https://www.eargo.com/stories",
+    "https://www.eargo.com/terms-of-use",
+    "https://www.eargo.com/terms-of-use/",
+    "https://www.eargo.com/veterans",
+    "https://www.eargo.com/warranty",
+    "https://www.eargo.com/ways-to-pay"
+  ]
+}

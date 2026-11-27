@@ -1,0 +1,342 @@
+{
+  "domain": "wsa.com",
+  "generatedAt": "2026-11-27T19:10:44.073Z",
+  "model": "sonnet",
+  "openQuestions": [
+    "Which pages on soundpreference.com, if any, hold product information?",
+    "Do the brand sites (signia.net, widex.com, rexton.com, audioservice.com, vibe-hearing.com) hold the catalogs and user guides? They were not read.",
+    "What does /media/downloads/ contain?",
+    "Which apps does WSA publish? No app store links were found on wsa.com.",
+    "Which ownership statements does the cut-off text of the merger press release make?"
+  ],
+  "sections": {
+    "archive": [],
+    "links": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:34:34.494Z",
+            "url": "https://www.wsa.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:37:03.652Z",
+            "url": "https://www.wsa.com/brands/"
+          }
+        ],
+        "text": "Brand sites linked from the home page: signia.net, widex.com, rexton.com, audioservice.com and vibe-hearing.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:36:34.602Z",
+            "url": "https://www.wsa.com/en-us/"
+          }
+        ],
+        "text": "The en-us page links to the professional sites widexpro.com and signia-pro.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:37:03.652Z",
+            "url": "https://www.wsa.com/brands/"
+          }
+        ],
+        "text": "The Brands page also links to retail and partner sites: hearusa.com, hearcanada.com, bloomhearing.com.au, myhearingcenters.com, hear.com, audibene.de, truhearing.com, hearingcaresolutions.com, shoebox.md, koalys.com, coselgi.com and am-hearing.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:34:06.804Z",
+            "url": "https://www.wsa.com/pt-br/"
+          }
+        ],
+        "text": "The pt-br page links to audibel.com.br, am-hearing.com.br and comunicareaparelhosauditivos.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:37:10.275Z",
+            "url": "https://www.soundpreference.com/sv-se/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:37:30.125Z",
+            "url": "https://www.soundpreference.com/de-ch/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:37:19.061Z",
+            "url": "https://www.soundpreference.com/nl-nl/"
+          }
+        ],
+        "text": "Nine /sound-preference-{country}/ paths redirect to soundpreference.com locales. The de-at path redirects to the de-ch locale."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:33:55.256Z",
+            "url": "https://www.wsa.com/press-release/sivantos-and-widex-merge-to-create-global-hearing-aid-leader-2/"
+          }
+        ],
+        "text": "The 2018 merger press release links to sivantos.com and global.widex.com."
+      }
+    ],
+    "next": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:37:03.652Z",
+            "url": "https://www.wsa.com/brands/"
+          }
+        ],
+        "text": "Scrape the brand sites instead: signia.net, widex.com, rexton.com, audioservice.com and vibe-hearing.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:37:03.652Z",
+            "url": "https://www.wsa.com/brands/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:36:44.054Z",
+            "url": "https://www.wsa.com/media/press-releases/"
+          }
+        ],
+        "text": "Check the Brands page and press releases for brand changes or retail brand moves. The page excerpt is cut off, so confirm against the full page."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:33:24.712Z",
+            "url": "https://www.wsa.com/sitemap_index.xml"
+          }
+        ],
+        "text": "Check whether /media/downloads/ holds hearing aid documents or only press material."
+      }
+    ],
+    "render": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:34:34.494Z",
+            "url": "https://www.wsa.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:37:03.652Z",
+            "url": "https://www.wsa.com/brands/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:36:54.687Z",
+            "url": "https://www.wsa.com/sustainability/"
+          }
+        ],
+        "text": "Every page in the report has needsRender false, and the text of the pages read is present in the fetched HTML."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:34:34.494Z",
+            "url": "https://www.wsa.com/"
+          }
+        ],
+        "text": "The report lists no failures."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:33:19.632Z",
+            "url": "https://www.wsa.com/robots.txt"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:36:54.687Z",
+            "url": "https://www.wsa.com/sustainability/"
+          }
+        ],
+        "text": "The site is built on WordPress, judging by the wp-admin entries in robots.txt and the wp-content upload path of the PDF."
+      }
+    ],
+    "structure": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:33:19.632Z",
+            "url": "https://www.wsa.com/robots.txt"
+          }
+        ],
+        "text": "robots.txt lists one sitemap, https://www.wsa.com/sitemap_index.xml. It disallows only /wordpress/wp-admin/ and allows admin-ajax.php."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:33:24.712Z",
+            "url": "https://www.wsa.com/sitemap_index.xml"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:33:28.568Z",
+            "url": "https://www.wsa.com/page-sitemap.xml"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:33:34.196Z",
+            "url": "https://www.wsa.com/article-sitemap.xml"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:33:40.434Z",
+            "url": "https://www.wsa.com/press-release-sitemap.xml"
+          }
+        ],
+        "text": "Three sub-sitemaps were fetched: page-sitemap.xml, article-sitemap.xml and press-release-sitemap.xml. Together they hold 263 URLs."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:33:24.712Z",
+            "url": "https://www.wsa.com/sitemap_index.xml"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:33:48.528Z",
+            "url": "https://www.wsa.com/services/app-privacy-notice/acoustic-rc/"
+          }
+        ],
+        "text": "URL templates: /press-release/{slug} (113 URLs), /article/{slug} (17), /about/{slug}, /investors/{slug}, /media/{slug}, /services/{slug}, and /services/app-privacy-notice/remote-control-app/{slug} (45 privacy notices, one per language)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:36:34.602Z",
+            "url": "https://www.wsa.com/en-us/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:34:48.445Z",
+            "url": "https://www.wsa.com/de-de/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:34:06.804Z",
+            "url": "https://www.wsa.com/pt-br/"
+          }
+        ],
+        "text": "There is one local landing page per market, such as /en-us/, /de-de/ and /pt-br/ (about 40 locale paths). They are about 8 internal links each, or 2–3 on some. The pages checked show the same global WSA title and links to brand sites."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:37:03.652Z",
+            "url": "https://www.wsa.com/brands/"
+          }
+        ],
+        "text": "The main menu has Sound Preference, Innovation, Sustainability, Brands, Careers, About, Media and Investors."
+      }
+    ],
+    "what": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:34:34.494Z",
+            "url": "https://www.wsa.com/"
+          }
+        ],
+        "text": "The site is WSA's corporate site, titled \"Wonderful Sound for All - WSA\"; the footer names WSA A/S, Lynge, Denmark and Sivantos Pte. Ltd, Singapore."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:37:03.652Z",
+            "url": "https://www.wsa.com/brands/"
+          }
+        ],
+        "text": "The Brands page says WSA's product brands are Signia, Widex, Rexton, Audio Service and Vibe, each with its own website."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:37:03.652Z",
+            "url": "https://www.wsa.com/brands/"
+          }
+        ],
+        "text": "Vibe is described as WSA's over-the-counter hearing aid brand for markets outside the United States."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:36:44.054Z",
+            "url": "https://www.wsa.com/media/press-releases/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:36:54.687Z",
+            "url": "https://www.wsa.com/sustainability/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:36:58.327Z",
+            "url": "https://www.wsa.com/investors/contacts/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:33:51.007Z",
+            "url": "https://www.wsa.com/product-security/coordinated-vulnerability-disclosure/"
+          }
+        ],
+        "text": "The site content is corporate: press releases, articles, about, investors, sustainability, privacy notices, product security and careers."
+      }
+    ],
+    "where": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:33:24.712Z",
+            "url": "https://www.wsa.com/sitemap_index.xml"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:37:03.652Z",
+            "url": "https://www.wsa.com/brands/"
+          }
+        ],
+        "text": "There is no model catalog on wsa.com. The sitemap has no product or model section, and the Brands page only describes the brands and links out."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:34:34.494Z",
+            "url": "https://www.wsa.com/"
+          }
+        ],
+        "text": "The home page lists innovation highlights with model names (Signia MaX, Signia Active Mini IX, Widex Allure, Rexton Reach, Widex SmartRIC and others). The excerpt shows no model URLs for them."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:33:48.528Z",
+            "url": "https://www.wsa.com/services/app-privacy-notice/acoustic-rc/"
+          }
+        ],
+        "text": "Support pages and user guides are not on this site. The only support-like pages are the app privacy notices under /services/app-privacy-notice/."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:36:54.687Z",
+            "url": "https://www.wsa.com/sustainability/"
+          }
+        ],
+        "text": "The only PDF found is the annual report 2024-25, linked from the Sustainability page. It sits on the host wsa-com-prod-bwa6fdbwhjcnhbd2.a03.azurefd.net."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:34:34.494Z",
+            "url": "https://www.wsa.com/"
+          }
+        ],
+        "text": "No app store links (iOS or Android) were found on any page of the report."
+      }
+    ]
+  },
+  "summary": {
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:34:34.494Z",
+        "url": "https://www.wsa.com/"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:37:03.652Z",
+        "url": "https://www.wsa.com/brands/"
+      }
+    ],
+    "text": "wsa.com is the corporate site of WS Audiology (WSA), not a brand shop: it has no model catalog or documents, and it links to the brand sites Signia, Widex, Rexton, Audio Service and Vibe."
+  }
+}

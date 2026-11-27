@@ -1,0 +1,48 @@
+{
+  "checks": {
+    "catalogUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "documentUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "modelUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "supportUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.1": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ]
+  },
+  "generatedAt": "2026-11-27T18:52:02.176Z",
+  "proposal": {
+    "catalogUrls": [
+      "https://www.jabraenhance.com/product"
+    ],
+    "documentUrlPattern": "^https://(cdn|sound-files)\\.jabraenhance\\.com/.+\\.pdf$",
+    "modelUrlPattern": "^https://www\\.jabraenhance\\.com/product/enhanceselect[a-z0-9]+$",
+    "render": false,
+    "status": "active",
+    "supportUrls": [
+      "https://www.jabraenhance.com/help",
+      "https://www.jabraenhance.com/start"
+    ]
+  }
+}

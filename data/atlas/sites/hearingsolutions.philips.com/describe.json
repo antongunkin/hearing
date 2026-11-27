@@ -1,0 +1,371 @@
+{
+  "domain": "hearingsolutions.philips.com",
+  "generatedAt": "2026-11-27T18:57:04.771Z",
+  "model": "sonnet",
+  "openQuestions": [
+    "Why does the current modelUrlPattern exclude hearlink-30 models that the en-us catalog still lists?",
+    "Which PDFs sit behind the Product downloads blocks of model pages (not in the report's pdf lists)?",
+    "Is there a HearLink 60 model page, and what is its URL? The catalog lists it but the report shows no such URL.",
+    "What does /en-us/support/download contain? It failed to fetch.",
+    "Who publishes the HearLink 2 app? The pages do not say.",
+    "Is the Web Archive blocked for this whole site? Only six 403s were seen and no coverage sections were reported."
+  ],
+  "sections": {
+    "archive": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:36:03.261Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us"
+          }
+        ],
+        "text": "Web Archive fetches of en-us, en-ae, th-th, pt-pt, ro-ro and es-co were excluded (HTTP 403, archive-excluded). The report lists no archive sections."
+      }
+    ],
+    "links": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:33:11.449Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/hearlink-2-app"
+          }
+        ],
+        "text": "PDFs are hosted on damcdn.demant.com (30 PDFs seen)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:32:53.885Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/find-hearing-center"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:35:10.229Z",
+            "url": "https://www.hearingsolutions.philips.com/es-es/support/compatibility-guide"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:33:11.449Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/hearlink-2-app"
+          }
+        ],
+        "text": "External links: philips.com, facebook, instagram, youtube, apps.apple.com, play.google.com, bluetooth.com (Auracast), costco.com (warehouse locations)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:36:03.261Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us"
+          }
+        ],
+        "text": "The report records no redirects."
+      }
+    ],
+    "next": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:32:58.826Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:56:16.849Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/335844/hearlink-30-minirite-t-r"
+          }
+        ],
+        "text": "Check why the current pattern excludes hearlink-30 models, although the en-us catalog and model pages show them."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:56:21.955Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/454004/hearlink-30-minibte-t"
+          }
+        ],
+        "text": "Fetch the en-us model pages and read their PDF links; the report lacks them for models."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:55:37.179Z",
+            "url": "https://www.hearingsolutions.philips.com/robots.txt"
+          }
+        ],
+        "text": "Fetch https://philips.hearingsolutions.demant.com/en-us/sitemap.xml (listed in robots.txt, not fetched) to list all model IDs."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:36:03.261Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us"
+          }
+        ],
+        "text": "Retry /en-us/support/download, which failed, and check for HearLink 60 model pages."
+      }
+    ],
+    "render": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:36:03.261Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:32:58.826Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:33:04.096Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/support/pairing"
+          }
+        ],
+        "text": "The en-us home, catalog, category, model-adjacent app, pairing, compatibility and warranty pages do not need scripts."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:33:08.820Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/support"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:33:25.386Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/hearing-test"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:32:53.885Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/find-hearing-center"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:30:35.491Z",
+            "url": "https://www.hearingsolutions.philips.com/he-il"
+          }
+        ],
+        "text": "Flagged as needing render: en-us /support, /hearing-test and /find-hearing-center, and some locale homes (he-il, es-ec, es-cl, ko-kr, en-ae)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:33:08.820Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/support"
+          }
+        ],
+        "text": "The en-us support index page text shows only link titles. Its sub-links are probably rendered by script."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:56:16.849Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/335844/hearlink-30-minirite-t-r"
+          }
+        ],
+        "text": "Model pages are served with text content, including the downloads titles, but the PDF links were not in the extracted pdfs for model pages."
+      }
+    ],
+    "structure": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:36:03.261Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:30:35.491Z",
+            "url": "https://www.hearingsolutions.philips.com/he-il"
+          }
+        ],
+        "text": "Locale-prefixed site: /{locale}/ with about 40 locales (en-us, es-es, pt-pt, nl-nl, he-il, ...)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:36:03.261Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us"
+          }
+        ],
+        "text": "Top-level sections per locale: products, support, hearing-test, hearing-loss, find-hearing-center, about-us."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:56:16.849Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/335844/hearlink-30-minirite-t-r"
+          }
+        ],
+        "text": "Model URL template: /{locale}/products/{id}/{slug}, e.g. /en-us/products/335844/hearlink-30-minirite-t-r."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:55:45.206Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/accessories"
+          }
+        ],
+        "text": "Accessory URL template: /{locale}/products/accessories/{id}/{slug}; the accessories list is /en-us/products/accessories."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:33:14.510Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/hearing-aids/category/bluetooth"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:33:18.948Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/hearing-aids/category/rechargeable"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:33:22.647Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/hearing-aids/category/discreet"
+          }
+        ],
+        "text": "Category pages under /products/hearing-aids/category/{bluetooth|rechargeable|discreet}."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:55:37.179Z",
+            "url": "https://www.hearingsolutions.philips.com/robots.txt"
+          }
+        ],
+        "text": "robots.txt allows everything and lists about 42 sitemaps on philips.hearingsolutions.demant.com, one per locale plus a root sitemap.xml. 19 were fetched, giving 1020 URLs."
+      }
+    ],
+    "what": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:36:03.261Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us"
+          }
+        ],
+        "text": "Philips Hearing Solutions site for Philips HearLink hearing aids; footer reads © Demant 2026."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:36:03.261Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us"
+          }
+        ],
+        "text": "Footer says Philips and the Philips Shield Emblem are registered trademarks of Koninklijke Philips N.V., used under license."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:36:03.261Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us"
+          }
+        ],
+        "text": "The home page promotes HearLink 60 as a new premium behind-the-ear aid."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:36:03.261Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:56:16.849Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/335844/hearlink-30-minirite-t-r"
+          }
+        ],
+        "text": "No prices or online shop in the pages seen; the site points to hearing centers (find-hearing-center, where to buy)."
+      }
+    ],
+    "where": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:32:58.826Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/hearing-aids"
+          }
+        ],
+        "text": "Catalog (en-us): /en-us/products/hearing-aids lists HearLink 60 miniRITE R; 50 miniRITE, miniBTE R, IIC, CIC; 40 miniRITE T(R), miniBTE T(R); 30 IIC, CIC, ITC, ITE HS, ITE FS, miniRITE T(R), miniBTE T(R/T)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:33:14.510Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/hearing-aids/category/bluetooth"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:33:18.948Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/hearing-aids/category/rechargeable"
+          }
+        ],
+        "text": "Category pages repeat the model lists with tags (Rechargeable, Bluetooth, telecoil)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:56:16.849Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/335844/hearlink-30-minirite-t-r"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:56:21.955Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/454004/hearlink-30-minibte-t"
+          }
+        ],
+        "text": "Model pages have a Product downloads block: Technical Data, Instructions for Use, Professional brochure."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:33:11.449Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/hearlink-2-app"
+          }
+        ],
+        "text": "The HearLink 2 app page lists 9 PDF instructions for use (versions 1.2.0 to 1.8.0 and 2.3.0)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:33:11.449Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/products/hearlink-2-app"
+          }
+        ],
+        "text": "HearLink 2 app: iOS id 1597063716, Android com.philips.hearlink2. The page states no publisher."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:35:10.229Z",
+            "url": "https://www.hearingsolutions.philips.com/es-es/support/compatibility-guide"
+          }
+        ],
+        "text": "The es-es compatibility guide links a streaming and accessories compatibility PDF."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:33:08.820Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/support"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:33:04.096Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/support/pairing"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:56:25.352Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/support/care-and-cleaning"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:56:30.592Z",
+            "url": "https://www.hearingsolutions.philips.com/en-us/support/batteries-and-charging"
+          }
+        ],
+        "text": "Support pages: pairing, compatibility-guide, care-and-cleaning, batteries-and-charging, warranty, troubleshooting. /en-us/support/download failed to fetch (http-error)."
+      }
+    ]
+  },
+  "summary": {
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:32:58.826Z",
+        "url": "https://www.hearingsolutions.philips.com/en-us/products/hearing-aids"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:33:11.449Z",
+        "url": "https://www.hearingsolutions.philips.com/en-us/products/hearlink-2-app"
+      }
+    ],
+    "text": "Live, multi-locale Philips HearLink hearing aid brand site (Demant). The en-us catalog at /en-us/products/hearing-aids is static HTML and lists HearLink 60/50/40/30 models. Manuals are PDFs on damcdn.demant.com."
+  }
+}

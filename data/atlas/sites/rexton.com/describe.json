@@ -1,0 +1,406 @@
+{
+  "domain": "rexton.com",
+  "generatedAt": "2026-11-27T19:02:23.084Z",
+  "model": "sonnet",
+  "openQuestions": [
+    "Where is the Document Library URL for user guides? The support page names it but the report gives no link.",
+    "Does the en-us Reach catalog link B-Li and Custom CIC-Li? These pages were not fetched on en-us.",
+    "Are the older families (BiCore, MyCore, TruCore) current or discontinued?"
+  ],
+  "sections": {
+    "archive": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:50:15.885Z",
+            "url": "https://www.rexton.com/en-us/"
+          }
+        ],
+        "text": "Web Archive has copies of the section roots /en-us, /de-de, /en, /en-gb, /fr-fr and /pt-pt, with the latest capture on 2026-10-05. The /en-us root has captures from 2020 to 2026."
+      }
+    ],
+    "links": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:50:48.102Z",
+            "url": "https://www.rexton.com/en-us/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:53:40.235Z",
+            "url": "https://www.rexton.com/en-ca/hearing-test/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:50:45.032Z",
+            "url": "https://www.rexton.com/en-gb/"
+          }
+        ],
+        "text": "The en-us home page links to shop-us.wsa.com (a WS Audiology shop). Other locales link to wsa.com, and en-ca links to costco.ca."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:52:53.104Z",
+            "url": "https://www.rexton.com/en/hearing-aids/reach/"
+          }
+        ],
+        "text": "The locale picker lists the regional sites, all on rexton.com. No redirects were recorded."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:51:42.807Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/bicore/"
+          }
+        ],
+        "text": "The BiCore page contains a malformed Play Store link, http://https//play.google.com/store/apps/details?id=com.connexx.rta."
+      }
+    ],
+    "next": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:51:39.207Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/reach/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:52:53.104Z",
+            "url": "https://www.rexton.com/en/hearing-aids/reach/"
+          }
+        ],
+        "text": "Check whether the Reach page https://www.rexton.com/en-us/hearing-aids/reach/ links every model in the family, since the global /en/ catalog lists B-Li and Custom CIC-Li that the en-us pages checked did not show."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:51:42.807Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/bicore/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:01:58.593Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/mycore/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:01:54.349Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/trucore/"
+          }
+        ],
+        "text": "Decide whether BiCore, MyCore and TruCore pages need catalog coverage, since the config lists only the reach catalog."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:01:11.818Z",
+            "url": "https://www.rexton.com/en-us/support/hearing-aids/bte-rechargeable/"
+          }
+        ],
+        "text": "Find the Document Library for user guides that the BTE support page mentions."
+      }
+    ],
+    "render": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:50:48.102Z",
+            "url": "https://www.rexton.com/en-us/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:51:39.207Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/reach/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:51:30.112Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/reach/r-plus/"
+          }
+        ],
+        "text": "The en-us pages checked do not need scripts to show content."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:50:25.809Z",
+            "url": "https://www.rexton.com/de-de/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:51:11.391Z",
+            "url": "https://www.rexton.com/ja-jp/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:52:10.263Z",
+            "url": "https://www.rexton.com/da-dk/hearing-aids/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:52:39.449Z",
+            "url": "https://www.rexton.com/de-de/local/de-de/downloads/"
+          }
+        ],
+        "text": "Some pages are flagged as needing render: /de-de/, /ja-jp/, /da-dk/hearing-aids/ and /de-de/local/de-de/downloads/."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:51:30.112Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/reach/r-plus/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:50:48.102Z",
+            "url": "https://www.rexton.com/en-us/"
+          }
+        ],
+        "text": "The model pages checked have no JSON-LD. The en-us home page has a LocalBusiness block."
+      }
+    ],
+    "structure": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:01:05.968Z",
+            "url": "https://www.rexton.com/robots.txt"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:49:05.667Z",
+            "url": "https://www.rexton.com/sitemap-en-us.xml"
+          }
+        ],
+        "text": "Locale-prefixed sections: /en-us, /en, /en-gb, /en-ca, /en-in, /en-za, /de-de, /da-dk, /fr-fr, /it-it, /es, /es-mx, /pt-pt, /pt-br, /nl-nl, /tr-tr, /ko-kr, /ja-jp. The sitemap holds 1480 URLs, 81 of them under /en-us."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:01:05.968Z",
+            "url": "https://www.rexton.com/robots.txt"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:49:05.667Z",
+            "url": "https://www.rexton.com/sitemap-en-us.xml"
+          }
+        ],
+        "text": "One sitemap per locale is listed in robots.txt, plus a German shops sitemap at /de-de/shops-sitemap/. The en-us sitemap lists hreflang alternates for other locales."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:51:39.207Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/reach/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:01:11.818Z",
+            "url": "https://www.rexton.com/en-us/support/hearing-aids/bte-rechargeable/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:51:42.807Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/bicore/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:01:58.593Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/mycore/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:01:54.349Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/trucore/"
+          }
+        ],
+        "text": "en-us templates: /en-us/hearing-aids/{family}/{model}/ (reach, bicore, mycore, trucore), /en-us/support/hearing-aids/{type}/, /en-us/support/{topic}/, /en-us/professional/{slug}/, /en-us/hearing-health/{slug}/."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:51:04.447Z",
+            "url": "https://www.rexton.com/fr-fr/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:51:08.029Z",
+            "url": "https://www.rexton.com/it-it/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:50:57.130Z",
+            "url": "https://www.rexton.com/es/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:51:22.330Z",
+            "url": "https://www.rexton.com/pt-pt/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:51:25.625Z",
+            "url": "https://www.rexton.com/tr-tr/"
+          }
+        ],
+        "text": "Non-English locales use localized path words, for example /fr-fr/aides-auditives/, /it-it/apparecchi-acustici/, /es/audifonos/, /pt-pt/aparelhos-auditivos/, /tr-tr/isitme-cihazlari/."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:50:48.102Z",
+            "url": "https://www.rexton.com/en-us/"
+          }
+        ],
+        "text": "Mixed-case locale URLs such as /en-US/hearing-aids/reach also appear in the sitemap templates."
+      }
+    ],
+    "what": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:01:15.526Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/reach/r-li/"
+          }
+        ],
+        "text": "Rexton brand website; the footer says © 2026, WS Audiology A/S."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:51:42.807Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/bicore/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:01:58.593Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/mycore/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:01:54.349Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/trucore/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:53:05.511Z",
+            "url": "https://www.rexton.com/en/hearing-aids/types/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:52:36.271Z",
+            "url": "https://www.rexton.com/de-de/hearing-aids/motioncore/"
+          }
+        ],
+        "text": "The site offers Reach, BiCore, MyCore, TruCore and MotionCore technology families with BTE, RIC, instant-fit and custom styles."
+      }
+    ],
+    "where": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:51:39.207Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/reach/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:51:30.112Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/reach/r-plus/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:51:35.477Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/reach/rugged/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:01:15.526Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/reach/r-li/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:01:20.929Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/reach/custom/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:01:25.853Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/reach/inox-cic-li/"
+          }
+        ],
+        "text": "The en-us catalog is /en-us/hearing-aids/reach/. Model pages found: r-plus, rugged, r-li, custom, inox-cic-li."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:52:53.104Z",
+            "url": "https://www.rexton.com/en/hearing-aids/reach/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:52:44.966Z",
+            "url": "https://www.rexton.com/en/hearing-aids/reach/b-li/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:52:47.518Z",
+            "url": "https://www.rexton.com/en/hearing-aids/reach/custom-cic-li/"
+          }
+        ],
+        "text": "The global /en/hearing-aids/reach/ lists more models than en-us, including B-Li and Custom CIC-Li, with pages at /en/hearing-aids/reach/b-li/ and /en/hearing-aids/reach/custom-cic-li/."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:51:42.807Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/bicore/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:01:58.593Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/mycore/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:01:54.349Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/trucore/"
+          }
+        ],
+        "text": "Older families sit under en-us at /hearing-aids/bicore/, /hearing-aids/mycore/ and /hearing-aids/trucore/. BiCore models include custom-li, r-312, r-li and b."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:01:11.818Z",
+            "url": "https://www.rexton.com/en-us/support/hearing-aids/bte-rechargeable/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:52:02.144Z",
+            "url": "https://www.rexton.com/en-us/support/faq/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:49:05.667Z",
+            "url": "https://www.rexton.com/sitemap-en-us.xml"
+          }
+        ],
+        "text": "Support pages: /en-us/support/hearing-aids/bte-rechargeable/ and other types, /en-us/support/faq/, /en-us/support/app/. The BTE support page points to a Document Library for user guides."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:51:30.112Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/reach/r-plus/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:51:35.477Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/reach/rugged/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:51:39.207Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/reach/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:52:44.966Z",
+            "url": "https://www.rexton.com/en/hearing-aids/reach/b-li/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:52:47.518Z",
+            "url": "https://www.rexton.com/en/hearing-aids/reach/custom-cic-li/"
+          }
+        ],
+        "text": "Documents are PDFs on cdn.rexton.com: product catalogues and per-model feature overviews under /-/media/rexton/global/files/feature-tables/reach/. Feature overviews seen for r-plus, rugged, the Reach family, b-li and custom-cic-li."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:51:58.134Z",
+            "url": "https://www.rexton.com/en-us/hearing-aids/rexton-app/"
+          }
+        ],
+        "text": "Apps: Rexton app on iOS (id 1356550309) and Android (com.connexx.rta; also com.rexton.bxsmartremote), described at /en-us/hearing-aids/rexton-app/."
+      }
+    ]
+  },
+  "summary": {
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:51:39.207Z",
+        "url": "https://www.rexton.com/en-us/hearing-aids/reach/"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:52:53.104Z",
+        "url": "https://www.rexton.com/en/hearing-aids/reach/"
+      }
+    ],
+    "text": "Rexton is WS Audiology's hearing aid brand site, with about 18 locale sections. The en-us catalog is the Reach family under /en-us/hearing-aids/reach/. Model pages carry PDF feature overviews on cdn.rexton.com, and most pages work without scripts."
+  }
+}

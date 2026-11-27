@@ -1,0 +1,2879 @@
+{
+  "archive": {
+    "sections": [
+      {
+        "byYear": {
+          "2018": 34,
+          "2019": 79,
+          "2020": 56,
+          "2021": 125,
+          "2022": 98,
+          "2023": 98,
+          "2024": 114,
+          "2025": 97,
+          "2026": 73
+        },
+        "latest": "20261117174307",
+        "url": "https://www.oticon.com"
+      },
+      {
+        "byYear": {
+          "2025": 2,
+          "2026": 5
+        },
+        "latest": "20260820112709",
+        "url": "https://www.oticon.com/products"
+      },
+      {
+        "byYear": {
+          "2018": 1,
+          "2019": 6,
+          "2020": 4,
+          "2021": 9,
+          "2022": 14,
+          "2023": 19,
+          "2024": 23,
+          "2025": 31,
+          "2026": 13
+        },
+        "latest": "20261009153139",
+        "url": "https://www.oticon.com/support"
+      },
+      {
+        "byYear": {
+          "2018": 1,
+          "2019": 8,
+          "2020": 2,
+          "2021": 7,
+          "2022": 9,
+          "2023": 11,
+          "2024": 12,
+          "2025": 18,
+          "2026": 5
+        },
+        "latest": "20260820112822",
+        "url": "https://www.oticon.com/professionals"
+      },
+      {
+        "byYear": {
+          "2018": 3,
+          "2019": 8,
+          "2020": 5,
+          "2021": 13,
+          "2022": 6,
+          "2023": 15,
+          "2024": 19,
+          "2025": 17,
+          "2026": 3
+        },
+        "latest": "20260715191527",
+        "url": "https://www.oticon.com/inside-oticon"
+      },
+      {
+        "byYear": {
+          "2025": 5,
+          "2026": 6
+        },
+        "latest": "20260820112822",
+        "url": "https://www.oticon.com/hearing-loss"
+      }
+    ]
+  },
+  "budget": 60,
+  "domain": "oticon.com",
+  "failures": [
+    {
+      "detail": "HTTP 404",
+      "reason": "http-error",
+      "url": "https://www.oticon.com/system/not-found"
+    }
+  ],
+  "generatedAt": "2026-11-27T17:29:14.405Z",
+  "mode": "live",
+  "outbound": [
+    {
+      "count": 64,
+      "domain": "linkedin.com",
+      "examples": [
+        "https://www.linkedin.com/company/oticon-inc",
+        "http://www.linkedin.com/in/michaellamberson",
+        "https://www.linkedin.com/in/jessicadefauw/"
+      ]
+    },
+    {
+      "count": 58,
+      "domain": "careers-demant.icims.com",
+      "examples": [
+        "https://careers-demant.icims.com/"
+      ]
+    },
+    {
+      "count": 58,
+      "domain": "facebook.com",
+      "examples": [
+        "https://www.facebook.com/OticonUS/"
+      ]
+    },
+    {
+      "count": 58,
+      "domain": "instagram.com",
+      "examples": [
+        "https://www.instagram.com/oticonusa/"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "myoticon.com",
+      "examples": [
+        "http://www.myoticon.com/"
+      ]
+    },
+    {
+      "count": 3,
+      "domain": "apps.apple.com",
+      "examples": [
+        "https://apps.apple.com/app/id1597064213",
+        "https://apps.apple.com/us/app/oticon-companion/id1597064213",
+        "https://apps.apple.com/gb/app/oticon-companion/id1597064213"
+      ]
+    },
+    {
+      "count": 3,
+      "domain": "play.google.com",
+      "examples": [
+        "https://play.google.com/store/apps/details?id=com.oticon.app",
+        "https://play.google.com/store/apps/details?id=com.oticon.app&hl=en&gl=uk"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "oticon.be",
+      "examples": [
+        "https://www.oticon.be/fr",
+        "https://www.oticon.be/"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "oticon.ch",
+      "examples": [
+        "https://www.oticon.ch/",
+        "https://www.oticon.ch/fr"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "video.demant.com",
+      "examples": [
+        "https://video.demant.com/media/Oticon_Reveal_-_Kristin_Hero_Story_GenPL/1_vlz91x02",
+        "https://video.demant.com/media/Oticon_Reveal_-_Compilation_of_Remarks_Video_GenPL/1_m5idk61u"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "demant.com",
+      "examples": [
+        "http://www.demant.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "dk.linkedin.com",
+      "examples": [
+        "https://dk.linkedin.com/in/lisbeth-meng-collignon-b024632"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "medton-hedim.co.il",
+      "examples": [
+        "https://medton-hedim.co.il/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.ca",
+      "examples": [
+        "https://www.oticon.ca/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.cn",
+      "examples": [
+        "https://www.oticon.cn/hearing-aid-users"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.co.jp",
+      "examples": [
+        "https://www.oticon.co.jp/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.co.kr",
+      "examples": [
+        "https://www.oticon.co.kr/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.co.nz",
+      "examples": [
+        "https://www.oticon.co.nz/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.co.uk",
+      "examples": [
+        "https://www.oticon.co.uk/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.co.za",
+      "examples": [
+        "https://www.oticon.co.za/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.com.au",
+      "examples": [
+        "https://www.oticon.com.au/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.com.br",
+      "examples": [
+        "https://www.oticon.com.br/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.com.sg",
+      "examples": [
+        "https://www.oticon.com.sg/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.com.tr",
+      "examples": [
+        "https://www.oticon.com.tr/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.de",
+      "examples": [
+        "https://www.oticon.de/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.dk",
+      "examples": [
+        "https://www.oticon.dk/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.es",
+      "examples": [
+        "https://www.oticon.es/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.fi",
+      "examples": [
+        "https://www.oticon.fi/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.fr",
+      "examples": [
+        "https://www.oticon.fr/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.hu",
+      "examples": [
+        "https://www.oticon.hu/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.it",
+      "examples": [
+        "https://www.oticon.it/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.nl",
+      "examples": [
+        "https://www.oticon.nl/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.no",
+      "examples": [
+        "https://www.oticon.no/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.pl",
+      "examples": [
+        "https://www.oticon.pl/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.qc.ca",
+      "examples": [
+        "https://www.oticon.qc.ca/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "oticon.se",
+      "examples": [
+        "https://www.oticon.se/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "reveal.oticon.global",
+      "examples": [
+        "https://reveal.oticon.global/en-us/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "tools.google.com",
+      "examples": [
+        "http://tools.google.com/dlpage/gaoptout"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "va.gov",
+      "examples": [
+        "https://www.va.gov/directory/guide/home.asp"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "youtube.com",
+      "examples": [
+        "https://www.youtube.com/user/OticonUSA"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "zeal.oticon.global",
+      "examples": [
+        "https://zeal.oticon.global/en-us/"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 22,
+      "jsonLdTypes": [
+        "CreativeWork"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:25:11.805Z",
+        "url": "https://www.oticon.com/"
+      },
+      "title": "Life-changing technology for people with hearing loss | Hearing care | Oticon",
+      "url": "https://www.oticon.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 13,
+      "jsonLdTypes": [
+        "CreativeWork"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:25:16.599Z",
+        "url": "https://www.oticon.com/find-hearing-center"
+      },
+      "title": "Find Hearing Center",
+      "url": "https://www.oticon.com/find-hearing-center"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 18,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:25:20.711Z",
+        "url": "https://www.oticon.com/hearing-loss"
+      },
+      "title": "Explore hearing loss | Your hearing matters | Oticon hearing aids",
+      "url": "https://www.oticon.com/hearing-loss"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 13,
+      "jsonLdTypes": [
+        "CreativeWork"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:25:23.311Z",
+        "url": "https://www.oticon.com/hearing-test"
+      },
+      "title": "Hearing Test",
+      "url": "https://www.oticon.com/hearing-test"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 19,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:25:27.954Z",
+        "url": "https://www.oticon.com/products"
+      },
+      "title": "See all Oticon hearing aids and accessories | Life-changing technology",
+      "url": "https://www.oticon.com/products"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [],
+      "internalLinks": 0,
+      "jsonLdTypes": [
+        "CreativeWork"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:25:30.179Z",
+        "url": "https://www.oticon.com/products-nhs/accessories/136477/connectclip"
+      },
+      "title": "*",
+      "url": "https://www.oticon.com/products-nhs/accessories/136477/connectclip"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 20,
+      "jsonLdTypes": [
+        "CreativeWork"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:25:32.378Z",
+        "url": "https://www.oticon.com/support"
+      },
+      "title": "How can we help you? | Oticon hearing aids | Support",
+      "url": "https://www.oticon.com/support"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "http://www.demant.com/",
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 14,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:25:37.417Z",
+        "url": "https://www.oticon.com/about-us"
+      },
+      "title": "Founded on care - Helping people with hearing loss | Oticon",
+      "url": "https://www.oticon.com/about-us"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 17,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:25:40.737Z",
+        "url": "https://www.oticon.com/campaigns-b2c/intent"
+      },
+      "title": "Oticon Intent™ | Engage in life like never before",
+      "url": "https://www.oticon.com/campaigns-b2c/intent"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.oticon.app"
+        ],
+        "ios": [
+          "1597064213"
+        ]
+      },
+      "external": [
+        "https://apps.apple.com/app/id1597064213",
+        "https://play.google.com/store/apps/details?id=com.oticon.app",
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 13,
+      "jsonLdTypes": [
+        "CreativeWork"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:25:43.737Z",
+        "url": "https://www.oticon.com/check-compatibility"
+      },
+      "title": "Check compatibility",
+      "url": "https://www.oticon.com/check-compatibility"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 15,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:25:45.897Z",
+        "url": "https://www.oticon.com/government-services"
+      },
+      "title": "Government Services",
+      "url": "https://www.oticon.com/government-services"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/OticonUS/",
+        "https://www.linkedin.com/company/oticon-inc",
+        "https://www.youtube.com/user/OticonUSA",
+        "https://careers-demant.icims.com/",
+        "https://www.instagram.com/oticonusa/"
+      ],
+      "internalLinks": 16,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:25:48.581Z",
+        "url": "https://www.oticon.com/inside-oticon"
+      },
+      "title": "Inside Oticon",
+      "url": "https://www.oticon.com/inside-oticon"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://reveal.oticon.global/en-us/",
+        "http://www.myoticon.com/",
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 26,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:25:50.994Z",
+        "url": "https://www.oticon.com/professionals"
+      },
+      "title": "Oticon for professionals | Outstanding hearing aids with BrainHearing™",
+      "url": "https://www.oticon.com/professionals"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "http://www.myoticon.com/",
+        "https://zeal.oticon.global/en-us/",
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 22,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:25:58.993Z",
+        "url": "https://www.oticon.com/professionals/hearing-solutions/ai"
+      },
+      "title": "Oticon next-generation AI technology | For professionals­­",
+      "url": "https://www.oticon.com/professionals/hearing-solutions/ai"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 20,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:26:03.819Z",
+        "url": "https://www.oticon.com/products/hearing-aids/family/jet-px"
+      },
+      "title": "Oticon Jet PX",
+      "url": "https://www.oticon.com/products/hearing-aids/family/jet-px"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 19,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:26:07.738Z",
+        "url": "https://www.oticon.com/products/hearing-aids/family/play-si"
+      },
+      "title": "Oticon Play SI™ - Incredible hearing aids for kids",
+      "url": "https://www.oticon.com/products/hearing-aids/family/play-si"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 19,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:26:11.679Z",
+        "url": "https://www.oticon.com/products/hearing-aids/family/verit"
+      },
+      "title": "Oticon Verit™ hearing aids | Always ready when you are | Disposable batteries",
+      "url": "https://www.oticon.com/products/hearing-aids/family/verit"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 16,
+      "jsonLdTypes": [
+        "CreativeWork"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:26:14.646Z",
+        "url": "https://www.oticon.com/about-us/distribution-guidelines"
+      },
+      "title": "Distribution Guidelines",
+      "url": "https://www.oticon.com/about-us/distribution-guidelines"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 22,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:26:19.453Z",
+        "url": "https://www.oticon.com/hearing-loss/how-our-hearing-works"
+      },
+      "title": "Discover the crucial role your brain plays in hearing | Oticon",
+      "url": "https://www.oticon.com/hearing-loss/how-our-hearing-works"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 20,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:26:22.553Z",
+        "url": "https://www.oticon.com/hearing-loss/why-your-hearing-matters"
+      },
+      "title": "Why treating hearing loss is vital | Hearing care = healthcare | Oticon",
+      "url": "https://www.oticon.com/hearing-loss/why-your-hearing-matters"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 23,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:26:27.546Z",
+        "url": "https://www.oticon.com/hearing-loss/how-our-hearing-works/speech-in-noise"
+      },
+      "title": "Noise makes conversations harder | Learn why | Oticon hearing aids",
+      "url": "https://www.oticon.com/hearing-loss/how-our-hearing-works/speech-in-noise"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 22,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:26:32.246Z",
+        "url": "https://www.oticon.com/hearing-loss/tinnitus"
+      },
+      "title": "All about tinnitus | Ringing in your ears | Oticon hearing aids",
+      "url": "https://www.oticon.com/hearing-loss/tinnitus"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 24,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:26:35.772Z",
+        "url": "https://www.oticon.com/hearing-loss/children-and-hearing-loss"
+      },
+      "title": "Children and hearing loss",
+      "url": "https://www.oticon.com/hearing-loss/children-and-hearing-loss"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 102,
+      "jsonLdTypes": [
+        "CreativeWork"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:26:39.186Z",
+        "url": "https://www.oticon.com/products/hearing-aids"
+      },
+      "title": "Hearing aids",
+      "url": "https://www.oticon.com/products/hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 14,
+      "jsonLdTypes": [
+        "CreativeWork"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:26:41.682Z",
+        "url": "https://www.oticon.com/products/accessories"
+      },
+      "title": "Explore Oticon hearing aid accessories | Life-changing technology",
+      "url": "https://www.oticon.com/products/accessories"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.oticon.app"
+        ],
+        "ios": [
+          "1597064213"
+        ]
+      },
+      "external": [
+        "https://apps.apple.com/us/app/oticon-companion/id1597064213",
+        "https://play.google.com/store/apps/details?id=com.oticon.app",
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 15,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://damcdn.demant.com/117596b6-fa49-416e-b68b-b23b00d9b27e/283697US_IFU_OT_Companion_App_25.1_1.5.0_Original%20file.pdf",
+        "https://damcdn.demant.com/6a4c61a8-dc07-4ef7-a0de-b18500c465de/277418US_IFU_OT_Companion_App_1.4.0_24.2_Original%20file.pdf",
+        "https://damcdn.demant.com/e9535b4b-6893-4420-a785-b34100834535/292170US_IFU_OT_Companion_App_25.2_1.6.0_Original%20file.pdf",
+        "https://damcdn.demant.com/6d141f9d-7885-4b18-a69b-b3bb00e70dc7/296704US_IFU_OT_Companion_App_26.1_1.7.0_Original%20file.pdf",
+        "https://damcdn.demant.com/cb233b74-b3b7-4e78-999a-b46000e4f1e6/303393US_IFU_OT_Companion_App_26.2_1.8.0_Original%20file.pdf",
+        "https://damcdn.demant.com/5ba28819-9048-4192-b75e-b06d00d80332/15500-0170%20-%20US%20Companion%20App%20CBR_Original%20file.pdf",
+        "https://damcdn.demant.com/9c568d42-093a-420c-a47d-b33900de0a65/15500-0395-tinnitus-soundsupport-information-sheet_Original%20file.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:26:46.152Z",
+        "url": "https://www.oticon.com/products/app"
+      },
+      "title": "Oticon Companion app | One powerful app. So many benefits.",
+      "url": "https://www.oticon.com/products/app"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 14,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [
+        "https://damcdn.demant.com/5e0cc803-911f-4555-a8ee-b4160080a0c0/S-1303901US_PDF_OT_charger_compatibility_overview_26-1_Original%20file.pdf",
+        "https://damcdn.demant.com/728618ed-5391-4d2f-a5b4-b2890145f254/25-578095%20-%2015500-0218%20-%20RM%20-%20H1%202025%20-%20Phone%20Compatibility%20List%20-%20DC%201.26_v4_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/f66d8fa4-542d-43ca-9682-b289016639bd/15500-0386%20-Compatibility%20Overview%20for%20Streaming%20and%20Accessories_2025_Original%20file.pdf",
+        "https://assets.ha.demant.com/-/media/project/hearing-aid/oticon/shared/pdf/countries/us/s-1304503us_pdf_ot_cros_compatibility_overview_26_1.pdf?rev=a8ee51df06df4d7bbbbc94aa936daa3d&hash=DA49F7F48CA302856B927C850CBFF168"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:26:49.451Z",
+        "url": "https://www.oticon.com/support/compatibility-guide"
+      },
+      "title": "Compatibility Guide",
+      "url": "https://www.oticon.com/support/compatibility-guide"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 22,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:26:51.828Z",
+        "url": "https://www.oticon.com/support/troubleshooting"
+      },
+      "title": "Troubleshooting | Oticon hearing aids | Find a solution here",
+      "url": "https://www.oticon.com/support/troubleshooting"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 33,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList",
+        "CollectionPage"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:26:54.004Z",
+        "url": "https://www.oticon.com/support/pairing"
+      },
+      "title": "How to pair hearing aids with other devices | Oticon hearing aids",
+      "url": "https://www.oticon.com/support/pairing"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 22,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:26:56.934Z",
+        "url": "https://www.oticon.com/support/life-with-a-hearing-aid"
+      },
+      "title": "Everyday hearing aid use | Good advice for you from Oticon",
+      "url": "https://www.oticon.com/support/life-with-a-hearing-aid"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 26,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:27:01.964Z",
+        "url": "https://www.oticon.com/support/oticon-app"
+      },
+      "title": "App support | Oticon Companion for hearing aids | Remote Care",
+      "url": "https://www.oticon.com/support/oticon-app"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 19,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:27:07.087Z",
+        "url": "https://www.oticon.com/support/care-and-cleaning"
+      },
+      "title": "Hearing aid cleaning and care | Good advice for you from Oticon",
+      "url": "https://www.oticon.com/support/care-and-cleaning"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 17,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:27:09.361Z",
+        "url": "https://www.oticon.com/support/batteries-and-charging"
+      },
+      "title": "Batteries and charging | Good advice for you from Oticon",
+      "url": "https://www.oticon.com/support/batteries-and-charging"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 20,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:27:11.725Z",
+        "url": "https://www.oticon.com/professionals/brainhearing/eriksholm-research-centre"
+      },
+      "title": "Discovering tomorrow's hearing solutions | BrainHearing™ | Oticon",
+      "url": "https://www.oticon.com/professionals/brainhearing/eriksholm-research-centre"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 19,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:27:15.361Z",
+        "url": "https://www.oticon.com/products/hearing-aids/family/intent"
+      },
+      "title": "Oticon Intent | Quality hearing aids | Engage in life like never before",
+      "url": "https://www.oticon.com/products/hearing-aids/family/intent"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 25,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:27:20.325Z",
+        "url": "https://www.oticon.com/hearing-loss/life-with-a-hearing-loss/your-first-visit-to-a-hearing-clinic/connectivity"
+      },
+      "title": "Oticon Bluetooth® hearing aids | Simply connect to what matters most",
+      "url": "https://www.oticon.com/hearing-loss/life-with-a-hearing-loss/your-first-visit-to-a-hearing-clinic/connectivity"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 16,
+      "jsonLdTypes": [
+        "Product"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:27:26.470Z",
+        "url": "https://www.oticon.com/products/accessories/728329/easy-le-adapter"
+      },
+      "title": "Easy LE Adapter - miniRITE",
+      "url": "https://www.oticon.com/products/accessories/728329/easy-le-adapter"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "http://www.myoticon.com/",
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 18,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://damcdn.demant.com/c0e0b8bb-d989-40c7-9a34-b49c011ea915/15500-7171-Reveal-Trifold_Original%20file.pdf",
+        "https://damcdn.demant.com/c2c740cb-1f26-479a-a648-b49c011e1350/15500-7170-Reveal-Sales-Sheet_Original%20file.pdf",
+        "https://damcdn.demant.com/e40cb301-8344-4afe-95b1-b49c011e220e/15500-7173-Reveal-Consumer-Brochure_Original%20file.pdf",
+        "https://damcdn.demant.com/dc32047e-2875-4dd1-9f95-b49c011e15e3/15500-7164-Reveal-Product-Differentiation-Tool_Original%20file.pdf",
+        "https://damcdn.demant.com/e3ce1acb-0b8f-4796-a997-b49d00ec3b21/15500-7194-Oticon-Reveal-Patient-Language-Guide_Original%20file.pdf",
+        "https://damcdn.demant.com/736c7c09-28a2-4854-80af-b36e00ed03f3/15555-10527-Reveal-Portfolio-Diagram-8-26_Original%20file.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:27:28.747Z",
+        "url": "https://www.oticon.com/products/hearing-aids/family/reveal"
+      },
+      "title": "Oticon Reveal™ hearing aids | Dual AI | For professionals",
+      "url": "https://www.oticon.com/products/hearing-aids/family/reveal"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 22,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:27:31.787Z",
+        "url": "https://www.oticon.com/products/hearing-aids/family/real"
+      },
+      "title": "Oticon Real | Advanced hearing aids | Stay sharp in the real world",
+      "url": "https://www.oticon.com/products/hearing-aids/family/real"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 18,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:27:35.371Z",
+        "url": "https://www.oticon.com/products/hearing-aids/family/own-si"
+      },
+      "title": "Oticon Own SI™ | Invisible and discreet hearing aids | Made for you",
+      "url": "https://www.oticon.com/products/hearing-aids/family/own-si"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 20,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:27:38.835Z",
+        "url": "https://www.oticon.com/products/hearing-aids/family/play-px"
+      },
+      "title": "Oticon Play PX | Hearing aids | Unleash the magic of childhood",
+      "url": "https://www.oticon.com/products/hearing-aids/family/play-px"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 23,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:27:42.112Z",
+        "url": "https://www.oticon.com/products/hearing-aids/family/own"
+      },
+      "title": "Oticon Own family page Oticon Own™ | Invisible and discreet hearing aids | Made for you",
+      "url": "https://www.oticon.com/products/hearing-aids/family/own"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 18,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:27:45.063Z",
+        "url": "https://www.oticon.com/products/hearing-aids/family/xceed"
+      },
+      "title": "Oticon Xceed | Extra powerful hearing aids | Open up your world",
+      "url": "https://www.oticon.com/products/hearing-aids/family/xceed"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://video.demant.com/media/Oticon_Reveal_-_Kristin_Hero_Story_GenPL/1_vlz91x02",
+        "https://video.demant.com/media/Oticon_Reveal_-_Compilation_of_Remarks_Video_GenPL/1_m5idk61u",
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 13,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:27:50.312Z",
+        "url": "https://www.oticon.com/campaigns-b2c/reveal"
+      },
+      "title": "Oticon Reveal",
+      "url": "https://www.oticon.com/campaigns-b2c/reveal"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 14,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:27:53.808Z",
+        "url": "https://www.oticon.com/campaigns-b2c/zeal"
+      },
+      "title": "Oticon Zeal",
+      "url": "https://www.oticon.com/campaigns-b2c/zeal"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 15,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:27:56.292Z",
+        "url": "https://www.oticon.com/about-us/contact-us"
+      },
+      "title": "Contact us",
+      "url": "https://www.oticon.com/about-us/contact-us"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "http://www.linkedin.com/in/michaellamberson",
+        "https://dk.linkedin.com/in/lisbeth-meng-collignon-b024632",
+        "https://www.linkedin.com/in/jessicadefauw/",
+        "https://www.linkedin.com/in/adam-fitzsimmons-86945a39/",
+        "https://www.linkedin.com/in/mike-marcinek-6403767/",
+        "https://www.linkedin.com/in/lydia-reilly-1a2255131",
+        "https://www.linkedin.com/in/juliaryanccxp/",
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 14,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:28:00.591Z",
+        "url": "https://www.oticon.com/inside-oticon/leadership-team"
+      },
+      "title": "Our Leadership Team",
+      "url": "https://www.oticon.com/inside-oticon/leadership-team"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 16,
+      "jsonLdTypes": [
+        "CreativeWork"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:28:03.918Z",
+        "url": "https://www.oticon.com/about-us/consumer-advisory"
+      },
+      "title": "Consumer Advisory",
+      "url": "https://www.oticon.com/about-us/consumer-advisory"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 13,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://p3.aprimocdn.net/dgs/e4dbf351-8fa6-4349-84ea-b35200705b1a/alabama-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/eb81b5b0-119c-4c83-b260-b352007056b4/arizona-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/19843bbb-a5a3-43c2-8869-b35200705575/arkansas-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/bd336804-7360-4ada-8d4e-b3520070547f/california-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/23f75651-58be-418e-882d-b352007053a1/colorado-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/034eaaae-8c88-40d6-b992-b35200705299/connecticut-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/73b268d1-d462-4c56-9c3c-b35200705134/dist-of-columbia-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/47f34678-c0a5-4b9b-b33b-b35200705017/florida-exemption-and-resale-letter_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/5aa2e012-9561-4d18-97fd-b35200704fad/georgia-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/f5f37f2d-9ed8-4e42-b938-b352007037ff/hawaii-exemption-and-resale--oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/605750eb-b4dd-4657-afb1-b352007036e3/idaho-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/6fe495cc-99d9-43a5-bc1b-b352007035ed/illinois-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/f3d1c38b-9a08-4ef8-a920-b352007034e5/indiana-exemption-and-resale-oticon2_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/d81f40ca-a702-40cb-8a3e-b352007034f6/iowa-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/6d0ec5b0-48c5-498f-9dee-b352007032b9/kansas-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/4cba1e02-3312-4b15-9b42-b3520070319a/kentucky-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/cb8225e4-b711-4bc5-8185-b35200704ef7/louisiana-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/0b00d6bb-8a92-41af-abe0-b35200704dfd/maine-exemption-and-resale-letter_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/0c8bdc00-7eb8-467e-adfd-b35200704caa/maryland-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/5ac3eeef-5164-4ee4-abff-b35200704bdc/massachusetts-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/b5bc3dd4-8035-4471-9f27-b35200704afb/michigan-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/d9f3600e-644d-4f79-a5e3-b35200704a08/minnesota-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/ce47022d-5d8c-422f-80e6-b352007048df/mississippi-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/9a3f9a5d-d927-4627-9b76-b3520070480f/missouri-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/d7cced9a-7d40-45b9-b434-b35200704622/nebraska-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/67f6876e-568c-4b60-a94e-b3520070451a/nevada-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/eeafc935-f945-4350-8a1d-b35200704392/new-jersey-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/710be4c2-2bc8-481e-bd1a-b3520070429f/new-mexico-exemption-and-resale-letter_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/7bdaf38a-848b-43da-8b18-b3520070420e/new-york-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/47a335a7-2df3-4dbd-9f35-b3520070412c/north-carolina-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/4bceefa4-070c-4ed6-bb5a-b35200704050/north-dakota-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/1ecd0dc8-937b-4d6a-b9fd-b35200703f25/ohio-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/e3fd2156-2ae9-4ff0-b3df-b35200703e64/oklahoma-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/2ef241c7-798b-4a6c-9338-b35200703b01/rhode-island-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/e59aa5dd-ba03-43c8-987e-b35200703a04/south-carolina-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/ed8da332-cb4c-4c1d-b8c9-b3520070390e/south-dakota-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/f38fad1b-5627-4c35-a30f-b35200700ec6/tennessee-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/60ed7393-06ec-4275-86ca-b35200700de1/texas-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/6202fd13-75a0-4a23-9085-b35200700c85/utah-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/eacf208a-64cb-47ec-94e1-b35200700bb1/vermont-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/ec30a59b-8271-41a3-a26e-b35200700aa3/virginia-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/d8707642-55a4-4a42-acc2-b352006fff2d/washington-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/cf8796a3-6ac8-45c3-9d26-b352006ffe3a/west-virginia-exemption-and-resale-oticon_Original%20file.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:28:07.677Z",
+        "url": "https://www.oticon.com/inside-oticon/tax-exemption-certificates"
+      },
+      "title": "Tax Exemption Certificates",
+      "url": "https://www.oticon.com/inside-oticon/tax-exemption-certificates"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 16,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:28:11.231Z",
+        "url": "https://www.oticon.com/about-us/terms-and-conditions-of-sale"
+      },
+      "title": "Terms and conditions of sale",
+      "url": "https://www.oticon.com/about-us/terms-and-conditions-of-sale"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "http://tools.google.com/dlpage/gaoptout",
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 12,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:28:16.156Z",
+        "url": "https://www.oticon.com/about-us/privacy-policy"
+      },
+      "url": "https://www.oticon.com/about-us/privacy-policy"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 12,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:28:19.820Z",
+        "url": "https://www.oticon.com/about-us/cookie-policy"
+      },
+      "title": "Cookie policy",
+      "url": "https://www.oticon.com/about-us/cookie-policy"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 12,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:28:22.050Z",
+        "url": "https://www.oticon.com/about-us/disclaimer"
+      },
+      "title": "Disclaimer",
+      "url": "https://www.oticon.com/about-us/disclaimer"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.oticon.com.au/",
+        "https://www.oticon.cn/hearing-aid-users",
+        "https://www.oticon.co.jp/",
+        "https://www.oticon.co.nz/",
+        "https://www.oticon.com.sg/",
+        "https://www.oticon.co.kr/",
+        "https://www.oticon.be/fr",
+        "https://www.oticon.be/",
+        "https://www.oticon.dk/",
+        "https://www.oticon.fi/",
+        "https://www.oticon.fr/",
+        "https://www.oticon.de/",
+        "https://www.oticon.hu/",
+        "https://www.oticon.it/",
+        "https://www.oticon.no/",
+        "https://www.oticon.pl/",
+        "https://www.oticon.es/",
+        "https://www.oticon.se/",
+        "https://www.oticon.ch/",
+        "https://www.oticon.ch/fr",
+        "https://www.oticon.nl/",
+        "https://www.oticon.com.tr/",
+        "https://www.oticon.co.uk/",
+        "https://www.oticon.com.br/",
+        "https://www.oticon.ca/",
+        "https://www.oticon.qc.ca/",
+        "https://medton-hedim.co.il/",
+        "https://www.oticon.co.za/",
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 12,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:28:25.225Z",
+        "url": "https://www.oticon.com/about-us/marketsites"
+      },
+      "title": "Market sites",
+      "url": "https://www.oticon.com/about-us/marketsites"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.oticon.app"
+        ],
+        "ios": [
+          "1597064213"
+        ]
+      },
+      "external": [
+        "https://apps.apple.com/gb/app/oticon-companion/id1597064213",
+        "https://play.google.com/store/apps/details?id=com.oticon.app&hl=en&gl=uk",
+        "https://www.va.gov/directory/guide/home.asp",
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 29,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://damcdn.demant.com/0ed8f286-6139-499e-a5d4-b3e101166a91/15500-7130-Indy-Connectivity-Brochure-8-26_Original%20file.pdf",
+        "https://damcdn.demant.com/7521850b-6120-49a9-94e5-b4d40114b576/15500-7203-Indy-Connectivity-Brochure-Spanish_Original%20file.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:28:30.237Z",
+        "url": "https://www.oticon.com/government-services/for-patients"
+      },
+      "title": "Oticon Government Services for Patients",
+      "url": "https://www.oticon.com/government-services/for-patients"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 20,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:28:34.661Z",
+        "url": "https://www.oticon.com/government-services/for-professionals"
+      },
+      "title": "Oticon Government Services for Professionals",
+      "url": "https://www.oticon.com/government-services/for-professionals"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 29,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "ItemList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:28:38.778Z",
+        "url": "https://www.oticon.com/inside-oticon/press"
+      },
+      "title": "Press center",
+      "url": "https://www.oticon.com/inside-oticon/press"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "http://www.myoticon.com/",
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 14,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:28:42.615Z",
+        "url": "https://www.oticon.com/professionals/campaigns-b2b/zeal"
+      },
+      "title": "Oticon Zeal",
+      "url": "https://www.oticon.com/professionals/campaigns-b2b/zeal"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://careers-demant.icims.com/",
+        "https://www.facebook.com/OticonUS/",
+        "https://www.instagram.com/oticonusa/",
+        "https://www.linkedin.com/company/oticon-inc"
+      ],
+      "internalLinks": 21,
+      "jsonLdTypes": [
+        "CreativeWork",
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:28:45.146Z",
+        "url": "https://www.oticon.com/professionals/clinical-experience"
+      },
+      "title": "Optimize your hearing care | Oticon Clinical Experience | For professionals",
+      "url": "https://www.oticon.com/professionals/clinical-experience"
+    }
+  ],
+  "pdfHosts": [
+    {
+      "count": 44,
+      "examples": [
+        "https://p3.aprimocdn.net/dgs/f66d8fa4-542d-43ca-9682-b289016639bd/15500-0386%20-Compatibility%20Overview%20for%20Streaming%20and%20Accessories_2025_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/e4dbf351-8fa6-4349-84ea-b35200705b1a/alabama-exemption-and-resale-oticon_Original%20file.pdf",
+        "https://p3.aprimocdn.net/dgs/eb81b5b0-119c-4c83-b260-b352007056b4/arizona-exemption-and-resale-oticon_Original%20file.pdf"
+      ],
+      "host": "p3.aprimocdn.net"
+    },
+    {
+      "count": 17,
+      "examples": [
+        "https://damcdn.demant.com/117596b6-fa49-416e-b68b-b23b00d9b27e/283697US_IFU_OT_Companion_App_25.1_1.5.0_Original%20file.pdf",
+        "https://damcdn.demant.com/6a4c61a8-dc07-4ef7-a0de-b18500c465de/277418US_IFU_OT_Companion_App_1.4.0_24.2_Original%20file.pdf",
+        "https://damcdn.demant.com/e9535b4b-6893-4420-a785-b34100834535/292170US_IFU_OT_Companion_App_25.2_1.6.0_Original%20file.pdf"
+      ],
+      "host": "damcdn.demant.com"
+    },
+    {
+      "count": 1,
+      "examples": [
+        "https://assets.ha.demant.com/-/media/project/hearing-aid/oticon/shared/pdf/countries/us/s-1304503us_pdf_ot_cros_compatibility_overview_26_1.pdf?rev=a8ee51df06df4d7bbbbc94aa936daa3d&hash=DA49F7F48CA302856B927C850CBFF168"
+      ],
+      "host": "assets.ha.demant.com"
+    }
+  ],
+  "redirects": [],
+  "robots": {
+    "groups": [
+      {
+        "allow": [
+          "/"
+        ],
+        "disallow": [],
+        "userAgents": [
+          "*"
+        ]
+      }
+    ],
+    "ref": {
+      "fetchedAt": "2026-11-27T17:25:04.232Z",
+      "url": "https://www.oticon.com/robots.txt"
+    },
+    "sitemaps": [
+      "https://www.oticon.com/sitemap.xml"
+    ],
+    "status": 200
+  },
+  "sitemap": {
+    "refs": [
+      {
+        "fetchedAt": "2026-11-27T17:25:08.747Z",
+        "url": "https://www.oticon.com/sitemap.xml"
+      }
+    ],
+    "sections": [
+      {
+        "count": 111,
+        "path": "/products"
+      },
+      {
+        "count": 80,
+        "path": "/support"
+      },
+      {
+        "count": 68,
+        "path": "/professionals"
+      },
+      {
+        "count": 43,
+        "path": "/inside-oticon"
+      },
+      {
+        "count": 23,
+        "path": "/hearing-loss"
+      },
+      {
+        "count": 13,
+        "path": "/government-services"
+      },
+      {
+        "count": 12,
+        "path": "/products-nhs"
+      },
+      {
+        "count": 10,
+        "path": "/about-us"
+      },
+      {
+        "count": 4,
+        "path": "/campaigns-b2c"
+      },
+      {
+        "count": 1,
+        "path": "/"
+      },
+      {
+        "count": 1,
+        "path": "/check-compatibility"
+      },
+      {
+        "count": 1,
+        "path": "/find-hearing-center"
+      },
+      {
+        "count": 1,
+        "path": "/hearing-test"
+      },
+      {
+        "count": 1,
+        "path": "/system"
+      }
+    ],
+    "urlCount": 369
+  },
+  "start": "https://www.oticon.com",
+  "templates": [
+    {
+      "count": 73,
+      "examples": [
+        "https://www.oticon.com/products/100051/oticon-opn-bte-plus-power",
+        "https://www.oticon.com/products/100052/oticon-opn-minirite-t",
+        "https://www.oticon.com/products/1069796/oticon-cros-re-minirite-r"
+      ],
+      "pattern": "https://www.oticon.com/products/{n}/{slug}"
+    },
+    {
+      "count": 36,
+      "examples": [
+        "https://www.oticon.com/inside-oticon/press/2024/2024-1",
+        "https://www.oticon.com/inside-oticon/press/2024/2024-10",
+        "https://www.oticon.com/inside-oticon/press/2024/2024-11"
+      ],
+      "pattern": "https://www.oticon.com/inside-oticon/press/{n}/{slug}"
+    },
+    {
+      "count": 23,
+      "examples": [
+        "https://www.oticon.com/professionals/ask-question",
+        "https://www.oticon.com/professionals/audiology-students",
+        "https://www.oticon.com/professionals/bdg"
+      ],
+      "pattern": "https://www.oticon.com/professionals/{slug}"
+    },
+    {
+      "count": 16,
+      "examples": [
+        "https://www.oticon.com/products/hearing-aids/family/cros",
+        "https://www.oticon.com/products/hearing-aids/family/intent",
+        "https://www.oticon.com/products/hearing-aids/family/jet-px"
+      ],
+      "pattern": "https://www.oticon.com/products/hearing-aids/family/{slug}"
+    },
+    {
+      "count": 12,
+      "examples": [
+        "https://www.oticon.com/products-nhs/accessories/136477/connectclip",
+        "https://www.oticon.com/products-nhs/accessories/139382/oticon-safeline",
+        "https://www.oticon.com/products-nhs/accessories/139744/tv-adapter-30"
+      ],
+      "pattern": "https://www.oticon.com/products-nhs/accessories/{n}/{slug}"
+    },
+    {
+      "count": 12,
+      "examples": [
+        "https://www.oticon.com/products/accessories/136477/connectclip",
+        "https://www.oticon.com/products/accessories/139382/oticon-safeline",
+        "https://www.oticon.com/products/accessories/139744/tv-adapter-30"
+      ],
+      "pattern": "https://www.oticon.com/products/accessories/{n}/{slug}"
+    },
+    {
+      "count": 10,
+      "examples": [
+        "https://www.oticon.com/about-us",
+        "https://www.oticon.com/check-compatibility",
+        "https://www.oticon.com/find-hearing-center"
+      ],
+      "pattern": "https://www.oticon.com/{slug}"
+    },
+    {
+      "count": 10,
+      "examples": [
+        "https://www.oticon.com/support/oticon-app/help-with-the-oticon-app/how-to-access-troubleshooting-in-oticon-companion",
+        "https://www.oticon.com/support/oticon-app/help-with-the-oticon-app/how-to-adjust-sound-while-streaming",
+        "https://www.oticon.com/support/oticon-app/help-with-the-oticon-app/how-to-adjust-surrounding-sounds-with-sound-equalizer"
+      ],
+      "pattern": "https://www.oticon.com/support/oticon-app/help-with-the-oticon-app/{slug}"
+    },
+    {
+      "count": 9,
+      "examples": [
+        "https://www.oticon.com/professionals/training/blueridgeregistration",
+        "https://www.oticon.com/professionals/training/centralregistration",
+        "https://www.oticon.com/professionals/training/midamericaregistration"
+      ],
+      "pattern": "https://www.oticon.com/professionals/training/{slug}"
+    },
+    {
+      "count": 8,
+      "examples": [
+        "https://www.oticon.com/about-us/consumer-advisory",
+        "https://www.oticon.com/about-us/contact-us",
+        "https://www.oticon.com/about-us/cookie-policy"
+      ],
+      "pattern": "https://www.oticon.com/about-us/{slug}"
+    },
+    {
+      "count": 8,
+      "examples": [
+        "https://www.oticon.com/professionals/clinical-experience/act",
+        "https://www.oticon.com/professionals/clinical-experience/bimodal-fitting",
+        "https://www.oticon.com/professionals/clinical-experience/genie-2"
+      ],
+      "pattern": "https://www.oticon.com/professionals/clinical-experience/{slug}"
+    },
+    {
+      "count": 8,
+      "examples": [
+        "https://www.oticon.com/support/batteries-and-charging",
+        "https://www.oticon.com/support/care-and-cleaning",
+        "https://www.oticon.com/support/compatibility-guide"
+      ],
+      "pattern": "https://www.oticon.com/support/{slug}"
+    },
+    {
+      "count": 8,
+      "examples": [
+        "https://www.oticon.com/support/pairing/apple/how-to-connect-your-hearing-aids-with-Vision-Pro",
+        "https://www.oticon.com/support/pairing/apple/how-to-connect-your-hearing-aids-with-vision-pro",
+        "https://www.oticon.com/support/pairing/apple/how-to-pair-hearing-aids-with-apple-watch"
+      ],
+      "pattern": "https://www.oticon.com/support/pairing/apple/{slug}"
+    },
+    {
+      "count": 7,
+      "examples": [
+        "https://www.oticon.com/government-services/for-professionals/intent",
+        "https://www.oticon.com/government-services/for-professionals/no-compromises",
+        "https://www.oticon.com/government-services/for-professionals/request-demo"
+      ],
+      "pattern": "https://www.oticon.com/government-services/for-professionals/{slug}"
+    },
+    {
+      "count": 7,
+      "examples": [
+        "https://www.oticon.com/hearing-loss/children-and-hearing-loss",
+        "https://www.oticon.com/hearing-loss/hearing-aid-reviews",
+        "https://www.oticon.com/hearing-loss/hearing-loss-simulator"
+      ],
+      "pattern": "https://www.oticon.com/hearing-loss/{slug}"
+    },
+    {
+      "count": 7,
+      "examples": [
+        "https://www.oticon.com/professionals/hearing-solutions/ai",
+        "https://www.oticon.com/professionals/hearing-solutions/app",
+        "https://www.oticon.com/professionals/hearing-solutions/connectivity"
+      ],
+      "pattern": "https://www.oticon.com/professionals/hearing-solutions/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.oticon.com/government-services/for-patients",
+        "https://www.oticon.com/government-services/for-professionals",
+        "https://www.oticon.com/government-services/gs-financial-disclosure"
+      ],
+      "pattern": "https://www.oticon.com/government-services/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.oticon.com/inside-oticon/focus-on-people",
+        "https://www.oticon.com/inside-oticon/leadership-team",
+        "https://www.oticon.com/inside-oticon/myoticon-videos"
+      ],
+      "pattern": "https://www.oticon.com/inside-oticon/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.oticon.com/products/hearing-aids/category/behind-the-ear",
+        "https://www.oticon.com/products/hearing-aids/category/children-and-teens",
+        "https://www.oticon.com/products/hearing-aids/category/in-the-ear"
+      ],
+      "pattern": "https://www.oticon.com/products/hearing-aids/category/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.oticon.com/professionals/campaigns-b2b/intent",
+        "https://www.oticon.com/professionals/campaigns-b2b/own-si",
+        "https://www.oticon.com/professionals/campaigns-b2b/play-si"
+      ],
+      "pattern": "https://www.oticon.com/professionals/campaigns-b2b/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.oticon.com/support/care-and-cleaning/basic-hearing-aid-use/how-to-clean-hearing-aids",
+        "https://www.oticon.com/support/care-and-cleaning/basic-hearing-aid-use/how-to-clean-your-ears",
+        "https://www.oticon.com/support/care-and-cleaning/basic-hearing-aid-use/how-to-replace-earpieces-on-hearing-aids"
+      ],
+      "pattern": "https://www.oticon.com/support/care-and-cleaning/basic-hearing-aid-use/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.oticon.com/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-listen-to-auracast-broadcasts-with-hearing-aids",
+        "https://www.oticon.com/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-listen-to-music-with-hearing-aids",
+        "https://www.oticon.com/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-make-hands-free-calls-with-hearing-aids"
+      ],
+      "pattern": "https://www.oticon.com/support/life-with-a-hearing-aid/connecting-to-other-devices/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.oticon.com/support/pairing/hearing-aid-accessories/how-to-pair-hearing-aids-with-connectclip",
+        "https://www.oticon.com/support/pairing/hearing-aid-accessories/how-to-pair-hearing-aids-with-easy-le-adapter",
+        "https://www.oticon.com/support/pairing/hearing-aid-accessories/how-to-pair-hearing-aids-with-edumic"
+      ],
+      "pattern": "https://www.oticon.com/support/pairing/hearing-aid-accessories/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.oticon.com/campaigns-b2c/intent",
+        "https://www.oticon.com/campaigns-b2c/own-si",
+        "https://www.oticon.com/campaigns-b2c/reveal"
+      ],
+      "pattern": "https://www.oticon.com/campaigns-b2c/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.oticon.com/hearing-loss/children-and-hearing-loss/infants-toddlers-and-pre-schoolers",
+        "https://www.oticon.com/hearing-loss/children-and-hearing-loss/information-for-parents",
+        "https://www.oticon.com/hearing-loss/children-and-hearing-loss/school-aged"
+      ],
+      "pattern": "https://www.oticon.com/hearing-loss/children-and-hearing-loss/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.oticon.com/hearing-loss/life-with-a-hearing-loss/get-the-most-out-of-your-hearing-aids",
+        "https://www.oticon.com/hearing-loss/life-with-a-hearing-loss/i-might-have-a-hearing-loss",
+        "https://www.oticon.com/hearing-loss/life-with-a-hearing-loss/take-action-on-your-hearing-loss"
+      ],
+      "pattern": "https://www.oticon.com/hearing-loss/life-with-a-hearing-loss/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.oticon.com/professionals/brainhearing/brainhearing-network",
+        "https://www.oticon.com/professionals/brainhearing/eriksholm-research-centre",
+        "https://www.oticon.com/professionals/brainhearing/research"
+      ],
+      "pattern": "https://www.oticon.com/professionals/brainhearing/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.oticon.com/professionals/campaigns-b2b/intent/intent-brainhearing",
+        "https://www.oticon.com/professionals/campaigns-b2b/intent/intent-evidence",
+        "https://www.oticon.com/professionals/campaigns-b2b/intent/intent-family"
+      ],
+      "pattern": "https://www.oticon.com/professionals/campaigns-b2b/intent/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.oticon.com/support/pairing/android",
+        "https://www.oticon.com/support/pairing/apple",
+        "https://www.oticon.com/support/pairing/hearing-aid-accessories"
+      ],
+      "pattern": "https://www.oticon.com/support/pairing/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.oticon.com/support/pairing/android/how-to-pair-hearing-aids-with-android-devices",
+        "https://www.oticon.com/support/pairing/android/how-to-pair-with-android-using-fast-pair",
+        "https://www.oticon.com/support/pairing/android/how-to-uninstall-oticon-app-from-android-device"
+      ],
+      "pattern": "https://www.oticon.com/support/pairing/android/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.oticon.com/support/troubleshooting/android",
+        "https://www.oticon.com/support/troubleshooting/apple",
+        "https://www.oticon.com/support/troubleshooting/hearing-aids"
+      ],
+      "pattern": "https://www.oticon.com/support/troubleshooting/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.oticon.com/support/troubleshooting/oticon-app/problems-connecting-hearing-aids-to-other-devices",
+        "https://www.oticon.com/support/troubleshooting/oticon-app/solving-problems-with-remote-care",
+        "https://www.oticon.com/support/troubleshooting/oticon-app/why-does-oticon-app-only-show-one-hearing-aid"
+      ],
+      "pattern": "https://www.oticon.com/support/troubleshooting/oticon-app/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.oticon.com/hearing-loss/how-our-hearing-works/common-causes-of-hearing-loss",
+        "https://www.oticon.com/hearing-loss/how-our-hearing-works/hearing-pathway",
+        "https://www.oticon.com/hearing-loss/how-our-hearing-works/speech-in-noise"
+      ],
+      "pattern": "https://www.oticon.com/hearing-loss/how-our-hearing-works/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.oticon.com/products/accessories",
+        "https://www.oticon.com/products/app",
+        "https://www.oticon.com/products/hearing-aids"
+      ],
+      "pattern": "https://www.oticon.com/products/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.oticon.com/professionals/partnering-with-oticon/consumer-marketing",
+        "https://www.oticon.com/professionals/partnering-with-oticon/practice-resources",
+        "https://www.oticon.com/professionals/partnering-with-oticon/training-and-education"
+      ],
+      "pattern": "https://www.oticon.com/professionals/partnering-with-oticon/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.oticon.com/support/life-with-a-hearing-aid/basic-hearing-aid-use/first-days-with-new-hearing-aids",
+        "https://www.oticon.com/support/life-with-a-hearing-aid/basic-hearing-aid-use/how-to-put-on-and-remove-hearing-aids",
+        "https://www.oticon.com/support/life-with-a-hearing-aid/basic-hearing-aid-use/how-to-turn-hearing-aids-on-and-off"
+      ],
+      "pattern": "https://www.oticon.com/support/life-with-a-hearing-aid/basic-hearing-aid-use/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.oticon.com/support/oticon-app/help-with-the-oticon-app",
+        "https://www.oticon.com/support/oticon-app/remote-care",
+        "https://www.oticon.com/support/oticon-app/update-your-hearing-aids"
+      ],
+      "pattern": "https://www.oticon.com/support/oticon-app/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.oticon.com/support/pairing/tvs-and-other-systems-with-sound/how-to-pair-hearing-aids-with-computer",
+        "https://www.oticon.com/support/pairing/tvs-and-other-systems-with-sound/how-to-pair-hearing-aids-with-tv-adapter",
+        "https://www.oticon.com/support/pairing/tvs-and-other-systems-with-sound/how-to-unpair-hearing-aids-from-computer"
+      ],
+      "pattern": "https://www.oticon.com/support/pairing/tvs-and-other-systems-with-sound/{slug}"
+    }
+  ],
+  "urls": [
+    "https://assets.ha.demant.com/-/media/project/hearing-aid/oticon/shared/pdf/countries/us/s-1304503us_pdf_ot_cros_compatibility_overview_26_1.pdf?rev=a8ee51df06df4d7bbbbc94aa936daa3d&hash=DA49F7F48CA302856B927C850CBFF168",
+    "https://damcdn.demant.com/0ed8f286-6139-499e-a5d4-b3e101166a91/15500-7130-Indy-Connectivity-Brochure-8-26_Original%20file.pdf",
+    "https://damcdn.demant.com/117596b6-fa49-416e-b68b-b23b00d9b27e/283697US_IFU_OT_Companion_App_25.1_1.5.0_Original%20file.pdf",
+    "https://damcdn.demant.com/5ba28819-9048-4192-b75e-b06d00d80332/15500-0170%20-%20US%20Companion%20App%20CBR_Original%20file.pdf",
+    "https://damcdn.demant.com/5e0cc803-911f-4555-a8ee-b4160080a0c0/S-1303901US_PDF_OT_charger_compatibility_overview_26-1_Original%20file.pdf",
+    "https://damcdn.demant.com/6a4c61a8-dc07-4ef7-a0de-b18500c465de/277418US_IFU_OT_Companion_App_1.4.0_24.2_Original%20file.pdf",
+    "https://damcdn.demant.com/6d141f9d-7885-4b18-a69b-b3bb00e70dc7/296704US_IFU_OT_Companion_App_26.1_1.7.0_Original%20file.pdf",
+    "https://damcdn.demant.com/728618ed-5391-4d2f-a5b4-b2890145f254/25-578095%20-%2015500-0218%20-%20RM%20-%20H1%202025%20-%20Phone%20Compatibility%20List%20-%20DC%201.26_v4_Original%20file.pdf",
+    "https://damcdn.demant.com/736c7c09-28a2-4854-80af-b36e00ed03f3/15555-10527-Reveal-Portfolio-Diagram-8-26_Original%20file.pdf",
+    "https://damcdn.demant.com/7521850b-6120-49a9-94e5-b4d40114b576/15500-7203-Indy-Connectivity-Brochure-Spanish_Original%20file.pdf",
+    "https://damcdn.demant.com/9c568d42-093a-420c-a47d-b33900de0a65/15500-0395-tinnitus-soundsupport-information-sheet_Original%20file.pdf",
+    "https://damcdn.demant.com/c0e0b8bb-d989-40c7-9a34-b49c011ea915/15500-7171-Reveal-Trifold_Original%20file.pdf",
+    "https://damcdn.demant.com/c2c740cb-1f26-479a-a648-b49c011e1350/15500-7170-Reveal-Sales-Sheet_Original%20file.pdf",
+    "https://damcdn.demant.com/cb233b74-b3b7-4e78-999a-b46000e4f1e6/303393US_IFU_OT_Companion_App_26.2_1.8.0_Original%20file.pdf",
+    "https://damcdn.demant.com/dc32047e-2875-4dd1-9f95-b49c011e15e3/15500-7164-Reveal-Product-Differentiation-Tool_Original%20file.pdf",
+    "https://damcdn.demant.com/e3ce1acb-0b8f-4796-a997-b49d00ec3b21/15500-7194-Oticon-Reveal-Patient-Language-Guide_Original%20file.pdf",
+    "https://damcdn.demant.com/e40cb301-8344-4afe-95b1-b49c011e220e/15500-7173-Reveal-Consumer-Brochure_Original%20file.pdf",
+    "https://damcdn.demant.com/e9535b4b-6893-4420-a785-b34100834535/292170US_IFU_OT_Companion_App_25.2_1.6.0_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/034eaaae-8c88-40d6-b992-b35200705299/connecticut-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/0b00d6bb-8a92-41af-abe0-b35200704dfd/maine-exemption-and-resale-letter_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/0c8bdc00-7eb8-467e-adfd-b35200704caa/maryland-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/19843bbb-a5a3-43c2-8869-b35200705575/arkansas-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/1ecd0dc8-937b-4d6a-b9fd-b35200703f25/ohio-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/23f75651-58be-418e-882d-b352007053a1/colorado-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/2ef241c7-798b-4a6c-9338-b35200703b01/rhode-island-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/47a335a7-2df3-4dbd-9f35-b3520070412c/north-carolina-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/47f34678-c0a5-4b9b-b33b-b35200705017/florida-exemption-and-resale-letter_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/4bceefa4-070c-4ed6-bb5a-b35200704050/north-dakota-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/4cba1e02-3312-4b15-9b42-b3520070319a/kentucky-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/5aa2e012-9561-4d18-97fd-b35200704fad/georgia-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/5ac3eeef-5164-4ee4-abff-b35200704bdc/massachusetts-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/605750eb-b4dd-4657-afb1-b352007036e3/idaho-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/60ed7393-06ec-4275-86ca-b35200700de1/texas-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/6202fd13-75a0-4a23-9085-b35200700c85/utah-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/67f6876e-568c-4b60-a94e-b3520070451a/nevada-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/6d0ec5b0-48c5-498f-9dee-b352007032b9/kansas-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/6fe495cc-99d9-43a5-bc1b-b352007035ed/illinois-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/710be4c2-2bc8-481e-bd1a-b3520070429f/new-mexico-exemption-and-resale-letter_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/73b268d1-d462-4c56-9c3c-b35200705134/dist-of-columbia-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/7bdaf38a-848b-43da-8b18-b3520070420e/new-york-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/9a3f9a5d-d927-4627-9b76-b3520070480f/missouri-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/b5bc3dd4-8035-4471-9f27-b35200704afb/michigan-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/bd336804-7360-4ada-8d4e-b3520070547f/california-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/cb8225e4-b711-4bc5-8185-b35200704ef7/louisiana-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/ce47022d-5d8c-422f-80e6-b352007048df/mississippi-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/cf8796a3-6ac8-45c3-9d26-b352006ffe3a/west-virginia-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/d7cced9a-7d40-45b9-b434-b35200704622/nebraska-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/d81f40ca-a702-40cb-8a3e-b352007034f6/iowa-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/d8707642-55a4-4a42-acc2-b352006fff2d/washington-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/d9f3600e-644d-4f79-a5e3-b35200704a08/minnesota-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/e3fd2156-2ae9-4ff0-b3df-b35200703e64/oklahoma-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/e4dbf351-8fa6-4349-84ea-b35200705b1a/alabama-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/e59aa5dd-ba03-43c8-987e-b35200703a04/south-carolina-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/eacf208a-64cb-47ec-94e1-b35200700bb1/vermont-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/eb81b5b0-119c-4c83-b260-b352007056b4/arizona-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/ec30a59b-8271-41a3-a26e-b35200700aa3/virginia-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/ed8da332-cb4c-4c1d-b8c9-b3520070390e/south-dakota-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/eeafc935-f945-4350-8a1d-b35200704392/new-jersey-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/f38fad1b-5627-4c35-a30f-b35200700ec6/tennessee-exemption-and-resale-oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/f3d1c38b-9a08-4ef8-a920-b352007034e5/indiana-exemption-and-resale-oticon2_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/f5f37f2d-9ed8-4e42-b938-b352007037ff/hawaii-exemption-and-resale--oticon_Original%20file.pdf",
+    "https://p3.aprimocdn.net/dgs/f66d8fa4-542d-43ca-9682-b289016639bd/15500-0386%20-Compatibility%20Overview%20for%20Streaming%20and%20Accessories_2025_Original%20file.pdf",
+    "https://www.oticon.com/",
+    "https://www.oticon.com/about-us",
+    "https://www.oticon.com/about-us/consumer-advisory",
+    "https://www.oticon.com/about-us/contact-us",
+    "https://www.oticon.com/about-us/cookie-policy",
+    "https://www.oticon.com/about-us/disclaimer",
+    "https://www.oticon.com/about-us/distribution-guidelines",
+    "https://www.oticon.com/about-us/marketsites",
+    "https://www.oticon.com/about-us/privacy-policy",
+    "https://www.oticon.com/about-us/privacy-policy/companion-app-privacy",
+    "https://www.oticon.com/about-us/terms-and-conditions-of-sale",
+    "https://www.oticon.com/campaigns-b2c/intent",
+    "https://www.oticon.com/campaigns-b2c/own-si",
+    "https://www.oticon.com/campaigns-b2c/reveal",
+    "https://www.oticon.com/campaigns-b2c/zeal",
+    "https://www.oticon.com/check-compatibility",
+    "https://www.oticon.com/find-hearing-center",
+    "https://www.oticon.com/government-services",
+    "https://www.oticon.com/government-services/for-patients",
+    "https://www.oticon.com/government-services/for-professionals",
+    "https://www.oticon.com/government-services/for-professionals/intent",
+    "https://www.oticon.com/government-services/for-professionals/no-compromises",
+    "https://www.oticon.com/government-services/for-professionals/request-demo",
+    "https://www.oticon.com/government-services/for-professionals/reveal",
+    "https://www.oticon.com/government-services/for-professionals/virtual-launch-box",
+    "https://www.oticon.com/government-services/for-professionals/webinar",
+    "https://www.oticon.com/government-services/for-professionals/zeal-va",
+    "https://www.oticon.com/government-services/gs-financial-disclosure",
+    "https://www.oticon.com/government-services/products-on-contract",
+    "https://www.oticon.com/government-services/training-programs",
+    "https://www.oticon.com/hearing-loss",
+    "https://www.oticon.com/hearing-loss/children-and-hearing-loss",
+    "https://www.oticon.com/hearing-loss/children-and-hearing-loss/infants-toddlers-and-pre-schoolers",
+    "https://www.oticon.com/hearing-loss/children-and-hearing-loss/information-for-parents",
+    "https://www.oticon.com/hearing-loss/children-and-hearing-loss/school-aged",
+    "https://www.oticon.com/hearing-loss/children-and-hearing-loss/teens",
+    "https://www.oticon.com/hearing-loss/hearing-aid-reviews",
+    "https://www.oticon.com/hearing-loss/hearing-loss-simulator",
+    "https://www.oticon.com/hearing-loss/how-our-hearing-works",
+    "https://www.oticon.com/hearing-loss/how-our-hearing-works/common-causes-of-hearing-loss",
+    "https://www.oticon.com/hearing-loss/how-our-hearing-works/hearing-pathway",
+    "https://www.oticon.com/hearing-loss/how-our-hearing-works/speech-in-noise",
+    "https://www.oticon.com/hearing-loss/life-with-a-hearing-loss",
+    "https://www.oticon.com/hearing-loss/life-with-a-hearing-loss/get-the-most-out-of-your-hearing-aids",
+    "https://www.oticon.com/hearing-loss/life-with-a-hearing-loss/i-might-have-a-hearing-loss",
+    "https://www.oticon.com/hearing-loss/life-with-a-hearing-loss/i-might-have-a-hearing-loss/online-hearing-test",
+    "https://www.oticon.com/hearing-loss/life-with-a-hearing-loss/take-action-on-your-hearing-loss",
+    "https://www.oticon.com/hearing-loss/life-with-a-hearing-loss/your-first-visit-to-a-hearing-clinic",
+    "https://www.oticon.com/hearing-loss/life-with-a-hearing-loss/your-first-visit-to-a-hearing-clinic/connectivity",
+    "https://www.oticon.com/hearing-loss/tinnitus",
+    "https://www.oticon.com/hearing-loss/tinnitus/tinnitus-treatment",
+    "https://www.oticon.com/hearing-loss/tinnitus/what-is-tinnitus",
+    "https://www.oticon.com/hearing-loss/why-your-hearing-matters",
+    "https://www.oticon.com/hearing-test",
+    "https://www.oticon.com/inside-oticon",
+    "https://www.oticon.com/inside-oticon/focus-on-people",
+    "https://www.oticon.com/inside-oticon/focus-on-people/rules-and-regulations",
+    "https://www.oticon.com/inside-oticon/leadership-team",
+    "https://www.oticon.com/inside-oticon/myoticon-videos",
+    "https://www.oticon.com/inside-oticon/press",
+    "https://www.oticon.com/inside-oticon/press/2024/2024-1",
+    "https://www.oticon.com/inside-oticon/press/2024/2024-10",
+    "https://www.oticon.com/inside-oticon/press/2024/2024-11",
+    "https://www.oticon.com/inside-oticon/press/2024/2024-2",
+    "https://www.oticon.com/inside-oticon/press/2024/2024-3",
+    "https://www.oticon.com/inside-oticon/press/2024/2024-4",
+    "https://www.oticon.com/inside-oticon/press/2024/2024-5",
+    "https://www.oticon.com/inside-oticon/press/2024/2024-6",
+    "https://www.oticon.com/inside-oticon/press/2024/2024-7",
+    "https://www.oticon.com/inside-oticon/press/2024/2024-8",
+    "https://www.oticon.com/inside-oticon/press/2024/2024-9",
+    "https://www.oticon.com/inside-oticon/press/2025/2025-1",
+    "https://www.oticon.com/inside-oticon/press/2025/2025-10",
+    "https://www.oticon.com/inside-oticon/press/2025/2025-2",
+    "https://www.oticon.com/inside-oticon/press/2025/2025-3",
+    "https://www.oticon.com/inside-oticon/press/2025/2025-4",
+    "https://www.oticon.com/inside-oticon/press/2025/2025-5",
+    "https://www.oticon.com/inside-oticon/press/2025/2025-6",
+    "https://www.oticon.com/inside-oticon/press/2025/2025-7",
+    "https://www.oticon.com/inside-oticon/press/2025/2025-8",
+    "https://www.oticon.com/inside-oticon/press/2025/2025-9",
+    "https://www.oticon.com/inside-oticon/press/2026/2026-1",
+    "https://www.oticon.com/inside-oticon/press/2026/2026-10",
+    "https://www.oticon.com/inside-oticon/press/2026/2026-11",
+    "https://www.oticon.com/inside-oticon/press/2026/2026-12",
+    "https://www.oticon.com/inside-oticon/press/2026/2026-13",
+    "https://www.oticon.com/inside-oticon/press/2026/2026-14",
+    "https://www.oticon.com/inside-oticon/press/2026/2026-15",
+    "https://www.oticon.com/inside-oticon/press/2026/2026-2",
+    "https://www.oticon.com/inside-oticon/press/2026/2026-3",
+    "https://www.oticon.com/inside-oticon/press/2026/2026-4",
+    "https://www.oticon.com/inside-oticon/press/2026/2026-5",
+    "https://www.oticon.com/inside-oticon/press/2026/2026-6",
+    "https://www.oticon.com/inside-oticon/press/2026/2026-7",
+    "https://www.oticon.com/inside-oticon/press/2026/2026-8",
+    "https://www.oticon.com/inside-oticon/press/2026/2026-9",
+    "https://www.oticon.com/inside-oticon/tax-exemption-certificates",
+    "https://www.oticon.com/products",
+    "https://www.oticon.com/products-nhs/accessories/136477/connectclip",
+    "https://www.oticon.com/products-nhs/accessories/139382/oticon-safeline",
+    "https://www.oticon.com/products-nhs/accessories/139744/tv-adapter-30",
+    "https://www.oticon.com/products-nhs/accessories/225066/edumic",
+    "https://www.oticon.com/products-nhs/accessories/542882/oticon-companion",
+    "https://www.oticon.com/products-nhs/accessories/728329/easy-le-adapter",
+    "https://www.oticon.com/products-nhs/accessories/844218/oticon-smartcharger",
+    "https://www.oticon.com/products-nhs/accessories/844222/oticon-desktop-charger-",
+    "https://www.oticon.com/products-nhs/accessories/90038/phone-adapter-20",
+    "https://www.oticon.com/products-nhs/accessories/90039/remote-control-30",
+    "https://www.oticon.com/products-nhs/accessories/904470/oticon-desktop-charger",
+    "https://www.oticon.com/products-nhs/accessories/904471/oticon-smartcharger--smartcharger-x",
+    "https://www.oticon.com/products/100051/oticon-opn-bte-plus-power",
+    "https://www.oticon.com/products/100052/oticon-opn-minirite-t",
+    "https://www.oticon.com/products/1069796/oticon-cros-re-minirite-r",
+    "https://www.oticon.com/products/148625/oticon-opn-invisible-in-the-canal-iic",
+    "https://www.oticon.com/products/148628/oticon-opn-completely-in-the-canal-cic",
+    "https://www.oticon.com/products/148631/oticon-opn-in-the-canal-itc",
+    "https://www.oticon.com/products/148635/oticon-opn-in-the-ear-half-shell-ite-hs",
+    "https://www.oticon.com/products/148638/oticon-opn-in-the-ear-full-shell-ite-fs",
+    "https://www.oticon.com/products/148641/oticon-siya-minirite",
+    "https://www.oticon.com/products/148643/oticon-siya-minirite-t",
+    "https://www.oticon.com/products/148645/oticon-siya-bte",
+    "https://www.oticon.com/products/148647/oticon-siya-bte-plus-power",
+    "https://www.oticon.com/products/148682/oticon-siya-invisible-in-the-canal-iic",
+    "https://www.oticon.com/products/148684/oticon-siya-completely-in-the-canal-cic",
+    "https://www.oticon.com/products/148686/oticon-siya-in-the-canal-itc",
+    "https://www.oticon.com/products/148688/oticon-siya-in-the-ear-half-shell-ite-hs",
+    "https://www.oticon.com/products/148690/oticon-siya-in-the-ear-full-shell-ite-fs",
+    "https://www.oticon.com/products/161211/oticon-opn-s-minirite",
+    "https://www.oticon.com/products/161217/oticon-opn-s-minirite-t",
+    "https://www.oticon.com/products/161220/oticon-opn-s-minirite-r",
+    "https://www.oticon.com/products/161223/oticon-opn-s-bte-plus-power",
+    "https://www.oticon.com/products/161227/oticon-opn-play-minirite",
+    "https://www.oticon.com/products/161229/oticon-opn-play-minirite-t",
+    "https://www.oticon.com/products/161231/oticon-opn-play-minirite-r",
+    "https://www.oticon.com/products/161233/oticon-opn-play-bte-plus-power",
+    "https://www.oticon.com/products/202513/oticon-xceed-bte-super-power",
+    "https://www.oticon.com/products/202514/oticon-xceed-bte-ultra-power",
+    "https://www.oticon.com/products/202532/oticon-xceed-play-bte-super-power",
+    "https://www.oticon.com/products/202533/oticon-xceed-play-bte-ultra-power",
+    "https://www.oticon.com/products/20355/oticon-opn-minirite",
+    "https://www.oticon.com/products/223004/oticon-ruby-minirite",
+    "https://www.oticon.com/products/223008/oticon-ruby-minirite-t",
+    "https://www.oticon.com/products/223009/oticon-ruby-minirite-r",
+    "https://www.oticon.com/products/223010/oticon-ruby-bte-plus-power",
+    "https://www.oticon.com/products/223011/oticon-ruby-bte",
+    "https://www.oticon.com/products/255443/oticon-more-minirite-r",
+    "https://www.oticon.com/products/343763/oticon-more-minirite-t",
+    "https://www.oticon.com/products/386733/oticon-cros-px-minirite-r",
+    "https://www.oticon.com/products/406468/oticon-more-minibte-r",
+    "https://www.oticon.com/products/406471/oticon-more-minibte-t",
+    "https://www.oticon.com/products/406474/oticon-zircon-minibte-r",
+    "https://www.oticon.com/products/406476/oticon-zircon-minibte-t",
+    "https://www.oticon.com/products/406478/oticon-zircon-minirite-t",
+    "https://www.oticon.com/products/406480/oticon-zircon-minirite-r",
+    "https://www.oticon.com/products/406483/oticon-play-px-minibte-r",
+    "https://www.oticon.com/products/406485/oticon-play-px-minibte-t",
+    "https://www.oticon.com/products/406487/oticon-play-px-minirite-t",
+    "https://www.oticon.com/products/406489/oticon-play-px-minirite-r",
+    "https://www.oticon.com/products/409561/oticon-cros-minirite-t",
+    "https://www.oticon.com/products/487311/oticon-own-completely-in-the-canal-cic",
+    "https://www.oticon.com/products/487318/oticon-own-invisible-in-the-canal-iic",
+    "https://www.oticon.com/products/487323/oticon-own-in-the-canal-itc",
+    "https://www.oticon.com/products/487328/oticon-own-in-the-ear-half-shell-ite-hs",
+    "https://www.oticon.com/products/487333/oticon-own-in-the-ear-full-shell-ite-fs",
+    "https://www.oticon.com/products/518227/oticon-real-minirite-t",
+    "https://www.oticon.com/products/518231/oticon-real-minibte-r",
+    "https://www.oticon.com/products/518233/oticon-real-minibte-t",
+    "https://www.oticon.com/products/518234/oticon-real-minirite-r",
+    "https://www.oticon.com/products/663063/oticon-intent-minirite",
+    "https://www.oticon.com/products/721428/oticon-own-si-invisible-in-the-canal-iic",
+    "https://www.oticon.com/products/721429/oticon-own-si-completely-in-the-canal-cic",
+    "https://www.oticon.com/products/727364/oticon-jet-px-minibte-t",
+    "https://www.oticon.com/products/727365/oticon-jet-px-minibte-r",
+    "https://www.oticon.com/products/727366/oticon-jet-px-minirite-t",
+    "https://www.oticon.com/products/727367/oticon-jet-px-minirite-r",
+    "https://www.oticon.com/products/832165/oticon-zeal-nxt-in-the-ear",
+    "https://www.oticon.com/products/845499/oticon-intent-minibte-r",
+    "https://www.oticon.com/products/938591/oticon-verit-bte-t-105",
+    "https://www.oticon.com/products/938596/oticon-play-si-minirite-r",
+    "https://www.oticon.com/products/938598/oticon-play-si-minibte-r",
+    "https://www.oticon.com/products/938720/oticon-verit-minirite-t",
+    "https://www.oticon.com/products/938725/oticon-verit-minibte-t-85",
+    "https://www.oticon.com/products/951178/oticon-reveal-minirite-r",
+    "https://www.oticon.com/products/accessories",
+    "https://www.oticon.com/products/accessories/136477/connectclip",
+    "https://www.oticon.com/products/accessories/139382/oticon-safeline",
+    "https://www.oticon.com/products/accessories/139744/tv-adapter-30",
+    "https://www.oticon.com/products/accessories/225066/edumic",
+    "https://www.oticon.com/products/accessories/542882/oticon-companion",
+    "https://www.oticon.com/products/accessories/728329",
+    "https://www.oticon.com/products/accessories/728329/easy-le-adapter",
+    "https://www.oticon.com/products/accessories/844218/oticon-smartcharger",
+    "https://www.oticon.com/products/accessories/844222/oticon-desktop-charger-",
+    "https://www.oticon.com/products/accessories/90038/phone-adapter-20",
+    "https://www.oticon.com/products/accessories/90039/remote-control-30",
+    "https://www.oticon.com/products/accessories/904470/oticon-desktop-charger",
+    "https://www.oticon.com/products/accessories/904471/oticon-smartcharger--smartcharger-x",
+    "https://www.oticon.com/products/app",
+    "https://www.oticon.com/products/hearing-aids",
+    "https://www.oticon.com/products/hearing-aids/category",
+    "https://www.oticon.com/products/hearing-aids/category/behind-the-ear",
+    "https://www.oticon.com/products/hearing-aids/category/children-and-teens",
+    "https://www.oticon.com/products/hearing-aids/category/in-the-ear",
+    "https://www.oticon.com/products/hearing-aids/category/more-powerful",
+    "https://www.oticon.com/products/hearing-aids/category/nxt-in-the-ear",
+    "https://www.oticon.com/products/hearing-aids/family/cros",
+    "https://www.oticon.com/products/hearing-aids/family/intent",
+    "https://www.oticon.com/products/hearing-aids/family/jet-px",
+    "https://www.oticon.com/products/hearing-aids/family/more",
+    "https://www.oticon.com/products/hearing-aids/family/opn-play",
+    "https://www.oticon.com/products/hearing-aids/family/opn-s",
+    "https://www.oticon.com/products/hearing-aids/family/own",
+    "https://www.oticon.com/products/hearing-aids/family/own-si",
+    "https://www.oticon.com/products/hearing-aids/family/play-px",
+    "https://www.oticon.com/products/hearing-aids/family/play-si",
+    "https://www.oticon.com/products/hearing-aids/family/real",
+    "https://www.oticon.com/products/hearing-aids/family/reveal",
+    "https://www.oticon.com/products/hearing-aids/family/verit",
+    "https://www.oticon.com/products/hearing-aids/family/xceed",
+    "https://www.oticon.com/products/hearing-aids/family/xceed-play",
+    "https://www.oticon.com/products/hearing-aids/family/zeal",
+    "https://www.oticon.com/professionals",
+    "https://www.oticon.com/professionals/ask-question",
+    "https://www.oticon.com/professionals/audiology-students",
+    "https://www.oticon.com/professionals/audiology-students/events-and-programs",
+    "https://www.oticon.com/professionals/bdg",
+    "https://www.oticon.com/professionals/besplus",
+    "https://www.oticon.com/professionals/brainhearing",
+    "https://www.oticon.com/professionals/brainhearing/brainhearing-network",
+    "https://www.oticon.com/professionals/brainhearing/eriksholm-research-centre",
+    "https://www.oticon.com/professionals/brainhearing/research",
+    "https://www.oticon.com/professionals/brainhearing/science-behind-brainhearing",
+    "https://www.oticon.com/professionals/campaigns-b2b/intent",
+    "https://www.oticon.com/professionals/campaigns-b2b/intent/intent-brainhearing",
+    "https://www.oticon.com/professionals/campaigns-b2b/intent/intent-evidence",
+    "https://www.oticon.com/professionals/campaigns-b2b/intent/intent-family",
+    "https://www.oticon.com/professionals/campaigns-b2b/intent/intent-technology",
+    "https://www.oticon.com/professionals/campaigns-b2b/own-si",
+    "https://www.oticon.com/professionals/campaigns-b2b/play-si",
+    "https://www.oticon.com/professionals/campaigns-b2b/verit",
+    "https://www.oticon.com/professionals/campaigns-b2b/zeal",
+    "https://www.oticon.com/professionals/clinical-experience",
+    "https://www.oticon.com/professionals/clinical-experience/act",
+    "https://www.oticon.com/professionals/clinical-experience/bimodal-fitting",
+    "https://www.oticon.com/professionals/clinical-experience/genie-2",
+    "https://www.oticon.com/professionals/clinical-experience/genie-2/download",
+    "https://www.oticon.com/professionals/clinical-experience/manage-tinnitus",
+    "https://www.oticon.com/professionals/clinical-experience/paediatric-fitting",
+    "https://www.oticon.com/professionals/clinical-experience/rem-autofit",
+    "https://www.oticon.com/professionals/clinical-experience/remote-fitting",
+    "https://www.oticon.com/professionals/clinical-experience/vac",
+    "https://www.oticon.com/professionals/co-op",
+    "https://www.oticon.com/professionals/contact-audiologist",
+    "https://www.oticon.com/professionals/follow-up",
+    "https://www.oticon.com/professionals/hearing-solutions",
+    "https://www.oticon.com/professionals/hearing-solutions/ai",
+    "https://www.oticon.com/professionals/hearing-solutions/app",
+    "https://www.oticon.com/professionals/hearing-solutions/connectivity",
+    "https://www.oticon.com/professionals/hearing-solutions/hearing-aids-and-accessories",
+    "https://www.oticon.com/professionals/hearing-solutions/moulds",
+    "https://www.oticon.com/professionals/hearing-solutions/technology",
+    "https://www.oticon.com/professionals/hearing-solutions/tinnitus-soundsupport",
+    "https://www.oticon.com/professionals/new-insights-brainhearing",
+    "https://www.oticon.com/professionals/no-compromises",
+    "https://www.oticon.com/professionals/partnering-with-oticon",
+    "https://www.oticon.com/professionals/partnering-with-oticon/consumer-marketing",
+    "https://www.oticon.com/professionals/partnering-with-oticon/practice-resources",
+    "https://www.oticon.com/professionals/partnering-with-oticon/training-and-education",
+    "https://www.oticon.com/professionals/pediatrics",
+    "https://www.oticon.com/professionals/pediatrics/pediatric-financial-disclosure",
+    "https://www.oticon.com/professionals/pediatrics/pediatric-mission",
+    "https://www.oticon.com/professionals/playsi-testimonials",
+    "https://www.oticon.com/professionals/resource-center",
+    "https://www.oticon.com/professionals/schedule-visit",
+    "https://www.oticon.com/professionals/share-story",
+    "https://www.oticon.com/professionals/testimonials",
+    "https://www.oticon.com/professionals/training",
+    "https://www.oticon.com/professionals/training/blueridgeregistration",
+    "https://www.oticon.com/professionals/training/centralregistration",
+    "https://www.oticon.com/professionals/training/midamericaregistration",
+    "https://www.oticon.com/professionals/training/midatlanticregistration",
+    "https://www.oticon.com/professionals/training/mountainregistration",
+    "https://www.oticon.com/professionals/training/northeastregistration",
+    "https://www.oticon.com/professionals/training/southeastregistration",
+    "https://www.oticon.com/professionals/training/thankyou",
+    "https://www.oticon.com/professionals/training/westregistration",
+    "https://www.oticon.com/professionals/verit-testimonials",
+    "https://www.oticon.com/professionals/virtual-launch-box",
+    "https://www.oticon.com/professionals/zeal-testimonials",
+    "https://www.oticon.com/support",
+    "https://www.oticon.com/support/batteries-and-charging",
+    "https://www.oticon.com/support/batteries-and-charging/disposable-batteries",
+    "https://www.oticon.com/support/batteries-and-charging/disposable-batteries/how-to-replace-batteries-on-hearing-aids",
+    "https://www.oticon.com/support/batteries-and-charging/disposable-batteries/when-to-replace-batteries-on-hearing-aids",
+    "https://www.oticon.com/support/batteries-and-charging/rechargeable-batteries",
+    "https://www.oticon.com/support/batteries-and-charging/rechargeable-batteries/how-to-charge-rechargeable-hearing-aids",
+    "https://www.oticon.com/support/care-and-cleaning",
+    "https://www.oticon.com/support/care-and-cleaning/basic-hearing-aid-use",
+    "https://www.oticon.com/support/care-and-cleaning/basic-hearing-aid-use/how-to-clean-hearing-aids",
+    "https://www.oticon.com/support/care-and-cleaning/basic-hearing-aid-use/how-to-clean-your-ears",
+    "https://www.oticon.com/support/care-and-cleaning/basic-hearing-aid-use/how-to-replace-earpieces-on-hearing-aids",
+    "https://www.oticon.com/support/care-and-cleaning/basic-hearing-aid-use/how-to-replace-wax-filter-on-hearing-aids",
+    "https://www.oticon.com/support/care-and-cleaning/basic-hearing-aid-use/how-to-take-good-care-of-hearing-aids",
+    "https://www.oticon.com/support/compatibility-guide",
+    "https://www.oticon.com/support/help",
+    "https://www.oticon.com/support/life-with-a-hearing-aid",
+    "https://www.oticon.com/support/life-with-a-hearing-aid/basic-hearing-aid-use",
+    "https://www.oticon.com/support/life-with-a-hearing-aid/basic-hearing-aid-use/first-days-with-new-hearing-aids",
+    "https://www.oticon.com/support/life-with-a-hearing-aid/basic-hearing-aid-use/how-to-put-on-and-remove-hearing-aids",
+    "https://www.oticon.com/support/life-with-a-hearing-aid/basic-hearing-aid-use/how-to-turn-hearing-aids-on-and-off",
+    "https://www.oticon.com/support/life-with-a-hearing-aid/connecting-to-other-devices",
+    "https://www.oticon.com/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-listen-to-auracast-broadcasts-with-hearing-aids",
+    "https://www.oticon.com/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-listen-to-music-with-hearing-aids",
+    "https://www.oticon.com/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-make-hands-free-calls-with-hearing-aids",
+    "https://www.oticon.com/support/life-with-a-hearing-aid/connecting-to-other-devices/how-to-share-audio-using-auracast",
+    "https://www.oticon.com/support/life-with-a-hearing-aid/connecting-to-other-devices/where-to-buy-hearing-aid-accessories",
+    "https://www.oticon.com/support/oticon-app",
+    "https://www.oticon.com/support/oticon-app/help-with-the-oticon-app",
+    "https://www.oticon.com/support/oticon-app/help-with-the-oticon-app/how-to-access-troubleshooting-in-oticon-companion",
+    "https://www.oticon.com/support/oticon-app/help-with-the-oticon-app/how-to-adjust-sound-while-streaming",
+    "https://www.oticon.com/support/oticon-app/help-with-the-oticon-app/how-to-adjust-surrounding-sounds-with-sound-equalizer",
+    "https://www.oticon.com/support/oticon-app/help-with-the-oticon-app/how-to-adjust-volume-and-change-program",
+    "https://www.oticon.com/support/oticon-app/help-with-the-oticon-app/how-to-unpair-tv-adapter-using-the-app",
+    "https://www.oticon.com/support/oticon-app/help-with-the-oticon-app/how-to-use-find-my-hearing-aids",
+    "https://www.oticon.com/support/oticon-app/help-with-the-oticon-app/how-to-use-hearingfitness",
+    "https://www.oticon.com/support/oticon-app/help-with-the-oticon-app/how-to-use-iphone-or-ipad-as-remote-microphone",
+    "https://www.oticon.com/support/oticon-app/help-with-the-oticon-app/how-to-use-the-wax-filter-replacement-reminder-in-your-oticon-companion-app",
+    "https://www.oticon.com/support/oticon-app/help-with-the-oticon-app/how-to-use-tinnitus-soundsupport-program",
+    "https://www.oticon.com/support/oticon-app/remote-care",
+    "https://www.oticon.com/support/oticon-app/remote-care/how-to-use-remote-care",
+    "https://www.oticon.com/support/oticon-app/update-your-hearing-aids",
+    "https://www.oticon.com/support/oticon-app/update-your-hearing-aids/how-to-update-hearing-aid-firmware",
+    "https://www.oticon.com/support/pairing",
+    "https://www.oticon.com/support/pairing/android",
+    "https://www.oticon.com/support/pairing/android/how-to-pair-hearing-aids-with-android-devices",
+    "https://www.oticon.com/support/pairing/android/how-to-pair-with-android-using-fast-pair",
+    "https://www.oticon.com/support/pairing/android/how-to-uninstall-oticon-app-from-android-device",
+    "https://www.oticon.com/support/pairing/android/how-to-unpair-hearing-aids-from-android-devices",
+    "https://www.oticon.com/support/pairing/apple",
+    "https://www.oticon.com/support/pairing/apple/how-to-connect-your-hearing-aids-with-Vision-Pro",
+    "https://www.oticon.com/support/pairing/apple/how-to-connect-your-hearing-aids-with-vision-pro",
+    "https://www.oticon.com/support/pairing/apple/how-to-pair-hearing-aids-with-apple-watch",
+    "https://www.oticon.com/support/pairing/apple/how-to-pair-hearing-aids-with-ipad",
+    "https://www.oticon.com/support/pairing/apple/how-to-pair-hearing-aids-with-iphone",
+    "https://www.oticon.com/support/pairing/apple/how-to-pair-hearing-aids-with-mac",
+    "https://www.oticon.com/support/pairing/apple/how-to-uninstall-oticon-app-from-iphone",
+    "https://www.oticon.com/support/pairing/apple/how-to-unpair-hearing-aids-from-apple-devices",
+    "https://www.oticon.com/support/pairing/hearing-aid-accessories",
+    "https://www.oticon.com/support/pairing/hearing-aid-accessories/how-to-pair-hearing-aids-with-connectclip",
+    "https://www.oticon.com/support/pairing/hearing-aid-accessories/how-to-pair-hearing-aids-with-easy-le-adapter",
+    "https://www.oticon.com/support/pairing/hearing-aid-accessories/how-to-pair-hearing-aids-with-edumic",
+    "https://www.oticon.com/support/pairing/hearing-aid-accessories/how-to-pair-hearing-aids-with-phone-adapter",
+    "https://www.oticon.com/support/pairing/hearing-aid-accessories/how-to-pair-hearing-aids-with-remote-control",
+    "https://www.oticon.com/support/pairing/tvs-and-other-systems-with-sound",
+    "https://www.oticon.com/support/pairing/tvs-and-other-systems-with-sound/how-to-pair-hearing-aids-with-computer",
+    "https://www.oticon.com/support/pairing/tvs-and-other-systems-with-sound/how-to-pair-hearing-aids-with-tv-adapter",
+    "https://www.oticon.com/support/pairing/tvs-and-other-systems-with-sound/how-to-unpair-hearing-aids-from-computer",
+    "https://www.oticon.com/support/troubleshooting",
+    "https://www.oticon.com/support/troubleshooting/android",
+    "https://www.oticon.com/support/troubleshooting/android/why-cant-i-stream-sound-from-android-device-to-hearing-aids",
+    "https://www.oticon.com/support/troubleshooting/apple",
+    "https://www.oticon.com/support/troubleshooting/apple/why-can-i-not-stream-from-ios-to-hearing-aids",
+    "https://www.oticon.com/support/troubleshooting/hearing-aids",
+    "https://www.oticon.com/support/troubleshooting/hearing-aids/problems-with-sound-from-hearing-aids",
+    "https://www.oticon.com/support/troubleshooting/hearing-aids/why-are-my-hearing-aids-beeping",
+    "https://www.oticon.com/support/troubleshooting/oticon-app",
+    "https://www.oticon.com/support/troubleshooting/oticon-app/problems-connecting-hearing-aids-to-other-devices",
+    "https://www.oticon.com/support/troubleshooting/oticon-app/solving-problems-with-remote-care",
+    "https://www.oticon.com/support/troubleshooting/oticon-app/why-does-oticon-app-only-show-one-hearing-aid",
+    "https://www.oticon.com/support/troubleshooting/oticon-app/why-is-battery-level-in-the-app-inaccurate",
+    "https://www.oticon.com/system/not-found"
+  ]
+}

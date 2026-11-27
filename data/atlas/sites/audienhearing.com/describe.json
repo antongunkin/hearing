@@ -1,0 +1,450 @@
+{
+  "domain": "audienhearing.com",
+  "generatedAt": "2026-11-27T18:48:01.920Z",
+  "model": "sonnet",
+  "openQuestions": [
+    "Where are the user guides and datasheets (PDFs)? None were found on the fetched pages.",
+    "What is wollson.co and how is it related to Audien? It is linked from the footer of 43 pages.",
+    "Does Audien have a companion app? The pages show none, but 'Find My Device' appears in the navigation.",
+    "Will Ion Pro 2 be discontinued? The home page tags it 'Last chance'.",
+    "Which of the many catalog variants (open-box, Like New, legacy Atom, Atom X Connect, ion) should be treated as separate models?"
+  ],
+  "sections": {
+    "archive": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:00:31.959Z",
+            "url": "https://audienhearing.com/agents.md"
+          }
+        ],
+        "text": "The Web Archive shows one capture under /products (2026, latest 20260614061403). It shows none under /blogs, /pages, /collections or /agents.md."
+      }
+    ],
+    "links": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:00:22.218Z",
+            "url": "https://audienhearing.com/"
+          }
+        ],
+        "text": "Outbound links go to social networks: instagram.com, facebook.com and tiktok.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:00:22.218Z",
+            "url": "https://audienhearing.com/"
+          }
+        ],
+        "text": "wollson.co is linked from 43 pages."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:02:50.321Z",
+            "url": "https://audienhearing.com/blogs/home/hearing-aid-brands-comparison"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:02:41.665Z",
+            "url": "https://audienhearing.com/blogs/home/the-best-otc-hearing-aids-without-an-app-2026"
+          }
+        ],
+        "text": "Blog comparison articles link to competitors: jabraenhance.com, mdhearingaid.com, elehear.com, audicus.com and us.sennheiser-hearing.com. They also link to review sites (ncoa.org) and FDA pages."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:03:29.289Z",
+            "url": "https://audienhearing.com/pages/press"
+          }
+        ],
+        "text": "The press page links to prnewswire.com and businesswire.com releases (Audien Shields, Atom Air launch, a CEO appointment) and to two cdn.shopify.com assets."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:00:28.603Z",
+            "url": "https://audienhearing.com/pages/support"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:03:01.839Z",
+            "url": "https://audienhearing.com/blogs/home/the-2-most-affordable-hearing-aids-on-the-market"
+          }
+        ],
+        "text": "Support links to app.sendhark.com and audienhearing.zendesk.com."
+      }
+    ],
+    "next": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:47:02.025Z",
+            "url": "https://audienhearing.com/collections/all"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:00:02.476Z",
+            "url": "https://audienhearing.com/sitemap_products_1.xml?from=6800868802623&to=8552120746047"
+          }
+        ],
+        "text": "Re-check /collections/all for new Audien models and decide whether open-box, Like New, Specialist Bundle and legacy products (audien-atom, Atom Pro, Ion) should count as models. The configured pattern covers only seven slugs."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:03:01.839Z",
+            "url": "https://audienhearing.com/blogs/home/the-2-most-affordable-hearing-aids-on-the-market"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:00:28.603Z",
+            "url": "https://audienhearing.com/pages/support"
+          }
+        ],
+        "text": "Check the Zendesk help center (audienhearing.zendesk.com/hc/en-us) and the model pages for user guides or PDFs, since none were found."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:00:22.218Z",
+            "url": "https://audienhearing.com/"
+          }
+        ],
+        "text": "Look up the wollson.co link to see how it relates to Audien."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:00:22.218Z",
+            "url": "https://audienhearing.com/"
+          }
+        ],
+        "text": "Check whether Ion Pro 2 ('Last chance') leaves the catalog."
+      }
+    ],
+    "render": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:00:22.218Z",
+            "url": "https://audienhearing.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:47:02.025Z",
+            "url": "https://audienhearing.com/collections/all"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:01:04.431Z",
+            "url": "https://audienhearing.com/products/ion-iq"
+          }
+        ],
+        "text": "All fetched pages have needsRender false. Product, catalog and navigation content is in the static text."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:00:22.218Z",
+            "url": "https://audienhearing.com/"
+          }
+        ],
+        "text": "The report lists no fetch failures and no redirects."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:00:22.218Z",
+            "url": "https://audienhearing.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:47:02.025Z",
+            "url": "https://audienhearing.com/collections/all"
+          }
+        ],
+        "text": "The home page shows a countdown timer at 00 and a promotional banner. Prices shown on pages are sale prices that change during Black Friday (e.g. Atom Air $129/pair in 'Popular Products' versus $149 in the catalog)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:01:04.431Z",
+            "url": "https://audienhearing.com/products/ion-iq"
+          }
+        ],
+        "text": "The Ion IQ page contains a trade-in/refurbished condition widget (BTE, EV1, EV3, Atom, Atom pro...)."
+      }
+    ],
+    "structure": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:46:57.405Z",
+            "url": "https://audienhearing.com/robots.txt"
+          },
+          {
+            "fetchedAt": "2026-11-27T16:59:53.931Z",
+            "url": "https://audienhearing.com/sitemap.xml"
+          }
+        ],
+        "text": "robots.txt lists one sitemap, /sitemap.xml. The sitemaps cover products, pages, collections, blogs, articles and metaobject pages, plus sitemap_agentic_discovery.xml. The report counts 449 URLs."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:58.953Z",
+            "url": "https://audienhearing.com/sitemap_agentic_discovery.xml"
+          }
+        ],
+        "text": "sitemap_agentic_discovery.xml contains only /agents.md."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:53.931Z",
+            "url": "https://audienhearing.com/sitemap.xml"
+          }
+        ],
+        "text": "URL templates are /products/{slug} (68 seen), /collections/{slug}, /pages/{slug} (59), /blogs/{blog}/{slug} and /policies/{slug}. The blogs are home (180), common-questions (48), tinnitus (29), hearing-loss (25), hearing-aid-reviews (19), hearing-test (8) and advertorial (5)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:46:57.405Z",
+            "url": "https://audienhearing.com/robots.txt"
+          }
+        ],
+        "text": "/cart/{variant}:1 permalinks (51) appear as a template, but robots.txt disallows /cart/."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:46:57.405Z",
+            "url": "https://audienhearing.com/robots.txt"
+          }
+        ],
+        "text": "robots.txt disallows collection URLs with sort_by or '+' filters, /search is not disallowed, and /checkout, /account and /orders are blocked."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:00:31.959Z",
+            "url": "https://audienhearing.com/agents.md"
+          }
+        ],
+        "text": "The store has an /agents.md file describing Shop skill and UCP integration. The UCP profile is at /.well-known/ucp and the MCP endpoint at /api/ucp/mcp."
+      }
+    ],
+    "what": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:00:22.218Z",
+            "url": "https://audienhearing.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:03:20.672Z",
+            "url": "https://audienhearing.com/pages/about-us"
+          }
+        ],
+        "text": "The site is the Audien Hearing online store, selling OTC hearing aids, accessories and hearing-care products direct to consumers."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:00:02.476Z",
+            "url": "https://audienhearing.com/sitemap_products_1.xml?from=6800868802623&to=8552120746047"
+          },
+          {
+            "fetchedAt": "2026-11-27T16:59:53.931Z",
+            "url": "https://audienhearing.com/sitemap.xml"
+          }
+        ],
+        "text": "Its pages are built on Shopify: the cdn.shopify.com image host and the sitemap_products_1.xml, sitemap_pages_1.xml and sitemap_collections_1.xml sitemap names show this."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:00:22.218Z",
+            "url": "https://audienhearing.com/"
+          }
+        ],
+        "text": "The home page lists the ATOM series (in-ear): Atom X (2nd Gen), Atom Air, Atom Pro 2, Atom One. It lists the ION series (behind-the-ear): Ion Pro 2 (tagged 'Last chance'), Ion IQ and Ion Air."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:00:22.218Z",
+            "url": "https://audienhearing.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:01:12.979Z",
+            "url": "https://audienhearing.com/pages/refurbished-products"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:03:33.273Z",
+            "url": "https://audienhearing.com/pages/audiencare"
+          }
+        ],
+        "text": "The site runs a Black Friday sale (up to $338 off bundles) and offers a 45-day risk-free trial. It also has Outlet/Refurbished, Trade-In and AudienCare programs."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:00:22.218Z",
+            "url": "https://audienhearing.com/"
+          }
+        ],
+        "text": "The home page links to wollson.co, which could be a parent or sister company. The pages do not say."
+      }
+    ],
+    "where": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:47:02.025Z",
+            "url": "https://audienhearing.com/collections/all"
+          }
+        ],
+        "text": "The catalog is https://audienhearing.com/collections/all. It lists every product, with hearing aids mixed in with accessories, chargers, a protection plan, gift card, and open-box, 'Like New', 'Sale Price' and TTS variants."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:00:44.133Z",
+            "url": "https://audienhearing.com/products/the-audien-atom-x-otc-hearing-aid"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:00:48.781Z",
+            "url": "https://audienhearing.com/products/audien-atom-air-otc-hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:00:53.727Z",
+            "url": "https://audienhearing.com/products/atom-pro-2"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:00:56.217Z",
+            "url": "https://audienhearing.com/products/audien-atom-one-hearing-aid"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:04:14.309Z",
+            "url": "https://audienhearing.com/products/audien-ion-pro-otc-hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:01:04.431Z",
+            "url": "https://audienhearing.com/products/ion-iq"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:01:09.909Z",
+            "url": "https://audienhearing.com/products/ion-air"
+          }
+        ],
+        "text": "The current model pages are /products/the-audien-atom-x-otc-hearing-aid, audien-atom-air-otc-hearing-aids, atom-pro-2, audien-atom-one-hearing-aid, audien-ion-pro-otc-hearing-aids, ion-iq and ion-air. All were fetched and carry Product JSON-LD."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:02:14.497Z",
+            "url": "https://audienhearing.com/products/audien-atom"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:47:02.025Z",
+            "url": "https://audienhearing.com/collections/all"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:00:02.476Z",
+            "url": "https://audienhearing.com/sitemap_products_1.xml?from=6800868802623&to=8552120746047"
+          }
+        ],
+        "text": "/products/audien-atom is a legacy Atom page that still has a Product entry. The catalog lists several older and variant products (Atom Pro, Atom 2, Atom X Connect, Audien ion, 'Specialist Bundle', open-box), and the sitemap shows e.g. audien-ion-otc-hearing-aids-new and audien-atom-2-otc-hearing-aids-reworked."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:00:28.603Z",
+            "url": "https://audienhearing.com/pages/support"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:00:22.218Z",
+            "url": "https://audienhearing.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:03:01.839Z",
+            "url": "https://audienhearing.com/blogs/home/the-2-most-affordable-hearing-aids-on-the-market"
+          }
+        ],
+        "text": "Support is at /pages/support (call 1-800-400-HEAR, support@audienhearing.com, message form via app.sendhark.com) and a Zendesk help center at audienhearing.zendesk.com/hc/en-us. It has no PDF links."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:00:22.218Z",
+            "url": "https://audienhearing.com/"
+          }
+        ],
+        "text": "No PDF documents (user guides, datasheets) were found on any fetched page. The report lists no PDF hosts."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:00:22.218Z",
+            "url": "https://audienhearing.com/"
+          }
+        ],
+        "text": "No iOS or Android app links were found on any fetched page, although the shop mentions 'Find My Device'."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:03:17.674Z",
+            "url": "https://audienhearing.com/collections/accessories"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:00:36.506Z",
+            "url": "https://audienhearing.com/collections/maintenance"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:02:07.242Z",
+            "url": "https://audienhearing.com/collections/best-otc-hearing-aids"
+          }
+        ],
+        "text": "Collections include /collections/accessories, /collections/maintenance and /collections/best-otc-hearing-aids."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:04:19.681Z",
+            "url": "https://audienhearing.com/pages/walgreens"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:04:23.953Z",
+            "url": "https://audienhearing.com/pages/target"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:04:27.127Z",
+            "url": "https://audienhearing.com/pages/walmart"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:03:38.560Z",
+            "url": "https://audienhearing.com/pages/store-locator"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:47:02.025Z",
+            "url": "https://audienhearing.com/collections/all"
+          }
+        ],
+        "text": "Retailer pages exist for Walgreens, Target and Walmart, with a Store Locator via stockist.co. The footer also lists Costco, CVS, BJ's, Staples and Giant Eagle."
+      }
+    ]
+  },
+  "summary": {
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:47:02.025Z",
+        "url": "https://audienhearing.com/collections/all"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:00:22.218Z",
+        "url": "https://audienhearing.com/"
+      }
+    ],
+    "text": "Audien Hearing is a live Shopify store selling Audien-brand OTC hearing aids (Atom and Ion series) directly; /collections/all lists models mixed with accessories, open-box and duplicate variants, and no PDFs or apps were found."
+  }
+}

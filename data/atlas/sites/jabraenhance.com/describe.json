@@ -1,0 +1,331 @@
+{
+  "domain": "jabraenhance.com",
+  "generatedAt": "2026-11-27T18:52:02.176Z",
+  "model": "sonnet",
+  "openQuestions": [
+    "Do the 700, 500, 300 and 50R models still sell, and where are their user guides?",
+    "Is the brand owned by GN? No fetched page states it explicitly.",
+    "Which of the 11 /product comparison pages besides the models matter for scraping?"
+  ],
+  "sections": {
+    "archive": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:16:10.550Z",
+            "url": "https://www.jabraenhance.com/"
+          }
+        ],
+        "text": "The report shows no Web Archive coverage (empty sections); the site is live."
+      }
+    ],
+    "links": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:16:34.459Z",
+            "url": "https://www.jabraenhance.com/help"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:16:38.707Z",
+            "url": "https://www.jabraenhance.com/start"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:16:18.831Z",
+            "url": "https://www.jabraenhance.com/hearing-aid-guide"
+          }
+        ],
+        "text": "PDFs are on cdn.jabraenhance.com and sound-files.jabraenhance.com; hearingloss.org PDFs are third-party."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:17:13.435Z",
+            "url": "https://www.jabraenhance.com/terms-and-conditions"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:16:43.286Z",
+            "url": "https://www.jabraenhance.com/about"
+          }
+        ],
+        "text": "Terms page links to jabra.com warranty page; About links to GN careers on Workday."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:16:10.550Z",
+            "url": "https://www.jabraenhance.com/"
+          }
+        ],
+        "text": "No redirects were recorded."
+      }
+    ],
+    "next": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:16:14.435Z",
+            "url": "https://www.jabraenhance.com/product/enhanceselectm3"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:17:33.359Z",
+            "url": "https://www.jabraenhance.com/product/m3-vs-500"
+          }
+        ],
+        "text": "Read prices and discontinued status from /product/enhanceselectm1|m2|m3; the model pattern also matches the comparison pages like m3-vs-500, so filter them out."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:15:53.102Z",
+            "url": "https://www.jabraenhance.com/sitemap-products.xml"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:16:38.707Z",
+            "url": "https://www.jabraenhance.com/start"
+          }
+        ],
+        "text": "Check whether the 700, 500, 300 and 50R models have any current product pages; none appear in the product sitemap."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:51:20.612Z",
+            "url": "https://www.jabraenhance.com/start/enhance-select-700"
+          }
+        ],
+        "text": "Check the PDFs for older models via /start/enhance-select-* subpages."
+      }
+    ],
+    "render": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:17:17.166Z",
+            "url": "https://www.jabraenhance.com/product"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:16:14.435Z",
+            "url": "https://www.jabraenhance.com/product/enhanceselectm3"
+          }
+        ],
+        "text": "Catalog and model pages need no scripts to show content (needsRender false)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:16:32.183Z",
+            "url": "https://www.jabraenhance.com/contact-us"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:16:38.707Z",
+            "url": "https://www.jabraenhance.com/start"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:16:40.955Z",
+            "url": "https://www.jabraenhance.com/survey"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:16:50.252Z",
+            "url": "https://www.jabraenhance.com/compatibility"
+          }
+        ],
+        "text": "/contact-us, /start, /survey and /compatibility are flagged as needing render."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:51:17.622Z",
+            "url": "https://www.jabraenhance.com/robots.txt"
+          }
+        ],
+        "text": "robots.txt disallows /purchase, /cart, /refer, /account, /schedule, /getapp and some accessory pages; /refer was skipped for that reason."
+      }
+    ],
+    "structure": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:51:17.622Z",
+            "url": "https://www.jabraenhance.com/robots.txt"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:15:49.364Z",
+            "url": "https://www.jabraenhance.com/sitemap.xml"
+          }
+        ],
+        "text": "robots.txt lists five sitemaps: sitemap.xml (index), sitemap-products.xml, blog/sitemap.xml, copp/sitemap.xml, copp/sitemap-accessories.xml; the index also lists sitemap-0.xml."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:15:53.102Z",
+            "url": "https://www.jabraenhance.com/sitemap-products.xml"
+          }
+        ],
+        "text": "sitemap-products.xml lists only the three model pages /product/enhanceselectm3, m2 and m1."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:16:07.741Z",
+            "url": "https://www.jabraenhance.com/sitemap-0.xml"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:17:33.359Z",
+            "url": "https://www.jabraenhance.com/product/m3-vs-500"
+          }
+        ],
+        "text": "/product/{slug} also holds comparison pages such as m3-vs-500, 700-vs-100 (11 in the sitemap sections besides the models), which are not model pages."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:16:27.739Z",
+            "url": "https://www.jabraenhance.com/accessories"
+          }
+        ],
+        "text": "Accessories live at /accessories/{slug} (18 pages) with prices, e.g. Charging Case $250, TV Streamer $299."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:16:38.707Z",
+            "url": "https://www.jabraenhance.com/start"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:51:20.612Z",
+            "url": "https://www.jabraenhance.com/start/enhance-select-700"
+          }
+        ],
+        "text": "Quick-start guides at /start/enhance-select-{50,50r,100,200,300,500,700}, each with /basics, /charge, /connect subpages."
+      }
+    ],
+    "what": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:17:19.389Z",
+            "url": "https://www.jabraenhance.com/product/enhanceselectm2"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:16:10.550Z",
+            "url": "https://www.jabraenhance.com/"
+          }
+        ],
+        "text": "Jabra Enhance sells FDA-cleared self-fitting OTC hearing aids online, with 3 years of virtual audiology included."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:16:10.550Z",
+            "url": "https://www.jabraenhance.com/"
+          }
+        ],
+        "text": "Homepage prices: Select M3 $1,695 (was $1,995), M2 $1,695, M1 $1,195."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:16:10.550Z",
+            "url": "https://www.jabraenhance.com/"
+          }
+        ],
+        "text": "Phone support (800) 854-2772; financing via Bread Pay."
+      }
+    ],
+    "where": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:17:17.166Z",
+            "url": "https://www.jabraenhance.com/product"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:16:14.435Z",
+            "url": "https://www.jabraenhance.com/product/enhanceselectm3"
+          }
+        ],
+        "text": "Catalog: https://www.jabraenhance.com/product (ItemList JSON-LD); model pages /product/enhanceselectm1|m2|m3 (ProductGroup JSON-LD)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:16:34.459Z",
+            "url": "https://www.jabraenhance.com/help"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:16:14.435Z",
+            "url": "https://www.jabraenhance.com/product/enhanceselectm3"
+          }
+        ],
+        "text": "User guide PDFs: cdn.jabraenhance.com/shared/userguides/enhance-select-m1.pdf, m2.pdf, m3.pdf, linked from /help and model pages."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:16:38.707Z",
+            "url": "https://www.jabraenhance.com/start"
+          }
+        ],
+        "text": "Getting-started PDFs on sound-files.jabraenhance.com for devices bought before 12/13/21."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:16:34.459Z",
+            "url": "https://www.jabraenhance.com/help"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:17:51.388Z",
+            "url": "https://help.jabraenhance.com/setup/how-to-setup-your-hearing-aids"
+          }
+        ],
+        "text": "Support: /help, /faq and the help.jabraenhance.com knowledge base."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:16:14.435Z",
+            "url": "https://www.jabraenhance.com/product/enhanceselectm3"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:17:56.018Z",
+            "url": "https://help.jabraenhance.com/connecting-to-your-phone-app/how-to-connect-to-the-jabra-enhance-select-app"
+          }
+        ],
+        "text": "App: Jabra Enhance Select, iOS id 1502033340, Android com.lively.app."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:16:38.707Z",
+            "url": "https://www.jabraenhance.com/start"
+          }
+        ],
+        "text": "/start marks Enhance Select 200, 100 and 50 as Discontinued; 700, 500, 300, 50R are listed without that label."
+      }
+    ]
+  },
+  "summary": {
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:17:17.166Z",
+        "url": "https://www.jabraenhance.com/product"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:15:53.102Z",
+        "url": "https://www.jabraenhance.com/sitemap-products.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:16:38.707Z",
+        "url": "https://www.jabraenhance.com/start"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:16:34.459Z",
+        "url": "https://www.jabraenhance.com/help"
+      }
+    ],
+    "text": "Live Jabra Enhance brand site (US online OTC hearing aids): catalog at /product lists three models (Select M3, M2, M1) on server-rendered pages with user guide PDFs on cdn.jabraenhance.com; older models (700, 500, 300, 50R, discontinued 200/100/50) appear only in /start guides and comparison pages."
+  }
+}

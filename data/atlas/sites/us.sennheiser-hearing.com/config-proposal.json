@@ -1,0 +1,49 @@
+{
+  "checks": {
+    "catalogUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "catalogUrls.1": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "modelUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "supportUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.1": [
+      {
+        "detail": "not in the report or the fetch log",
+        "name": "log",
+        "ok": false
+      }
+    ]
+  },
+  "generatedAt": "2026-11-27T19:03:39.018Z",
+  "proposal": {
+    "catalogUrls": [
+      "https://us.sennheiser-hearing.com/pages/otc-hearing-aids",
+      "https://us.sennheiser-hearing.com/collections/hearing"
+    ],
+    "modelUrlPattern": "^https://us\\.sennheiser-hearing\\.com/(collections/[a-z0-9-]+/)?products/(sennheiser-)?all-day-clear[a-z0-9-]*$",
+    "render": false,
+    "status": "active",
+    "supportUrls": [
+      "https://us.sennheiser-hearing.com/products/sennheiser-all-day-clear",
+      "https://support.sennheiser-hearing.com/hc/en-us"
+    ]
+  }
+}

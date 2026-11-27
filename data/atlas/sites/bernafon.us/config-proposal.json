@@ -1,0 +1,48 @@
+{
+  "checks": {
+    "catalogUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "modelUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "supportUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.1": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.2": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ]
+  },
+  "generatedAt": "2026-11-27T18:50:42.501Z",
+  "proposal": {
+    "catalogUrls": [
+      "https://www.bernafon.us/products/hearing-aids"
+    ],
+    "modelUrlPattern": "^https://www\\.bernafon\\.us/products/\\d+/[a-z0-9-]+$",
+    "render": false,
+    "status": "active",
+    "supportUrls": [
+      "https://www.bernafon.us/for-professionals/resource-centre",
+      "https://www.bernafon.us/support/compatibility-guide",
+      "https://www.bernafon.us/products/bernafon-app"
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "checks": {
+    "catalogUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "modelUrlPattern": [
+      {
+        "detail": "matches no URL of the report",
+        "name": "pattern",
+        "ok": false
+      }
+    ],
+    "supportUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ]
+  },
+  "generatedAt": "2026-11-27T18:52:36.221Z",
+  "proposal": {
+    "catalogUrls": [
+      "https://www.costco.com/f/-/hearing-aid-center"
+    ],
+    "modelUrlPattern": "^https://www\\.costco\\.com/(?:p/-/)?kirkland-signature-[a-z0-9.-]*hearing-aid[a-z0-9.-]*(?:/\\d+|\\.product\\.\\d+\\.html)$",
+    "render": false,
+    "status": "active",
+    "supportUrls": [
+      "https://www.costco.com/f/-/hearing-aid-center"
+    ]
+  }
+}

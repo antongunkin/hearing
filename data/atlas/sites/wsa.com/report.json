@@ -1,0 +1,2585 @@
+{
+  "archive": {
+    "sections": [
+      {
+        "byYear": {
+          "2018": 23,
+          "2019": 10,
+          "2020": 6,
+          "2021": 41,
+          "2022": 32,
+          "2023": 39,
+          "2024": 59,
+          "2025": 50,
+          "2026": 33
+        },
+        "latest": "20261008213052",
+        "url": "https://www.wsa.com"
+      },
+      {
+        "byYear": {},
+        "url": "https://www.wsa.com/press-release"
+      },
+      {
+        "byYear": {
+          "2025": 2,
+          "2026": 2
+        },
+        "latest": "20260508075806",
+        "url": "https://www.wsa.com/services"
+      },
+      {
+        "byYear": {},
+        "url": "https://www.wsa.com/article"
+      },
+      {
+        "byYear": {
+          "2024": 17,
+          "2025": 21,
+          "2026": 14
+        },
+        "latest": "20261023115549",
+        "url": "https://www.wsa.com/about"
+      },
+      {
+        "byYear": {
+          "2024": 13,
+          "2025": 9,
+          "2026": 7
+        },
+        "latest": "20261023115549",
+        "url": "https://www.wsa.com/investors"
+      }
+    ]
+  },
+  "budget": 60,
+  "domain": "wsa.com",
+  "failures": [],
+  "generatedAt": "2026-11-27T18:38:08.420Z",
+  "mode": "live",
+  "outbound": [
+    {
+      "count": 51,
+      "domain": "instagram.com",
+      "examples": [
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/"
+      ]
+    },
+    {
+      "count": 51,
+      "domain": "linkedin.com",
+      "examples": [
+        "https://www.linkedin.com/company/wonderfulsoundforall/"
+      ]
+    },
+    {
+      "count": 51,
+      "domain": "youtube.com",
+      "examples": [
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels"
+      ]
+    },
+    {
+      "count": 44,
+      "domain": "tellus-wsa.integrityline.app",
+      "examples": [
+        "https://tellus-wsa.integrityline.app/"
+      ]
+    },
+    {
+      "count": 43,
+      "domain": "signia.net",
+      "examples": [
+        "https://www.signia.net/",
+        "https://www.signia.net/en-us/",
+        "https://www.signia.net/en/"
+      ]
+    },
+    {
+      "count": 40,
+      "domain": "widex.com",
+      "examples": [
+        "https://www.widex.com/",
+        "https://www.widex.com/en-us/"
+      ]
+    },
+    {
+      "count": 39,
+      "domain": "rexton.com",
+      "examples": [
+        "https://www.rexton.com/en/",
+        "https://www.rexton.com/",
+        "https://www.rexton.com/en-us/"
+      ]
+    },
+    {
+      "count": 27,
+      "domain": "audioservice.com",
+      "examples": [
+        "https://www.audioservice.com/en/",
+        "https://www.audioservice.com/"
+      ]
+    },
+    {
+      "count": 19,
+      "domain": "vibe-hearing.com",
+      "examples": [
+        "https://www.vibe-hearing.com/"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "am-hearing.com",
+      "examples": [
+        "https://www.am-hearing.com/"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "arxiv.org",
+      "examples": [
+        "https://arxiv.org/abs/2507.09768",
+        "https://arxiv.org/abs/2205.05474"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "coselgi.com",
+      "examples": [
+        "https://www.coselgi.com/en/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "am-hearing.com.br",
+      "examples": [
+        "https://www.am-hearing.com.br/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "audibel.com.br",
+      "examples": [
+        "https://www.audibel.com.br/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "audibene.de",
+      "examples": [
+        "https://www.audibene.de/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "bloomhearing.com.au",
+      "examples": [
+        "https://www.bloomhearing.com.au/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "comunicareaparelhosauditivos.com",
+      "examples": [
+        "https://comunicareaparelhosauditivos.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "global.widex.com",
+      "examples": [
+        "https://global.widex.com/en"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "hear.com",
+      "examples": [
+        "https://www.hear.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "hearcanada.com",
+      "examples": [
+        "https://www.hearcanada.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "hearingcaresolutions.com",
+      "examples": [
+        "https://www.hearingcaresolutions.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "hearusa.com",
+      "examples": [
+        "https://www.hearusa.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "journals.sagepub.com",
+      "examples": [
+        "https://journals.sagepub.com/doi/full/10.1177/2331216519847413"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "koalys.com",
+      "examples": [
+        "https://www.koalys.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "myhearingcenters.com",
+      "examples": [
+        "https://myhearingcenters.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "shoebox.md",
+      "examples": [
+        "https://www.shoebox.md/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "signia-pro.com",
+      "examples": [
+        "https://www.signia-pro.com/en-us/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "sivantos.com",
+      "examples": [
+        "https://www.sivantos.com/en/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "truhearing.com",
+      "examples": [
+        "https://www.truhearing.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "widexpro.com",
+      "examples": [
+        "https://www.widexpro.com/en-us/"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.vibe-hearing.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 14,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:33:43.215Z",
+        "url": "https://www.wsa.com/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 15,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:33:48.528Z",
+        "url": "https://www.wsa.com/services/app-privacy-notice/acoustic-rc/"
+      },
+      "title": "WSA Accoustic RC App - WSA",
+      "url": "https://www.wsa.com/services/app-privacy-notice/acoustic-rc/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 15,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:33:51.007Z",
+        "url": "https://www.wsa.com/product-security/coordinated-vulnerability-disclosure/"
+      },
+      "title": "Coordinated Vulnerability Disclosure (CVD) - WSA",
+      "url": "https://www.wsa.com/product-security/coordinated-vulnerability-disclosure/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.sivantos.com/en/",
+        "https://global.widex.com/en",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 20,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "Article",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:33:55.256Z",
+        "url": "https://www.wsa.com/press-release/sivantos-and-widex-merge-to-create-global-hearing-aid-leader-2/"
+      },
+      "title": "Sivantos and Widex merge to create global hearing aid leader - WSA",
+      "url": "https://www.wsa.com/press-release/sivantos-and-widex-merge-to-create-global-hearing-aid-leader-2/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.vibe-hearing.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:34:00.322Z",
+        "url": "https://www.wsa.com/zh-cn/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/zh-cn/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:34:03.313Z",
+        "url": "https://www.wsa.com/es-ar/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/es-ar/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.widex.com/",
+        "https://www.signia.net/",
+        "https://www.audibel.com.br/",
+        "https://www.audioservice.com/",
+        "https://www.rexton.com/",
+        "https://www.am-hearing.com.br/",
+        "https://comunicareaparelhosauditivos.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 7,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:34:06.804Z",
+        "url": "https://www.wsa.com/pt-br/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/pt-br/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:34:10.985Z",
+        "url": "https://www.wsa.com/en-ca/"
+      },
+      "title": "WSA - A global leader in hearing healthcare",
+      "url": "https://www.wsa.com/en-ca/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:34:16.245Z",
+        "url": "https://www.wsa.com/es-cl/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/es-cl/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.vibe-hearing.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:34:21.054Z",
+        "url": "https://www.wsa.com/es-mx/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/es-mx/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:34:23.822Z",
+        "url": "https://www.wsa.com/de-at/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/de-at/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:34:28.504Z",
+        "url": "https://www.wsa.com/nl-be/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/nl-be/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.vibe-hearing.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 14,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:34:34.494Z",
+        "url": "https://www.wsa.com/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:34:38.164Z",
+        "url": "https://www.wsa.com/cs-cz/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/cs-cz/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:34:41.844Z",
+        "url": "https://www.wsa.com/da-dk/"
+      },
+      "title": "WSA - En global frontløber inden for høreomsorg",
+      "url": "https://www.wsa.com/da-dk/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:34:46.142Z",
+        "url": "https://www.wsa.com/fr-fr/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/fr-fr/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:34:48.445Z",
+        "url": "https://www.wsa.com/de-de/"
+      },
+      "title": "WSA - Ein globaler Marktführer im Bereich Hörgesundheit",
+      "url": "https://www.wsa.com/de-de/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:34:53.925Z",
+        "url": "https://www.wsa.com/hu-hu/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/hu-hu/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:34:56.545Z",
+        "url": "https://www.wsa.com/it-it/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/it-it/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:34:59.604Z",
+        "url": "https://www.wsa.com/nl-nl/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/nl-nl/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:35:04.534Z",
+        "url": "https://www.wsa.com/nb-no/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/nb-no/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.vibe-hearing.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:35:08.326Z",
+        "url": "https://www.wsa.com/pl-pl/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/pl-pl/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.am-hearing.com/",
+        "https://www.coselgi.com/en/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:35:12.405Z",
+        "url": "https://www.wsa.com/pt-pt/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/pt-pt/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:35:16.983Z",
+        "url": "https://www.wsa.com/es-es/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/es-es/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:35:21.085Z",
+        "url": "https://www.wsa.com/sv-se/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/sv-se/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:35:25.043Z",
+        "url": "https://www.wsa.com/de-ch/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/de-ch/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:35:28.549Z",
+        "url": "https://www.wsa.com/tr-tr/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/tr-tr/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:35:30.998Z",
+        "url": "https://www.wsa.com/en-gb/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/en-gb/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.vibe-hearing.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:35:33.452Z",
+        "url": "https://www.wsa.com/en-au/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/en-au/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.vibe-hearing.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:35:37.285Z",
+        "url": "https://www.wsa.com/en-in/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/en-in/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.vibe-hearing.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:35:39.914Z",
+        "url": "https://www.wsa.com/ja-jp/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/ja-jp/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.vibe-hearing.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:35:44.626Z",
+        "url": "https://www.wsa.com/ko-kr/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/ko-kr/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:35:47.990Z",
+        "url": "https://www.wsa.com/fr-lu/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/fr-lu/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.vibe-hearing.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:35:50.444Z",
+        "url": "https://www.wsa.com/en-il/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/en-il/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.vibe-hearing.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:35:55.508Z",
+        "url": "https://www.wsa.com/en-sea/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/en-sea/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:36:00.224Z",
+        "url": "https://www.wsa.com/fr-ch/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/fr-ch/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:36:02.744Z",
+        "url": "https://www.wsa.com/uk-ua/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/uk-ua/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.vibe-hearing.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 8,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:36:08.166Z",
+        "url": "https://www.wsa.com/en-nz/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/en-nz/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.vibe-hearing.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels"
+      ],
+      "internalLinks": 3,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:36:11.267Z",
+        "url": "https://www.wsa.com/en-sg/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/en-sg/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.vibe-hearing.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels"
+      ],
+      "internalLinks": 3,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:36:16.743Z",
+        "url": "https://www.wsa.com/vi-vi/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/vi-vi/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.vibe-hearing.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels"
+      ],
+      "internalLinks": 3,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:36:20.463Z",
+        "url": "https://www.wsa.com/th-th/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/th-th/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.vibe-hearing.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels"
+      ],
+      "internalLinks": 3,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:36:24.269Z",
+        "url": "https://www.wsa.com/ms-my/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/ms-my/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.vibe-hearing.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels"
+      ],
+      "internalLinks": 3,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:36:28.229Z",
+        "url": "https://www.wsa.com/zh-sea/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/zh-sea/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.audioservice.com/en/",
+        "https://www.vibe-hearing.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels"
+      ],
+      "internalLinks": 3,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:36:31.284Z",
+        "url": "https://www.wsa.com/en-za/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/en-za/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.widex.com/en-us/",
+        "https://www.signia.net/en-us/",
+        "https://www.rexton.com/en-us/",
+        "https://www.widexpro.com/en-us/",
+        "https://www.signia-pro.com/en-us/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels"
+      ],
+      "internalLinks": 2,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:36:34.602Z",
+        "url": "https://www.wsa.com/en-us/"
+      },
+      "title": "Wonderful Sound for All - WSA",
+      "url": "https://www.wsa.com/en-us/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 17,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:36:38.826Z",
+        "url": "https://www.wsa.com/about/history/"
+      },
+      "title": "History - WSA",
+      "url": "https://www.wsa.com/about/history/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 18,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:36:44.054Z",
+        "url": "https://www.wsa.com/media/press-releases/"
+      },
+      "title": "Press releases - WSA",
+      "url": "https://www.wsa.com/media/press-releases/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://arxiv.org/abs/2507.09768",
+        "https://arxiv.org/abs/2205.05474",
+        "https://journals.sagepub.com/doi/full/10.1177/2331216519847413",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 15,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:36:49.545Z",
+        "url": "https://www.wsa.com/innovation/ai-center/"
+      },
+      "title": "AI Center - WSA",
+      "url": "https://www.wsa.com/innovation/ai-center/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 15,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://wsa-com-prod-bwa6fdbwhjcnhbd2.a03.azurefd.net/wp-content/uploads/2025/11/WSA_AR-2024-25_Final.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:36:54.687Z",
+        "url": "https://www.wsa.com/sustainability/"
+      },
+      "title": "Sustainability - WSA",
+      "url": "https://www.wsa.com/sustainability/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 19,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:36:58.327Z",
+        "url": "https://www.wsa.com/investors/contacts/"
+      },
+      "title": "Investor relation contacts - WSA",
+      "url": "https://www.wsa.com/investors/contacts/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.signia.net/en/",
+        "https://www.widex.com/",
+        "https://www.rexton.com/en/",
+        "https://www.vibe-hearing.com/",
+        "https://www.audioservice.com/en/",
+        "https://www.coselgi.com/en/",
+        "https://www.am-hearing.com/",
+        "https://www.hearusa.com/",
+        "https://www.hearcanada.com/",
+        "https://www.bloomhearing.com.au/",
+        "https://myhearingcenters.com/",
+        "https://www.hear.com/",
+        "https://www.audibene.de/",
+        "https://www.truhearing.com/",
+        "https://www.hearingcaresolutions.com/",
+        "https://www.shoebox.md/",
+        "https://www.koalys.com/",
+        "https://www.signia.net/",
+        "https://www.rexton.com/",
+        "https://www.audioservice.com/",
+        "https://www.instagram.com/wsa_wonderful_sound_for_all/",
+        "https://www.linkedin.com/company/wonderfulsoundforall/",
+        "https://www.youtube.com/channel/UCnEHxxidp26eKGgLwAH_a4g/channels",
+        "https://tellus-wsa.integrityline.app/"
+      ],
+      "internalLinks": 15,
+      "jsonLdTypes": [
+        "WebSite",
+        "WebPage",
+        "Organization",
+        "ImageObject"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:37:03.652Z",
+        "url": "https://www.wsa.com/brands/"
+      },
+      "title": "Brands - WSA",
+      "url": "https://www.wsa.com/brands/"
+    }
+  ],
+  "pdfHosts": [
+    {
+      "count": 1,
+      "examples": [
+        "https://wsa-com-prod-bwa6fdbwhjcnhbd2.a03.azurefd.net/wp-content/uploads/2025/11/WSA_AR-2024-25_Final.pdf"
+      ],
+      "host": "wsa-com-prod-bwa6fdbwhjcnhbd2.a03.azurefd.net"
+    }
+  ],
+  "redirects": [
+    {
+      "from": "https://www.wsa.com/sound-preference-se/",
+      "ref": {
+        "fetchedAt": "2026-11-27T18:37:10.275Z",
+        "url": "https://www.wsa.com/sound-preference-se/"
+      },
+      "to": "https://www.soundpreference.com/sv-se/"
+    },
+    {
+      "from": "https://www.wsa.com/sound-preference-dk/",
+      "ref": {
+        "fetchedAt": "2026-11-27T18:37:14.526Z",
+        "url": "https://www.wsa.com/sound-preference-dk/"
+      },
+      "to": "https://www.soundpreference.com/da-dk/"
+    },
+    {
+      "from": "https://www.wsa.com/sound-preference-nl/",
+      "ref": {
+        "fetchedAt": "2026-11-27T18:37:19.061Z",
+        "url": "https://www.wsa.com/sound-preference-nl/"
+      },
+      "to": "https://www.soundpreference.com/nl-nl/"
+    },
+    {
+      "from": "https://www.wsa.com/sound-preference-za/",
+      "ref": {
+        "fetchedAt": "2026-11-27T18:37:22.809Z",
+        "url": "https://www.wsa.com/sound-preference-za/"
+      },
+      "to": "https://www.soundpreference.com/en-za/"
+    },
+    {
+      "from": "https://www.wsa.com/sound-preference-fr-ch/",
+      "ref": {
+        "fetchedAt": "2026-11-27T18:37:26.064Z",
+        "url": "https://www.wsa.com/sound-preference-fr-ch/"
+      },
+      "to": "https://www.soundpreference.com/fr-ch/"
+    },
+    {
+      "from": "https://www.wsa.com/sound-preference-de-at/",
+      "ref": {
+        "fetchedAt": "2026-11-27T18:37:30.125Z",
+        "url": "https://www.wsa.com/sound-preference-de-at/"
+      },
+      "to": "https://www.soundpreference.com/de-ch/"
+    },
+    {
+      "from": "https://www.wsa.com/sound-preference-de-ch/",
+      "ref": {
+        "fetchedAt": "2026-11-27T18:37:33.367Z",
+        "url": "https://www.wsa.com/sound-preference-de-ch/"
+      },
+      "to": "https://www.soundpreference.com/de-ch/"
+    },
+    {
+      "from": "https://www.wsa.com/sound-preference-tr/",
+      "ref": {
+        "fetchedAt": "2026-11-27T18:37:36.448Z",
+        "url": "https://www.wsa.com/sound-preference-tr/"
+      },
+      "to": "https://www.soundpreference.com/tr-tr/"
+    },
+    {
+      "from": "https://www.wsa.com/sound-preference-it/",
+      "ref": {
+        "fetchedAt": "2026-11-27T18:37:39.574Z",
+        "url": "https://www.wsa.com/sound-preference-it/"
+      },
+      "to": "https://www.soundpreference.com/it-it/"
+    }
+  ],
+  "robots": {
+    "groups": [
+      {
+        "allow": [
+          "/wordpress/wp-admin/admin-ajax.php"
+        ],
+        "disallow": [
+          "/wordpress/wp-admin/"
+        ],
+        "userAgents": [
+          "*"
+        ]
+      },
+      {
+        "allow": [],
+        "disallow": [],
+        "userAgents": [
+          "*"
+        ]
+      }
+    ],
+    "ref": {
+      "fetchedAt": "2026-11-27T18:33:19.632Z",
+      "url": "https://www.wsa.com/robots.txt"
+    },
+    "sitemaps": [
+      "https://www.wsa.com/sitemap_index.xml"
+    ],
+    "status": 200
+  },
+  "sitemap": {
+    "refs": [
+      {
+        "fetchedAt": "2026-11-27T18:33:24.712Z",
+        "url": "https://www.wsa.com/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:33:28.568Z",
+        "url": "https://www.wsa.com/page-sitemap.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:33:34.196Z",
+        "url": "https://www.wsa.com/article-sitemap.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:33:40.434Z",
+        "url": "https://www.wsa.com/press-release-sitemap.xml"
+      }
+    ],
+    "sections": [
+      {
+        "count": 113,
+        "path": "/press-release"
+      },
+      {
+        "count": 53,
+        "path": "/services"
+      },
+      {
+        "count": 17,
+        "path": "/article"
+      },
+      {
+        "count": 10,
+        "path": "/about"
+      },
+      {
+        "count": 6,
+        "path": "/investors"
+      },
+      {
+        "count": 5,
+        "path": "/media"
+      },
+      {
+        "count": 2,
+        "path": "/innovation"
+      },
+      {
+        "count": 2,
+        "path": "/product-security"
+      },
+      {
+        "count": 1,
+        "path": "/"
+      },
+      {
+        "count": 1,
+        "path": "/brands"
+      },
+      {
+        "count": 1,
+        "path": "/careers"
+      },
+      {
+        "count": 1,
+        "path": "/cs-cz"
+      },
+      {
+        "count": 1,
+        "path": "/da-dk"
+      },
+      {
+        "count": 1,
+        "path": "/de-at"
+      },
+      {
+        "count": 1,
+        "path": "/de-ch"
+      },
+      {
+        "count": 1,
+        "path": "/de-de"
+      },
+      {
+        "count": 1,
+        "path": "/en-au"
+      },
+      {
+        "count": 1,
+        "path": "/en-ca"
+      },
+      {
+        "count": 1,
+        "path": "/en-gb"
+      },
+      {
+        "count": 1,
+        "path": "/en-il"
+      },
+      {
+        "count": 1,
+        "path": "/en-in"
+      },
+      {
+        "count": 1,
+        "path": "/en-nz"
+      },
+      {
+        "count": 1,
+        "path": "/en-sea"
+      },
+      {
+        "count": 1,
+        "path": "/en-sg"
+      },
+      {
+        "count": 1,
+        "path": "/en-us"
+      },
+      {
+        "count": 1,
+        "path": "/en-za"
+      },
+      {
+        "count": 1,
+        "path": "/es-ar"
+      },
+      {
+        "count": 1,
+        "path": "/es-cl"
+      },
+      {
+        "count": 1,
+        "path": "/es-es"
+      },
+      {
+        "count": 1,
+        "path": "/es-mx"
+      },
+      {
+        "count": 1,
+        "path": "/fr-be"
+      },
+      {
+        "count": 1,
+        "path": "/fr-ch"
+      },
+      {
+        "count": 1,
+        "path": "/fr-fr"
+      },
+      {
+        "count": 1,
+        "path": "/fr-lu"
+      },
+      {
+        "count": 1,
+        "path": "/hu-hu"
+      },
+      {
+        "count": 1,
+        "path": "/it-it"
+      },
+      {
+        "count": 1,
+        "path": "/ja-jp"
+      },
+      {
+        "count": 1,
+        "path": "/ko-kr"
+      },
+      {
+        "count": 1,
+        "path": "/ms-my"
+      },
+      {
+        "count": 1,
+        "path": "/nb-no"
+      },
+      {
+        "count": 1,
+        "path": "/nl-be"
+      },
+      {
+        "count": 1,
+        "path": "/nl-nl"
+      },
+      {
+        "count": 1,
+        "path": "/pl-pl"
+      },
+      {
+        "count": 1,
+        "path": "/pt-br"
+      },
+      {
+        "count": 1,
+        "path": "/pt-pt"
+      },
+      {
+        "count": 1,
+        "path": "/sound-preference-de-at"
+      },
+      {
+        "count": 1,
+        "path": "/sound-preference-de-ch"
+      },
+      {
+        "count": 1,
+        "path": "/sound-preference-dk"
+      },
+      {
+        "count": 1,
+        "path": "/sound-preference-fr-ch"
+      },
+      {
+        "count": 1,
+        "path": "/sound-preference-it"
+      },
+      {
+        "count": 1,
+        "path": "/sound-preference-nl"
+      },
+      {
+        "count": 1,
+        "path": "/sound-preference-se"
+      },
+      {
+        "count": 1,
+        "path": "/sound-preference-tr"
+      },
+      {
+        "count": 1,
+        "path": "/sound-preference-za"
+      },
+      {
+        "count": 1,
+        "path": "/soundpreference"
+      },
+      {
+        "count": 1,
+        "path": "/sustainability"
+      },
+      {
+        "count": 1,
+        "path": "/sv-se"
+      },
+      {
+        "count": 1,
+        "path": "/th-th"
+      },
+      {
+        "count": 1,
+        "path": "/tr-tr"
+      },
+      {
+        "count": 1,
+        "path": "/uk-ua"
+      },
+      {
+        "count": 1,
+        "path": "/vi-vi"
+      },
+      {
+        "count": 1,
+        "path": "/zh-cn"
+      },
+      {
+        "count": 1,
+        "path": "/zh-sea"
+      }
+    ],
+    "urlCount": 263
+  },
+  "start": "https://www.wsa.com",
+  "templates": [
+    {
+      "count": 113,
+      "examples": [
+        "https://www.wsa.com/press-release/accounting-update-fiscal-year-2023-24/",
+        "https://www.wsa.com/press-release/asger-bjerre-appointed-wsa-chief-people-officer/",
+        "https://www.wsa.com/press-release/bold-new-hearusa-brand-and-vision-sets-out-to-redefine-hearing-care-for-consumers/"
+      ],
+      "pattern": "https://www.wsa.com/press-release/{slug}"
+    },
+    {
+      "count": 59,
+      "examples": [
+        "https://www.wsa.com/about/",
+        "https://www.wsa.com/brands/",
+        "https://www.wsa.com/careers/"
+      ],
+      "pattern": "https://www.wsa.com/{slug}"
+    },
+    {
+      "count": 45,
+      "examples": [
+        "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-albanian/",
+        "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-arabic/",
+        "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-bosnian/"
+      ],
+      "pattern": "https://www.wsa.com/services/app-privacy-notice/remote-control-app/{slug}"
+    },
+    {
+      "count": 17,
+      "examples": [
+        "https://www.wsa.com/article/a-year-of-progress-and-partnership/",
+        "https://www.wsa.com/article/andrew-being-a-problem-solver/",
+        "https://www.wsa.com/article/arash-fard/"
+      ],
+      "pattern": "https://www.wsa.com/article/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.wsa.com/about/contacts/",
+        "https://www.wsa.com/about/governance/",
+        "https://www.wsa.com/about/history/"
+      ],
+      "pattern": "https://www.wsa.com/about/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.wsa.com/investors/contacts/",
+        "https://www.wsa.com/investors/financial-calendar/",
+        "https://www.wsa.com/investors/outlook/"
+      ],
+      "pattern": "https://www.wsa.com/investors/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.wsa.com/services/cookie-policy/",
+        "https://www.wsa.com/services/corporate-information/",
+        "https://www.wsa.com/services/privacy-note/"
+      ],
+      "pattern": "https://www.wsa.com/services/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.wsa.com/about/leadership/audit-committee/",
+        "https://www.wsa.com/about/leadership/board-of-directors/",
+        "https://www.wsa.com/about/leadership/executive-leadership/"
+      ],
+      "pattern": "https://www.wsa.com/about/leadership/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.wsa.com/media/contacts/",
+        "https://www.wsa.com/media/downloads/",
+        "https://www.wsa.com/media/latest-news/"
+      ],
+      "pattern": "https://www.wsa.com/media/{slug}"
+    }
+  ],
+  "urls": [
+    "https://wsa-com-prod-bwa6fdbwhjcnhbd2.a03.azurefd.net/wp-content/uploads/2025/11/WSA_AR-2024-25_Final.pdf",
+    "https://www.wsa.com/",
+    "https://www.wsa.com/about/",
+    "https://www.wsa.com/about/contacts/",
+    "https://www.wsa.com/about/governance/",
+    "https://www.wsa.com/about/history/",
+    "https://www.wsa.com/about/leadership/",
+    "https://www.wsa.com/about/leadership/audit-committee/",
+    "https://www.wsa.com/about/leadership/board-of-directors/",
+    "https://www.wsa.com/about/leadership/executive-leadership/",
+    "https://www.wsa.com/about/leadership/renumeration-and-nomination-committee/",
+    "https://www.wsa.com/about/ownership/",
+    "https://www.wsa.com/article/a-year-of-progress-and-partnership/",
+    "https://www.wsa.com/article/andrew-being-a-problem-solver/",
+    "https://www.wsa.com/article/arash-fard/",
+    "https://www.wsa.com/article/arlene-helping-to-develop-hearing-aids-gives-me-a-sense-of-purpose/",
+    "https://www.wsa.com/article/breaking-down-the-stigma/",
+    "https://www.wsa.com/article/diversity-inclusion/",
+    "https://www.wsa.com/article/empowerment-in-hearing-health-a-call-to-action-for-world-hearing-day/",
+    "https://www.wsa.com/article/from-silence-to-support-how-ws-audiologys-collaboration-with-nus-changed-lives-in-cambodia/",
+    "https://www.wsa.com/article/hearing-aids-help-me-clearly-understand-my-toddler-twins-words/",
+    "https://www.wsa.com/article/homayoun-you-need-an-inner-passion/",
+    "https://www.wsa.com/article/katrine-a-really-complex-and-exciting-set-of-task-focuses/",
+    "https://www.wsa.com/article/new-article/",
+    "https://www.wsa.com/article/news-1/",
+    "https://www.wsa.com/article/providing-access-to-better-hearing-health-new-mobile-fitting-van-hits-the-road-in-china/",
+    "https://www.wsa.com/article/research-summary-sound-preference-listeners-distinct-preferences-require-distinct-sound-designs/",
+    "https://www.wsa.com/article/thassilo-i-always-know-why-it-is-worth-the-effort/",
+    "https://www.wsa.com/article/wsa-statement-on-florida-teleaudiology-legislation/",
+    "https://www.wsa.com/brands/",
+    "https://www.wsa.com/careers/",
+    "https://www.wsa.com/cs-cz/",
+    "https://www.wsa.com/da-dk/",
+    "https://www.wsa.com/de-at/",
+    "https://www.wsa.com/de-ch/",
+    "https://www.wsa.com/de-de/",
+    "https://www.wsa.com/en-au/",
+    "https://www.wsa.com/en-ca/",
+    "https://www.wsa.com/en-gb/",
+    "https://www.wsa.com/en-il/",
+    "https://www.wsa.com/en-in/",
+    "https://www.wsa.com/en-nz/",
+    "https://www.wsa.com/en-sea/",
+    "https://www.wsa.com/en-sg/",
+    "https://www.wsa.com/en-us/",
+    "https://www.wsa.com/en-za/",
+    "https://www.wsa.com/en/newslist/first-merge/www.eqtpartners.com",
+    "https://www.wsa.com/es-ar/",
+    "https://www.wsa.com/es-cl/",
+    "https://www.wsa.com/es-es/",
+    "https://www.wsa.com/es-mx/",
+    "https://www.wsa.com/fr-be/",
+    "https://www.wsa.com/fr-ch/",
+    "https://www.wsa.com/fr-fr/",
+    "https://www.wsa.com/fr-lu/",
+    "https://www.wsa.com/hu-hu/",
+    "https://www.wsa.com/innovation/",
+    "https://www.wsa.com/innovation/ai-center/",
+    "https://www.wsa.com/investors/",
+    "https://www.wsa.com/investors/contacts/",
+    "https://www.wsa.com/investors/financial-calendar/",
+    "https://www.wsa.com/investors/outlook/",
+    "https://www.wsa.com/investors/ratings/",
+    "https://www.wsa.com/investors/reports/",
+    "https://www.wsa.com/it-it/",
+    "https://www.wsa.com/ja-jp/",
+    "https://www.wsa.com/ko-kr/",
+    "https://www.wsa.com/media/",
+    "https://www.wsa.com/media/contacts/",
+    "https://www.wsa.com/media/downloads/",
+    "https://www.wsa.com/media/latest-news/",
+    "https://www.wsa.com/media/press-releases/",
+    "https://www.wsa.com/ms-my/",
+    "https://www.wsa.com/nb-no/",
+    "https://www.wsa.com/nl-be/",
+    "https://www.wsa.com/nl-nl/",
+    "https://www.wsa.com/pl-pl/",
+    "https://www.wsa.com/press-release/accounting-update-fiscal-year-2023-24/",
+    "https://www.wsa.com/press-release/asger-bjerre-appointed-wsa-chief-people-officer/",
+    "https://www.wsa.com/press-release/bold-new-hearusa-brand-and-vision-sets-out-to-redefine-hearing-care-for-consumers/",
+    "https://www.wsa.com/press-release/carsten-buhl-to-leave-wsa/",
+    "https://www.wsa.com/press-release/daniel-liberman-appointed-us-regional-president-for-ws-audiology/",
+    "https://www.wsa.com/press-release/dorothea-wenzel-joins-wsas-board-of-directors-and-is-appointed-chair-of-the-audit-committee/",
+    "https://www.wsa.com/press-release/external-study-confirms-that-signia-ix-outperforms-closest-competitor-in-noisy-group-conversations/",
+    "https://www.wsa.com/press-release/first-wsa-sustainability-report-sets-clear-and-ambitious-esg-goals/",
+    "https://www.wsa.com/press-release/fiscal-year-2021-22-ws-audiology-delivers-solid-results-in-a-challenging-business-environment/",
+    "https://www.wsa.com/press-release/full-year-results-2020-21-ws-audiology-delivers-strong-revenue-and-earnings-growth-in-eventful-year/",
+    "https://www.wsa.com/press-release/information-about-it-security-incident/",
+    "https://www.wsa.com/press-release/introducing-rexton-reach-every-voice-matters-and-reach-makes-sure-every-voice-is-heard/",
+    "https://www.wsa.com/press-release/introducing-rexton-recharge-launch-of-affordable-rechargeable-hearing-solutions-to-address-global-hearing-needs/",
+    "https://www.wsa.com/press-release/it-security-incident-update-2/",
+    "https://www.wsa.com/press-release/it-security-incident-update-3/",
+    "https://www.wsa.com/press-release/it-security-incident-update/",
+    "https://www.wsa.com/press-release/james-benston-appointed-wsa-president-of-region-apac/",
+    "https://www.wsa.com/press-release/jan-makela-to-succeed-eric-bernard-as-ws-audiology-president-and-ceo/",
+    "https://www.wsa.com/press-release/lars-rasmussen-to-succeed-marco-gadola-as-wsa-board-chair/",
+    "https://www.wsa.com/press-release/marianne-wiinholt-appointed-group-cfo-of-ws-audiology/",
+    "https://www.wsa.com/press-release/new-wsa-clinical-studies-link-sound-preference-to-higher-hearing-aid-conversion/",
+    "https://www.wsa.com/press-release/one-relationship-two-industry-leading-brands-and-more-time-for-patient-care/",
+    "https://www.wsa.com/press-release/proposed-merger-between-widex-and-sivantos-receives-final-clearance-from-european-commission-2/",
+    "https://www.wsa.com/press-release/proposed-merger-between-widex-and-sivantos-receives-final-clearance-from-european-commission/",
+    "https://www.wsa.com/press-release/rexton-expands-its-reach-platform-with-reach-r-plus-and-reach-rugged/",
+    "https://www.wsa.com/press-release/rexton-expands-its-reach-platform-with-three-new-form-factors/",
+    "https://www.wsa.com/press-release/signia-active-pro-awarded-if-design-award-for-overcoming-stigma/",
+    "https://www.wsa.com/press-release/signia-announces-active-pro-ix-prescription-grade-earbuds-that-help-hearing-aid-wearers-reconnect-with-the-conversation/",
+    "https://www.wsa.com/press-release/signia-challenges-hearing-aid-stigma-with-new-styletto-ix-and-insio-ix-models-that-combine-discreet-designs-with-advanced-features-to-enable-clear-conversations-in-noisy-environments/",
+    "https://www.wsa.com/press-release/signia-introduces-active-mini-ix-the-worlds-smallest-ready-to-wear-ite-hearing-aid-with-the-full-power-of-the-integrated-xperience-ix-platform-2/",
+    "https://www.wsa.com/press-release/signia-introduces-hearing-aids-that-tackle-the-most-difficult-challenge-for-people-with-hearing-loss-group-conversations-in-noise/",
+    "https://www.wsa.com/press-release/signia-introduces-insio-chargego-cic-ix-the-worlds-first-rechargeable-custom-cic-hearing-aid-with-directional-microphone-technology/",
+    "https://www.wsa.com/press-release/signia-introduces-max-powered-by-acoustic-intelligence-worlds-first-ai-hearing-aid-platform-with-4-dnns/",
+    "https://www.wsa.com/press-release/signia-introduces-pure-chargego-bct-ix-hearing-aids-featuring-bluetooth-classic-connectivity-with-no-compromise/",
+    "https://www.wsa.com/press-release/signia-introduces-worlds-first-augmented-hearing-platform-that-delivers-an-immersive-intelligent-hearing-experience-with-outstanding-speech-clarity/",
+    "https://www.wsa.com/press-release/signia-ix-delivers-more-than-twice-the-speech-enhancement-benefit-in-noisy-group-conversations-than-closest-competitors/",
+    "https://www.wsa.com/press-release/signia-receives-if-design-award-for-custom-rechargeable-hearing-aids-with-contactless-charging/",
+    "https://www.wsa.com/press-release/signia-reinvents-hearing-aids-for-a-new-generation-of-wearers/",
+    "https://www.wsa.com/press-release/signia-silk-chargego-ix-hearing-aid-is-selected-as-a-2024-ces-innovation-awards-best-of-innovation-honoree/",
+    "https://www.wsa.com/press-release/sivantos-and-widex-merge-to-create-global-hearing-aid-leader-2/",
+    "https://www.wsa.com/press-release/sivantos-and-widex-merge-to-create-global-hearing-aid-leader/",
+    "https://www.wsa.com/press-release/sivantos-and-widex-successfully-complete-merger-new-company-to-operate-as-ws-audiology-a-s/",
+    "https://www.wsa.com/press-release/sony-and-ws-audiology-have-entered-into-a-partnership-agreement-in-the-over-the-counter-self-fitting-hearing-aid-business/",
+    "https://www.wsa.com/press-release/soren-westh-lonning-joins-ws-audiology-on-nov-1/",
+    "https://www.wsa.com/press-release/styletto-connect-hearing-aids-win-red-dot-product-design-award/",
+    "https://www.wsa.com/press-release/styletto-wins-if-gold-design-award/",
+    "https://www.wsa.com/press-release/the-difference-is-clear-widex-expands-allure-portfolio-with-new-form-factors-accessories-and-rapidly-evolves-its-fitting-platform/",
+    "https://www.wsa.com/press-release/the-new-rexton-bicore-b-li-rugged-hearing-aid-durable-in-every-way/",
+    "https://www.wsa.com/press-release/widex-allure-ai-ric-with-clarity-boost-now-available-in-the-u-s-and-major-european-countries-redefining-how-ai-supports-natural-hearing-2/",
+    "https://www.wsa.com/press-release/widex-allure-app-and-compass-cloud-named-winners-in-2025-hearing-technology-innovator-awards/",
+    "https://www.wsa.com/press-release/widex-announces-new-widex-smartric-hearing-aid-that-redefines-device-design-for-improved-audiological-performance/",
+    "https://www.wsa.com/press-release/widex-introduces-allure-ai-ric-with-clarity-boost-redefining-how-ai-supports-natural-hearing/",
+    "https://www.wsa.com/press-release/widex-introduces-widex-moment-the-worlds-first-hearing-aid-to-deliver-a-truly-natural-sound-experience/",
+    "https://www.wsa.com/press-release/widex-moment-app-named-ces-2023-innovation-awards-honoree/",
+    "https://www.wsa.com/press-release/widex-moment-sheer-hearing-aid-solution-wins-2022-good-design-award/",
+    "https://www.wsa.com/press-release/widex-recognized-at-the-2024-red-dot-design-awards-with-three-wins-across-two-categories/",
+    "https://www.wsa.com/press-release/widex-smartric-hearing-aid-wins-again-this-time-the-2024-golden-a-design-award/",
+    "https://www.wsa.com/press-release/widex-unveils-the-widex-allure-platform-featuring-crystal-clear-speech-and-the-worlds-first-cloud-based-fitting-software/",
+    "https://www.wsa.com/press-release/wipo-report-ranks-wsa-as-the-top-patent-applicant-in-the-hearing-industry/",
+    "https://www.wsa.com/press-release/ws-audiology-a-s-announces-management-changes/",
+    "https://www.wsa.com/press-release/ws-audiology-accelerates-its-circular-economy-transition-with-ellen-mcarthur-foundation-network-membership-and-embarks-on-research-with-singapore-university-of-technology-and-design/",
+    "https://www.wsa.com/press-release/ws-audiology-announces-audiological-research-laboratory-in-singapore/",
+    "https://www.wsa.com/press-release/ws-audiology-announces-changes-to-its-board-of-directors/",
+    "https://www.wsa.com/press-release/ws-audiology-appoints-annemarie-van-neck-as-president-region-emea/",
+    "https://www.wsa.com/press-release/ws-audiology-appoints-hea-vinskov-as-chief-legal-officer/",
+    "https://www.wsa.com/press-release/ws-audiology-appoints-joerg-brandscheid-as-chief-technology-officer/",
+    "https://www.wsa.com/press-release/ws-audiology-appoints-malou-aamund-and-adam-westermann-to-its-board-of-directors/",
+    "https://www.wsa.com/press-release/ws-audiology-appoints-mary-doumtsi-as-chief-retail-officer/",
+    "https://www.wsa.com/press-release/ws-audiology-celebrates-5-years-of-bringing-wonderful-sound-for-all/",
+    "https://www.wsa.com/press-release/ws-audiology-continued-to-grow-revenue-and-earnings-under-challenging-market-conditions-in-q3-2021-22/",
+    "https://www.wsa.com/press-release/ws-audiology-creates-wsa-americas/",
+    "https://www.wsa.com/press-release/ws-audiology-delivered-10-organic-revenue-growth-and-improved-ebitda-by-13-in-the-financial-year-2023-24/",
+    "https://www.wsa.com/press-release/ws-audiology-delivered-12-organic-revenue-growth-in-the-third-quarter-of-fiscal-year-2023-24/",
+    "https://www.wsa.com/press-release/ws-audiology-delivered-13-organic-revenue-growth-and-an-ebitda-margin-of-20-2-in-the-first-quarter-of-fiscal-year-2023-24/",
+    "https://www.wsa.com/press-release/ws-audiology-delivered-4-organic-revenue-growth-in-the-first-quarter-of-fy-2024-25/",
+    "https://www.wsa.com/press-release/ws-audiology-delivered-7-organic-revenue-growth-and-improved-ebitda-by-14-in-the-fiscal-year-2022-23/",
+    "https://www.wsa.com/press-release/ws-audiology-delivered-7-organic-revenue-growth-in-the-second-quarter-of-fiscal-year-2023-24/",
+    "https://www.wsa.com/press-release/ws-audiology-delivered-organic-revenue-growth-of-8-and-improved-ebitda-by-36-in-q3-2022-23/",
+    "https://www.wsa.com/press-release/ws-audiology-delivered-solid-performance-in-h1-and-upgrades-2020-21-outlook/",
+    "https://www.wsa.com/press-release/ws-audiology-delivers-solid-performance-in-2019-20-despite-covid-19/",
+    "https://www.wsa.com/press-release/ws-audiology-delivers-solid-underlying-revenue-growth-with-an-adjusted-ebitda-margin-of-18-9/",
+    "https://www.wsa.com/press-release/ws-audiology-delivers-strong-performance-in-q3-fy-2020-21-innovations-support-positive-momentum/",
+    "https://www.wsa.com/press-release/ws-audiology-expands-indian-operations-with-new-commercial-and-production-hub-in-bangalore/",
+    "https://www.wsa.com/press-release/ws-audiology-expands-its-executive-board/",
+    "https://www.wsa.com/press-release/ws-audiology-first-hearing-aid-company-to-receive-eu-mdr-certification/",
+    "https://www.wsa.com/press-release/ws-audiology-grew-revenue-by-9-to-eur-633-million-in-the-second-quarter-of-the-fiscal-year-2022-23/",
+    "https://www.wsa.com/press-release/ws-audiology-group-cfo-resigns-to-fully-focus-on-recovery-from-health-issue/",
+    "https://www.wsa.com/press-release/ws-audiology-is-recognized-as-a-top-employer-2024-in-denmark/",
+    "https://www.wsa.com/press-release/ws-audiology-joins-the-worlds-most-ambitious-companies-to-limit-global-temperature-rise/",
+    "https://www.wsa.com/press-release/ws-audiology-opens-solar-park-to-ensure-100-green-electricity-consumption-at-global-hq/",
+    "https://www.wsa.com/press-release/ws-audiology-revenue-grew-by-4-to-eur-608-million-in-the-first-three-months-of-the-fiscal-year-2022-23/",
+    "https://www.wsa.com/press-release/ws-audiology-shows-strong-growth-in-first-quarter-2021-2022/",
+    "https://www.wsa.com/press-release/ws-audiology-solidifies-long-term-family-ownership/",
+    "https://www.wsa.com/press-release/ws-audiology-strengthens-commitment-to-innovation-with-new-rd-centre-of-excellence-in-hyderabad/",
+    "https://www.wsa.com/press-release/ws-audiology-successfully-closes-the-syndication-of-a-refinancing-transaction-to-support-long-term-growth/",
+    "https://www.wsa.com/press-release/ws-audiologys-carbon-emission-reduction-targets-approved-by-the-science-based-targets-initiative/",
+    "https://www.wsa.com/press-release/wsa-acquires-us-retail-chain/",
+    "https://www.wsa.com/press-release/wsa-announces-soren-westh-lonning-as-new-group-cfo/",
+    "https://www.wsa.com/press-release/wsa-appoints-harrison-boyd-as-president-region-americas/",
+    "https://www.wsa.com/press-release/wsa-appoints-marianne-vinding-ovesen-as-chief-operating-officer/",
+    "https://www.wsa.com/press-release/wsa-appoints-peter-boggild-as-new-cfo/",
+    "https://www.wsa.com/press-release/wsa-cfo-marianne-wiinholt-to-step-down-in-august-2026/",
+    "https://www.wsa.com/press-release/wsa-delivered-1-organic-growth-and-continued-improved-profitability-in-the-second-quarter-of-fy-2025-26-2/",
+    "https://www.wsa.com/press-release/wsa-delivered-1-organic-revenue-growth-and-increased-ebitda-by-22-in-the-second-quarter-of-fy-2024-25/",
+    "https://www.wsa.com/press-release/wsa-delivered-2-organic-growth-and-improved-profitability-in-the-2025-26-financial-year/",
+    "https://www.wsa.com/press-release/wsa-delivered-3-organic-growth-and-improved-profitability-in-the-third-quarter-of-fy-2025-26/",
+    "https://www.wsa.com/press-release/wsa-delivered-flat-organic-growth-and-improved-profitability-in-the-2024-25-financial-year/",
+    "https://www.wsa.com/press-release/wsa-delivered-flat-organic-growth-and-improved-profitability-in-the-first-quarter-of-fy-2025-26/",
+    "https://www.wsa.com/press-release/wsa-growth-impacted-by-macro-weakness-in-the-third-quarter-of-fy-2024-25/",
+    "https://www.wsa.com/press-release/wsa-launches-sound-preference-research-and-clinical-tools-to-help-hearing-care-professionals-deliver-more-personalized-hearing-care/",
+    "https://www.wsa.com/press-release/wsa-q2-2022-results-ws-audiology-generated-strong-growth-in-revenue-and-earnings-in-q2-of-the-financial-year-2021-22-1-january-31-march-2022/",
+    "https://www.wsa.com/press-release/wsa-updates-on-us-managed-care-business/",
+    "https://www.wsa.com/press-release/wsa-welcomes-athos-kg-as-a-new-shareholder-and-receives-new-investment-to-support-its-long-term-development/",
+    "https://www.wsa.com/product-security/",
+    "https://www.wsa.com/product-security/coordinated-vulnerability-disclosure/",
+    "https://www.wsa.com/pt-br/",
+    "https://www.wsa.com/pt-pt/",
+    "https://www.wsa.com/services/app-privacy-notice/acoustic-rc/",
+    "https://www.wsa.com/services/app-privacy-notice/mobile-fitting-app/privacy-notice-albanian/",
+    "https://www.wsa.com/services/app-privacy-notice/rc_app/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-albanian/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-arabic/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-bosnian/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-bulgarian/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-chinese-simplified/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-chinese-traditional/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-croatian/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-czech/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-danish/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-dari-afghan/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-dutch/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-english/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-estonian/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-farsi-iranian/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-filipino/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-finnish/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-french/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-german/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-greek/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-hebrew/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-hungarian/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-icelandic/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-indonesian/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-italian/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-japanese/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-korean/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-latvian/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-lithuanian/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-malay/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-norwegian/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-pashto-afghan/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-polish/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-portuguese/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-romanian/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-russian/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-serbian/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-slovak/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-slovenian/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-spanish/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-swedish/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-thai/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-turkish/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-ukrainian/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-urdu/",
+    "https://www.wsa.com/services/app-privacy-notice/remote-control-app/privacy-notice-vietnamese/",
+    "https://www.wsa.com/services/cookie-policy/",
+    "https://www.wsa.com/services/corporate-information/",
+    "https://www.wsa.com/services/privacy-note/",
+    "https://www.wsa.com/services/terms-and-conditions/",
+    "https://www.wsa.com/services/uk-modern-slavery-act/",
+    "https://www.wsa.com/sound-preference-de-at/",
+    "https://www.wsa.com/sound-preference-de-ch/",
+    "https://www.wsa.com/sound-preference-dk/",
+    "https://www.wsa.com/sound-preference-fr-ch/",
+    "https://www.wsa.com/sound-preference-it/",
+    "https://www.wsa.com/sound-preference-nl/",
+    "https://www.wsa.com/sound-preference-se/",
+    "https://www.wsa.com/sound-preference-tr/",
+    "https://www.wsa.com/sound-preference-za/",
+    "https://www.wsa.com/soundpreference/",
+    "https://www.wsa.com/sustainability/",
+    "https://www.wsa.com/sv-se/",
+    "https://www.wsa.com/th-th/",
+    "https://www.wsa.com/tr-tr/",
+    "https://www.wsa.com/uk-ua/",
+    "https://www.wsa.com/vi-vi/",
+    "https://www.wsa.com/zh-cn/",
+    "https://www.wsa.com/zh-sea/"
+  ]
+}

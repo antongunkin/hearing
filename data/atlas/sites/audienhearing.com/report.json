@@ -1,0 +1,2915 @@
+{
+  "archive": {
+    "sections": [
+      {
+        "byYear": {
+          "2020": 4,
+          "2021": 45,
+          "2022": 93,
+          "2023": 161,
+          "2024": 46,
+          "2025": 58,
+          "2026": 21
+        },
+        "latest": "20261107154622",
+        "url": "https://audienhearing.com"
+      },
+      {
+        "byYear": {},
+        "url": "https://audienhearing.com/blogs"
+      },
+      {
+        "byYear": {},
+        "url": "https://audienhearing.com/pages"
+      },
+      {
+        "byYear": {
+          "2026": 1
+        },
+        "latest": "20260614061403",
+        "url": "https://audienhearing.com/products"
+      },
+      {
+        "byYear": {},
+        "url": "https://audienhearing.com/collections"
+      },
+      {
+        "byYear": {},
+        "url": "https://audienhearing.com/agents.md"
+      }
+    ]
+  },
+  "budget": 60,
+  "domain": "audienhearing.com",
+  "failures": [],
+  "generatedAt": "2026-11-27T17:04:56.212Z",
+  "mode": "live",
+  "outbound": [
+    {
+      "count": 57,
+      "domain": "facebook.com",
+      "examples": [
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.facebook.com/profile.php?id=100086549746832&mibextid=LQQJ4d"
+      ]
+    },
+    {
+      "count": 57,
+      "domain": "instagram.com",
+      "examples": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.instagram.com/audienhearing?igshid=YmMyMTA2M2Y%3D"
+      ]
+    },
+    {
+      "count": 57,
+      "domain": "tiktok.com",
+      "examples": [
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.tiktok.com/@audienhearing?_t=8ZUlsD1H9wJ&_r=1"
+      ]
+    },
+    {
+      "count": 43,
+      "domain": "wollson.co",
+      "examples": [
+        "https://www.wollson.co/"
+      ]
+    },
+    {
+      "count": 7,
+      "domain": "jabraenhance.com",
+      "examples": [
+        "https://www.jabraenhance.com/product/enhanceselectm3",
+        "https://www.jabraenhance.com/",
+        "https://www.jabraenhance.com/product"
+      ]
+    },
+    {
+      "count": 7,
+      "domain": "mdhearingaid.com",
+      "examples": [
+        "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs/",
+        "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs/care",
+        "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt-max/"
+      ]
+    },
+    {
+      "count": 6,
+      "domain": "pmc.ncbi.nlm.nih.gov",
+      "examples": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12638189/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5024365/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10592632/"
+      ]
+    },
+    {
+      "count": 5,
+      "domain": "elehear.com",
+      "examples": [
+        "https://elehear.com/products/beyond-pro",
+        "https://elehear.com/",
+        "https://elehear.com/pages/beyond-pro-product"
+      ]
+    },
+    {
+      "count": 5,
+      "domain": "us.sennheiser-hearing.com",
+      "examples": [
+        "https://us.sennheiser-hearing.com/products/sennheiser-all-day-clear",
+        "https://us.sennheiser-hearing.com/",
+        "https://us.sennheiser-hearing.com/products/sennheiser-all-day-clear?variant=49219385721115"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "ncoa.org",
+      "examples": [
+        "https://www.ncoa.org/product-resources/hearing-aids/linner-review/",
+        "https://www.ncoa.org/product-resources/hearing-aids/best-affordable-hearing-aids/",
+        "https://www.ncoa.org/product-resources/hearing-aids/audien-review/"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "prnewswire.com",
+      "examples": [
+        "https://www.prnewswire.com/news-releases/william-shatner-partners-with-audien-hearing-to-boldly-hear-whats-next-302892826.html",
+        "https://www.prnewswire.com/news-releases/the-1-otc-hearing-aid-brand-just-built-the-reason-you-wont-need-one--introducing-audien-shields-302804317.html",
+        "https://www.prnewswire.com/news-releases/audien-hearing-launches-atom-air-the-lightest-way-to-start-hearing-better-302784083.html"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "stockist.co",
+      "examples": [
+        "https://stockist.co/"
+      ]
+    },
+    {
+      "count": 3,
+      "domain": "audicus.com",
+      "examples": [
+        "https://www.audicus.com/",
+        "https://www.audicus.com/product/omni-series-2/"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "acevion.com",
+      "examples": [
+        "https://www.acevion.com/products/hearing-aids-ite-21",
+        "https://www.acevion.com/blogs/blogs/acevion-hearing-aid-review-2026"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "cdn.shopify.com",
+      "examples": [
+        "https://cdn.shopify.com/s/files/1/0243/6051/7695/files/Logo.svg?v=1747748539",
+        "https://cdn.shopify.com/s/files/1/0243/6051/7695/files/Audien_Logo-5x2.png?v=1723572684"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "fda.gov",
+      "examples": [
+        "https://www.fda.gov/medical-devices/hearing-aids/otc-hearing-aids-what-you-should-know",
+        "https://www.fda.gov/news-events/press-announcements/fda-finalizes-historic-rule-enabling-access-over-counter-hearing-aids-millions-americans"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "jamanetwork.com",
+      "examples": [
+        "https://jamanetwork.com/journals/jamaotolaryngology/article-abstract/2832869",
+        "https://jamanetwork.com/journals/jamaneurology/article-abstract/2837714"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "nidcd.nih.gov",
+      "examples": [
+        "https://www.nidcd.nih.gov/health/statistics/quick-statistics-hearing"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "who.int",
+      "examples": [
+        "https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss",
+        "https://www.who.int/news-room/fact-sheets/detail/ageing-and-health"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "alzheimers.org.uk",
+      "examples": [
+        "https://www.alzheimers.org.uk/about-dementia/managing-the-risk-of-dementia/reduce-your-risk-of-dementia/hearing-loss"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "americanear.com",
+      "examples": [
+        "https://www.americanear.com/blog/how-does-hearing-loss-affect-brain-function/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "app.sendhark.com",
+      "examples": [
+        "https://app.sendhark.com/new/6650a3e4b68f2c8f9cff2890"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "apple.com",
+      "examples": [
+        "https://www.apple.com/airpods-pro/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "asha.org",
+      "examples": [
+        "https://www.asha.org/public/hearing/degree-of-hearing-loss/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "audienhearing.zendesk.com",
+      "examples": [
+        "https://audienhearing.zendesk.com/hc/en-us"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "businesswire.com",
+      "examples": [
+        "https://www.businesswire.com/news/home/20260210392822/en/Audien-Hearing-Appoints-Consumer-Brand-Transformation-Leader-Laurie-Ann-Goldman-as-Chief-Executive-Officer"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "cearvol.com",
+      "examples": [
+        "https://cearvol.com/products/cearvol-wave-starlight"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "ceretone.com",
+      "examples": [
+        "https://ceretone.com/products/nexus-otc-hearing-aids"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "coherentmarketinsights.com",
+      "examples": [
+        "https://www.coherentmarketinsights.com/market-insight/hearing-aids-market-415"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "cybernews.com",
+      "examples": [
+        "https://cybernews.com/health-tech/best-hearing-aids/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "dmesuperstore.com",
+      "examples": [
+        "https://dmesuperstore.com/products/ceretone-nexus-hearing-aids"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "ehima.com",
+      "examples": [
+        "https://www.ehima.com/about-ehima/hearing-aid-sales/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "entrepreneur.com",
+      "examples": [
+        "https://www.entrepreneur.com/leadership/how-audien-is-revolutionizing-hearing-aids-for-1-million/481105"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "forbes.com",
+      "examples": [
+        "https://www.forbes.com/health/hearing-aids/best-hearing-aids-for-seniors/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "fortune.com",
+      "examples": [
+        "https://fortune.com/2026/02/10/laurie-ann-goldman-hearing-aids-audien-spanx/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "fortunebusinessinsights.com",
+      "examples": [
+        "https://www.fortunebusinessinsights.com/industry-reports/hearing-aids-market-101573"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "grandviewresearch.com",
+      "examples": [
+        "https://www.grandviewresearch.com/industry-analysis/hearing-aids-market"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "health.harvard.edu",
+      "examples": [
+        "https://www.health.harvard.edu/mind-and-mood/in-the-journals-hearing-aids-may-help-improve-brain-function"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "hearadvisor.com",
+      "examples": [
+        "https://www.hearadvisor.com/best-hearing-aids"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "hearinghealthmatters.org",
+      "examples": [
+        "https://hearinghealthmatters.org/hearing-news-watch/2025/audien-commanders/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "hopkinsmedicine.org",
+      "examples": [
+        "https://www.hopkinsmedicine.org/health/wellness-and-prevention/the-hidden-risks-of-hearing-loss"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "investorshangout.com",
+      "examples": [
+        "https://investorshangout.com/audien-hearings-ishan-patel-recognized-as-a-top-entrepreneur-425298-/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "nih.gov",
+      "examples": [
+        "https://www.nih.gov/news-events/nih-research-matters/hearing-aids-slow-cognitive-decline-people-high-risk"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "nypost.com",
+      "examples": [
+        "https://nypost.com/2025/08/13/health/hearing-loss-generation-is-younger-than-you-think-follow-60-60-rule/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "retirementliving.com",
+      "examples": [
+        "https://www.retirementliving.com/best-otc-hearing-aid-companies"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "sciencedirect.com",
+      "examples": [
+        "https://www.sciencedirect.com/science/article/abs/pii/S002239562400428X"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "soundbright.com",
+      "examples": [
+        "https://www.soundbright.com/collections/hearing-aids/products/soundbright-discovery"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "support.apple.com",
+      "examples": [
+        "https://support.apple.com/en-us/125135"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "target.com",
+      "examples": [
+        "https://www.target.com/p/linner-mercury-otc-rechargeable-hearing-aids-for-seniors-with-noise-cancellation-easy-to-use-3-modes-9-volume-levels/-/A-1010080711"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "towardshealthcare.com",
+      "examples": [
+        "https://www.towardshealthcare.com/insights/hearing-aids-market-sizing"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "usatoday.com",
+      "examples": [
+        "https://www.usatoday.com/story/special/contributor-content/2024/07/05/ishan-patel-audien-hearing-offering-affordable-hearing-aids-and-empowering-lives/74310190007/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "walmart.com",
+      "examples": [
+        "https://www.walmart.com/ip/LINNER-Mercury-OTC-Rechargeable-RIC-Hearing-Aids-for-Seniors-Noise-Cancellation-Behind-the-Ear-style-Beige-Gold/5289465548"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "wareable.com",
+      "examples": [
+        "https://www.wareable.com/health-tech/elehear-beyond-pro-review"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 58,
+      "jsonLdTypes": [
+        "Organization",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:00:22.218Z",
+        "url": "https://audienhearing.com/"
+      },
+      "title": "Experience Clear, Effortless Hearing | Audien – Audien Hearing",
+      "url": "https://audienhearing.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 62,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:00:26.055Z",
+        "url": "https://audienhearing.com/products/atom-charger-dock"
+      },
+      "title": "Atom Charger + Dock – Audien Hearing",
+      "url": "https://audienhearing.com/products/atom-charger-dock"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://app.sendhark.com/new/6650a3e4b68f2c8f9cff2890",
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 51,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:00:28.603Z",
+        "url": "https://audienhearing.com/pages/support"
+      },
+      "title": "Support | Contact Us – Audien Hearing",
+      "url": "https://audienhearing.com/pages/support"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [],
+      "internalLinks": 0,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:00:31.959Z",
+        "url": "https://audienhearing.com/agents.md"
+      },
+      "url": "https://audienhearing.com/agents.md"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 59,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:00:36.506Z",
+        "url": "https://audienhearing.com/collections/maintenance"
+      },
+      "title": "Maintenance – Audien Hearing",
+      "url": "https://audienhearing.com/collections/maintenance"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing?igshid=YmMyMTA2M2Y%3D",
+        "https://www.facebook.com/profile.php?id=100086549746832&mibextid=LQQJ4d",
+        "https://www.tiktok.com/@audienhearing?_t=8ZUlsD1H9wJ&_r=1"
+      ],
+      "internalLinks": 63,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:00:40.003Z",
+        "url": "https://audienhearing.com/blogs/home"
+      },
+      "title": "Welcome to the Audien Hearing Blog",
+      "url": "https://audienhearing.com/blogs/home"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 52,
+      "jsonLdTypes": [
+        "Organization",
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:00:44.133Z",
+        "url": "https://audienhearing.com/products/the-audien-atom-x-otc-hearing-aid"
+      },
+      "title": "Atom X | Touchscreen hearing aid – Audien Hearing",
+      "url": "https://audienhearing.com/products/the-audien-atom-x-otc-hearing-aid"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 60,
+      "jsonLdTypes": [
+        "Organization",
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:00:48.781Z",
+        "url": "https://audienhearing.com/products/audien-atom-air-otc-hearing-aids"
+      },
+      "title": "Audien Atom Air OTC Hearing Aids – Audien Hearing",
+      "url": "https://audienhearing.com/products/audien-atom-air-otc-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 60,
+      "jsonLdTypes": [
+        "Organization",
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:00:53.727Z",
+        "url": "https://audienhearing.com/products/atom-pro-2"
+      },
+      "title": "Audien Atom Pro 2 OTC Hearing Aids – Audien Hearing",
+      "url": "https://audienhearing.com/products/atom-pro-2"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 61,
+      "jsonLdTypes": [
+        "Organization",
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:00:56.217Z",
+        "url": "https://audienhearing.com/products/audien-atom-one-hearing-aid"
+      },
+      "title": "Audien Atom ONE OTC Hearing Aid – Audien Hearing",
+      "url": "https://audienhearing.com/products/audien-atom-one-hearing-aid"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 60,
+      "jsonLdTypes": [
+        "Organization",
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:00:59.055Z",
+        "url": "https://audienhearing.com/products/audien-ion-pro-otc-hearing-aids"
+      },
+      "title": "Audien Ion Pro 2 OTC Hearing Aids – Audien Hearing",
+      "url": "https://audienhearing.com/products/audien-ion-pro-otc-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 60,
+      "jsonLdTypes": [
+        "Organization",
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:01:04.431Z",
+        "url": "https://audienhearing.com/products/ion-iq"
+      },
+      "title": "Ion IQ Hearing Aids – Audien Hearing",
+      "url": "https://audienhearing.com/products/ion-iq"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 60,
+      "jsonLdTypes": [
+        "Organization",
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:01:09.909Z",
+        "url": "https://audienhearing.com/products/ion-air"
+      },
+      "title": "Audien Ion Air OTC Hearing Aids – Audien Hearing",
+      "url": "https://audienhearing.com/products/ion-air"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 63,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:01:12.979Z",
+        "url": "https://audienhearing.com/pages/refurbished-products"
+      },
+      "title": "Refurbished page – Audien Hearing",
+      "url": "https://audienhearing.com/pages/refurbished-products"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 58,
+      "jsonLdTypes": [
+        "Organization",
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:01:16.937Z",
+        "url": "https://audienhearing.com/products/audien-shields"
+      },
+      "title": "Audien Shields – Audien Hearing",
+      "url": "https://audienhearing.com/products/audien-shields"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 58,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:01:19.894Z",
+        "url": "https://audienhearing.com/products/audien-clarity"
+      },
+      "title": "Audien Clarity – Audien Hearing",
+      "url": "https://audienhearing.com/products/audien-clarity"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 62,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:01:23.803Z",
+        "url": "https://audienhearing.com/products/audien-ear-relief"
+      },
+      "title": "Audien Ear Relief – Audien Hearing",
+      "url": "https://audienhearing.com/products/audien-ear-relief"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 62,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:01:27.168Z",
+        "url": "https://audienhearing.com/products/audien-ear-cleaner"
+      },
+      "title": "Audien Ear Cleaner – Audien Hearing",
+      "url": "https://audienhearing.com/products/audien-ear-cleaner"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 62,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:01:34.678Z",
+        "url": "https://audienhearing.com/products/audien-maintenance-kit?option_values=3363154591807%2C2877502914623"
+      },
+      "title": "Audien Maintenance Kit – Audien Hearing",
+      "url": "https://audienhearing.com/products/audien-maintenance-kit?option_values=3363154591807%2C2877502914623"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 60,
+      "jsonLdTypes": [
+        "Organization",
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:01:39.415Z",
+        "url": "https://audienhearing.com/products/perfect-fit-kit"
+      },
+      "title": "Perfect Fit Kit – Audien Hearing",
+      "url": "https://audienhearing.com/products/perfect-fit-kit"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 57,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:01:43.729Z",
+        "url": "https://audienhearing.com/products/perfect-fit-dome-refill"
+      },
+      "title": "Perfect Fit Dome Refill | Atom Series | WAX | XS – Audien Hearing",
+      "url": "https://audienhearing.com/products/perfect-fit-dome-refill"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing?igshid=YmMyMTA2M2Y%3D",
+        "https://www.facebook.com/profile.php?id=100086549746832&mibextid=LQQJ4d",
+        "https://www.tiktok.com/@audienhearing?_t=8ZUlsD1H9wJ&_r=1"
+      ],
+      "internalLinks": 50,
+      "jsonLdTypes": [
+        "Organization",
+        "Article"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:01:47.694Z",
+        "url": "https://audienhearing.com/blogs/home/5-reasons-hearing-aids-are-good-for-your-brain"
+      },
+      "title": "5 Reasons Hearing Aids Are Good For Your Brain – Audien Hearing",
+      "url": "https://audienhearing.com/blogs/home/5-reasons-hearing-aids-are-good-for-your-brain"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [],
+      "internalLinks": 38,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:01:52.581Z",
+        "url": "https://audienhearing.com/pages/hearing-test-product-quiz"
+      },
+      "title": "Tuned Hearing Quiz + Product Rec Quiz – Audien Hearing",
+      "url": "https://audienhearing.com/pages/hearing-test-product-quiz"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 59,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:01:56.197Z",
+        "url": "https://audienhearing.com/pages/hearing-test-quiz"
+      },
+      "title": "Hearing test quiz – Audien Hearing",
+      "url": "https://audienhearing.com/pages/hearing-test-quiz"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 61,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:01:59.071Z",
+        "url": "https://audienhearing.com/products/audien-maintenance-kit"
+      },
+      "title": "Audien Maintenance Kit – Audien Hearing",
+      "url": "https://audienhearing.com/products/audien-maintenance-kit"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 62,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:02:02.743Z",
+        "url": "https://audienhearing.com/products/atom2-charger-dock"
+      },
+      "title": "Atom 2 Charger + Dock – Audien Hearing",
+      "url": "https://audienhearing.com/products/atom2-charger-dock"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 65,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:02:07.242Z",
+        "url": "https://audienhearing.com/collections/best-otc-hearing-aids"
+      },
+      "title": "Best OTC Hearing Aids – Audien Hearing",
+      "url": "https://audienhearing.com/collections/best-otc-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 62,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:02:11.152Z",
+        "url": "https://audienhearing.com/products/1-year-protection-plan"
+      },
+      "title": "1 Year Protection Plan – Audien Hearing",
+      "url": "https://audienhearing.com/products/1-year-protection-plan"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 62,
+      "jsonLdTypes": [
+        "Organization",
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:02:14.497Z",
+        "url": "https://audienhearing.com/products/audien-atom"
+      },
+      "title": "Audien Atom – Audien Hearing",
+      "url": "https://audienhearing.com/products/audien-atom"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing?igshid=YmMyMTA2M2Y%3D",
+        "https://www.facebook.com/profile.php?id=100086549746832&mibextid=LQQJ4d",
+        "https://www.tiktok.com/@audienhearing?_t=8ZUlsD1H9wJ&_r=1"
+      ],
+      "internalLinks": 67,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:02:17.997Z",
+        "url": "https://audienhearing.com/blogs/home/tagged/hearing-aids"
+      },
+      "title": "Welcome to the Audien Hearing Blog – tagged \"Hearing Aids\"",
+      "url": "https://audienhearing.com/blogs/home/tagged/hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing?igshid=YmMyMTA2M2Y%3D",
+        "https://www.facebook.com/profile.php?id=100086549746832&mibextid=LQQJ4d",
+        "https://www.tiktok.com/@audienhearing?_t=8ZUlsD1H9wJ&_r=1"
+      ],
+      "internalLinks": 70,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:02:23.166Z",
+        "url": "https://audienhearing.com/blogs/home/tagged/hearing-loss"
+      },
+      "title": "Welcome to the Audien Hearing Blog – tagged \"Hearing Loss\"",
+      "url": "https://audienhearing.com/blogs/home/tagged/hearing-loss"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing?igshid=YmMyMTA2M2Y%3D",
+        "https://www.facebook.com/profile.php?id=100086549746832&mibextid=LQQJ4d",
+        "https://www.tiktok.com/@audienhearing?_t=8ZUlsD1H9wJ&_r=1"
+      ],
+      "internalLinks": 67,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:02:26.526Z",
+        "url": "https://audienhearing.com/blogs/hearing-loss"
+      },
+      "title": "Hearing Loss – Audien Hearing",
+      "url": "https://audienhearing.com/blogs/hearing-loss"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing?igshid=YmMyMTA2M2Y%3D",
+        "https://www.facebook.com/profile.php?id=100086549746832&mibextid=LQQJ4d",
+        "https://www.tiktok.com/@audienhearing?_t=8ZUlsD1H9wJ&_r=1"
+      ],
+      "internalLinks": 62,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:02:31.206Z",
+        "url": "https://audienhearing.com/blogs/hearing-test"
+      },
+      "title": "Hearing Test – Audien Hearing",
+      "url": "https://audienhearing.com/blogs/hearing-test"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing?igshid=YmMyMTA2M2Y%3D",
+        "https://www.facebook.com/profile.php?id=100086549746832&mibextid=LQQJ4d",
+        "https://www.tiktok.com/@audienhearing?_t=8ZUlsD1H9wJ&_r=1"
+      ],
+      "internalLinks": 67,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:02:33.840Z",
+        "url": "https://audienhearing.com/blogs/hearing-aid-reviews"
+      },
+      "title": "Hearing Aid Reviews – Audien Hearing",
+      "url": "https://audienhearing.com/blogs/hearing-aid-reviews"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.apple.com/airpods-pro/",
+        "https://support.apple.com/en-us/125135",
+        "https://www.fda.gov/medical-devices/hearing-aids/otc-hearing-aids-what-you-should-know",
+        "https://www.instagram.com/audienhearing?igshid=YmMyMTA2M2Y%3D",
+        "https://www.facebook.com/profile.php?id=100086549746832&mibextid=LQQJ4d",
+        "https://www.tiktok.com/@audienhearing?_t=8ZUlsD1H9wJ&_r=1"
+      ],
+      "internalLinks": 47,
+      "jsonLdTypes": [
+        "Organization",
+        "Article"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:02:36.737Z",
+        "url": "https://audienhearing.com/blogs/home/earbuds-that-look-like-hearing-aids-airpods-vs-otc-hearing-aids"
+      },
+      "title": "Earbuds That Look Like Hearing Aids: AirPods vs. OTC Hearing Aids – Audien Hearing",
+      "url": "https://audienhearing.com/blogs/home/earbuds-that-look-like-hearing-aids-airpods-vs-otc-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://elehear.com/products/beyond-pro",
+        "https://www.walmart.com/ip/LINNER-Mercury-OTC-Rechargeable-RIC-Hearing-Aids-for-Seniors-Noise-Cancellation-Behind-the-Ear-style-Beige-Gold/5289465548",
+        "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs/",
+        "https://www.acevion.com/products/hearing-aids-ite-21",
+        "https://ceretone.com/products/nexus-otc-hearing-aids",
+        "https://www.wareable.com/health-tech/elehear-beyond-pro-review",
+        "https://www.ncoa.org/product-resources/hearing-aids/linner-review/",
+        "https://www.target.com/p/linner-mercury-otc-rechargeable-hearing-aids-for-seniors-with-noise-cancellation-easy-to-use-3-modes-9-volume-levels/-/A-1010080711",
+        "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs/care",
+        "https://www.ncoa.org/product-resources/hearing-aids/best-affordable-hearing-aids/",
+        "https://www.acevion.com/blogs/blogs/acevion-hearing-aid-review-2026",
+        "https://dmesuperstore.com/products/ceretone-nexus-hearing-aids",
+        "https://cybernews.com/health-tech/best-hearing-aids/",
+        "https://www.instagram.com/audienhearing?igshid=YmMyMTA2M2Y%3D",
+        "https://www.facebook.com/profile.php?id=100086549746832&mibextid=LQQJ4d",
+        "https://www.tiktok.com/@audienhearing?_t=8ZUlsD1H9wJ&_r=1"
+      ],
+      "internalLinks": 47,
+      "jsonLdTypes": [
+        "Organization",
+        "Article"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:02:41.665Z",
+        "url": "https://audienhearing.com/blogs/home/the-best-otc-hearing-aids-without-an-app-2026"
+      },
+      "title": "The Best OTC Hearing Aids Without an App (2026) – Audien Hearing",
+      "url": "https://audienhearing.com/blogs/home/the-best-otc-hearing-aids-without-an-app-2026"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://elehear.com/products/beyond-pro",
+        "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt-max/",
+        "https://cearvol.com/products/cearvol-wave-starlight",
+        "https://www.soundbright.com/collections/hearing-aids/products/soundbright-discovery",
+        "https://us.sennheiser-hearing.com/products/sennheiser-all-day-clear",
+        "https://www.jabraenhance.com/product/enhanceselectm3",
+        "https://www.jabraenhance.com/",
+        "https://www.ncoa.org/product-resources/hearing-aids/audien-review/",
+        "https://www.forbes.com/health/hearing-aids/best-hearing-aids-for-seniors/",
+        "https://www.ncoa.org/product-resources/hearing-aids/best-hearing-aids/",
+        "https://www.retirementliving.com/best-otc-hearing-aid-companies",
+        "https://www.hearadvisor.com/best-hearing-aids",
+        "https://www.instagram.com/audienhearing?igshid=YmMyMTA2M2Y%3D",
+        "https://www.facebook.com/profile.php?id=100086549746832&mibextid=LQQJ4d",
+        "https://www.tiktok.com/@audienhearing?_t=8ZUlsD1H9wJ&_r=1"
+      ],
+      "internalLinks": 47,
+      "jsonLdTypes": [
+        "Organization",
+        "Article"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:02:45.951Z",
+        "url": "https://audienhearing.com/blogs/home/the-best-rechargeable-hearing-aids-for-seniors-2026"
+      },
+      "title": "The Best Rechargeable Hearing Aids for Seniors (2026) – Audien Hearing",
+      "url": "https://audienhearing.com/blogs/home/the-best-rechargeable-hearing-aids-for-seniors-2026"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.jabraenhance.com/product",
+        "https://elehear.com/",
+        "https://www.audicus.com/",
+        "https://www.mdhearingaid.com/",
+        "https://us.sennheiser-hearing.com/",
+        "https://www.jabraenhance.com/",
+        "https://www.jabraenhance.com/product/enhanceselectm3",
+        "https://elehear.com/products/beyond-pro",
+        "https://www.audicus.com/product/omni-series-2/",
+        "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt-max/",
+        "https://us.sennheiser-hearing.com/products/sennheiser-all-day-clear?variant=49219385721115",
+        "https://www.instagram.com/audienhearing?igshid=YmMyMTA2M2Y%3D",
+        "https://www.facebook.com/profile.php?id=100086549746832&mibextid=LQQJ4d",
+        "https://www.tiktok.com/@audienhearing?_t=8ZUlsD1H9wJ&_r=1"
+      ],
+      "internalLinks": 47,
+      "jsonLdTypes": [
+        "Organization",
+        "Article"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:02:50.321Z",
+        "url": "https://audienhearing.com/blogs/home/hearing-aid-brands-comparison"
+      },
+      "title": "Best Hearing Aid Brands Compared: Which One Is Right for You in 2026? – Audien Hearing",
+      "url": "https://audienhearing.com/blogs/home/hearing-aid-brands-comparison"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.jabraenhance.com/product/enhanceselect700",
+        "https://www.mdhearingaid.com/hearing-aids/mdhearing-neo-xs/",
+        "https://www.audicus.com/product/omni-series-2/",
+        "https://us.sennheiser-hearing.com/products/sennheiser-all-day-clear?variant=49219385721115",
+        "https://www.instagram.com/audienhearing?igshid=YmMyMTA2M2Y%3D",
+        "https://www.facebook.com/profile.php?id=100086549746832&mibextid=LQQJ4d",
+        "https://www.tiktok.com/@audienhearing?_t=8ZUlsD1H9wJ&_r=1"
+      ],
+      "internalLinks": 48,
+      "jsonLdTypes": [
+        "Organization",
+        "Article"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:02:54.452Z",
+        "url": "https://audienhearing.com/blogs/home/best-hearing-aids-on-the-market"
+      },
+      "title": "The Top-Rated Hearing Aids of 2026: The Best OTC Brands, Compared – Audien Hearing",
+      "url": "https://audienhearing.com/blogs/home/best-hearing-aids-on-the-market"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://us.sennheiser-hearing.com/products/sennheiser-all-day-clear?variant=49219385721115",
+        "https://www.jabraenhance.com/product/enhanceselect700",
+        "https://elehear.com/pages/beyond-pro-product",
+        "https://www.mdhearingaid.com/hearing-aids/mdhearing-volt-max/",
+        "https://www.instagram.com/audienhearing?igshid=YmMyMTA2M2Y%3D",
+        "https://www.facebook.com/profile.php?id=100086549746832&mibextid=LQQJ4d",
+        "https://www.tiktok.com/@audienhearing?_t=8ZUlsD1H9wJ&_r=1"
+      ],
+      "internalLinks": 47,
+      "jsonLdTypes": [
+        "Organization",
+        "Article"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:02:57.630Z",
+        "url": "https://audienhearing.com/blogs/home/best-hearing-aids-for-seniors"
+      },
+      "title": "The Best Rechargeable Hearing Aids for Seniors in 2026: Simple Setup, – Audien Hearing",
+      "url": "https://audienhearing.com/blogs/home/best-hearing-aids-for-seniors"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.asha.org/public/hearing/degree-of-hearing-loss/",
+        "https://audienhearing.zendesk.com/hc/en-us",
+        "https://www.instagram.com/audienhearing?igshid=YmMyMTA2M2Y%3D",
+        "https://www.facebook.com/profile.php?id=100086549746832&mibextid=LQQJ4d",
+        "https://www.tiktok.com/@audienhearing?_t=8ZUlsD1H9wJ&_r=1"
+      ],
+      "internalLinks": 49,
+      "jsonLdTypes": [
+        "Organization",
+        "Article"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:03:01.839Z",
+        "url": "https://audienhearing.com/blogs/home/the-2-most-affordable-hearing-aids-on-the-market"
+      },
+      "title": "The 2 Most Affordable Hearing Aids on the Market – Audien Hearing",
+      "url": "https://audienhearing.com/blogs/home/the-2-most-affordable-hearing-aids-on-the-market"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss",
+        "https://www.who.int/news-room/fact-sheets/detail/ageing-and-health",
+        "https://www.grandviewresearch.com/industry-analysis/hearing-aids-market",
+        "https://www.fortunebusinessinsights.com/industry-reports/hearing-aids-market-101573",
+        "https://www.coherentmarketinsights.com/market-insight/hearing-aids-market-415",
+        "https://www.towardshealthcare.com/insights/hearing-aids-market-sizing",
+        "https://www.ehima.com/about-ehima/hearing-aid-sales/",
+        "https://www.nidcd.nih.gov/health/statistics/quick-statistics-hearing",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12638189/",
+        "https://www.fda.gov/news-events/press-announcements/fda-finalizes-historic-rule-enabling-access-over-counter-hearing-aids-millions-americans",
+        "https://www.instagram.com/audienhearing?igshid=YmMyMTA2M2Y%3D",
+        "https://www.facebook.com/profile.php?id=100086549746832&mibextid=LQQJ4d",
+        "https://www.tiktok.com/@audienhearing?_t=8ZUlsD1H9wJ&_r=1"
+      ],
+      "internalLinks": 49,
+      "jsonLdTypes": [
+        "Organization",
+        "Article"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:03:04.592Z",
+        "url": "https://audienhearing.com/blogs/home/hearing-aid-market-growth"
+      },
+      "title": "Hearing Aid Market Growth: 2026 Statistics on a Booming Global Industry | Audien Hearing",
+      "url": "https://audienhearing.com/blogs/home/hearing-aid-market-growth"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 58,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:03:10.182Z",
+        "url": "https://audienhearing.com/pages/trade-in"
+      },
+      "title": "Trade in – Audien Hearing",
+      "url": "https://audienhearing.com/pages/trade-in"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 64,
+      "jsonLdTypes": [
+        "Organization",
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:03:15.043Z",
+        "url": "https://audienhearing.com/pages/black-friday-lp"
+      },
+      "title": "Black Friday LP – Audien Hearing",
+      "url": "https://audienhearing.com/pages/black-friday-lp"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 64,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:03:17.674Z",
+        "url": "https://audienhearing.com/collections/accessories"
+      },
+      "title": "Accessories – Audien Hearing",
+      "url": "https://audienhearing.com/collections/accessories"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 58,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:03:20.672Z",
+        "url": "https://audienhearing.com/pages/about-us"
+      },
+      "title": "About Us – Audien Hearing",
+      "url": "https://audienhearing.com/pages/about-us"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5024365/",
+        "https://www.nidcd.nih.gov/health/statistics/quick-statistics-hearing",
+        "https://jamanetwork.com/journals/jamaotolaryngology/article-abstract/2832869",
+        "https://www.hopkinsmedicine.org/health/wellness-and-prevention/the-hidden-risks-of-hearing-loss",
+        "https://www.americanear.com/blog/how-does-hearing-loss-affect-brain-function/",
+        "https://jamanetwork.com/journals/jamaneurology/article-abstract/2837714",
+        "https://www.nih.gov/news-events/nih-research-matters/hearing-aids-slow-cognitive-decline-people-high-risk",
+        "https://www.alzheimers.org.uk/about-dementia/managing-the-risk-of-dementia/reduce-your-risk-of-dementia/hearing-loss",
+        "https://www.health.harvard.edu/mind-and-mood/in-the-journals-hearing-aids-may-help-improve-brain-function",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10592632/",
+        "https://www.sciencedirect.com/science/article/abs/pii/S002239562400428X",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4102382/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10478395/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC2899895/",
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 58,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:03:25.331Z",
+        "url": "https://audienhearing.com/pages/research"
+      },
+      "title": "Research – Audien Hearing",
+      "url": "https://audienhearing.com/pages/research"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.prnewswire.com/news-releases/william-shatner-partners-with-audien-hearing-to-boldly-hear-whats-next-302892826.html",
+        "https://www.prnewswire.com/news-releases/the-1-otc-hearing-aid-brand-just-built-the-reason-you-wont-need-one--introducing-audien-shields-302804317.html",
+        "https://www.prnewswire.com/news-releases/audien-hearing-launches-atom-air-the-lightest-way-to-start-hearing-better-302784083.html",
+        "https://www.businesswire.com/news/home/20260210392822/en/Audien-Hearing-Appoints-Consumer-Brand-Transformation-Leader-Laurie-Ann-Goldman-as-Chief-Executive-Officer",
+        "https://fortune.com/2026/02/10/laurie-ann-goldman-hearing-aids-audien-spanx/",
+        "https://hearinghealthmatters.org/hearing-news-watch/2025/audien-commanders/",
+        "https://nypost.com/2025/08/13/health/hearing-loss-generation-is-younger-than-you-think-follow-60-60-rule/",
+        "https://investorshangout.com/audien-hearings-ishan-patel-recognized-as-a-top-entrepreneur-425298-/",
+        "https://www.entrepreneur.com/leadership/how-audien-is-revolutionizing-hearing-aids-for-1-million/481105",
+        "https://www.prnewswire.com/news-releases/audien-hearing-adds-chairman-advisory-board-and-executive-team-to-power-next-phase-of-growth-launches-audien-cares-initiative-302507307.html",
+        "https://www.usatoday.com/story/special/contributor-content/2024/07/05/ishan-patel-audien-hearing-offering-affordable-hearing-aids-and-empowering-lives/74310190007/",
+        "https://cdn.shopify.com/s/files/1/0243/6051/7695/files/Logo.svg?v=1747748539",
+        "https://cdn.shopify.com/s/files/1/0243/6051/7695/files/Audien_Logo-5x2.png?v=1723572684",
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 58,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:03:29.289Z",
+        "url": "https://audienhearing.com/pages/press"
+      },
+      "title": "Press – Audien Hearing",
+      "url": "https://audienhearing.com/pages/press"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 78,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:03:33.273Z",
+        "url": "https://audienhearing.com/pages/audiencare"
+      },
+      "title": "AudienCare – Audien Hearing",
+      "url": "https://audienhearing.com/pages/audiencare"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://stockist.co/",
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 58,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:03:38.560Z",
+        "url": "https://audienhearing.com/pages/store-locator"
+      },
+      "title": "Store Locator – Audien Hearing",
+      "url": "https://audienhearing.com/pages/store-locator"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 62,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:03:41.006Z",
+        "url": "https://audienhearing.com/search?q=Atom+X&type=product,article,page&options[prefix]=last"
+      },
+      "title": "Search results for \"Atom X\" – Audien Hearing",
+      "url": "https://audienhearing.com/search?q=Atom+X&type=product,article,page&options[prefix]=last"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 63,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:03:46.410Z",
+        "url": "https://audienhearing.com/search?q=Atom+Air&type=product,article,page&options[prefix]=last"
+      },
+      "title": "Search results for \"Atom Air\" – Audien Hearing",
+      "url": "https://audienhearing.com/search?q=Atom+Air&type=product,article,page&options[prefix]=last"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 62,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:03:51.246Z",
+        "url": "https://audienhearing.com/search?q=ION+Pro+2&type=product,article,page&options[prefix]=last"
+      },
+      "title": "Search results for \"ION Pro 2\" – Audien Hearing",
+      "url": "https://audienhearing.com/search?q=ION+Pro+2&type=product,article,page&options[prefix]=last"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 62,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:03:55.484Z",
+        "url": "https://audienhearing.com/search?q=Atom+One&type=product,article,page&options[prefix]=last"
+      },
+      "title": "Search results for \"Atom One\" – Audien Hearing",
+      "url": "https://audienhearing.com/search?q=Atom+One&type=product,article,page&options[prefix]=last"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 60,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:03:58.925Z",
+        "url": "https://audienhearing.com/search?q=Audien+Shields&type=product,article,page&options[prefix]=last"
+      },
+      "title": "Search results for \"Audien Shields\" – Audien Hearing",
+      "url": "https://audienhearing.com/search?q=Audien+Shields&type=product,article,page&options[prefix]=last"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 59,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:04:04.331Z",
+        "url": "https://audienhearing.com/search?q=Maintenance+Kit&type=product,article,page&options[prefix]=last"
+      },
+      "title": "Search results for \"Maintenance Kit\" – Audien Hearing",
+      "url": "https://audienhearing.com/search?q=Maintenance+Kit&type=product,article,page&options[prefix]=last"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 60,
+      "jsonLdTypes": [
+        "Organization",
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:04:14.309Z",
+        "url": "https://audienhearing.com/products/audien-ion-pro-otc-hearing-aids"
+      },
+      "title": "Audien Ion Pro 2 OTC Hearing Aids – Audien Hearing",
+      "url": "https://audienhearing.com/products/audien-ion-pro-otc-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://stockist.co/",
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 58,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:04:19.681Z",
+        "url": "https://audienhearing.com/pages/walgreens"
+      },
+      "title": "Real hearing solutions, now at Walgreens – Audien Hearing",
+      "url": "https://audienhearing.com/pages/walgreens"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://stockist.co/",
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 58,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:04:23.953Z",
+        "url": "https://audienhearing.com/pages/target"
+      },
+      "title": "Target – Audien Hearing",
+      "url": "https://audienhearing.com/pages/target"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://stockist.co/",
+        "https://www.instagram.com/audienhearing",
+        "https://www.facebook.com/people/Audien-Hearing/100086549746832",
+        "https://www.tiktok.com/@audienhearing",
+        "https://www.wollson.co/"
+      ],
+      "internalLinks": 58,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:04:27.127Z",
+        "url": "https://audienhearing.com/pages/walmart"
+      },
+      "title": "Walmart – Audien Hearing",
+      "url": "https://audienhearing.com/pages/walmart"
+    }
+  ],
+  "pdfHosts": [],
+  "redirects": [],
+  "robots": {
+    "groups": [
+      {
+        "allow": [
+          "/",
+          "/products/account",
+          "/products/orders",
+          "/products/checkout",
+          "/*/products/account",
+          "/*/products/orders",
+          "/*/products/checkout",
+          "/collections/account",
+          "/collections/orders",
+          "/collections/checkout",
+          "/*/collections/account",
+          "/*/collections/orders",
+          "/*/collections/checkout",
+          "/pages/checkout",
+          "/*/pages/checkout",
+          "/blogs/*account",
+          "/blogs/*orders",
+          "/blogs/*checkout",
+          "/*/blogs/*account",
+          "/*/blogs/*orders",
+          "/*/blogs/*checkout",
+          "/account/login",
+          "/*/account/login"
+        ],
+        "disallow": [
+          "/admin",
+          "/cart/",
+          "/*/cart/",
+          "/checkout",
+          "/*/checkout",
+          "/checkouts/",
+          "/*/checkouts/",
+          "/orders",
+          "/*/orders",
+          "/account",
+          "/*/account",
+          "/24360517695",
+          "/cdn/wpm/*.js",
+          "/services",
+          "/sf_*",
+          "/.well-known/shopify/monorail",
+          "/cart.js",
+          "/*/cart.js",
+          "/recommendations/products",
+          "/*/recommendations/products",
+          "/collections/*sort_by*",
+          "/*/collections/*sort_by*",
+          "/collections/*+*",
+          "/collections/*%2B*",
+          "/collections/*%2b*",
+          "/*/collections/*+*",
+          "/*/collections/*%2B*",
+          "/*/collections/*%2b*",
+          "/collections/*filter*&*filter*",
+          "/*/collections/*filter*&*filter*",
+          "/blogs/*+*",
+          "/blogs/*%2B*",
+          "/blogs/*%2b*",
+          "/*/blogs/*+*",
+          "/*/blogs/*%2B*",
+          "/*/blogs/*%2b*",
+          "/*?*ls=*&ls=*",
+          "/*?*ls%3*ls%3*",
+          "/*?*oseid=*",
+          "/*?*preview_theme_id=*",
+          "/*?*preview_script_id=*"
+        ],
+        "userAgents": [
+          "*"
+        ]
+      },
+      {
+        "allow": [
+          "/products/",
+          "/*/products/",
+          "/collections/",
+          "/*/collections/",
+          "/pages/",
+          "/*/pages/",
+          "/blogs/",
+          "/*/blogs/",
+          "/pages/checkout",
+          "/*/pages/checkout",
+          "/blogs/*checkout",
+          "/*/blogs/*checkout"
+        ],
+        "disallow": [
+          "/checkout",
+          "/*/checkout",
+          "/checkouts/",
+          "/*/checkouts/",
+          "/orders",
+          "/*/orders",
+          "/services",
+          "/sf_*",
+          "/24360517695",
+          "/cdn/wpm/*.js"
+        ],
+        "userAgents": [
+          "adsbot-google"
+        ]
+      }
+    ],
+    "ref": {
+      "fetchedAt": "2026-11-27T16:59:49.620Z",
+      "url": "https://audienhearing.com/robots.txt"
+    },
+    "sitemaps": [
+      "https://audienhearing.com/sitemap.xml"
+    ],
+    "status": 200
+  },
+  "sitemap": {
+    "refs": [
+      {
+        "fetchedAt": "2026-11-27T16:59:53.931Z",
+        "url": "https://audienhearing.com/sitemap.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:59:58.953Z",
+        "url": "https://audienhearing.com/sitemap_agentic_discovery.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:00:02.476Z",
+        "url": "https://audienhearing.com/sitemap_products_1.xml?from=6800868802623&to=8552120746047"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:00:05.676Z",
+        "url": "https://audienhearing.com/sitemap_pages_1.xml?from=51439861823&to=120178704447"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:00:08.634Z",
+        "url": "https://audienhearing.com/sitemap_collections_1.xml?from=143172632639&to=300326715455"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:00:11.349Z",
+        "url": "https://audienhearing.com/sitemap_blogs_1.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:00:13.929Z",
+        "url": "https://audienhearing.com/sitemap_articles_1.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:00:17.907Z",
+        "url": "https://audienhearing.com/sitemap_metaobject_pages_1.xml"
+      }
+    ],
+    "sections": [
+      {
+        "count": 321,
+        "path": "/blogs"
+      },
+      {
+        "count": 59,
+        "path": "/pages"
+      },
+      {
+        "count": 34,
+        "path": "/products"
+      },
+      {
+        "count": 33,
+        "path": "/collections"
+      },
+      {
+        "count": 1,
+        "path": "/"
+      },
+      {
+        "count": 1,
+        "path": "/agents.md"
+      }
+    ],
+    "urlCount": 449
+  },
+  "start": "https://audienhearing.com",
+  "templates": [
+    {
+      "count": 180,
+      "examples": [
+        "https://audienhearing.com/blogs/home/3-steps-to-prevent-feedback-when-inserting-your-atom-2-series-hearing-aids",
+        "https://audienhearing.com/blogs/home/3-things-you-didnt-know-about-hearing-loss",
+        "https://audienhearing.com/blogs/home/4-ways-to-improve-your-hearing-at-work"
+      ],
+      "pattern": "https://audienhearing.com/blogs/home/{slug}"
+    },
+    {
+      "count": 68,
+      "examples": [
+        "https://audienhearing.com/products/1-year-protection-plan",
+        "https://audienhearing.com/products/atom-charger-dock",
+        "https://audienhearing.com/products/atom-pro-2"
+      ],
+      "pattern": "https://audienhearing.com/products/{slug}"
+    },
+    {
+      "count": 59,
+      "examples": [
+        "https://audienhearing.com/pages/about-us",
+        "https://audienhearing.com/pages/accessibility-statement",
+        "https://audienhearing.com/pages/atom-x-gift-listicle"
+      ],
+      "pattern": "https://audienhearing.com/pages/{slug}"
+    },
+    {
+      "count": 51,
+      "examples": [
+        "https://audienhearing.com/cart/39524148772927:1",
+        "https://audienhearing.com/cart/39708661153855:1",
+        "https://audienhearing.com/cart/39894668935231:1"
+      ],
+      "pattern": "https://audienhearing.com/cart/{slug}"
+    },
+    {
+      "count": 48,
+      "examples": [
+        "https://audienhearing.com/blogs/common-questions/benzo-withdrawal-tinnitus",
+        "https://audienhearing.com/blogs/common-questions/best-way-to-clean-your-ears",
+        "https://audienhearing.com/blogs/common-questions/bloody-ear-wax-when-to-worry"
+      ],
+      "pattern": "https://audienhearing.com/blogs/common-questions/{slug}"
+    },
+    {
+      "count": 37,
+      "examples": [
+        "https://audienhearing.com/collections/accessorie-bundles",
+        "https://audienhearing.com/collections/accessories",
+        "https://audienhearing.com/collections/accessories-collection"
+      ],
+      "pattern": "https://audienhearing.com/collections/{slug}"
+    },
+    {
+      "count": 29,
+      "examples": [
+        "https://audienhearing.com/blogs/tinnitus/a-complete-guide-to-noise-induced-tinnitus",
+        "https://audienhearing.com/blogs/tinnitus/aging-and-tinnitus",
+        "https://audienhearing.com/blogs/tinnitus/causes-of-tinnitus"
+      ],
+      "pattern": "https://audienhearing.com/blogs/tinnitus/{slug}"
+    },
+    {
+      "count": 25,
+      "examples": [
+        "https://audienhearing.com/blogs/hearing-loss/bilateral-conductive-hearing-loss",
+        "https://audienhearing.com/blogs/hearing-loss/black-ear-wax-causes-treatment",
+        "https://audienhearing.com/blogs/hearing-loss/can-hearing-loss-be-reversed-what-to-know"
+      ],
+      "pattern": "https://audienhearing.com/blogs/hearing-loss/{slug}"
+    },
+    {
+      "count": 19,
+      "examples": [
+        "https://audienhearing.com/blogs/hearing-aid-reviews/3-steps-to-prevent-feedback-when-inserting-your-hearing-aids",
+        "https://audienhearing.com/blogs/hearing-aid-reviews/7-tips-to-get-used-to-your-new-hearing-aids",
+        "https://audienhearing.com/blogs/hearing-aid-reviews/airpods-as-hearing-aids"
+      ],
+      "pattern": "https://audienhearing.com/blogs/hearing-aid-reviews/{slug}"
+    },
+    {
+      "count": 17,
+      "examples": [
+        "https://audienhearing.com/blogs/home/tagged/atom-one",
+        "https://audienhearing.com/blogs/home/tagged/atom-x",
+        "https://audienhearing.com/blogs/home/tagged/audien-ion"
+      ],
+      "pattern": "https://audienhearing.com/blogs/home/tagged/{slug}"
+    },
+    {
+      "count": 14,
+      "examples": [
+        "https://audienhearing.com/blogs/advertorial",
+        "https://audienhearing.com/blogs/common-questions",
+        "https://audienhearing.com/blogs/hearing-aid-reviews"
+      ],
+      "pattern": "https://audienhearing.com/blogs/{slug}"
+    },
+    {
+      "count": 8,
+      "examples": [
+        "https://audienhearing.com/agents.md",
+        "https://audienhearing.com/cart",
+        "https://audienhearing.com/search?q=Atom+Air&type=product,article,page&options[prefix]=last"
+      ],
+      "pattern": "https://audienhearing.com/{slug}"
+    },
+    {
+      "count": 8,
+      "examples": [
+        "https://audienhearing.com/blogs/hearing-test/audiometry-test-everything-to-know",
+        "https://audienhearing.com/blogs/hearing-test/auditory-brainstem-response-abr",
+        "https://audienhearing.com/blogs/hearing-test/bone-conduction-testing"
+      ],
+      "pattern": "https://audienhearing.com/blogs/hearing-test/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://audienhearing.com/blogs/advertorial/advertorial-founders1",
+        "https://audienhearing.com/blogs/advertorial/medical-1",
+        "https://audienhearing.com/blogs/advertorial/new-study-reveals-the-1-cause-of-dementia-alzheimers-and-the-surprising-solution"
+      ],
+      "pattern": "https://audienhearing.com/blogs/advertorial/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://audienhearing.com/blogs/hearing-aid-reviews/tagged/featured",
+        "https://audienhearing.com/blogs/hearing-aid-reviews/tagged/hearing-aid-reviews",
+        "https://audienhearing.com/blogs/hearing-aid-reviews/tagged/hearing-aids"
+      ],
+      "pattern": "https://audienhearing.com/blogs/hearing-aid-reviews/tagged/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://audienhearing.com/blogs/hearing-loss/tagged/featured",
+        "https://audienhearing.com/blogs/hearing-loss/tagged/hearing-aid-reviews",
+        "https://audienhearing.com/blogs/hearing-loss/tagged/hearing-aids"
+      ],
+      "pattern": "https://audienhearing.com/blogs/hearing-loss/tagged/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://audienhearing.com/pages/cl/fqarsg",
+        "https://audienhearing.com/pages/cl/j3sfpc",
+        "https://audienhearing.com/pages/cl/niv8d5"
+      ],
+      "pattern": "https://audienhearing.com/pages/cl/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://audienhearing.com/blogs/hearing-test/tagged/hearing-aids",
+        "https://audienhearing.com/blogs/hearing-test/tagged/hearing-loss",
+        "https://audienhearing.com/blogs/hearing-test/tagged/hearing-test"
+      ],
+      "pattern": "https://audienhearing.com/blogs/hearing-test/tagged/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://audienhearing.com/policies/privacy-policy",
+        "https://audienhearing.com/policies/refund-policy",
+        "https://audienhearing.com/policies/terms-of-service"
+      ],
+      "pattern": "https://audienhearing.com/policies/{slug}"
+    }
+  ],
+  "urls": [
+    "http://audienhearing.com/pages/atom-2-series/",
+    "http://audienhearing.com/pages/hear",
+    "https://audienhearing.com/",
+    "https://audienhearing.com/agents.md",
+    "https://audienhearing.com/blogs/advertorial",
+    "https://audienhearing.com/blogs/advertorial/advertorial-founders1",
+    "https://audienhearing.com/blogs/advertorial/medical-1",
+    "https://audienhearing.com/blogs/advertorial/new-study-reveals-the-1-cause-of-dementia-alzheimers-and-the-surprising-solution",
+    "https://audienhearing.com/blogs/advertorial/otc-1",
+    "https://audienhearing.com/blogs/advertorial/test-advertorial",
+    "https://audienhearing.com/blogs/common-questions",
+    "https://audienhearing.com/blogs/common-questions/benzo-withdrawal-tinnitus",
+    "https://audienhearing.com/blogs/common-questions/best-way-to-clean-your-ears",
+    "https://audienhearing.com/blogs/common-questions/bloody-ear-wax-when-to-worry",
+    "https://audienhearing.com/blogs/common-questions/bruised-ear-when-to-worry",
+    "https://audienhearing.com/blogs/common-questions/can-a-pinched-nerve-cause-ringing-in-the-ears",
+    "https://audienhearing.com/blogs/common-questions/can-stiff-neck-muscles-and-neck-pain-cause-tinnitus",
+    "https://audienhearing.com/blogs/common-questions/can-tinnitus-be-caused-by-emotional-trauma",
+    "https://audienhearing.com/blogs/common-questions/can-tinnitus-go-away-after-years-of-having-it",
+    "https://audienhearing.com/blogs/common-questions/can-xanax-help-with-tinnitus",
+    "https://audienhearing.com/blogs/common-questions/cochlear-implant-cost",
+    "https://audienhearing.com/blogs/common-questions/cochlear-implant-pros-and-cons",
+    "https://audienhearing.com/blogs/common-questions/combating-auditory-fatigue",
+    "https://audienhearing.com/blogs/common-questions/cookie-bite-hearing-loss",
+    "https://audienhearing.com/blogs/common-questions/dark-ear-wax",
+    "https://audienhearing.com/blogs/common-questions/degrees-hearing-loss-everything-to-know",
+    "https://audienhearing.com/blogs/common-questions/do-hearing-aids-work",
+    "https://audienhearing.com/blogs/common-questions/does-medicare-cover-hearing-aids",
+    "https://audienhearing.com/blogs/common-questions/ear-buds-damage-ears",
+    "https://audienhearing.com/blogs/common-questions/ear-hurts-after-cleaning",
+    "https://audienhearing.com/blogs/common-questions/ear-wax-removal-guide",
+    "https://audienhearing.com/blogs/common-questions/ears-ringing-after-workout",
+    "https://audienhearing.com/blogs/common-questions/five-types-of-hearing-protection",
+    "https://audienhearing.com/blogs/common-questions/foods-that-cause-ear-wax",
+    "https://audienhearing.com/blogs/common-questions/how-long-do-hearing-aid-batteries-last",
+    "https://audienhearing.com/blogs/common-questions/how-long-do-hearing-aids-last",
+    "https://audienhearing.com/blogs/common-questions/how-long-does-tinnitus-last-after-a-head-injury",
+    "https://audienhearing.com/blogs/common-questions/how-long-does-tinnitus-last-after-whiplash",
+    "https://audienhearing.com/blogs/common-questions/how-loud-is-50-decibels",
+    "https://audienhearing.com/blogs/common-questions/how-to-properly-clean-care-for-your-hearing-aids",
+    "https://audienhearing.com/blogs/common-questions/how-to-put-on-hearing-aids",
+    "https://audienhearing.com/blogs/common-questions/how-to-read-an-audiogram",
+    "https://audienhearing.com/blogs/common-questions/how-to-remove-ear-wax",
+    "https://audienhearing.com/blogs/common-questions/hydrogen-peroxide-in-ear",
+    "https://audienhearing.com/blogs/common-questions/i-need-hearing-aid-but-cant-afford",
+    "https://audienhearing.com/blogs/common-questions/impacted-ear-wax-causes-treatment",
+    "https://audienhearing.com/blogs/common-questions/is-hearing-loss-a-disability",
+    "https://audienhearing.com/blogs/common-questions/is-tinnitus-normal-after-ear-wax-removal",
+    "https://audienhearing.com/blogs/common-questions/misophonia-treatment-options",
+    "https://audienhearing.com/blogs/common-questions/rush-limbaugh-cochlear-implant",
+    "https://audienhearing.com/blogs/common-questions/sound-masking",
+    "https://audienhearing.com/blogs/common-questions/what-does-cochlear-implant-sound-like",
+    "https://audienhearing.com/blogs/common-questions/what-to-do-wet-hearing-aids",
+    "https://audienhearing.com/blogs/common-questions/who-invented-hearing-aids",
+    "https://audienhearing.com/blogs/common-questions/why-are-my-ears-so-sensitive-to-noise",
+    "https://audienhearing.com/blogs/common-questions/why-do-hearing-aids-cost-so-much",
+    "https://audienhearing.com/blogs/common-questions/why-does-cleaning-my-ear-make-me-cough",
+    "https://audienhearing.com/blogs/common-questions/will-audien-hearing-aids-work-for-me",
+    "https://audienhearing.com/blogs/common-questions/will-my-tinnitus-go-away-after-removing-ear-wax",
+    "https://audienhearing.com/blogs/hearing-aid-reviews",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/3-steps-to-prevent-feedback-when-inserting-your-hearing-aids",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/7-tips-to-get-used-to-your-new-hearing-aids",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/airpods-as-hearing-aids",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/audien-hearing-aid-reviews-what-customers-have-to-say",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/average-price-of-hearing-aids",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/best-cheap-hearing-aids",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/bluetooth-hearing-aids",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/choosing-invisible-hearing-aids",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/get-low-cost-hearing-aids-and-start-enjoying-a-quality-of-life",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/hearing-aids",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/hearing-aids-for-kids",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/hearing-amplifiers",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/how-to-get-a-hearing-aid-without-insurance",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/introducing-the-new-audien-ev3-rechargeable-hearing-aids",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/psaps-vs-hearing-aids",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/rechargeable-hearing-aids",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/tagged/featured",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/tagged/hearing-aid-reviews",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/tagged/hearing-aids",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/tagged/high-frequency-hearing-loss",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/tagged/rechargeable-hearing-aids",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/the-best-over-the-counter-hearing-aids",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/used-hearing-aids",
+    "https://audienhearing.com/blogs/hearing-aid-reviews/waterproof-hearing-aids",
+    "https://audienhearing.com/blogs/hearing-aid-reviews?page=2",
+    "https://audienhearing.com/blogs/hearing-aid-reviews?page=3",
+    "https://audienhearing.com/blogs/hearing-loss",
+    "https://audienhearing.com/blogs/hearing-loss/bilateral-conductive-hearing-loss",
+    "https://audienhearing.com/blogs/hearing-loss/black-ear-wax-causes-treatment",
+    "https://audienhearing.com/blogs/hearing-loss/can-hearing-loss-be-reversed-what-to-know",
+    "https://audienhearing.com/blogs/hearing-loss/central-auditory-processing-disorder",
+    "https://audienhearing.com/blogs/hearing-loss/conductive-hearing-loss",
+    "https://audienhearing.com/blogs/hearing-loss/deaf-athletes",
+    "https://audienhearing.com/blogs/hearing-loss/ear-injury-from-getting-hit",
+    "https://audienhearing.com/blogs/hearing-loss/hearing-aids-for-conductive-hearing-loss",
+    "https://audienhearing.com/blogs/hearing-loss/hearing-loss",
+    "https://audienhearing.com/blogs/hearing-loss/hearing-loss-and-the-effects-on-daily-life",
+    "https://audienhearing.com/blogs/hearing-loss/hearing-loss-due-to-loud-noise",
+    "https://audienhearing.com/blogs/hearing-loss/hearing-loss-in-one-ear",
+    "https://audienhearing.com/blogs/hearing-loss/hidden-hearing-loss",
+    "https://audienhearing.com/blogs/hearing-loss/high-frequency-hearing-loss",
+    "https://audienhearing.com/blogs/hearing-loss/hyperacusis-treatment",
+    "https://audienhearing.com/blogs/hearing-loss/low-frequency-conductive-hearing-loss",
+    "https://audienhearing.com/blogs/hearing-loss/mild-sensorineural-hearing-loss",
+    "https://audienhearing.com/blogs/hearing-loss/new-research-connects-hearing-loss-to-alzheimers-dementia-depression-more",
+    "https://audienhearing.com/blogs/hearing-loss/profound-hearing-loss",
+    "https://audienhearing.com/blogs/hearing-loss/signs-symptoms-hearing-loss",
+    "https://audienhearing.com/blogs/hearing-loss/sudden-hearing-loss-in-one-ear",
+    "https://audienhearing.com/blogs/hearing-loss/tagged/featured",
+    "https://audienhearing.com/blogs/hearing-loss/tagged/hearing-aid-reviews",
+    "https://audienhearing.com/blogs/hearing-loss/tagged/hearing-aids",
+    "https://audienhearing.com/blogs/hearing-loss/tagged/hearing-loss",
+    "https://audienhearing.com/blogs/hearing-loss/tagged/sudden-deafness",
+    "https://audienhearing.com/blogs/hearing-loss/the-4-levels-of-hearing-loss",
+    "https://audienhearing.com/blogs/hearing-loss/the-best-cheap-hearing-aid",
+    "https://audienhearing.com/blogs/hearing-loss/unilateral-conductive-hearing-loss",
+    "https://audienhearing.com/blogs/hearing-loss/what-is-diplacusis",
+    "https://audienhearing.com/blogs/hearing-loss?page=2",
+    "https://audienhearing.com/blogs/hearing-loss?page=3",
+    "https://audienhearing.com/blogs/hearing-test",
+    "https://audienhearing.com/blogs/hearing-test/audiometry-test-everything-to-know",
+    "https://audienhearing.com/blogs/hearing-test/auditory-brainstem-response-abr",
+    "https://audienhearing.com/blogs/hearing-test/bone-conduction-testing",
+    "https://audienhearing.com/blogs/hearing-test/do-you-need-a-hearing-aid",
+    "https://audienhearing.com/blogs/hearing-test/how-long-does-a-hearing-test-take",
+    "https://audienhearing.com/blogs/hearing-test/pure-tone-audiometry-conductive-hearing-loss",
+    "https://audienhearing.com/blogs/hearing-test/pure-tone-testing",
+    "https://audienhearing.com/blogs/hearing-test/tagged/hearing-aids",
+    "https://audienhearing.com/blogs/hearing-test/tagged/hearing-loss",
+    "https://audienhearing.com/blogs/hearing-test/tagged/hearing-test",
+    "https://audienhearing.com/blogs/hearing-test/tympanometry",
+    "https://audienhearing.com/blogs/home",
+    "https://audienhearing.com/blogs/home/3-steps-to-prevent-feedback-when-inserting-your-atom-2-series-hearing-aids",
+    "https://audienhearing.com/blogs/home/3-things-you-didnt-know-about-hearing-loss",
+    "https://audienhearing.com/blogs/home/4-ways-to-improve-your-hearing-at-work",
+    "https://audienhearing.com/blogs/home/5-common-hearing-aid-myths-you-need-to-stop-believing",
+    "https://audienhearing.com/blogs/home/5-daily-situations-where-touchscreen-hearing-aids-change-everything",
+    "https://audienhearing.com/blogs/home/5-gentle-ways-to-encourage-someone-you-love-to-address-their-hearing-loss-nbsp",
+    "https://audienhearing.com/blogs/home/5-mistakes-everyone-makes-when-first-getting-hearing-aids",
+    "https://audienhearing.com/blogs/home/5-reasons-hearing-aids-are-good-for-your-brain",
+    "https://audienhearing.com/blogs/home/5-reasons-most-hearing-aids-fail-and-how-the-atom-pro-2-solves-them",
+    "https://audienhearing.com/blogs/home/5-signs-your-parents-are-struggling-to-hear-this-christmas",
+    "https://audienhearing.com/blogs/home/5-simple-hacks-to-improve-your-hearing",
+    "https://audienhearing.com/blogs/home/5-steps-to-help-your-partner-get-hearing-aids",
+    "https://audienhearing.com/blogs/home/6-early-warning-signs-you-might-be-losing-your-hearing-and-why-ignoring-them-is-a-big-mistake",
+    "https://audienhearing.com/blogs/home/6-everyday-sounds-you-didn-t-realize-you-were-missing",
+    "https://audienhearing.com/blogs/home/6-exercises-to-help-you-get-used-to-your-new-hearing-aids",
+    "https://audienhearing.com/blogs/home/7-hearing-aid-myths-your-friends-are-telling-you-and-the-truth",
+    "https://audienhearing.com/blogs/home/7-reasons-your-hearing-aids-whistle-and-how-to-fix-each-one",
+    "https://audienhearing.com/blogs/home/7-things-that-make-the-atom-x-different-from-every-other-hearing-aid",
+    "https://audienhearing.com/blogs/home/7-tips-to-get-used-to-your-atom-2-series-hearing-aids",
+    "https://audienhearing.com/blogs/home/7-tips-to-get-used-to-your-audien-ion-hearing-aids",
+    "https://audienhearing.com/blogs/home/8-hidden-costs-of-disposable-hearing-aid-batteries",
+    "https://audienhearing.com/blogs/home/8-signs-you-re-wearing-the-wrong-hearing-aid-and-how-to-fix-it",
+    "https://audienhearing.com/blogs/home/acoustic-reflex-testing",
+    "https://audienhearing.com/blogs/home/answering-your-top-questions-about-the-audien-ion-pro",
+    "https://audienhearing.com/blogs/home/apple-earbuds-vs-hearing-aids",
+    "https://audienhearing.com/blogs/home/apple-s-airpods-pro-2-revolutionizing-hearing-health-or-just-hype",
+    "https://audienhearing.com/blogs/home/are-audien-hearing-aids-just-amplifiers",
+    "https://audienhearing.com/blogs/home/are-cheap-hearing-aids-worth-buying",
+    "https://audienhearing.com/blogs/home/are-expensive-hearing-aids-worth-it",
+    "https://audienhearing.com/blogs/home/are-hearing-aids-tax-deductible",
+    "https://audienhearing.com/blogs/home/are-rechargeable-hearing-aids-lower-quality",
+    "https://audienhearing.com/blogs/home/asymmetrical-hearing-loss",
+    "https://audienhearing.com/blogs/home/asymmetrical-sensorineural-hearing-loss",
+    "https://audienhearing.com/blogs/home/atom-one",
+    "https://audienhearing.com/blogs/home/atom-one-list",
+    "https://audienhearing.com/blogs/home/atom-pro-2-vs-audien-ion-finding-your-perfect-hearing-aid-match",
+    "https://audienhearing.com/blogs/home/atom-x-advertorial-2",
+    "https://audienhearing.com/blogs/home/atom-x-vs-app-controlled-hearing-aids-which-is-right-for-you",
+    "https://audienhearing.com/blogs/home/audien-hearing-3rd-party-review-advertorial-esg-airpods-vs-audien",
+    "https://audienhearing.com/blogs/home/audien-hearing-partners-with-washington-commanders",
+    "https://audienhearing.com/blogs/home/audien-vs-apple-hearing-aids",
+    "https://audienhearing.com/blogs/home/audien-vs-jabra-hearing-aids",
+    "https://audienhearing.com/blogs/home/audien-vs-md-hearing-aid",
+    "https://audienhearing.com/blogs/home/average-price-of-hearing-aids",
+    "https://audienhearing.com/blogs/home/best-affordable-hearing-aids",
+    "https://audienhearing.com/blogs/home/best-hearing-aids-for-seniors",
+    "https://audienhearing.com/blogs/home/best-hearing-aids-on-the-market",
+    "https://audienhearing.com/blogs/home/best-hearing-aids-to-gift-this-christmas-2025",
+    "https://audienhearing.com/blogs/home/best-inexpensive-hearing-aids",
+    "https://audienhearing.com/blogs/home/best-otc-hearing-aids-2026",
+    "https://audienhearing.com/blogs/home/best-otc-hearing-aids-for-seniors-2026",
+    "https://audienhearing.com/blogs/home/best-otc-hearing-aids-for-tinnitus",
+    "https://audienhearing.com/blogs/home/best-rechargeable-hearing-aids",
+    "https://audienhearing.com/blogs/home/best-touchscreen-hearing-aid",
+    "https://audienhearing.com/blogs/home/blog-hearing-aid-cost-2026",
+    "https://audienhearing.com/blogs/home/bossa-vs-audien-hearing-aid",
+    "https://audienhearing.com/blogs/home/can-hearing-aids-cause-ear-infections",
+    "https://audienhearing.com/blogs/home/can-hearing-loss-really-lead-to-dementia",
+    "https://audienhearing.com/blogs/home/can-t-hear-over-the-ringing-how-hearing-aids-rewire-your-brain-to-reduce-tinnitus",
+    "https://audienhearing.com/blogs/home/can-t-hear-the-tv-clearly-here-s-what-you-can-do-about-it",
+    "https://audienhearing.com/blogs/home/can-you-sleep-with-hearing-aids-why-you-shouldnt-and-what-to-do-instead",
+    "https://audienhearing.com/blogs/home/can-you-test-hearing-at-home",
+    "https://audienhearing.com/blogs/home/can-you-train-your-ears-to-hear-better-auditory-training-explained",
+    "https://audienhearing.com/blogs/home/can-you-wear-hearing-aids-with-glasses",
+    "https://audienhearing.com/blogs/home/cochlear-implant-vs-hearing-aid",
+    "https://audienhearing.com/blogs/home/conductive-hearing-loss-symptoms",
+    "https://audienhearing.com/blogs/home/costco-hearing-aids-vs-audiologist",
+    "https://audienhearing.com/blogs/home/costco-hearing-aids-vs-oticon-hearing-aids",
+    "https://audienhearing.com/blogs/home/costco-vs-kaiser-hearing-aids",
+    "https://audienhearing.com/blogs/home/costco-vs-sams-club-hearing-aids",
+    "https://audienhearing.com/blogs/home/debunking-the-common-misunderstandings-of-hearing-aids",
+    "https://audienhearing.com/blogs/home/difference-between-mild-moderate-conductive-hearing-loss",
+    "https://audienhearing.com/blogs/home/do-i-need-a-hearing-aid-for-mild-hearing-loss",
+    "https://audienhearing.com/blogs/home/do-you-need-a-hearing-aid",
+    "https://audienhearing.com/blogs/home/dont-wait-until-hearing-loss-feels-bad-enough",
+    "https://audienhearing.com/blogs/home/earbuds-that-look-like-hearing-aids-airpods-vs-otc-hearing-aids",
+    "https://audienhearing.com/blogs/home/eargo-alternative",
+    "https://audienhearing.com/blogs/home/earwax-buildup-and-tinnitus",
+    "https://audienhearing.com/blogs/home/elehear-beyond-vs-beyond-pro",
+    "https://audienhearing.com/blogs/home/elehear-vs-jabra-hearing-aids",
+    "https://audienhearing.com/blogs/home/elehear-vs-lexie-hearing-aids",
+    "https://audienhearing.com/blogs/home/everything-you-need-to-know-about-hearing-aids-and-tinnitus",
+    "https://audienhearing.com/blogs/home/expert-interview-clinicmind",
+    "https://audienhearing.com/blogs/home/expert-interview-computype-s-scott-hietpas",
+    "https://audienhearing.com/blogs/home/expert-interview-jodi-prandy-of-realself",
+    "https://audienhearing.com/blogs/home/expert-interview-kishore-khandavalli",
+    "https://audienhearing.com/blogs/home/expert-interview-nathan-barz",
+    "https://audienhearing.com/blogs/home/expert-interview-patient-prism",
+    "https://audienhearing.com/blogs/home/gifts-for-hearing-impaired",
+    "https://audienhearing.com/blogs/home/headphone-for-hearing-aids",
+    "https://audienhearing.com/blogs/home/hearing-aid-adoption-rates",
+    "https://audienhearing.com/blogs/home/hearing-aid-affordability-statistics-2026",
+    "https://audienhearing.com/blogs/home/hearing-aid-brands-comparison",
+    "https://audienhearing.com/blogs/home/hearing-aid-domes-101-why-size-matters-and-how-to-get-it-right",
+    "https://audienhearing.com/blogs/home/hearing-aid-market-growth",
+    "https://audienhearing.com/blogs/home/hearing-aid-reviews-what-real-users-are-saying-about-audien-ion",
+    "https://audienhearing.com/blogs/home/hearing-aid-usage-statistics",
+    "https://audienhearing.com/blogs/home/hearing-aid-vs-amplifier",
+    "https://audienhearing.com/blogs/home/hearing-aids-and-pets-what-you-need-to-know",
+    "https://audienhearing.com/blogs/home/hearing-aids-costco-vs-miracle-ear",
+    "https://audienhearing.com/blogs/home/hearing-aids-for-music-lovers-what-you-need-to-know",
+    "https://audienhearing.com/blogs/home/hearing-aids-vs-amplifiers",
+    "https://audienhearing.com/blogs/home/hearing-health-is-part-of-your-overall-wellness",
+    "https://audienhearing.com/blogs/home/hearing-loss-statistics-by-age",
+    "https://audienhearing.com/blogs/home/how-better-hearing-can-strengthen-any-grandparent-s-family-bonds",
+    "https://audienhearing.com/blogs/home/how-easy-is-it-to-use-the-atom-x-touchscreen",
+    "https://audienhearing.com/blogs/home/how-many-americans-have-hearing-loss-2026-statistics",
+    "https://audienhearing.com/blogs/home/how-much-are-hearing-aids",
+    "https://audienhearing.com/blogs/home/how-much-do-hearing-aids-really-cost-in-2026",
+    "https://audienhearing.com/blogs/home/how-much-does-it-really-cost-to-buy-hearing-aids-in-2024",
+    "https://audienhearing.com/blogs/home/how-to-clean-hearing-aids",
+    "https://audienhearing.com/blogs/home/how-to-clean-hearing-aids-without-damaging-them",
+    "https://audienhearing.com/blogs/home/how-to-set-up-otc-hearing-aids",
+    "https://audienhearing.com/blogs/home/how-to-test-your-hearing-at-home-easy-steps-to-get-started",
+    "https://audienhearing.com/blogs/home/hyperacusis",
+    "https://audienhearing.com/blogs/home/in-the-ear-vs-behind-the-ear-hearing-aids",
+    "https://audienhearing.com/blogs/home/is-everyday-noise-quietly-stealing-your-hearing-and-how-to-protect-it",
+    "https://audienhearing.com/blogs/home/is-this-new-hearing-aid-company-oricle-hearing-a-scam-here-s-why-our-editors-think-it-is",
+    "https://audienhearing.com/blogs/home/jabra-hearing-aids-alternative",
+    "https://audienhearing.com/blogs/home/lexie-hearing-aid-alternative",
+    "https://audienhearing.com/blogs/home/lively-hearing-aids-vs-costco",
+    "https://audienhearing.com/blogs/home/md-hearing-aids-alternative",
+    "https://audienhearing.com/blogs/home/medications-for-tinnitus",
+    "https://audienhearing.com/blogs/home/miracle-ear-hearing-aids-alternative",
+    "https://audienhearing.com/blogs/home/nano-vs-audien-hearing-aids",
+    "https://audienhearing.com/blogs/home/new-research-connects-hearing-loss-to-alzheimers-dementia-depression",
+    "https://audienhearing.com/blogs/home/new-study-reveals-the-1-cause-of-dementia-and-the-surprising-solution-atom-one",
+    "https://audienhearing.com/blogs/home/new-study-reveals-the-1-cause-of-dementia-and-the-surprising-solution-atom-series",
+    "https://audienhearing.com/blogs/home/new-year-new-ears-why-january-is-the-perfect-time-to-address-hearing-loss",
+    "https://audienhearing.com/blogs/home/one-ear-or-both-understanding-single-sided-hearing-loss",
+    "https://audienhearing.com/blogs/home/oracle-vs-audien-hearing-aids",
+    "https://audienhearing.com/blogs/home/oracle-vs-md-hearing",
+    "https://audienhearing.com/blogs/home/otc-1",
+    "https://audienhearing.com/blogs/home/otc-hearing-aid-market-size",
+    "https://audienhearing.com/blogs/home/otc-vs-prescription-hearing-aids",
+    "https://audienhearing.com/blogs/home/oticon-vs-signia-hearing-aids",
+    "https://audienhearing.com/blogs/home/phonak-hearing-aids-alternative",
+    "https://audienhearing.com/blogs/home/phonak-vs-signia-hearing-aids",
+    "https://audienhearing.com/blogs/home/rexton-vs-signia-hearing-aids",
+    "https://audienhearing.com/blogs/home/sennheiser-all-day-clear-vs-elehear-beyond-pro",
+    "https://audienhearing.com/blogs/home/signia-hearing-aids-alternative",
+    "https://audienhearing.com/blogs/home/signia-vs-jabra-hearing-aids",
+    "https://audienhearing.com/blogs/home/signia-vs-philips-hearing-aids",
+    "https://audienhearing.com/blogs/home/signia-vs-resound-hearing-aids",
+    "https://audienhearing.com/blogs/home/signia-vs-starkey-hearing-aids",
+    "https://audienhearing.com/blogs/home/signia-vs-starkey-hearing-aids-1",
+    "https://audienhearing.com/blogs/home/signia-vs-widex-hearing-aids",
+    "https://audienhearing.com/blogs/home/small-habits-that-help-protect-your-hearing",
+    "https://audienhearing.com/blogs/home/somatic-tinnitus-1",
+    "https://audienhearing.com/blogs/home/starkey-hearing-aids-alternative",
+    "https://audienhearing.com/blogs/home/tagged/atom-one",
+    "https://audienhearing.com/blogs/home/tagged/atom-x",
+    "https://audienhearing.com/blogs/home/tagged/audien-ion",
+    "https://audienhearing.com/blogs/home/tagged/early-intervention",
+    "https://audienhearing.com/blogs/home/tagged/hearing-aids",
+    "https://audienhearing.com/blogs/home/tagged/hearing-aids?page=2",
+    "https://audienhearing.com/blogs/home/tagged/hearing-aids?page=3",
+    "https://audienhearing.com/blogs/home/tagged/hearing-aids?page=8",
+    "https://audienhearing.com/blogs/home/tagged/hearing-loss",
+    "https://audienhearing.com/blogs/home/tagged/hearing-loss-gifting",
+    "https://audienhearing.com/blogs/home/tagged/hearing-loss?page=2",
+    "https://audienhearing.com/blogs/home/tagged/hearing-loss?page=3",
+    "https://audienhearing.com/blogs/home/tagged/hearing-loss?page=8",
+    "https://audienhearing.com/blogs/home/tagged/ion-pro",
+    "https://audienhearing.com/blogs/home/tagged/ion-pro-2",
+    "https://audienhearing.com/blogs/home/tagged/national-wellness-month",
+    "https://audienhearing.com/blogs/home/tagged/otc-hearing-aids",
+    "https://audienhearing.com/blogs/home/the-2-most-affordable-hearing-aids-on-the-market",
+    "https://audienhearing.com/blogs/home/the-5-hidden-dangers-of-hearing-loss-your-doctor-wont-tell-you",
+    "https://audienhearing.com/blogs/home/the-best-bluetooth-hearing-aids-in-2026",
+    "https://audienhearing.com/blogs/home/the-best-otc-hearing-aids-without-an-app-2026",
+    "https://audienhearing.com/blogs/home/the-best-rechargeable-hearing-aids-for-seniors-2026",
+    "https://audienhearing.com/blogs/home/the-future-of-hearing-is-here-meet-the-worlds-first-touchscreen-controlled-hearing-aid",
+    "https://audienhearing.com/blogs/home/the-future-of-hearing-is-here-meet-the-worlds-first-touchscreen-hearing-aid",
+    "https://audienhearing.com/blogs/home/the-hidden-dangers-of-getting-used-to-hearing-loss-and-why-waiting-could-cost-you",
+    "https://audienhearing.com/blogs/home/the-long-term-cost-of-untreated-hearing-loss",
+    "https://audienhearing.com/blogs/home/the-real-cost-of-untreated-hearing-loss-what-insurance-companies-dont-tell-you",
+    "https://audienhearing.com/blogs/home/the-surprising-link-between-hearing-loss-and-balance",
+    "https://audienhearing.com/blogs/home/the-surprising-truth-about-earwax-when-it-helps-and-when-it-hurts-your-hearing",
+    "https://audienhearing.com/blogs/home/the-top-5-myths-about-hearing-aids-debunked",
+    "https://audienhearing.com/blogs/home/the-truth-about-over-the-counter-hearing-aids-are-they-worth-it",
+    "https://audienhearing.com/blogs/home/the-ultimate-gift-guide-for-better-hearing-this-holiday-season",
+    "https://audienhearing.com/blogs/home/this-one-trick-will-keep-your-brain-10-years-younger",
+    "https://audienhearing.com/blogs/home/top-qualities-to-look-for-when-shopping-for-the-best-hearing-aids",
+    "https://audienhearing.com/blogs/home/what-is-auditory-dyslexia",
+    "https://audienhearing.com/blogs/home/what-makes-audien-s-atom-2-series-perfect-for-seniors-with-hearing-loss",
+    "https://audienhearing.com/blogs/home/what-we-can-learn-from-paul-simons-hearing-loss",
+    "https://audienhearing.com/blogs/home/why-cant-i-hear-the-tv-even-with-hearing-aids",
+    "https://audienhearing.com/blogs/home/why-christmas-makes-hearing-loss-more-noticeable-and-what-to-do-about-it",
+    "https://audienhearing.com/blogs/home/why-do-hearing-aids-keep-falling-out-7-solutions-for-a-better-fit",
+    "https://audienhearing.com/blogs/home/why-does-pulsatile-tinnitus-come-and-go",
+    "https://audienhearing.com/blogs/home/why-is-it-important-for-seniors-to-address-hearing-loss-early",
+    "https://audienhearing.com/blogs/home/why-restaurants-are-so-hard-to-hear-in-and-which-hearing-aid-setting-helps",
+    "https://audienhearing.com/blogs/home/why-some-people-hate-their-hearing-aids-and-how-to-not-be-one-of-them",
+    "https://audienhearing.com/blogs/home/why-you-hear-better-in-the-morning-and-worse-by-evening",
+    "https://audienhearing.com/blogs/home/why-your-hearing-aid-whistles-and-how-to-stop-it-in-seconds",
+    "https://audienhearing.com/blogs/home/your-first-week-with-hearing-aids-what-to-expect",
+    "https://audienhearing.com/blogs/home?page=2",
+    "https://audienhearing.com/blogs/home?page=20",
+    "https://audienhearing.com/blogs/home?page=3",
+    "https://audienhearing.com/blogs/tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/a-complete-guide-to-noise-induced-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/aging-and-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/causes-of-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/cleaning-earwax-buildup-for-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/comprehensive-tinnitus-guide",
+    "https://audienhearing.com/blogs/tinnitus/exercises-for-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/famous-people-with-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/is-tinnitus-common-after-a-car-accident",
+    "https://audienhearing.com/blogs/tinnitus/low-frequency-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/menieres-disease-and-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/most-common-causes-of-pulsatile-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/musical-ear-syndrome",
+    "https://audienhearing.com/blogs/tinnitus/musical-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/musicians-with-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/neurological-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/noise-canceling-headphones-and-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/noise-exposure-and-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/post-concussion-tinnitus-treatment",
+    "https://audienhearing.com/blogs/tinnitus/pulsatile-tinnitus-anxiety",
+    "https://audienhearing.com/blogs/tinnitus/signs-that-your-tinnitus-is-going-away",
+    "https://audienhearing.com/blogs/tinnitus/sleep-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/somatic-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/subjective-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/surgery-for-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/tinnitus-and-migraines",
+    "https://audienhearing.com/blogs/tinnitus/types-of-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/what-does-tinnitus-sound-like",
+    "https://audienhearing.com/blogs/tinnitus/white-noise-devices-for-tinnitus",
+    "https://audienhearing.com/blogs/tinnitus/why-do-i-get-tinnitus-when-lying-down",
+    "https://audienhearing.com/cart",
+    "https://audienhearing.com/cart/39524148772927:1",
+    "https://audienhearing.com/cart/39708661153855:1",
+    "https://audienhearing.com/cart/39894668935231:1",
+    "https://audienhearing.com/cart/39993907904575:1",
+    "https://audienhearing.com/cart/40157378215999:1,41648110796863:1,42972333244479:1,44189998514239:1,43568120365119:1,43047232864319:1:2786099263?discount=AUDIEN_CARE_DISCOUNT,ATOM_PRO_2_60$_OFF,BF_BUNDLES&main-product-id=40157378215999",
+    "https://audienhearing.com/cart/40157378215999:1?discount=none",
+    "https://audienhearing.com/cart/40196471062591:1",
+    "https://audienhearing.com/cart/41583496101951:1",
+    "https://audienhearing.com/cart/41583496101951:1,41648110796863:1,42972333244479:1,44189998514239:1,43568120365119:1,43047232766015:1:2786099263?discount=AUDIEN_CARE_DISCOUNT,ATOM_ONE_20$_OFF,BF_BUNDLES&main-product-id=41583496101951",
+    "https://audienhearing.com/cart/41583496101951:1,41648110796863:1?discount=SPECIALIST_FREE",
+    "https://audienhearing.com/cart/41583496101951:1,41648110796863:1?discount=SPECIALIST_FREE&main-product-id=41583496101951",
+    "https://audienhearing.com/cart/41583496101951:1?discount=none",
+    "https://audienhearing.com/cart/41878953361471:1",
+    "https://audienhearing.com/cart/41878966763583:1",
+    "https://audienhearing.com/cart/41878969516095:1",
+    "https://audienhearing.com/cart/42401227898943:1",
+    "https://audienhearing.com/cart/42490085343295:1,41648110796863:1,42972333244479:1,44189998514239:1,43328795770943:1,43047232798783:1:2786099263?discount=AUDIEN_CARE_DISCOUNT,ION_PRO_2_200$_OFF,BF_BUNDLES&main-product-id=42490085343295",
+    "https://audienhearing.com/cart/42490085343295:1?discount=ION_PRO_2_100$_OFF",
+    "https://audienhearing.com/cart/42828608503871:1",
+    "https://audienhearing.com/cart/42932323090495:1",
+    "https://audienhearing.com/cart/42932323090495:1,41648110796863:1,42972333244479:1,44189998514239:1,43328795770943:1,43078902644799:1:2786099263?discount=AUDIEN_CARE_DISCOUNT,%20ION_AIR_100$_OFF,%20BF_BUNDLES&main-product-id=42932323090495",
+    "https://audienhearing.com/cart/42932323090495:1?discount=none",
+    "https://audienhearing.com/cart/43036414312511:1:2786132031",
+    "https://audienhearing.com/cart/43036414345279:1:2786132031",
+    "https://audienhearing.com/cart/43036414378047:1:2786132031",
+    "https://audienhearing.com/cart/43036414410815:1:2786132031",
+    "https://audienhearing.com/cart/43047232766015:1:2786099263",
+    "https://audienhearing.com/cart/43047232798783:1:2786099263",
+    "https://audienhearing.com/cart/43047232831551:1:2786099263",
+    "https://audienhearing.com/cart/43047232864319:1:2786099263",
+    "https://audienhearing.com/cart/43078898909247:1:2786099263",
+    "https://audienhearing.com/cart/43078902644799:1:2786099263",
+    "https://audienhearing.com/cart/43078902775871:1:2786132031",
+    "https://audienhearing.com/cart/43078902808639:1:2786132031",
+    "https://audienhearing.com/cart/43275300307007:1,41648110796863:1,42972333244479:1,44189998514239:1,43568120365119:1,43311179956287:1:2786099263?discount=AUDIEN_CARE_DISCOUNT,ATOM_AIR_20$_OFF,BF_BUNDLES&main-product-id=43275300307007",
+    "https://audienhearing.com/cart/43275300307007:1?discount=none",
+    "https://audienhearing.com/cart/43311179956287:1:2786099263",
+    "https://audienhearing.com/cart/43311198306367:1:2786132031",
+    "https://audienhearing.com/cart/43328795770943:1,42972333244479:1?discount=BUNDLE_FREE,AUDIEN_SHIELDS_10$_OFF&main-product-id=43328795770943",
+    "https://audienhearing.com/cart/43568120365119:1,41648110796863:1,42972333244479:1?discount=BUNDLE_FREE",
+    "https://audienhearing.com/cart/43568120365119:1,41648110796863:1,42972333244479:1?discount=BUNDLE_FREE&main-product-id=43568120365119",
+    "https://audienhearing.com/cart/43928885461055:1,41648110796863:1,42972333244479:1,44189998514239:1,43568120365119:1,43047232766015:1:2786099263?discount=AUDIEN_CARE_DISCOUNT,ATOM_X_2ND_GEN_80$_OFF,ATOM_X_CONNECT_100$_OFF,BF_BUNDLES&main-product-id=43928885461055",
+    "https://audienhearing.com/cart/43928885461055:1?discount=none",
+    "https://audienhearing.com/cart/43928885723199:1,41648110796863:1,42972333244479:1,44189998514239:1,43328795770943:1,44124509995071:1:2786099263?discount=AUDIEN_CARE_DISCOUNT,ION_IQ_140$_OFF,%20BF_BUNDLES&main-product-id=43928885723199",
+    "https://audienhearing.com/cart/43928885723199:1?discount=none",
+    "https://audienhearing.com/cart/43964917874751:1:2786132031",
+    "https://audienhearing.com/cart/43964917907519:1:2786132031",
+    "https://audienhearing.com/cart/43964917940287:1:2786099263",
+    "https://audienhearing.com/cart/43964917973055:1:2786099263",
+    "https://audienhearing.com/cart/44124509995071:1:2786099263",
+    "https://audienhearing.com/cart/44124514943039:1:2786132031",
+    "https://audienhearing.com/collections/accessorie-bundles",
+    "https://audienhearing.com/collections/accessories",
+    "https://audienhearing.com/collections/accessories-collection",
+    "https://audienhearing.com/collections/accessories-fathers-day-sale",
+    "https://audienhearing.com/collections/after-ship-test",
+    "https://audienhearing.com/collections/air-series",
+    "https://audienhearing.com/collections/all",
+    "https://audienhearing.com/collections/all-products-collection",
+    "https://audienhearing.com/collections/atom-2",
+    "https://audienhearing.com/collections/atom-one",
+    "https://audienhearing.com/collections/atom-pro",
+    "https://audienhearing.com/collections/atom-pro-2",
+    "https://audienhearing.com/collections/atom-series",
+    "https://audienhearing.com/collections/atom-x",
+    "https://audienhearing.com/collections/best-affordable-hearing-aids",
+    "https://audienhearing.com/collections/best-hearing-aids-under-100",
+    "https://audienhearing.com/collections/best-hearing-aids-under-200",
+    "https://audienhearing.com/collections/best-otc-hearing-aids",
+    "https://audienhearing.com/collections/charging-accessories",
+    "https://audienhearing.com/collections/cx-products-1",
+    "https://audienhearing.com/collections/devices-300-599",
+    "https://audienhearing.com/collections/devices-600",
+    "https://audienhearing.com/collections/devices-under-300",
+    "https://audienhearing.com/collections/digital-products",
+    "https://audienhearing.com/collections/earbuds",
+    "https://audienhearing.com/collections/hearing-aid",
+    "https://audienhearing.com/collections/ion",
+    "https://audienhearing.com/collections/ion-pro",
+    "https://audienhearing.com/collections/ion-series",
+    "https://audienhearing.com/collections/maintenance",
+    "https://audienhearing.com/collections/pro-series",
+    "https://audienhearing.com/collections/protection",
+    "https://audienhearing.com/collections/redo-hearing-aids-otc",
+    "https://audienhearing.com/collections/redo-hearing-aids-otc-copy",
+    "https://audienhearing.com/collections/series",
+    "https://audienhearing.com/collections/stylish-hearing-aids",
+    "https://audienhearing.com/collections/x-series",
+    "https://audienhearing.com/pages/about-us",
+    "https://audienhearing.com/pages/accessibility-statement",
+    "https://audienhearing.com/pages/atom-x-gift-listicle",
+    "https://audienhearing.com/pages/audien-impact",
+    "https://audienhearing.com/pages/audien-ion-pro-pdp",
+    "https://audienhearing.com/pages/audien-shields",
+    "https://audienhearing.com/pages/audiencare",
+    "https://audienhearing.com/pages/audiencare-policy",
+    "https://audienhearing.com/pages/b2b-landing",
+    "https://audienhearing.com/pages/b2b-order",
+    "https://audienhearing.com/pages/b2b-registration",
+    "https://audienhearing.com/pages/bjs",
+    "https://audienhearing.com/pages/black-friday-bundle-offer",
+    "https://audienhearing.com/pages/black-friday-lp",
+    "https://audienhearing.com/pages/careers",
+    "https://audienhearing.com/pages/cl/fqarsg",
+    "https://audienhearing.com/pages/cl/j3sfpc",
+    "https://audienhearing.com/pages/cl/niv8d5",
+    "https://audienhearing.com/pages/cl/oapmyq",
+    "https://audienhearing.com/pages/costco",
+    "https://audienhearing.com/pages/costco-lp-ion-iq",
+    "https://audienhearing.com/pages/costco-lp-ion-iq-offer",
+    "https://audienhearing.com/pages/costco-offer",
+    "https://audienhearing.com/pages/do-not-sell-or-share-my-personal-information",
+    "https://audienhearing.com/pages/fall-detection",
+    "https://audienhearing.com/pages/fsa",
+    "https://audienhearing.com/pages/giant-eagle",
+    "https://audienhearing.com/pages/healthline-lp",
+    "https://audienhearing.com/pages/hearing-test-product-quiz",
+    "https://audienhearing.com/pages/hearing-test-quiz",
+    "https://audienhearing.com/pages/hsa",
+    "https://audienhearing.com/pages/ion-iq-promo",
+    "https://audienhearing.com/pages/ion-manual",
+    "https://audienhearing.com/pages/ion-pro-2-open-box",
+    "https://audienhearing.com/pages/limited-warranty",
+    "https://audienhearing.com/pages/loyalty-program",
+    "https://audienhearing.com/pages/order-tracking",
+    "https://audienhearing.com/pages/payors",
+    "https://audienhearing.com/pages/press",
+    "https://audienhearing.com/pages/priority-processing-policy",
+    "https://audienhearing.com/pages/promotion-terms",
+    "https://audienhearing.com/pages/protection-plan-policy",
+    "https://audienhearing.com/pages/referrals",
+    "https://audienhearing.com/pages/refurbished-products",
+    "https://audienhearing.com/pages/research",
+    "https://audienhearing.com/pages/retail-cvs",
+    "https://audienhearing.com/pages/returns-and-exchanges",
+    "https://audienhearing.com/pages/shatner-giveaway",
+    "https://audienhearing.com/pages/shatner-letter",
+    "https://audienhearing.com/pages/staples",
+    "https://audienhearing.com/pages/store-locator",
+    "https://audienhearing.com/pages/support",
+    "https://audienhearing.com/pages/target",
+    "https://audienhearing.com/pages/terms-conditions",
+    "https://audienhearing.com/pages/trade-in",
+    "https://audienhearing.com/pages/trade-in-program-policy",
+    "https://audienhearing.com/pages/us-privacy-requests",
+    "https://audienhearing.com/pages/veteran-testimonial-appreciation-offer-terms-conditions",
+    "https://audienhearing.com/pages/veterans-day-sale-buy-a-pair-give-a-pair",
+    "https://audienhearing.com/pages/walgreens",
+    "https://audienhearing.com/pages/walmart",
+    "https://audienhearing.com/pages/wellness-month-official-rules",
+    "https://audienhearing.com/pages/world-hearing-day-giveaway-official-rules",
+    "https://audienhearing.com/policies/privacy-policy",
+    "https://audienhearing.com/policies/refund-policy",
+    "https://audienhearing.com/policies/terms-of-service",
+    "https://audienhearing.com/products/1-year-protection-plan",
+    "https://audienhearing.com/products/atom-charger-dock",
+    "https://audienhearing.com/products/atom-pro-2",
+    "https://audienhearing.com/products/atom-pro-2-charger-case-copy",
+    "https://audienhearing.com/products/atom-pro-2?_pos=2&_sid=d8ee92ba1&_ss=r",
+    "https://audienhearing.com/products/atom-pro-2?_pos=2&_sid=f5cc77274&_ss=r",
+    "https://audienhearing.com/products/atom-pro-2?_pos=4&_sid=4c932f688&_ss=r",
+    "https://audienhearing.com/products/atom-pro-2?_pos=5&_sid=9d3adeae3&_ss=r",
+    "https://audienhearing.com/products/atom-pro-charger-case",
+    "https://audienhearing.com/products/atom-x-connect-otc-hearing-aid",
+    "https://audienhearing.com/products/atom-x-otc-hearing-aid",
+    "https://audienhearing.com/products/atom2-charger-dock",
+    "https://audienhearing.com/products/atompro-2-charger-case",
+    "https://audienhearing.com/products/audien-accessories-pack?option_values=3363154591807%2C2877502914623",
+    "https://audienhearing.com/products/audien-atom",
+    "https://audienhearing.com/products/audien-atom-2-otc-hearing-aids-reworked",
+    "https://audienhearing.com/products/audien-atom-air-otc-hearing-aids",
+    "https://audienhearing.com/products/audien-atom-air-otc-hearing-aids?_pos=1&_sid=d8ee92ba1&_ss=r",
+    "https://audienhearing.com/products/audien-atom-air-otc-hearing-aids?_pos=2&_sid=a271845f3&_ss=r",
+    "https://audienhearing.com/products/audien-atom-air-otc-hearing-aids?_pos=7&_sid=9d3adeae3&_ss=r",
+    "https://audienhearing.com/products/audien-atom-air-otc-hearing-aids?_pos=7&_sid=f5cc77274&_ss=r",
+    "https://audienhearing.com/products/audien-atom-one-hearing-aid",
+    "https://audienhearing.com/products/audien-atom-one-hearing-aid?_pos=1&_sid=f5cc77274&_ss=r",
+    "https://audienhearing.com/products/audien-atom-one-hearing-aid?_pos=4&_sid=d8ee92ba1&_ss=r",
+    "https://audienhearing.com/products/audien-atom-one-hearing-aid?_pos=6&_sid=9d3adeae3&_ss=r",
+    "https://audienhearing.com/products/audien-atom-one-otc-hearing-aid-reworked",
+    "https://audienhearing.com/products/audien-atom-pair",
+    "https://audienhearing.com/products/audien-atom-pro-2-otc-hearing-aids-specialist-bundle-sale-price",
+    "https://audienhearing.com/products/audien-atom-pro-pair",
+    "https://audienhearing.com/products/audien-care-amazon-3-months",
+    "https://audienhearing.com/products/audien-clarity",
+    "https://audienhearing.com/products/audien-ear-cleaner",
+    "https://audienhearing.com/products/audien-ear-domes",
+    "https://audienhearing.com/products/audien-ear-relief",
+    "https://audienhearing.com/products/audien-fall-detection-add-on",
+    "https://audienhearing.com/products/audien-hearing-gift-card",
+    "https://audienhearing.com/products/audien-ion-otc-hearing-aids-new",
+    "https://audienhearing.com/products/audien-ion-otc-hearing-aids-reworked",
+    "https://audienhearing.com/products/audien-ion-pro-2-otc-hearing-aids-copy",
+    "https://audienhearing.com/products/audien-ion-pro-otc-hearing-aids",
+    "https://audienhearing.com/products/audien-ion-pro-otc-hearing-aids?_pos=1&_sid=4c932f688&_ss=r",
+    "https://audienhearing.com/products/audien-ion-pro-otc-hearing-aids?_pos=8&_sid=d8ee92ba1&_ss=r",
+    "https://audienhearing.com/products/audien-maintenance-kit",
+    "https://audienhearing.com/products/audien-maintenance-kit?_pos=1&_sid=2f46f4651&_ss=r",
+    "https://audienhearing.com/products/audien-maintenance-kit?_pos=3&_sid=4c932f688&_ss=r&variant=44040733425727",
+    "https://audienhearing.com/products/audien-maintenance-kit?_pos=3&_sid=d8ee92ba1&_ss=r&variant=44040733294655",
+    "https://audienhearing.com/products/audien-maintenance-kit?_pos=3&_sid=f5cc77274&_ss=r&variant=41976955535423",
+    "https://audienhearing.com/products/audien-maintenance-kit?_pos=4&_sid=9d3adeae3&_ss=r&variant=42401227898943",
+    "https://audienhearing.com/products/audien-maintenance-kit?option_values=3363154591807%2C2877502914623",
+    "https://audienhearing.com/products/audien-shields",
+    "https://audienhearing.com/products/audien-shields?_pos=1&_sid=a271845f3&_ss=r",
+    "https://audienhearing.com/products/audienguard",
+    "https://audienhearing.com/products/ion-air",
+    "https://audienhearing.com/products/ion-air?_pos=6&_sid=4c932f688&_ss=r",
+    "https://audienhearing.com/products/ion-iq",
+    "https://audienhearing.com/products/ion-iq?_pos=5&_sid=4c932f688&_ss=r",
+    "https://audienhearing.com/products/medium-sized-earbuds-for-the-atom-series",
+    "https://audienhearing.com/products/perfect-fit-dome-refill",
+    "https://audienhearing.com/products/perfect-fit-kit",
+    "https://audienhearing.com/products/perfect-fit-kit-refill?view=wollson.dome-refill",
+    "https://audienhearing.com/products/perfect-fit-kit?_pos=2&_sid=2f46f4651&_ss=r",
+    "https://audienhearing.com/products/small-sized-earbuds-for-the-atom-series",
+    "https://audienhearing.com/products/the-audien-atom-x-otc-hearing-aid",
+    "https://audienhearing.com/products/the-audien-atom-x-otc-hearing-aid?_pos=1&_sid=9d3adeae3&_ss=r",
+    "https://audienhearing.com/products/the-audien-atom-x-otc-hearing-aid?_pos=5&_sid=d8ee92ba1&_ss=r",
+    "https://audienhearing.com/products/the-audien-atom-x-otc-hearing-aid?_pos=6&_sid=f5cc77274&_ss=r",
+    "https://audienhearing.com/products/the-audien-atom-x-otc-hearing-aid?_su_rec=75-9rc34tWDPnzPmV73_ltbyC2K9k0gH1Xf2G_N_LvMcMMeH21FNifhn5L_M361z4-RszhldVK9LDb5utsC9I1OQH2BHQUr6PG2mP8QPSoTP_M9JDydfw6hSR8_k8UIjxkY-ZU0BSGVhuvZqS8G03CmIa59IhNAJSfkWBDoBsLe34iALP4EUE5AQ60D99bj5dsUdupaMG_1uSsDCCqOZHQbCWof4gFXMbGpgMq5YeDk3MYtDIOhJbeH-3XaD4hlc&_su_rec_id=b8f31a43-20e1-4555-b1f9-9cdc4efe942b-1784048774",
+    "https://audienhearing.com/products/usb-charging-adapter-cube",
+    "https://audienhearing.com/search?q=Atom+Air&type=product,article,page&options[prefix]=last",
+    "https://audienhearing.com/search?q=Atom+One&type=product,article,page&options[prefix]=last",
+    "https://audienhearing.com/search?q=Atom+X&type=product,article,page&options[prefix]=last",
+    "https://audienhearing.com/search?q=Audien+Shields&type=product,article,page&options[prefix]=last",
+    "https://audienhearing.com/search?q=ION+Pro+2&type=product,article,page&options[prefix]=last",
+    "https://audienhearing.com/search?q=Maintenance+Kit&type=product,article,page&options[prefix]=last"
+  ]
+}

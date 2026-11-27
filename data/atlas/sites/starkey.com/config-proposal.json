@@ -1,0 +1,55 @@
+{
+  "checks": {
+    "catalogUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "documentUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "modelUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "supportUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.1": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.2": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ]
+  },
+  "generatedAt": "2026-11-27T19:06:24.353Z",
+  "proposal": {
+    "catalogUrls": [
+      "https://www.starkey.com/hearing-aids"
+    ],
+    "documentUrlPattern": "^https://(cdn\\.mediavalet\\.com/usil/starkeyhearingtech/.+\\.pdf|eifu\\.starkey\\.com/eifu/pages/viewers/pdf\\?groupDocNumber=.+)$",
+    "modelUrlPattern": "^https://www\\.starkey\\.com/hearing-aids/[a-z0-9-]*artificial-intelligence[a-z0-9-]*-hearing-aids$",
+    "render": false,
+    "status": "active",
+    "supportUrls": [
+      "https://www.starkey.com/support/operations-manuals",
+      "https://www.starkey.com/compatibility",
+      "https://www.starkey.com/hearing-aids/bluetooth-hearing-aids"
+    ]
+  }
+}

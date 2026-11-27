@@ -1,0 +1,325 @@
+{
+  "domain": "us.sennheiser-hearing.com",
+  "generatedAt": "2026-11-27T19:03:39.018Z",
+  "model": "sonnet",
+  "openQuestions": [
+    "Where are the All Day Clear user guide PDFs behind the Downloads language list?",
+    "Do the bundle URLs (collection-prefixed) match the model URL pattern in the current config? They do not.",
+    "Is there more in the hearing collection beyond the visible listing (Show more)?",
+    "What is on support.sennheiser-hearing.com for All Day Clear documents?"
+  ],
+  "sections": {
+    "archive": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:55:21.359Z",
+            "url": "https://us.sennheiser-hearing.com/"
+          }
+        ],
+        "text": "The report lists no Web Archive coverage; the site is live."
+      }
+    ],
+    "links": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:55:21.359Z",
+            "url": "https://us.sennheiser-hearing.com/"
+          }
+        ],
+        "text": "Links to www.sennheiser-hearing.com (en-US) and support.sennheiser-hearing.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:55:21.359Z",
+            "url": "https://us.sennheiser-hearing.com/"
+          }
+        ],
+        "text": "Links to sennheiser.com, newsroom.sennheiser.com and sonova.com (careers)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:55:51.249Z",
+            "url": "https://us.sennheiser-hearing.com/products/sennheiser-all-day-clear"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:55:21.359Z",
+            "url": "https://us.sennheiser-hearing.com/"
+          }
+        ],
+        "text": "HSA/FSA payment is via withflex.com; returns portal is returns.richcommerce.co."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:55:21.359Z",
+            "url": "https://us.sennheiser-hearing.com/"
+          }
+        ],
+        "text": "No redirects and no PDF hosts were found."
+      }
+    ],
+    "next": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:55:51.249Z",
+            "url": "https://us.sennheiser-hearing.com/products/sennheiser-all-day-clear"
+          }
+        ],
+        "text": "Fetch the All Day Clear product page and bundle pages for price and specs."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:55:51.249Z",
+            "url": "https://us.sennheiser-hearing.com/products/sennheiser-all-day-clear"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:55:21.359Z",
+            "url": "https://us.sennheiser-hearing.com/"
+          }
+        ],
+        "text": "Find the user guide PDFs behind the Downloads section, and check support.sennheiser-hearing.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:56:44.160Z",
+            "url": "https://us.sennheiser-hearing.com/collections/legacy-products"
+          }
+        ],
+        "text": "Check the legacy collection for discontinued hearing aids (All Day Clear Slim, Conversation Clear Plus)."
+      }
+    ],
+    "render": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:56:10.349Z",
+            "url": "https://us.sennheiser-hearing.com/pages/otc-hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:55:51.249Z",
+            "url": "https://us.sennheiser-hearing.com/products/sennheiser-all-day-clear"
+          }
+        ],
+        "text": "No page needed rendering; needsRender is false for all fetched pages and content is in the HTML."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:56:06.040Z",
+            "url": "https://us.sennheiser-hearing.com/collections/hearing"
+          }
+        ],
+        "text": "Collection pages cut off with a Show more button, so the listing may be partial."
+      }
+    ],
+    "structure": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:03:10.209Z",
+            "url": "https://us.sennheiser-hearing.com/robots.txt"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:54:55.540Z",
+            "url": "https://us.sennheiser-hearing.com/sitemap.xml"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:55:04.814Z",
+            "url": "https://us.sennheiser-hearing.com/sitemap_products_1.xml?from=8355827581211&to=15700071874931"
+          }
+        ],
+        "text": "Sitemap index at /sitemap.xml with products, pages, collections, blogs, articles and agentic discovery sitemaps; 1119 URLs."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:55:51.249Z",
+            "url": "https://us.sennheiser-hearing.com/products/sennheiser-all-day-clear"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:55:40.687Z",
+            "url": "https://us.sennheiser-hearing.com/blogs/news"
+          }
+        ],
+        "text": "URL templates: /products/{slug}, /collections/{slug}, /collections/{collection}/products/{slug}, /pages/{slug}, /blogs/{blog}/{slug}."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:03:13.012Z",
+            "url": "https://us.sennheiser-hearing.com/collections/hearing/products/all-day-clear-power-pack-set"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:03:19.300Z",
+            "url": "https://us.sennheiser-hearing.com/collections/legacy-products/products/conversation-clear-plus"
+          }
+        ],
+        "text": "The same product can appear under several collection-prefixed URLs (hearing, legacy-products, tv-hearing, hearing-spare-parts-and-accessories)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:03:10.209Z",
+            "url": "https://us.sennheiser-hearing.com/robots.txt"
+          }
+        ],
+        "text": "robots.txt disallows cart, checkout, account, orders, and collection URLs with sort_by or filter combinations."
+      }
+    ],
+    "what": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:55:29.580Z",
+            "url": "https://us.sennheiser-hearing.com/agents.md"
+          }
+        ],
+        "text": "Online store of Sennheiser US, operated by Sonova Consumer Hearing USA LLC."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:55:21.359Z",
+            "url": "https://us.sennheiser-hearing.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:56:06.040Z",
+            "url": "https://us.sennheiser-hearing.com/collections/hearing"
+          }
+        ],
+        "text": "Sells headphones, TV headphones, soundbars, hearing protection, spare parts and OTC hearing aids."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:56:10.349Z",
+            "url": "https://us.sennheiser-hearing.com/pages/otc-hearing-aids"
+          }
+        ],
+        "text": "The OTC hearing aid is All Day Clear, self-fitting, for perceived mild to moderate hearing loss; listed at $699.95 (was $899.95), 90-day trial, 1 year warranty."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:55:29.580Z",
+            "url": "https://us.sennheiser-hearing.com/agents.md"
+          }
+        ],
+        "text": "The store is run on Shopify; the site has an agents.md describing UCP/MCP endpoints for shopping."
+      }
+    ],
+    "where": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:56:10.349Z",
+            "url": "https://us.sennheiser-hearing.com/pages/otc-hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:56:06.040Z",
+            "url": "https://us.sennheiser-hearing.com/collections/hearing"
+          }
+        ],
+        "text": "OTC hearing aid catalog page: /pages/otc-hearing-aids; collection of hearing items: /collections/hearing."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:55:51.249Z",
+            "url": "https://us.sennheiser-hearing.com/products/sennheiser-all-day-clear"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:03:13.012Z",
+            "url": "https://us.sennheiser-hearing.com/collections/hearing/products/all-day-clear-power-pack-set"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:03:16.636Z",
+            "url": "https://us.sennheiser-hearing.com/collections/hearing/products/all-day-clear-additional-charging-case-set"
+          }
+        ],
+        "text": "All Day Clear model page: /products/sennheiser-all-day-clear; bundles: /collections/hearing/products/all-day-clear-power-pack-set and all-day-clear-additional-charging-case-set."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:56:44.160Z",
+            "url": "https://us.sennheiser-hearing.com/collections/legacy-products"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:03:19.300Z",
+            "url": "https://us.sennheiser-hearing.com/collections/legacy-products/products/conversation-clear-plus"
+          }
+        ],
+        "text": "Discontinued hearing products are in /collections/legacy-products (All Day Clear Slim, Conversation Clear Plus); the legacy page marks Conversation Clear Plus as End of Life."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:55:51.249Z",
+            "url": "https://us.sennheiser-hearing.com/products/sennheiser-all-day-clear"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:56:16.722Z",
+            "url": "https://us.sennheiser-hearing.com/collections/hearing-spare-parts-and-accessories"
+          }
+        ],
+        "text": "All Day Clear parts (wax guards, ear tips, charging case, power pack, TV connector) are on the product page and in /collections/hearing-spare-parts-and-accessories."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:55:51.249Z",
+            "url": "https://us.sennheiser-hearing.com/products/sennheiser-all-day-clear"
+          }
+        ],
+        "text": "The All-Day Clear product page has a Downloads section listing languages (English among them), but the report finds no PDF links."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:55:21.359Z",
+            "url": "https://us.sennheiser-hearing.com/"
+          }
+        ],
+        "text": "Support is at support.sennheiser-hearing.com (Help Center, Detailed Warranty information)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:55:51.249Z",
+            "url": "https://us.sennheiser-hearing.com/products/sennheiser-all-day-clear"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:56:35.839Z",
+            "url": "https://us.sennheiser-hearing.com/pages/sennheiser-hearing-test-app"
+          }
+        ],
+        "text": "The All Day Clear app: iOS id 1632398035, Android com.sennheiser.alldayclear; Hearing Test app: iOS 1611165453, Android com.sennheiser.screener."
+      }
+    ]
+  },
+  "summary": {
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:55:29.580Z",
+        "url": "https://us.sennheiser-hearing.com/agents.md"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:56:10.349Z",
+        "url": "https://us.sennheiser-hearing.com/pages/otc-hearing-aids"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:55:51.249Z",
+        "url": "https://us.sennheiser-hearing.com/products/sennheiser-all-day-clear"
+      }
+    ],
+    "text": "US Shopify webstore of Sennheiser consumer hearing/audio (Sonova Consumer Hearing USA LLC); the only current hearing aid is the OTC All-Day Clear at /products/sennheiser-all-day-clear, with bundles and spare parts, mixed in with headphones and soundbars."
+  }
+}

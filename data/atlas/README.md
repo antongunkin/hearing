@@ -1,0 +1,78 @@
+# Site atlas
+
+Written by the pipeline after every `atlas:*` command. Do not edit it by hand.
+
+## How to use the atlas
+
+Read README.md and notes.md before working with a site in `sites/<domain>/`. Afterwards, append what you learned, dated, to that site's `notes.md`.
+
+## Sites
+
+| Site | Report | Described | Brand status | Summary | Open questions |
+| --- | --- | --- | --- | --- | --- |
+| [apple.com](sites/apple.com/) | 2026-11-27 | 2026-11-27 | active | Apple's AirPods Pro 3 section on apple.com: a consumer earbud with a Hearing Aid feature (FDA-authorized), served as static HTML with five pages and no model-per-URL catalog. | Which URLs do the per-model Tech specs links on the compare page use? The report does not show them.; Where are the user guides and support pages for AirPods Pro 3?; Do other regional paths such as /uk/airpods-pro/ hold different catalogs?; Is the AirPods Pro 2 hearing-aid page separate from this section? |
+| [audienhearing.com](sites/audienhearing.com/) | 2026-11-27 | 2026-11-27 | active | Audien Hearing is a live Shopify store selling Audien-brand OTC hearing aids (Atom and Ion series) directly; /collections/all lists models mixed with accessories, open-box and duplicate variants, and no PDFs or apps were found. | Where are the user guides and datasheets (PDFs)? None were found on the fetched pages.; What is wollson.co and how is it related to Audien? It is linked from the footer of 43 pages.; Does Audien have a companion app? The pages show none, but 'Find My Device' appears in the navigation.; Will Ion Pro 2 be discontinued? The home page tags it 'Last chance'.; Which of the many catalog variants (open-box, Like New, legacy Atom, Atom X Connect, ion) should be treated as separate models? |
+| [beltone.com](sites/beltone.com/) | 2026-11-27 | 2026-11-27 | active | Beltone's live brand site: server-rendered (no scripts needed), US catalog at /en-us/products/hearing-aids with model pages and per-model support pages listing user-guide downloads; en-ca mirrors it and /en is an international site with different URLs. | Where do the user-guide PDF links on the support pages point? The report shows no PDFs there.; Which models does the catalog page list, and does it include Rely and Boost Ultra?; Do the /en international model pages overlap with the US catalog? |
+| [bernafon.us](sites/bernafon.us/) | 2026-11-27 | 2026-11-27 | active | bernafon.us is the live US site of the Bernafon brand (Demant). It has a static catalog at /products/hearing-aids with model pages at /products/{n}/{slug}. PDFs sit on damcdn.demant.com and assets.ha.demant.com. | Are Leox, Viron and Zerena still sold in the US? Their pages show no models.; The Revita AI hearing aid is mentioned on the catalog page but no Revita page or model is shown.; The accessories pages are flagged as needing render, and the plain fetch of the list shows no items. How does the list load? |
+| [jabraenhance.com](sites/jabraenhance.com/) | 2026-11-27 | 2026-11-27 | active | Live Jabra Enhance brand site (US online OTC hearing aids): catalog at /product lists three models (Select M3, M2, M1) on server-rendered pages with user guide PDFs on cdn.jabraenhance.com; older models (700, 500, 300, 50R, discontinued 200/100/50) appear only in /start guides and comparison pages. | Do the 700, 500, 300 and 50R models still sell, and where are their user guides?; Is the brand owned by GN? No fetched page states it explicitly.; Which of the 11 /product comparison pages besides the models matter for scraping? |
+| [costco.com](sites/costco.com/) | 2026-11-27 | 2026-11-27 | active | Costco's US hearing aid center page lists Philips, Jabra Enhance, Rexton and Sonite aids sold through Costco warehouses, and the Audien OTC models are sold online. The report and pages show no Kirkland Signature hearing aid, and the config's model pattern matches none of the models seen. | Is there a Kirkland Signature hearing aid today? None appears on the pages read.; Which manufacturer makes any Kirkland Signature aid? The pages do not say.; Where do the 'Learn More' links of the four center aids lead?; What do the 'Manuals & Guides' sections on Audien pages link to?; Does https://www.costco.com/hearing-aid-center.html redirect to /f/-/hearing-aid-center? The report records no redirects. |
+| [mdhearingaid.com](sites/mdhearingaid.com/) | 2026-11-27 | - | active | - | - |
+| [oticon.com](sites/oticon.com/) | 2026-11-27 | 2026-11-27 | active | oticon.com is Oticon's live US brand site (Demant group); the catalog is at /products/hearing-aids, with model pages at /products/{n}/{slug}, and documents are on external CDNs (damcdn.demant.com, p3.aprimocdn.net, assets.ha.demant.com). | Which /products/{n}/{slug} URLs exist for the current families Reveal, Zeal, Intent, Verit and Play SI? The pages read do not show them.; Do the Product downloads blocks on model pages link to PDFs, and on which hosts?; Does the model pattern's exclusion list drop models that should be kept? Opn, More, Ruby, Siya and others still appear in the catalog.; Is Zeal listed in the catalog? It is on the home page and the families list but not in the category pages read.; Does /products/accessories need render to list accessories? Its text shows none. |
+| [hearingsolutions.philips.com](sites/hearingsolutions.philips.com/) | 2026-11-27 | 2026-11-27 | active | Live, multi-locale Philips HearLink hearing aid brand site (Demant). The en-us catalog at /en-us/products/hearing-aids is static HTML and lists HearLink 60/50/40/30 models. Manuals are PDFs on damcdn.demant.com. | Why does the current modelUrlPattern exclude hearlink-30 models that the en-us catalog still lists?; Which PDFs sit behind the Product downloads blocks of model pages (not in the report's pdf lists)?; Is there a HearLink 60 model page, and what is its URL? The catalog lists it but the report shows no such URL.; What does /en-us/support/download contain? It failed to fetch.; Who publishes the HearLink 2 app? The pages do not say.; Is the Web Archive blocked for this whole site? Only six 403s were seen and no coverage sections were reported. |
+| [phonak.com](sites/phonak.com/) | 2026-11-27 | 2026-11-27 | active | Phonak's live, multi-locale brand site (Sonova brand) with model pages under /hearing-devices/hearing-aids and datasheets and user guides under /support; the en-us catalog and support pages are readable as plain page text. | What are the actual PDF URLs and host of the datasheets and user guides? The page text shows only 'View' buttons.; Does the catalog page list every model, or only some of them? The page text is cut off.; Does the listed model URL pattern match all models in the en-us catalog, for example the Lyric and Sky Lumity pages? |
+| [resound.com](sites/resound.com/) | 2026-11-27 | 2026-11-27 | active | resound.com is the live, multi-locale ReSound (GN Hearing) brand site; the en-us catalog at /en-us/hearing-aids/resound-hearing-aids lists model pages with plain HTML, and documents are on per-model /en-us/help/hearing-aids/{model} support pages. | Where do the support pages' user guides and quick guides link to (PDF host and URL pattern)? The fetched text names them but shows no URLs.; Which of the older models (LiNX Quattro, OMNIA, ONE, LiNX 3D, Enzo 3D, Enzo2) are still current, and are they linked from the catalog?; Does the catalog page list all models, including those whose model URLs lack the resound- prefix? |
+| [rexton.com](sites/rexton.com/) | 2026-11-27 | 2026-11-27 | active | Rexton is WS Audiology's hearing aid brand site, with about 18 locale sections. The en-us catalog is the Reach family under /en-us/hearing-aids/reach/. Model pages carry PDF feature overviews on cdn.rexton.com, and most pages work without scripts. | Where is the Document Library URL for user guides? The support page names it but the report gives no link.; Does the en-us Reach catalog link B-Li and Custom CIC-Li? These pages were not fetched on en-us.; Are the older families (BiCore, MyCore, TruCore) current or discontinued? |
+| [us.sennheiser-hearing.com](sites/us.sennheiser-hearing.com/) | 2026-11-27 | 2026-11-27 | active | US Shopify webstore of Sennheiser consumer hearing/audio (Sonova Consumer Hearing USA LLC); the only current hearing aid is the OTC All-Day Clear at /products/sennheiser-all-day-clear, with bundles and spare parts, mixed in with headphones and soundbars. | Where are the All Day Clear user guide PDFs behind the Downloads language list?; Do the bundle URLs (collection-prefixed) match the model URL pattern in the current config? They do not.; Is there more in the hearing collection beyond the visible listing (Show more)?; What is on support.sennheiser-hearing.com for All Day Clear documents? |
+| [signia.net](sites/signia.net/) | 2026-11-27 | - | active | - | - |
+| [starkey.com](sites/starkey.com/) | 2026-11-27 | 2026-11-27 | active | Starkey's official site (Starkey Laboratories): active, server-rendered, with three AI model pages under /hearing-aids/ and manuals hosted on cdn.mediavalet.com and eifu.starkey.com. The sitemap.xml returned 404. | Does the sitemap exist at another URL (https instead of http)? The listed http URL returned 404.; Which models do the style and RIC/BTE/custom variants of each line cover? The pages give no model list.; Are the Genesis AI and Evolv AI lines still listed anywhere on the live site?; Does the eifu.starkey.com viewer need scripts to show its documents? Only a stub page was seen.; The operations manuals page text is truncated in the pages shown, so the full link list is unknown. |
+| [unitron.com](sites/unitron.com/) | 2026-11-27 | 2026-11-27 | active | Unitron's US English site (www.unitron.com/en-us), a Sonova brand, is server-rendered. Its catalog is /en-us/hearing-solutions/hearing-aids, and datasheets and user guides are PDFs on the same host. | Which model pages exist beyond moxi-s-rx and insera-s-r? The catalog page's link list was not shown.; Do the Smile, Vivante and Tempus user-guide subpages exist as separate URLs? They were not crawled.; Do any per-locale sitemaps work? All those tested returned 404, and the intl.unitron.com refs gave no URL list.; Does Unitron publish prices? None appear in the pages. |
+| [widex.com](sites/widex.com/) | 2026-11-27 | - | active | - | - |
+| [sonova.com](sites/sonova.com/) | 2026-11-27 | 2026-11-27 | - | Sonova's corporate group site (investors, news, careers, country sites) with no hearing aid catalog; products live on brand sites such as phonak.com, unitron.com, hansaton.com and advancedbionics.com. | Which pages are in the sitemaps? The report shows urlCount 0.; Which regional retail brand sites sit behind the paginated brands list?; Do the brand sites publish user guides and apps? The report does not say.; What does the Sennheiser consumer hearing divestment change for the brand list? |
+| [demant.com](sites/demant.com/) | 2026-11-27 | 2026-11-27 | - | demant.com is the corporate site of the Demant group (investor relations, sustainability, news, careers). It has no hearing aid catalog, no model pages and no user guides, so it is not one brand's site. | Where are the websites of Bernafon, Sonic and Philips Hearing Solutions? The pages only name them.; Does the group have official Oticon or other brand apps? No app links were found.; What does the full 2019 text of the history page say? The page is cut off. |
+| [wsa.com](sites/wsa.com/) | 2026-11-27 | 2026-11-27 | - | wsa.com is the corporate site of WS Audiology (WSA), not a brand shop: it has no model catalog or documents, and it links to the brand sites Signia, Widex, Rexton, Audio Service and Vibe. | Which pages on soundpreference.com, if any, hold product information?; Do the brand sites (signia.net, widex.com, rexton.com, audioservice.com, vibe-hearing.com) hold the catalogs and user guides? They were not read.; What does /media/downloads/ contain?; Which apps does WSA publish? No app store links were found on wsa.com.; Which ownership statements does the cut-off text of the merger press release make? |
+| [gn.com](sites/gn.com/) | 2026-11-27 | 2026-11-27 | - | gn.com is the corporate site of GN Store Nord A/S (investor, newsroom, careers); it has no hearing aid catalog, only brand links, and states the Hearing business is being sold to Amplifon. | Which hearing brands (ReSound, Beltone, Interton, Danavox, Jabra Enhance) are included in the sale to Amplifon is not stated in the pages read.; Whether the sale has completed is open; expected by the end of 2026.; The hearing technology section of /Solutions/Products shows no product details in the text.; The content of the EMTN Access Documents page behind the terms notice was not seen. |
+| [eargo.com](sites/eargo.com/) | 2026-11-27 | 2026-11-27 | gone | eargo.com is Eargo's own brand site, now only readable through the Web Archive. The live site refuses connections. The archive holds snapshots from 2018 to 2026, and the 2026 guides page lists Eargo 8, Eargo SE, LINK by Eargo and Eargo 7. | Does the archive hold copies of /products-hearing-aids and the model pages? The CDX lookup failed.; Why did the Oct 2026 snapshots refuse connections? Are they really missing?; Is the site still selling? Which models were on sale at the end?; Where are the PDFs for Eargo 5 to 8, SE and LINK?; Is there an Eargo app listing? None was found. |
+| [lexiehearing.com](sites/lexiehearing.com/) | - | - | gone | - | - |
+| [livelyhearing.com](sites/livelyhearing.com/) | - | - | - | - | - |
+
+## Candidate domains
+
+Linked from the reports but not crawled. Add one to `sites.json` only on the owner's word.
+
+- facebook.com (781 links)
+- instagram.com (671 links)
+- linkedin.com (668 links)
+- youtube.com (639 links)
+- sennheiser-hearing.com (460 links)
+- support.sennheiser-hearing.com (228 links)
+- twitter.com (224 links)
+- tiktok.com (159 links)
+- x.com (137 links)
+- career5.successfactors.eu (136 links)
+- resoundpro.com (102 links)
+- play.google.com (80 links)
+- sennheiser.com (76 links)
+- bbb.org (70 links)
+- gn.wd3.myworkdayjobs.com (62 links)
+- hear-the-world.com (61 links)
+- philips.com (60 links)
+- resoundchina.com (60 links)
+- sonova.cn (60 links)
+- starkeyhearingfoundation.org (60 links)
+- app.certexpress.com (59 links)
+- b2b.myunitron.com (59 links)
+- bernafon.com (59 links)
+- ownabeltone.com (59 links)
+- starkeypro.com (59 links)
+- advancedbionics.com (58 links)
+- careers-demant.icims.com (58 links)
+- gnresoundblog.com (58 links)
+- apps.apple.com (57 links)
+- widexpro.com (57 links)
+
+## How to update the atlas
+
+1. `npm run atlas:crawl -- --site <domain>`
+2. `npm run atlas:describe`
+3. `npm run atlas:relations`
+4. Decide the cards on `/review`.

@@ -1,0 +1,2412 @@
+{
+  "archive": {
+    "sections": [
+      {
+        "byYear": {
+          "2018": 16,
+          "2019": 17,
+          "2020": 92,
+          "2021": 70,
+          "2022": 137,
+          "2023": 276,
+          "2024": 332,
+          "2025": 340,
+          "2026": 166
+        },
+        "latest": "20261029034524",
+        "url": "https://www.demant.com"
+      },
+      {
+        "byYear": {
+          "2018": 1,
+          "2019": 6,
+          "2020": 4,
+          "2021": 9,
+          "2022": 8,
+          "2023": 19,
+          "2024": 19,
+          "2025": 20,
+          "2026": 12
+        },
+        "latest": "20261005163931",
+        "url": "https://www.demant.com/about"
+      },
+      {
+        "byYear": {},
+        "url": "https://www.demant.com/blog"
+      },
+      {
+        "byYear": {
+          "2018": 1,
+          "2019": 7
+        },
+        "latest": "20191215030114",
+        "url": "https://www.demant.com/investor-relations"
+      },
+      {
+        "byYear": {
+          "2022": 2,
+          "2023": 18,
+          "2024": 18,
+          "2025": 19,
+          "2026": 11
+        },
+        "latest": "20261005163933",
+        "url": "https://www.demant.com/jobs-and-career"
+      },
+      {
+        "byYear": {
+          "2023": 2,
+          "2024": 3,
+          "2025": 2,
+          "2026": 1
+        },
+        "latest": "20260607011828",
+        "url": "https://www.demant.com/reports-2022"
+      }
+    ]
+  },
+  "budget": 60,
+  "domain": "demant.com",
+  "failures": [
+    {
+      "detail": "HTTP 404",
+      "reason": "http-error",
+      "url": "https://www.demant.com/jobs-and-career/our-culture"
+    }
+  ],
+  "generatedAt": "2026-11-27T18:33:16.031Z",
+  "mode": "live",
+  "outbound": [
+    {
+      "count": 68,
+      "domain": "linkedin.com",
+      "examples": [
+        "https://www.linkedin.com/company/demant/mycompany/",
+        "https://www.linkedin.com/legal/privacy-policy",
+        "https://www.linkedin.com/company/demant/"
+      ]
+    },
+    {
+      "count": 58,
+      "domain": "facebook.com",
+      "examples": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.facebook.com/policy.php",
+        "https://www.facebook.com/pages/William-Demant-Holding-AS/195234273990537"
+      ]
+    },
+    {
+      "count": 8,
+      "domain": "assets-we.cas.dgs.com",
+      "examples": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/demant-2025-12-31-en.zip?la=en&rev=B8E3&hash=8118455E3A210F00E3B29658DFBC44B4",
+        "https://assets-we.cas.dgs.com/-/media/3d6658d8a0bf4e75b3e2d050fabcf4e1.ashx?la=en&rev=25AC",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/images/graduate-programme/gp-film-2022websitemp4-12-video.mp4?la=en&rev=3946"
+      ]
+    },
+    {
+      "count": 6,
+      "domain": "demant.codeofconduct.app",
+      "examples": [
+        "https://demant.codeofconduct.app/wb;eFormGuid=d36668f5-81fc-4548-880a-23326b412d89;siteId=21023http:",
+        "https://demant.codeofconduct.app/setup"
+      ]
+    },
+    {
+      "count": 6,
+      "domain": "eriksholm.com",
+      "examples": [
+        "https://www.eriksholm.com/",
+        "https://www.eriksholm.com/projects/advancing-understanding-and-treatment-of-hearing-difficulties-in-a-currently-underserved-population-uptreat/"
+      ]
+    },
+    {
+      "count": 6,
+      "domain": "youtube.com",
+      "examples": [
+        "https://www.youtube.com/channel/UC4WRJJV39QDpfAk_HvsFv2w"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "interacoustics.com",
+      "examples": [
+        "https://www.interacoustics.com/act",
+        "https://www.interacoustics.com/research/interacoustics-research-unit"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "oticon.com",
+      "examples": [
+        "https://www.oticon.com/professionals/brainhearing-technology/intent-brainhearing",
+        "https://www.oticon.com/your-hearing/hearing-health/brainhearing-technology"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "policies.google.com",
+      "examples": [
+        "https://policies.google.com/privacy?hl=en-US",
+        "https://policies.google.com/technologies/cookies",
+        "https://policies.google.com/privacy"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "tcstream.tv",
+      "examples": [
+        "https://tcstream.tv/demant/261104/Jhar29.html",
+        "https://tcstream.tv/demant/260305/gp3k8f.html",
+        "https://tcstream.tv/demant/240312_od/Qmjh62h5_od.html"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "audikagroup.com",
+      "examples": [
+        "https://www.audikagroup.com/find-local-clinic"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "campaignforbetterhearing.org",
+      "examples": [
+        "https://www.campaignforbetterhearing.org/"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "portal.computershare.dk",
+      "examples": [
+        "https://portal.computershare.dk/portal/index.asp?page=login&asident=24300&lan=en"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "sciencebasedtargets.org",
+      "examples": [
+        "https://sciencebasedtargets.org/about-us",
+        "https://sciencebasedtargets.org/set-a-target"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "sdu.dk",
+      "examples": [
+        "https://www.sdu.dk/en/nyheder/horetab-oger-risikoen-for-at-blive-dement"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "twitter.com",
+      "examples": [
+        "https://twitter.com/en/privacy",
+        "https://twitter.com/Demant1904"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "career5.successfactors.eu",
+      "examples": [
+        "https://career5.successfactors.eu/sfcareer/jobreqcareerpvt?jobId=37179&company=DGS&st=F21BC258CB4F88E0755C8E3F5B68E0E267FF77AE"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "caspr.es.aau.dk",
+      "examples": [
+        "http://caspr.es.aau.dk/demos/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "commission.europa.eu",
+      "examples": [
+        "https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/european-green-deal_en"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "demant.my",
+      "examples": [
+        "https://www.demant.my/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "demant.pl",
+      "examples": [
+        "http://www.demant.pl/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "demantinvest.com",
+      "examples": [
+        "https://www.demantinvest.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "eur01.safelinks.protection.outlook.com",
+      "examples": [
+        "https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Ftcstream.tv%2Fdemant%2F261124%2Fkeishj72k.php&data=05%7C02%7Canye%40demant.com%7C8716027a21524ed5230b08df48da1672%7C9bf8c7a8e00849a79e43ab76976c4bf8%7C0%7C0%7C639309773668359088%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=pePEmkObZbNmV1O4xYLIA1aJn2z9yOV0Yf9PKLo%2FaFw%3D&reserved=0"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "ghgprotocol.org",
+      "examples": [
+        "https://ghgprotocol.org/standards/scope-3-standard"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "help.instagram.com",
+      "examples": [
+        "https://help.instagram.com/519522125107875"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "kind.com",
+      "examples": [
+        "https://www.kind.com/de-de/presse/zusammenschluss-kind-audika"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "maico-diagnostics.com",
+      "examples": [
+        "https://www.maico-diagnostics.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "newborn-hearing-screening.com",
+      "examples": [
+        "https://newborn-hearing-screening.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "wbcsd.org",
+      "examples": [
+        "https://www.wbcsd.org/Programs/Climate-and-Energy/Climate/SOS-1.5/Resources/Pathfinder-Framework-Version-2.0"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "williamdemantfonden.dk",
+      "examples": [
+        "https://www.williamdemantfonden.dk/"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://tcstream.tv/demant/261104/Jhar29.html",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/demant-2025-12-31-en.zip?la=en&rev=B8E3&hash=8118455E3A210F00E3B29658DFBC44B4",
+        "https://demant.codeofconduct.app/wb;eFormGuid=d36668f5-81fc-4548-880a-23326b412d89;siteId=21023http:",
+        "https://portal.computershare.dk/portal/index.asp?page=login&asident=24300&lan=en",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-news---capital-markets-day-2026.pdf?la=en&rev=1956&hash=8DD4F5252A05E2CB987FCCED8055C6CE",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-management-statements/demant-interim-management-statement-2026-q3.pdf?la=en&rev=D789&hash=F592D2B55B9B47585B43164CE5EBBBB7",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/investor-presentations/demant-investor-presentation-q3-2026.pdf?la=en&rev=D96B&hash=D3794B294F289D68C71E8F445BD5F227",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-news---demant-announces-launch-of-new-flagship-hearing-aids.pdf?la=en&rev=3868&hash=96913368A1C06171BA0DF1F29167F5DA",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/annual-report-english/demant-annual-report-2025.pdf?la=en&rev=AE32&hash=F68551D4B2CB09858AD389A748D55FF6"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:28:21.954Z",
+        "url": "https://www.demant.com/"
+      },
+      "title": "Demant",
+      "url": "https://www.demant.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.oticon.com/professionals/brainhearing-technology/intent-brainhearing",
+        "https://www.sdu.dk/en/nyheder/horetab-oger-risikoen-for-at-blive-dement",
+        "https://www.audikagroup.com/find-local-clinic",
+        "https://www.interacoustics.com/act",
+        "https://www.oticon.com/your-hearing/hearing-health/brainhearing-technology",
+        "https://www.eriksholm.com/",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:28:29.167Z",
+        "url": "https://www.demant.com/about/sound-audio-and-good-hearing#whd"
+      },
+      "title": "Sound, audio and good hearing",
+      "url": "https://www.demant.com/about/sound-audio-and-good-hearing#whd"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 35,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:28:33.868Z",
+        "url": "https://www.demant.com/reports-2022"
+      },
+      "title": "Reports 2022",
+      "url": "https://www.demant.com/reports-2022"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 35,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:28:36.872Z",
+        "url": "https://www.demant.com/reports-2023"
+      },
+      "title": "Reports 2023",
+      "url": "https://www.demant.com/reports-2023"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 35,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:28:40.202Z",
+        "url": "https://www.demant.com/reports-2024"
+      },
+      "title": "Reports 2024",
+      "url": "https://www.demant.com/reports-2024"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 35,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:28:43.016Z",
+        "url": "https://www.demant.com/reports-2025"
+      },
+      "title": "Reports 2024",
+      "url": "https://www.demant.com/reports-2025"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:28:47.030Z",
+        "url": "https://www.demant.com/jobs-and-career"
+      },
+      "title": "Jobs and career",
+      "url": "https://www.demant.com/jobs-and-career"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://assets-we.cas.dgs.com/-/media/3d6658d8a0bf4e75b3e2d050fabcf4e1.ashx?la=en&rev=25AC",
+        "http://caspr.es.aau.dk/demos/",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 38,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://assets-we.cas.dgs.com/-/media/demant/main/media-documents/investor-relations/annual-report-2019.pdf?la=en&rev=91E9&hash=96A02F7E2C8458C164C61D3408D5FE1C",
+        "https://assets-we.cas.dgs.com/-/media/demant/main/media-documents/investor-relations/uddrag-aarsrapport-2019.pdf?la=en&rev=FFCC&hash=D348B3F946206CBEEE753AACD1ABCB64",
+        "https://assets-we.cas.dgs.com/-/media/demant/main/media-documents/responsibility/corporate-social-responsibility-report-2019.pdf?la=en&rev=3E26&hash=971F23AA7E55F22AA1E44FF5FAFD039F"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:28:54.220Z",
+        "url": "https://www.demant.com/investor-relations/annual-report-2019"
+      },
+      "title": "Annual report 2019",
+      "url": "https://www.demant.com/investor-relations/annual-report-2019"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:28:57.482Z",
+        "url": "https://www.demant.com/sustainability"
+      },
+      "title": "Sustainability",
+      "url": "https://www.demant.com/sustainability"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:29:00.246Z",
+        "url": "https://www.demant.com/about"
+      },
+      "title": "About",
+      "url": "https://www.demant.com/about"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:29:03.845Z",
+        "url": "https://www.demant.com/contact"
+      },
+      "title": "Contact",
+      "url": "https://www.demant.com/contact"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:29:09.947Z",
+        "url": "https://www.demant.com/news-and-media"
+      },
+      "title": "News and media",
+      "url": "https://www.demant.com/news-and-media"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:29:15.328Z",
+        "url": "https://www.demant.com/cookie-policy"
+      },
+      "title": "Cookie policy",
+      "url": "https://www.demant.com/cookie-policy"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/policy.php",
+        "https://www.linkedin.com/legal/privacy-policy",
+        "https://help.instagram.com/519522125107875",
+        "https://twitter.com/en/privacy",
+        "https://policies.google.com/privacy?hl=en-US",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:29:19.332Z",
+        "url": "https://www.demant.com/privacy-notice"
+      },
+      "title": "Privacy notice",
+      "url": "https://www.demant.com/privacy-notice"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 38,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:29:23.847Z",
+        "url": "https://www.demant.com/search"
+      },
+      "title": "Search",
+      "url": "https://www.demant.com/search"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 35,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:29:28.999Z",
+        "url": "https://www.demant.com/coronavirus"
+      },
+      "title": "coronavirus",
+      "url": "https://www.demant.com/coronavirus"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:29:33.048Z",
+        "url": "https://www.demant.com/404"
+      },
+      "title": "404",
+      "url": "https://www.demant.com/404"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:29:36.848Z",
+        "url": "https://www.demant.com/500"
+      },
+      "title": "500",
+      "url": "https://www.demant.com/500"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/pages/William-Demant-Holding-AS/195234273990537",
+        "https://www.linkedin.com/company/demant/",
+        "https://www.youtube.com/channel/UC4WRJJV39QDpfAk_HvsFv2w"
+      ],
+      "internalLinks": 31,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:29:41.468Z",
+        "url": "https://www.demant.com/blog/graduate-blog"
+      },
+      "title": "Graduate Blog",
+      "url": "https://www.demant.com/blog/graduate-blog"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.oticon.com/professionals/brainhearing-technology/intent-brainhearing",
+        "https://www.sdu.dk/en/nyheder/horetab-oger-risikoen-for-at-blive-dement",
+        "https://www.audikagroup.com/find-local-clinic",
+        "https://www.interacoustics.com/act",
+        "https://www.oticon.com/your-hearing/hearing-health/brainhearing-technology",
+        "https://www.eriksholm.com/",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:29:44.352Z",
+        "url": "https://www.demant.com/about/sound-audio-and-good-hearing"
+      },
+      "title": "Sound, audio and good hearing",
+      "url": "https://www.demant.com/about/sound-audio-and-good-hearing"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://assets-we.cas.dgs.com/-/media/3d6658d8a0bf4e75b3e2d050fabcf4e1.ashx?la=en&rev=25AC",
+        "https://www.linkedin.com/company/demant/life/",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 35,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:29:47.866Z",
+        "url": "https://www.demant.com/jobs-and-career/careers-that-matter"
+      },
+      "title": "Careers that matter",
+      "url": "https://www.demant.com/jobs-and-career/careers-that-matter"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.maico-diagnostics.com/",
+        "https://www.linkedin.com/company/demant/mycompany/",
+        "https://twitter.com/Demant1904",
+        "https://policies.google.com/technologies/cookies",
+        "https://policies.google.com/privacy",
+        "https://policies.google.com/terms",
+        "https://www.linkedin.com/legal/cookie-policy",
+        "https://www.linkedin.com/legal/l/cookie-table",
+        "https://www.linkedin.com/legal/privacy-policy",
+        "https://www.linkedin.com/legal/user-agreement"
+      ],
+      "internalLinks": 29,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:30:00.022Z",
+        "url": "https://careers.demant.com/"
+      },
+      "url": "https://careers.demant.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/images/graduate-programme/gp-film-2022websitemp4-12-video.mp4?la=en&rev=3946",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 35,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/faq-demant-graduate-programme.pdf?la=en&rev=260C&hash=4E5D81E985C5CF1AB47D3152CD2093D6"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:30:00.811Z",
+        "url": "https://www.demant.com/jobs-and-career/graduate-programme"
+      },
+      "title": "Graduate programme",
+      "url": "https://www.demant.com/jobs-and-career/graduate-programme"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/media-documents/student-page-questions.docx?la=en&rev=CBEF&hash=E0A628A016677E0D3C8114FD342208D7",
+        "https://www.linkedin.com/company/demant/posts/?feedView=all",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:30:04.990Z",
+        "url": "https://www.demant.com/jobs-and-career/students"
+      },
+      "title": "Students",
+      "url": "https://www.demant.com/jobs-and-career/students"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://career5.successfactors.eu/sfcareer/jobreqcareerpvt?jobId=37179&company=DGS&st=F21BC258CB4F88E0755C8E3F5B68E0E267FF77AE",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:30:07.545Z",
+        "url": "https://www.demant.com/jobs-and-career/audio-explorers"
+      },
+      "title": "Audio Explorers",
+      "url": "https://www.demant.com/jobs-and-career/audio-explorers"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 35,
+      "jsonLdTypes": [],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:30:09.949Z",
+        "url": "https://www.demant.com/investor-relations/company-announcements"
+      },
+      "title": "Company announcements",
+      "url": "https://www.demant.com/investor-relations/company-announcements"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/annual-report-english/demant-annual-report-2025.pdf?la=en&rev=AE32&hash=F68551D4B2CB09858AD389A748D55FF6",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-report-english/demant-interim-report-2026.pdf?la=en&rev=E607&hash=FD2E1353F913D2E4D808ADF0A584668A",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-management-statements/demant-interim-management-statement-2026-q3.pdf?la=en&rev=D789&hash=F592D2B55B9B47585B43164CE5EBBBB7",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/annual-report-english/demant-annual-report-2024.pdf?la=en&rev=80B4&hash=40BC943A2597C378CDF1F3A139B69BBF",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-report-english/demant-interim-report-2024.pdf?la=en&rev=1135&hash=4B052AA66AB284A8A0FBCEA4AFA88312",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-report-english/demant-interim-report-2025.pdf?la=en&rev=B4F1&hash=AB738DF19611FBA7EBD44AC64A706528",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-management-statements/demant-interim-management-statement-2026-q1.pdf?la=en&rev=9BB5&hash=E200A8BE66CEEE5B2B476768624B98E7",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/annual-report-english/demant-annual-report-2023.pdf?la=en&rev=06A3&hash=AC319063A390B196DFDC9A656E887D99",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-report-english/demant-interim-report-2023.pdf?la=en&rev=AEF1&hash=59A2A1CEBE71F6DA7C8094D15DFD9118",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-management-statements/demant-interim-management-statement-2025-q3.pdf?la=en&rev=D656&hash=A0F0F607F9245C0499C4936AD834EB3F",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/demant-cmd-2024-presentation.pdf?la=en&rev=FAB8&hash=652682B224DE7DEE934FE01677CE856D",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/remuneration/report/remuneration-report-2025.pdf?la=en&rev=4369&hash=D93962B7DAE5895E358C904A95BB7CE2",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/demant-cmd-2018-presentation.pdf?la=en&rev=08E6&hash=DC5748A5CDEB35CA3485B628C4D664DD",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/demant-cmd-2021-presentation.pdf?la=en&rev=0925&hash=D3B00A9189AFA073B3508C7B7F896CFE",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/corporate-governance/corporate-governance-report/corporate-governance-report-2025.pdf?la=en&rev=79A3&hash=148E9C45AFCC7638BEAC7DD3E8CBD9BE"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:30:13.124Z",
+        "url": "https://www.demant.com/investor-relations/essentials"
+      },
+      "title": "Essentials",
+      "url": "https://www.demant.com/investor-relations/essentials"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/annual-report-english/demant-annual-report-2025.pdf?la=en&rev=AE32&hash=F68551D4B2CB09858AD389A748D55FF6",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-report-english/demant-interim-report-2026.pdf?la=en&rev=E607&hash=FD2E1353F913D2E4D808ADF0A584668A",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-management-statements/demant-interim-management-statement-2026-q3.pdf?la=en&rev=D789&hash=F592D2B55B9B47585B43164CE5EBBBB7",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/annual-report-english/demant-annual-report-2024.pdf?la=en&rev=80B4&hash=40BC943A2597C378CDF1F3A139B69BBF",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-report-english/demant-interim-report-2024.pdf?la=en&rev=1135&hash=4B052AA66AB284A8A0FBCEA4AFA88312",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-report-english/demant-interim-report-2025.pdf?la=en&rev=B4F1&hash=AB738DF19611FBA7EBD44AC64A706528",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-management-statements/demant-interim-management-statement-2026-q1.pdf?la=en&rev=9BB5&hash=E200A8BE66CEEE5B2B476768624B98E7",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/annual-report-english/demant-annual-report-2023.pdf?la=en&rev=06A3&hash=AC319063A390B196DFDC9A656E887D99",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-report-english/demant-interim-report-2023.pdf?la=en&rev=AEF1&hash=59A2A1CEBE71F6DA7C8094D15DFD9118",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-management-statements/demant-interim-management-statement-2025-q3.pdf?la=en&rev=D656&hash=A0F0F607F9245C0499C4936AD834EB3F",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/demant-cmd-2024-presentation.pdf?la=en&rev=FAB8&hash=652682B224DE7DEE934FE01677CE856D",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/remuneration/report/remuneration-report-2025.pdf?la=en&rev=4369&hash=D93962B7DAE5895E358C904A95BB7CE2",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/demant-cmd-2018-presentation.pdf?la=en&rev=08E6&hash=DC5748A5CDEB35CA3485B628C4D664DD",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/demant-cmd-2021-presentation.pdf?la=en&rev=0925&hash=D3B00A9189AFA073B3508C7B7F896CFE",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/corporate-governance/corporate-governance-report/corporate-governance-report-2025.pdf?la=en&rev=79A3&hash=148E9C45AFCC7638BEAC7DD3E8CBD9BE"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:30:16.131Z",
+        "url": "https://www.demant.com/investor-relations/reports"
+      },
+      "title": "Reports",
+      "url": "https://www.demant.com/investor-relations/reports"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:30:19.686Z",
+        "url": "https://www.demant.com/investor-relations/contact-calendar-and-events"
+      },
+      "title": "Contact, calendar and events",
+      "url": "https://www.demant.com/investor-relations/contact-calendar-and-events"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://tcstream.tv/demant/260305/gp3k8f.html",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/english/agm-2026-registration-for-general-meeting.pdf?la=en&rev=DEC0&hash=824C1FB2022E9962475A16D04271A335",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/articles-of-association/english/demant-as--articles-of-association-uk-5-march-2026--post-share-capital-decrease.pdf?la=en&rev=D0D4&hash=1E6E4D35B41BC39EFCD3FD9F2842710F",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/english/2026-chairs-report.pdf?la=en&rev=ED7B&hash=E00B0917C406C5BA1D3DEFE9867AB977",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/english/2026-04-notice-to-annual-general-meeting.pdf?la=en&rev=BF15&hash=6F1625BC4CD63FC84F5FEF54148DCCCD",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/remuneration/policy/remuneration-policy-2026.pdf?la=en&rev=B66D&hash=154D0A7ED4C99FD8A9F802EA3654F49C",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/english/annual-general-meeting-2026-voting-results.pdf?la=en&rev=FD73&hash=29D002DB82A31D5217F38DB50E1073BC",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/english/20260305-minutes-of-annual-general-meeting-2026_signed.pdf?la=en&rev=D335&hash=CDD0F44915DB1D412B31CB88F359F53E",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/articles-of-association/danish/demant-a-s--vedtgter-dk-5-marts-2026--efter-kapitalnedsttelse.pdf?la=en&rev=474B&hash=061798401D3B550EE32D78E8CF519887",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/danish/2026-formandens-beretning.pdf?la=en&rev=10D6&hash=73066271A2E5712D0FBF26D191DD7928",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/danish/2026-04-indkaldelse-til-generalforsamling.pdf?la=en&rev=FD21&hash=BA50746B3BF5B895853426A28C776BE0",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/danish/annual-general-meeting-2026-afstemningsresultat.pdf?la=en&rev=2FD6&hash=1F5B2F5DBF0BB6B10EF39CDB2B3CD995",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/danish/20260305-generalforsamlingsprotokollat-2026_signed.pdf?la=en&rev=D236&hash=AC9BD0B4197F76B5D78E63283537B91E",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/annual-report-english/demant-annual-report-2025.pdf?la=en&rev=AE32&hash=F68551D4B2CB09858AD389A748D55FF6",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/remuneration/report/remuneration-report-2025.pdf?la=en&rev=4369&hash=D93962B7DAE5895E358C904A95BB7CE2",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/corporate-governance/corporate-governance-report/corporate-governance-report-2025.pdf?la=en&rev=79A3&hash=148E9C45AFCC7638BEAC7DD3E8CBD9BE"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:30:23.001Z",
+        "url": "https://www.demant.com/investor-relations/annual-general-meeting"
+      },
+      "title": "Annual General Meeting",
+      "url": "https://www.demant.com/investor-relations/annual-general-meeting"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Ftcstream.tv%2Fdemant%2F261124%2Fkeishj72k.php&data=05%7C02%7Canye%40demant.com%7C8716027a21524ed5230b08df48da1672%7C9bf8c7a8e00849a79e43ab76976c4bf8%7C0%7C0%7C639309773668359088%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=pePEmkObZbNmV1O4xYLIA1aJn2z9yOV0Yf9PKLo%2FaFw%3D&reserved=0",
+        "https://tcstream.tv/demant/240312_od/Qmjh62h5_od.html",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/group-strategy-cmd-2026.pdf?la=en&rev=CF16&hash=C79FF83A52BC4897F2E9453612C8ADF7",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/hearing-aids-cmd-2026.pdf?la=en&rev=D2E6&hash=86C57FFE1FFBD6B6DB5FA3C2836983DB",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/hearing-care-cmd-2026.pdf?la=en&rev=5B80&hash=A85E29E9616210ED5FE06E8B2FF9B536",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/diagnostics-cmd-2026.pdf?la=en&rev=072F&hash=B95E714C8BCB39F9482FF73FFE8C56C5",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/financial-update-cmd-2026.pdf?la=en&rev=EF08&hash=96BA35DFACEAEE44B24A8AF05DB620C3",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/capital-markets-day-2026---full-presentation.pdf?la=en&rev=847D&hash=9D85332597F12152EF0FFC426407E72F",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/demant-cmd-2024-presentation.pdf?la=en&rev=FAB8&hash=652682B224DE7DEE934FE01677CE856D&hash=652682B224DE7DEE934FE01677CE856D",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/demant-cmd-2021-presentation.pdf?la=en&rev=0925&hash=D3B00A9189AFA073B3508C7B7F896CFE",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/demant-cmd-2016-presentation.pdf?la=en&rev=9A76&hash=896C305B44B4C4FCA74F5A50E08D722B"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:30:27.092Z",
+        "url": "https://www.demant.com/investor-relations/capital-markets-day"
+      },
+      "title": "Capital markets day",
+      "url": "https://www.demant.com/investor-relations/capital-markets-day"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/consensus-estimates/consensus-estimates-prior-to-interim-management-statement-3-november-2026.pdf?la=en&rev=FB25&hash=F3A730B185959082BF9E137860948143"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:30:32.210Z",
+        "url": "https://www.demant.com/investor-relations/analysts-and-estimates"
+      },
+      "title": "Analysts and estimates",
+      "url": "https://www.demant.com/investor-relations/analysts-and-estimates"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.linkedin.com/in/s%C3%B8ren-nielsen-1275391b/?originalSubdomain=dk",
+        "https://www.linkedin.com/in/niels-wagner-690b112/",
+        "https://www.linkedin.com/in/anne-karen-hunt-0511715/",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/annual-report-english/demant-annual-report-2025.pdf?la=en&rev=AE32&hash=F68551D4B2CB09858AD389A748D55FF6",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/corporate-governance/corporate-governance-report/corporate-governance-report-2025.pdf?la=en&rev=79A3&hash=148E9C45AFCC7638BEAC7DD3E8CBD9BE",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/remuneration/report/remuneration-report-2025.pdf?la=en&rev=4369&hash=D93962B7DAE5895E358C904A95BB7CE2"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:30:35.406Z",
+        "url": "https://www.demant.com/investor-relations/annual-report-2025"
+      },
+      "title": "Annual Report 2025",
+      "url": "https://www.demant.com/investor-relations/annual-report-2025"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 38,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/group-policies/sustainability-policy_version1_2025-update.pdf?la=en&rev=6C05&hash=4E72F714705145F6E1FAFE2EB04E953D",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/sustainability/sdg-mapping_2025.pdf?la=en&rev=0E21&hash=DB32C10530FF4ABBF0E738415C19C7F7",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/annual-report-english/demant-annual-report-2025.pdf?la=en&rev=AE32&hash=F68551D4B2CB09858AD389A748D55FF6"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:30:48.353Z",
+        "url": "https://www.demant.com/sustainability/copy-of-sustainability-at-a-glance"
+      },
+      "title": "Sustainability at a glance",
+      "url": "https://www.demant.com/sustainability/copy-of-sustainability-at-a-glance"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.eriksholm.com/projects/advancing-understanding-and-treatment-of-hearing-difficulties-in-a-currently-underserved-population-uptreat/",
+        "https://www.campaignforbetterhearing.org/",
+        "https://www.eriksholm.com/",
+        "https://assets-we.cas.dgs.com/-/media/3d6658d8a0bf4e75b3e2d050fabcf4e1.ashx?la=en&rev=25AC",
+        "https://www.interacoustics.com/research/interacoustics-research-unit",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:30:52.431Z",
+        "url": "https://www.demant.com/sustainability/copy-of-our-core-impact"
+      },
+      "title": "Our core impact 2026",
+      "url": "https://www.demant.com/sustainability/copy-of-our-core-impact"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 35,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:30:56.683Z",
+        "url": "https://www.demant.com/sustainability/copy-of-respect-for-the-planet"
+      },
+      "title": "Respect for the planet 2026",
+      "url": "https://www.demant.com/sustainability/copy-of-respect-for-the-planet"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/sustainability/danish-financial-statement-act-section-107.pdf?la=en&rev=F031&hash=C494A096CDF9550E266AA65D215598B5",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/group-policies/demant-group-policy-on-diversity-and-inclusion-approved-30-jan-2026.pdf?la=en&rev=BEC7&hash=D6F511A209FE53452B7C5958E069DBB4"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:31:01.886Z",
+        "url": "https://www.demant.com/sustainability/copy-of-caring-for-people"
+      },
+      "title": "Caring for people 2026",
+      "url": "https://www.demant.com/sustainability/copy-of-caring-for-people"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://demant.codeofconduct.app/setup",
+        "https://demant.codeofconduct.app/wb;eFormGuid=d36668f5-81fc-4548-880a-23326b412d89;siteId=21023http:",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 35,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/2022-documents/demant-group-code-of-conduct.pdf?la=en&rev=F71C&hash=CD527F91C2B3628F3B0A5DBE06E0CA97&hash=CD527F91C2B3628F3B0A5DBE06E0CA97",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/demant-group-code-of-conduct.pdf?la=en&rev=E6B7&hash=3D7D8A3E1D0DFBB4D94AEEF3DF25A3F6",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/demant_group_tax_policy_15032025.pdf?la=en&rev=3DAC&hash=089E29784B004F0100F89522FC83FAA7",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/2022-documents/demant-group-hearing-aids-quality-policy-2022.pdf?la=en&rev=D280&hash=18F030A1946E4296328CA9CACEA52012",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/2022-documents/demant-group-diagnostics-quality-policy-2022.pdf?la=en&rev=A05A&hash=18A66FCB6AAC85ECE68266F78844FFD6",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/sustainability/responsible-marketing_hearing-aids-2024.pdf?la=en&rev=5A50&hash=148E69CB214F31A1852397290D2CE24F",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/sustainability/responsible-marketing_diagnostics_2024.pdf?la=en&rev=259D&hash=0E5856F54B42EF32F961BD7D99FF37F3",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/2022-documents/demant-group-third-party-compliance-code.pdf?la=en&rev=ECB3&hash=FFC7DD217BD7F5C2B8B329BD6E3B6262&hash=FFC7DD217BD7F5C2B8B329BD6E3B6262"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:31:05.914Z",
+        "url": "https://www.demant.com/sustainability/copy-of-performing-with-integrity"
+      },
+      "title": "Performing with integrity 2026",
+      "url": "https://www.demant.com/sustainability/copy-of-performing-with-integrity"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/european-green-deal_en",
+        "https://sciencebasedtargets.org/about-us",
+        "https://sciencebasedtargets.org/set-a-target",
+        "https://ghgprotocol.org/standards/scope-3-standard",
+        "https://www.wbcsd.org/Programs/Climate-and-Energy/Climate/SOS-1.5/Resources/Pathfinder-Framework-Version-2.0",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://ghgprotocol.org/sites/default/files/standards_supporting/Chapter1.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:31:09.970Z",
+        "url": "https://www.demant.com/sustainability/supplier-engagement-programme"
+      },
+      "title": "Supplier engagement programme",
+      "url": "https://www.demant.com/sustainability/supplier-engagement-programme"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 111,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/sustainability/h1--sustainability-reporting.pdf?la=en&rev=1DE5&hash=34257FB21E051D1A9D82A5302C082557"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:31:14.469Z",
+        "url": "https://www.demant.com/about/latest-news"
+      },
+      "title": "Latest news",
+      "url": "https://www.demant.com/about/latest-news"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:31:17.125Z",
+        "url": "https://www.demant.com/about/our-strategy"
+      },
+      "title": "Our strategy",
+      "url": "https://www.demant.com/about/our-strategy"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:31:19.766Z",
+        "url": "https://www.demant.com/about/our-history"
+      },
+      "title": "From then to now",
+      "url": "https://www.demant.com/about/our-history"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.demant.my/",
+        "http://www.demant.pl/",
+        "https://www.williamdemantfonden.dk/",
+        "https://www.demantinvest.com/",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:31:25.010Z",
+        "url": "https://www.demant.com/about/our-business"
+      },
+      "title": "Our business",
+      "url": "https://www.demant.com/about/our-business"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 48,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/corporate-governance/corporate-governance-report/corporate-governance-report-2025.pdf?la=en&rev=79A3&hash=148E9C45AFCC7638BEAC7DD3E8CBD9BE",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/remuneration/policy/remuneration-policy-2026.pdf?la=en&rev=B66D&hash=154D0A7ED4C99FD8A9F802EA3654F49C",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/remuneration/report/remuneration-report-2025.pdf?la=en&rev=4369&hash=D93962B7DAE5895E358C904A95BB7CE2"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:31:29.202Z",
+        "url": "https://www.demant.com/about/management-and-governance"
+      },
+      "title": "Management and governance",
+      "url": "https://www.demant.com/about/management-and-governance"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.kind.com/de-de/presse/zusammenschluss-kind-audika",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 35,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:31:31.957Z",
+        "url": "https://www.demant.com/about/latest-news/kind"
+      },
+      "title": "Kind",
+      "url": "https://www.demant.com/about/latest-news/kind"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:31:41.765Z",
+        "url": "https://www.demant.com/404?item=web%3a%7b274955CE-6FD5-4E2E-B819-CB009E47E5D0%7d%40en"
+      },
+      "title": "404",
+      "url": "https://www.demant.com/404?item=web%3a%7b274955CE-6FD5-4E2E-B819-CB009E47E5D0%7d%40en"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:31:47.372Z",
+        "url": "https://www.demant.com/404?item=web%3a%7b851029B6-A46E-476F-B380-590DAB281251%7d%40en"
+      },
+      "title": "404",
+      "url": "https://www.demant.com/404?item=web%3a%7b851029B6-A46E-476F-B380-590DAB281251%7d%40en"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 34,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:32:00.680Z",
+        "url": "https://www.demant.com/cookie-policy"
+      },
+      "title": "Cookie policy",
+      "url": "https://www.demant.com/cookie-policy"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://newborn-hearing-screening.com/",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 39,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://assets-we.cas.dgs.com/-/media/demant/main/media-documents/investor-relations/annual-report-2018.pdf?la=en&rev=B3AC&hash=09273CD678736E95F25BDE1DF2289514",
+        "https://assets-we.cas.dgs.com/-/media/demant/main/media-documents/investor-relations/uddrag-aarsrapport-2018.pdf?la=en&rev=53E7&hash=0F1FAB244DDF72605CBF24759020A43B",
+        "https://assets-we.cas.dgs.com/-/media/demant/main/media-documents/responsibility/un-global-compact-progress-report-2018.pdf?la=en&rev=1A32&hash=17212EACB793ABD6B1CA269D4AE7CB54"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:32:04.295Z",
+        "url": "https://www.demant.com/investor-relations/annual-report-2018"
+      },
+      "title": "Annual Report 2018",
+      "url": "https://www.demant.com/investor-relations/annual-report-2018"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://tcstream.tv/demant/261104/Jhar29.html",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/demant-2025-12-31-en.zip?la=en&rev=B8E3&hash=8118455E3A210F00E3B29658DFBC44B4",
+        "https://demant.codeofconduct.app/wb;eFormGuid=d36668f5-81fc-4548-880a-23326b412d89;siteId=21023http:",
+        "https://portal.computershare.dk/portal/index.asp?page=login&asident=24300&lan=en",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-news---capital-markets-day-2026.pdf?la=en&rev=1956&hash=8DD4F5252A05E2CB987FCCED8055C6CE",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-management-statements/demant-interim-management-statement-2026-q3.pdf?la=en&rev=D789&hash=F592D2B55B9B47585B43164CE5EBBBB7",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/investor-presentations/demant-investor-presentation-q3-2026.pdf?la=en&rev=D96B&hash=D3794B294F289D68C71E8F445BD5F227",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-news---demant-announces-launch-of-new-flagship-hearing-aids.pdf?la=en&rev=3868&hash=96913368A1C06171BA0DF1F29167F5DA",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/annual-report-english/demant-annual-report-2025.pdf?la=en&rev=AE32&hash=F68551D4B2CB09858AD389A748D55FF6"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:32:11.047Z",
+        "url": "https://www.demant.com/"
+      },
+      "title": "Demant",
+      "url": "https://www.demant.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 39,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/group-policies/sustainability-policy_version1_2025-update.pdf?la=en&rev=6C05&hash=4E72F714705145F6E1FAFE2EB04E953D",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/sustainability/sdg-mapping_2025.pdf?la=en&rev=0E21&hash=DB32C10530FF4ABBF0E738415C19C7F7",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/annual-report-english/demant-annual-report-2025.pdf?la=en&rev=AE32&hash=F68551D4B2CB09858AD389A748D55FF6"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:32:16.400Z",
+        "url": "https://www.demant.com/sustainability/sustainability-at-a-glance"
+      },
+      "title": "Sustainability at a glance",
+      "url": "https://www.demant.com/sustainability/sustainability-at-a-glance"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://demant.codeofconduct.app/setup",
+        "https://demant.codeofconduct.app/wb;eFormGuid=d36668f5-81fc-4548-880a-23326b412d89;siteId=21023http:",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 36,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/2022-documents/demant-group-code-of-conduct.pdf?la=en&rev=F71C&hash=CD527F91C2B3628F3B0A5DBE06E0CA97&hash=CD527F91C2B3628F3B0A5DBE06E0CA97",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/demant-group-code-of-conduct.pdf?la=en&rev=E6B7&hash=3D7D8A3E1D0DFBB4D94AEEF3DF25A3F6",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/demant_group_tax_policy_15032025.pdf?la=en&rev=3DAC&hash=089E29784B004F0100F89522FC83FAA7",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/2022-documents/demant-group-hearing-aids-quality-policy-2022.pdf?la=en&rev=D280&hash=18F030A1946E4296328CA9CACEA52012",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/2022-documents/demant-group-diagnostics-quality-policy-2022.pdf?la=en&rev=A05A&hash=18A66FCB6AAC85ECE68266F78844FFD6",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/sustainability/responsible-marketing_hearing-aids-2024.pdf?la=en&rev=5A50&hash=148E69CB214F31A1852397290D2CE24F",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/sustainability/responsible-marketing_diagnostics_2024.pdf?la=en&rev=259D&hash=0E5856F54B42EF32F961BD7D99FF37F3",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/2022-documents/demant-group-third-party-compliance-code.pdf?la=en&rev=ECB3&hash=FFC7DD217BD7F5C2B8B329BD6E3B6262&hash=FFC7DD217BD7F5C2B8B329BD6E3B6262"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:32:21.229Z",
+        "url": "https://www.demant.com/sustainability/performing-with-integrity"
+      },
+      "title": "Performing with integrity 2026",
+      "url": "https://www.demant.com/sustainability/performing-with-integrity"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.eriksholm.com/projects/advancing-understanding-and-treatment-of-hearing-difficulties-in-a-currently-underserved-population-uptreat/",
+        "https://www.campaignforbetterhearing.org/",
+        "https://www.eriksholm.com/",
+        "https://assets-we.cas.dgs.com/-/media/3d6658d8a0bf4e75b3e2d050fabcf4e1.ashx?la=en&rev=25AC",
+        "https://www.interacoustics.com/research/interacoustics-research-unit",
+        "https://www.facebook.com/DemantGroup",
+        "https://www.linkedin.com/company/demant/mycompany/"
+      ],
+      "internalLinks": 37,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:32:26.047Z",
+        "url": "https://www.demant.com/sustainability/our-core-impact"
+      },
+      "title": "Our core impact 2026",
+      "url": "https://www.demant.com/sustainability/our-core-impact"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/pages/William-Demant-Holding-AS/195234273990537",
+        "https://www.linkedin.com/company/demant/",
+        "https://www.youtube.com/channel/UC4WRJJV39QDpfAk_HvsFv2w"
+      ],
+      "internalLinks": 6,
+      "jsonLdTypes": [],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:32:31.326Z",
+        "url": "https://www.demant.com/blog/meet-our-graduates"
+      },
+      "title": "Meet our graduates",
+      "url": "https://www.demant.com/blog/meet-our-graduates"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/pages/William-Demant-Holding-AS/195234273990537",
+        "https://www.linkedin.com/company/demant/",
+        "https://www.youtube.com/channel/UC4WRJJV39QDpfAk_HvsFv2w"
+      ],
+      "internalLinks": 12,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:32:33.731Z",
+        "url": "https://www.demant.com/blog/graduate-blog?category=Application%20process"
+      },
+      "title": "Graduate Blog",
+      "url": "https://www.demant.com/blog/graduate-blog?category=Application%20process"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/pages/William-Demant-Holding-AS/195234273990537",
+        "https://www.linkedin.com/company/demant/",
+        "https://www.youtube.com/channel/UC4WRJJV39QDpfAk_HvsFv2w"
+      ],
+      "internalLinks": 25,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:32:36.470Z",
+        "url": "https://www.demant.com/blog/graduate-blog?category=Culture%20at%20Demant"
+      },
+      "title": "Graduate Blog",
+      "url": "https://www.demant.com/blog/graduate-blog?category=Culture%20at%20Demant"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/pages/William-Demant-Holding-AS/195234273990537",
+        "https://www.linkedin.com/company/demant/",
+        "https://www.youtube.com/channel/UC4WRJJV39QDpfAk_HvsFv2w"
+      ],
+      "internalLinks": 18,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:32:41.989Z",
+        "url": "https://www.demant.com/blog/graduate-blog?category=Graduate%20tracks"
+      },
+      "title": "Graduate Blog",
+      "url": "https://www.demant.com/blog/graduate-blog?category=Graduate%20tracks"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.facebook.com/pages/William-Demant-Holding-AS/195234273990537",
+        "https://www.linkedin.com/company/demant/",
+        "https://www.youtube.com/channel/UC4WRJJV39QDpfAk_HvsFv2w"
+      ],
+      "internalLinks": 24,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:32:45.515Z",
+        "url": "https://www.demant.com/blog/graduate-blog?category=Working%20in%20Denmark"
+      },
+      "title": "Graduate Blog",
+      "url": "https://www.demant.com/blog/graduate-blog?category=Working%20in%20Denmark"
+    }
+  ],
+  "pdfHosts": [
+    {
+      "count": 103,
+      "examples": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-news---capital-markets-day-2026.pdf?la=en&rev=1956&hash=8DD4F5252A05E2CB987FCCED8055C6CE",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-management-statements/demant-interim-management-statement-2026-q3.pdf?la=en&rev=D789&hash=F592D2B55B9B47585B43164CE5EBBBB7",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/investor-presentations/demant-investor-presentation-q3-2026.pdf?la=en&rev=D96B&hash=D3794B294F289D68C71E8F445BD5F227"
+      ],
+      "host": "assets-we.cas.dgs.com"
+    },
+    {
+      "count": 1,
+      "examples": [
+        "https://ghgprotocol.org/sites/default/files/standards_supporting/Chapter1.pdf"
+      ],
+      "host": "ghgprotocol.org"
+    }
+  ],
+  "redirects": [
+    {
+      "from": "https://www.demant.com/jobs-and-career/job-openings",
+      "ref": {
+        "fetchedAt": "2026-11-27T18:30:00.022Z",
+        "url": "https://www.demant.com/jobs-and-career/job-openings"
+      },
+      "to": "https://careers.demant.com/"
+    },
+    {
+      "from": "https://www.demant.com/investor-relations/shareholder-portal",
+      "ref": {
+        "fetchedAt": "2026-11-27T18:30:47.632Z",
+        "url": "https://www.demant.com/investor-relations/shareholder-portal"
+      },
+      "to": "https://portal.computershare.dk/portal/index.asp?page=login&asident=24300&lan=en#MsgAnchor"
+    }
+  ],
+  "robots": {
+    "groups": [
+      {
+        "allow": [],
+        "disallow": [
+          "/sitecore/",
+          "/*/~/link.aspx*"
+        ],
+        "userAgents": [
+          "*"
+        ]
+      }
+    ],
+    "ref": {
+      "fetchedAt": "2026-11-27T18:28:15.689Z",
+      "url": "https://www.demant.com/robots.txt"
+    },
+    "sitemaps": [
+      "https://www.demant.com/sitemap.xml"
+    ],
+    "status": 200
+  },
+  "sitemap": {
+    "refs": [
+      {
+        "fetchedAt": "2026-11-27T18:28:18.576Z",
+        "url": "https://www.demant.com/sitemap.xml"
+      }
+    ],
+    "sections": [
+      {
+        "count": 105,
+        "path": "/about"
+      },
+      {
+        "count": 74,
+        "path": "/blog"
+      },
+      {
+        "count": 20,
+        "path": "/investor-relations"
+      },
+      {
+        "count": 11,
+        "path": "/jobs-and-career"
+      },
+      {
+        "count": 7,
+        "path": "/reports-2022"
+      },
+      {
+        "count": 7,
+        "path": "/reports-2023"
+      },
+      {
+        "count": 7,
+        "path": "/sustainability"
+      },
+      {
+        "count": 6,
+        "path": "/reports-2024"
+      },
+      {
+        "count": 6,
+        "path": "/reports-2025"
+      },
+      {
+        "count": 1,
+        "path": "/"
+      },
+      {
+        "count": 1,
+        "path": "/404"
+      },
+      {
+        "count": 1,
+        "path": "/500"
+      },
+      {
+        "count": 1,
+        "path": "/contact"
+      },
+      {
+        "count": 1,
+        "path": "/cookie-policy"
+      },
+      {
+        "count": 1,
+        "path": "/coronavirus"
+      },
+      {
+        "count": 1,
+        "path": "/news-and-media"
+      },
+      {
+        "count": 1,
+        "path": "/privacy-notice"
+      },
+      {
+        "count": 1,
+        "path": "/search"
+      },
+      {
+        "count": 1,
+        "path": "/whd"
+      }
+    ],
+    "urlCount": 253
+  },
+  "start": "https://www.demant.com",
+  "templates": [
+    {
+      "count": 80,
+      "examples": [
+        "https://www.demant.com/about/latest-news/120-years-anniversary",
+        "https://www.demant.com/about/latest-news/2022_-epos-introduces-meeting-room",
+        "https://www.demant.com/about/latest-news/2022_-row-1-less-than-20-of-brits"
+      ],
+      "pattern": "https://www.demant.com/about/latest-news/{slug}"
+    },
+    {
+      "count": 53,
+      "examples": [
+        "https://www.demant.com/blog/graduate-blog/authors/acdc",
+        "https://www.demant.com/blog/graduate-blog/authors/adyl",
+        "https://www.demant.com/blog/graduate-blog/authors/aesf"
+      ],
+      "pattern": "https://www.demant.com/blog/graduate-blog/authors/{slug}"
+    },
+    {
+      "count": 27,
+      "examples": [
+        "https://www.demant.com/404",
+        "https://www.demant.com/404?item=web%3a%7b274955CE-6FD5-4E2E-B819-CB009E47E5D0%7d%40en",
+        "https://www.demant.com/404?item=web%3a%7b851029B6-A46E-476F-B380-590DAB281251%7d%40en"
+      ],
+      "pattern": "https://www.demant.com/{slug}"
+    },
+    {
+      "count": 19,
+      "examples": [
+        "https://www.demant.com/blog/graduate-blog/posts/post---esvo",
+        "https://www.demant.com/blog/graduate-blog/posts/post--penn",
+        "https://www.demant.com/blog/graduate-blog/posts/post-cidc"
+      ],
+      "pattern": "https://www.demant.com/blog/graduate-blog/posts/{slug}"
+    },
+    {
+      "count": 17,
+      "examples": [
+        "https://www.demant.com/investor-relations/analysts-and-estimates",
+        "https://www.demant.com/investor-relations/annual-general-meeting",
+        "https://www.demant.com/investor-relations/annual-report-2018"
+      ],
+      "pattern": "https://www.demant.com/investor-relations/{slug}"
+    },
+    {
+      "count": 15,
+      "examples": [
+        "https://www.demant.com/about/management-and-governance/anne_karen-hunt",
+        "https://www.demant.com/about/management-and-governance/bassel-rifai",
+        "https://www.demant.com/about/management-and-governance/katrin-pucknat"
+      ],
+      "pattern": "https://www.demant.com/about/management-and-governance/{slug}"
+    },
+    {
+      "count": 11,
+      "examples": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/capital-markets-day-2026---full-presentation.pdf?la=en&rev=847D&hash=9D85332597F12152EF0FFC426407E72F",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/demant-cmd-2016-presentation.pdf?la=en&rev=9A76&hash=896C305B44B4C4FCA74F5A50E08D722B",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/demant-cmd-2018-presentation.pdf?la=en&rev=08E6&hash=DC5748A5CDEB35CA3485B628C4D664DD"
+      ],
+      "pattern": "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/{slug}"
+    },
+    {
+      "count": 11,
+      "examples": [
+        "https://www.demant.com/sustainability/EditorPage.aspx?da=core&id=%7B6A3F209A-40BA-4D7C-A1F7-9A16EB40695B%7D&ed=FIELD1885814509&vs&la=en&fld=%7BAE1EEC14-DB32-4512-B85B-7912556DAB72%7D&so=%2Fsitecore%2Fsystem%2FSettings%2FHtml%20Editor%20Profiles%2FRich%20Text%20WDH&di=0&hdl=H1885814607&mo&pe=0&fbd=1",
+        "https://www.demant.com/sustainability/copy-of-caring-for-people",
+        "https://www.demant.com/sustainability/copy-of-our-core-impact"
+      ],
+      "pattern": "https://www.demant.com/sustainability/{slug}"
+    },
+    {
+      "count": 10,
+      "examples": [
+        "https://www.demant.com/about/business-ethics",
+        "https://www.demant.com/about/latest-news",
+        "https://www.demant.com/about/management-and-governance"
+      ],
+      "pattern": "https://www.demant.com/about/{slug}"
+    },
+    {
+      "count": 8,
+      "examples": [
+        "https://www.demant.com/blog/graduate-blog",
+        "https://www.demant.com/blog/graduate-blog?category=Application%20process",
+        "https://www.demant.com/blog/graduate-blog?category=Culture%20at%20Demant"
+      ],
+      "pattern": "https://www.demant.com/blog/{slug}"
+    },
+    {
+      "count": 8,
+      "examples": [
+        "https://www.demant.com/jobs-and-career/audio-explorers",
+        "https://www.demant.com/jobs-and-career/careers-that-matter",
+        "https://www.demant.com/jobs-and-career/demant-oticon"
+      ],
+      "pattern": "https://www.demant.com/jobs-and-career/{slug}"
+    },
+    {
+      "count": 6,
+      "examples": [
+        "https://www.demant.com/reports-2022/annual-report-2022",
+        "https://www.demant.com/reports-2022/corporate-governance-report-2022",
+        "https://www.demant.com/reports-2022/data-ethics-policy"
+      ],
+      "pattern": "https://www.demant.com/reports-2022/{slug}"
+    },
+    {
+      "count": 6,
+      "examples": [
+        "https://www.demant.com/reports-2023/annual-report-2023",
+        "https://www.demant.com/reports-2023/corporate-governance-report-2023",
+        "https://www.demant.com/reports-2023/data-ethics-policy"
+      ],
+      "pattern": "https://www.demant.com/reports-2023/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/english/2026-04-notice-to-annual-general-meeting.pdf?la=en&rev=BF15&hash=6F1625BC4CD63FC84F5FEF54148DCCCD",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/english/2026-chairs-report.pdf?la=en&rev=ED7B&hash=E00B0917C406C5BA1D3DEFE9867AB977",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/english/20260305-minutes-of-annual-general-meeting-2026_signed.pdf?la=en&rev=D335&hash=CDD0F44915DB1D412B31CB88F359F53E"
+      ],
+      "pattern": "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/english/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/sustainability/danish-financial-statement-act-section-107.pdf?la=en&rev=F031&hash=C494A096CDF9550E266AA65D215598B5",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/sustainability/h1--sustainability-reporting.pdf?la=en&rev=1DE5&hash=34257FB21E051D1A9D82A5302C082557",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/sustainability/responsible-marketing_diagnostics_2024.pdf?la=en&rev=259D&hash=0E5856F54B42EF32F961BD7D99FF37F3"
+      ],
+      "pattern": "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/sustainability/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.demant.com/reports-2024/annual-report-2024",
+        "https://www.demant.com/reports-2024/corporate-governance-report-2024",
+        "https://www.demant.com/reports-2024/data-ethics-policy"
+      ],
+      "pattern": "https://www.demant.com/reports-2024/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.demant.com/reports-2025/annual-report-2025",
+        "https://www.demant.com/reports-2025/corporate-governance-report-2025",
+        "https://www.demant.com/reports-2025/data-ethics-policy"
+      ],
+      "pattern": "https://www.demant.com/reports-2025/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://assets-we.cas.dgs.com/-/media/demant/main/media-documents/investor-relations/annual-report-2018.pdf?la=en&rev=B3AC&hash=09273CD678736E95F25BDE1DF2289514",
+        "https://assets-we.cas.dgs.com/-/media/demant/main/media-documents/investor-relations/annual-report-2019.pdf?la=en&rev=91E9&hash=96A02F7E2C8458C164C61D3408D5FE1C",
+        "https://assets-we.cas.dgs.com/-/media/demant/main/media-documents/investor-relations/uddrag-aarsrapport-2018.pdf?la=en&rev=53E7&hash=0F1FAB244DDF72605CBF24759020A43B"
+      ],
+      "pattern": "https://assets-we.cas.dgs.com/-/media/demant/main/media-documents/investor-relations/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/danish/2026-04-indkaldelse-til-generalforsamling.pdf?la=en&rev=FD21&hash=BA50746B3BF5B895853426A28C776BE0",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/danish/2026-formandens-beretning.pdf?la=en&rev=10D6&hash=73066271A2E5712D0FBF26D191DD7928",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/danish/20260305-generalforsamlingsprotokollat-2026_signed.pdf?la=en&rev=D236&hash=AC9BD0B4197F76B5D78E63283537B91E"
+      ],
+      "pattern": "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/danish/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/2022-documents/demant-group-code-of-conduct.pdf?la=en&rev=F71C&hash=CD527F91C2B3628F3B0A5DBE06E0CA97&hash=CD527F91C2B3628F3B0A5DBE06E0CA97",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/2022-documents/demant-group-diagnostics-quality-policy-2022.pdf?la=en&rev=A05A&hash=18A66FCB6AAC85ECE68266F78844FFD6",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/2022-documents/demant-group-hearing-aids-quality-policy-2022.pdf?la=en&rev=D280&hash=18F030A1946E4296328CA9CACEA52012"
+      ],
+      "pattern": "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/2022-documents/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-report-english/demant-interim-report-2023.pdf?la=en&rev=AEF1&hash=59A2A1CEBE71F6DA7C8094D15DFD9118",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-report-english/demant-interim-report-2024.pdf?la=en&rev=1135&hash=4B052AA66AB284A8A0FBCEA4AFA88312",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-report-english/demant-interim-report-2025.pdf?la=en&rev=B4F1&hash=AB738DF19611FBA7EBD44AC64A706528"
+      ],
+      "pattern": "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-report-english/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://careers.demant.com/audika",
+        "https://careers.demant.com/search/",
+        "https://careers.demant.com/search/?createNewAlert=false&q=student&optionsFacetsDD_customfield3=&optionsFacetsDD_customfield4=Denmark&optionsFacetsDD_customfield5="
+      ],
+      "pattern": "https://careers.demant.com/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/faq-demant-graduate-programme.pdf?la=en&rev=260C&hash=4E5D81E985C5CF1AB47D3152CD2093D6",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-news---capital-markets-day-2026.pdf?la=en&rev=1956&hash=8DD4F5252A05E2CB987FCCED8055C6CE",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-news---demant-announces-launch-of-new-flagship-hearing-aids.pdf?la=en&rev=3868&hash=96913368A1C06171BA0DF1F29167F5DA"
+      ],
+      "pattern": "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/annual-report-english/demant-annual-report-2023.pdf?la=en&rev=06A3&hash=AC319063A390B196DFDC9A656E887D99",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/annual-report-english/demant-annual-report-2024.pdf?la=en&rev=80B4&hash=40BC943A2597C378CDF1F3A139B69BBF",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/annual-report-english/demant-annual-report-2025.pdf?la=en&rev=AE32&hash=F68551D4B2CB09858AD389A748D55FF6"
+      ],
+      "pattern": "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/annual-report-english/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-management-statements/demant-interim-management-statement-2025-q3.pdf?la=en&rev=D656&hash=A0F0F607F9245C0499C4936AD834EB3F",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-management-statements/demant-interim-management-statement-2026-q1.pdf?la=en&rev=9BB5&hash=E200A8BE66CEEE5B2B476768624B98E7",
+        "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-management-statements/demant-interim-management-statement-2026-q3.pdf?la=en&rev=D789&hash=F592D2B55B9B47585B43164CE5EBBBB7"
+      ],
+      "pattern": "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-management-statements/{slug}"
+    }
+  ],
+  "urls": [
+    "http://www.demant.com/",
+    "http://www.demant.com/cookie-policy",
+    "http://www.demant.com/no",
+    "https://assets-we.cas.dgs.com/-/media/demant/main/media-documents/investor-relations/annual-report-2018.pdf?la=en&rev=B3AC&hash=09273CD678736E95F25BDE1DF2289514",
+    "https://assets-we.cas.dgs.com/-/media/demant/main/media-documents/investor-relations/annual-report-2019.pdf?la=en&rev=91E9&hash=96A02F7E2C8458C164C61D3408D5FE1C",
+    "https://assets-we.cas.dgs.com/-/media/demant/main/media-documents/investor-relations/uddrag-aarsrapport-2018.pdf?la=en&rev=53E7&hash=0F1FAB244DDF72605CBF24759020A43B",
+    "https://assets-we.cas.dgs.com/-/media/demant/main/media-documents/investor-relations/uddrag-aarsrapport-2019.pdf?la=en&rev=FFCC&hash=D348B3F946206CBEEE753AACD1ABCB64",
+    "https://assets-we.cas.dgs.com/-/media/demant/main/media-documents/responsibility/corporate-social-responsibility-report-2019.pdf?la=en&rev=3E26&hash=971F23AA7E55F22AA1E44FF5FAFD039F",
+    "https://assets-we.cas.dgs.com/-/media/demant/main/media-documents/responsibility/un-global-compact-progress-report-2018.pdf?la=en&rev=1A32&hash=17212EACB793ABD6B1CA269D4AE7CB54",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/consensus-estimates/consensus-estimates-prior-to-interim-management-statement-3-november-2026.pdf?la=en&rev=FB25&hash=F3A730B185959082BF9E137860948143",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/danish/2026-04-indkaldelse-til-generalforsamling.pdf?la=en&rev=FD21&hash=BA50746B3BF5B895853426A28C776BE0",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/danish/2026-formandens-beretning.pdf?la=en&rev=10D6&hash=73066271A2E5712D0FBF26D191DD7928",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/danish/20260305-generalforsamlingsprotokollat-2026_signed.pdf?la=en&rev=D236&hash=AC9BD0B4197F76B5D78E63283537B91E",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/danish/annual-general-meeting-2026-afstemningsresultat.pdf?la=en&rev=2FD6&hash=1F5B2F5DBF0BB6B10EF39CDB2B3CD995",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/english/2026-04-notice-to-annual-general-meeting.pdf?la=en&rev=BF15&hash=6F1625BC4CD63FC84F5FEF54148DCCCD",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/english/2026-chairs-report.pdf?la=en&rev=ED7B&hash=E00B0917C406C5BA1D3DEFE9867AB977",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/english/20260305-minutes-of-annual-general-meeting-2026_signed.pdf?la=en&rev=D335&hash=CDD0F44915DB1D412B31CB88F359F53E",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/english/agm-2026-registration-for-general-meeting.pdf?la=en&rev=DEC0&hash=824C1FB2022E9962475A16D04271A335",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/annual-general-meeting/english/annual-general-meeting-2026-voting-results.pdf?la=en&rev=FD73&hash=29D002DB82A31D5217F38DB50E1073BC",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/articles-of-association/danish/demant-a-s--vedtgter-dk-5-marts-2026--efter-kapitalnedsttelse.pdf?la=en&rev=474B&hash=061798401D3B550EE32D78E8CF519887",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/articles-of-association/english/demant-as--articles-of-association-uk-5-march-2026--post-share-capital-decrease.pdf?la=en&rev=D0D4&hash=1E6E4D35B41BC39EFCD3FD9F2842710F",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/2022-documents/demant-group-code-of-conduct.pdf?la=en&rev=F71C&hash=CD527F91C2B3628F3B0A5DBE06E0CA97&hash=CD527F91C2B3628F3B0A5DBE06E0CA97",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/2022-documents/demant-group-diagnostics-quality-policy-2022.pdf?la=en&rev=A05A&hash=18A66FCB6AAC85ECE68266F78844FFD6",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/2022-documents/demant-group-hearing-aids-quality-policy-2022.pdf?la=en&rev=D280&hash=18F030A1946E4296328CA9CACEA52012",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/2022-documents/demant-group-third-party-compliance-code.pdf?la=en&rev=ECB3&hash=FFC7DD217BD7F5C2B8B329BD6E3B6262&hash=FFC7DD217BD7F5C2B8B329BD6E3B6262",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/demant-group-code-of-conduct.pdf?la=en&rev=E6B7&hash=3D7D8A3E1D0DFBB4D94AEEF3DF25A3F6",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/business-ethics/demant_group_tax_policy_15032025.pdf?la=en&rev=3DAC&hash=089E29784B004F0100F89522FC83FAA7",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/corporate-governance/corporate-governance-report/corporate-governance-report-2025.pdf?la=en&rev=79A3&hash=148E9C45AFCC7638BEAC7DD3E8CBD9BE",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/faq-demant-graduate-programme.pdf?la=en&rev=260C&hash=4E5D81E985C5CF1AB47D3152CD2093D6",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/annual-report-english/demant-annual-report-2023.pdf?la=en&rev=06A3&hash=AC319063A390B196DFDC9A656E887D99",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/annual-report-english/demant-annual-report-2024.pdf?la=en&rev=80B4&hash=40BC943A2597C378CDF1F3A139B69BBF",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/annual-report-english/demant-annual-report-2025.pdf?la=en&rev=AE32&hash=F68551D4B2CB09858AD389A748D55FF6",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-management-statements/demant-interim-management-statement-2025-q3.pdf?la=en&rev=D656&hash=A0F0F607F9245C0499C4936AD834EB3F",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-management-statements/demant-interim-management-statement-2026-q1.pdf?la=en&rev=9BB5&hash=E200A8BE66CEEE5B2B476768624B98E7",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-management-statements/demant-interim-management-statement-2026-q3.pdf?la=en&rev=D789&hash=F592D2B55B9B47585B43164CE5EBBBB7",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-report-english/demant-interim-report-2023.pdf?la=en&rev=AEF1&hash=59A2A1CEBE71F6DA7C8094D15DFD9118",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-report-english/demant-interim-report-2024.pdf?la=en&rev=1135&hash=4B052AA66AB284A8A0FBCEA4AFA88312",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-report-english/demant-interim-report-2025.pdf?la=en&rev=B4F1&hash=AB738DF19611FBA7EBD44AC64A706528",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/financial-reports/interim-report-english/demant-interim-report-2026.pdf?la=en&rev=E607&hash=FD2E1353F913D2E4D808ADF0A584668A",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/group-policies/demant-group-policy-on-diversity-and-inclusion-approved-30-jan-2026.pdf?la=en&rev=BEC7&hash=D6F511A209FE53452B7C5958E069DBB4",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/group-policies/sustainability-policy_version1_2025-update.pdf?la=en&rev=6C05&hash=4E72F714705145F6E1FAFE2EB04E953D",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-news---capital-markets-day-2026.pdf?la=en&rev=1956&hash=8DD4F5252A05E2CB987FCCED8055C6CE",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-news---demant-announces-launch-of-new-flagship-hearing-aids.pdf?la=en&rev=3868&hash=96913368A1C06171BA0DF1F29167F5DA",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/capital-markets-day-2026---full-presentation.pdf?la=en&rev=847D&hash=9D85332597F12152EF0FFC426407E72F",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/demant-cmd-2016-presentation.pdf?la=en&rev=9A76&hash=896C305B44B4C4FCA74F5A50E08D722B",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/demant-cmd-2018-presentation.pdf?la=en&rev=08E6&hash=DC5748A5CDEB35CA3485B628C4D664DD",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/demant-cmd-2021-presentation.pdf?la=en&rev=0925&hash=D3B00A9189AFA073B3508C7B7F896CFE",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/demant-cmd-2024-presentation.pdf?la=en&rev=FAB8&hash=652682B224DE7DEE934FE01677CE856D",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/demant-cmd-2024-presentation.pdf?la=en&rev=FAB8&hash=652682B224DE7DEE934FE01677CE856D&hash=652682B224DE7DEE934FE01677CE856D",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/diagnostics-cmd-2026.pdf?la=en&rev=072F&hash=B95E714C8BCB39F9482FF73FFE8C56C5",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/financial-update-cmd-2026.pdf?la=en&rev=EF08&hash=96BA35DFACEAEE44B24A8AF05DB620C3",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/group-strategy-cmd-2026.pdf?la=en&rev=CF16&hash=C79FF83A52BC4897F2E9453612C8ADF7",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/hearing-aids-cmd-2026.pdf?la=en&rev=D2E6&hash=86C57FFE1FFBD6B6DB5FA3C2836983DB",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/capital-markets-day/hearing-care-cmd-2026.pdf?la=en&rev=5B80&hash=A85E29E9616210ED5FE06E8B2FF9B536",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/investor-relations/investor-presentations/demant-investor-presentation-q3-2026.pdf?la=en&rev=D96B&hash=D3794B294F289D68C71E8F445BD5F227",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/remuneration/policy/remuneration-policy-2026.pdf?la=en&rev=B66D&hash=154D0A7ED4C99FD8A9F802EA3654F49C",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/remuneration/report/remuneration-report-2025.pdf?la=en&rev=4369&hash=D93962B7DAE5895E358C904A95BB7CE2",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/sustainability/danish-financial-statement-act-section-107.pdf?la=en&rev=F031&hash=C494A096CDF9550E266AA65D215598B5",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/sustainability/h1--sustainability-reporting.pdf?la=en&rev=1DE5&hash=34257FB21E051D1A9D82A5302C082557",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/sustainability/responsible-marketing_diagnostics_2024.pdf?la=en&rev=259D&hash=0E5856F54B42EF32F961BD7D99FF37F3",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/sustainability/responsible-marketing_hearing-aids-2024.pdf?la=en&rev=5A50&hash=148E69CB214F31A1852397290D2CE24F",
+    "https://assets-we.cas.dgs.com/-/media/demant/shared/new-library-2022/sustainability/sdg-mapping_2025.pdf?la=en&rev=0E21&hash=DB32C10530FF4ABBF0E738415C19C7F7",
+    "https://careers.demant.com/",
+    "https://careers.demant.com/?locale=da_DK",
+    "https://careers.demant.com/?locale=de_CH",
+    "https://careers.demant.com/?locale=de_DE",
+    "https://careers.demant.com/?locale=en_GB",
+    "https://careers.demant.com/?locale=en_US",
+    "https://careers.demant.com/?locale=es_ES",
+    "https://careers.demant.com/?locale=fr_FR",
+    "https://careers.demant.com/?locale=it_IT",
+    "https://careers.demant.com/?locale=nl_NL",
+    "https://careers.demant.com/?locale=pl_PL",
+    "https://careers.demant.com/?locale=pt_PT",
+    "https://careers.demant.com/?locale=sv_SE",
+    "https://careers.demant.com/Demant_Aides_Auditives_FR/go/Demant_Aides_Auditives_France/9811701/",
+    "https://careers.demant.com/OticonMedical/go/Oticon-Medical-Vacancies/8760901/",
+    "https://careers.demant.com/audika",
+    "https://careers.demant.com/bernafon/go/Bernafon-Vacancies/9147501/",
+    "https://careers.demant.com/demant/go/Demant-Vacancies-EN/9062301/",
+    "https://careers.demant.com/diatec/go/Diatec-France-Vacancies-EN/9811901/",
+    "https://careers.demant.com/epos/go/Epos-Vacancies/8758601/",
+    "https://careers.demant.com/interacoustics/go/Interacoustics-Vacancies/8759001/",
+    "https://careers.demant.com/oticon/go/Oticon-Vacancies-EN/8758901/",
+    "https://careers.demant.com/search/",
+    "https://careers.demant.com/search/?createNewAlert=false&q=student&optionsFacetsDD_customfield3=&optionsFacetsDD_customfield4=Denmark&optionsFacetsDD_customfield5=",
+    "https://careers.demant.com/search/?createNewAlert=false&q=student+&optionsFacetsDD_customfield3=&optionsFacetsDD_customfield4=&optionsFacetsDD_customfield5=",
+    "https://careers.us.demant.com/careers-home",
+    "https://ghgprotocol.org/sites/default/files/standards_supporting/Chapter1.pdf",
+    "https://www.demant.com/",
+    "https://www.demant.com/404",
+    "https://www.demant.com/404?item=web%3a%7b274955CE-6FD5-4E2E-B819-CB009E47E5D0%7d%40en",
+    "https://www.demant.com/404?item=web%3a%7b851029B6-A46E-476F-B380-590DAB281251%7d%40en",
+    "https://www.demant.com/404?item=web%3a%7bDB9A9FD3-9EEF-4B54-BB7C-0927871183AD%7d%40en",
+    "https://www.demant.com/500",
+    "https://www.demant.com/about",
+    "https://www.demant.com/about/business-ethics",
+    "https://www.demant.com/about/latest-news",
+    "https://www.demant.com/about/latest-news/120-years-anniversary",
+    "https://www.demant.com/about/latest-news/2022_-epos-introduces-meeting-room",
+    "https://www.demant.com/about/latest-news/2022_-row-1-less-than-20-of-brits",
+    "https://www.demant.com/about/latest-news/2022_-row-1-sonic-expands",
+    "https://www.demant.com/about/latest-news/2022_-row-2-demant-expands-the-ex-board",
+    "https://www.demant.com/about/latest-news/2022_demant-completes-acquisition-shenwang",
+    "https://www.demant.com/about/latest-news/2022_interacoustics-obtains-recognised",
+    "https://www.demant.com/about/latest-news/2022_row-1-_-discontinue-of-hearing-implants",
+    "https://www.demant.com/about/latest-news/2022_row-1meet-a-happy-philips",
+    "https://www.demant.com/about/latest-news/2022_row-3-bernefon-alpha-is-now-available",
+    "https://www.demant.com/about/latest-news/2022_row-3-demant-establishes-kuala-lumpur",
+    "https://www.demant.com/about/latest-news/2022_row-3-succesful-eriksholm",
+    "https://www.demant.com/about/latest-news/2022_row-3-tvr-chair",
+    "https://www.demant.com/about/latest-news/2022_row-4-poor-audio-causes",
+    "https://www.demant.com/about/latest-news/2022_row-4-world-class-hearing-solutions",
+    "https://www.demant.com/about/latest-news/2022_row-4_-hearing-care",
+    "https://www.demant.com/about/latest-news/2022_row-william-demant-foundation",
+    "https://www.demant.com/about/latest-news/2023-audika-doubles-its-presence-in-belgium",
+    "https://www.demant.com/about/latest-news/2023-grand-opening-of-the-new-diagnostics-facility",
+    "https://www.demant.com/about/latest-news/2023-increasing-the-awareness-in-china",
+    "https://www.demant.com/about/latest-news/2023-interacoustics-launches-new-breakthrough-hearing-test",
+    "https://www.demant.com/about/latest-news/2023-lenove-and-epos",
+    "https://www.demant.com/about/latest-news/2023-philips-hearing-solutions-releases-the-hear-link",
+    "https://www.demant.com/about/latest-news/2023-world-hearing-day",
+    "https://www.demant.com/about/latest-news/2023_demant-joins-forces-with-network-net-zero",
+    "https://www.demant.com/about/latest-news/2023_oticon-releases-new-premium-hearing-aids",
+    "https://www.demant.com/about/latest-news/2023_renewable-electricity-targest",
+    "https://www.demant.com/about/latest-news/2023_row-1-tune-in-to-campaign",
+    "https://www.demant.com/about/latest-news/2024-bernafon-launch",
+    "https://www.demant.com/about/latest-news/anne-karen",
+    "https://www.demant.com/about/latest-news/audika-acquisition",
+    "https://www.demant.com/about/latest-news/bassel-rifai",
+    "https://www.demant.com/about/latest-news/bernafon-launch-2025",
+    "https://www.demant.com/about/latest-news/copy-of-2023-audika-doubles-its-presence-in-belgium",
+    "https://www.demant.com/about/latest-news/copy-of-2023-new-bernafon-alpha-xt-hearing-aids",
+    "https://www.demant.com/about/latest-news/diagnostics-business-areas-life-cycle-assestment",
+    "https://www.demant.com/about/latest-news/epos-sale",
+    "https://www.demant.com/about/latest-news/equinox-evo",
+    "https://www.demant.com/about/latest-news/eriksholm-summer-camp-experience",
+    "https://www.demant.com/about/latest-news/gsi-anniversary",
+    "https://www.demant.com/about/latest-news/hackaton",
+    "https://www.demant.com/about/latest-news/hr-and-sustainablity-policies",
+    "https://www.demant.com/about/latest-news/interacoustics-aided-cortial-test",
+    "https://www.demant.com/about/latest-news/kind",
+    "https://www.demant.com/about/latest-news/meet-the-new-radiant-se-product-family-from-sonic",
+    "https://www.demant.com/about/latest-news/ohrwerk",
+    "https://www.demant.com/about/latest-news/oticon-medical-sale",
+    "https://www.demant.com/about/latest-news/oticon-medical-to-impilo",
+    "https://www.demant.com/about/latest-news/oticon-own-and-jet",
+    "https://www.demant.com/about/latest-news/oticon-unveils-oticon-intent",
+    "https://www.demant.com/about/latest-news/oticon-zeal",
+    "https://www.demant.com/about/latest-news/philips-hearlink",
+    "https://www.demant.com/about/latest-news/plastic-from-production",
+    "https://www.demant.com/about/latest-news/play-and-verit",
+    "https://www.demant.com/about/latest-news/producing-hearing-aids-in-demant",
+    "https://www.demant.com/about/latest-news/renewable-electricity-in-2023",
+    "https://www.demant.com/about/latest-news/reveal",
+    "https://www.demant.com/about/latest-news/row-1---bernafon-celebrates",
+    "https://www.demant.com/about/latest-news/row-1-audika-at-the-forfront-of-digital-innovation",
+    "https://www.demant.com/about/latest-news/row-1-oticon-more-sparks-va",
+    "https://www.demant.com/about/latest-news/row-2---epos-takes-first-steps-expand",
+    "https://www.demant.com/about/latest-news/row-2-epos-teams-up-with-aston-martin",
+    "https://www.demant.com/about/latest-news/row-2-hearing-aids-reduces-plastic-waste",
+    "https://www.demant.com/about/latest-news/row-2-wearing-hearing-aids-and-stress",
+    "https://www.demant.com/about/latest-news/row-3-demant-expands-in-north-america",
+    "https://www.demant.com/about/latest-news/row-3-gender-diversity-pledge",
+    "https://www.demant.com/about/latest-news/row-3-new-device-ci-users",
+    "https://www.demant.com/about/latest-news/row-3-oticon-medical-receives-fda-approbal",
+    "https://www.demant.com/about/latest-news/row-4-epos-laundhes-the-gaming-headset",
+    "https://www.demant.com/about/latest-news/row-4-oticon-medical-introduces-one-step-drilling",
+    "https://www.demant.com/about/latest-news/row-4-oticon-medical-launches-bone-anchored",
+    "https://www.demant.com/about/latest-news/row-4-visual-reinforment-help-screen",
+    "https://www.demant.com/about/latest-news/row-5-audika-continues-to-expand",
+    "https://www.demant.com/about/latest-news/row-5-demant-commits-to-setting-ambitious",
+    "https://www.demant.com/about/latest-news/row-5-oticon-my-music",
+    "https://www.demant.com/about/latest-news/row-5-william-demant-foundation",
+    "https://www.demant.com/about/latest-news/row1---interacoustics-launches-luna",
+    "https://www.demant.com/about/latest-news/science-based-targets-approved",
+    "https://www.demant.com/about/latest-news/supplier-engagement-programme",
+    "https://www.demant.com/about/latest-news/world-hearing-day",
+    "https://www.demant.com/about/management-and-governance",
+    "https://www.demant.com/about/management-and-governance/anne_karen-hunt",
+    "https://www.demant.com/about/management-and-governance/bassel-rifai",
+    "https://www.demant.com/about/management-and-governance/katrin-pucknat",
+    "https://www.demant.com/about/management-and-governance/page---anders-hojsgaard-thomsen",
+    "https://www.demant.com/about/management-and-governance/page---committees",
+    "https://www.demant.com/about/management-and-governance/page---heidir-horby",
+    "https://www.demant.com/about/management-and-governance/page---kristian-villumsen",
+    "https://www.demant.com/about/management-and-governance/page---niels-b-christiansen",
+    "https://www.demant.com/about/management-and-governance/page---niels-jacobsen",
+    "https://www.demant.com/about/management-and-governance/page---niels-wagner",
+    "https://www.demant.com/about/management-and-governance/page---rene-schneider-bio",
+    "https://www.demant.com/about/management-and-governance/page---sisse-fjelsted-rasmussen",
+    "https://www.demant.com/about/management-and-governance/page---soren-nielsen-bio",
+    "https://www.demant.com/about/management-and-governance/page---thomas-duer",
+    "https://www.demant.com/about/management-and-governance/thomas-hofman-bang",
+    "https://www.demant.com/about/our-business",
+    "https://www.demant.com/about/our-history",
+    "https://www.demant.com/about/our-strategy",
+    "https://www.demant.com/about/purpose-and-strategy",
+    "https://www.demant.com/about/sound-audio-and-good-hearing",
+    "https://www.demant.com/about/sound-audio-and-good-hearing#whd",
+    "https://www.demant.com/about/the-demant-identity",
+    "https://www.demant.com/be-fr",
+    "https://www.demant.com/blog/graduate-blog",
+    "https://www.demant.com/blog/graduate-blog/authors/acdc",
+    "https://www.demant.com/blog/graduate-blog/authors/adyl",
+    "https://www.demant.com/blog/graduate-blog/authors/aesf",
+    "https://www.demant.com/blog/graduate-blog/authors/axti",
+    "https://www.demant.com/blog/graduate-blog/authors/cajv",
+    "https://www.demant.com/blog/graduate-blog/authors/cidc",
+    "https://www.demant.com/blog/graduate-blog/authors/coyu",
+    "https://www.demant.com/blog/graduate-blog/authors/crdk",
+    "https://www.demant.com/blog/graduate-blog/authors/detc",
+    "https://www.demant.com/blog/graduate-blog/authors/dgue",
+    "https://www.demant.com/blog/graduate-blog/authors/dlor",
+    "https://www.demant.com/blog/graduate-blog/authors/edon",
+    "https://www.demant.com/blog/graduate-blog/authors/esvo",
+    "https://www.demant.com/blog/graduate-blog/authors/filg",
+    "https://www.demant.com/blog/graduate-blog/authors/frgj",
+    "https://www.demant.com/blog/graduate-blog/authors/frrv",
+    "https://www.demant.com/blog/graduate-blog/authors/fsas",
+    "https://www.demant.com/blog/graduate-blog/authors/gaiv",
+    "https://www.demant.com/blog/graduate-blog/authors/gifa",
+    "https://www.demant.com/blog/graduate-blog/authors/hafk",
+    "https://www.demant.com/blog/graduate-blog/authors/jbfi",
+    "https://www.demant.com/blog/graduate-blog/authors/jcrh",
+    "https://www.demant.com/blog/graduate-blog/authors/jewf",
+    "https://www.demant.com/blog/graduate-blog/authors/jnuo",
+    "https://www.demant.com/blog/graduate-blog/authors/jovb",
+    "https://www.demant.com/blog/graduate-blog/authors/kozr",
+    "https://www.demant.com/blog/graduate-blog/authors/lrdn",
+    "https://www.demant.com/blog/graduate-blog/authors/mcce",
+    "https://www.demant.com/blog/graduate-blog/authors/mdhh",
+    "https://www.demant.com/blog/graduate-blog/authors/mhdb",
+    "https://www.demant.com/blog/graduate-blog/authors/mmhh",
+    "https://www.demant.com/blog/graduate-blog/authors/mtfd",
+    "https://www.demant.com/blog/graduate-blog/authors/mtmf",
+    "https://www.demant.com/blog/graduate-blog/authors/muaw",
+    "https://www.demant.com/blog/graduate-blog/authors/muid",
+    "https://www.demant.com/blog/graduate-blog/authors/musc",
+    "https://www.demant.com/blog/graduate-blog/authors/naht",
+    "https://www.demant.com/blog/graduate-blog/authors/nibv",
+    "https://www.demant.com/blog/graduate-blog/authors/niov",
+    "https://www.demant.com/blog/graduate-blog/authors/nlki",
+    "https://www.demant.com/blog/graduate-blog/authors/olcs",
+    "https://www.demant.com/blog/graduate-blog/authors/olit",
+    "https://www.demant.com/blog/graduate-blog/authors/ossn",
+    "https://www.demant.com/blog/graduate-blog/authors/ovel",
+    "https://www.demant.com/blog/graduate-blog/authors/penn",
+    "https://www.demant.com/blog/graduate-blog/authors/plcl",
+    "https://www.demant.com/blog/graduate-blog/authors/risb",
+    "https://www.demant.com/blog/graduate-blog/authors/sbeo",
+    "https://www.demant.com/blog/graduate-blog/authors/soug",
+    "https://www.demant.com/blog/graduate-blog/authors/tecb",
+    "https://www.demant.com/blog/graduate-blog/authors/todh",
+    "https://www.demant.com/blog/graduate-blog/authors/xizn",
+    "https://www.demant.com/blog/graduate-blog/authors/zske",
+    "https://www.demant.com/blog/graduate-blog/posts/post---esvo",
+    "https://www.demant.com/blog/graduate-blog/posts/post--penn",
+    "https://www.demant.com/blog/graduate-blog/posts/post-cidc",
+    "https://www.demant.com/blog/graduate-blog/posts/post-coyu",
+    "https://www.demant.com/blog/graduate-blog/posts/post-dlor",
+    "https://www.demant.com/blog/graduate-blog/posts/post-frrv",
+    "https://www.demant.com/blog/graduate-blog/posts/post-gifa",
+    "https://www.demant.com/blog/graduate-blog/posts/post-jfbi",
+    "https://www.demant.com/blog/graduate-blog/posts/post-jnuo",
+    "https://www.demant.com/blog/graduate-blog/posts/post-lrdn",
+    "https://www.demant.com/blog/graduate-blog/posts/post-mhdb",
+    "https://www.demant.com/blog/graduate-blog/posts/post-mhdb-part-ii",
+    "https://www.demant.com/blog/graduate-blog/posts/post-muaw",
+    "https://www.demant.com/blog/graduate-blog/posts/post-naht",
+    "https://www.demant.com/blog/graduate-blog/posts/post-nlki",
+    "https://www.demant.com/blog/graduate-blog/posts/post-olcs",
+    "https://www.demant.com/blog/graduate-blog/posts/post-ossn",
+    "https://www.demant.com/blog/graduate-blog/posts/post-ovel",
+    "https://www.demant.com/blog/graduate-blog/posts/post-xizn",
+    "https://www.demant.com/blog/graduate-blog?category=Application%20process",
+    "https://www.demant.com/blog/graduate-blog?category=Culture%20at%20Demant",
+    "https://www.demant.com/blog/graduate-blog?category=Graduate%20tracks",
+    "https://www.demant.com/blog/graduate-blog?category=Other%20categories",
+    "https://www.demant.com/blog/graduate-blog?category=The%20Programme",
+    "https://www.demant.com/blog/graduate-blog?category=Working%20in%20Denmark",
+    "https://www.demant.com/blog/meet-our-graduates",
+    "https://www.demant.com/br",
+    "https://www.demant.com/ch-de",
+    "https://www.demant.com/contact",
+    "https://www.demant.com/cookie-policy",
+    "https://www.demant.com/coronavirus",
+    "https://www.demant.com/fr",
+    "https://www.demant.com/hearing-health/hearing-is-health",
+    "https://www.demant.com/investor-relations",
+    "https://www.demant.com/investor-relations/analysts-and-estimates",
+    "https://www.demant.com/investor-relations/annual-general-meeting",
+    "https://www.demant.com/investor-relations/annual-report-2018",
+    "https://www.demant.com/investor-relations/annual-report-2019",
+    "https://www.demant.com/investor-relations/annual-report-2020",
+    "https://www.demant.com/investor-relations/annual-report-2021",
+    "https://www.demant.com/investor-relations/annual-report-2022",
+    "https://www.demant.com/investor-relations/annual-report-2022/ceo-letter",
+    "https://www.demant.com/investor-relations/annual-report-2023",
+    "https://www.demant.com/investor-relations/annual-report-2023/ceo-letter",
+    "https://www.demant.com/investor-relations/annual-report-2024",
+    "https://www.demant.com/investor-relations/annual-report-2025",
+    "https://www.demant.com/investor-relations/capital-markets-day",
+    "https://www.demant.com/investor-relations/company-announcements",
+    "https://www.demant.com/investor-relations/company-announcements---dk",
+    "https://www.demant.com/investor-relations/contact-calendar-and-events",
+    "https://www.demant.com/investor-relations/essentials",
+    "https://www.demant.com/investor-relations/reports",
+    "https://www.demant.com/investor-relations/shareholder-portal",
+    "https://www.demant.com/job-and-career/graduate-programme",
+    "https://www.demant.com/jobs-and-career",
+    "https://www.demant.com/jobs-and-career/audio-explorers",
+    "https://www.demant.com/jobs-and-career/careers-that-matter",
+    "https://www.demant.com/jobs-and-career/demant-oticon",
+    "https://www.demant.com/jobs-and-career/graduate-programme",
+    "https://www.demant.com/jobs-and-career/graduate-programme/data/copy-of-meet-our-graduates",
+    "https://www.demant.com/jobs-and-career/job-openings",
+    "https://www.demant.com/jobs-and-career/job-openings/jobdetails2",
+    "https://www.demant.com/jobs-and-career/job-openings/jobs",
+    "https://www.demant.com/jobs-and-career/our-culture",
+    "https://www.demant.com/jobs-and-career/students",
+    "https://www.demant.com/jobs-and-career/toolshop",
+    "https://www.demant.com/news-and-media",
+    "https://www.demant.com/news-and-media/",
+    "https://www.demant.com/nl",
+    "https://www.demant.com/privacy-notice",
+    "https://www.demant.com/reports-2022",
+    "https://www.demant.com/reports-2022/annual-report-2022",
+    "https://www.demant.com/reports-2022/corporate-governance-report-2022",
+    "https://www.demant.com/reports-2022/data-ethics-policy",
+    "https://www.demant.com/reports-2022/policy-on-diversity-equity-and-inclusion",
+    "https://www.demant.com/reports-2022/remuneration-report-2022",
+    "https://www.demant.com/reports-2022/sustainability-report-2022",
+    "https://www.demant.com/reports-2023",
+    "https://www.demant.com/reports-2023/annual-report-2023",
+    "https://www.demant.com/reports-2023/corporate-governance-report-2023",
+    "https://www.demant.com/reports-2023/data-ethics-policy",
+    "https://www.demant.com/reports-2023/policy-on-diversity-equity-and-inclusion",
+    "https://www.demant.com/reports-2023/remuneration-report-2023",
+    "https://www.demant.com/reports-2023/sustainability-report-2023",
+    "https://www.demant.com/reports-2024",
+    "https://www.demant.com/reports-2024/annual-report-2024",
+    "https://www.demant.com/reports-2024/corporate-governance-report-2024",
+    "https://www.demant.com/reports-2024/data-ethics-policy",
+    "https://www.demant.com/reports-2024/policy-on-diversity-equity-and-inclusion",
+    "https://www.demant.com/reports-2024/remuneration-report-2024",
+    "https://www.demant.com/reports-2025",
+    "https://www.demant.com/reports-2025/annual-report-2025",
+    "https://www.demant.com/reports-2025/corporate-governance-report-2025",
+    "https://www.demant.com/reports-2025/data-ethics-policy",
+    "https://www.demant.com/reports-2025/policy-on-diversity-and-inclusion",
+    "https://www.demant.com/reports-2025/remuneration-report-2025",
+    "https://www.demant.com/search",
+    "https://www.demant.com/sustainability",
+    "https://www.demant.com/sustainability/EditorPage.aspx?da=core&id=%7B6A3F209A-40BA-4D7C-A1F7-9A16EB40695B%7D&ed=FIELD1885814509&vs&la=en&fld=%7BAE1EEC14-DB32-4512-B85B-7912556DAB72%7D&so=%2Fsitecore%2Fsystem%2FSettings%2FHtml%20Editor%20Profiles%2FRich%20Text%20WDH&di=0&hdl=H1885814607&mo&pe=0&fbd=1",
+    "https://www.demant.com/sustainability/copy-of-caring-for-people",
+    "https://www.demant.com/sustainability/copy-of-our-core-impact",
+    "https://www.demant.com/sustainability/copy-of-performing-with-integrity",
+    "https://www.demant.com/sustainability/copy-of-respect-for-the-planet",
+    "https://www.demant.com/sustainability/copy-of-sustainability-at-a-glance",
+    "https://www.demant.com/sustainability/environment-and-climate",
+    "https://www.demant.com/sustainability/our-core-impact",
+    "https://www.demant.com/sustainability/performing-with-integrity",
+    "https://www.demant.com/sustainability/supplier-engagement-programme",
+    "https://www.demant.com/sustainability/sustainability-at-a-glance",
+    "https://www.demant.com/tr",
+    "https://www.demant.com/whd"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "checks": {
+    "catalogUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "documentUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "modelUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "supportUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ]
+  },
+  "generatedAt": "2026-11-27T18:57:04.771Z",
+  "proposal": {
+    "catalogUrls": [
+      "https://www.hearingsolutions.philips.com/en-us/products/hearing-aids"
+    ],
+    "documentUrlPattern": "^https://damcdn\\.demant\\.com/[0-9a-f-]+/.+\\.pdf$",
+    "modelUrlPattern": "^https://www\\.hearingsolutions\\.philips\\.com/en-us/products/\\d+/hearlink-[a-z0-9-]+$",
+    "render": false,
+    "status": "active",
+    "supportUrls": [
+      "https://www.hearingsolutions.philips.com/en-us/products/hearlink-2-app"
+    ]
+  }
+}

@@ -1,0 +1,277 @@
+{
+  "domain": "apple.com",
+  "generatedAt": "2026-11-27T18:46:25.038Z",
+  "model": "sonnet",
+  "openQuestions": [
+    "Which URLs do the per-model Tech specs links on the compare page use? The report does not show them.",
+    "Where are the user guides and support pages for AirPods Pro 3?",
+    "Do other regional paths such as /uk/airpods-pro/ hold different catalogs?",
+    "Is the AirPods Pro 2 hearing-aid page separate from this section?"
+  ],
+  "sections": {
+    "archive": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:23.275Z",
+            "url": "https://www.apple.com/airpods-pro/"
+          }
+        ],
+        "text": "The Web Archive has copies of https://www.apple.com/airpods-pro/ every year from 2019 to 2026, 261 in 2026. The latest is 20261121081114."
+      }
+    ],
+    "links": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:23.275Z",
+            "url": "https://www.apple.com/airpods-pro/"
+          },
+          {
+            "fetchedAt": "2026-11-27T16:59:32.410Z",
+            "url": "https://www.apple.com/airpods-pro/specs/"
+          }
+        ],
+        "text": "Outbound links go to icloud.com and regulations.gov. Apple Card PDFs sit on goldmansachs.com and are not product documents."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:32.410Z",
+            "url": "https://www.apple.com/airpods-pro/specs/"
+          }
+        ],
+        "text": "PDFs are hosted on apple.com under /environment/pdf/."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:23.275Z",
+            "url": "https://www.apple.com/airpods-pro/"
+          }
+        ],
+        "text": "The report lists no redirects."
+      }
+    ],
+    "next": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:28.792Z",
+            "url": "https://www.apple.com/airpods-pro/hearing-health/"
+          }
+        ],
+        "text": "Check support.apple.com for the Hearing Aid user guide and the other AirPods Pro 3 documents."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:35.079Z",
+            "url": "https://www.apple.com/airpods-pro/compare/"
+          }
+        ],
+        "text": "Check the per-model tech specs pages linked from the compare page, which the include rule excludes."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:38.397Z",
+            "url": "https://www.apple.com/airpods-pro/feature-availability/"
+          }
+        ],
+        "text": "Check the feature-availability page for the country lists of the hearing features."
+      }
+    ],
+    "render": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:23.275Z",
+            "url": "https://www.apple.com/airpods-pro/"
+          },
+          {
+            "fetchedAt": "2026-11-27T16:59:28.792Z",
+            "url": "https://www.apple.com/airpods-pro/hearing-health/"
+          },
+          {
+            "fetchedAt": "2026-11-27T16:59:32.410Z",
+            "url": "https://www.apple.com/airpods-pro/specs/"
+          },
+          {
+            "fetchedAt": "2026-11-27T16:59:35.079Z",
+            "url": "https://www.apple.com/airpods-pro/compare/"
+          },
+          {
+            "fetchedAt": "2026-11-27T16:59:38.397Z",
+            "url": "https://www.apple.com/airpods-pro/feature-availability/"
+          }
+        ],
+        "text": "All five pages are flagged needsRender false and the report lists no failures."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:23.275Z",
+            "url": "https://www.apple.com/airpods-pro/"
+          },
+          {
+            "fetchedAt": "2026-11-27T16:59:32.410Z",
+            "url": "https://www.apple.com/airpods-pro/specs/"
+          }
+        ],
+        "text": "The overview and specs pages carry Product JSON-LD."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:23.275Z",
+            "url": "https://www.apple.com/airpods-pro/"
+          }
+        ],
+        "text": "The pages mix in unrelated content: Apple Card promo terms and a global footer. Footnotes carry dated claims such as battery tests."
+      }
+    ],
+    "structure": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:23.275Z",
+            "url": "https://www.apple.com/airpods-pro/"
+          },
+          {
+            "fetchedAt": "2026-11-27T16:59:28.792Z",
+            "url": "https://www.apple.com/airpods-pro/hearing-health/"
+          },
+          {
+            "fetchedAt": "2026-11-27T16:59:32.410Z",
+            "url": "https://www.apple.com/airpods-pro/specs/"
+          },
+          {
+            "fetchedAt": "2026-11-27T16:59:35.079Z",
+            "url": "https://www.apple.com/airpods-pro/compare/"
+          },
+          {
+            "fetchedAt": "2026-11-27T16:59:38.397Z",
+            "url": "https://www.apple.com/airpods-pro/feature-availability/"
+          }
+        ],
+        "text": "The section has five pages: overview, hearing-health, specs, compare and feature-availability. The report's template is https://www.apple.com/airpods-pro/{slug}."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:58:06.801Z",
+            "url": "https://www.apple.com/robots.txt"
+          },
+          {
+            "fetchedAt": "2026-11-27T16:58:11.296Z",
+            "url": "https://www.apple.com/shop/sitemap.xml"
+          }
+        ],
+        "text": "robots.txt lists sitemaps for shop, autopush, newsroom, retail and today. The report found 0 URLs in sitemaps, and none of them is specific to airpods-pro."
+      }
+    ],
+    "what": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:23.275Z",
+            "url": "https://www.apple.com/airpods-pro/"
+          }
+        ],
+        "text": "The site is Apple's own AirPods Pro 3 product section on apple.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:28.792Z",
+            "url": "https://www.apple.com/airpods-pro/hearing-health/"
+          }
+        ],
+        "text": "AirPods Pro 3 is a consumer earbud with Hearing Test, Hearing Aid and Hearing Protection features, used with an iPhone or iPad."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:28.792Z",
+            "url": "https://www.apple.com/airpods-pro/hearing-health/"
+          }
+        ],
+        "text": "The Hearing Aid feature has received FDA authorization. It is meant for people with perceived mild to moderate hearing loss."
+      }
+    ],
+    "where": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:23.275Z",
+            "url": "https://www.apple.com/airpods-pro/"
+          }
+        ],
+        "text": "The catalog entry is the overview page, which compares AirPods Pro 3 with AirPods 5 and links to all AirPods models."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:35.079Z",
+            "url": "https://www.apple.com/airpods-pro/compare/"
+          }
+        ],
+        "text": "The compare page lists AirPods 5, AirPods 4, AirPods Pro 3, AirPods Pro 2, AirPods Max, AirPods Max 2 and AirPods (2nd and 3rd generation), each with its own tech specs link."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:32.410Z",
+            "url": "https://www.apple.com/airpods-pro/specs/"
+          }
+        ],
+        "text": "The specs page holds the AirPods Pro 3 technical data and is the only model-level page in this section."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:32.410Z",
+            "url": "https://www.apple.com/airpods-pro/specs/"
+          }
+        ],
+        "text": "Documents are Apple environmental PDFs: the AirPods Pro 3 Product Environmental Report, the Regulated Substances Specification and the Environmental Progress Report 2026. No user guide or datasheet is linked."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:28.792Z",
+            "url": "https://www.apple.com/airpods-pro/hearing-health/"
+          },
+          {
+            "fetchedAt": "2026-11-27T16:59:35.079Z",
+            "url": "https://www.apple.com/airpods-pro/compare/"
+          }
+        ],
+        "text": "The footnotes point to support.apple.com articles (120850, 120409, 123184) for Hearing Protection, cleaning and heart rate. The report does not list a support page."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T16:59:23.275Z",
+            "url": "https://www.apple.com/airpods-pro/"
+          }
+        ],
+        "text": "The pages link to one iOS app, id 375380948, and no Android app."
+      }
+    ]
+  },
+  "summary": {
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T16:59:23.275Z",
+        "url": "https://www.apple.com/airpods-pro/"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:59:28.792Z",
+        "url": "https://www.apple.com/airpods-pro/hearing-health/"
+      }
+    ],
+    "text": "Apple's AirPods Pro 3 section on apple.com: a consumer earbud with a Hearing Aid feature (FDA-authorized), served as static HTML with five pages and no model-per-URL catalog."
+  }
+}

@@ -1,0 +1,2955 @@
+{
+  "archive": {
+    "sections": [
+      {
+        "byYear": {
+          "2018": 87,
+          "2019": 65,
+          "2020": 78,
+          "2021": 71,
+          "2022": 65,
+          "2023": 70,
+          "2024": 118,
+          "2025": 117,
+          "2026": 65
+        },
+        "latest": "20261012060752",
+        "url": "https://www.starkey.com"
+      },
+      {
+        "byYear": {
+          "2018": 3,
+          "2019": 13,
+          "2020": 16,
+          "2021": 25,
+          "2022": 17,
+          "2023": 17,
+          "2024": 30,
+          "2025": 27,
+          "2026": 16
+        },
+        "latest": "20261025124432",
+        "url": "https://www.starkey.com/hearing-aids"
+      }
+    ]
+  },
+  "budget": 60,
+  "domain": "starkey.com",
+  "failures": [
+    {
+      "detail": "HTTP 404",
+      "reason": "http-error",
+      "url": "http://www.starkey.com/sitemap.xml"
+    }
+  ],
+  "generatedAt": "2026-11-27T18:09:14.826Z",
+  "mode": "live",
+  "outbound": [
+    {
+      "count": 62,
+      "domain": "twitter.com",
+      "examples": [
+        "https://twitter.com/starkeyhearing",
+        "https://twitter.com/BillFAustin",
+        "https://twitter.com/BrandonSawalich"
+      ]
+    },
+    {
+      "count": 60,
+      "domain": "facebook.com",
+      "examples": [
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts"
+      ]
+    },
+    {
+      "count": 60,
+      "domain": "instagram.com",
+      "examples": [
+        "https://instagram.com/starkeyhearing/"
+      ]
+    },
+    {
+      "count": 60,
+      "domain": "linkedin.com",
+      "examples": [
+        "https://www.linkedin.com/company/11073/"
+      ]
+    },
+    {
+      "count": 60,
+      "domain": "starkeyhearingfoundation.org",
+      "examples": [
+        "https://www.starkeyhearingfoundation.org/"
+      ]
+    },
+    {
+      "count": 60,
+      "domain": "youtube.com",
+      "examples": [
+        "https://www.youtube.com/user/StarkeyLabs"
+      ]
+    },
+    {
+      "count": 59,
+      "domain": "starkeypro.com",
+      "examples": [
+        "https://www.starkeypro.com/"
+      ]
+    },
+    {
+      "count": 5,
+      "domain": "play.google.com",
+      "examples": [
+        "https://play.google.com/store/apps/details?id=com.starkey.mystarkey.release",
+        "https://play.google.com/store/apps/details?id=com.starkey.T2Remote.android&hl=en_US",
+        "https://play.google.com/store/apps/details?id=com.starkey.soundchecklive.release"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "apps.apple.com",
+      "examples": [
+        "https://apps.apple.com/us/app/my-starkey/id1549559068",
+        "https://apps.apple.com/us/app/starkey-t-remote/id336938292",
+        "https://apps.apple.com/us/app/soundcheck-live/id6449296331"
+      ]
+    },
+    {
+      "count": 3,
+      "domain": "jamanetwork.com",
+      "examples": [
+        "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2824287",
+        "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/1108740",
+        "https://jamanetwork.com/journals/jamaotolaryngology/article-abstract/2676015"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "ar.starkeymea.com",
+      "examples": [
+        "https://ar.starkeymea.com/",
+        "https://ar.starkeymea.com/?sc_lang=ar-SA"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "cdc.gov",
+      "examples": [
+        "https://www.cdc.gov/nchs/fastats/disability.htm"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "dataprivacyframework.gov",
+      "examples": [
+        "https://www.dataprivacyframework.gov/",
+        "https://www.dataprivacyframework.gov/s/article/ANNEX-I-introduction-dpf?hl=en_IN&tabset-35584=2"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "nidcd.nih.gov",
+      "examples": [
+        "https://www.nidcd.nih.gov/health/age-related-hearing-loss",
+        "https://www.nidcd.nih.gov/health/tinnitus"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "va.gov",
+      "examples": [
+        "https://www.va.gov/directory/guide/home.asp",
+        "https://www.va.gov/find-locations/?facilityType=vet_center"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "2026specialolympicsusagames.org",
+      "examples": [
+        "https://2026specialolympicsusagames.org/get-involved/partnerships"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "app.starkeycares.org",
+      "examples": [
+        "https://app.starkeycares.org/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "bcove.video",
+      "examples": [
+        "https://bcove.video/3MLlwtq"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "benefits.gov",
+      "examples": [
+        "https://www.benefits.gov/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "billaustin.org",
+      "examples": [
+        "http://billaustin.org/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "brandonsawalich.com",
+      "examples": [
+        "http://brandonsawalich.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "consumer.ftc.gov",
+      "examples": [
+        "https://www.consumer.ftc.gov/topics/online-security"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "dol.gov",
+      "examples": [
+        "https://www.dol.gov/odep/topics/disability.htm"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "edpb.europa.eu",
+      "examples": [
+        "https://edpb.europa.eu/about-edpb/about-edpb/members_en"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "go.adr.org",
+      "examples": [
+        "https://go.adr.org/dpf_irm.html"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "hearing.org",
+      "examples": [
+        "https://www.hearing.org/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "itunes.apple.com",
+      "examples": [
+        "https://itunes.apple.com/us/app/starkey-relax/id966601084?mt=8"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "jhsph.edu",
+      "examples": [
+        "https://www.jhsph.edu/news/news-releases/2018/patients-with-untreated-hearing-loss-incur-higher-health-care-costs-over-time.html"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "maps.google.com",
+      "examples": [
+        "https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=6700+washington+ave+s,+eden+prairie,+mn+55344&aq=0&sll=37.09024,-95.712891&sspn=43.713406,80.15625&ie=UTF8&hq=&hnear=6700+Washington+Ave+S,+Eden+Prairie,+Minnesota+55344&t=h&z=16"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "medica.com",
+      "examples": [
+        "https://www.medica.com/price-transparency"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "medicare.gov",
+      "examples": [
+        "https://www.medicare.gov/coverage"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "prosthetics.va.gov",
+      "examples": [
+        "https://www.prosthetics.va.gov/psas/Hearing_Aids.asp"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "pubmed.ncbi.nlm.nih.gov",
+      "examples": [
+        "https://pubmed.ncbi.nlm.nih.gov/21320988/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "recruiting2.ultipro.com",
+      "examples": [
+        "https://recruiting2.ultipro.com/STA1003STARK/JobBoard/aa9d7813-93e5-4731-9f45-8ccb56bea5fd/?q=&o=postedDateDesc"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkey.co.kr",
+      "examples": [
+        "http://www.starkey.co.kr/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkey.co.nz",
+      "examples": [
+        "https://www.starkey.co.nz/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkey.co.uk",
+      "examples": [
+        "https://www.starkey.co.uk/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkey.com.au",
+      "examples": [
+        "https://www.starkey.com.au/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkey.com.br",
+      "examples": [
+        "https://www.starkey.com.br/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkey.com.cn",
+      "examples": [
+        "http://www.starkey.com.cn/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkey.com.co",
+      "examples": [
+        "https://www.starkey.com.co/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkey.com.hk",
+      "examples": [
+        "http://www.starkey.com.hk/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkey.com.mx",
+      "examples": [
+        "https://www.starkey.com.mx/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkey.com.pl",
+      "examples": [
+        "https://www.starkey.com.pl/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkey.de",
+      "examples": [
+        "https://www.starkey.de/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkey.fr",
+      "examples": [
+        "https://www.starkey.fr/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkey.ie",
+      "examples": [
+        "https://www.starkey.ie/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkey.it",
+      "examples": [
+        "https://www.starkey.it/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkey.nl",
+      "examples": [
+        "https://www.starkey.nl/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkey.no",
+      "examples": [
+        "https://www.starkey.no/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkey.ro",
+      "examples": [
+        "http://www.starkey.ro/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkeyafrica.com",
+      "examples": [
+        "https://www.starkeyafrica.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkeycanada.ca",
+      "examples": [
+        "https://www.starkeycanada.ca/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkeydanmark.dk",
+      "examples": [
+        "https://starkeydanmark.dk/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkeyindia.com",
+      "examples": [
+        "https://starkeyindia.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkeyjp.com",
+      "examples": [
+        "https://www.starkeyjp.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkeymea.com",
+      "examples": [
+        "https://www.starkeymea.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "starkeyspain.es",
+      "examples": [
+        "https://www.starkeyspain.es/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "thelancet.com",
+      "examples": [
+        "https://www.thelancet.com/article/S0140-6736(20)30367-6/fulltext"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "unicefusa.org",
+      "examples": [
+        "https://www.unicefusa.org/about-unicef-usa/partnerships/companies/starkey"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "who.int",
+      "examples": [
+        "https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "youtu.be",
+      "examples": [
+        "https://youtu.be/LyzavS3Qsz4"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 48,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:05:05.594Z",
+        "url": "https://www.starkey.com/"
+      },
+      "title": "Find the Best Hearing Aids for You | Starkey",
+      "url": "https://www.starkey.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 60,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:05:10.796Z",
+        "url": "https://www.starkey.com/about-starkey-hearing/executives"
+      },
+      "title": "Executives | Starkey",
+      "url": "https://www.starkey.com/about-starkey-hearing/executives"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 43,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:05:16.199Z",
+        "url": "https://www.starkey.com/online-hearing-test"
+      },
+      "title": "Hearing Test | Starkey",
+      "url": "https://www.starkey.com/online-hearing-test"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 58,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:05:21.746Z",
+        "url": "https://www.starkey.com/hearing-aids"
+      },
+      "title": "Hearing Aids - Types, Styles, and How They Work | Starkey",
+      "url": "https://www.starkey.com/hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 46,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:05:26.474Z",
+        "url": "https://www.starkey.com/hearing-aids/rechargeable-hearing-aids"
+      },
+      "title": "Rechargeable Hearing Aids | Starkey",
+      "url": "https://www.starkey.com/hearing-aids/rechargeable-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 46,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:05:29.681Z",
+        "url": "https://www.starkey.com/hearing-aids/waterproof-hearing-aids"
+      },
+      "title": "Waterproof Hearing Aids | Starkey",
+      "url": "https://www.starkey.com/hearing-aids/waterproof-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 49,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/XURlTD09LUamzKcTwEJlwQ/8CLfmi1y4UWxofP38dOlAA/Original/Auracast%20Assistant%20Consumer%20QuickTip.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/9XigxjdIZkiDk44RqbrZXw/JFohQJhpWESNYl7R7JPoqQ/Original/Auracast%20Assistant%20Flyer.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:05:32.860Z",
+        "url": "https://www.starkey.com/hearing-aids/bluetooth-hearing-aids"
+      },
+      "title": "Bluetooth and Auracast Hearing Aids | Starkey",
+      "url": "https://www.starkey.com/hearing-aids/bluetooth-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.starkey.mystarkey.release",
+          "com.starkey.T2Remote.android",
+          "com.starkey.soundchecklive.release",
+          "com.starkey.tinnitus"
+        ],
+        "ios": [
+          "1549559068",
+          "336938292",
+          "6449296331",
+          "966601084"
+        ]
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://apps.apple.com/us/app/my-starkey/id1549559068",
+        "https://play.google.com/store/apps/details?id=com.starkey.mystarkey.release",
+        "https://apps.apple.com/us/app/starkey-t-remote/id336938292",
+        "https://play.google.com/store/apps/details?id=com.starkey.T2Remote.android&hl=en_US",
+        "https://apps.apple.com/us/app/soundcheck-live/id6449296331",
+        "https://play.google.com/store/apps/details?id=com.starkey.soundchecklive.release",
+        "https://itunes.apple.com/us/app/starkey-relax/id966601084?mt=8",
+        "https://play.google.com/store/apps/details?id=com.starkey.tinnitus&hl=en",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 46,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:05:35.594Z",
+        "url": "https://www.starkey.com/hearing-aids/apps"
+      },
+      "title": "Tinnitus & Hearing Aid Apps | Starkey",
+      "url": "https://www.starkey.com/hearing-aids/apps"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 47,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:05:39.656Z",
+        "url": "https://www.starkey.com/hearing-aids/accessories"
+      },
+      "title": "Hearing Aid Accessories | Starkey",
+      "url": "https://www.starkey.com/hearing-aids/accessories"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:05:43.653Z",
+        "url": "https://www.starkey.com/hearing-aids/bimodal-hearing-solution"
+      },
+      "title": "Bimodal Streaming with DualSync: MED-EL | Starkey",
+      "url": "https://www.starkey.com/hearing-aids/bimodal-hearing-solution"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 46,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:05:49.154Z",
+        "url": "https://www.starkey.com/hearing-aids/batteries"
+      },
+      "title": "Hearing Aid Batteries - FAQs | Starkey",
+      "url": "https://www.starkey.com/hearing-aids/batteries"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.medicare.gov/coverage",
+        "https://www.benefits.gov/",
+        "https://www.va.gov/directory/guide/home.asp",
+        "https://www.dol.gov/odep/topics/disability.htm",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 49,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/oZ9zMNEkoE203p68VBTdlg/Rst7juHDTUu7cXK252gv1A/Original/50%20Benefits%20of%20Better%20Hearing%20Booklet.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:05:54.793Z",
+        "url": "https://www.starkey.com/hearing-aids/costs-and-financing"
+      },
+      "title": "Hearing Aid Cost and Financing | Starkey",
+      "url": "https://www.starkey.com/hearing-aids/costs-and-financing"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 46,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:06:00.157Z",
+        "url": "https://www.starkey.com/hearing-aids/reviews"
+      },
+      "title": "Hearing Aid Reviews and Testimonials | Starkey",
+      "url": "https://www.starkey.com/hearing-aids/reviews"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:06:04.392Z",
+        "url": "https://www.starkey.com/hearing-aid-finder"
+      },
+      "title": "Hearing Aid Finder Tool | Starkey",
+      "url": "https://www.starkey.com/hearing-aid-finder"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.cdc.gov/nchs/fastats/disability.htm",
+        "https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 46,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://www.starkey.com/-/media/Products/PDFs/Questions_to_ask_a_Hearing_Professional.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:06:09.875Z",
+        "url": "https://www.starkey.com/hearing-loss"
+      },
+      "title": "Hearing Loss - How to Improve Hearing | Starkey",
+      "url": "https://www.starkey.com/hearing-loss"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.nidcd.nih.gov/health/age-related-hearing-loss",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 45,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:06:12.916Z",
+        "url": "https://www.starkey.com/hearing-loss/types-and-causes"
+      },
+      "title": "Types and Causes of Hearing Loss | Starkey",
+      "url": "https://www.starkey.com/hearing-loss/types-and-causes"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.cdc.gov/nchs/fastats/disability.htm",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 47,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://www.starkey.com/-/media/Products/PDFs/Questions_to_ask_a_Hearing_Professional.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:06:16.196Z",
+        "url": "https://www.starkey.com/hearing-loss/symptoms"
+      },
+      "title": "Hearing Loss Symptoms | Starkey",
+      "url": "https://www.starkey.com/hearing-loss/symptoms"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 51,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:06:19.917Z",
+        "url": "https://www.starkey.com/hearing-loss/prevention"
+      },
+      "title": "Prevent Hearing Damage | Starkey",
+      "url": "https://www.starkey.com/hearing-loss/prevention"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.jhsph.edu/news/news-releases/2018/patients-with-untreated-hearing-loss-incur-higher-health-care-costs-over-time.html",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 53,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/oZ9zMNEkoE203p68VBTdlg/Rst7juHDTUu7cXK252gv1A/Original/50%20Benefits%20of%20Better%20Hearing%20Booklet.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:06:23.877Z",
+        "url": "https://www.starkey.com/hearing-loss/treatment"
+      },
+      "title": "Hearing Loss Treatment | Starkey",
+      "url": "https://www.starkey.com/hearing-loss/treatment"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.thelancet.com/article/S0140-6736(20)30367-6/fulltext",
+        "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2824287",
+        "https://pubmed.ncbi.nlm.nih.gov/21320988/",
+        "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/1108740",
+        "https://jamanetwork.com/journals/jamaotolaryngology/article-abstract/2676015",
+        "https://youtu.be/LyzavS3Qsz4",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 50,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://jnnp.bmj.com/content/jnnp/early/2024/04/03/jnnp-2023-333101.full.pdf?__cf_chl_tk=gsRhLVngDASdLbhnbPiLl0d9meRnUwPUAGWkXpyGtCU-1764690878-1.0.1.1-UkVOk2gOLtpWrX1tOHme_ZV3DpbnrkFuRHLn1JvOhr4",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:06:26.698Z",
+        "url": "https://www.starkey.com/hearing-loss/reasons-to-get-help"
+      },
+      "title": "Reasons To Get Hearing Help | Starkey",
+      "url": "https://www.starkey.com/hearing-loss/reasons-to-get-help"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 48,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:06:30.338Z",
+        "url": "https://www.starkey.com/hearing-loss/help-a-loved-one"
+      },
+      "title": "Help a Loved One with Hearing Loss | Starkey",
+      "url": "https://www.starkey.com/hearing-loss/help-a-loved-one"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.va.gov/find-locations/?facilityType=vet_center",
+        "https://www.prosthetics.va.gov/psas/Hearing_Aids.asp",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:06:33.497Z",
+        "url": "https://www.starkey.com/hearing-aids-for-veterans"
+      },
+      "title": "Hearing Aids for Veterans and Military | Starkey",
+      "url": "https://www.starkey.com/hearing-aids-for-veterans"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 51,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:06:35.872Z",
+        "url": "https://www.starkey.com/support/get-help"
+      },
+      "title": "Official Starkey Support | Starkey Support",
+      "url": "https://www.starkey.com/support/get-help"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 46,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:06:40.138Z",
+        "url": "https://www.starkey.com/hearing-aids/omega-artificial-intelligence-plus-hearing-aids"
+      },
+      "title": "Omega AI+ Hearing Aids | Starkey",
+      "url": "https://www.starkey.com/hearing-aids/omega-artificial-intelligence-plus-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 46,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:06:44.137Z",
+        "url": "https://www.starkey.com/hearing-aids/edge-artificial-intelligence-hearing-aids"
+      },
+      "title": "Edge AI - Hearing Aids | Starkey",
+      "url": "https://www.starkey.com/hearing-aids/edge-artificial-intelligence-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.starkey.mystarkey.release"
+        ],
+        "ios": [
+          "1549559068"
+        ]
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://apps.apple.com/us/app/my-starkey/id1549559068",
+        "https://play.google.com/store/apps/details?id=com.starkey.mystarkey.release",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 49,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:06:49.376Z",
+        "url": "https://www.starkey.com/hearing-aids/g-series-artificial-intelligence-hearing-aids"
+      },
+      "title": "G Series AI - Hearing Aids | Starkey",
+      "url": "https://www.starkey.com/hearing-aids/g-series-artificial-intelligence-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 32,
+      "jsonLdTypes": [],
+      "needsRender": true,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:06:52.972Z",
+        "url": "https://www.starkey.com/schedule-an-appointment"
+      },
+      "title": "Schedule an Appointment | Starkey",
+      "url": "https://www.starkey.com/schedule-an-appointment"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 47,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:06:57.054Z",
+        "url": "https://www.starkey.com/support/hearing-aid-warranty"
+      },
+      "title": "Hearing Aid Warranty | Starkey Support",
+      "url": "https://www.starkey.com/support/hearing-aid-warranty"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 60,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/4a-4F2-jdkeWdOksU_8wpg/0LTSscBSEEKskk1pdnpAdg/Original/Starkey%202.4%20GHz%20Custom%20Rechargeable%20Quick%20Start%20Guide.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/cwQbRBqI70aEodxI_txNhA/o9ImMCI5Nk242z3QxWHflQ/Original/Starkey%202.4%20GHz%20Standard%20Quick%20Start%20Guide.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/d5am1ets40mMXtYw0QFqKA/CmhMm0q2F0aKlBIlZ_1nxw/Original/Starkey%202.4%20GHz%20Standard%20Rechargeable%20Quick%20Start%20Guide.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/Wah5D1UYtkGB-GxZCIJlag/ty_yAfcWIUOnHGFznuV2Zg/Original/My%20Starkey%20App%20Getting%20Started%20Guide.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/JYjpL9hjyUaOhhvQp3nvbw/3rltpTUi7Ey6D8kmTRVvTw/Original/Your%20StarLink%202.0%20Premium%20Charger%20User%20Manual.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/kzlgfijo60O8stQczkF0Vw/H_QCWDOsrkOQ3KizkH0e_g/Original/Your%20StarLink%20Charger%20User%20Manual%20-%20Generic.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/j8wecRCaIkuv6og2Qal7IQ/3_GXttWGnkCvcv78yLeJTA/Original/Custom%20Products%20Legacy%20Charger%20User%20Manual.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/VHgPZM6PaUuIuH7nPwt1dA/L7sbSMIlz06x7cTMK_L2DQ/Original/Standard%20and%20Custom%20Charger%20Manual.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/KN41Yg1oukindy5pgGJfNg/5cD-vr9oVU-aqQXIrm1IqQ/Original/Premium_Standard_and_Custom_Charger_Manual.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/tgbWJ3O77ECSqxf7kzOE0g/_h-EgF_hEk-TmSDz-u2w6w/Original/Picasso%20Custom%20Quick%20Start%20Guide.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/4rKX03Q3oEOnOt_bIUkLWQ/R1tlpXVWMkuOzQ9nKf1UlQ/Original/Smartphone%20Compatible%20Operations%20Manual.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/2Ah1QMDvKEmA_a_6JVHfpQ/XKK7WozvJUOTQuMqLj_B9A/Original/TruLink%20Hearing%20Control%20App%20User%20Guide%20Generic.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/yvePihOslUijJH9Ki7fWhw/mGRubnOsg0qHDfoMTbdkQQ/Original/Synergy%20BTE%20Operations%20Manual.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/LUYL5RaoDU6gf0ae3Vrtag/X8Ybm8OWpEOs-lDyDXin4A/Original/Generic%20Synergy%20Custom%20Operations%20Manual.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/V9ajCQbDRkeWVOYnAIVaVw/5lif2hbEeU2cFzOXqEsxKw/Original/Generic%20RIC%20Operations%20Manual.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/Tbm2KlFmMkOmKkKiSVsJJA/2ED1C61ccE2FTtXoYd-WHg/Original/Starkey%20Muse%20iQ%20Standard%20Quick%20Start%20Guide.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/cLkw5aK94ka67BKuG7UsMw/mh0k2pbht0WH89rwelj8UQ/Original/Starkey%20Muse%20iQ%20Custom%20Quick%20Start%20Guide.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/xcN1Sjs9qEC3loyIUl-5Bg/YVwvSXq7SUyiodOQLz6dZA/Original/BKLT2984-00-EE-ST-IV%20-%20SoundLens%20Synergy%20iQ%20Quick%20Start%20Guide.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/rWhaQ3Q6RkmJPOHx_UhTZg/H2eQKfZUSUCPztM0czRNgA/Original/SurfLink%20Mobile%202%20Operations%20Manual.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/KSY5SiHI70qKHSuUf1a7kg/_BTNy_AF7U-EZt7W07-stw/Original/BKLT2822-08-EE-XX%20-%20SurfLink%20Media%202%20Operations%20Manual.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/7Le27lHOO0iVIpKoIcnOJQ/a4IjN0St1UmubdYAvP7UAQ/Original/BKLT2868-06-EE-XX%20-%20SurfLink%20Remote%20Operations%20Manual.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/5bK8eWEvJE-bpersk6fnBw/xZE5Jzqn9kCdvDf0XUwP8A/Original/SurfLink%20Remote%20Mic%20Operations%20Manual%202016.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/AO1POET17kyH4c0Myhbvaw/y0ZWWfAqrUGqPU2UsG63-w/Original/BKLT2925-05-EE-XX%20-%20SurfLink%20Remote%20Microphone%202%20Operations%20Manual.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/kHjoNv6M_UimRIXDSKZt1g/DdmKILEyKkCe6hmkChNTfg/Original/SurfLink%20Mini%20Mobile%20Companion%20Mic%20Manual.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/FCgZyRkz8Em-T-aktMVWqQ/saUWb7gw5UyU68954JETOQ/Original/Generic%20Pre-Synergy%20BTE%20Opman.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/U10nRuQUeUCSClBKqsejRg/ZFTMOfcjvkWkEUWz6x_ZQA/Original/Generic%20Pre-Synergy%20Custom%20Opman.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/42mdlKTsxUK3p5apVaJnhA/tdIzJ7ygVkOMcGhWu2S9oQ/Original/Generic%20Pre-Synergy%20RIC%20Opman.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/rqp6KQfjwk-a_prIP5eUIg/RWpXXahwR0S_rgwPolie7Q/Original/Pre-Synergy%20Made%20for%20iPhone%20Operations%20Manual%20MAY%2021_F.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/oMhsV5sjW02dxloytx927Q/s3R-cs8urEm5seoIrFEi2w/Original/AMP%20with%20VC%20Operations%20Manual.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/g-9P6Z1AkEasxEe--lj6mw/4PSUss8hN0uZrDswpSU0cQ/Original/Audio%20Monitors%20Operations%20Manual%20cleaned.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/RG5XWa7N8U-SP7uq7BAv_Q/Pwcp9OWjGkqYK0NLRFVyAA/Original/SoudGear%20Operation%20Manual.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/4q5ZMFZK-UGvKT74JybpRw/6ZaUsLwG5kmdwNH3lCthew/Original/SoundGear%20Phantom%20Opman.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/jsqLjQbgqEWXLog__Uyh9A/qfIHmAkVWkyH74BnaUtExQ/Original/VFusion_Operations_Manual.cleaned.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:07:01.002Z",
+        "url": "https://www.starkey.com/support/operations-manuals"
+      },
+      "title": "Hearing Aid Operation Manuals | Starkey",
+      "url": "https://www.starkey.com/support/operations-manuals"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 47,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:07:06.594Z",
+        "url": "https://www.starkey.com/about-starkey-hearing"
+      },
+      "title": "About us | Starkey",
+      "url": "https://www.starkey.com/about-starkey-hearing"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://recruiting2.ultipro.com/STA1003STARK/JobBoard/aa9d7813-93e5-4731-9f45-8ccb56bea5fd/?q=&o=postedDateDesc",
+        "https://www.medica.com/price-transparency",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:07:09.214Z",
+        "url": "https://www.starkey.com/contact-starkey-hearing/careers"
+      },
+      "title": "Career Opportunities | Starkey",
+      "url": "https://www.starkey.com/contact-starkey-hearing/careers"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=6700+washington+ave+s,+eden+prairie,+mn+55344&aq=0&sll=37.09024,-95.712891&sspn=43.713406,80.15625&ie=UTF8&hq=&hnear=6700+Washington+Ave+S,+Eden+Prairie,+Minnesota+55344&t=h&z=16",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 45,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:07:12.895Z",
+        "url": "https://www.starkey.com/contact-starkey-hearing"
+      },
+      "title": "Contact Us | Starkey",
+      "url": "https://www.starkey.com/contact-starkey-hearing"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 43,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:07:17.595Z",
+        "url": "https://www.starkey.com/contact-starkey-hearing/media-inquiries"
+      },
+      "title": "Media Inquiries Form | Starkey",
+      "url": "https://www.starkey.com/contact-starkey-hearing/media-inquiries"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 94,
+      "jsonLdTypes": [
+        "LocalBusiness"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:07:23.277Z",
+        "url": "https://locations.starkey.com/"
+      },
+      "title": "Local Hearing Aid Professionals & Services | Starkey’s Hearing Aids Locations",
+      "url": "https://locations.starkey.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 54,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:07:23.901Z",
+        "url": "https://www.starkey.com/search"
+      },
+      "title": "Hearing Aids Information, Search for Hearing Aids",
+      "url": "https://www.starkey.com/search"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.nidcd.nih.gov/health/tinnitus",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 48,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/E1z-jCXAYkKo-TgxDpBoZw/Soh5U_JVPUODjZey8wNGfg/Original/Tinnitus%20Consumer%20Brochure.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:07:28.233Z",
+        "url": "https://www.starkey.com/tinnitus"
+      },
+      "title": "Tinnitus - Ringing in the Ears | Starkey",
+      "url": "https://www.starkey.com/tinnitus"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 45,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:07:33.636Z",
+        "url": "https://www.starkey.com/press/awards"
+      },
+      "title": "Awards | Starkey",
+      "url": "https://www.starkey.com/press/awards"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/D86zkr-IiUeR_5jZ9juRXw/kVudqGxgRUS7FqG1snyhvA/Original/StarLink%20Edge%20LE%20Adapter%20User%20Guide.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:07:37.182Z",
+        "url": "https://www.starkey.com/compatibility"
+      },
+      "title": "Device Compatibility | Starkey",
+      "url": "https://www.starkey.com/compatibility"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://ar.starkeymea.com/",
+        "https://www.starkey.com.au/",
+        "https://www.starkey.com.br/",
+        "https://www.starkeyafrica.com/",
+        "https://www.starkeycanada.ca/",
+        "http://www.starkey.com.cn/",
+        "https://www.starkey.com.co/",
+        "https://starkeydanmark.dk/",
+        "https://www.starkey.fr/",
+        "https://www.starkey.de/",
+        "http://www.starkey.com.hk/",
+        "https://starkeyindia.com/",
+        "https://www.starkeymea.com/",
+        "https://ar.starkeymea.com/?sc_lang=ar-SA",
+        "https://www.starkey.ie/",
+        "https://www.starkey.it/",
+        "https://www.starkeyjp.com/",
+        "https://www.starkey.com.mx/",
+        "https://www.starkey.nl/",
+        "https://www.starkey.co.nz/",
+        "https://www.starkey.no/",
+        "https://www.starkey.com.pl/",
+        "http://www.starkey.ro/",
+        "http://www.starkey.co.kr/",
+        "https://www.starkeyspain.es/",
+        "https://www.starkey.co.uk/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 101,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:07:40.474Z",
+        "url": "https://www.starkey.com/international"
+      },
+      "title": "Starkey Hearing Aids around the world",
+      "url": "https://www.starkey.com/international"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 49,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/H8ZHjzyO80OnyVS6zfXdCA/EQwT1hz_8Ey5vFn4y5ZMdg/Original/Corporate%20Fact%20Sheet%20Apr22_F.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:07:43.874Z",
+        "url": "https://www.starkey.com/press/news"
+      },
+      "title": "News | Starkey",
+      "url": "https://www.starkey.com/press/news"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 58,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:07:48.877Z",
+        "url": "https://www.starkey.com/blog/latest"
+      },
+      "title": "Starkey Blog on Hearing Loss and Hearing Aids",
+      "url": "https://www.starkey.com/blog/latest"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 43,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:07:51.435Z",
+        "url": "https://www.starkey.com/starkey-soundnews-newsletter"
+      },
+      "title": "SoundNews Newsletter | Starkey",
+      "url": "https://www.starkey.com/starkey-soundnews-newsletter"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://app.starkeycares.org/",
+        "https://www.unicefusa.org/about-unicef-usa/partnerships/companies/starkey",
+        "https://2026specialolympicsusagames.org/get-involved/partnerships",
+        "https://bcove.video/3MLlwtq",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/-lKz6-WlAEuDsfp_12wokQ/NUHJtyM0-UW3g2AQDdYweg/Original/Hear%20Now%20Program%20Information%20Sheet.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:07:56.308Z",
+        "url": "https://www.starkey.com/starkeycares"
+      },
+      "title": "Starkey Cares | Starkey",
+      "url": "https://www.starkey.com/starkeycares"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 43,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:07:59.231Z",
+        "url": "https://www.starkey.com/internet-sales-policy"
+      },
+      "title": "Internet Sales Policy | Starkey",
+      "url": "https://www.starkey.com/internet-sales-policy"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://edpb.europa.eu/about-edpb/about-edpb/members_en",
+        "https://www.dataprivacyframework.gov/",
+        "https://go.adr.org/dpf_irm.html",
+        "https://www.dataprivacyframework.gov/s/article/ANNEX-I-introduction-dpf?hl=en_IN&tabset-35584=2",
+        "https://www.consumer.ftc.gov/topics/online-security",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:08:04.006Z",
+        "url": "https://www.starkey.com/privacy-and-terms"
+      },
+      "title": "Starkey.com Privacy Policy & Terms of Use",
+      "url": "https://www.starkey.com/privacy-and-terms"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:08:07.980Z",
+        "url": "https://www.starkey.com/eu-data-act"
+      },
+      "title": "Starkey.com EU Data Act",
+      "url": "https://www.starkey.com/eu-data-act"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 43,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:08:11.855Z",
+        "url": "https://www.starkey.com/trademarks"
+      },
+      "title": "Starkey.com Trademarks | Starkey",
+      "url": "https://www.starkey.com/trademarks"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 43,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:08:15.135Z",
+        "url": "https://www.starkey.com/patents"
+      },
+      "title": "Starkey Patents | Starkey",
+      "url": "https://www.starkey.com/patents"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://twitter.com/BillFAustin",
+        "http://billaustin.org/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:08:20.394Z",
+        "url": "https://www.starkey.com/about-starkey-hearing/executives/bill-austin"
+      },
+      "title": "Executive - Bill Austin | Starkey",
+      "url": "https://www.starkey.com/about-starkey-hearing/executives/bill-austin"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:08:25.418Z",
+        "url": "https://www.starkey.com/about-starkey-hearing/executives/tani-austin"
+      },
+      "title": "Executive - Tani Austin | Starkey",
+      "url": "https://www.starkey.com/about-starkey-hearing/executives/tani-austin"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "http://brandonsawalich.com/",
+        "https://twitter.com/BrandonSawalich",
+        "https://www.hearing.org/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:08:30.976Z",
+        "url": "https://www.starkey.com/about-starkey-hearing/executives/brandon-sawalich"
+      },
+      "title": "Executive - Brandon Sawalich | Starkey",
+      "url": "https://www.starkey.com/about-starkey-hearing/executives/brandon-sawalich"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:08:33.315Z",
+        "url": "https://www.starkey.com/about-starkey-hearing/executives/jessica-sawalich"
+      },
+      "title": "Executive - Jessica Sawalich | Starkey",
+      "url": "https://www.starkey.com/about-starkey-hearing/executives/jessica-sawalich"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:08:37.637Z",
+        "url": "https://www.starkey.com/about-starkey-hearing/executives/achin-bhowmik"
+      },
+      "title": "Executive - Achin Bhowmik | Starkey",
+      "url": "https://www.starkey.com/about-starkey-hearing/executives/achin-bhowmik"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:08:42.816Z",
+        "url": "https://www.starkey.com/about-starkey-hearing/executives/mujo-bogaljevic"
+      },
+      "title": "Executive - Mujo Bogaljevic | Starkey",
+      "url": "https://www.starkey.com/about-starkey-hearing/executives/mujo-bogaljevic"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:08:48.078Z",
+        "url": "https://www.starkey.com/about-starkey-hearing/executives/sara-burdak"
+      },
+      "title": "Executive - Sara Burdak | Starkey",
+      "url": "https://www.starkey.com/about-starkey-hearing/executives/sara-burdak"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:08:53.267Z",
+        "url": "https://www.starkey.com/about-starkey-hearing/executives/dave-fabry"
+      },
+      "title": "Executive - Dave Fabry | Starkey",
+      "url": "https://www.starkey.com/about-starkey-hearing/executives/dave-fabry"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:08:57.014Z",
+        "url": "https://www.starkey.com/about-starkey-hearing/executives/jeff-geigel"
+      },
+      "title": "Executive - Jeff Geigel | Starkey",
+      "url": "https://www.starkey.com/about-starkey-hearing/executives/jeff-geigel"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:09:02.374Z",
+        "url": "https://www.starkey.com/about-starkey-hearing/executives/kenny-landherr"
+      },
+      "title": "Executive - Kenny Landherr | Starkey",
+      "url": "https://www.starkey.com/about-starkey-hearing/executives/kenny-landherr"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:09:05.173Z",
+        "url": "https://www.starkey.com/about-starkey-hearing/executives/hans-mehl"
+      },
+      "title": "Executive - Hans Mehl | Starkey",
+      "url": "https://www.starkey.com/about-starkey-hearing/executives/hans-mehl"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.starkeypro.com/",
+        "https://www.starkeyhearingfoundation.org/",
+        "https://www.facebook.com/pages/Starkey/287397458800?ref=ts",
+        "https://instagram.com/starkeyhearing/",
+        "https://twitter.com/starkeyhearing",
+        "https://www.youtube.com/user/StarkeyLabs",
+        "https://www.linkedin.com/company/11073/"
+      ],
+      "internalLinks": 44,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:09:08.017Z",
+        "url": "https://www.starkey.com/about-starkey-hearing/executives/heinz-ruch"
+      },
+      "title": "Executive - Heinz Ruch | Starkey",
+      "url": "https://www.starkey.com/about-starkey-hearing/executives/heinz-ruch"
+    }
+  ],
+  "pdfHosts": [
+    {
+      "count": 220,
+      "examples": [
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+        "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf"
+      ],
+      "host": "cdn.mediavalet.com"
+    },
+    {
+      "count": 2,
+      "examples": [
+        "https://www.starkey.com/-/media/Products/PDFs/Questions_to_ask_a_Hearing_Professional.pdf"
+      ],
+      "host": "starkey.com"
+    },
+    {
+      "count": 1,
+      "examples": [
+        "https://jnnp.bmj.com/content/jnnp/early/2024/04/03/jnnp-2023-333101.full.pdf?__cf_chl_tk=gsRhLVngDASdLbhnbPiLl0d9meRnUwPUAGWkXpyGtCU-1764690878-1.0.1.1-UkVOk2gOLtpWrX1tOHme_ZV3DpbnrkFuRHLn1JvOhr4"
+      ],
+      "host": "jnnp.bmj.com"
+    }
+  ],
+  "redirects": [],
+  "robots": {
+    "groups": [
+      {
+        "allow": [],
+        "disallow": [
+          "/en/",
+          "/en-AU/",
+          "/en-CA/",
+          "/en-GB/",
+          "/en-NZ/",
+          "/fr-CA/",
+          ".aspx",
+          ".swf",
+          ".js",
+          ".css",
+          "/text/",
+          "/NotFound",
+          "/layouts/",
+          "/Videos/",
+          "/notfound",
+          "/sitecore/",
+          "/404",
+          "*/thank-you",
+          "/pro-site-locator/"
+        ],
+        "userAgents": [
+          "*"
+        ]
+      }
+    ],
+    "ref": {
+      "fetchedAt": "2026-11-27T18:04:49.595Z",
+      "url": "https://www.starkey.com/robots.txt"
+    },
+    "sitemaps": [
+      "http://www.starkey.com/sitemap.xml"
+    ],
+    "status": 200
+  },
+  "sitemap": {
+    "refs": [],
+    "sections": [],
+    "urlCount": 0
+  },
+  "start": "https://www.starkey.com",
+  "templates": [
+    {
+      "count": 58,
+      "examples": [
+        "https://www.starkey.com/international/Slovakia?loc=International",
+        "https://www.starkey.com/international/albania?loc=International",
+        "https://www.starkey.com/international/antigua-and-barbuda?loc=International"
+      ],
+      "pattern": "https://www.starkey.com/international/{slug}"
+    },
+    {
+      "count": 51,
+      "examples": [
+        "https://locations.starkey.com/ak/",
+        "https://locations.starkey.com/al/",
+        "https://locations.starkey.com/ar/"
+      ],
+      "pattern": "https://locations.starkey.com/{slug}"
+    },
+    {
+      "count": 32,
+      "examples": [
+        "https://www.starkey.com/blog/articles/2015/02/directionality-what-is-it-and-why-should-you-care",
+        "https://www.starkey.com/blog/articles/2017/01/Tired-from-hearing-loss",
+        "https://www.starkey.com/blog/articles/2017/02/18-sounds-that-can-hurt-your-hearing"
+      ],
+      "pattern": "https://www.starkey.com/blog/articles/{n}/{n}/{slug}"
+    },
+    {
+      "count": 24,
+      "examples": [
+        "https://www.starkey.com/10-steps-to-buying-hearing-aids",
+        "https://www.starkey.com/about-starkey-hearing",
+        "https://www.starkey.com/blog"
+      ],
+      "pattern": "https://www.starkey.com/{slug}"
+    },
+    {
+      "count": 22,
+      "examples": [
+        "https://www.starkey.com/hearing-aids/accessories",
+        "https://www.starkey.com/hearing-aids/advances-in-hearing-aid-technology",
+        "https://www.starkey.com/hearing-aids/apps"
+      ],
+      "pattern": "https://www.starkey.com/hearing-aids/{slug}"
+    },
+    {
+      "count": 16,
+      "examples": [
+        "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3014-EE-SC",
+        "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3022-EN-SC",
+        "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3162-EN-XX"
+      ],
+      "pattern": "https://eifu.starkey.com/eifu/pages/viewers/{slug}"
+    },
+    {
+      "count": 16,
+      "examples": [
+        "https://www.starkey.com/about-starkey-hearing/executives/achin-bhowmik",
+        "https://www.starkey.com/about-starkey-hearing/executives/bill-austin",
+        "https://www.starkey.com/about-starkey-hearing/executives/brandon-sawalich"
+      ],
+      "pattern": "https://www.starkey.com/about-starkey-hearing/executives/{slug}"
+    },
+    {
+      "count": 13,
+      "examples": [
+        "https://www.starkey.com/support/accessories",
+        "https://www.starkey.com/support/adjusting-to-hearing-aids",
+        "https://www.starkey.com/support/apps"
+      ],
+      "pattern": "https://www.starkey.com/support/{slug}"
+    },
+    {
+      "count": 8,
+      "examples": [
+        "https://www.starkey.com/hearing-loss/treatment/adjusting-to-hearing-aids",
+        "https://www.starkey.com/hearing-loss/treatment/can-a-hearing-aid-restore-hearing",
+        "https://www.starkey.com/hearing-loss/treatment/hearing-problem-help"
+      ],
+      "pattern": "https://www.starkey.com/hearing-loss/treatment/{slug}"
+    },
+    {
+      "count": 7,
+      "examples": [
+        "https://www.starkey.com/hearing-aids/styles/behind-the-ear",
+        "https://www.starkey.com/hearing-aids/styles/completely-in-canal",
+        "https://www.starkey.com/hearing-aids/styles/find-best-hearing-aid-for-you"
+      ],
+      "pattern": "https://www.starkey.com/hearing-aids/styles/{slug}"
+    },
+    {
+      "count": 6,
+      "examples": [
+        "https://www.starkey.com/hearing-loss/help-a-loved-one",
+        "https://www.starkey.com/hearing-loss/prevention",
+        "https://www.starkey.com/hearing-loss/reasons-to-get-help"
+      ],
+      "pattern": "https://www.starkey.com/hearing-loss/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.starkey.com/blog/_category",
+        "https://www.starkey.com/blog/archive",
+        "https://www.starkey.com/blog/latest"
+      ],
+      "pattern": "https://www.starkey.com/blog/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.starkey.com/contact-starkey-hearing/careers",
+        "https://www.starkey.com/contact-starkey-hearing/contact-us",
+        "https://www.starkey.com/contact-starkey-hearing/media-inquiries"
+      ],
+      "pattern": "https://www.starkey.com/contact-starkey-hearing/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.starkey.com/hearing-aids/accessories/hearing-protection",
+        "https://www.starkey.com/hearing-aids/accessories/personal-audio",
+        "https://www.starkey.com/hearing-aids/accessories/wireless-accessories"
+      ],
+      "pattern": "https://www.starkey.com/hearing-aids/accessories/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.starkey.com/hearing-loss/help-a-loved-one/how-can-i-convince-a-loved-one-to-get-their-hearing-tested",
+        "https://www.starkey.com/hearing-loss/help-a-loved-one/how-can-i-help-a-loved-one-with-hearing-loss",
+        "https://www.starkey.com/hearing-loss/help-a-loved-one/how-can-i-help-a-spouse-who-has-hearing-loss"
+      ],
+      "pattern": "https://www.starkey.com/hearing-loss/help-a-loved-one/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.starkey.com/hearing-loss/prevention/how-loud-is-too-loud-for-my-ears",
+        "https://www.starkey.com/hearing-loss/prevention/is-hearing-loss-preventable",
+        "https://www.starkey.com/hearing-loss/prevention/what-can-i-do-to-protect-my-hearing-from-hearing-loss"
+      ],
+      "pattern": "https://www.starkey.com/hearing-loss/prevention/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.starkey.com/press/awards",
+        "https://www.starkey.com/press/news",
+        "https://www.starkey.com/press/press-releases"
+      ],
+      "pattern": "https://www.starkey.com/press/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.starkey.com/press/press-releases/2026/10/starkey-named-2026-inc-power-partner-for-excellence-in-customer-success-for-second-consecutive-year",
+        "https://www.starkey.com/press/press-releases/2026/10/starkey-takes-intelligent-hearing-to-the-next-level-with-Introduction-of-omega-ai-plus",
+        "https://www.starkey.com/press/press-releases/2026/11/starkeys-omega-AI-plus-earns-CES-2027-innovation-award-for-breakthrough-hearing-innovation"
+      ],
+      "pattern": "https://www.starkey.com/press/press-releases/{n}/{n}/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.starkey.com/tinnitus/symptoms-and-causes",
+        "https://www.starkey.com/tinnitus/technology",
+        "https://www.starkey.com/tinnitus/tinnitus-test"
+      ],
+      "pattern": "https://www.starkey.com/tinnitus/{slug}"
+    }
+  ],
+  "urls": [
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/-lKz6-WlAEuDsfp_12wokQ/NUHJtyM0-UW3g2AQDdYweg/Original/Hear%20Now%20Program%20Information%20Sheet.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/1ROnIzM8hUG0Ui-DtimtwQ/PyeAlZjIbkma-h74AxE16w/Original/Starkey%20Climate-related%20Disclosures.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/2Ah1QMDvKEmA_a_6JVHfpQ/XKK7WozvJUOTQuMqLj_B9A/Original/TruLink%20Hearing%20Control%20App%20User%20Guide%20Generic.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/42mdlKTsxUK3p5apVaJnhA/tdIzJ7ygVkOMcGhWu2S9oQ/Original/Generic%20Pre-Synergy%20RIC%20Opman.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/4a-4F2-jdkeWdOksU_8wpg/0LTSscBSEEKskk1pdnpAdg/Original/Starkey%202.4%20GHz%20Custom%20Rechargeable%20Quick%20Start%20Guide.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/4q5ZMFZK-UGvKT74JybpRw/6ZaUsLwG5kmdwNH3lCthew/Original/SoundGear%20Phantom%20Opman.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/4rKX03Q3oEOnOt_bIUkLWQ/R1tlpXVWMkuOzQ9nKf1UlQ/Original/Smartphone%20Compatible%20Operations%20Manual.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/5bK8eWEvJE-bpersk6fnBw/xZE5Jzqn9kCdvDf0XUwP8A/Original/SurfLink%20Remote%20Mic%20Operations%20Manual%202016.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/7Le27lHOO0iVIpKoIcnOJQ/a4IjN0St1UmubdYAvP7UAQ/Original/BKLT2868-06-EE-XX%20-%20SurfLink%20Remote%20Operations%20Manual.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/93s3CAyMgUCKSdl5eZit_g/M_xgfAi020uwlJmibtjFbA/Original/5%20Steps%20to%20Better%20Hearing%20-%20Starkey.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/9XigxjdIZkiDk44RqbrZXw/JFohQJhpWESNYl7R7JPoqQ/Original/Auracast%20Assistant%20Flyer.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/AO1POET17kyH4c0Myhbvaw/y0ZWWfAqrUGqPU2UsG63-w/Original/BKLT2925-05-EE-XX%20-%20SurfLink%20Remote%20Microphone%202%20Operations%20Manual.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/D86zkr-IiUeR_5jZ9juRXw/kVudqGxgRUS7FqG1snyhvA/Original/StarLink%20Edge%20LE%20Adapter%20User%20Guide.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/E1z-jCXAYkKo-TgxDpBoZw/Soh5U_JVPUODjZey8wNGfg/Original/Tinnitus%20Consumer%20Brochure.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/FCgZyRkz8Em-T-aktMVWqQ/saUWb7gw5UyU68954JETOQ/Original/Generic%20Pre-Synergy%20BTE%20Opman.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/H8ZHjzyO80OnyVS6zfXdCA/EQwT1hz_8Ey5vFn4y5ZMdg/Original/Corporate%20Fact%20Sheet%20Apr22_F.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/JYjpL9hjyUaOhhvQp3nvbw/3rltpTUi7Ey6D8kmTRVvTw/Original/Your%20StarLink%202.0%20Premium%20Charger%20User%20Manual.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/KN41Yg1oukindy5pgGJfNg/5cD-vr9oVU-aqQXIrm1IqQ/Original/Premium_Standard_and_Custom_Charger_Manual.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/KSY5SiHI70qKHSuUf1a7kg/_BTNy_AF7U-EZt7W07-stw/Original/BKLT2822-08-EE-XX%20-%20SurfLink%20Media%202%20Operations%20Manual.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/LUYL5RaoDU6gf0ae3Vrtag/X8Ybm8OWpEOs-lDyDXin4A/Original/Generic%20Synergy%20Custom%20Operations%20Manual.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/RG5XWa7N8U-SP7uq7BAv_Q/Pwcp9OWjGkqYK0NLRFVyAA/Original/SoudGear%20Operation%20Manual.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/Tbm2KlFmMkOmKkKiSVsJJA/2ED1C61ccE2FTtXoYd-WHg/Original/Starkey%20Muse%20iQ%20Standard%20Quick%20Start%20Guide.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/U10nRuQUeUCSClBKqsejRg/ZFTMOfcjvkWkEUWz6x_ZQA/Original/Generic%20Pre-Synergy%20Custom%20Opman.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/V9ajCQbDRkeWVOYnAIVaVw/5lif2hbEeU2cFzOXqEsxKw/Original/Generic%20RIC%20Operations%20Manual.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/VHgPZM6PaUuIuH7nPwt1dA/L7sbSMIlz06x7cTMK_L2DQ/Original/Standard%20and%20Custom%20Charger%20Manual.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/Wah5D1UYtkGB-GxZCIJlag/ty_yAfcWIUOnHGFznuV2Zg/Original/My%20Starkey%20App%20Getting%20Started%20Guide.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/XURlTD09LUamzKcTwEJlwQ/8CLfmi1y4UWxofP38dOlAA/Original/Auracast%20Assistant%20Consumer%20QuickTip.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/_8iB57gCKkC0-v_N2fjCKg/qjTX7Jg-i0a4KNP4hiSsCw/Original/Starkey%20ESG%20Report.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/cLkw5aK94ka67BKuG7UsMw/mh0k2pbht0WH89rwelj8UQ/Original/Starkey%20Muse%20iQ%20Custom%20Quick%20Start%20Guide.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/cwQbRBqI70aEodxI_txNhA/o9ImMCI5Nk242z3QxWHflQ/Original/Starkey%202.4%20GHz%20Standard%20Quick%20Start%20Guide.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/d5am1ets40mMXtYw0QFqKA/CmhMm0q2F0aKlBIlZ_1nxw/Original/Starkey%202.4%20GHz%20Standard%20Rechargeable%20Quick%20Start%20Guide.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/g-9P6Z1AkEasxEe--lj6mw/4PSUss8hN0uZrDswpSU0cQ/Original/Audio%20Monitors%20Operations%20Manual%20cleaned.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/j8wecRCaIkuv6og2Qal7IQ/3_GXttWGnkCvcv78yLeJTA/Original/Custom%20Products%20Legacy%20Charger%20User%20Manual.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/jsqLjQbgqEWXLog__Uyh9A/qfIHmAkVWkyH74BnaUtExQ/Original/VFusion_Operations_Manual.cleaned.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/kHjoNv6M_UimRIXDSKZt1g/DdmKILEyKkCe6hmkChNTfg/Original/SurfLink%20Mini%20Mobile%20Companion%20Mic%20Manual.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/kzlgfijo60O8stQczkF0Vw/H_QCWDOsrkOQ3KizkH0e_g/Original/Your%20StarLink%20Charger%20User%20Manual%20-%20Generic.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/oMhsV5sjW02dxloytx927Q/s3R-cs8urEm5seoIrFEi2w/Original/AMP%20with%20VC%20Operations%20Manual.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/oZ9zMNEkoE203p68VBTdlg/Rst7juHDTUu7cXK252gv1A/Original/50%20Benefits%20of%20Better%20Hearing%20Booklet.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/rWhaQ3Q6RkmJPOHx_UhTZg/H2eQKfZUSUCPztM0czRNgA/Original/SurfLink%20Mobile%202%20Operations%20Manual.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/rqp6KQfjwk-a_prIP5eUIg/RWpXXahwR0S_rgwPolie7Q/Original/Pre-Synergy%20Made%20for%20iPhone%20Operations%20Manual%20MAY%2021_F.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/tgbWJ3O77ECSqxf7kzOE0g/_h-EgF_hEk-TmSDz-u2w6w/Original/Picasso%20Custom%20Quick%20Start%20Guide.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/xcN1Sjs9qEC3loyIUl-5Bg/YVwvSXq7SUyiodOQLz6dZA/Original/BKLT2984-00-EE-ST-IV%20-%20SoundLens%20Synergy%20iQ%20Quick%20Start%20Guide.pdf",
+    "https://cdn.mediavalet.com/usil/starkeyhearingtech/yvePihOslUijJH9Ki7fWhw/mGRubnOsg0qHDfoMTbdkQQ/Original/Synergy%20BTE%20Operations%20Manual.pdf",
+    "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3014-EE-SC",
+    "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3022-EN-SC",
+    "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3162-EN-XX",
+    "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3166-EN-XX",
+    "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3169-EN-XX",
+    "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3170-EN-XX",
+    "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3171-EN-XX",
+    "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3172-EN-XX",
+    "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3201-EN-XX",
+    "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3218-DE-EN-ES-FR-IT-PT-XX",
+    "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3226-DE-EN-ES-FR-IT-PT-XX",
+    "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3245-DE-EN-ES-FR-IT-PT-XX",
+    "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3254-DE-EN-ES-FR-IT-PT-XX",
+    "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3261-EN-XX",
+    "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3291-EN-XX",
+    "https://eifu.starkey.com/eifu/pages/viewers/pdf?projectKey=67acc7fc070a4f26058b8204&itemKey=696a5af23e1d8d692a65a53a&country=NA",
+    "https://jnnp.bmj.com/content/jnnp/early/2024/04/03/jnnp-2023-333101.full.pdf?__cf_chl_tk=gsRhLVngDASdLbhnbPiLl0d9meRnUwPUAGWkXpyGtCU-1764690878-1.0.1.1-UkVOk2gOLtpWrX1tOHme_ZV3DpbnrkFuRHLn1JvOhr4",
+    "https://locations.starkey.com/",
+    "https://locations.starkey.com/ak/",
+    "https://locations.starkey.com/al/",
+    "https://locations.starkey.com/ar/",
+    "https://locations.starkey.com/az/",
+    "https://locations.starkey.com/ca/",
+    "https://locations.starkey.com/co/",
+    "https://locations.starkey.com/ct/",
+    "https://locations.starkey.com/dc/",
+    "https://locations.starkey.com/de/",
+    "https://locations.starkey.com/fl/",
+    "https://locations.starkey.com/ga/",
+    "https://locations.starkey.com/hi/",
+    "https://locations.starkey.com/ia/",
+    "https://locations.starkey.com/id/",
+    "https://locations.starkey.com/il/",
+    "https://locations.starkey.com/in/",
+    "https://locations.starkey.com/ks/",
+    "https://locations.starkey.com/ky/",
+    "https://locations.starkey.com/la/",
+    "https://locations.starkey.com/ma/",
+    "https://locations.starkey.com/md/",
+    "https://locations.starkey.com/me/",
+    "https://locations.starkey.com/mi/",
+    "https://locations.starkey.com/mn/",
+    "https://locations.starkey.com/mo/",
+    "https://locations.starkey.com/ms/",
+    "https://locations.starkey.com/mt/",
+    "https://locations.starkey.com/nc/",
+    "https://locations.starkey.com/nd/",
+    "https://locations.starkey.com/ne/",
+    "https://locations.starkey.com/nh/",
+    "https://locations.starkey.com/nj/",
+    "https://locations.starkey.com/nm/",
+    "https://locations.starkey.com/nv/",
+    "https://locations.starkey.com/ny/",
+    "https://locations.starkey.com/oh/",
+    "https://locations.starkey.com/ok/",
+    "https://locations.starkey.com/or/",
+    "https://locations.starkey.com/pa/",
+    "https://locations.starkey.com/ri/",
+    "https://locations.starkey.com/sc/",
+    "https://locations.starkey.com/sd/",
+    "https://locations.starkey.com/tn/",
+    "https://locations.starkey.com/tx/",
+    "https://locations.starkey.com/ut/",
+    "https://locations.starkey.com/va/",
+    "https://locations.starkey.com/vt/",
+    "https://locations.starkey.com/wa/",
+    "https://locations.starkey.com/wi/",
+    "https://locations.starkey.com/wv/",
+    "https://locations.starkey.com/wy/",
+    "https://phonesupport.starkey.com/MyStarkey/AccessData",
+    "https://thrivesupport.starkey.com/how-to-video",
+    "https://www.starkey.com/",
+    "https://www.starkey.com/-/media/Products/PDFs/Questions_to_ask_a_Hearing_Professional.pdf",
+    "https://www.starkey.com/10-steps-to-buying-hearing-aids",
+    "https://www.starkey.com/about-starkey-hearing",
+    "https://www.starkey.com/about-starkey-hearing/executives",
+    "https://www.starkey.com/about-starkey-hearing/executives/achin-bhowmik",
+    "https://www.starkey.com/about-starkey-hearing/executives/bill-austin",
+    "https://www.starkey.com/about-starkey-hearing/executives/brandon-sawalich",
+    "https://www.starkey.com/about-starkey-hearing/executives/chris-vanguilder",
+    "https://www.starkey.com/about-starkey-hearing/executives/dave-fabry",
+    "https://www.starkey.com/about-starkey-hearing/executives/hans-mehl",
+    "https://www.starkey.com/about-starkey-hearing/executives/heinz-ruch",
+    "https://www.starkey.com/about-starkey-hearing/executives/jeff-geigel",
+    "https://www.starkey.com/about-starkey-hearing/executives/jessica-sawalich",
+    "https://www.starkey.com/about-starkey-hearing/executives/karen-spaeth",
+    "https://www.starkey.com/about-starkey-hearing/executives/kenny-landherr",
+    "https://www.starkey.com/about-starkey-hearing/executives/michael-scholl",
+    "https://www.starkey.com/about-starkey-hearing/executives/mujo-bogaljevic",
+    "https://www.starkey.com/about-starkey-hearing/executives/sara-burdak",
+    "https://www.starkey.com/about-starkey-hearing/executives/tani-austin",
+    "https://www.starkey.com/about-starkey-hearing/executives/thomas-ting",
+    "https://www.starkey.com/about-starkey-hearing/global-market-leadership",
+    "https://www.starkey.com/blog",
+    "https://www.starkey.com/blog/_category",
+    "https://www.starkey.com/blog/archive",
+    "https://www.starkey.com/blog/articles/2015/02/directionality-what-is-it-and-why-should-you-care",
+    "https://www.starkey.com/blog/articles/2017/01/Tired-from-hearing-loss",
+    "https://www.starkey.com/blog/articles/2017/02/18-sounds-that-can-hurt-your-hearing",
+    "https://www.starkey.com/blog/articles/2017/11/Hearing-aid-batteries-longer-life-tips",
+    "https://www.starkey.com/blog/articles/2017/12/Can-you-restore-lost-hearing",
+    "https://www.starkey.com/blog/articles/2018/01/the-five-stages-of-hearing-loss",
+    "https://www.starkey.com/blog/articles/2018/03/Best-earplugs-for-concerts",
+    "https://www.starkey.com/blog/articles/2018/06/Can-earwax-cause-hearing-loss",
+    "https://www.starkey.com/blog/articles/2018/06/How-to-find-a-hearing-professional",
+    "https://www.starkey.com/blog/articles/2018/08/Hand-me-down-hearing-aids",
+    "https://www.starkey.com/blog/articles/2018/09/Dos-and-donts-of-communicating",
+    "https://www.starkey.com/blog/articles/2018/10/Dos-and-donts-dealing-with-hearing-loss",
+    "https://www.starkey.com/blog/articles/2019/05/Disposable-vs-rechargeable-hearing-aid-batteries",
+    "https://www.starkey.com/blog/articles/2019/07/Tinnitus-101",
+    "https://www.starkey.com/blog/articles/2021/07/where-to-get-hearing-aids",
+    "https://www.starkey.com/blog/articles/2021/08/rechargeable-hearing-aids-are-great",
+    "https://www.starkey.com/blog/articles/2021/09/hard-hearing-in-noise",
+    "https://www.starkey.com/blog/articles/2022/08/are-all-hearing-aids-the-same",
+    "https://www.starkey.com/blog/articles/2023/05/hearing-loss-treatment-and-dementia-prevention",
+    "https://www.starkey.com/blog/articles/2024/05/the-best-place-to-get-hearing-aids",
+    "https://www.starkey.com/blog/articles/2024/05/what-to-do-about-hearing-loss",
+    "https://www.starkey.com/blog/articles/2024/08/top-5-dos-and-donts-of-hearing-aid-care",
+    "https://www.starkey.com/blog/articles/2026/08/5-things-people-with-hearing-loss-wish-everyone-else-knew",
+    "https://www.starkey.com/blog/articles/2026/09/3-ways-better-hearing-can-help-prevent-falls",
+    "https://www.starkey.com/blog/articles/2026/09/4-reasons-why-it-is-important-to-treat-hearing-loss-early",
+    "https://www.starkey.com/blog/articles/2026/09/6-signs-you-may-need-to-get-your-hearing-tested",
+    "https://www.starkey.com/blog/articles/2026/09/7-common-activities-that-may-cause-hearing-loss",
+    "https://www.starkey.com/blog/articles/2026/10/4-reasons-to-consider-custom-hearing-aids",
+    "https://www.starkey.com/blog/articles/2026/10/Be-There-For-It-All-With-Omega-AI-Plus",
+    "https://www.starkey.com/blog/articles/2026/11/10-reasons-why-I-am-thankful-for-better-hearing",
+    "https://www.starkey.com/blog/articles/2026/11/3-reasons-why-wearing-hearing-aids-are-is-for-your-brain",
+    "https://www.starkey.com/blog/articles/2026/11/5-steps-of-a-hearing-exam",
+    "https://www.starkey.com/blog/latest",
+    "https://www.starkey.com/blog/latest?n=10",
+    "https://www.starkey.com/compatibility",
+    "https://www.starkey.com/contact-starkey-hearing",
+    "https://www.starkey.com/contact-starkey-hearing/careers",
+    "https://www.starkey.com/contact-starkey-hearing/contact-us",
+    "https://www.starkey.com/contact-starkey-hearing/media-inquiries",
+    "https://www.starkey.com/cookie-policy",
+    "https://www.starkey.com/eu-data-act",
+    "https://www.starkey.com/hearing-aid-finder",
+    "https://www.starkey.com/hearing-aids",
+    "https://www.starkey.com/hearing-aids-for-veterans",
+    "https://www.starkey.com/hearing-aids/accessories",
+    "https://www.starkey.com/hearing-aids/accessories/hearing-protection",
+    "https://www.starkey.com/hearing-aids/accessories/personal-audio",
+    "https://www.starkey.com/hearing-aids/accessories/wireless-accessories",
+    "https://www.starkey.com/hearing-aids/advances-in-hearing-aid-technology",
+    "https://www.starkey.com/hearing-aids/apps",
+    "https://www.starkey.com/hearing-aids/apps/hear-share/overview",
+    "https://www.starkey.com/hearing-aids/apps/my-starkey/overview",
+    "https://www.starkey.com/hearing-aids/apps/my-starkey/steps",
+    "https://www.starkey.com/hearing-aids/apps/t2-remote/overview",
+    "https://www.starkey.com/hearing-aids/apps/thrive-hearing-control/overview",
+    "https://www.starkey.com/hearing-aids/batteries",
+    "https://www.starkey.com/hearing-aids/bimodal-hearing-solution",
+    "https://www.starkey.com/hearing-aids/bluetooth-hearing-aids",
+    "https://www.starkey.com/hearing-aids/compare-hearing-aids",
+    "https://www.starkey.com/hearing-aids/costs-and-financing",
+    "https://www.starkey.com/hearing-aids/costs-and-financing/cheap-hearing-aids",
+    "https://www.starkey.com/hearing-aids/costs-and-financing/purchasing-hearing-aids-online",
+    "https://www.starkey.com/hearing-aids/do-you-need-two-hearing-aids",
+    "https://www.starkey.com/hearing-aids/edge-artificial-intelligence-hearing-aids",
+    "https://www.starkey.com/hearing-aids/evolv-artificial-intelligence-hearing-aids",
+    "https://www.starkey.com/hearing-aids/g-series-artificial-intelligence-hearing-aids",
+    "https://www.starkey.com/hearing-aids/genesis-artificial-intelligence-hearing-aids",
+    "https://www.starkey.com/hearing-aids/hearing-aid-facts",
+    "https://www.starkey.com/hearing-aids/omega-artificial-intelligence-hearing-aids",
+    "https://www.starkey.com/hearing-aids/omega-artificial-intelligence-plus-hearing-aids",
+    "https://www.starkey.com/hearing-aids/rechargeable-hearing-aids",
+    "https://www.starkey.com/hearing-aids/reviews",
+    "https://www.starkey.com/hearing-aids/signature-series-hearing-aids",
+    "https://www.starkey.com/hearing-aids/styles",
+    "https://www.starkey.com/hearing-aids/styles/behind-the-ear",
+    "https://www.starkey.com/hearing-aids/styles/completely-in-canal",
+    "https://www.starkey.com/hearing-aids/styles/find-best-hearing-aid-for-you",
+    "https://www.starkey.com/hearing-aids/styles/in-the-canal",
+    "https://www.starkey.com/hearing-aids/styles/in-the-ear",
+    "https://www.starkey.com/hearing-aids/styles/invisible",
+    "https://www.starkey.com/hearing-aids/styles/receiver-in-canal",
+    "https://www.starkey.com/hearing-aids/tell-your-story",
+    "https://www.starkey.com/hearing-aids/waterproof-hearing-aids",
+    "https://www.starkey.com/hearing-loss",
+    "https://www.starkey.com/hearing-loss-simulator",
+    "https://www.starkey.com/hearing-loss/help-a-loved-one",
+    "https://www.starkey.com/hearing-loss/help-a-loved-one/how-can-i-convince-a-loved-one-to-get-their-hearing-tested",
+    "https://www.starkey.com/hearing-loss/help-a-loved-one/how-can-i-help-a-loved-one-with-hearing-loss",
+    "https://www.starkey.com/hearing-loss/help-a-loved-one/how-can-i-help-a-spouse-who-has-hearing-loss",
+    "https://www.starkey.com/hearing-loss/prevention",
+    "https://www.starkey.com/hearing-loss/prevention/how-loud-is-too-loud-for-my-ears",
+    "https://www.starkey.com/hearing-loss/prevention/is-hearing-loss-preventable",
+    "https://www.starkey.com/hearing-loss/prevention/what-can-i-do-to-protect-my-hearing-from-hearing-loss",
+    "https://www.starkey.com/hearing-loss/reasons-to-get-help",
+    "https://www.starkey.com/hearing-loss/reasons-to-get-help/hearing-and-quality-of-life",
+    "https://www.starkey.com/hearing-loss/reasons-to-get-help/hearing-loss-and-cognitive-decline",
+    "https://www.starkey.com/hearing-loss/symptoms",
+    "https://www.starkey.com/hearing-loss/symptoms/recognize-hearing-problems",
+    "https://www.starkey.com/hearing-loss/treatment",
+    "https://www.starkey.com/hearing-loss/treatment/adjusting-to-hearing-aids",
+    "https://www.starkey.com/hearing-loss/treatment/can-a-hearing-aid-restore-hearing",
+    "https://www.starkey.com/hearing-loss/treatment/hearing-problem-help",
+    "https://www.starkey.com/hearing-loss/treatment/how-hearing-aids-work",
+    "https://www.starkey.com/hearing-loss/treatment/medications-for-hearing-loss",
+    "https://www.starkey.com/hearing-loss/treatment/preparing-for-your-hearing-appointment",
+    "https://www.starkey.com/hearing-loss/treatment/single-sided-hearing-loss",
+    "https://www.starkey.com/hearing-loss/treatment/who-treats-hearing-loss",
+    "https://www.starkey.com/hearing-loss/types-and-causes",
+    "https://www.starkey.com/international",
+    "https://www.starkey.com/international/Slovakia?loc=International",
+    "https://www.starkey.com/international/albania?loc=International",
+    "https://www.starkey.com/international/antigua-and-barbuda?loc=International",
+    "https://www.starkey.com/international/argentina?loc=International",
+    "https://www.starkey.com/international/aruba?loc=International",
+    "https://www.starkey.com/international/austria?loc=International",
+    "https://www.starkey.com/international/bahamas?loc=International",
+    "https://www.starkey.com/international/barbados?loc=International",
+    "https://www.starkey.com/international/bolivia?loc=International",
+    "https://www.starkey.com/international/bosnia-herzegovina?loc=International",
+    "https://www.starkey.com/international/cayman-islands?loc=International",
+    "https://www.starkey.com/international/chile?loc=International",
+    "https://www.starkey.com/international/costa-rica?loc=International",
+    "https://www.starkey.com/international/croatia?loc=International",
+    "https://www.starkey.com/international/cyprus?loc=International",
+    "https://www.starkey.com/international/dominican-republic?loc=International",
+    "https://www.starkey.com/international/ecuador?loc=International",
+    "https://www.starkey.com/international/el-salvador?loc=International",
+    "https://www.starkey.com/international/estonia?loc=International",
+    "https://www.starkey.com/international/fiji?loc=International",
+    "https://www.starkey.com/international/finland?loc=International",
+    "https://www.starkey.com/international/georgia?loc=International",
+    "https://www.starkey.com/international/greece?loc=International",
+    "https://www.starkey.com/international/guam?loc=International",
+    "https://www.starkey.com/international/guatemala?loc=International",
+    "https://www.starkey.com/international/honduras?loc=International",
+    "https://www.starkey.com/international/hong-kong-en?loc=International",
+    "https://www.starkey.com/international/hungary?loc=International",
+    "https://www.starkey.com/international/indonesia?loc=International",
+    "https://www.starkey.com/international/israel?loc=International",
+    "https://www.starkey.com/international/jamaica?loc=International",
+    "https://www.starkey.com/international/kazakhstan?loc=International",
+    "https://www.starkey.com/international/latvia?loc=International",
+    "https://www.starkey.com/international/malaysia?loc=International",
+    "https://www.starkey.com/international/malta?loc=International",
+    "https://www.starkey.com/international/north-macedonia?loc=International",
+    "https://www.starkey.com/international/pakistan-1?loc=International",
+    "https://www.starkey.com/international/palestine?loc=International",
+    "https://www.starkey.com/international/panama?loc=International",
+    "https://www.starkey.com/international/paraguay?loc=International",
+    "https://www.starkey.com/international/peru?loc=International",
+    "https://www.starkey.com/international/philippines?loc=International",
+    "https://www.starkey.com/international/puerto-rico?loc=International",
+    "https://www.starkey.com/international/russia?loc=International",
+    "https://www.starkey.com/international/serbia?loc=International",
+    "https://www.starkey.com/international/singapore?loc=International",
+    "https://www.starkey.com/international/slovenia?loc=International",
+    "https://www.starkey.com/international/south-africa?loc=International",
+    "https://www.starkey.com/international/sri-lanka?loc=International",
+    "https://www.starkey.com/international/switzerland?loc=International",
+    "https://www.starkey.com/international/taiwan?loc=International",
+    "https://www.starkey.com/international/thailand?loc=International",
+    "https://www.starkey.com/international/trinidad-and-tobago?loc=International",
+    "https://www.starkey.com/international/ukraine?loc=International",
+    "https://www.starkey.com/international/uruguay?loc=International",
+    "https://www.starkey.com/international/us-virgin-islands?loc=International",
+    "https://www.starkey.com/international/venezuela?loc=International",
+    "https://www.starkey.com/international/vietnam?loc=International",
+    "https://www.starkey.com/internet-sales-policy",
+    "https://www.starkey.com/online-hearing-test",
+    "https://www.starkey.com/patents",
+    "https://www.starkey.com/press/awards",
+    "https://www.starkey.com/press/news",
+    "https://www.starkey.com/press/press-releases",
+    "https://www.starkey.com/press/press-releases/2026/10/starkey-named-2026-inc-power-partner-for-excellence-in-customer-success-for-second-consecutive-year",
+    "https://www.starkey.com/press/press-releases/2026/10/starkey-takes-intelligent-hearing-to-the-next-level-with-Introduction-of-omega-ai-plus",
+    "https://www.starkey.com/press/press-releases/2026/11/starkeys-omega-AI-plus-earns-CES-2027-innovation-award-for-breakthrough-hearing-innovation",
+    "https://www.starkey.com/privacy-and-terms",
+    "https://www.starkey.com/schedule-an-appointment",
+    "https://www.starkey.com/search",
+    "https://www.starkey.com/starkey-soundnews-newsletter",
+    "https://www.starkey.com/starkeycares",
+    "https://www.starkey.com/starkeycares/locations",
+    "https://www.starkey.com/support",
+    "https://www.starkey.com/support/accessories",
+    "https://www.starkey.com/support/adjusting-to-hearing-aids",
+    "https://www.starkey.com/support/apps",
+    "https://www.starkey.com/support/connectivity-and-pairing",
+    "https://www.starkey.com/support/get-help",
+    "https://www.starkey.com/support/hearing-aid-returns-exchanges-repairs",
+    "https://www.starkey.com/support/hearing-aid-warranty",
+    "https://www.starkey.com/support/hearing-aids",
+    "https://www.starkey.com/support/hearing-aids/behind-the-ear/g-series-ai",
+    "https://www.starkey.com/support/hearing-aids/custom/g-series-ai",
+    "https://www.starkey.com/support/hearing-aids/receiver-in-canal/g-series-ai",
+    "https://www.starkey.com/support/maintenance-and-troubleshooting",
+    "https://www.starkey.com/support/operations-manuals",
+    "https://www.starkey.com/support/troubleshooting",
+    "https://www.starkey.com/support/upgrade-your-hearing-aids",
+    "https://www.starkey.com/support/use-and-care",
+    "https://www.starkey.com/tinnitus",
+    "https://www.starkey.com/tinnitus/symptoms-and-causes",
+    "https://www.starkey.com/tinnitus/technology",
+    "https://www.starkey.com/tinnitus/tinnitus-test",
+    "https://www.starkey.com/trademarks"
+  ]
+}

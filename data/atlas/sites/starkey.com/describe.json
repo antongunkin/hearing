@@ -1,0 +1,405 @@
+{
+  "domain": "starkey.com",
+  "generatedAt": "2026-11-27T19:06:24.353Z",
+  "model": "sonnet",
+  "openQuestions": [
+    "Does the sitemap exist at another URL (https instead of http)? The listed http URL returned 404.",
+    "Which models do the style and RIC/BTE/custom variants of each line cover? The pages give no model list.",
+    "Are the Genesis AI and Evolv AI lines still listed anywhere on the live site?",
+    "Does the eifu.starkey.com viewer need scripts to show its documents? Only a stub page was seen.",
+    "The operations manuals page text is truncated in the pages shown, so the full link list is unknown."
+  ],
+  "sections": {
+    "archive": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:05:21.746Z",
+            "url": "https://www.starkey.com/hearing-aids"
+          }
+        ],
+        "text": "Web Archive has copies of https://www.starkey.com/hearing-aids from 2018 to 2026 (3 in 2018, 30 in 2024), latest 20261025124432."
+      }
+    ],
+    "links": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:05:05.594Z",
+            "url": "https://www.starkey.com/"
+          }
+        ],
+        "text": "starkeypro.com is linked from every page and is the professionals site."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:07:23.277Z",
+            "url": "https://locations.starkey.com/"
+          }
+        ],
+        "text": "locations.starkey.com is the provider locator (51 state pages, e.g. /ak/)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:07:40.474Z",
+            "url": "https://www.starkey.com/international"
+          }
+        ],
+        "text": "/international links regional Starkey sites: starkey.com.au, starkey.co.uk, starkey.de, starkey.fr, starkeymea.com, starkeyindia.com and others."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:05:05.594Z",
+            "url": "https://www.starkey.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:07:56.308Z",
+            "url": "https://www.starkey.com/starkeycares"
+          }
+        ],
+        "text": "Links to starkeyhearingfoundation.org and app.starkeycares.org (Starkey Cares)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:05:05.594Z",
+            "url": "https://www.starkey.com/"
+          }
+        ],
+        "text": "No redirects were recorded."
+      }
+    ],
+    "next": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:05:21.746Z",
+            "url": "https://www.starkey.com/hearing-aids"
+          }
+        ],
+        "text": "Check whether the current model pattern also matches /hearing-aids/ pages of older or discontinued lines. Only the three AI+ pages were seen."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:07:01.002Z",
+            "url": "https://www.starkey.com/support/operations-manuals"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:05:25.864Z",
+            "url": "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3014-EE-SC"
+          }
+        ],
+        "text": "Manuals for current models (Omega AI+, Edge AI, G Series AI) are not yet seen on the operations manuals page. Check it and eifu.starkey.com for their groupDocNumber documents."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:07:37.182Z",
+            "url": "https://www.starkey.com/compatibility"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:07:01.002Z",
+            "url": "https://www.starkey.com/support/operations-manuals"
+          }
+        ],
+        "text": "Check the Web Archive for older model pages. Genesis AI, Evolv AI and Livio appear in manuals and compatibility text but not as live catalog pages."
+      }
+    ],
+    "render": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:05:21.746Z",
+            "url": "https://www.starkey.com/hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:06:52.972Z",
+            "url": "https://www.starkey.com/schedule-an-appointment"
+          }
+        ],
+        "text": "All fetched pages report needsRender false except /schedule-an-appointment, which needs scripts."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:06:40.138Z",
+            "url": "https://www.starkey.com/hearing-aids/omega-artificial-intelligence-plus-hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:06:44.137Z",
+            "url": "https://www.starkey.com/hearing-aids/edge-artificial-intelligence-hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:06:49.376Z",
+            "url": "https://www.starkey.com/hearing-aids/g-series-artificial-intelligence-hearing-aids"
+          }
+        ],
+        "text": "The Omega AI+, Edge AI and G Series AI model pages show their text content without scripts."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:07:23.277Z",
+            "url": "https://locations.starkey.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:05:21.746Z",
+            "url": "https://www.starkey.com/hearing-aids"
+          }
+        ],
+        "text": "No page has JSON-LD, except locations.starkey.com with LocalBusiness."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:06:40.138Z",
+            "url": "https://www.starkey.com/hearing-aids/omega-artificial-intelligence-plus-hearing-aids"
+          }
+        ],
+        "text": "Model pages show feature text such as battery life and waterproofing, but no prices on the pages shown."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:06:26.698Z",
+            "url": "https://www.starkey.com/hearing-loss/reasons-to-get-help"
+          }
+        ],
+        "text": "One external PDF link carries a Cloudflare challenge token (__cf_chl_tk), so it is not a stable URL."
+      }
+    ],
+    "structure": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:05:21.746Z",
+            "url": "https://www.starkey.com/hearing-aids"
+          }
+        ],
+        "text": "Current model lines are Omega AI+ (marked 'All new'), Edge AI and G Series AI (marked 'Enhanced')."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:06:40.138Z",
+            "url": "https://www.starkey.com/hearing-aids/omega-artificial-intelligence-plus-hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:06:44.137Z",
+            "url": "https://www.starkey.com/hearing-aids/edge-artificial-intelligence-hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:06:49.376Z",
+            "url": "https://www.starkey.com/hearing-aids/g-series-artificial-intelligence-hearing-aids"
+          }
+        ],
+        "text": "Model pages follow /hearing-aids/{name}-artificial-intelligence[-plus]-hearing-aids: omega-artificial-intelligence-plus-hearing-aids, edge-artificial-intelligence-hearing-aids, g-series-artificial-intelligence-hearing-aids."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:05:26.474Z",
+            "url": "https://www.starkey.com/hearing-aids/rechargeable-hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:05:32.860Z",
+            "url": "https://www.starkey.com/hearing-aids/bluetooth-hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:05:35.594Z",
+            "url": "https://www.starkey.com/hearing-aids/apps"
+          }
+        ],
+        "text": "Other /hearing-aids/ pages are topic pages, not models: rechargeable-hearing-aids, waterproof-hearing-aids, bluetooth-hearing-aids, apps, accessories, batteries, costs-and-financing, reviews. The report counts 22 pages under /hearing-aids/{slug}."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:05:53.163Z",
+            "url": "https://www.starkey.com/hearing-aids/styles/behind-the-ear"
+          }
+        ],
+        "text": "/hearing-aids/styles/{slug} has 7 style pages, e.g. behind-the-ear and completely-in-canal."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:05:49.636Z",
+            "url": "https://www.starkey.com/robots.txt"
+          }
+        ],
+        "text": "The robots.txt names http://www.starkey.com/sitemap.xml, but that URL returns HTTP 404, so no sitemap URLs were found."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:05:49.636Z",
+            "url": "https://www.starkey.com/robots.txt"
+          }
+        ],
+        "text": "robots.txt disallows /en/, /en-AU/, /en-CA/, /en-GB/, /en-NZ/, /fr-CA/, .aspx, .js, .css, /sitecore/, */thank-you and /pro-site-locator/ for all agents."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:05:05.594Z",
+            "url": "https://www.starkey.com/"
+          }
+        ],
+        "text": "Other sections: /hearing-loss/*, /tinnitus/*, /support/*, /press/*, /blog/articles/{year}/{month}/{slug}, /about-starkey-hearing/executives/{slug}, /international/{slug}."
+      }
+    ],
+    "what": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:05:10.796Z",
+            "url": "https://www.starkey.com/about-starkey-hearing/executives"
+          }
+        ],
+        "text": "starkey.com is the consumer site of Starkey, a hearing aid brand; the footer reads © 2007-2026 Starkey Laboratories, Inc."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:05:10.796Z",
+            "url": "https://www.starkey.com/about-starkey-hearing/executives"
+          }
+        ],
+        "text": "The executives page lists Bill Austin as Owner and Chairman and Brandon Sawalich as President and CEO."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:05:05.594Z",
+            "url": "https://www.starkey.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:06:52.972Z",
+            "url": "https://www.starkey.com/schedule-an-appointment"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:07:59.231Z",
+            "url": "https://www.starkey.com/internet-sales-policy"
+          }
+        ],
+        "text": "The site sells through hearing professionals: it offers 'Find a provider' and 'Schedule an appointment', and has an Internet sales policy page."
+      }
+    ],
+    "where": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:05:21.746Z",
+            "url": "https://www.starkey.com/hearing-aids"
+          }
+        ],
+        "text": "The catalog is https://www.starkey.com/hearing-aids, which links the three model lines and the style pages."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:07:01.002Z",
+            "url": "https://www.starkey.com/support/operations-manuals"
+          }
+        ],
+        "text": "The operations manuals page https://www.starkey.com/support/operations-manuals links about 35 PDFs, plus the Climate Disclosures and ESG Report PDFs that every page links. It covers older families (Livio, Muse iQ, Halo, Z Series, 3 Series), chargers, SurfLink and apps."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:07:01.002Z",
+            "url": "https://www.starkey.com/support/operations-manuals"
+          }
+        ],
+        "text": "Manual PDFs are hosted on cdn.mediavalet.com (220 PDF links in the report), under paths like /usil/starkeyhearingtech/.../Original/{name}.pdf."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:05:32.860Z",
+            "url": "https://www.starkey.com/hearing-aids/bluetooth-hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:07:37.182Z",
+            "url": "https://www.starkey.com/compatibility"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:07:28.233Z",
+            "url": "https://www.starkey.com/tinnitus"
+          }
+        ],
+        "text": "The Bluetooth page links Auracast Assistant QuickTip and Flyer PDFs. The compatibility page links the StarLink Edge LE Adapter User Guide PDF. The tinnitus page links a Tinnitus Consumer Brochure PDF."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:05:25.864Z",
+            "url": "https://eifu.starkey.com/eifu/pages/viewers/pdf?groupDocNumber=BKLT3014-EE-SC"
+          }
+        ],
+        "text": "The eifu.starkey.com viewer serves manuals as pdf?groupDocNumber=... (16 URLs). The example BKLT3014-EE-SC is the Mini Turbo Charger Operations Manual."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:06:35.872Z",
+            "url": "https://www.starkey.com/support/get-help"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:06:57.054Z",
+            "url": "https://www.starkey.com/support/hearing-aid-warranty"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:05:58.657Z",
+            "url": "https://www.starkey.com/support/apps"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:07:37.182Z",
+            "url": "https://www.starkey.com/compatibility"
+          }
+        ],
+        "text": "Support pages: /support/get-help, /support/hearing-aid-warranty, /support/operations-manuals, /support/apps. Compatibility is at /compatibility."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:05:35.594Z",
+            "url": "https://www.starkey.com/hearing-aids/apps"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:05:58.657Z",
+            "url": "https://www.starkey.com/support/apps"
+          }
+        ],
+        "text": "Apps: My Starkey, T2 Remote, SoundCheck Live and Relax (tinnitus) on /hearing-aids/apps. The support apps page lists My Starkey, Thrive and Hear Share. Store IDs are iOS 1549559068, 336938292, 6449296331 and 966601084; Android com.starkey.mystarkey.release, com.starkey.T2Remote.android, com.starkey.soundchecklive.release and com.starkey.tinnitus."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:06:35.872Z",
+            "url": "https://www.starkey.com/support/get-help"
+          }
+        ],
+        "text": "Support phone numbers: 1-866-637-9243 for wearers and 1-800-211-7789 for veterans."
+      }
+    ]
+  },
+  "summary": {
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:05:21.746Z",
+        "url": "https://www.starkey.com/hearing-aids"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:07:01.002Z",
+        "url": "https://www.starkey.com/support/operations-manuals"
+      }
+    ],
+    "text": "Starkey's official site (Starkey Laboratories): active, server-rendered, with three AI model pages under /hearing-aids/ and manuals hosted on cdn.mediavalet.com and eifu.starkey.com. The sitemap.xml returned 404."
+  }
+}

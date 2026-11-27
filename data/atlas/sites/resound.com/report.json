@@ -1,0 +1,3824 @@
+{
+  "archive": {
+    "sections": [
+      {
+        "byYear": {
+          "2018": 58,
+          "2019": 34,
+          "2020": 92,
+          "2021": 88,
+          "2022": 80,
+          "2023": 46,
+          "2024": 98,
+          "2025": 105,
+          "2026": 73
+        },
+        "latest": "20261109231147",
+        "url": "https://www.resound.com/en-us"
+      },
+      {
+        "byYear": {
+          "2018": 2,
+          "2019": 12,
+          "2020": 11,
+          "2021": 20,
+          "2022": 19,
+          "2023": 10,
+          "2024": 33,
+          "2025": 29,
+          "2026": 23
+        },
+        "latest": "20261112094944",
+        "url": "https://www.resound.com/en"
+      },
+      {
+        "byYear": {
+          "2018": 2,
+          "2019": 11,
+          "2020": 7,
+          "2021": 10,
+          "2022": 7,
+          "2023": 6,
+          "2024": 8,
+          "2025": 11,
+          "2026": 8
+        },
+        "latest": "20261112094947",
+        "url": "https://www.resound.com/da"
+      },
+      {
+        "byYear": {
+          "2018": 4,
+          "2019": 16,
+          "2020": 9,
+          "2021": 14,
+          "2022": 14,
+          "2023": 12,
+          "2024": 11,
+          "2025": 20,
+          "2026": 25
+        },
+        "latest": "20261018041051",
+        "url": "https://www.resound.com/en-ca"
+      },
+      {
+        "byYear": {
+          "2019": 7,
+          "2020": 11,
+          "2021": 10,
+          "2022": 8,
+          "2023": 9,
+          "2024": 18,
+          "2025": 29,
+          "2026": 15
+        },
+        "latest": "20260809080829",
+        "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids"
+      }
+    ]
+  },
+  "budget": 60,
+  "domain": "resound.com",
+  "failures": [],
+  "generatedAt": "2026-11-27T17:48:20.118Z",
+  "mode": "live",
+  "outbound": [
+    {
+      "count": 102,
+      "domain": "resoundpro.com",
+      "examples": [
+        "http://www.resoundpro.com/en-us",
+        "https://www.resoundpro.com/en-us",
+        "http://www.resoundpro.com/en-ca"
+      ]
+    },
+    {
+      "count": 66,
+      "domain": "youtube.com",
+      "examples": [
+        "https://www.youtube.com/user/resoundus",
+        "https://www.youtube.com/user/byReSound",
+        "https://www.youtube.com/watch?v=Ul3jib25c6g&feature=youtu.be"
+      ]
+    },
+    {
+      "count": 64,
+      "domain": "linkedin.com",
+      "examples": [
+        "https://www.linkedin.com/company/resound/",
+        "https://www.linkedin.com/in/laurel-christensen-ph-d-bb21a55/"
+      ]
+    },
+    {
+      "count": 60,
+      "domain": "facebook.com",
+      "examples": [
+        "https://www.facebook.com/gnresound",
+        "https://www.facebook.com/resoundhearing/",
+        "https://www.facebook.com/resoundcanada"
+      ]
+    },
+    {
+      "count": 60,
+      "domain": "gn.com",
+      "examples": [
+        "http://www.gn.com/",
+        "https://www.gn.com/"
+      ]
+    },
+    {
+      "count": 60,
+      "domain": "gn.wd3.myworkdayjobs.com",
+      "examples": [
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers"
+      ]
+    },
+    {
+      "count": 60,
+      "domain": "resoundchina.com",
+      "examples": [
+        "https://www.resoundchina.com/"
+      ]
+    },
+    {
+      "count": 59,
+      "domain": "twitter.com",
+      "examples": [
+        "https://twitter.com/resoundus",
+        "https://twitter.com/resoundglobal"
+      ]
+    },
+    {
+      "count": 58,
+      "domain": "gnresoundblog.com",
+      "examples": [
+        "https://gnresoundblog.com/"
+      ]
+    },
+    {
+      "count": 51,
+      "domain": "instagram.com",
+      "examples": [
+        "https://www.instagram.com/resoundusa/",
+        "https://www.instagram.com/resoundcanada"
+      ]
+    },
+    {
+      "count": 51,
+      "domain": "jabra.dk",
+      "examples": [
+        "https://www.jabra.dk/"
+      ]
+    },
+    {
+      "count": 50,
+      "domain": "va.gov",
+      "examples": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1"
+      ]
+    },
+    {
+      "count": 13,
+      "domain": "play.google.com",
+      "examples": [
+        "https://play.google.com/store/apps/details?id=dk.resound.smart3d&pli=1",
+        "https://play.google.com/store/apps/details?id=dk.resound.smart3d&hl=en",
+        "https://play.google.com/store/apps?hl=en"
+      ]
+    },
+    {
+      "count": 10,
+      "domain": "gngroup.webdamdb.com",
+      "examples": [
+        "https://gngroup.webdamdb.com/directdownload.php?ti=603418184&tok=meC0Fl4uZ2BDVKlxl5at6wRR&token=$2y$10$u1/avWh8uBlZsnF2sVihruWBHAt4YSZkdok.FU5.3zU0J4f7gjFgq",
+        "https://gngroup.webdamdb.com/directdownload.php?ti=694886479&tok=wCu98O3HSSdhpooWK9sBqwRR&token=$2y$10$DrXfHNwYL4mxvj/EhHf2ROoPGpjpv1QIU7YgyOPVQgIL717ZOvNui",
+        "https://gngroup.webdamdb.com/directdownload.php?ti=694887551&tok=oToA/qqHkLvGyLlggQMXUQRR&token=$2y$10$w1LatOR7QTDo0IX6qyBeHuWMXtejIaW.Rhq1cKrbrFoGuSB9N/Kim"
+      ]
+    },
+    {
+      "count": 8,
+      "domain": "cdn1-originals.webdamdb.com",
+      "examples": [
+        "https://cdn1-originals.webdamdb.com/13512_149769600?cache=1684421686&response-content-disposition=inline;filename=GN%2520company%2520announcement%2520-%2520charger%2520notice%2520-%2520May%25202023.pdf&response-content-type=application/pdf&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cCo6Ly9jZG4xLW9yaWdpbmFscy53ZWJkYW1kYi5jb20vMTM1MTJfMTQ5NzY5NjAwP2NhY2hlPTE2ODQ0MjE2ODYmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmU7ZmlsZW5hbWU9R04lMjUyMGNvbXBhbnklMjUyMGFubm91bmNlbWVudCUyNTIwLSUyNTIwY2hhcmdlciUyNTIwbm90aWNlJTI1MjAtJTI1MjBNYXklMjUyMDIwMjMucGRmJnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1hcHBsaWNhdGlvbi9wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjIxNDc0MTQ0MDB9fX1dfQ__&Signature=UFiARGWdGgfe~WQI9tPf0I5TuQjDjguqrYI~OmQ6nlfDoWCwyPXnfaX30Tu0JYKlacDhl8H6BJK7dDh7MvKlc0hzgBTH17zI22rtjrOQhSfLxXBFOYb6tXNydcfYCOf3rokeusxk8POKwV4ATZBE7Z-dMaukDwwTe--Vp9RweKizQqruo9Qmawv0pDIivo3K25NwdGvaJjixe4IEb2JuI8Ko~ckmvRaYF3Vp27sFuAaUPEYFDKIw68Ozh5YItePVoiBFkTX9orIkDSGEh4EHrw728BFOE~iUyWZJkdI6eYrS4lA~b3l6L1ijBPGnJlrMy087wyWDu8NtJtfoT2K9cw__&Key-Pair-Id=APKAI2ASI2IOLRFF2RHA",
+        "https://cdn1-originals.webdamdb.com/13512_96924956?cache=1728078106&response-content-disposition=inline;filename=MK604802_rE_RS_Assist_PTBRO_v4_FinalWEB.pdf&response-content-type=application/pdf&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cCo6Ly9jZG4xLW9yaWdpbmFscy53ZWJkYW1kYi5jb20vMTM1MTJfOTY5MjQ5NTY~Y2FjaGU9MTcyODA3ODEwNiZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZTtmaWxlbmFtZT1NSzYwNDgwMl9yRV9SU19Bc3Npc3RfUFRCUk9fdjRfRmluYWxXRUIucGRmJnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1hcHBsaWNhdGlvbi9wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjIxNDc0MTQ0MDB9fX1dfQ__&Signature=dtwK6TqrBwtYNbn31pLJmm4EMB7axcuR1drp2Ihcm2owhcW7AWYx1Q0sAYRPWAEGTuwJIELINoNQmBPNZR065FiqBNFNNPavedxaiDXB3VtsmreTMY29zWUYBCsF3O~RkIXY2JpTV-DGAb~F0cumgTLpJ6p9F9wdSj~2jZ0EY0nX3szTbO4UR5mYLP4es4JxSrf9SpDJbsH4x~W74FaYUUbMPsk-Cbfi3Vxko8KLLmZp1gul3xlOLGBFtNqRuUUvO1lKDnhImV5bntxgGwmzk9QkBmyKG-xsiwlCTyxDXdLICNkcKKU2QybMnpmP7--5SiYHvcxQ9mmxjywhtp4tbQ__&Key-Pair-Id=APKAI2ASI2IOLRFF2RHA",
+        "https://cdn1-originals.webdamdb.com/13512_104152128?cache=1582744966&response-content-disposition=inline%3Bfilename%3Dmk604827-qg-remote-assist%20%281%29.pdf&response-content-type=application%2Fpdf&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cCo6Ly9jZG4xLW9yaWdpbmFscy53ZWJkYW1kYi5jb20vMTM1MTJfMTA0MTUyMTI4P2NhY2hlPTE1ODI3NDQ5NjYmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0JmaWxlbmFtZSUzRG1rNjA0ODI3LXFnLXJlbW90ZS1hc3Npc3QlMjAlMjgxJTI5LnBkZiZyZXNwb25zZS1jb250ZW50LXR5cGU9YXBwbGljYXRpb24lMkZwZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjIxNDc0MTQ0MDB9fX1dfQ__&Signature=oSC1D2DZBjlbBC-8ac3egpt~ripyTn9AaCfd-k4cPQypo1z3AUkR44hbg7ksBS~u~Wl~~gCT8i5fnJzttZSjQM59jyage8fdLVPtZnlKzXt2u0zi3Vrl7TohCUOpJZEiPgFVuCUtjdZYS0OTIRz-v~5L7BiwxmKLlYLVJwW-Zn~XDWfG-PWRlActNNM9sJVIMDL~l2cHlJx0h-IdR7d8KNE3D~C4W~K-mlWs43MYn6Rrw6wpGHEDDBR8WDjx1S7cw~qvzhIr5KqQhNJYh5WbjJtmf1eyICL9GYrJ-mAwroWj58u~wrqDvyit1XbZuSOSf~sYh3baDUg2YTtRGHTm3g__&Key-Pair-Id=APKAI2ASI2IOLRFF2RHA"
+      ]
+    },
+    {
+      "count": 7,
+      "domain": "apps.apple.com",
+      "examples": [
+        "https://apps.apple.com/us/app/resound-smart-3d/id1134918918",
+        "https://apps.apple.com/us/app/resound-smart-3d-for-resound-linx-3d/id1134918918",
+        "https://apps.apple.com/us/app/resound-smart-3d/id1134918918?ls=1"
+      ]
+    },
+    {
+      "count": 6,
+      "domain": "resoundrelief.app.link",
+      "examples": [
+        "https://resoundrelief.app.link/ofnWtY2sjN"
+      ]
+    },
+    {
+      "count": 5,
+      "domain": "itunes.apple.com",
+      "examples": [
+        "https://itunes.apple.com/us/app/resound-smart-3d-for-resound-linx-3d/id1134918918?mt=8",
+        "https://itunes.apple.com/us/app/resound-relief-for-people/id928432517?mt=8"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "cochlear.com",
+      "examples": [
+        "https://www.cochlear.com/us/en/home/products-and-accessories/cochlear-nucleus-system/nucleus-sound-processors/nucleus-8",
+        "https://www.cochlear.com/us/en/home/products-and-accessories/cochlear-nucleus-system/nucleus-sound-processors/kanso-3",
+        "https://www.cochlear.com/us/en/home/diagnosis-and-treatment/how-cochlear-solutions-work/hearing-with-both-ears"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "gnhearing.com",
+      "examples": [
+        "https://www.gnhearing.com/products/auracast-hearing-aids",
+        "https://www.gnhearing.com/en/products/ai-hearing-aids"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "resoundhearsay.com",
+      "examples": [
+        "https://resoundhearsay.com/?utm_source=brandsite&utm_medium=rs_homepage&utm_campaign=hearsay"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "youtu.be",
+      "examples": [
+        "https://youtu.be/ldoUGMc0U7A?si=of6PLc-14TTl4LqM",
+        "https://youtu.be/RINuFTMrbBo"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "shop.resoundpatientsupport.com",
+      "examples": [
+        "https://shop.resoundpatientsupport.com/da-dk/"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://resoundhearsay.com/?utm_source=brandsite&utm_medium=rs_homepage&utm_campaign=hearsay",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 96,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:43:10.586Z",
+        "url": "https://www.resound.com/en-us/"
+      },
+      "title": "ReSound hearing aids and wireless accessories | ReSound US",
+      "url": "https://www.resound.com/en-us/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.facebook.com/resoundhearing/",
+        "https://twitter.com/resoundglobal",
+        "https://www.youtube.com/user/byReSound",
+        "https://www.linkedin.com/company/resound/"
+      ],
+      "internalLinks": 65,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:43:15.912Z",
+        "url": "https://www.resound.com/en/"
+      },
+      "title": "Smart hearing aids and wireless accessories | ReSound International",
+      "url": "https://www.resound.com/en/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "http://www.resoundpro.com/en-ca",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/resoundcanada",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundcanada"
+      ],
+      "internalLinks": 79,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:43:20.899Z",
+        "url": "https://www.resound.com/en-ca/"
+      },
+      "title": "ReSound hearing aids and wireless accessories",
+      "url": "https://www.resound.com/en-ca/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://shop.resoundpatientsupport.com/da-dk/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.facebook.com/gnhearingDK/",
+        "https://twitter.com/resoundglobal",
+        "https://www.youtube.com/user/byReSound",
+        "https://www.linkedin.com/company/resound/"
+      ],
+      "internalLinks": 80,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:43:24.253Z",
+        "url": "https://www.resound.com/da/"
+      },
+      "title": "Intelligente høreapparater og trådløst tilbehør | ReSound Denmark",
+      "url": "https://www.resound.com/da/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://resoundhearsay.com/?utm_source=brandsite&utm_medium=rs_homepage&utm_campaign=hearsay",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 96,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:43:27.349Z",
+        "url": "https://www.resound.com/en-us/"
+      },
+      "title": "ReSound hearing aids and wireless accessories | ReSound US",
+      "url": "https://www.resound.com/en-us/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 97,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:43:31.584Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids"
+      },
+      "title": "Our hearing aids | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://www.linkedin.com/in/laurel-christensen-ph-d-bb21a55/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 97,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:43:34.304Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/ai-hearing-aids"
+      },
+      "title": "AI Hearing Aids Guide – Hearing in Noise | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/ai-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [
+          "dk.resound.smart3d"
+        ],
+        "ios": [
+          "1134918918"
+        ]
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://www.linkedin.com/in/laurel-christensen-ph-d-bb21a55/",
+        "https://www.youtube.com/watch?v=Ul3jib25c6g&feature=youtu.be",
+        "https://www.youtube.com/watch?v=zYiwK4ezWtI",
+        "https://www.youtube.com/watch?v=FPDTSGIwB8I",
+        "https://apps.apple.com/us/app/resound-smart-3d/id1134918918",
+        "https://play.google.com/store/apps/details?id=dk.resound.smart3d&pli=1",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 99,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:43:39.486Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/auracast-hearing-aids"
+      },
+      "title": "Auracast hearing aids | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/auracast-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 95,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:43:42.371Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/bluetooth-hearing-aids"
+      },
+      "title": "Discover Bluetooth hearing aids for Apple and Android | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/bluetooth-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://resoundrelief.app.link/ofnWtY2sjN",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 95,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:43:51.429Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/tinnitus-hearing-aids"
+      },
+      "title": "Learn about the best hearing aids for tinnitus masking. | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/tinnitus-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 95,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:43:59.071Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/bluetooth-hearing-aids"
+      },
+      "title": "Discover Bluetooth hearing aids for Apple and Android | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/bluetooth-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 95,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:44:05.450Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/digital"
+      },
+      "title": "Digital hearing aids – discover the features and how they work | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/digital"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://cdn1-originals.webdamdb.com/13512_149769600?cache=1684421686&response-content-disposition=inline;filename=GN%2520company%2520announcement%2520-%2520charger%2520notice%2520-%2520May%25202023.pdf&response-content-type=application/pdf&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cCo6Ly9jZG4xLW9yaWdpbmFscy53ZWJkYW1kYi5jb20vMTM1MTJfMTQ5NzY5NjAwP2NhY2hlPTE2ODQ0MjE2ODYmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmU7ZmlsZW5hbWU9R04lMjUyMGNvbXBhbnklMjUyMGFubm91bmNlbWVudCUyNTIwLSUyNTIwY2hhcmdlciUyNTIwbm90aWNlJTI1MjAtJTI1MjBNYXklMjUyMDIwMjMucGRmJnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1hcHBsaWNhdGlvbi9wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjIxNDc0MTQ0MDB9fX1dfQ__&Signature=UFiARGWdGgfe~WQI9tPf0I5TuQjDjguqrYI~OmQ6nlfDoWCwyPXnfaX30Tu0JYKlacDhl8H6BJK7dDh7MvKlc0hzgBTH17zI22rtjrOQhSfLxXBFOYb6tXNydcfYCOf3rokeusxk8POKwV4ATZBE7Z-dMaukDwwTe--Vp9RweKizQqruo9Qmawv0pDIivo3K25NwdGvaJjixe4IEb2JuI8Ko~ckmvRaYF3Vp27sFuAaUPEYFDKIw68Ozh5YItePVoiBFkTX9orIkDSGEh4EHrw728BFOE~iUyWZJkdI6eYrS4lA~b3l6L1ijBPGnJlrMy087wyWDu8NtJtfoT2K9cw__&Key-Pair-Id=APKAI2ASI2IOLRFF2RHA",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 94,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:44:08.441Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/rechargeable-hearing-aids"
+      },
+      "title": "Learn more about the best rechargeable hearing aids without batteries. | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/rechargeable-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 96,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:44:11.211Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/types/rie"
+      },
+      "title": "Facts about Receiver-in-Ear (RIE), RIC and RITE hearing aids | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/types/rie"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 96,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:44:15.167Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/types/bte"
+      },
+      "title": "Behind the ear (BTE) hearing aids - BTE Benefits | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/types/bte"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 94,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:44:19.187Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/types/custom"
+      },
+      "title": "Learn about custom hearing aids and why they could be for you | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/types/custom"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://www.cochlear.com/us/en/home/products-and-accessories/cochlear-nucleus-system/nucleus-sound-processors/nucleus-8",
+        "https://www.cochlear.com/us/en/home/products-and-accessories/cochlear-nucleus-system/nucleus-sound-processors/kanso-3",
+        "https://www.cochlear.com/us/en/home/diagnosis-and-treatment/how-cochlear-solutions-work/hearing-with-both-ears",
+        "https://www.cochlear.com/global/en/compatibility/compatible-resound-hearing-aids",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 94,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:44:24.451Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/types/hearing-implant-hearing-aids"
+      },
+      "title": "Cochlear Bimodal Hearing Solution | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/types/hearing-implant-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://cdn1-originals.webdamdb.com/13512_96924956?cache=1728078106&response-content-disposition=inline;filename=MK604802_rE_RS_Assist_PTBRO_v4_FinalWEB.pdf&response-content-type=application/pdf&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cCo6Ly9jZG4xLW9yaWdpbmFscy53ZWJkYW1kYi5jb20vMTM1MTJfOTY5MjQ5NTY~Y2FjaGU9MTcyODA3ODEwNiZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZTtmaWxlbmFtZT1NSzYwNDgwMl9yRV9SU19Bc3Npc3RfUFRCUk9fdjRfRmluYWxXRUIucGRmJnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1hcHBsaWNhdGlvbi9wZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjIxNDc0MTQ0MDB9fX1dfQ__&Signature=dtwK6TqrBwtYNbn31pLJmm4EMB7axcuR1drp2Ihcm2owhcW7AWYx1Q0sAYRPWAEGTuwJIELINoNQmBPNZR065FiqBNFNNPavedxaiDXB3VtsmreTMY29zWUYBCsF3O~RkIXY2JpTV-DGAb~F0cumgTLpJ6p9F9wdSj~2jZ0EY0nX3szTbO4UR5mYLP4es4JxSrf9SpDJbsH4x~W74FaYUUbMPsk-Cbfi3Vxko8KLLmZp1gul3xlOLGBFtNqRuUUvO1lKDnhImV5bntxgGwmzk9QkBmyKG-xsiwlCTyxDXdLICNkcKKU2QybMnpmP7--5SiYHvcxQ9mmxjywhtp4tbQ__&Key-Pair-Id=APKAI2ASI2IOLRFF2RHA",
+        "https://cdn1-originals.webdamdb.com/13512_104152128?cache=1582744966&response-content-disposition=inline%3Bfilename%3Dmk604827-qg-remote-assist%20%281%29.pdf&response-content-type=application%2Fpdf&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cCo6Ly9jZG4xLW9yaWdpbmFscy53ZWJkYW1kYi5jb20vMTM1MTJfMTA0MTUyMTI4P2NhY2hlPTE1ODI3NDQ5NjYmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0JmaWxlbmFtZSUzRG1rNjA0ODI3LXFnLXJlbW90ZS1hc3Npc3QlMjAlMjgxJTI5LnBkZiZyZXNwb25zZS1jb250ZW50LXR5cGU9YXBwbGljYXRpb24lMkZwZGYiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjIxNDc0MTQ0MDB9fX1dfQ__&Signature=oSC1D2DZBjlbBC-8ac3egpt~ripyTn9AaCfd-k4cPQypo1z3AUkR44hbg7ksBS~u~Wl~~gCT8i5fnJzttZSjQM59jyage8fdLVPtZnlKzXt2u0zi3Vrl7TohCUOpJZEiPgFVuCUtjdZYS0OTIRz-v~5L7BiwxmKLlYLVJwW-Zn~XDWfG-PWRlActNNM9sJVIMDL~l2cHlJx0h-IdR7d8KNE3D~C4W~K-mlWs43MYn6Rrw6wpGHEDDBR8WDjx1S7cw~qvzhIr5KqQhNJYh5WbjJtmf1eyICL9GYrJ-mAwroWj58u~wrqDvyit1XbZuSOSf~sYh3baDUg2YTtRGHTm3g__&Key-Pair-Id=APKAI2ASI2IOLRFF2RHA",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 95,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.resound.com/-/media/resound/resound-us/downloads/guides/gu_resoundassist_satisfactionsurvey.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:44:27.803Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/assist"
+      },
+      "title": "ReSound Assist | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/assist"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 94,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:44:30.942Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/accessories/tv-hearing-aid"
+      },
+      "title": "ReSound TV Streamers - stream to hearing aid | ReSound | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/accessories/tv-hearing-aid"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://gngroup.webdamdb.com/directdownload.php?ti=603418184&tok=meC0Fl4uZ2BDVKlxl5at6wRR&token=$2y$10$u1/avWh8uBlZsnF2sVihruWBHAt4YSZkdok.FU5.3zU0J4f7gjFgq",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 94,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:44:33.909Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/accessories/multi-mic"
+      },
+      "title": "ReSound Multi Mic - hearing aid microphone | ReSound | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/accessories/multi-mic"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 94,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:44:36.906Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/accessories/remote-control-2"
+      },
+      "title": "ReSound Remote Controls - Control and discretion all in one | ReSound | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/accessories/remote-control-2"
+    },
+    {
+      "apps": {
+        "android": [
+          "dk.resound.smart3d"
+        ],
+        "ios": [
+          "1134918918"
+        ]
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://cdn1-originals.webdamdb.com/13512_156273899?cache=1708358132&response-content-disposition=inline;filename=402782011_rA_Smart3D%2520%2526%2520SmartApp_PairingGuide_WEB.pdf&response-content-type=application/pdf&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cCo6Ly9jZG4xLW9yaWdpbmFscy53ZWJkYW1kYi5jb20vMTM1MTJfMTU2MjczODk5P2NhY2hlPTE3MDgzNTgxMzImcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmU7ZmlsZW5hbWU9NDAyNzgyMDExX3JBX1NtYXJ0M0QlMjUyMCUyNTI2JTI1MjBTbWFydEFwcF9QYWlyaW5nR3VpZGVfV0VCLnBkZiZyZXNwb25zZS1jb250ZW50LXR5cGU9YXBwbGljYXRpb24vcGRmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoyMTQ3NDE0NDAwfX19XX0_&Signature=DoYpiLiCudA0or7vOoJbAC3B6wnQLRzw9OsG3c1pEsQ93JB-RZ-a92F7kXv6J~TwOvWEajs4pN~7wbBRIuoyw4~eflCeHK0MUvcrPi5f2f6Nh~eRFKICDCPsmBNOQoPpvewLuHRkEMjhJyQFCmezrhiw3D6uMxt8bUf0xV0yRSWIJMGSU7aOZ7MXkDFKtGDR7-rvQ5SVAKGgdAemsU8K1FVwKkbU9JllRY7Y6FHxBcHd2dF~FaABR9AaT4H9YrWa5dsWMPSmlqQs8Zz2icJIHYesqsjcXqxl3mpCvRUB26zvwKAd99lxrYZoQlmb7jGBvEdsKhabQiQ6xR3xLQYgEA__&Key-Pair-Id=APKAI2ASI2IOLRFF2RHA",
+        "https://itunes.apple.com/us/app/resound-smart-3d-for-resound-linx-3d/id1134918918?mt=8",
+        "https://play.google.com/store/apps/details?id=dk.resound.smart3d&hl=en",
+        "https://cdn1-originals.webdamdb.com/13512_96924956?cache=1582819121&response-content-disposition=inline%3Bfilename%3DMK604802_br_assist-patientbro.pdf&response-content-type=application%2Fpdf&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cCo6Ly9jZG4xLW9yaWdpbmFscy53ZWJkYW1kYi5jb20vMTM1MTJfOTY5MjQ5NTY~Y2FjaGU9MTU4MjgxOTEyMSZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQmZpbGVuYW1lJTNETUs2MDQ4MDJfYnJfYXNzaXN0LXBhdGllbnRicm8ucGRmJnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1hcHBsaWNhdGlvbiUyRnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MjE0NzQxNDQwMH19fV19&Signature=cQTJwLJ00MdAh6MTX9EtOSx-in1B4oM5wXiOEgrxhQqptxoPjuiznUOeh5Wm-vF3SZ8~KUuWQ9zSW~SotvsWGSKYiKgJ8apJavrXgQmH4AKLWQdNewHX561VcId01kiljVb1zDL8lbe5dff7dmWDz2S-r1UygwptAiW2KhjImX~9v1Jh5HXKq9xkIQs-yKyOkU5LJGaCMe6V0bqX1S32Tgy9JB1MBDoP5lMkXQPd6aWPcEefangg2M2j3y8V6YZ0d0oexNnZEVqUYQw1JDFaVFata~6HtOb4KwtrRB3tOEfzVTFfT-B55xWHK6UMmNxwrWkA5UxvwQ8elW3qrZlyAQ__&Key-Pair-Id=APKAI2ASI2IOLRFF2RHA",
+        "https://cdn1-originals.webdamdb.com/13512_104152128?cache=1582819171&response-content-disposition=inline%3Bfilename%3DMK604827_gu_assistfinetuning.pdf&response-content-type=application%2Fpdf&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cCo6Ly9jZG4xLW9yaWdpbmFscy53ZWJkYW1kYi5jb20vMTM1MTJfMTA0MTUyMTI4P2NhY2hlPTE1ODI4MTkxNzEmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmUlM0JmaWxlbmFtZSUzRE1LNjA0ODI3X2d1X2Fzc2lzdGZpbmV0dW5pbmcucGRmJnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1hcHBsaWNhdGlvbiUyRnBkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MjE0NzQxNDQwMH19fV19&Signature=EfSZ-ZRakcJcD2k0fg8c6RHjjDS0y-8DkaWyA0X7eMoibDcxvTZcx~8egMM0X20GTq9GFzCglFeEtIxfjp3ptPo4CnILh9RQFYORRFrv4e2MeGSv-P0ShQWa2Mihw99fGe~81suSZ~RuLeOovlUhPcG25Q-gZcTj-u4cek6zczj1w~qa28wSvfni4CydaO8ByFi3UyIwv-BFIOkJ7GtVMwqP7uiyEEj9-yT8pRL6YX7QuTEPWi6MK-MolTJx5YKsg-Phq5A9BSPgxycjSNI0hlZBO3N6kmxr9qdP9tajdzUxJ1zqSJtUocU18I2j8xuJ0VQ-x1j3KA8PhrW1r9mqNg__&Key-Pair-Id=APKAI2ASI2IOLRFF2RHA",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 96,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:44:41.646Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/apps/smart-3d"
+      },
+      "title": "ReSound Smart 3D hearing aid app | ReSound | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/apps/smart-3d"
+    },
+    {
+      "apps": {
+        "android": [
+          "dk.resound.smart3d"
+        ],
+        "ios": [
+          "1134918918"
+        ]
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://itunes.apple.com/us/app/resound-smart-3d-for-resound-linx-3d/id1134918918?mt=8",
+        "https://play.google.com/store/apps/details?id=dk.resound.smart3d&hl=en",
+        "https://resoundrelief.app.link/ofnWtY2sjN",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 94,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:44:49.427Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/apps"
+      },
+      "title": "Hearing aid apps | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/apps"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://resoundrelief.app.link/ofnWtY2sjN",
+        "https://play.google.com/store/apps?hl=en",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 95,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:44:52.487Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/apps/relief"
+      },
+      "title": "Enjoy Tinnitus Relief with the ReSound Relief App | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/apps/relief"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 97,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:44:57.295Z",
+        "url": "https://www.resound.com/en-us/hearing-loss"
+      },
+      "title": "Hearing loss - facts about hearing impaired | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-loss"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 97,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:45:05.524Z",
+        "url": "https://www.resound.com/en-us/hearing-loss"
+      },
+      "title": "Hearing loss - facts about hearing impaired | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-loss"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 97,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:45:13.644Z",
+        "url": "https://www.resound.com/en-us/hearing-loss"
+      },
+      "title": "Hearing loss - facts about hearing impaired | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-loss"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 97,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:45:21.108Z",
+        "url": "https://www.resound.com/en-us/hearing-loss"
+      },
+      "title": "Hearing loss - facts about hearing impaired | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-loss"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 94,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:45:25.642Z",
+        "url": "https://www.resound.com/en-us/online-hearing-test"
+      },
+      "title": "Free Online Hearing Test | ReSound Global | ReSound US",
+      "url": "https://www.resound.com/en-us/online-hearing-test"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 96,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:45:28.845Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/types"
+      },
+      "title": "What are the different types of hearing aids & styles | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/types"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 95,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:45:33.026Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/how-to-choose"
+      },
+      "title": "Choosing a hearing aid - how do you choose? | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/how-to-choose"
+    },
+    {
+      "apps": {
+        "android": [
+          "dk.resound.smart3d"
+        ],
+        "ios": [
+          "1134918918"
+        ]
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://itunes.apple.com/us/app/resound-smart-3d-for-resound-linx-3d/id1134918918?mt=8",
+        "https://play.google.com/store/apps/details?id=dk.resound.smart3d&hl=en",
+        "https://resoundrelief.app.link/ofnWtY2sjN",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 94,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:45:37.328Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/apps"
+      },
+      "title": "Hearing aid apps | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/apps"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://gngroup.webdamdb.com/directdownload.php?ti=694886479&tok=wCu98O3HSSdhpooWK9sBqwRR&token=$2y$10$DrXfHNwYL4mxvj/EhHf2ROoPGpjpv1QIU7YgyOPVQgIL717ZOvNui",
+        "https://gngroup.webdamdb.com/directdownload.php?ti=694887551&tok=oToA/qqHkLvGyLlggQMXUQRR&token=$2y$10$w1LatOR7QTDo0IX6qyBeHuWMXtejIaW.Rhq1cKrbrFoGuSB9N/Kim",
+        "https://gngroup.webdamdb.com/directdownload.php?ti=694888389&tok=wFmXl/DCy69Y0kD4QZl13gRR&token=$2y$10$Jeqrm8CcUxoa7wZvYowYhuwMZLb4xh77/CRUS5XsY.ny0F65KQ9xO",
+        "https://gngroup.webdamdb.com/directdownload.php?ti=695816424&tok=SdF2//4nEKjoKk1cDjiO2gRR&token=$2y$10$zOhO1PHXcy82lHV14bVQgexnb/4pTjua6Hu4FTMyGXbKAAuGKE.Y6",
+        "https://gngroup.webdamdb.com/directdownload.php?ti=694888668&tok=SteDLlEUGcUnt0Wz8cnXpQRR&token=$2y$10$nxQ5tEsvKL.mNu5MRkSqB.jDTKQglM9hjiAwPEJbXYYr8zl7r5ANi",
+        "https://gngroup.webdamdb.com/directdownload.php?ti=686904234&tok=TASpEJzueWPJaCL5Yu0GpgRR&token=$2y$10$jKZfDf1eQFBDTDQdSSf06.zlx7MwXM.F9z3FsqHVeF87vlyYR1TNi",
+        "https://gngroup.webdamdb.com/directdownload.php?ti=690127510&tok=bbtQiWfjvJYv9KmbYHNwLARR&token=$2y$10$cAUf798nmQ/esQzndGXuUupz3ZHjPcDuqDDk.P57OqtrDlPLXNIb.",
+        "https://gngroup.webdamdb.com/directdownload.php?ti=695882771&tok=HpnWlGeP/1Rf0WK93HadxARR&token=$2y$10$hX4KnxcMwA2D05e.9pmU2edmU8n.xiz70d1LzNrSbXkLubTQo9zJO",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 96,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:45:41.977Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-sensia"
+      },
+      "title": "ReSound Sensia | AI Hearing Aids That Hear in Noise | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-sensia"
+    },
+    {
+      "apps": {
+        "android": [
+          "dk.resound.smart3d"
+        ],
+        "ios": [
+          "1134918918"
+        ]
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://cdn1-originals.webdamdb.com/13512_152167251?cache=1740046004&response-content-disposition=inline;filename=MK605711_rE_RS_ConnectedExperience_Brochure_v7_FinalWEB.pdf&response-content-type=application/pdf&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cCo6Ly9jZG4xLW9yaWdpbmFscy53ZWJkYW1kYi5jb20vMTM1MTJfMTUyMTY3MjUxP2NhY2hlPTE3NDAwNDYwMDQmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmU7ZmlsZW5hbWU9TUs2MDU3MTFfckVfUlNfQ29ubmVjdGVkRXhwZXJpZW5jZV9Ccm9jaHVyZV92N19GaW5hbFdFQi5wZGYmcmVzcG9uc2UtY29udGVudC10eXBlPWFwcGxpY2F0aW9uL3BkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MjE0NzQxNDQwMH19fV19&Signature=Z-jnw157pM6bTIsKTyeLAND~R4Tiu6OfcveahIixMs6ctlBI4oAVBarQ0~Tbj7C1lImzTBr3vtNPrjivkWE5DAkKZifl0tSfHSUGBP78BZZAlgKsiNYpbR7hO3o1kapAsiG64KcJJo9Uq7SpOrth503DcASjl44p9hTZR4dse5FPkFVP5gxAYKSrL~DtaAsxfKcQl0aGyj7T3cQXVxibUEvrZceEAQXtk-XcAKH66T21EAV04V7M-vJ0TcUdNOPf97GT4mdCDZ15hEZbkhM45QK2UaO22~4kxlypGnMyabHQ4vFoU0eHjzhshQdVDH~pKWYUzRb8CgFGXTXAq24nbA__&Key-Pair-Id=APKAI2ASI2IOLRFF2RHA",
+        "https://apps.apple.com/us/app/resound-smart-3d-for-resound-linx-3d/id1134918918",
+        "https://play.google.com/store/apps/details?id=dk.resound.smart3d&pli=1",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 94,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:45:44.776Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-vivia"
+      },
+      "title": "ReSound Vivia | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-vivia"
+    },
+    {
+      "apps": {
+        "android": [
+          "dk.resound.smart3d"
+        ],
+        "ios": [
+          "1134918918"
+        ]
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://www.youtube.com/playlist?list=PLeu5EFk0WAOnHT6Xeou7jH1ZycTO647yh",
+        "https://apps.apple.com/us/app/resound-smart-3d-for-resound-linx-3d/id1134918918",
+        "https://play.google.com/store/apps/details?id=dk.resound.smart3d&pli=1",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 94,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:45:47.952Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-nexia"
+      },
+      "title": "ReSound Nexia - Next-era hearing | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-nexia"
+    },
+    {
+      "apps": {
+        "android": [
+          "dk.resound.smart3d"
+        ],
+        "ios": [
+          "1134918918"
+        ]
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://youtu.be/ldoUGMc0U7A?si=of6PLc-14TTl4LqM",
+        "https://gngroup.webdamdb.com/directdownload.php?ti=563959908&tok=ylFCE0Ns6aevNR9Y8X2yIgRR&token=$2y$10$JAODSLO5hRG36Q3VSGA0i.SBCGNcoB.P.Fev/4zYe6vPZ/LnmKiR2",
+        "https://apps.apple.com/us/app/resound-smart-3d/id1134918918?ls=1",
+        "https://play.google.com/store/apps/details?id=dk.resound.smart3d&pli=1",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 94,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:45:50.950Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-enzo-ia"
+      },
+      "title": "More sound. More power. ReSound Enzo IA hearing aids | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-enzo-ia"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 97,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:45:57.051Z",
+        "url": "https://www.resound.com/en-us/hearing-loss"
+      },
+      "title": "Hearing loss - facts about hearing impaired | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-loss"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 97,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:46:03.930Z",
+        "url": "https://www.resound.com/en-us/hearing-loss"
+      },
+      "title": "Hearing loss - facts about hearing impaired | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-loss"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 95,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:46:12.872Z",
+        "url": "https://www.resound.com/en-us/why-resound"
+      },
+      "title": "Why ReSound: our philosophy | ReSound US",
+      "url": "https://www.resound.com/en-us/why-resound"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 97,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:46:17.864Z",
+        "url": "https://www.resound.com/en-us/hearing-loss"
+      },
+      "title": "Hearing loss - facts about hearing impaired | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-loss"
+    },
+    {
+      "apps": {
+        "android": [
+          "dk.resound.smart3d"
+        ],
+        "ios": [
+          "1134918918"
+        ]
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://cdn1-originals.webdamdb.com/13512_152167251?cache=1740046004&response-content-disposition=inline;filename=MK605711_rE_RS_ConnectedExperience_Brochure_v7_FinalWEB.pdf&response-content-type=application/pdf&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cCo6Ly9jZG4xLW9yaWdpbmFscy53ZWJkYW1kYi5jb20vMTM1MTJfMTUyMTY3MjUxP2NhY2hlPTE3NDAwNDYwMDQmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1pbmxpbmU7ZmlsZW5hbWU9TUs2MDU3MTFfckVfUlNfQ29ubmVjdGVkRXhwZXJpZW5jZV9Ccm9jaHVyZV92N19GaW5hbFdFQi5wZGYmcmVzcG9uc2UtY29udGVudC10eXBlPWFwcGxpY2F0aW9uL3BkZiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MjE0NzQxNDQwMH19fV19&Signature=Z-jnw157pM6bTIsKTyeLAND~R4Tiu6OfcveahIixMs6ctlBI4oAVBarQ0~Tbj7C1lImzTBr3vtNPrjivkWE5DAkKZifl0tSfHSUGBP78BZZAlgKsiNYpbR7hO3o1kapAsiG64KcJJo9Uq7SpOrth503DcASjl44p9hTZR4dse5FPkFVP5gxAYKSrL~DtaAsxfKcQl0aGyj7T3cQXVxibUEvrZceEAQXtk-XcAKH66T21EAV04V7M-vJ0TcUdNOPf97GT4mdCDZ15hEZbkhM45QK2UaO22~4kxlypGnMyabHQ4vFoU0eHjzhshQdVDH~pKWYUzRb8CgFGXTXAq24nbA__&Key-Pair-Id=APKAI2ASI2IOLRFF2RHA",
+        "https://apps.apple.com/us/app/resound-smart-3d-for-resound-linx-3d/id1134918918",
+        "https://play.google.com/store/apps/details?id=dk.resound.smart3d&pli=1",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 95,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:46:20.628Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-savi"
+      },
+      "title": "ReSound Savi | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-savi"
+    },
+    {
+      "apps": {
+        "android": [
+          "dk.resound.smart3d"
+        ],
+        "ios": [
+          "1134918918"
+        ]
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://apps.apple.com/dk/app/resound-smart-3d/id1134918918",
+        "https://play.google.com/store/apps/details?id=dk.resound.smart3d&hl=da&gl=us",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 97,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:46:25.968Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-key"
+      },
+      "title": "Explore ReSound Key hearing aids – welcome to great hearing! | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-key"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 97,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:46:36.426Z",
+        "url": "https://www.resound.com/en-us/hearing-loss"
+      },
+      "title": "Hearing loss - facts about hearing impaired | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-loss"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 97,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:46:44.277Z",
+        "url": "https://www.resound.com/en-us/hearing-loss"
+      },
+      "title": "Hearing loss - facts about hearing impaired | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-loss"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 97,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:46:51.912Z",
+        "url": "https://www.resound.com/en-us/hearing-loss"
+      },
+      "title": "Hearing loss - facts about hearing impaired | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-loss"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 97,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:47:01.406Z",
+        "url": "https://www.resound.com/en-us/hearing-loss"
+      },
+      "title": "Hearing loss - facts about hearing impaired | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-loss"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://resoundrelief.app.link/ofnWtY2sjN",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 94,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:47:06.806Z",
+        "url": "https://www.resound.com/en-us/hearing-loss/tinnitus/causes"
+      },
+      "title": "Tinnitus (Ringing in the ear) causes - What causes tinnitus? | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-loss/tinnitus/causes"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.gnresound.tinnitus"
+        ],
+        "ios": [
+          "928432517"
+        ]
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://itunes.apple.com/us/app/resound-relief-for-people/id928432517?mt=8",
+        "https://play.google.com/store/apps/details?id=com.gnresound.tinnitus&hl",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 94,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:47:09.545Z",
+        "url": "https://www.resound.com/en-us/hearing-loss/tinnitus/types"
+      },
+      "title": "Different types of tinnitus explained | Tinnitus sounds | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-loss/tinnitus/types"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.gnresound.tinnitus"
+        ],
+        "ios": [
+          "928432517"
+        ]
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://itunes.apple.com/us/app/resound-relief-for-people/id928432517?mt=8",
+        "https://play.google.com/store/apps/details?id=com.gnresound.tinnitus&hl",
+        "https://resoundrelief.app.link/ofnWtY2sjN",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 94,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:47:13.325Z",
+        "url": "https://www.resound.com/en-us/hearing-loss/tinnitus/treatment"
+      },
+      "title": "Tinnitus treatment, cure & sound therapy - get relief | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-loss/tinnitus/treatment"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 95,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:47:17.402Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/accessories"
+      },
+      "title": "Hearing aid accessories - Micro/Multi Mic & more | ReSound US",
+      "url": "https://www.resound.com/en-us/hearing-aids/accessories"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 104,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:47:20.805Z",
+        "url": "https://www.resound.com/en-us/help/hearing-aids"
+      },
+      "title": "Hearing Aids Support | ReSound US",
+      "url": "https://www.resound.com/en-us/help/hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 98,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:47:24.692Z",
+        "url": "https://www.resound.com/en-us/help/apps"
+      },
+      "title": "Apps support | ReSound US",
+      "url": "https://www.resound.com/en-us/help/apps"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.va.gov/directory/guide/division.asp?dnum=1",
+        "http://www.resoundpro.com/en-us",
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "http://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.resoundpro.com/en-us",
+        "https://www.jabra.dk/",
+        "https://www.facebook.com/gnresound",
+        "https://twitter.com/resoundus",
+        "https://www.youtube.com/user/resoundus",
+        "https://www.linkedin.com/company/resound/",
+        "https://www.instagram.com/resoundusa/"
+      ],
+      "internalLinks": 94,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:47:27.763Z",
+        "url": "https://www.resound.com/en-us/product-warranty"
+      },
+      "title": "Product warranty statement | ReSound US",
+      "url": "https://www.resound.com/en-us/product-warranty"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.facebook.com/resoundhearing/",
+        "https://twitter.com/resoundglobal",
+        "https://www.youtube.com/user/byReSound",
+        "https://www.linkedin.com/company/resound/"
+      ],
+      "internalLinks": 67,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:47:33.268Z",
+        "url": "https://www.resound.com/en/hearing-aids"
+      },
+      "title": "Explore types of hearing aids and learn how they work | ReSound International",
+      "url": "https://www.resound.com/en/hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.facebook.com/resoundhearing/",
+        "https://twitter.com/resoundglobal",
+        "https://www.youtube.com/user/byReSound",
+        "https://www.linkedin.com/company/resound/"
+      ],
+      "internalLinks": 70,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:47:35.885Z",
+        "url": "https://www.resound.com/en/hearing-aids/resound-hearing-aids"
+      },
+      "title": "Our hearing aids | ReSound International",
+      "url": "https://www.resound.com/en/hearing-aids/resound-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [
+          "dk.resound.smart3d"
+        ],
+        "ios": [
+          "1134918918"
+        ]
+      },
+      "external": [
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://www.linkedin.com/in/laurel-christensen-ph-d-bb21a55/",
+        "https://www.youtube.com/watch?v=bTFIsekOCDc",
+        "https://www.youtube.com/watch?v=aHGEphnjo9M&feature=youtu.be",
+        "https://youtu.be/RINuFTMrbBo",
+        "https://apps.apple.com/us/app/resound-smart-3d/id1134918918",
+        "https://play.google.com/store/apps/details?id=dk.resound.smart3d&pli=1",
+        "https://www.gnhearing.com/products/auracast-hearing-aids",
+        "https://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.facebook.com/resoundhearing/",
+        "https://twitter.com/resoundglobal",
+        "https://www.youtube.com/user/byReSound",
+        "https://www.linkedin.com/company/resound/"
+      ],
+      "internalLinks": 65,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:47:38.974Z",
+        "url": "https://www.resound.com/en/hearing-aids/auracast-hearing-aids"
+      },
+      "title": "Auracast hearing aids | ReSound International",
+      "url": "https://www.resound.com/en/hearing-aids/auracast-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://www.linkedin.com/in/laurel-christensen-ph-d-bb21a55/",
+        "https://www.gnhearing.com/en/products/ai-hearing-aids",
+        "https://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.facebook.com/resoundhearing/",
+        "https://twitter.com/resoundglobal",
+        "https://www.youtube.com/user/byReSound",
+        "https://www.linkedin.com/company/resound/"
+      ],
+      "internalLinks": 64,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:47:44.629Z",
+        "url": "https://www.resound.com/en/hearing-aids/ai-hearing-aids"
+      },
+      "title": "AI Hearing Aids Guide – Hearing in Noise | ReSound International",
+      "url": "https://www.resound.com/en/hearing-aids/ai-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.facebook.com/resoundhearing/",
+        "https://twitter.com/resoundglobal",
+        "https://www.youtube.com/user/byReSound",
+        "https://www.linkedin.com/company/resound/"
+      ],
+      "internalLinks": 67,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:47:47.798Z",
+        "url": "https://www.resound.com/en/hearing-aids/bluetooth-hearing-aids"
+      },
+      "title": "Discover Bluetooth hearing aids for Apple and Android | ReSound International",
+      "url": "https://www.resound.com/en/hearing-aids/bluetooth-hearing-aids"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.facebook.com/resoundhearing/",
+        "https://twitter.com/resoundglobal",
+        "https://www.youtube.com/user/byReSound",
+        "https://www.linkedin.com/company/resound/"
+      ],
+      "internalLinks": 69,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:47:51.707Z",
+        "url": "https://www.resound.com/en/hearing-aids/digital"
+      },
+      "title": "Digital hearing aids – discover the features and how they work | ReSound International",
+      "url": "https://www.resound.com/en/hearing-aids/digital"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://gnresoundblog.com/",
+        "https://www.resoundchina.com/",
+        "https://www.gn.com/",
+        "https://gn.wd3.myworkdayjobs.com/GN-Careers",
+        "https://www.facebook.com/resoundhearing/",
+        "https://twitter.com/resoundglobal",
+        "https://www.youtube.com/user/byReSound",
+        "https://www.linkedin.com/company/resound/"
+      ],
+      "internalLinks": 64,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:47:55.549Z",
+        "url": "https://www.resound.com/en/hearing-aids/rechargeable-hearing-aids"
+      },
+      "title": "Learn more about the best rechargeable hearing aids without batteries. | ReSound International",
+      "url": "https://www.resound.com/en/hearing-aids/rechargeable-hearing-aids"
+    }
+  ],
+  "pdfHosts": [
+    {
+      "count": 1,
+      "examples": [
+        "https://www.resound.com/-/media/resound/resound-us/downloads/guides/gu_resoundassist_satisfactionsurvey.pdf"
+      ],
+      "host": "resound.com"
+    }
+  ],
+  "redirects": [],
+  "robots": {
+    "groups": [
+      {
+        "allow": [],
+        "disallow": [
+          "/sitecore/content",
+          "*/1000$"
+        ],
+        "userAgents": [
+          "*"
+        ]
+      }
+    ],
+    "ref": {
+      "fetchedAt": "2026-11-27T17:40:34.048Z",
+      "url": "https://www.resound.com/robots.txt"
+    },
+    "sitemaps": [
+      "https://www.resound.com/en-us/xmlsitemap",
+      "https://www.resound.com/en/sitemapindex"
+    ],
+    "status": 200
+  },
+  "sitemap": {
+    "refs": [
+      {
+        "fetchedAt": "2026-11-27T17:40:37.570Z",
+        "url": "https://www.resound.com/en-us/xmlsitemap"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:40:40.257Z",
+        "url": "https://www.resound.com/en/sitemapindex"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:40:48.730Z",
+        "url": "https://www.resound.com/ar-sa/xmlsitemap"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:40:55.794Z",
+        "url": "https://www.resound.com/cs-cz/xmlsitemap"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:41:02.351Z",
+        "url": "https://www.resound.com/da/xmlsitemap"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:41:09.450Z",
+        "url": "https://www.resound.com/de-at/xmlsitemap"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:41:15.849Z",
+        "url": "https://www.resound.com/de-ch/xmlsitemap"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:41:23.506Z",
+        "url": "https://www.resound.com/de-de/xmlsitemap"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:41:31.046Z",
+        "url": "https://www.resound.com/en-au/xmlsitemap"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:41:40.222Z",
+        "url": "https://www.resound.com/en-ca/xmlsitemap"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:41:49.441Z",
+        "url": "https://www.resound.com/en-gb/xmlsitemap"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:41:57.308Z",
+        "url": "https://www.resound.com/en-in/xmlsitemap"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:42:08.109Z",
+        "url": "https://www.resound.com/en-us/xmlsitemap"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:42:16.528Z",
+        "url": "https://www.resound.com/es-es/xmlsitemap"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:42:24.218Z",
+        "url": "https://www.resound.com/es-ln/xmlsitemap"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:42:32.845Z",
+        "url": "https://www.resound.com/fi-fi/xmlsitemap"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:42:41.843Z",
+        "url": "https://www.resound.com/fr-ch/xmlsitemap"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:42:46.930Z",
+        "url": "https://www.resound.com/fr-fr/xmlsitemap"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:42:55.707Z",
+        "url": "https://www.resound.com/it-it/xmlsitemap"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:43:03.072Z",
+        "url": "https://www.resound.com/ja-jp/xmlsitemap"
+      }
+    ],
+    "sections": [
+      {
+        "count": 207,
+        "path": "/en"
+      },
+      {
+        "count": 155,
+        "path": "/da"
+      },
+      {
+        "count": 155,
+        "path": "/en-us"
+      },
+      {
+        "count": 149,
+        "path": "/en-ca"
+      }
+    ],
+    "urlCount": 666
+  },
+  "start": "https://www.resound.com/en-us",
+  "templates": [
+    {
+      "count": 48,
+      "examples": [
+        "https://www.resound.com/en/press/addressing-the-true-needs-of-hearing-aid-users-smarter-fitting",
+        "https://www.resound.com/en/press/announcing-resound-linx-3d",
+        "https://www.resound.com/en/press/audiologynow-2015-and-preview-of-resound-smart-app-for-apple-watch"
+      ],
+      "pattern": "https://www.resound.com/en/press/{slug}"
+    },
+    {
+      "count": 32,
+      "examples": [
+        "https://www.resound.com/ar-sa",
+        "https://www.resound.com/cs-cz",
+        "https://www.resound.com/da"
+      ],
+      "pattern": "https://www.resound.com/{slug}"
+    },
+    {
+      "count": 31,
+      "examples": [
+        "https://www.resound.com/en/about-cookies",
+        "https://www.resound.com/en/closed-for-business",
+        "https://www.resound.com/en/consent"
+      ],
+      "pattern": "https://www.resound.com/en/{slug}"
+    },
+    {
+      "count": 30,
+      "examples": [
+        "https://www.resound.com/en-us/press/addressing-the-true-needs-of-hearing-aid-users-smarter-fitting",
+        "https://www.resound.com/en-us/press/announcing-resound-linx-3d",
+        "https://www.resound.com/en-us/press/audiologynow-2015-and-preview-of-resound-smart-app-for-apple-watch"
+      ],
+      "pattern": "https://www.resound.com/en-us/press/{slug}"
+    },
+    {
+      "count": 29,
+      "examples": [
+        "https://www.resound.com/en-ca/press/addressing-the-true-needs-of-hearing-aid-users-smarter-fitting",
+        "https://www.resound.com/en-ca/press/announcing-resound-linx-3d",
+        "https://www.resound.com/en-ca/press/audiologynow-2015-and-preview-of-resound-smart-app-for-apple-watch"
+      ],
+      "pattern": "https://www.resound.com/en-ca/press/{slug}"
+    },
+    {
+      "count": 23,
+      "examples": [
+        "https://www.resound.com/da/press/addressing-the-true-needs-of-hearing-aid-users-smarter-fitting",
+        "https://www.resound.com/da/press/announcing-resound-linx-3d",
+        "https://www.resound.com/da/press/audiologynow-2015-and-preview-of-resound-smart-app-for-apple-watch"
+      ],
+      "pattern": "https://www.resound.com/da/press/{slug}"
+    },
+    {
+      "count": 21,
+      "examples": [
+        "https://www.resound.com/da/about-cookies",
+        "https://www.resound.com/da/bliv-testperson",
+        "https://www.resound.com/da/blog"
+      ],
+      "pattern": "https://www.resound.com/da/{slug}"
+    },
+    {
+      "count": 21,
+      "examples": [
+        "https://www.resound.com/en-us/about-cookies",
+        "https://www.resound.com/en-us/contact",
+        "https://www.resound.com/en-us/find-a-professional"
+      ],
+      "pattern": "https://www.resound.com/en-us/{slug}"
+    },
+    {
+      "count": 18,
+      "examples": [
+        "https://www.resound.com/en-ca/about-cookies",
+        "https://www.resound.com/en-ca/contact",
+        "https://www.resound.com/en-ca/covid-19"
+      ],
+      "pattern": "https://www.resound.com/en-ca/{slug}"
+    },
+    {
+      "count": 17,
+      "examples": [
+        "https://www.resound.com/en/hearing-aids/LINK_Placeholder",
+        "https://www.resound.com/en/hearing-aids/accessories",
+        "https://www.resound.com/en/hearing-aids/affordable-hearing-aids"
+      ],
+      "pattern": "https://www.resound.com/en/hearing-aids/{slug}"
+    },
+    {
+      "count": 16,
+      "examples": [
+        "https://www.resound.com/en/hearing-aids/resound-hearing-aids/enya",
+        "https://www.resound.com/en/hearing-aids/resound-hearing-aids/enzo-3d",
+        "https://www.resound.com/en/hearing-aids/resound-hearing-aids/enzo-q"
+      ],
+      "pattern": "https://www.resound.com/en/hearing-aids/resound-hearing-aids/{slug}"
+    },
+    {
+      "count": 16,
+      "examples": [
+        "https://www.resound.com/en/help/hearing-aids/enzo",
+        "https://www.resound.com/en/help/hearing-aids/enzo-3d",
+        "https://www.resound.com/en/help/hearing-aids/enzo-ia"
+      ],
+      "pattern": "https://www.resound.com/en/help/hearing-aids/{slug}"
+    },
+    {
+      "count": 15,
+      "examples": [
+        "https://www.resound.com/da/help/hearing-aids/enzo",
+        "https://www.resound.com/da/help/hearing-aids/enzo-3d",
+        "https://www.resound.com/da/help/hearing-aids/enzo-ia"
+      ],
+      "pattern": "https://www.resound.com/da/help/hearing-aids/{slug}"
+    },
+    {
+      "count": 15,
+      "examples": [
+        "https://www.resound.com/en-us/hearing-aids/LINK_Placeholder",
+        "https://www.resound.com/en-us/hearing-aids/accessories",
+        "https://www.resound.com/en-us/hearing-aids/ai-hearing-aids"
+      ],
+      "pattern": "https://www.resound.com/en-us/hearing-aids/{slug}"
+    },
+    {
+      "count": 13,
+      "examples": [
+        "https://www.resound.com/da/hearing-aids/accessories",
+        "https://www.resound.com/da/hearing-aids/apps",
+        "https://www.resound.com/da/hearing-aids/assist"
+      ],
+      "pattern": "https://www.resound.com/da/hearing-aids/{slug}"
+    },
+    {
+      "count": 13,
+      "examples": [
+        "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/enya",
+        "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/enzo-3d",
+        "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/enzo-q"
+      ],
+      "pattern": "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/{slug}"
+    },
+    {
+      "count": 12,
+      "examples": [
+        "https://www.resound.com/da/hearing-aids/resound-hearing-aids/enzo-3d",
+        "https://www.resound.com/da/hearing-aids/resound-hearing-aids/enzo2",
+        "https://www.resound.com/da/hearing-aids/resound-hearing-aids/linx-3d"
+      ],
+      "pattern": "https://www.resound.com/da/hearing-aids/resound-hearing-aids/{slug}"
+    },
+    {
+      "count": 12,
+      "examples": [
+        "https://www.resound.com/en-ca/hearing-aids/accessories",
+        "https://www.resound.com/en-ca/hearing-aids/ai-hearing-aids",
+        "https://www.resound.com/en-ca/hearing-aids/apps"
+      ],
+      "pattern": "https://www.resound.com/en-ca/hearing-aids/{slug}"
+    },
+    {
+      "count": 12,
+      "examples": [
+        "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/enzo-3d",
+        "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/enzo-q",
+        "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/enzo2"
+      ],
+      "pattern": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/{slug}"
+    },
+    {
+      "count": 11,
+      "examples": [
+        "https://www.resound.com/en-us/help/hearing-aids/enzo-ia",
+        "https://www.resound.com/en-us/help/hearing-aids/enzo-q",
+        "https://www.resound.com/en-us/help/hearing-aids/key"
+      ],
+      "pattern": "https://www.resound.com/en-us/help/hearing-aids/{slug}"
+    },
+    {
+      "count": 9,
+      "examples": [
+        "https://www.resound.com/en-ca/help/hearing-aids/enzo-ia",
+        "https://www.resound.com/en-ca/help/hearing-aids/enzo-q",
+        "https://www.resound.com/en-ca/help/hearing-aids/key"
+      ],
+      "pattern": "https://www.resound.com/en-ca/help/hearing-aids/{slug}"
+    },
+    {
+      "count": 8,
+      "examples": [
+        "https://www.resound.com/da/help/accessories",
+        "https://www.resound.com/da/help/apps",
+        "https://www.resound.com/da/help/compatibility"
+      ],
+      "pattern": "https://www.resound.com/da/help/{slug}"
+    },
+    {
+      "count": 8,
+      "examples": [
+        "https://www.resound.com/en/help/accessories",
+        "https://www.resound.com/en/help/apps",
+        "https://www.resound.com/en/help/compatibility"
+      ],
+      "pattern": "https://www.resound.com/en/help/{slug}"
+    },
+    {
+      "count": 7,
+      "examples": [
+        "https://www.resound.com/da/hearing-loss/age-related",
+        "https://www.resound.com/da/hearing-loss/caring",
+        "https://www.resound.com/da/hearing-loss/children"
+      ],
+      "pattern": "https://www.resound.com/da/hearing-loss/{slug}"
+    },
+    {
+      "count": 7,
+      "examples": [
+        "https://www.resound.com/en-ca/hearing-loss/age-related",
+        "https://www.resound.com/en-ca/hearing-loss/caring",
+        "https://www.resound.com/en-ca/hearing-loss/children"
+      ],
+      "pattern": "https://www.resound.com/en-ca/hearing-loss/{slug}"
+    },
+    {
+      "count": 7,
+      "examples": [
+        "https://www.resound.com/en-us/hearing-loss/age-related",
+        "https://www.resound.com/en-us/hearing-loss/caring",
+        "https://www.resound.com/en-us/hearing-loss/children"
+      ],
+      "pattern": "https://www.resound.com/en-us/hearing-loss/{slug}"
+    },
+    {
+      "count": 7,
+      "examples": [
+        "https://www.resound.com/en-us/help/accessories",
+        "https://www.resound.com/en-us/help/apps",
+        "https://www.resound.com/en-us/help/compatibility"
+      ],
+      "pattern": "https://www.resound.com/en-us/help/{slug}"
+    },
+    {
+      "count": 7,
+      "examples": [
+        "https://www.resound.com/en/hearing-loss/age-related",
+        "https://www.resound.com/en/hearing-loss/caring",
+        "https://www.resound.com/en/hearing-loss/children"
+      ],
+      "pattern": "https://www.resound.com/en/hearing-loss/{slug}"
+    },
+    {
+      "count": 6,
+      "examples": [
+        "https://www.resound.com/da/help/compatibility/qr-compatible",
+        "https://www.resound.com/da/help/compatibility/qr-model-select",
+        "https://www.resound.com/da/help/compatibility/qr-non-compatible"
+      ],
+      "pattern": "https://www.resound.com/da/help/compatibility/{slug}"
+    },
+    {
+      "count": 6,
+      "examples": [
+        "https://www.resound.com/da/why-resound/about",
+        "https://www.resound.com/da/why-resound/awards",
+        "https://www.resound.com/da/why-resound/careers"
+      ],
+      "pattern": "https://www.resound.com/da/why-resound/{slug}"
+    },
+    {
+      "count": 6,
+      "examples": [
+        "https://www.resound.com/en-ca/help/accessories",
+        "https://www.resound.com/en-ca/help/apps",
+        "https://www.resound.com/en-ca/help/compatibility"
+      ],
+      "pattern": "https://www.resound.com/en-ca/help/{slug}"
+    },
+    {
+      "count": 6,
+      "examples": [
+        "https://www.resound.com/en-ca/why-resound/about",
+        "https://www.resound.com/en-ca/why-resound/awards",
+        "https://www.resound.com/en-ca/why-resound/careers"
+      ],
+      "pattern": "https://www.resound.com/en-ca/why-resound/{slug}"
+    },
+    {
+      "count": 6,
+      "examples": [
+        "https://www.resound.com/en-us/hearing-aids/types/bte",
+        "https://www.resound.com/en-us/hearing-aids/types/custom",
+        "https://www.resound.com/en-us/hearing-aids/types/hearing-implant-hearing-aids"
+      ],
+      "pattern": "https://www.resound.com/en-us/hearing-aids/types/{slug}"
+    },
+    {
+      "count": 6,
+      "examples": [
+        "https://www.resound.com/en-us/why-resound/about",
+        "https://www.resound.com/en-us/why-resound/awards",
+        "https://www.resound.com/en-us/why-resound/careers"
+      ],
+      "pattern": "https://www.resound.com/en-us/why-resound/{slug}"
+    },
+    {
+      "count": 6,
+      "examples": [
+        "https://www.resound.com/en/why-resound/about",
+        "https://www.resound.com/en/why-resound/awards",
+        "https://www.resound.com/en/why-resound/careers"
+      ],
+      "pattern": "https://www.resound.com/en/why-resound/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.resound.com/da/hearing-loss/understanding/causes",
+        "https://www.resound.com/da/hearing-loss/understanding/ear-anatomy",
+        "https://www.resound.com/da/hearing-loss/understanding/signs"
+      ],
+      "pattern": "https://www.resound.com/da/hearing-loss/understanding/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.resound.com/en-ca/hearing-loss/understanding/causes",
+        "https://www.resound.com/en-ca/hearing-loss/understanding/ear-anatomy",
+        "https://www.resound.com/en-ca/hearing-loss/understanding/signs"
+      ],
+      "pattern": "https://www.resound.com/en-ca/hearing-loss/understanding/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.resound.com/en-ca/help/accessories/micro-mic",
+        "https://www.resound.com/en-ca/help/accessories/mini-mic",
+        "https://www.resound.com/en-ca/help/accessories/multi-mic"
+      ],
+      "pattern": "https://www.resound.com/en-ca/help/accessories/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.resound.com/en-us/hearing-loss/understanding/causes",
+        "https://www.resound.com/en-us/hearing-loss/understanding/ear-anatomy",
+        "https://www.resound.com/en-us/hearing-loss/understanding/signs"
+      ],
+      "pattern": "https://www.resound.com/en-us/hearing-loss/understanding/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.resound.com/en-us/help/accessories/micro-mic",
+        "https://www.resound.com/en-us/help/accessories/mini-mic",
+        "https://www.resound.com/en-us/help/accessories/multi-mic"
+      ],
+      "pattern": "https://www.resound.com/en-us/help/accessories/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.resound.com/en/hearing-loss/understanding/causes",
+        "https://www.resound.com/en/hearing-loss/understanding/ear-anatomy",
+        "https://www.resound.com/en/hearing-loss/understanding/signs"
+      ],
+      "pattern": "https://www.resound.com/en/hearing-loss/understanding/{slug}"
+    },
+    {
+      "count": 5,
+      "examples": [
+        "https://www.resound.com/en/help/accessories/micro-mic",
+        "https://www.resound.com/en/help/accessories/mini-mic",
+        "https://www.resound.com/en/help/accessories/multi-mic"
+      ],
+      "pattern": "https://www.resound.com/en/help/accessories/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.resound.com/da/hearing-aids/accessories/micro-mic",
+        "https://www.resound.com/da/hearing-aids/accessories/multi-mic",
+        "https://www.resound.com/da/hearing-aids/accessories/remote-control-2"
+      ],
+      "pattern": "https://www.resound.com/da/hearing-aids/accessories/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.resound.com/da/help/accessories/micro-mic",
+        "https://www.resound.com/da/help/accessories/multi-mic",
+        "https://www.resound.com/da/help/accessories/remote-control-2"
+      ],
+      "pattern": "https://www.resound.com/da/help/accessories/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.resound.com/da/why-resound/philosophy/apps",
+        "https://www.resound.com/da/why-resound/philosophy/audiology",
+        "https://www.resound.com/da/why-resound/philosophy/connectivity"
+      ],
+      "pattern": "https://www.resound.com/da/why-resound/philosophy/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.resound.com/en-ca/hearing-aids/accessories/micro-mic",
+        "https://www.resound.com/en-ca/hearing-aids/accessories/multi-mic",
+        "https://www.resound.com/en-ca/hearing-aids/accessories/remote-control-2"
+      ],
+      "pattern": "https://www.resound.com/en-ca/hearing-aids/accessories/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.resound.com/en-ca/hearing-aids/types/bte",
+        "https://www.resound.com/en-ca/hearing-aids/types/custom",
+        "https://www.resound.com/en-ca/hearing-aids/types/hearing-implant-hearing-aids"
+      ],
+      "pattern": "https://www.resound.com/en-ca/hearing-aids/types/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.resound.com/en-ca/why-resound/philosophy/apps",
+        "https://www.resound.com/en-ca/why-resound/philosophy/audiology",
+        "https://www.resound.com/en-ca/why-resound/philosophy/connectivity"
+      ],
+      "pattern": "https://www.resound.com/en-ca/why-resound/philosophy/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.resound.com/en-us/hearing-aids/~/link.aspx?_id=0F34961266FA4F7E8ECEBA2F4118C490&_z=z",
+        "https://www.resound.com/en-us/hearing-aids/~/link.aspx?_id=12DC8D1E2AB846539396ED864718E535&_z=z",
+        "https://www.resound.com/en-us/hearing-aids/~/link.aspx?_id=EB2F9F85E8AD4EECA99384538E9A8CF8&_z=z"
+      ],
+      "pattern": "https://www.resound.com/en-us/hearing-aids/~/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.resound.com/en-us/hearing-aids/accessories/micro-mic",
+        "https://www.resound.com/en-us/hearing-aids/accessories/multi-mic",
+        "https://www.resound.com/en-us/hearing-aids/accessories/remote-control-2"
+      ],
+      "pattern": "https://www.resound.com/en-us/hearing-aids/accessories/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.resound.com/en-us/help/compatibility/qr-compatible",
+        "https://www.resound.com/en-us/help/compatibility/qr-model-select",
+        "https://www.resound.com/en-us/help/compatibility/qr-non-compatible"
+      ],
+      "pattern": "https://www.resound.com/en-us/help/compatibility/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.resound.com/en-us/why-resound/philosophy/apps",
+        "https://www.resound.com/en-us/why-resound/philosophy/audiology",
+        "https://www.resound.com/en-us/why-resound/philosophy/connectivity"
+      ],
+      "pattern": "https://www.resound.com/en-us/why-resound/philosophy/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.resound.com/en/hearing-aids/~/link.aspx?_id=0F34961266FA4F7E8ECEBA2F4118C490&_z=z",
+        "https://www.resound.com/en/hearing-aids/~/link.aspx?_id=12DC8D1E2AB846539396ED864718E535&_z=z",
+        "https://www.resound.com/en/hearing-aids/~/link.aspx?_id=EB2F9F85E8AD4EECA99384538E9A8CF8&_z=z"
+      ],
+      "pattern": "https://www.resound.com/en/hearing-aids/~/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.resound.com/en/hearing-aids/accessories/micro-mic",
+        "https://www.resound.com/en/hearing-aids/accessories/multi-mic",
+        "https://www.resound.com/en/hearing-aids/accessories/remote-control-2"
+      ],
+      "pattern": "https://www.resound.com/en/hearing-aids/accessories/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.resound.com/en/hearing-aids/types/bte",
+        "https://www.resound.com/en/hearing-aids/types/custom",
+        "https://www.resound.com/en/hearing-aids/types/hearing-implant-hearing-aids"
+      ],
+      "pattern": "https://www.resound.com/en/hearing-aids/types/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.resound.com/en/help/compatibility/qr-compatible",
+        "https://www.resound.com/en/help/compatibility/qr-model-select",
+        "https://www.resound.com/en/help/compatibility/qr-non-compatible"
+      ],
+      "pattern": "https://www.resound.com/en/help/compatibility/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.resound.com/en/why-resound/philosophy/apps",
+        "https://www.resound.com/en/why-resound/philosophy/audiology",
+        "https://www.resound.com/en/why-resound/philosophy/connectivity"
+      ],
+      "pattern": "https://www.resound.com/en/why-resound/philosophy/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://pro.resound.com/da",
+        "https://pro.resound.com/en",
+        "https://pro.resound.com/en-us/"
+      ],
+      "pattern": "https://pro.resound.com/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/da/hearing-aids/apps/relief",
+        "https://www.resound.com/da/hearing-aids/apps/smart",
+        "https://www.resound.com/da/hearing-aids/apps/smart-3d"
+      ],
+      "pattern": "https://www.resound.com/da/hearing-aids/apps/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/da/hearing-aids/resound-hearing-aids/quattro/clarity-in-the-finer-details",
+        "https://www.resound.com/da/hearing-aids/resound-hearing-aids/quattro/rechargeable",
+        "https://www.resound.com/da/hearing-aids/resound-hearing-aids/quattro/stay-connected-to-all-your-audio-devices"
+      ],
+      "pattern": "https://www.resound.com/da/hearing-aids/resound-hearing-aids/quattro/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/da/hearing-aids/types/bte",
+        "https://www.resound.com/da/hearing-aids/types/custom",
+        "https://www.resound.com/da/hearing-aids/types/rie"
+      ],
+      "pattern": "https://www.resound.com/da/hearing-aids/types/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/da/hearing-loss/tinnitus/causes",
+        "https://www.resound.com/da/hearing-loss/tinnitus/treatment",
+        "https://www.resound.com/da/hearing-loss/tinnitus/types"
+      ],
+      "pattern": "https://www.resound.com/da/hearing-loss/tinnitus/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/da/hearing-loss/understanding/ear-anatomy/inner",
+        "https://www.resound.com/da/hearing-loss/understanding/ear-anatomy/middle",
+        "https://www.resound.com/da/hearing-loss/understanding/ear-anatomy/outer"
+      ],
+      "pattern": "https://www.resound.com/da/hearing-loss/understanding/ear-anatomy/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/da/hearing-loss/understanding/types/conductive",
+        "https://www.resound.com/da/hearing-loss/understanding/types/mixed",
+        "https://www.resound.com/da/hearing-loss/understanding/types/sensorineural"
+      ],
+      "pattern": "https://www.resound.com/da/hearing-loss/understanding/types/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/da/help/apps/relief",
+        "https://www.resound.com/da/help/apps/smart",
+        "https://www.resound.com/da/help/apps/smart-3d"
+      ],
+      "pattern": "https://www.resound.com/da/help/apps/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/en-ca/hearing-aids/apps/relief",
+        "https://www.resound.com/en-ca/hearing-aids/apps/smart",
+        "https://www.resound.com/en-ca/hearing-aids/apps/smart-3d"
+      ],
+      "pattern": "https://www.resound.com/en-ca/hearing-aids/apps/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/quattro/clarity-in-the-finer-details",
+        "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/quattro/rechargeable",
+        "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/quattro/stay-connected-to-all-your-audio-devices"
+      ],
+      "pattern": "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/quattro/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/en-ca/hearing-loss/tinnitus/causes",
+        "https://www.resound.com/en-ca/hearing-loss/tinnitus/treatment",
+        "https://www.resound.com/en-ca/hearing-loss/tinnitus/types"
+      ],
+      "pattern": "https://www.resound.com/en-ca/hearing-loss/tinnitus/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/en-ca/hearing-loss/understanding/ear-anatomy/inner",
+        "https://www.resound.com/en-ca/hearing-loss/understanding/ear-anatomy/middle",
+        "https://www.resound.com/en-ca/hearing-loss/understanding/ear-anatomy/outer"
+      ],
+      "pattern": "https://www.resound.com/en-ca/hearing-loss/understanding/ear-anatomy/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/en-ca/hearing-loss/understanding/types/conductive",
+        "https://www.resound.com/en-ca/hearing-loss/understanding/types/mixed",
+        "https://www.resound.com/en-ca/hearing-loss/understanding/types/sensorineural"
+      ],
+      "pattern": "https://www.resound.com/en-ca/hearing-loss/understanding/types/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/en-ca/help/apps/relief",
+        "https://www.resound.com/en-ca/help/apps/smart",
+        "https://www.resound.com/en-ca/help/apps/smart-3d"
+      ],
+      "pattern": "https://www.resound.com/en-ca/help/apps/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/en-ca/help/compatibility/qr-compatible",
+        "https://www.resound.com/en-ca/help/compatibility/qr-model-select",
+        "https://www.resound.com/en-ca/help/compatibility/qr-non-compatible"
+      ],
+      "pattern": "https://www.resound.com/en-ca/help/compatibility/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/en-us/hearing-aids/apps/relief",
+        "https://www.resound.com/en-us/hearing-aids/apps/smart",
+        "https://www.resound.com/en-us/hearing-aids/apps/smart-3d"
+      ],
+      "pattern": "https://www.resound.com/en-us/hearing-aids/apps/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/quattro/clarity-in-the-finer-details",
+        "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/quattro/rechargeable",
+        "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/quattro/stay-connected-to-all-your-audio-devices"
+      ],
+      "pattern": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/quattro/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/en-us/hearing-loss/tinnitus/causes",
+        "https://www.resound.com/en-us/hearing-loss/tinnitus/treatment",
+        "https://www.resound.com/en-us/hearing-loss/tinnitus/types"
+      ],
+      "pattern": "https://www.resound.com/en-us/hearing-loss/tinnitus/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/en-us/hearing-loss/understanding/ear-anatomy/inner",
+        "https://www.resound.com/en-us/hearing-loss/understanding/ear-anatomy/middle",
+        "https://www.resound.com/en-us/hearing-loss/understanding/ear-anatomy/outer"
+      ],
+      "pattern": "https://www.resound.com/en-us/hearing-loss/understanding/ear-anatomy/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/en-us/hearing-loss/understanding/types/conductive",
+        "https://www.resound.com/en-us/hearing-loss/understanding/types/mixed",
+        "https://www.resound.com/en-us/hearing-loss/understanding/types/sensorineural"
+      ],
+      "pattern": "https://www.resound.com/en-us/hearing-loss/understanding/types/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/en-us/help/apps/relief",
+        "https://www.resound.com/en-us/help/apps/smart",
+        "https://www.resound.com/en-us/help/apps/smart-3d"
+      ],
+      "pattern": "https://www.resound.com/en-us/help/apps/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/en/hearing-aids/apps/relief",
+        "https://www.resound.com/en/hearing-aids/apps/smart",
+        "https://www.resound.com/en/hearing-aids/apps/smart-3d"
+      ],
+      "pattern": "https://www.resound.com/en/hearing-aids/apps/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/en/hearing-aids/resound-hearing-aids/quattro/clarity-in-the-finer-details",
+        "https://www.resound.com/en/hearing-aids/resound-hearing-aids/quattro/rechargeable",
+        "https://www.resound.com/en/hearing-aids/resound-hearing-aids/quattro/stay-connected-to-all-your-audio-devices"
+      ],
+      "pattern": "https://www.resound.com/en/hearing-aids/resound-hearing-aids/quattro/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/en/hearing-loss/tinnitus/causes",
+        "https://www.resound.com/en/hearing-loss/tinnitus/treatment",
+        "https://www.resound.com/en/hearing-loss/tinnitus/types"
+      ],
+      "pattern": "https://www.resound.com/en/hearing-loss/tinnitus/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/en/hearing-loss/understanding/ear-anatomy/inner",
+        "https://www.resound.com/en/hearing-loss/understanding/ear-anatomy/middle",
+        "https://www.resound.com/en/hearing-loss/understanding/ear-anatomy/outer"
+      ],
+      "pattern": "https://www.resound.com/en/hearing-loss/understanding/ear-anatomy/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/en/hearing-loss/understanding/types/conductive",
+        "https://www.resound.com/en/hearing-loss/understanding/types/mixed",
+        "https://www.resound.com/en/hearing-loss/understanding/types/sensorineural"
+      ],
+      "pattern": "https://www.resound.com/en/hearing-loss/understanding/types/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.resound.com/en/help/apps/relief",
+        "https://www.resound.com/en/help/apps/smart",
+        "https://www.resound.com/en/help/apps/smart-3d"
+      ],
+      "pattern": "https://www.resound.com/en/help/apps/{slug}"
+    }
+  ],
+  "urls": [
+    "https://pro.resound.com/da",
+    "https://pro.resound.com/en",
+    "https://pro.resound.com/en-us/",
+    "https://pro.resound.com/en-us/products/ai-hearing-aids",
+    "https://pro.resound.com/en-us/products/auracast-hearing-aids",
+    "https://www.resound.com/-/media/resound/resound-us/downloads/guides/gu_resoundassist_satisfactionsurvey.pdf",
+    "https://www.resound.com/ar-sa",
+    "https://www.resound.com/cs-cz",
+    "https://www.resound.com/da",
+    "https://www.resound.com/da/",
+    "https://www.resound.com/da/about-cookies",
+    "https://www.resound.com/da/bliv-testperson",
+    "https://www.resound.com/da/blog",
+    "https://www.resound.com/da/consent",
+    "https://www.resound.com/da/contact",
+    "https://www.resound.com/da/covid-19",
+    "https://www.resound.com/da/find-a-professional",
+    "https://www.resound.com/da/hearing-aids",
+    "https://www.resound.com/da/hearing-aids/accessories",
+    "https://www.resound.com/da/hearing-aids/accessories/micro-mic",
+    "https://www.resound.com/da/hearing-aids/accessories/multi-mic",
+    "https://www.resound.com/da/hearing-aids/accessories/remote-control-2",
+    "https://www.resound.com/da/hearing-aids/accessories/tv-hearing-aid",
+    "https://www.resound.com/da/hearing-aids/apps",
+    "https://www.resound.com/da/hearing-aids/apps/relief",
+    "https://www.resound.com/da/hearing-aids/apps/relief/_spots/bigspots/relief-app-makes-living-with-tinnitus-easier",
+    "https://www.resound.com/da/hearing-aids/apps/smart",
+    "https://www.resound.com/da/hearing-aids/apps/smart-3d",
+    "https://www.resound.com/da/hearing-aids/assist",
+    "https://www.resound.com/da/hearing-aids/assist/assist-live",
+    "https://www.resound.com/da/hearing-aids/auracast-hearing-aids",
+    "https://www.resound.com/da/hearing-aids/bluetooth-hearing-aids",
+    "https://www.resound.com/da/hearing-aids/digital",
+    "https://www.resound.com/da/hearing-aids/how-to-choose",
+    "https://www.resound.com/da/hearing-aids/invisible-hearing-aids",
+    "https://www.resound.com/da/hearing-aids/price",
+    "https://www.resound.com/da/hearing-aids/rechargeable-hearing-aids",
+    "https://www.resound.com/da/hearing-aids/resound-hearing-aids",
+    "https://www.resound.com/da/hearing-aids/resound-hearing-aids/enzo-3d",
+    "https://www.resound.com/da/hearing-aids/resound-hearing-aids/enzo2",
+    "https://www.resound.com/da/hearing-aids/resound-hearing-aids/linx-3d",
+    "https://www.resound.com/da/hearing-aids/resound-hearing-aids/linx-3d/binaural-directionality",
+    "https://www.resound.com/da/hearing-aids/resound-hearing-aids/linx2",
+    "https://www.resound.com/da/hearing-aids/resound-hearing-aids/quattro",
+    "https://www.resound.com/da/hearing-aids/resound-hearing-aids/quattro/clarity-in-the-finer-details",
+    "https://www.resound.com/da/hearing-aids/resound-hearing-aids/quattro/rechargeable",
+    "https://www.resound.com/da/hearing-aids/resound-hearing-aids/quattro/stay-connected-to-all-your-audio-devices",
+    "https://www.resound.com/da/hearing-aids/resound-hearing-aids/resound-enzo-ia",
+    "https://www.resound.com/da/hearing-aids/resound-hearing-aids/resound-nexia",
+    "https://www.resound.com/da/hearing-aids/resound-hearing-aids/resound-omnia",
+    "https://www.resound.com/da/hearing-aids/resound-hearing-aids/resound-one/bte",
+    "https://www.resound.com/da/hearing-aids/resound-hearing-aids/resound-one/custom",
+    "https://www.resound.com/da/hearing-aids/resound-hearing-aids/resound-savi",
+    "https://www.resound.com/da/hearing-aids/resound-hearing-aids/resound-sensia",
+    "https://www.resound.com/da/hearing-aids/resound-hearing-aids/resound-vivia",
+    "https://www.resound.com/da/hearing-aids/resound-hearing-aids/up-smart",
+    "https://www.resound.com/da/hearing-aids/tinnitus-hearing-aids",
+    "https://www.resound.com/da/hearing-aids/types",
+    "https://www.resound.com/da/hearing-aids/types/bte",
+    "https://www.resound.com/da/hearing-aids/types/custom",
+    "https://www.resound.com/da/hearing-aids/types/rie",
+    "https://www.resound.com/da/hearing-loss",
+    "https://www.resound.com/da/hearing-loss/age-related",
+    "https://www.resound.com/da/hearing-loss/caring",
+    "https://www.resound.com/da/hearing-loss/children",
+    "https://www.resound.com/da/hearing-loss/severe-profound",
+    "https://www.resound.com/da/hearing-loss/tinnitus",
+    "https://www.resound.com/da/hearing-loss/tinnitus/causes",
+    "https://www.resound.com/da/hearing-loss/tinnitus/treatment",
+    "https://www.resound.com/da/hearing-loss/tinnitus/types",
+    "https://www.resound.com/da/hearing-loss/understanding",
+    "https://www.resound.com/da/hearing-loss/understanding/causes",
+    "https://www.resound.com/da/hearing-loss/understanding/ear-anatomy",
+    "https://www.resound.com/da/hearing-loss/understanding/ear-anatomy/inner",
+    "https://www.resound.com/da/hearing-loss/understanding/ear-anatomy/middle",
+    "https://www.resound.com/da/hearing-loss/understanding/ear-anatomy/outer",
+    "https://www.resound.com/da/hearing-loss/understanding/signs",
+    "https://www.resound.com/da/hearing-loss/understanding/treatment",
+    "https://www.resound.com/da/hearing-loss/understanding/types",
+    "https://www.resound.com/da/hearing-loss/understanding/types/conductive",
+    "https://www.resound.com/da/hearing-loss/understanding/types/mixed",
+    "https://www.resound.com/da/hearing-loss/understanding/types/sensorineural",
+    "https://www.resound.com/da/hearing-loss/visit-professional",
+    "https://www.resound.com/da/hearing-loss/visit-professional/types",
+    "https://www.resound.com/da/help",
+    "https://www.resound.com/da/help/accessories",
+    "https://www.resound.com/da/help/accessories/micro-mic",
+    "https://www.resound.com/da/help/accessories/multi-mic",
+    "https://www.resound.com/da/help/accessories/remote-control-2",
+    "https://www.resound.com/da/help/accessories/tv-streamer-2",
+    "https://www.resound.com/da/help/apps",
+    "https://www.resound.com/da/help/apps/relief",
+    "https://www.resound.com/da/help/apps/smart",
+    "https://www.resound.com/da/help/apps/smart-3d",
+    "https://www.resound.com/da/help/compatibility",
+    "https://www.resound.com/da/help/compatibility/qr-compatible",
+    "https://www.resound.com/da/help/compatibility/qr-model-select",
+    "https://www.resound.com/da/help/compatibility/qr-non-compatible",
+    "https://www.resound.com/da/help/compatibility/qr-unknown",
+    "https://www.resound.com/da/help/compatibility/resound-smart",
+    "https://www.resound.com/da/help/compatibility/resound-smart3d",
+    "https://www.resound.com/da/help/connected",
+    "https://www.resound.com/da/help/faq",
+    "https://www.resound.com/da/help/hearing-aids",
+    "https://www.resound.com/da/help/hearing-aids/enzo",
+    "https://www.resound.com/da/help/hearing-aids/enzo-3d",
+    "https://www.resound.com/da/help/hearing-aids/enzo-ia",
+    "https://www.resound.com/da/help/hearing-aids/linx",
+    "https://www.resound.com/da/help/hearing-aids/linx-3d",
+    "https://www.resound.com/da/help/hearing-aids/linx-quattro",
+    "https://www.resound.com/da/help/hearing-aids/nexia",
+    "https://www.resound.com/da/help/hearing-aids/omnia",
+    "https://www.resound.com/da/help/hearing-aids/other",
+    "https://www.resound.com/da/help/hearing-aids/other/videos",
+    "https://www.resound.com/da/help/hearing-aids/resound-custom",
+    "https://www.resound.com/da/help/hearing-aids/resound-one",
+    "https://www.resound.com/da/help/hearing-aids/savi",
+    "https://www.resound.com/da/help/hearing-aids/sensia",
+    "https://www.resound.com/da/help/hearing-aids/up-smart",
+    "https://www.resound.com/da/help/hearing-aids/vivia",
+    "https://www.resound.com/da/help/maintenance-troubleshooting",
+    "https://www.resound.com/da/help/new",
+    "https://www.resound.com/da/internet-sales-policy",
+    "https://www.resound.com/da/legal",
+    "https://www.resound.com/da/marketingconsent",
+    "https://www.resound.com/da/myhearingday",
+    "https://www.resound.com/da/newsmartapp",
+    "https://www.resound.com/da/online-hearing-test",
+    "https://www.resound.com/da/online-hearing-test/take-test",
+    "https://www.resound.com/da/press/addressing-the-true-needs-of-hearing-aid-users-smarter-fitting",
+    "https://www.resound.com/da/press/announcing-resound-linx-3d",
+    "https://www.resound.com/da/press/audiologynow-2015-and-preview-of-resound-smart-app-for-apple-watch",
+    "https://www.resound.com/da/press/ces-ai-2019",
+    "https://www.resound.com/da/press/cochlear-and-gn-hearing-become-worlds-first-to-support-direct-android-streaming-to-hearing-devices",
+    "https://www.resound.com/da/press/danish-prime-minister-lars-lokke-rasmussen-opens-gn-resound-production-facility",
+    "https://www.resound.com/da/press/gn-demonstrates-innovative-sound-at-ces-in-las-vegas",
+    "https://www.resound.com/da/press/gn-hearing-and-cochlear-stregnthen-alliance-to-develop-best-in-class-integrated-hearing-solutions",
+    "https://www.resound.com/da/press/gn-hearing-announced-ces-2019-innovation-awards-honoree",
+    "https://www.resound.com/da/press/gn-hearing-announces-availability-of-rechargeable-solution-for-the-recently-launched-resound-linx-3d",
+    "https://www.resound.com/da/press/gn-hearing-announces-launch-of-resound-linx-3d-with-teleaudiology-solution",
+    "https://www.resound.com/da/press/gn-hearing-at-euha-2018",
+    "https://www.resound.com/da/press/gn-hearing-conducts-worlds-first-transatlantic-hearing-aid-remote-fine-tuning-with-resound-linx-3d",
+    "https://www.resound.com/da/press/gn-resound-launches-new-wireless-hearing-aid-resound-enya",
+    "https://www.resound.com/da/press/gn-resound-opens-new-factory-in-malaysia-to-support-continued-company-growth",
+    "https://www.resound.com/da/press/gn-resounds-smart-hearing-portfolio-is-acknowledged-by-three-awards-at-ifa-in-berlin",
+    "https://www.resound.com/da/press/mo-o-brien-to-become-the-first-deaf-person-to-row-across-the-atlantic-ocean",
+    "https://www.resound.com/da/press/relief-app-makes-living-with-tinnitus-easier",
+    "https://www.resound.com/da/press/resound-introduces-camouflage-designs-to-expand-personalization",
+    "https://www.resound.com/da/press/resound-introduces-the-worlds-smartest-super-power-hearing-aid",
+    "https://www.resound.com/da/press/resound-linx-quattro-ranked-a-clear-number-one-in-study",
+    "https://www.resound.com/da/press/smart-hearing-aids-available-on-the-android-platform",
+    "https://www.resound.com/da/press/the-resound-smart-app-is-now-available-to-millions-of-additional-users",
+    "https://www.resound.com/da/privacy",
+    "https://www.resound.com/da/privacy-policy",
+    "https://www.resound.com/da/product-warranty",
+    "https://www.resound.com/da/sign-up",
+    "https://www.resound.com/da/why-resound",
+    "https://www.resound.com/da/why-resound/about",
+    "https://www.resound.com/da/why-resound/about/magazine",
+    "https://www.resound.com/da/why-resound/awards",
+    "https://www.resound.com/da/why-resound/careers",
+    "https://www.resound.com/da/why-resound/organic-hearing",
+    "https://www.resound.com/da/why-resound/philosophy",
+    "https://www.resound.com/da/why-resound/philosophy/apps",
+    "https://www.resound.com/da/why-resound/philosophy/audiology",
+    "https://www.resound.com/da/why-resound/philosophy/connectivity",
+    "https://www.resound.com/da/why-resound/philosophy/design",
+    "https://www.resound.com/da/why-resound/testimonials",
+    "https://www.resound.com/de-at",
+    "https://www.resound.com/de-ch",
+    "https://www.resound.com/de-de",
+    "https://www.resound.com/en",
+    "https://www.resound.com/en-au",
+    "https://www.resound.com/en-ca",
+    "https://www.resound.com/en-ca/",
+    "https://www.resound.com/en-ca/about-cookies",
+    "https://www.resound.com/en-ca/contact",
+    "https://www.resound.com/en-ca/covid-19",
+    "https://www.resound.com/en-ca/find-a-professional",
+    "https://www.resound.com/en-ca/hearing-aids",
+    "https://www.resound.com/en-ca/hearing-aids/accessories",
+    "https://www.resound.com/en-ca/hearing-aids/accessories/micro-mic",
+    "https://www.resound.com/en-ca/hearing-aids/accessories/multi-mic",
+    "https://www.resound.com/en-ca/hearing-aids/accessories/remote-control-2",
+    "https://www.resound.com/en-ca/hearing-aids/accessories/tv-hearing-aid",
+    "https://www.resound.com/en-ca/hearing-aids/ai-hearing-aids",
+    "https://www.resound.com/en-ca/hearing-aids/apps",
+    "https://www.resound.com/en-ca/hearing-aids/apps/relief",
+    "https://www.resound.com/en-ca/hearing-aids/apps/relief/_spots/bigspots/relief-app-makes-living-with-tinnitus-easier",
+    "https://www.resound.com/en-ca/hearing-aids/apps/smart",
+    "https://www.resound.com/en-ca/hearing-aids/apps/smart-3d",
+    "https://www.resound.com/en-ca/hearing-aids/assist",
+    "https://www.resound.com/en-ca/hearing-aids/assist/assist-live",
+    "https://www.resound.com/en-ca/hearing-aids/bluetooth-hearing-aids",
+    "https://www.resound.com/en-ca/hearing-aids/digital",
+    "https://www.resound.com/en-ca/hearing-aids/how-to-choose",
+    "https://www.resound.com/en-ca/hearing-aids/rechargeable-hearing-aids",
+    "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids",
+    "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/enya",
+    "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/enzo-3d",
+    "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/enzo-q",
+    "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/enzo2",
+    "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/linx-3d",
+    "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/linx-3d/binaural-directionality",
+    "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/linx2",
+    "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/quattro/clarity-in-the-finer-details",
+    "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/quattro/rechargeable",
+    "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/quattro/stay-connected-to-all-your-audio-devices",
+    "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/rechargeable",
+    "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/resound-enzo-ia",
+    "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/resound-key",
+    "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/resound-nexia",
+    "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/resound-one/custom",
+    "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/resound-savi",
+    "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/resound-sensia",
+    "https://www.resound.com/en-ca/hearing-aids/resound-hearing-aids/resound-vivia",
+    "https://www.resound.com/en-ca/hearing-aids/smartphone-hearing-aids",
+    "https://www.resound.com/en-ca/hearing-aids/tinnitus-hearing-aids",
+    "https://www.resound.com/en-ca/hearing-aids/types",
+    "https://www.resound.com/en-ca/hearing-aids/types/bte",
+    "https://www.resound.com/en-ca/hearing-aids/types/custom",
+    "https://www.resound.com/en-ca/hearing-aids/types/hearing-implant-hearing-aids",
+    "https://www.resound.com/en-ca/hearing-aids/types/rie",
+    "https://www.resound.com/en-ca/hearing-loss",
+    "https://www.resound.com/en-ca/hearing-loss/age-related",
+    "https://www.resound.com/en-ca/hearing-loss/caring",
+    "https://www.resound.com/en-ca/hearing-loss/children",
+    "https://www.resound.com/en-ca/hearing-loss/severe-profound",
+    "https://www.resound.com/en-ca/hearing-loss/tinnitus",
+    "https://www.resound.com/en-ca/hearing-loss/tinnitus/causes",
+    "https://www.resound.com/en-ca/hearing-loss/tinnitus/treatment",
+    "https://www.resound.com/en-ca/hearing-loss/tinnitus/types",
+    "https://www.resound.com/en-ca/hearing-loss/understanding",
+    "https://www.resound.com/en-ca/hearing-loss/understanding/causes",
+    "https://www.resound.com/en-ca/hearing-loss/understanding/ear-anatomy",
+    "https://www.resound.com/en-ca/hearing-loss/understanding/ear-anatomy/inner",
+    "https://www.resound.com/en-ca/hearing-loss/understanding/ear-anatomy/middle",
+    "https://www.resound.com/en-ca/hearing-loss/understanding/ear-anatomy/outer",
+    "https://www.resound.com/en-ca/hearing-loss/understanding/signs",
+    "https://www.resound.com/en-ca/hearing-loss/understanding/treatment",
+    "https://www.resound.com/en-ca/hearing-loss/understanding/types",
+    "https://www.resound.com/en-ca/hearing-loss/understanding/types/conductive",
+    "https://www.resound.com/en-ca/hearing-loss/understanding/types/mixed",
+    "https://www.resound.com/en-ca/hearing-loss/understanding/types/sensorineural",
+    "https://www.resound.com/en-ca/hearing-loss/visit-professional",
+    "https://www.resound.com/en-ca/hearing-loss/visit-professional/types",
+    "https://www.resound.com/en-ca/help",
+    "https://www.resound.com/en-ca/help/accessories",
+    "https://www.resound.com/en-ca/help/accessories/micro-mic",
+    "https://www.resound.com/en-ca/help/accessories/mini-mic",
+    "https://www.resound.com/en-ca/help/accessories/multi-mic",
+    "https://www.resound.com/en-ca/help/accessories/remote-control-2",
+    "https://www.resound.com/en-ca/help/accessories/tv-streamer-2",
+    "https://www.resound.com/en-ca/help/apps",
+    "https://www.resound.com/en-ca/help/apps/relief",
+    "https://www.resound.com/en-ca/help/apps/smart",
+    "https://www.resound.com/en-ca/help/apps/smart-3d",
+    "https://www.resound.com/en-ca/help/compatibility",
+    "https://www.resound.com/en-ca/help/compatibility/qr-compatible",
+    "https://www.resound.com/en-ca/help/compatibility/qr-model-select",
+    "https://www.resound.com/en-ca/help/compatibility/qr-non-compatible",
+    "https://www.resound.com/en-ca/help/hearing-aids",
+    "https://www.resound.com/en-ca/help/hearing-aids/enzo-ia",
+    "https://www.resound.com/en-ca/help/hearing-aids/enzo-q",
+    "https://www.resound.com/en-ca/help/hearing-aids/key",
+    "https://www.resound.com/en-ca/help/hearing-aids/linx-quattro",
+    "https://www.resound.com/en-ca/help/hearing-aids/nexia",
+    "https://www.resound.com/en-ca/help/hearing-aids/omnia",
+    "https://www.resound.com/en-ca/help/hearing-aids/other",
+    "https://www.resound.com/en-ca/help/hearing-aids/other/videos",
+    "https://www.resound.com/en-ca/help/hearing-aids/savi",
+    "https://www.resound.com/en-ca/help/hearing-aids/sensia",
+    "https://www.resound.com/en-ca/help/maintenance-troubleshooting",
+    "https://www.resound.com/en-ca/help/new",
+    "https://www.resound.com/en-ca/internet-sales-policy",
+    "https://www.resound.com/en-ca/legal",
+    "https://www.resound.com/en-ca/marketingconsent",
+    "https://www.resound.com/en-ca/myhearingday",
+    "https://www.resound.com/en-ca/newsmartapp",
+    "https://www.resound.com/en-ca/online-hearing-test",
+    "https://www.resound.com/en-ca/press/addressing-the-true-needs-of-hearing-aid-users-smarter-fitting",
+    "https://www.resound.com/en-ca/press/announcing-resound-linx-3d",
+    "https://www.resound.com/en-ca/press/audiologynow-2015-and-preview-of-resound-smart-app-for-apple-watch",
+    "https://www.resound.com/en-ca/press/ces-ai-2019",
+    "https://www.resound.com/en-ca/press/danish-prime-minister-lars-lokke-rasmussen-opens-gn-resound-production-facility",
+    "https://www.resound.com/en-ca/press/gn-brings-hands-free-calling-for-people-with-hearing-aids",
+    "https://www.resound.com/en-ca/press/gn-demonstrates-innovative-sound-at-ces-in-las-vegas",
+    "https://www.resound.com/en-ca/press/gn-expands-its-most-advanced-hearing-aid-family-resound-nexia",
+    "https://www.resound.com/en-ca/press/gn-hearing-announces-availability-of-rechargeable-solution-for-the-recently-launched-resound-linx-3d",
+    "https://www.resound.com/en-ca/press/gn-hearing-announces-launch-of-resound-linx-3d-with-teleaudiology-solution",
+    "https://www.resound.com/en-ca/press/gn-hearing-announces-launch-of-resound-nexia",
+    "https://www.resound.com/en-ca/press/gn-hearing-conducts-worlds-first-transatlantic-hearing-aid-remote-fine-tuning-with-resound-linx-3d",
+    "https://www.resound.com/en-ca/press/gn-hearing-launches-resound-assist-live",
+    "https://www.resound.com/en-ca/press/gn-resound-launches-new-wireless-hearing-aid-resound-enya",
+    "https://www.resound.com/en-ca/press/gn-resound-opens-new-factory-in-malaysia-to-support-continued-company-growth",
+    "https://www.resound.com/en-ca/press/gn-resounds-smart-hearing-portfolio-is-acknowledged-by-three-awards-at-ifa-in-berlin",
+    "https://www.resound.com/en-ca/press/mo-becomes-the-first-deaf-person-to-row-across-the-atlantic-ocrean",
+    "https://www.resound.com/en-ca/press/new-gn-hearing-technology-gives-the-ability-to-conduct-at-home-hearing-assessments",
+    "https://www.resound.com/en-ca/press/new-resound-key-essential-hearing-aids",
+    "https://www.resound.com/en-ca/press/relief-app-makes-living-with-tinnitus-easier",
+    "https://www.resound.com/en-ca/press/resound-announces-launch-of-resound-omnia-and-resound-one-custom-cic",
+    "https://www.resound.com/en-ca/press/resound-announces-launch-of-resound-omnia-full-line-up",
+    "https://www.resound.com/en-ca/press/resound-brings-hands-free-calling-for-people-with-hearing-aids",
+    "https://www.resound.com/en-ca/press/resound-introduces-camouflage-designs-to-expand-personalization",
+    "https://www.resound.com/en-ca/press/resound-introduces-the-worlds-smartest-super-power-hearing-aid",
+    "https://www.resound.com/en-ca/press/resound-one-an-entirely-new-class-of-hearing-aids",
+    "https://www.resound.com/en-ca/press/smart-hearing-aids-available-on-the-android-platform",
+    "https://www.resound.com/en-ca/press/the-resound-smart-app-is-now-available-to-millions-of-additional-users",
+    "https://www.resound.com/en-ca/press/the-success-of-resound-technology-is-amplified-and-multiplied-for-even-more-people-with-hearing-loss",
+    "https://www.resound.com/en-ca/privacy",
+    "https://www.resound.com/en-ca/privacy-policy",
+    "https://www.resound.com/en-ca/product-warranty",
+    "https://www.resound.com/en-ca/why-resound",
+    "https://www.resound.com/en-ca/why-resound/about",
+    "https://www.resound.com/en-ca/why-resound/awards",
+    "https://www.resound.com/en-ca/why-resound/careers",
+    "https://www.resound.com/en-ca/why-resound/organic-hearing",
+    "https://www.resound.com/en-ca/why-resound/philosophy",
+    "https://www.resound.com/en-ca/why-resound/philosophy/apps",
+    "https://www.resound.com/en-ca/why-resound/philosophy/audiology",
+    "https://www.resound.com/en-ca/why-resound/philosophy/connectivity",
+    "https://www.resound.com/en-ca/why-resound/philosophy/design",
+    "https://www.resound.com/en-ca/why-resound/testimonials",
+    "https://www.resound.com/en-ca/worldwide-distributors",
+    "https://www.resound.com/en-gb",
+    "https://www.resound.com/en-in",
+    "https://www.resound.com/en-us",
+    "https://www.resound.com/en-us/",
+    "https://www.resound.com/en-us/about-cookies",
+    "https://www.resound.com/en-us/contact",
+    "https://www.resound.com/en-us/find-a-professional",
+    "https://www.resound.com/en-us/hearing-aids",
+    "https://www.resound.com/en-us/hearing-aids/LINK_Placeholder",
+    "https://www.resound.com/en-us/hearing-aids/accessories",
+    "https://www.resound.com/en-us/hearing-aids/accessories/micro-mic",
+    "https://www.resound.com/en-us/hearing-aids/accessories/multi-mic",
+    "https://www.resound.com/en-us/hearing-aids/accessories/remote-control-2",
+    "https://www.resound.com/en-us/hearing-aids/accessories/tv-hearing-aid",
+    "https://www.resound.com/en-us/hearing-aids/ai-hearing-aids",
+    "https://www.resound.com/en-us/hearing-aids/apps",
+    "https://www.resound.com/en-us/hearing-aids/apps/relief",
+    "https://www.resound.com/en-us/hearing-aids/apps/relief/_spots/bigspots/relief-app-makes-living-with-tinnitus-easier",
+    "https://www.resound.com/en-us/hearing-aids/apps/smart",
+    "https://www.resound.com/en-us/hearing-aids/apps/smart-3d",
+    "https://www.resound.com/en-us/hearing-aids/assist",
+    "https://www.resound.com/en-us/hearing-aids/assist/assist-live",
+    "https://www.resound.com/en-us/hearing-aids/auracast-hearing-aids",
+    "https://www.resound.com/en-us/hearing-aids/bluetooth-hearing-aids",
+    "https://www.resound.com/en-us/hearing-aids/digital",
+    "https://www.resound.com/en-us/hearing-aids/how-to-choose",
+    "https://www.resound.com/en-us/hearing-aids/invisible-hearing-aids",
+    "https://www.resound.com/en-us/hearing-aids/rechargeable-hearing-aids",
+    "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids",
+    "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/enzo-3d",
+    "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/enzo-q",
+    "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/enzo2",
+    "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/linx-3d",
+    "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/linx-3d/binaural-directionality",
+    "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/linx2",
+    "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/quattro/clarity-in-the-finer-details",
+    "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/quattro/rechargeable",
+    "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/quattro/stay-connected-to-all-your-audio-devices",
+    "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/rechargeable",
+    "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-enzo-ia",
+    "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-key",
+    "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-nexia",
+    "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-savi",
+    "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-sensia",
+    "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-vivia",
+    "https://www.resound.com/en-us/hearing-aids/smartphone-hearing-aids",
+    "https://www.resound.com/en-us/hearing-aids/tinnitus-hearing-aids",
+    "https://www.resound.com/en-us/hearing-aids/types",
+    "https://www.resound.com/en-us/hearing-aids/types/bte",
+    "https://www.resound.com/en-us/hearing-aids/types/custom",
+    "https://www.resound.com/en-us/hearing-aids/types/hearing-implant-hearing-aids",
+    "https://www.resound.com/en-us/hearing-aids/types/inside-ear",
+    "https://www.resound.com/en-us/hearing-aids/types/outside-ear",
+    "https://www.resound.com/en-us/hearing-aids/types/rie",
+    "https://www.resound.com/en-us/hearing-aids/~/link.aspx?_id=0F34961266FA4F7E8ECEBA2F4118C490&_z=z",
+    "https://www.resound.com/en-us/hearing-aids/~/link.aspx?_id=12DC8D1E2AB846539396ED864718E535&_z=z",
+    "https://www.resound.com/en-us/hearing-aids/~/link.aspx?_id=EB2F9F85E8AD4EECA99384538E9A8CF8&_z=z",
+    "https://www.resound.com/en-us/hearing-aids/~/link.aspx?_id=EC24C57CBD0947EFBCB13D01757CC329&_z=z",
+    "https://www.resound.com/en-us/hearing-loss",
+    "https://www.resound.com/en-us/hearing-loss/age-related",
+    "https://www.resound.com/en-us/hearing-loss/caring",
+    "https://www.resound.com/en-us/hearing-loss/children",
+    "https://www.resound.com/en-us/hearing-loss/severe-profound",
+    "https://www.resound.com/en-us/hearing-loss/tinnitus",
+    "https://www.resound.com/en-us/hearing-loss/tinnitus/causes",
+    "https://www.resound.com/en-us/hearing-loss/tinnitus/treatment",
+    "https://www.resound.com/en-us/hearing-loss/tinnitus/types",
+    "https://www.resound.com/en-us/hearing-loss/understanding",
+    "https://www.resound.com/en-us/hearing-loss/understanding/causes",
+    "https://www.resound.com/en-us/hearing-loss/understanding/ear-anatomy",
+    "https://www.resound.com/en-us/hearing-loss/understanding/ear-anatomy/inner",
+    "https://www.resound.com/en-us/hearing-loss/understanding/ear-anatomy/middle",
+    "https://www.resound.com/en-us/hearing-loss/understanding/ear-anatomy/outer",
+    "https://www.resound.com/en-us/hearing-loss/understanding/signs",
+    "https://www.resound.com/en-us/hearing-loss/understanding/treatment",
+    "https://www.resound.com/en-us/hearing-loss/understanding/types",
+    "https://www.resound.com/en-us/hearing-loss/understanding/types/conductive",
+    "https://www.resound.com/en-us/hearing-loss/understanding/types/mixed",
+    "https://www.resound.com/en-us/hearing-loss/understanding/types/sensorineural",
+    "https://www.resound.com/en-us/hearing-loss/visit-professional",
+    "https://www.resound.com/en-us/hearing-loss/visit-professional/types",
+    "https://www.resound.com/en-us/help",
+    "https://www.resound.com/en-us/help/accessories",
+    "https://www.resound.com/en-us/help/accessories/micro-mic",
+    "https://www.resound.com/en-us/help/accessories/mini-mic",
+    "https://www.resound.com/en-us/help/accessories/multi-mic",
+    "https://www.resound.com/en-us/help/accessories/remote-control-2",
+    "https://www.resound.com/en-us/help/accessories/tv-streamer-2",
+    "https://www.resound.com/en-us/help/apps",
+    "https://www.resound.com/en-us/help/apps/relief",
+    "https://www.resound.com/en-us/help/apps/smart",
+    "https://www.resound.com/en-us/help/apps/smart-3d",
+    "https://www.resound.com/en-us/help/compatibility",
+    "https://www.resound.com/en-us/help/compatibility/qr-compatible",
+    "https://www.resound.com/en-us/help/compatibility/qr-model-select",
+    "https://www.resound.com/en-us/help/compatibility/qr-non-compatible",
+    "https://www.resound.com/en-us/help/compatibility/resound-smart3d",
+    "https://www.resound.com/en-us/help/hearing-aids",
+    "https://www.resound.com/en-us/help/hearing-aids/enzo-ia",
+    "https://www.resound.com/en-us/help/hearing-aids/enzo-q",
+    "https://www.resound.com/en-us/help/hearing-aids/key",
+    "https://www.resound.com/en-us/help/hearing-aids/linx-quattro",
+    "https://www.resound.com/en-us/help/hearing-aids/nexia",
+    "https://www.resound.com/en-us/help/hearing-aids/omnia",
+    "https://www.resound.com/en-us/help/hearing-aids/other",
+    "https://www.resound.com/en-us/help/hearing-aids/savi",
+    "https://www.resound.com/en-us/help/hearing-aids/sensia",
+    "https://www.resound.com/en-us/help/hearing-aids/up-smart",
+    "https://www.resound.com/en-us/help/hearing-aids/vivia",
+    "https://www.resound.com/en-us/help/maintenance-troubleshooting",
+    "https://www.resound.com/en-us/help/new",
+    "https://www.resound.com/en-us/help/tips-page",
+    "https://www.resound.com/en-us/internet-sales-policy",
+    "https://www.resound.com/en-us/legal",
+    "https://www.resound.com/en-us/marketingconsent",
+    "https://www.resound.com/en-us/max",
+    "https://www.resound.com/en-us/myhearingday",
+    "https://www.resound.com/en-us/newsmartapp",
+    "https://www.resound.com/en-us/online-hearing-test",
+    "https://www.resound.com/en-us/press",
+    "https://www.resound.com/en-us/press/addressing-the-true-needs-of-hearing-aid-users-smarter-fitting",
+    "https://www.resound.com/en-us/press/announcing-resound-linx-3d",
+    "https://www.resound.com/en-us/press/audiologynow-2015-and-preview-of-resound-smart-app-for-apple-watch",
+    "https://www.resound.com/en-us/press/ces-ai-2019",
+    "https://www.resound.com/en-us/press/custom-made-by-resound-rechargeable-hearing-aids",
+    "https://www.resound.com/en-us/press/danish-prime-minister-lars-lokke-rasmussen-opens-gn-resound-production-facility",
+    "https://www.resound.com/en-us/press/gn-brings-hands-free-calling-for-people-with-hearing-aids",
+    "https://www.resound.com/en-us/press/gn-demonstrates-innovative-sound-at-ces-in-las-vegas",
+    "https://www.resound.com/en-us/press/gn-expands-its-most-advanced-hearing-aid-family-resound-nexia",
+    "https://www.resound.com/en-us/press/gn-hearing-announces-availability-of-rechargeable-solution-for-the-recently-launched-resound-linx-3d",
+    "https://www.resound.com/en-us/press/gn-hearing-announces-launch-of-resound-linx-3d-with-teleaudiology-solution",
+    "https://www.resound.com/en-us/press/gn-hearing-announces-launch-of-resound-nexia",
+    "https://www.resound.com/en-us/press/gn-hearing-conducts-worlds-first-transatlantic-hearing-aid-remote-fine-tuning-with-resound-linx-3d",
+    "https://www.resound.com/en-us/press/gn-hearing-launches-resound-assist-live",
+    "https://www.resound.com/en-us/press/gn-resound-launches-new-wireless-hearing-aid-resound-enya",
+    "https://www.resound.com/en-us/press/gn-resound-opens-new-factory-in-malaysia-to-support-continued-company-growth",
+    "https://www.resound.com/en-us/press/gn-resounds-smart-hearing-portfolio-is-acknowledged-by-three-awards-at-ifa-in-berlin",
+    "https://www.resound.com/en-us/press/mo-becomes-the-first-deaf-person-to-row-across-the-atlantic-ocrean",
+    "https://www.resound.com/en-us/press/new-gn-hearing-technology-gives-the-ability-to-conduct-at-home-hearing-assessments",
+    "https://www.resound.com/en-us/press/new-resound-key-essential-hearing-aids",
+    "https://www.resound.com/en-us/press/relief-app-makes-living-with-tinnitus-easier",
+    "https://www.resound.com/en-us/press/resound-announces-launch-of-resound-omnia-and-resound-one-custom-cic",
+    "https://www.resound.com/en-us/press/resound-announces-launch-of-resound-omnia-full-line-up",
+    "https://www.resound.com/en-us/press/resound-brings-hands-free-calling-for-people-with-hearing-aids",
+    "https://www.resound.com/en-us/press/resound-introduces-camouflage-designs-to-expand-personalization",
+    "https://www.resound.com/en-us/press/resound-introduces-the-worlds-smartest-super-power-hearing-aid",
+    "https://www.resound.com/en-us/press/resound-one-an-entirely-new-class-of-hearing-aids",
+    "https://www.resound.com/en-us/press/smart-hearing-aids-available-on-the-android-platform",
+    "https://www.resound.com/en-us/press/the-resound-smart-app-is-now-available-to-millions-of-additional-users",
+    "https://www.resound.com/en-us/press/the-success-of-resound-technology-is-amplified-and-multiplied-for-even-more-people-with-hearing-loss",
+    "https://www.resound.com/en-us/privacy",
+    "https://www.resound.com/en-us/privacy-policy",
+    "https://www.resound.com/en-us/product-warranty",
+    "https://www.resound.com/en-us/veterans",
+    "https://www.resound.com/en-us/veterans/veterans-and-tinnitus",
+    "https://www.resound.com/en-us/veterans/we-support-our-veterans",
+    "https://www.resound.com/en-us/why-resound",
+    "https://www.resound.com/en-us/why-resound/about",
+    "https://www.resound.com/en-us/why-resound/awards",
+    "https://www.resound.com/en-us/why-resound/careers",
+    "https://www.resound.com/en-us/why-resound/organic-hearing",
+    "https://www.resound.com/en-us/why-resound/philosophy",
+    "https://www.resound.com/en-us/why-resound/philosophy/apps",
+    "https://www.resound.com/en-us/why-resound/philosophy/audiology",
+    "https://www.resound.com/en-us/why-resound/philosophy/connectivity",
+    "https://www.resound.com/en-us/why-resound/philosophy/design",
+    "https://www.resound.com/en-us/why-resound/testimonials",
+    "https://www.resound.com/en-us/world-of-sound",
+    "https://www.resound.com/en-us/worldwide-distributors",
+    "https://www.resound.com/en/",
+    "https://www.resound.com/en/about-cookies",
+    "https://www.resound.com/en/closed-for-business",
+    "https://www.resound.com/en/consent",
+    "https://www.resound.com/en/contact",
+    "https://www.resound.com/en/covid-19",
+    "https://www.resound.com/en/covid-19/find-a-professional",
+    "https://www.resound.com/en/find-a-professional",
+    "https://www.resound.com/en/hearing-aids",
+    "https://www.resound.com/en/hearing-aids/LINK_Placeholder",
+    "https://www.resound.com/en/hearing-aids/accessories",
+    "https://www.resound.com/en/hearing-aids/accessories/micro-mic",
+    "https://www.resound.com/en/hearing-aids/accessories/multi-mic",
+    "https://www.resound.com/en/hearing-aids/accessories/remote-control-2",
+    "https://www.resound.com/en/hearing-aids/accessories/tv-hearing-aid",
+    "https://www.resound.com/en/hearing-aids/affordable-hearing-aids",
+    "https://www.resound.com/en/hearing-aids/ai-hearing-aids",
+    "https://www.resound.com/en/hearing-aids/apps",
+    "https://www.resound.com/en/hearing-aids/apps/relief",
+    "https://www.resound.com/en/hearing-aids/apps/relief/_spots/bigspots/relief-app-makes-living-with-tinnitus-easier",
+    "https://www.resound.com/en/hearing-aids/apps/smart",
+    "https://www.resound.com/en/hearing-aids/apps/smart-3d",
+    "https://www.resound.com/en/hearing-aids/assist",
+    "https://www.resound.com/en/hearing-aids/assist/assist-live",
+    "https://www.resound.com/en/hearing-aids/auracast-hearing-aids",
+    "https://www.resound.com/en/hearing-aids/bluetooth-hearing-aid-android",
+    "https://www.resound.com/en/hearing-aids/bluetooth-hearing-aids",
+    "https://www.resound.com/en/hearing-aids/digital",
+    "https://www.resound.com/en/hearing-aids/how-to-choose",
+    "https://www.resound.com/en/hearing-aids/invisible-hearing-aids",
+    "https://www.resound.com/en/hearing-aids/price",
+    "https://www.resound.com/en/hearing-aids/rechargeable-hearing-aids",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/enya",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/enzo-3d",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/enzo-q",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/enzo2",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/linx-3d",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/linx-3d/binaural-directionality",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/linx2",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/quattro",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/quattro/clarity-in-the-finer-details",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/quattro/rechargeable",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/quattro/stay-connected-to-all-your-audio-devices",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/quattro/testpersonen/submission-confirmation",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/rechargeable",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/resound-enzo-ia",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/resound-key",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/resound-nexia",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/resound-omnia",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/resound-one/bte",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/resound-one/custom",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/resound-savi",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/resound-sensia",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/resound-vivia",
+    "https://www.resound.com/en/hearing-aids/resound-hearing-aids/up-smart",
+    "https://www.resound.com/en/hearing-aids/tinnitus-hearing-aids",
+    "https://www.resound.com/en/hearing-aids/types",
+    "https://www.resound.com/en/hearing-aids/types/bte",
+    "https://www.resound.com/en/hearing-aids/types/custom",
+    "https://www.resound.com/en/hearing-aids/types/hearing-implant-hearing-aids",
+    "https://www.resound.com/en/hearing-aids/types/rie",
+    "https://www.resound.com/en/hearing-aids/~/link.aspx?_id=0F34961266FA4F7E8ECEBA2F4118C490&_z=z",
+    "https://www.resound.com/en/hearing-aids/~/link.aspx?_id=12DC8D1E2AB846539396ED864718E535&_z=z",
+    "https://www.resound.com/en/hearing-aids/~/link.aspx?_id=EB2F9F85E8AD4EECA99384538E9A8CF8&_z=z",
+    "https://www.resound.com/en/hearing-aids/~/link.aspx?_id=EC24C57CBD0947EFBCB13D01757CC329&_z=z",
+    "https://www.resound.com/en/hearing-loss",
+    "https://www.resound.com/en/hearing-loss/age-related",
+    "https://www.resound.com/en/hearing-loss/caring",
+    "https://www.resound.com/en/hearing-loss/children",
+    "https://www.resound.com/en/hearing-loss/severe-profound",
+    "https://www.resound.com/en/hearing-loss/tinnitus",
+    "https://www.resound.com/en/hearing-loss/tinnitus/causes",
+    "https://www.resound.com/en/hearing-loss/tinnitus/treatment",
+    "https://www.resound.com/en/hearing-loss/tinnitus/types",
+    "https://www.resound.com/en/hearing-loss/understanding",
+    "https://www.resound.com/en/hearing-loss/understanding/causes",
+    "https://www.resound.com/en/hearing-loss/understanding/ear-anatomy",
+    "https://www.resound.com/en/hearing-loss/understanding/ear-anatomy/inner",
+    "https://www.resound.com/en/hearing-loss/understanding/ear-anatomy/middle",
+    "https://www.resound.com/en/hearing-loss/understanding/ear-anatomy/outer",
+    "https://www.resound.com/en/hearing-loss/understanding/signs",
+    "https://www.resound.com/en/hearing-loss/understanding/treatment",
+    "https://www.resound.com/en/hearing-loss/understanding/types",
+    "https://www.resound.com/en/hearing-loss/understanding/types/conductive",
+    "https://www.resound.com/en/hearing-loss/understanding/types/mixed",
+    "https://www.resound.com/en/hearing-loss/understanding/types/sensorineural",
+    "https://www.resound.com/en/hearing-loss/visit-professional",
+    "https://www.resound.com/en/hearing-loss/visit-professional/types",
+    "https://www.resound.com/en/help",
+    "https://www.resound.com/en/help-a-loved-one",
+    "https://www.resound.com/en/help/accessories",
+    "https://www.resound.com/en/help/accessories/micro-mic",
+    "https://www.resound.com/en/help/accessories/mini-mic",
+    "https://www.resound.com/en/help/accessories/multi-mic",
+    "https://www.resound.com/en/help/accessories/remote-control-2",
+    "https://www.resound.com/en/help/accessories/tv-streamer-2",
+    "https://www.resound.com/en/help/apps",
+    "https://www.resound.com/en/help/apps/relief",
+    "https://www.resound.com/en/help/apps/smart",
+    "https://www.resound.com/en/help/apps/smart-3d",
+    "https://www.resound.com/en/help/compatibility",
+    "https://www.resound.com/en/help/compatibility/qr-compatible",
+    "https://www.resound.com/en/help/compatibility/qr-model-select",
+    "https://www.resound.com/en/help/compatibility/qr-model-select/danalogic",
+    "https://www.resound.com/en/help/compatibility/qr-model-select/jabra",
+    "https://www.resound.com/en/help/compatibility/qr-non-compatible",
+    "https://www.resound.com/en/help/compatibility/qr-unknown",
+    "https://www.resound.com/en/help/connected",
+    "https://www.resound.com/en/help/faq",
+    "https://www.resound.com/en/help/hearing-aids",
+    "https://www.resound.com/en/help/hearing-aids/enzo",
+    "https://www.resound.com/en/help/hearing-aids/enzo-3d",
+    "https://www.resound.com/en/help/hearing-aids/enzo-ia",
+    "https://www.resound.com/en/help/hearing-aids/enzo-q",
+    "https://www.resound.com/en/help/hearing-aids/key",
+    "https://www.resound.com/en/help/hearing-aids/linx",
+    "https://www.resound.com/en/help/hearing-aids/linx-3d",
+    "https://www.resound.com/en/help/hearing-aids/linx-quattro",
+    "https://www.resound.com/en/help/hearing-aids/nexia",
+    "https://www.resound.com/en/help/hearing-aids/omnia",
+    "https://www.resound.com/en/help/hearing-aids/other",
+    "https://www.resound.com/en/help/hearing-aids/other/videos",
+    "https://www.resound.com/en/help/hearing-aids/resound-custom",
+    "https://www.resound.com/en/help/hearing-aids/resound-one",
+    "https://www.resound.com/en/help/hearing-aids/savi",
+    "https://www.resound.com/en/help/hearing-aids/sensia",
+    "https://www.resound.com/en/help/hearing-aids/up-smart",
+    "https://www.resound.com/en/help/maintenance-troubleshooting",
+    "https://www.resound.com/en/help/new",
+    "https://www.resound.com/en/improve-hearing",
+    "https://www.resound.com/en/improve-hearing/getting-started",
+    "https://www.resound.com/en/improve-hearing/hearing-aid-benefits",
+    "https://www.resound.com/en/internet-sales-policy",
+    "https://www.resound.com/en/kst-sc10",
+    "https://www.resound.com/en/legal",
+    "https://www.resound.com/en/marketingconsent",
+    "https://www.resound.com/en/more-about-hearing-aids",
+    "https://www.resound.com/en/myhearingday",
+    "https://www.resound.com/en/nessa-form-test-ah",
+    "https://www.resound.com/en/newsmartapp",
+    "https://www.resound.com/en/online-hearing-test",
+    "https://www.resound.com/en/online-hearing-test/take-test",
+    "https://www.resound.com/en/press",
+    "https://www.resound.com/en/press/addressing-the-true-needs-of-hearing-aid-users-smarter-fitting",
+    "https://www.resound.com/en/press/announcing-resound-linx-3d",
+    "https://www.resound.com/en/press/audiologynow-2015-and-preview-of-resound-smart-app-for-apple-watch",
+    "https://www.resound.com/en/press/ces-ai-2019",
+    "https://www.resound.com/en/press/cochlear-and-gn-hearing-become-worlds-first-to-support-direct-android-streaming-to-hearing-devices",
+    "https://www.resound.com/en/press/custom-made-by-resound-rechargeable-hearing-aids",
+    "https://www.resound.com/en/press/danish-prime-minister-lars-lokke-rasmussen-opens-gn-resound-production-facility",
+    "https://www.resound.com/en/press/gn-brings-hands-free-calling-for-people-with-hearing-aids",
+    "https://www.resound.com/en/press/gn-brings-inclusive-k-pop-experience-to-world-congress-of-audiology",
+    "https://www.resound.com/en/press/gn-demonstrates-innovative-sound-at-ces-in-las-vegas",
+    "https://www.resound.com/en/press/gn-hearing-and-cochlear-stregnthen-alliance-to-develop-best-in-class-integrated-hearing-solutions",
+    "https://www.resound.com/en/press/gn-hearing-and-soundly-present-world-of-sound-art-project",
+    "https://www.resound.com/en/press/gn-hearing-announced-ces-2019-innovation-awards-honoree",
+    "https://www.resound.com/en/press/gn-hearing-announces-availability-of-rechargeable-solution-for-the-recently-launched-resound-linx-3d",
+    "https://www.resound.com/en/press/gn-hearing-announces-launch-of-resound-linx-3d-with-teleaudiology-solution",
+    "https://www.resound.com/en/press/gn-hearing-announces-launch-of-resound-nexia",
+    "https://www.resound.com/en/press/gn-hearing-announces-launch-of-resound-nexia-full-family",
+    "https://www.resound.com/en/press/gn-hearing-announces-new-premium-plus-hearing-aid",
+    "https://www.resound.com/en/press/gn-hearing-at-euha-2018",
+    "https://www.resound.com/en/press/gn-hearing-conducts-worlds-first-transatlantic-hearing-aid-remote-fine-tuning-with-resound-linx-3d",
+    "https://www.resound.com/en/press/gn-hearing-extends-resound-nexia-family-and-release-updated-fitting-software",
+    "https://www.resound.com/en/press/gn-hearing-launches-resound-assist-live",
+    "https://www.resound.com/en/press/gn-launches-next-gen-fitting-software-for-better-patient-outcomes-with-worlds-first-with-nal-nl3",
+    "https://www.resound.com/en/press/gn-resound-launches-new-wireless-hearing-aid-resound-enya",
+    "https://www.resound.com/en/press/gn-resound-opens-new-factory-in-malaysia-to-support-continued-company-growth",
+    "https://www.resound.com/en/press/gn-resounds-smart-hearing-portfolio-is-acknowledged-by-three-awards-at-ifa-in-berlin",
+    "https://www.resound.com/en/press/mo-becomes-the-first-deaf-person-to-row-across-the-atlantic-ocrean",
+    "https://www.resound.com/en/press/mo-o-brien-to-become-the-first-deaf-person-to-row-across-the-atlantic-ocean",
+    "https://www.resound.com/en/press/new-gn-hearing-technology-gives-the-ability-to-conduct-at-home-hearing-assessments",
+    "https://www.resound.com/en/press/new-resound-innovation-presented-at-2020-digital-euha-congress",
+    "https://www.resound.com/en/press/new-resound-key-essential-hearing-aids",
+    "https://www.resound.com/en/press/relief-app-makes-living-with-tinnitus-easier",
+    "https://www.resound.com/en/press/resound-announces-launch-of-resound-omnia-and-resound-one-custom-cic",
+    "https://www.resound.com/en/press/resound-announces-launch-of-resound-omnia-full-line-up",
+    "https://www.resound.com/en/press/resound-assist-live-new-ways-to-connect-and-care",
+    "https://www.resound.com/en/press/resound-brings-hands-free-calling-for-people-with-hearing-aids",
+    "https://www.resound.com/en/press/resound-helps-musicians-bring-the-joy-of-music-back-into-their-lives",
+    "https://www.resound.com/en/press/resound-introduces-camouflage-designs-to-expand-personalization",
+    "https://www.resound.com/en/press/resound-introduces-the-worlds-smartest-super-power-hearing-aid",
+    "https://www.resound.com/en/press/resound-linx-quattro-ranked-a-clear-number-one-in-study",
+    "https://www.resound.com/en/press/resound-linx-quattro-received-good-design-award-2018",
+    "https://www.resound.com/en/press/resound-one-an-entirely-new-class-of-hearing-aids",
+    "https://www.resound.com/en/press/resound-wins-2020-big-innovation-award",
+    "https://www.resound.com/en/press/smart-hearing-aids-available-on-the-android-platform",
+    "https://www.resound.com/en/press/staggering-impact-of-hearing-loss",
+    "https://www.resound.com/en/press/the-new-norm",
+    "https://www.resound.com/en/press/the-resound-smart-app-is-now-available-to-millions-of-additional-users",
+    "https://www.resound.com/en/press/the-success-of-resound-technology-is-amplified-and-multiplied-for-even-more-people-with-hearing-loss",
+    "https://www.resound.com/en/privacy",
+    "https://www.resound.com/en/privacy-policy",
+    "https://www.resound.com/en/product-warranty",
+    "https://www.resound.com/en/questionnaire",
+    "https://www.resound.com/en/sign-up",
+    "https://www.resound.com/en/sign-up/invisible",
+    "https://www.resound.com/en/sign-up/rechargeable",
+    "https://www.resound.com/en/submission-confirmation",
+    "https://www.resound.com/en/trademarks",
+    "https://www.resound.com/en/why-resound",
+    "https://www.resound.com/en/why-resound/about",
+    "https://www.resound.com/en/why-resound/awards",
+    "https://www.resound.com/en/why-resound/careers",
+    "https://www.resound.com/en/why-resound/organic-hearing",
+    "https://www.resound.com/en/why-resound/philosophy",
+    "https://www.resound.com/en/why-resound/philosophy/apps",
+    "https://www.resound.com/en/why-resound/philosophy/audiology",
+    "https://www.resound.com/en/why-resound/philosophy/connectivity",
+    "https://www.resound.com/en/why-resound/philosophy/design",
+    "https://www.resound.com/en/why-resound/testimonials",
+    "https://www.resound.com/en/world-of-sound",
+    "https://www.resound.com/en/worldwide-distributors",
+    "https://www.resound.com/es-es",
+    "https://www.resound.com/es-ln",
+    "https://www.resound.com/fi-fi",
+    "https://www.resound.com/find-a-professional",
+    "https://www.resound.com/fr-ch",
+    "https://www.resound.com/fr-fr",
+    "https://www.resound.com/it-it",
+    "https://www.resound.com/ja-jp",
+    "https://www.resound.com/kk-KZ",
+    "https://www.resound.com/ko-kr",
+    "https://www.resound.com/nb-no",
+    "https://www.resound.com/nl-nl",
+    "https://www.resound.com/online-hearing-test",
+    "https://www.resound.com/pt-br",
+    "https://www.resound.com/sv-se",
+    "https://www.resound.com/tr-tr"
+  ]
+}

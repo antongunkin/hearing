@@ -1,0 +1,409 @@
+{
+  "domain": "resound.com",
+  "generatedAt": "2026-11-27T19:00:45.337Z",
+  "model": "sonnet",
+  "openQuestions": [
+    "Where do the support pages' user guides and quick guides link to (PDF host and URL pattern)? The fetched text names them but shows no URLs.",
+    "Which of the older models (LiNX Quattro, OMNIA, ONE, LiNX 3D, Enzo 3D, Enzo2) are still current, and are they linked from the catalog?",
+    "Does the catalog page list all models, including those whose model URLs lack the resound- prefix?"
+  ],
+  "sections": {
+    "archive": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:43:10.586Z",
+            "url": "https://www.resound.com/en-us/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:59:45.015Z",
+            "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids"
+          }
+        ],
+        "text": "The Web Archive has copies of /en-us from 2018 to 2026 (latest 20261109231147), and of the en-us catalog page from 2019 to 2026 (latest 20260809080829)."
+      }
+    ],
+    "links": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:43:27.349Z",
+            "url": "https://www.resound.com/en-us/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:42:08.109Z",
+            "url": "https://www.resound.com/en-us/xmlsitemap"
+          }
+        ],
+        "text": "Every page links to resoundpro.com, the professional site. The sitemap also lists pro.resound.com pages."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:43:27.349Z",
+            "url": "https://www.resound.com/en-us/"
+          }
+        ],
+        "text": "The pages link to gn.com, resoundchina.com, jabra.dk, gnresoundblog.com, va.gov, and social networks. The en-us home page also links to resoundhearsay.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:43:24.253Z",
+            "url": "https://www.resound.com/da/"
+          }
+        ],
+        "text": "The Danish locale links to shop.resoundpatientsupport.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:47:38.974Z",
+            "url": "https://www.resound.com/en/hearing-aids/auracast-hearing-aids"
+          }
+        ],
+        "text": "The English international Auracast page links to gnhearing.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:44:27.803Z",
+            "url": "https://www.resound.com/en-us/hearing-aids/assist"
+          }
+        ],
+        "text": "The en-us Assist page lists one PDF on resound.com under /-/media/resound/resound-us/downloads/guides/. The report also lists PDFs on cdn1-originals.webdamdb.com and links to gngroup.webdamdb.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:43:27.349Z",
+            "url": "https://www.resound.com/en-us/"
+          }
+        ],
+        "text": "The report recorded no redirects."
+      }
+    ],
+    "next": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:59:37.103Z",
+            "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/enzo-q"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:42:08.109Z",
+            "url": "https://www.resound.com/en-us/xmlsitemap"
+          }
+        ],
+        "text": "Check that the catalog page links all models in the sitemap, including slugs without the resound- prefix (enzo-q, enzo-3d, enzo2), because the current modelUrlPattern requires resound-."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:59:24.441Z",
+            "url": "https://www.resound.com/en-us/help/hearing-aids/key"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:44:27.803Z",
+            "url": "https://www.resound.com/en-us/hearing-aids/assist"
+          }
+        ],
+        "text": "Crawl the /en-us/help/hearing-aids/{slug} pages for document links, and check the PDF URL format since the report lists only one PDF on resound.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:47:35.885Z",
+            "url": "https://www.resound.com/en/hearing-aids/resound-hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:43:20.899Z",
+            "url": "https://www.resound.com/en-ca/"
+          }
+        ],
+        "text": "Check whether the Canadian en-ca and international en catalogs list models that en-us lacks."
+      }
+    ],
+    "render": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:59:45.015Z",
+            "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:43:27.349Z",
+            "url": "https://www.resound.com/en-us/"
+          }
+        ],
+        "text": "All fetched pages report needsRender false and no failures occurred, so plain HTTP fetches are enough."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:59:45.015Z",
+            "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:47:20.805Z",
+            "url": "https://www.resound.com/en-us/help/hearing-aids"
+          }
+        ],
+        "text": "The pages repeat a large navigation and footer block, so the model-specific content comes late in the text."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:59:45.015Z",
+            "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids"
+          }
+        ],
+        "text": "The report found no JSON-LD types on any page."
+      }
+    ],
+    "structure": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:59:20.527Z",
+            "url": "https://www.resound.com/robots.txt"
+          }
+        ],
+        "text": "robots.txt lists two sitemaps: /en-us/xmlsitemap and /en/sitemapindex. It disallows only /sitecore/content and */1000$."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:42:08.109Z",
+            "url": "https://www.resound.com/en-us/xmlsitemap"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:40:40.257Z",
+            "url": "https://www.resound.com/en/sitemapindex"
+          }
+        ],
+        "text": "The report fetched per-locale xmlsitemap files (ar-sa, cs-cz, da, de-at, de-ch, de-de, en-au, en-ca, en-gb, en-in, en-us, es-es, es-ln, fi-fi, fr-ch, fr-fr, it-it, ja-jp). The sitemaps hold 666 URLs in total; the largest sections are /en (207), /da (155), /en-us (155) and /en-ca (149)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:43:27.349Z",
+            "url": "https://www.resound.com/en-us/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:43:20.899Z",
+            "url": "https://www.resound.com/en-ca/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:43:15.912Z",
+            "url": "https://www.resound.com/en/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:43:24.253Z",
+            "url": "https://www.resound.com/da/"
+          }
+        ],
+        "text": "Locale prefixes come first in the URL, for example /en-us, /en-ca, /en and /da. The same path structure repeats under each prefix."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:59:37.103Z",
+            "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/enzo-q"
+          }
+        ],
+        "text": "Model page template: /en-us/hearing-aids/resound-hearing-aids/{slug}, with 12 URLs in the sitemap. The report lists enzo-3d, enzo-q and enzo2 as examples."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:59:28.253Z",
+            "url": "https://www.resound.com/en-us/help/hearing-aids/enzo-ia"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:00:12.186Z",
+            "url": "https://www.resound.com/en-us/help/accessories/multi-mic"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:00:15.308Z",
+            "url": "https://www.resound.com/en-us/help/apps/smart-3d"
+          }
+        ],
+        "text": "Support page template: /en-us/help/hearing-aids/{slug}, with 11 URLs. The report lists enzo-ia, enzo-q and key as examples. Accessory support is at /en-us/help/accessories/{slug} and app support at /en-us/help/apps/{slug}."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:42:08.109Z",
+            "url": "https://www.resound.com/en-us/xmlsitemap"
+          }
+        ],
+        "text": "Model pages with a sub-path exist, for example /hearing-aids/resound-hearing-aids/quattro/{slug}. The sitemap also holds placeholder or link-resolver URLs such as /hearing-aids/LINK_Placeholder and /hearing-aids/~/link.aspx?_id=..., which a scraper should skip."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:42:08.109Z",
+            "url": "https://www.resound.com/en-us/xmlsitemap"
+          }
+        ],
+        "text": "Press pages sit at /en-us/press/{slug}, and the sitemap marks each page with hreflang alternates for all locales."
+      }
+    ],
+    "what": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:59:37.103Z",
+            "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/enzo-q"
+          }
+        ],
+        "text": "The site is ReSound's brand site; the footer names GN Hearing A/S, Ballerup, Denmark as the owner."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:43:27.349Z",
+            "url": "https://www.resound.com/en-us/"
+          }
+        ],
+        "text": "The start page sells no hearing aids directly: it presents ReSound hearing aids, apps and accessories and refers visitors to hearing care professionals."
+      }
+    ],
+    "where": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:59:45.015Z",
+            "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:45:41.977Z",
+            "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-sensia"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:45:44.776Z",
+            "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-vivia"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:45:47.952Z",
+            "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-nexia"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:45:50.950Z",
+            "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-enzo-ia"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:46:20.628Z",
+            "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-savi"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:46:25.968Z",
+            "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-key"
+          }
+        ],
+        "text": "The en-us catalog is /en-us/hearing-aids/resound-hearing-aids. The report fetched model pages for Sensia, Vivia, Nexia, Enzo IA, Savi, Key, and the en-us sitemap also lists Enzo Q, Enzo 3D and Enzo2."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:45:41.977Z",
+            "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-sensia"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:59:37.103Z",
+            "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/enzo-q"
+          }
+        ],
+        "text": "Model slugs are not uniform. Sensia, Vivia, Nexia, Enzo IA, Savi and Key are served as resound-{name}, while the sitemap examples enzo-q, enzo-3d and enzo2 have no resound- prefix."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:47:20.805Z",
+            "url": "https://www.resound.com/en-us/help/hearing-aids"
+          }
+        ],
+        "text": "Support hub for hearing aids: /en-us/help/hearing-aids, which lists Sensia, Vivia, Enzo IA, Savi, Nexia, OMNIA, LiNX Quattro, ENZO Q, Key and other ReSound hearing aids."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:59:24.441Z",
+            "url": "https://www.resound.com/en-us/help/hearing-aids/key"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:59:28.253Z",
+            "url": "https://www.resound.com/en-us/help/hearing-aids/enzo-ia"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:00:08.048Z",
+            "url": "https://www.resound.com/en-us/help/hearing-aids/enzo-q"
+          }
+        ],
+        "text": "The Key support page lists user guides (RIE, RIE rechargeable, BTE, BTE power, custom, chargers) and quick guides for Key 61/62/67/77/88/98. The Enzo IA page lists a brochure, a user guide and a quick guide. The ENZO Q page lists a user guide, brochure, pairing guide and quick guides."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:59:33.687Z",
+            "url": "https://www.resound.com/en-us/help/accessories"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:00:12.186Z",
+            "url": "https://www.resound.com/en-us/help/accessories/multi-mic"
+          }
+        ],
+        "text": "Accessory support: /en-us/help/accessories, and /en-us/help/accessories/multi-mic lists Multi-Mic+ and Micro Mic guides."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:47:24.692Z",
+            "url": "https://www.resound.com/en-us/help/apps"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:00:15.308Z",
+            "url": "https://www.resound.com/en-us/help/apps/smart-3d"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:45:37.328Z",
+            "url": "https://www.resound.com/en-us/hearing-aids/apps"
+          }
+        ],
+        "text": "App support: /en-us/help/apps, and /en-us/help/apps/smart-3d lists a pairing guide and user guides. The Smart 3D app is on iOS (id 1134918918) and Android (dk.resound.smart3d). The Smart app and Relief app are also described."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:47:09.545Z",
+            "url": "https://www.resound.com/en-us/hearing-loss/tinnitus/types"
+          }
+        ],
+        "text": "The Relief tinnitus app has its own iOS id 928432517 and Android id com.gnresound.tinnitus."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:00:17.850Z",
+            "url": "https://www.resound.com/en-us/help/compatibility"
+          }
+        ],
+        "text": "The device compatibility page is /en-us/help/compatibility."
+      }
+    ]
+  },
+  "summary": {
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:59:45.015Z",
+        "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:59:24.441Z",
+        "url": "https://www.resound.com/en-us/help/hearing-aids/key"
+      }
+    ],
+    "text": "resound.com is the live, multi-locale ReSound (GN Hearing) brand site; the en-us catalog at /en-us/hearing-aids/resound-hearing-aids lists model pages with plain HTML, and documents are on per-model /en-us/help/hearing-aids/{model} support pages."
+  }
+}

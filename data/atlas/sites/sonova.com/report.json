@@ -1,0 +1,3566 @@
+{
+  "archive": {
+    "sections": [
+      {
+        "byYear": {
+          "2026": 5
+        },
+        "latest": "20261022070126",
+        "url": "https://www.sonova.com"
+      }
+    ]
+  },
+  "budget": 60,
+  "domain": "sonova.com",
+  "failures": [],
+  "generatedAt": "2026-11-27T18:28:10.232Z",
+  "mode": "live",
+  "outbound": [
+    {
+      "count": 135,
+      "domain": "career5.successfactors.eu",
+      "examples": [
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166756&locale=es_ES",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166627&locale=es_ES",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166753&locale=es_ES"
+      ]
+    },
+    {
+      "count": 60,
+      "domain": "phonak.com",
+      "examples": [
+        "https://www.phonak.com/en-int",
+        "https://www.phonak.com/en-us",
+        "https://www.phonak.com/"
+      ]
+    },
+    {
+      "count": 60,
+      "domain": "sonova.cn",
+      "examples": [
+        "https://sonova.cn/"
+      ]
+    },
+    {
+      "count": 58,
+      "domain": "advancedbionics.com",
+      "examples": [
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.advancedbionics.com/ca/en/home",
+        "https://advancedbionics.com/"
+      ]
+    },
+    {
+      "count": 39,
+      "domain": "facebook.com",
+      "examples": [
+        "https://www.facebook.com/SonovaGlobal/"
+      ]
+    },
+    {
+      "count": 39,
+      "domain": "unitron.com",
+      "examples": [
+        "https://www.unitron.com/en-int",
+        "https://www.unitron.com/en-au",
+        "https://www.unitron.com/en-nz/hearing-solutions/hearing-aids"
+      ]
+    },
+    {
+      "count": 38,
+      "domain": "youtube.com",
+      "examples": [
+        "https://www.youtube.com/c/SonovaGroup",
+        "https://www.youtube.com/watch?v=-HJjVLmOePs"
+      ]
+    },
+    {
+      "count": 37,
+      "domain": "instagram.com",
+      "examples": [
+        "https://www.instagram.com/sonovagroup/"
+      ]
+    },
+    {
+      "count": 36,
+      "domain": "linkedin.com",
+      "examples": [
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://www.linkedin.com/company/sonovagroup"
+      ]
+    },
+    {
+      "count": 36,
+      "domain": "x.com",
+      "examples": [
+        "https://x.com/sonovagroup"
+      ]
+    },
+    {
+      "count": 31,
+      "domain": "sonovaacademy.com",
+      "examples": [
+        "https://sonovaacademy.com/"
+      ]
+    },
+    {
+      "count": 18,
+      "domain": "hansaton.com",
+      "examples": [
+        "https://www.hansaton.com/en-int/consumers.html",
+        "https://www.hansaton.com/en-au/consumers.html",
+        "https://www.hansaton.com/de-de/endverbraucher.html"
+      ]
+    },
+    {
+      "count": 5,
+      "domain": "eur01.safelinks.protection.outlook.com",
+      "examples": [
+        "https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdonations.hear-the-world.com%2Fen%2F&data=05%7C02%7CCharla.McElvaine%40sonova.com%7Cd77e4e4de7684e9e72c608dee3466a35%7Cf1ed0701294e404ca13bf81f707f845b%7C0%7C0%7C639198088998232617%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=2n6K7DUZqoaVAPD8FT3FDwPI1h6bjdPJySgSBxc641c%3D&reserved=0",
+        "https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdoi.org%2F10.1055%2Fs-0045-1812042&data=05%7C02%7CShannon.Listopad%40sonova.com%7Ccba64934a38145008c1008dee64f2663%7Cf1ed0701294e404ca13bf81f707f845b%7C0%7C0%7C639201424798568955%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=yqz4KzSweYC%2B4JjV9h0sMKbqB%2FacskP5ZombJulFAkQ%3D&reserved=0",
+        "https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdoi.org%2F10.1001%2Fjamanetworkopen.2023.26320&data=05%7C02%7CShannon.Listopad%40sonova.com%7Ccba64934a38145008c1008dee64f2663%7Cf1ed0701294e404ca13bf81f707f845b%7C0%7C0%7C639201424798595543%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=PVTH%2BRAcaWIepC6zbxao3254pnVzSLMw9Z3n0Prlkeo%3D&reserved=0"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "audionova.com",
+      "examples": [
+        "https://www.audionova.com/"
+      ]
+    },
+    {
+      "count": 3,
+      "domain": "youtu.be",
+      "examples": [
+        "https://youtu.be/7Wssbbt3UFQ",
+        "https://youtu.be/27L5CXgYUD4"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "audionova.dk",
+      "examples": [
+        "https://www.audionova.dk/"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "audionovaitalia.it",
+      "examples": [
+        "http://www.audionovaitalia.it/"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "avenirhearing.ca",
+      "examples": [
+        "https://avenirhearing.ca/",
+        "https://avenirhearing.ca/fr/"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "connecthearing.ca",
+      "examples": [
+        "https://www.connecthearing.ca/"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "donations.hear-the-world.com",
+      "examples": [
+        "https://donations.hear-the-world.com/de/",
+        "https://donations.hear-the-world.com/en/"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "lapperre.be",
+      "examples": [
+        "http://www.lapperre.be/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "audionova.co.jp",
+      "examples": [
+        "https://www.audionova.co.jp/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "audionova.com.br",
+      "examples": [
+        "https://www.audionova.com.br/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "audionova.se",
+      "examples": [
+        "https://www.audionova.se/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "auditionsante.fr",
+      "examples": [
+        "https://www.auditionsante.fr/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "audiumbrasil.com.br",
+      "examples": [
+        "https://www.audiumbrasil.com.br/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "bootshearingcare.com",
+      "examples": [
+        "https://www.bootshearingcare.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "connecthearing.com.au",
+      "examples": [
+        "https://www.connecthearing.com.au/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "geers.de",
+      "examples": [
+        "https://www.geers.de/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "geers.hu",
+      "examples": [
+        "http://www.geers.hu/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "geers.pl",
+      "examples": [
+        "http://www.geers.pl/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "hansaton.at",
+      "examples": [
+        "https://www.hansaton.at/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "hear-the-world.com",
+      "examples": [
+        "https://www.hear-the-world.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "in.linkedin.com",
+      "examples": [
+        "https://in.linkedin.com/company/sonova-hearing-india-pvt-ltd"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "nsu.com.au",
+      "examples": [
+        "https://nsu.com.au/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "schoonenberg.nl",
+      "examples": [
+        "https://www.schoonenberg.nl/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "sennheiser-hearing.com",
+      "examples": [
+        "http://www.sennheiser-hearing.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "ser-ag.com",
+      "examples": [
+        "https://www.ser-ag.com/en/resources/notifications-market-participants/significant-shareholders.html"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "sonovaspeakup.ethicspoint.com",
+      "examples": [
+        "https://sonovaspeakup.ethicspoint.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "tritonhearing.co.nz",
+      "examples": [
+        "https://www.tritonhearing.co.nz/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "twitter.com",
+      "examples": [
+        "https://twitter.com/sonovagroup"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "unitron.co.kr",
+      "examples": [
+        "https://unitron.co.kr/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "vara-services.com",
+      "examples": [
+        "https://vara-services.com/sonova/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "vararesearch.de",
+      "examples": [
+        "http://www.vararesearch.de/site_de/startseite/"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.audionova.com/",
+        "https://www.hansaton.com/en-int/consumers.html",
+        "https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdonations.hear-the-world.com%2Fen%2F&data=05%7C02%7CCharla.McElvaine%40sonova.com%7Cd77e4e4de7684e9e72c608dee3466a35%7Cf1ed0701294e404ca13bf81f707f845b%7C0%7C0%7C639198088998232617%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=2n6K7DUZqoaVAPD8FT3FDwPI1h6bjdPJySgSBxc641c%3D&reserved=0",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 82,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:24:05.343Z",
+        "url": "https://www.sonova.com/"
+      },
+      "title": "Home - Sonova International",
+      "url": "https://www.sonova.com/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdoi.org%2F10.1055%2Fs-0045-1812042&data=05%7C02%7CShannon.Listopad%40sonova.com%7Ccba64934a38145008c1008dee64f2663%7Cf1ed0701294e404ca13bf81f707f845b%7C0%7C0%7C639201424798568955%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=yqz4KzSweYC%2B4JjV9h0sMKbqB%2FacskP5ZombJulFAkQ%3D&reserved=0",
+        "https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdoi.org%2F10.1001%2Fjamanetworkopen.2023.26320&data=05%7C02%7CShannon.Listopad%40sonova.com%7Ccba64934a38145008c1008dee64f2663%7Cf1ed0701294e404ca13bf81f707f845b%7C0%7C0%7C639201424798595543%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=PVTH%2BRAcaWIepC6zbxao3254pnVzSLMw9Z3n0Prlkeo%3D&reserved=0",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 79,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.sonova.com/wp-content/uploads/2026/07/SON_Infographic_World-Hearing-Day_Tips-for-healthy-ears_EN_update2026.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:24:09.945Z",
+        "url": "https://www.sonova.com/hearing-health/"
+      },
+      "title": "Hearing health - Sonova International",
+      "url": "https://www.sonova.com/hearing-health/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 86,
+      "jsonLdTypes": [
+        "CollectionPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:24:14.360Z",
+        "url": "https://www.sonova.com/category/product/"
+      },
+      "title": "Product Archives - Sonova International",
+      "url": "https://www.sonova.com/category/product/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.audionova.com/",
+        "https://www.hansaton.com/en-int/consumers.html",
+        "https://donations.hear-the-world.com/de/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 80,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:24:16.902Z",
+        "url": "https://www.sonova.com/de/"
+      },
+      "title": "Home - Sonova International",
+      "url": "https://www.sonova.com/de/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/en-us",
+        "https://www.connecthearing.ca/",
+        "https://avenirhearing.ca/",
+        "https://www.advancedbionics.com/ca/en/home",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.sonova.com/canada/wp-content/uploads/sites/2/2026/08/Sonova-Canada-forced-and-child-labour-report-2023-24-Sonova-Canada-Inc.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:24:21.928Z",
+        "url": "https://www.sonova.com/canada/"
+      },
+      "title": "Welcome - Sonova CA International",
+      "url": "https://www.sonova.com/canada/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/en-us",
+        "https://www.connecthearing.ca/",
+        "https://avenirhearing.ca/fr/",
+        "https://www.advancedbionics.com/ca/en/home",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.sonova.com/canada/wp-content/uploads/sites/2/2026/08/Sonova-Canada-forced-and-child-labour-report-2023-24-Sonova-Canada-Inc.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:24:26.537Z",
+        "url": "https://www.sonova.com/canada/fr/"
+      },
+      "title": "Bienvenue - Sonova CA International",
+      "url": "https://www.sonova.com/canada/fr/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/en-us",
+        "https://www.audionova.com/",
+        "https://www.advancedbionics.com/ca/en/home"
+      ],
+      "internalLinks": 40,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:24:30.866Z",
+        "url": "https://www.sonova.com/usa/"
+      },
+      "title": "Welcome - Sonova US International",
+      "url": "https://www.sonova.com/usa/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/en-us",
+        "https://www.hansaton.com/en-int/consumers.html",
+        "https://www.audionova.com.br/",
+        "https://advancedbionics.com/"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.sonova.com/brazil/wp-content/uploads/sites/27/2026/08/Relatorio-de-Transparencia-1%C2%B0-Semestre-2024.pdf",
+        "https://www.sonova.com/brazil/wp-content/uploads/sites/27/2026/08/Relatorio-de-Transparencia-2%C2%B0-Semestre-2024.pdf",
+        "https://www.sonova.com/brazil/wp-content/uploads/sites/27/2026/08/Dec-Igualda-Salarial-Portal-do-Empregador-Governo-Federal.pdf",
+        "https://www.sonova.com/brazil/wp-content/uploads/sites/27/2026/09/Relatorio-de-Transparencia-e-Igualdade-Salarial-de-Mulheres-e-Homens-2o-Semestre-2026.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:24:34.337Z",
+        "url": "https://www.sonova.com/brazil/"
+      },
+      "title": "Bem-vindos - Sonova International",
+      "url": "https://www.sonova.com/brazil/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/",
+        "https://www.hansaton.com/en-int/consumers.html",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166756&locale=es_ES",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166627&locale=es_ES",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166753&locale=es_ES",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166480&locale=es_ES",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166638&locale=es_ES",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166748&locale=es_ES",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166726&locale=es_ES",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166679&locale=es_ES",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166723&locale=es_ES"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:24:39.788Z",
+        "url": "https://www.sonova.com/mexico/"
+      },
+      "title": "Bienvenidos - Sonova MX International",
+      "url": "https://www.sonova.com/mexico/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/en-au",
+        "https://www.unitron.com/en-au",
+        "https://www.hansaton.com/en-au/consumers.html",
+        "https://www.connecthearing.com.au/",
+        "https://nsu.com.au/",
+        "https://www.advancedbionics.com/ca/en/home",
+        "https://www.linkedin.com/company/sonovagroup",
+        "https://twitter.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:24:45.157Z",
+        "url": "https://www.sonova.com/australia/"
+      },
+      "title": "Welcome - Sonova AU International",
+      "url": "https://www.sonova.com/australia/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/en-nz",
+        "https://www.unitron.com/en-nz/hearing-solutions/hearing-aids",
+        "https://www.tritonhearing.co.nz/",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166748&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166726&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166679&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166723&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166747&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=164968&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=164967&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166485&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166698&locale=en_US"
+      ],
+      "internalLinks": 40,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:24:48.812Z",
+        "url": "https://www.sonova.com/newzealand/"
+      },
+      "title": "Welcome - Sonova NZ International",
+      "url": "https://www.sonova.com/newzealand/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/en-in",
+        "https://www.hansaton.com/en-int/consumers.html",
+        "https://www.advancedbionics.com/ca/en/home",
+        "https://in.linkedin.com/company/sonova-hearing-india-pvt-ltd",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 42,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:24:53.851Z",
+        "url": "https://www.sonova.com/india/"
+      },
+      "title": "Welcome - Sonova IN International",
+      "url": "https://www.sonova.com/india/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/",
+        "https://www.hansaton.com/en-int/consumers.html",
+        "https://advancedbionics.com/",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166756&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166627&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166753&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166480&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166638&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166748&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166726&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166679&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166723&locale=en_US"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:24:59.667Z",
+        "url": "https://www.sonova.com/israel/"
+      },
+      "title": "ברוכים הבאים - Sonova IL International",
+      "url": "https://www.sonova.com/israel/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/ja-jp",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/jp/ja/home",
+        "https://www.audionova.co.jp/",
+        "https://www.advancedbionics.com/ca/en/home"
+      ],
+      "internalLinks": 40,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.sonova.com/japan/wp-content/uploads/sites/9/2026/11/Global-Privacy-Policy_Japanese-Final.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:25:04.969Z",
+        "url": "https://www.sonova.com/japan/"
+      },
+      "title": "ようこそ - Sonova International",
+      "url": "https://www.sonova.com/japan/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.sonova.com%2Fbrands%2F&data=05%7C02%7CCharla.McElvaine%40sonova.com%7C2491054c69d9436ff3c708dedb4605e6%7Cf1ed0701294e404ca13bf81f707f845b%7C0%7C0%7C639189290966642003%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=Ff2xvMwCmlfFCLB1LUnbr9xk67y7fVlwqyL2QEWaVak%3D&reserved=0",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/ko-kr",
+        "https://unitron.co.kr/",
+        "https://www.advancedbionics.com/ko/kr/home"
+      ],
+      "internalLinks": 40,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:25:10.843Z",
+        "url": "https://www.sonova.com/korea/"
+      },
+      "title": "환영합니다 - Sonova KR International",
+      "url": "https://www.sonova.com/korea/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/",
+        "https://advancedbionics.com/",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166756&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166627&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166753&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166480&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166638&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166748&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166726&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166679&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166723&locale=en_US"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.sonova.com/singapore/wp-content/uploads/sites/11/2026/08/220311_Sonova-Tax-Strategy-Singapore.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:25:14.973Z",
+        "url": "https://www.sonova.com/singapore/"
+      },
+      "title": "Welcome - Sonova SG International",
+      "url": "https://www.sonova.com/singapore/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/",
+        "https://www.hansaton.com/en-int/consumers.html",
+        "https://www.advancedbionics.com/us/en/home",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166756&locale=tr_TR",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166627&locale=tr_TR",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166753&locale=tr_TR",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166480&locale=tr_TR",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166638&locale=tr_TR",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166748&locale=tr_TR",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166726&locale=tr_TR",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166679&locale=tr_TR",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166723&locale=tr_TR"
+      ],
+      "internalLinks": 42,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:25:17.177Z",
+        "url": "https://www.sonova.com/turkey/"
+      },
+      "title": "Hoş geldiniz - Sonova TR International",
+      "url": "https://www.sonova.com/turkey/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/de-at",
+        "https://www.unitron.com/de-at",
+        "https://www.hansaton.at/",
+        "https://www.advancedbionics.com/de/de/home",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166756&locale=de_DE",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166627&locale=de_DE",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166753&locale=de_DE",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166480&locale=de_DE",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166638&locale=de_DE",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166748&locale=de_DE",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166726&locale=de_DE",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166679&locale=de_DE",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166723&locale=de_DE",
+        "https://www.facebook.com/SonovaGlobal/"
+      ],
+      "internalLinks": 42,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:25:21.454Z",
+        "url": "https://www.sonova.com/austria/"
+      },
+      "title": "Willkommen - Sonova AT International",
+      "url": "https://www.sonova.com/austria/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/",
+        "http://www.lapperre.be/",
+        "https://advancedbionics.com/",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166756&locale=nl_NL",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166756&locale=fr_FR",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166627&locale=nl_NL",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166627&locale=fr_FR",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166753&locale=nl_NL",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166753&locale=fr_FR",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166480&locale=nl_NL",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166480&locale=fr_FR",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166638&locale=nl_NL"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:25:25.671Z",
+        "url": "https://www.sonova.com/belgium/"
+      },
+      "title": "Bienvenue - Sonova BE International",
+      "url": "https://www.sonova.com/belgium/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/",
+        "http://www.lapperre.be/",
+        "https://advancedbionics.com/",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166756&locale=nl_NL",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166756&locale=fr_FR",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166627&locale=nl_NL",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166627&locale=fr_FR",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166753&locale=nl_NL",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166753&locale=fr_FR",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166480&locale=nl_NL",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166480&locale=fr_FR",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166638&locale=nl_NL"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:25:29.047Z",
+        "url": "https://www.sonova.com/belgium/nl/"
+      },
+      "title": "Welkom - Sonova BE International",
+      "url": "https://www.sonova.com/belgium/nl/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/",
+        "https://www.hansaton.com/en-int/consumers.html",
+        "https://www.audionova.dk/",
+        "https://advancedbionics.com/",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166756&locale=da_DK",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166627&locale=da_DK",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166753&locale=da_DK",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166480&locale=da_DK",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166638&locale=da_DK",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166748&locale=da_DK",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166726&locale=da_DK",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166679&locale=da_DK",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166723&locale=da_DK"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:25:33.174Z",
+        "url": "https://www.sonova.com/denmark/"
+      },
+      "title": "Velkommen - Sonova DK International",
+      "url": "https://www.sonova.com/denmark/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/",
+        "https://www.hansaton.com/en-int/consumers.html",
+        "https://advancedbionics.com/",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166756&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166627&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166753&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166480&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166638&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166748&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166726&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166679&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166723&locale=en_US"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:25:37.142Z",
+        "url": "https://www.sonova.com/finland/"
+      },
+      "title": "Tervetuloa - Sonova FI International",
+      "url": "https://www.sonova.com/finland/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/en-us",
+        "https://www.hansaton.com/en-int/consumers.html",
+        "https://www.auditionsante.fr/",
+        "https://www.advancedbionics.com/ca/en/home"
+      ],
+      "internalLinks": 40,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.sonova.com/france/wp-content/uploads/sites/17/2026/08/2022-04-29-Strategie-fiscale-Sonova.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:25:41.383Z",
+        "url": "https://www.sonova.com/france/"
+      },
+      "title": "Bienvenue - Sonova International",
+      "url": "https://www.sonova.com/france/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/de-de",
+        "https://www.unitron.com/de-de",
+        "https://www.hansaton.com/de-de/endverbraucher.html",
+        "https://www.geers.de/",
+        "https://advancedbionics.com/",
+        "https://www.facebook.com/SonovaGlobal/"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:25:44.611Z",
+        "url": "https://www.sonova.com/germany/"
+      },
+      "title": "Willkommen - Sonova International",
+      "url": "https://www.sonova.com/germany/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/",
+        "http://www.geers.hu/",
+        "https://advancedbionics.com/",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166756&locale=hu_HU",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166627&locale=hu_HU",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166753&locale=hu_HU",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166480&locale=hu_HU",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166638&locale=hu_HU",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166748&locale=hu_HU",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166726&locale=hu_HU",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166679&locale=hu_HU",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166723&locale=hu_HU"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:25:49.782Z",
+        "url": "https://www.sonova.com/hungary/"
+      },
+      "title": "Üdvözöljük - Sonova HU International",
+      "url": "https://www.sonova.com/hungary/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/en-us",
+        "https://www.hansaton.com/en-int/consumers.html",
+        "http://www.audionovaitalia.it/",
+        "https://advancedbionics.com/",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166756&locale=it_IT",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166627&locale=it_IT",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166753&locale=it_IT",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166480&locale=it_IT",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166638&locale=it_IT",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166748&locale=it_IT",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166726&locale=it_IT",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166679&locale=it_IT",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166723&locale=it_IT"
+      ],
+      "internalLinks": 42,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:25:53.902Z",
+        "url": "https://www.sonova.com/italy/"
+      },
+      "title": "Benvenuti - Sonova International",
+      "url": "https://www.sonova.com/italy/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/en-us",
+        "https://www.schoonenberg.nl/",
+        "https://advancedbionics.com/"
+      ],
+      "internalLinks": 42,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:25:58.056Z",
+        "url": "https://www.sonova.com/netherlands/"
+      },
+      "title": "Welkom - Sonova NL International",
+      "url": "https://www.sonova.com/netherlands/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/en-us",
+        "https://www.unitron.com/en-int/hearing-health/your-journey-to-better-hearing",
+        "https://www.hansaton.com/en-int/consumers.html",
+        "https://advancedbionics.com/",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166756&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166627&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166753&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166480&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166638&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166748&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166726&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166679&locale=en_US",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166723&locale=en_US"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.sonova.com/norway/wp-content/uploads/sites/22/2026/06/Apenhetsloven-Sonova-Norway-AS-%E2%80%93-2026_2027.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:26:02.913Z",
+        "url": "https://www.sonova.com/norway/"
+      },
+      "title": "Velkommen - Sonova International",
+      "url": "https://www.sonova.com/norway/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/en-us",
+        "https://www.unitron.com/en-int/hearing-health/your-journey-to-better-hearing",
+        "https://www.hansaton.com/pl-pl/consumers.html",
+        "http://www.geers.pl/",
+        "https://www.advancedbionics.com/us/en/home",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166756&locale=pl_PL",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166627&locale=pl_PL",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166753&locale=pl_PL",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166480&locale=pl_PL",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166638&locale=pl_PL",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166748&locale=pl_PL",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166726&locale=pl_PL",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166679&locale=pl_PL",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166723&locale=pl_PL"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:26:05.673Z",
+        "url": "https://www.sonova.com/poland/"
+      },
+      "title": "Witamy - Sonova PL International",
+      "url": "https://www.sonova.com/poland/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/en-us",
+        "https://www.unitron.com/",
+        "https://www.hansaton.com/en-int/consumers.html",
+        "https://advancedbionics.com/"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:26:09.235Z",
+        "url": "https://www.sonova.com/spain/"
+      },
+      "title": "Bienvenidos - Sonova ES International",
+      "url": "https://www.sonova.com/spain/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/",
+        "https://www.audionova.se/",
+        "https://www.advancedbionics.com/us/en/home",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166756&locale=sv_SE",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166627&locale=sv_SE",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166753&locale=sv_SE",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166480&locale=sv_SE",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166638&locale=sv_SE",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166748&locale=sv_SE",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166726&locale=sv_SE",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166679&locale=sv_SE",
+        "https://career5.successfactors.eu/sfcareer/jobreqcareer?company=Sonova&jobId=166723&locale=sv_SE"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:26:14.465Z",
+        "url": "https://www.sonova.com/sweden/"
+      },
+      "title": "Välkommen - Sonova SE International",
+      "url": "https://www.sonova.com/sweden/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.phonak.com/en-us",
+        "https://www.bootshearingcare.com/",
+        "https://www.advancedbionics.com/ca/en/home",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 41,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.sonova.com/uk/wp-content/uploads/sites/26/2026/08/Call-Recording-Privacy-Notice.pdf",
+        "https://www.sonova.com/uk/wp-content/uploads/sites/26/2026/09/Carbon_Reduction_Plan_2026_AB_SUK_and_SSC.pdf",
+        "https://www.sonova.com/uk/wp-content/uploads/sites/26/2026/08/240729_Tax-Strategy-for-Sonova-Service-Centre-Limited.Final_.pdf",
+        "https://www.sonova.com/uk/wp-content/uploads/sites/26/2026/08/SONOVA-UK-LIMITED-Batteries-Producer-Compliance-Certificate-2026.pdf",
+        "https://www.sonova.com/uk/wp-content/uploads/sites/26/2026/08/240729_Tax-Strategy-for-Sonova-UK-Limited.Final_.pdf",
+        "https://www.sonova.com/uk/wp-content/uploads/sites/26/2026/08/SONOVA-UK-LIMITED-WEEE-Producer-Compliance-Certificate-2026.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:26:19.541Z",
+        "url": "https://www.sonova.com/uk/"
+      },
+      "title": "Welcome - Sonova GB International",
+      "url": "https://www.sonova.com/uk/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://youtu.be/7Wssbbt3UFQ",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 91,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.sonova.com/wp-content/uploads/2026/11/HY_26-27_Presentation.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/10/Investor-Presentation-EUHA-2026-1.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/Sonova_Financial-Information-1HY-26-27.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/Sonova_HY26-27-Results_EN.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/01_Sonova_AR_25-26_Full_Report_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/02_Sonova_AR_25-26_Business_Report_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/06_Sonova_AR_25-26_CorpGov_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/07_Sonova_AR_25-26_Comp_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/08_Sonova_AR_25-26_Finance_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/10_Sonova_AR_25-26_Sustainability_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/Sonova_FY25-26-Results_EN.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/Sonova-FY_25-26_Presentation_0.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/Restated-comparative-figures.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:26:24.545Z",
+        "url": "https://www.sonova.com/investors/"
+      },
+      "title": "Investors - Sonova International",
+      "url": "https://www.sonova.com/investors/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 76,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:26:28.466Z",
+        "url": "https://www.sonova.com/why-invest-sonova-strategy/"
+      },
+      "title": "Why Invest in Sonova - Sonova International",
+      "url": "https://www.sonova.com/why-invest-sonova-strategy/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 92,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:26:32.786Z",
+        "url": "https://www.sonova.com/ad-hoc-announcements/"
+      },
+      "title": "Announcements - Sonova International",
+      "url": "https://www.sonova.com/ad-hoc-announcements/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 98,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:26:34.911Z",
+        "url": "https://www.sonova.com/financial-calendar/"
+      },
+      "title": "Financial Calendar - Sonova International",
+      "url": "https://www.sonova.com/financial-calendar/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://youtu.be/7Wssbbt3UFQ",
+        "https://www.youtube.com/watch?v=-HJjVLmOePs",
+        "https://youtu.be/27L5CXgYUD4",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 84,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.sonova.com/wp-content/uploads/2026/11/Sonova_Financial-Information-1HY-26-27.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/Sonova_HY26-27-Results_EN.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/HY_26-27_Presentation.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/01_Sonova_AR_25-26_Full_Report_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/02_Sonova_AR_25-26_Business_Report_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/06_Sonova_AR_25-26_CorpGov_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/07_Sonova_AR_25-26_Comp_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/08_Sonova_AR_25-26_Finance_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/10_Sonova_AR_25-26_Sustainability_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/Sonova_FY25-26-Results_EN.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/Sonova-FY_25-26_Presentation_0.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/Restated-comparative-figures.pdf",
+        "https://www.sonova.com/wp-content/uploads/2025/11/Sonova_Half-Year20report202025-26_EN.pdf",
+        "https://www.sonova.com/wp-content/uploads/2025/11/MM_Sonova_HY25-2620Results_EN.pdf",
+        "https://www.sonova.com/wp-content/uploads/2025/11/Sonova_HY2025-2620Presentation.pdf",
+        "https://www.sonova.com/wp-content/uploads/2025/05/01_Sonova_AR_24-25_Full_Report_en_2.pdf",
+        "https://www.sonova.com/wp-content/uploads/2025/05/02_Sonova_AR_24-25_Business_Report_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2025/05/06_Sonova_AR_24-25_CorpGov_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2025/05/07_Sonova_AR_24-25_Comp_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2025/05/08_Sonova_AR_24-25_Finance_en_0.pdf",
+        "https://www.sonova.com/wp-content/uploads/2025/05/10_Sonova_AR_24-25_ESG_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2025/05/Sonova_FY24-2520Results20EN.pdf",
+        "https://www.sonova.com/wp-content/uploads/2025/05/Sonova_FY24-25_Presentation_2.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/10/Investor-Presentation-EUHA-2026-1.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/Sonova-FY_25-26_Presentation.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/03/Sonova-Strategy-Presentation_web.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/03/260323_Sonova-Strategy-Update-EN.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:26:39.792Z",
+        "url": "https://www.sonova.com/reports-and-presentations/"
+      },
+      "title": "Reports and Presentations - Sonova International",
+      "url": "https://www.sonova.com/reports-and-presentations/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 85,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.sonova.com/wp-content/uploads/2026/05/10_Sonova_AR_25-26_Sustainability_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/08/10_Sonova_AR_24-25_ESG_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2024/05/10_Sonova_AR_23-24_ESG_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2023/05/10_Sonova_AR_2022_23_ESG_report_en_0.pdf",
+        "https://www.sonova.com/wp-content/uploads/2022/05/10_Sonova_AR_2021_22_ESG_report_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2021/05/10_Sonova_AR_2020_21_CSR_Report_en_1.pdf",
+        "https://www.sonova.com/wp-content/uploads/2020/05/10_Sonova_AR_2019_20_CSR_Report_en_0.pdf",
+        "https://report.sonova.com/2019/app/uploads/03_00_Sonova_AR18_CR_Report_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2018/05/03_00_sonova_ar17_csr_report_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/08/2016-17-Sonova-Corporate-Social-Responsibility-Report.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/08/2015-16-Sonova-Corporate-Social-Responsibility-Report.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/08/2014-15-Sonova-Corporate-Social-Responsibility-Report.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/08/2013-14-Sonova-Corporate-Social-Responsibility-Report.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/08/2012-13-Sonova-Corporate-Social-Responsibility-Report.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:26:42.542Z",
+        "url": "https://www.sonova.com/corporate-esg-reporting-and-disclosure/"
+      },
+      "title": "Sustainability Reporting & Disclosure - Sonova International",
+      "url": "https://www.sonova.com/corporate-esg-reporting-and-disclosure/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 76,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "http://www.sonova.com/wp-content/uploads/2019/09/06_Sonova_AR_25-26_CorpGov_en_0.pdf",
+        "http://www.sonova.com/wp-content/uploads/2019/09/06_Sonova_AR_24-25_CorpGov_en.pdf",
+        "http://www.sonova.com/wp-content/uploads/2019/09/06_Sonova_AR_23-24_CorpGov_en.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:26:47.300Z",
+        "url": "https://www.sonova.com/corporate-governance-report/"
+      },
+      "title": "Corporate governance reports",
+      "url": "https://www.sonova.com/corporate-governance-report/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 76,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:26:52.034Z",
+        "url": "https://www.sonova.com/current-outlook/"
+      },
+      "title": "Current outlook - Sonova International",
+      "url": "https://www.sonova.com/current-outlook/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 76,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:26:56.947Z",
+        "url": "https://www.sonova.com/key-figures/"
+      },
+      "title": "Key figures - Sonova International",
+      "url": "https://www.sonova.com/key-figures/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "http://www.vararesearch.de/site_de/startseite/",
+        "https://vara-services.com/sonova/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 76,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:27:00.803Z",
+        "url": "https://www.sonova.com/analyst-coverage/"
+      },
+      "title": "Analyst coverage - Sonova International",
+      "url": "https://www.sonova.com/analyst-coverage/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 76,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:27:04.221Z",
+        "url": "https://www.sonova.com/dividend/"
+      },
+      "title": "Dividend - Sonova International",
+      "url": "https://www.sonova.com/dividend/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 76,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:27:09.441Z",
+        "url": "https://www.sonova.com/performance-calculator/"
+      },
+      "title": "Performance calculator - Sonova International",
+      "url": "https://www.sonova.com/performance-calculator/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 76,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:27:12.683Z",
+        "url": "https://www.sonova.com/share-data/"
+      },
+      "title": "Share data - Sonova International",
+      "url": "https://www.sonova.com/share-data/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 76,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:27:18.564Z",
+        "url": "https://www.sonova.com/share-quote/"
+      },
+      "title": "Share Quote - Sonova International",
+      "url": "https://www.sonova.com/share-quote/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 76,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:27:22.069Z",
+        "url": "https://www.sonova.com/bonds/"
+      },
+      "title": "Bonds - Sonova International",
+      "url": "https://www.sonova.com/bonds/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 76,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "http://www.sonova.com/wp-content/uploads/2019/06/250418_Sonova20SBB202022_Reporting.pdf",
+        "http://www.sonova.com/wp-content/uploads/2019/06/220328_Sonova20SBB202021_Reporting20Completion.pdf",
+        "http://www.sonova.com/wp-content/uploads/2019/06/Sonova20SBB202018_Reporting_28012021_corrected_0.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/08/Sonova-Transaction-reporting-20171216-20171222.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:27:26.550Z",
+        "url": "https://www.sonova.com/share-buyback-programs/"
+      },
+      "title": "Share buyback programs - Sonova International",
+      "url": "https://www.sonova.com/share-buyback-programs/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 76,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:27:30.946Z",
+        "url": "https://www.sonova.com/share-register/"
+      },
+      "title": "Share register - Sonova International",
+      "url": "https://www.sonova.com/share-register/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 76,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:27:35.534Z",
+        "url": "https://www.sonova.com/board-directors/"
+      },
+      "title": "Board of Directors - Sonova International",
+      "url": "https://www.sonova.com/board-directors/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 93,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:27:39.964Z",
+        "url": "https://www.sonova.com/group-executives/"
+      },
+      "title": "Group Executive Committee - Sonova International",
+      "url": "https://www.sonova.com/group-executives/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://sonovaspeakup.ethicspoint.com/",
+        "https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.sonova.com%2Fen%2Fgovernance-information&data=05%7C02%7CRick.Trenidad%40sonova.com%7C16f3a1ca4346475836a708ddfd1902f1%7Cf1ed0701294e404ca13bf81f707f845b%7C0%7C0%7C638945006050150341%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=UIgOjDNf%2F3YAFvHqonJw4ehtI%2F0ghrFhCJ6a0bu6qyc%3D&reserved=0",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 78,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "http://www.sonova.com/wp-content/uploads/2019/09/230612-Sonova-Holding-AG-Statuten-EN-fex2.pdf",
+        "http://www.sonova.com/wp-content/uploads/2019/09/Organizational-Regulations_13_11_2025-FEX.pdf",
+        "http://www.sonova.com/wp-content/uploads/2019/09/AC-Charter-2023-_2023_05_12_BoD-EXE-ZOM.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/NCC-Charter-Oct2026.pdf",
+        "http://www.sonova.com/wp-content/uploads/2019/10/TIC_20Charter_10_06_2025.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_English.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Arabic.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Chinese-Simplified.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Danish.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Dutch.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_French.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_German.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Hebrew.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Hungarian.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Italian.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Japanese.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Korean.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Polish.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Portuguese.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Turkish.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Spanish.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Vietnamese.pdf",
+        "http://www.sonova.com/wp-content/uploads/2019/10/Sonova20Supplier20Code20of20Conduct20-20September202024.pdf",
+        "http://www.sonova.com/wp-content/uploads/2019/10/20240901_General20Conditions20of20Purchase_Sonova_September_New.pdf",
+        "http://www.sonova.com/wp-content/uploads/2019/09/tax_principles_final.pdf",
+        "http://www.sonova.com/wp-content/uploads/2019/10/07_Sonova_AR_25-26_Comp_en_0.pdf",
+        "http://www.sonova.com/wp-content/uploads/2019/10/07_Sonova_AR_24-25_Comp_en_0.pdf",
+        "http://www.sonova.com/wp-content/uploads/2019/10/07_Sonova_AR_23-24_Comp_en_0.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:27:44.102Z",
+        "url": "https://www.sonova.com/regulations-principles/"
+      },
+      "title": "Regulations & principles - Sonova International",
+      "url": "https://www.sonova.com/regulations-principles/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 79,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.sonova.com/wp-content/uploads/2026/05/GV_Einladung_2026_Web_en_0_3e6253.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/Minutes-AGM-signed_0_94f551.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/Sonova_Prasenzmeldung_GV2026_0_862b47.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/Sonova_Abstimmungsresultate_GV2026_0_ade214.pdf",
+        "https://www.sonova.com/wp-content/uploads/2026/05/20260616_AGM_EN_ca1cee.pdf",
+        "https://www.sonova.com/wp-content/uploads/2025/05/GV_Einladung_2025_Web_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2025/05/Summary_Report_24_25_Web_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2025/05/SHAB-Inserat_GV-2025_publiziert.pdf",
+        "https://www.sonova.com/wp-content/uploads/2025/05/20250610_AGM_EN.pdf",
+        "https://www.sonova.com/wp-content/uploads/2025/05/Sonova-AGM-Minutes-2025.pdf",
+        "https://www.sonova.com/wp-content/uploads/2024/06/GV_Einladung_2024_Web_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2024/06/Summary_Report_23_24_Web_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2024/06/SHAB-Inserat_2024_veroffentlicht.pdf",
+        "https://www.sonova.com/wp-content/uploads/2024/06/Sonova_AGM-2024_EN.pdf",
+        "https://www.sonova.com/wp-content/uploads/2024/06/Sonova-Holding-AG-_-AGM-Minutes-2024_Final-FEX_0.pdf",
+        "https://www.sonova.com/wp-content/uploads/2023/05/WEB_GV_Einladung_2023_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2023/05/Sonova-Holding-AG-Statuten-EN-Propsosed-Amendments.pdf",
+        "https://www.sonova.com/wp-content/uploads/2023/05/Sonova-Holding-AG-Statuten-EN_CLEAR.pdf",
+        "https://www.sonova.com/wp-content/uploads/2023/05/WEB_Summary_Report_22_23_EN.pdf",
+        "https://www.sonova.com/wp-content/uploads/2023/05/SHAB-Inserat_veroffentlicht.pdf",
+        "https://www.sonova.com/wp-content/uploads/2023/05/Protokoll-GV-2023_0.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:27:47.544Z",
+        "url": "https://www.sonova.com/general-shareholders-meeting/"
+      },
+      "title": "General Shareholders' Meeting - Sonova International",
+      "url": "https://www.sonova.com/general-shareholders-meeting/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 77,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:27:51.314Z",
+        "url": "https://www.sonova.com/shareholders-participation-rights/"
+      },
+      "title": "Sonova Annual General Meeting 2019",
+      "url": "https://www.sonova.com/shareholders-participation-rights/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.ser-ag.com/en/resources/notifications-market-participants/significant-shareholders.html",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 76,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:27:54.216Z",
+        "url": "https://www.sonova.com/shareholder-structure/"
+      },
+      "title": "Sonova Annual Report 2018/19",
+      "url": "https://www.sonova.com/shareholder-structure/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 80,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:27:58.496Z",
+        "url": "https://www.sonova.com/services-and-contacts/"
+      },
+      "title": "Services and Contacts - Sonova International",
+      "url": "https://www.sonova.com/services-and-contacts/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 79,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:28:00.597Z",
+        "url": "https://www.sonova.com/innovation/"
+      },
+      "title": "Innovation - Sonova International",
+      "url": "https://www.sonova.com/innovation/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.hear-the-world.com/",
+        "https://donations.hear-the-world.com/en/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 76,
+      "jsonLdTypes": [
+        "WebPage",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:28:02.858Z",
+        "url": "https://www.sonova.com/hear-world-foundation/"
+      },
+      "title": "Hear the World Foundation - Sonova International",
+      "url": "https://www.sonova.com/hear-world-foundation/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.hansaton.com/en-int/consumers.html",
+        "https://www.unitron.com/en-int",
+        "https://www.phonak.com/",
+        "https://www.phonak.com/en-us",
+        "https://www.audiumbrasil.com.br/",
+        "https://www.audionova.dk/",
+        "http://www.audionovaitalia.it/",
+        "https://advancedbionics.com/",
+        "http://www.sennheiser-hearing.com/",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 79,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:28:05.511Z",
+        "url": "https://www.sonova.com/brands/"
+      },
+      "title": "Our Brands - Sonova International",
+      "url": "https://www.sonova.com/brands/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://sonova.cn/",
+        "https://sonovaacademy.com/",
+        "https://www.phonak.com/en-int",
+        "https://www.unitron.com/en-int",
+        "https://www.advancedbionics.com/com/en/home",
+        "https://www.audionova.com/",
+        "https://www.hansaton.com/en-int/consumers.html",
+        "https://www.linkedin.com/company/sonovagroup/",
+        "https://x.com/sonovagroup",
+        "https://www.instagram.com/sonovagroup/",
+        "https://www.facebook.com/SonovaGlobal/",
+        "https://www.youtube.com/c/SonovaGroup"
+      ],
+      "internalLinks": 76,
+      "jsonLdTypes": [
+        "WebPage",
+        "ImageObject",
+        "BreadcrumbList",
+        "WebSite"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T18:28:09.421Z",
+        "url": "https://www.sonova.com/company/"
+      },
+      "title": "Our Company - Sonova International",
+      "url": "https://www.sonova.com/company/"
+    }
+  ],
+  "pdfHosts": [
+    {
+      "count": 126,
+      "examples": [
+        "https://www.sonova.com/wp-content/uploads/2026/07/SON_Infographic_World-Hearing-Day_Tips-for-healthy-ears_EN_update2026.pdf",
+        "https://www.sonova.com/canada/wp-content/uploads/sites/2/2026/08/Sonova-Canada-forced-and-child-labour-report-2023-24-Sonova-Canada-Inc.pdf",
+        "https://www.sonova.com/brazil/wp-content/uploads/sites/27/2026/08/Relatorio-de-Transparencia-1%C2%B0-Semestre-2024.pdf"
+      ],
+      "host": "sonova.com"
+    },
+    {
+      "count": 1,
+      "examples": [
+        "https://report.sonova.com/2019/app/uploads/03_00_Sonova_AR18_CR_Report_en.pdf"
+      ],
+      "host": "report.sonova.com"
+    }
+  ],
+  "redirects": [],
+  "robots": {
+    "groups": [
+      {
+        "allow": [],
+        "disallow": [],
+        "userAgents": [
+          "*"
+        ]
+      }
+    ],
+    "ref": {
+      "fetchedAt": "2026-11-27T18:22:42.074Z",
+      "url": "https://www.sonova.com/robots.txt"
+    },
+    "sitemaps": [
+      "https://www.sonova.com/sitemap_index.xml",
+      "https://www.sonova.com/canada/sitemap_index.xml",
+      "https://www.sonova.com/usa/sitemap_index.xml",
+      "https://www.sonova.com/australia/sitemap_index.xml",
+      "https://www.sonova.com/mexico/sitemap_index.xml",
+      "https://www.sonova.com/india/sitemap_index.xml",
+      "https://www.sonova.com/israel/sitemap_index.xml",
+      "https://www.sonova.com/japan/sitemap_index.xml",
+      "https://www.sonova.com/korea/sitemap_index.xml",
+      "https://www.sonova.com/singapore/sitemap_index.xml",
+      "https://www.sonova.com/turkey/sitemap_index.xml",
+      "https://www.sonova.com/austria/sitemap_index.xml",
+      "https://www.sonova.com/belgium/sitemap_index.xml",
+      "https://www.sonova.com/denmark/sitemap_index.xml",
+      "https://www.sonova.com/finland/sitemap_index.xml",
+      "https://www.sonova.com/france/sitemap_index.xml",
+      "https://www.sonova.com/germany/sitemap_index.xml",
+      "https://www.sonova.com/hungary/sitemap_index.xml",
+      "https://www.sonova.com/italy/sitemap_index.xml",
+      "https://www.sonova.com/netherlands/sitemap_index.xml",
+      "https://www.sonova.com/norway/sitemap_index.xml",
+      "https://www.sonova.com/poland/sitemap_index.xml",
+      "https://www.sonova.com/spain/sitemap_index.xml",
+      "https://www.sonova.com/sweden/sitemap_index.xml",
+      "https://www.sonova.com/uk/sitemap_index.xml",
+      "https://www.sonova.com/brazil/sitemap_index.xml",
+      "https://www.sonova.com/newzealand/sitemap_index.xml"
+    ],
+    "status": 200
+  },
+  "sitemap": {
+    "refs": [
+      {
+        "fetchedAt": "2026-11-27T18:22:45.759Z",
+        "url": "https://www.sonova.com/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:22:49.538Z",
+        "url": "https://www.sonova.com/canada/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:22:54.670Z",
+        "url": "https://www.sonova.com/usa/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:22:57.739Z",
+        "url": "https://www.sonova.com/australia/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:23:02.434Z",
+        "url": "https://www.sonova.com/mexico/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:23:06.969Z",
+        "url": "https://www.sonova.com/india/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:23:10.208Z",
+        "url": "https://www.sonova.com/israel/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:23:13.512Z",
+        "url": "https://www.sonova.com/japan/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:23:18.145Z",
+        "url": "https://www.sonova.com/korea/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:23:22.102Z",
+        "url": "https://www.sonova.com/singapore/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:23:25.814Z",
+        "url": "https://www.sonova.com/turkey/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:23:28.003Z",
+        "url": "https://www.sonova.com/austria/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:23:32.133Z",
+        "url": "https://www.sonova.com/belgium/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:23:36.704Z",
+        "url": "https://www.sonova.com/denmark/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:23:42.288Z",
+        "url": "https://www.sonova.com/finland/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:23:46.495Z",
+        "url": "https://www.sonova.com/france/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:23:51.018Z",
+        "url": "https://www.sonova.com/germany/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:23:54.763Z",
+        "url": "https://www.sonova.com/hungary/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:23:58.525Z",
+        "url": "https://www.sonova.com/italy/sitemap_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:24:00.983Z",
+        "url": "https://www.sonova.com/netherlands/sitemap_index.xml"
+      }
+    ],
+    "sections": [],
+    "urlCount": 0
+  },
+  "start": "https://www.sonova.com",
+  "templates": [
+    {
+      "count": 161,
+      "examples": [
+        "https://www.sonova.com/ad-hoc-announcements/",
+        "https://www.sonova.com/ad-hoc-announcements/?query-1-page=2",
+        "https://www.sonova.com/ad-hoc-announcements/?query-1-page=3"
+      ],
+      "pattern": "https://www.sonova.com/{slug}"
+    },
+    {
+      "count": 80,
+      "examples": [
+        "https://www.sonova.com/wp-content/uploads/2018/05/03_00_sonova_ar17_csr_report_en.pdf",
+        "https://www.sonova.com/wp-content/uploads/2020/05/10_Sonova_AR_2019_20_CSR_Report_en_0.pdf",
+        "https://www.sonova.com/wp-content/uploads/2021/05/10_Sonova_AR_2020_21_CSR_Report_en_1.pdf"
+      ],
+      "pattern": "https://www.sonova.com/wp-content/uploads/{n}/{n}/{slug}"
+    },
+    {
+      "count": 56,
+      "examples": [
+        "https://www.sonova.com/de/abdeckung-durch-finanzanalysten-2/",
+        "https://www.sonova.com/de/abdeckung-durch-finanzanalysten/",
+        "https://www.sonova.com/de/ad-hoc-mitteilungen/"
+      ],
+      "pattern": "https://www.sonova.com/de/{slug}"
+    },
+    {
+      "count": 21,
+      "examples": [
+        "https://www.sonova.com/people/170/",
+        "https://www.sonova.com/people/172/",
+        "https://www.sonova.com/people/alistair-simpson/"
+      ],
+      "pattern": "https://www.sonova.com/people/{slug}"
+    },
+    {
+      "count": 18,
+      "examples": [
+        "https://www.sonova.com/event/baader-helvea-swiss-equities-conference-2027/",
+        "https://www.sonova.com/event/bank-of-america-global-healthcare-conference-2026/",
+        "https://www.sonova.com/event/chicago-milwaukee-roadshow-hy-2026-27/"
+      ],
+      "pattern": "https://www.sonova.com/event/{slug}"
+    },
+    {
+      "count": 16,
+      "examples": [
+        "http://www.sonova.com/wp-content/uploads/2019/06/220328_Sonova20SBB202021_Reporting20Completion.pdf",
+        "http://www.sonova.com/wp-content/uploads/2019/06/250418_Sonova20SBB202022_Reporting.pdf",
+        "http://www.sonova.com/wp-content/uploads/2019/06/Sonova20SBB202018_Reporting_28012021_corrected_0.pdf"
+      ],
+      "pattern": "http://www.sonova.com/wp-content/uploads/{n}/{n}/{slug}"
+    },
+    {
+      "count": 11,
+      "examples": [
+        "https://www.sonova.com/canada/careers/",
+        "https://www.sonova.com/canada/contact-us/",
+        "https://www.sonova.com/canada/cookie-privacy-notice/"
+      ],
+      "pattern": "https://www.sonova.com/canada/{slug}"
+    },
+    {
+      "count": 11,
+      "examples": [
+        "https://www.sonova.com/india/careers",
+        "https://www.sonova.com/india/careers/",
+        "https://www.sonova.com/india/contact-us/"
+      ],
+      "pattern": "https://www.sonova.com/india/{slug}"
+    },
+    {
+      "count": 11,
+      "examples": [
+        "https://www.sonova.com/netherlands/carrieres-2/",
+        "https://www.sonova.com/netherlands/carrieres/",
+        "https://www.sonova.com/netherlands/contact/"
+      ],
+      "pattern": "https://www.sonova.com/netherlands/{slug}"
+    },
+    {
+      "count": 10,
+      "examples": [
+        "https://report.sonova.com/2018/en/csr-en/?_ga=2.39366243.1761423594.1652108087-1305325298.1651581777",
+        "https://report.sonova.com/2019/en/compensation-report/",
+        "https://report.sonova.com/2019/en/cr-en/?_ga=2.39366243.1761423594.1652108087-1305325298.1651581777"
+      ],
+      "pattern": "https://report.sonova.com/{n}/en/{slug}"
+    },
+    {
+      "count": 10,
+      "examples": [
+        "https://www.sonova.com/australia/careers/",
+        "https://www.sonova.com/australia/contact/",
+        "https://www.sonova.com/australia/cookie-privacy-notice/"
+      ],
+      "pattern": "https://www.sonova.com/australia/{slug}"
+    },
+    {
+      "count": 10,
+      "examples": [
+        "https://www.sonova.com/brazil/334-2/",
+        "https://www.sonova.com/brazil/a-nossa-empresa/",
+        "https://www.sonova.com/brazil/a-vida-na-sonova/"
+      ],
+      "pattern": "https://www.sonova.com/brazil/{slug}"
+    },
+    {
+      "count": 10,
+      "examples": [
+        "https://www.sonova.com/canada/fr/carrieres-2/",
+        "https://www.sonova.com/canada/fr/carrieres/",
+        "https://www.sonova.com/canada/fr/decouvrir-nos-talents/"
+      ],
+      "pattern": "https://www.sonova.com/canada/fr/{slug}"
+    },
+    {
+      "count": 10,
+      "examples": [
+        "https://www.sonova.com/germany/arbeiten-bei-sonova/",
+        "https://www.sonova.com/germany/cookie-datenschutzhinweis/",
+        "https://www.sonova.com/germany/globale-datenschutzrichtlinie/"
+      ],
+      "pattern": "https://www.sonova.com/germany/{slug}"
+    },
+    {
+      "count": 10,
+      "examples": [
+        "https://www.sonova.com/spain/aviso-de-privacidad-de-cookies/",
+        "https://www.sonova.com/spain/conozca-nuestros-talentos/",
+        "https://www.sonova.com/spain/contacto/"
+      ],
+      "pattern": "https://www.sonova.com/spain/{slug}"
+    },
+    {
+      "count": 10,
+      "examples": [
+        "https://www.sonova.com/uk/careers/",
+        "https://www.sonova.com/uk/contact-us/",
+        "https://www.sonova.com/uk/cookie-privacy-notice/"
+      ],
+      "pattern": "https://www.sonova.com/uk/{slug}"
+    },
+    {
+      "count": 9,
+      "examples": [
+        "https://www.sonova.com/france/carrieres/",
+        "https://www.sonova.com/france/decouvrir-nos-talents/",
+        "https://www.sonova.com/france/la-vie-chez-sonova/"
+      ],
+      "pattern": "https://www.sonova.com/france/{slug}"
+    },
+    {
+      "count": 9,
+      "examples": [
+        "https://www.sonova.com/japan/%e3%82%ad%e3%83%a3%e3%83%aa%e3%82%a2/",
+        "https://www.sonova.com/japan/%e3%83%86%e3%83%b3%e3%83%97%e3%83%ac%e3%83%bc%e3%83%88-%e5%bd%93%e7%a4%be/",
+        "https://www.sonova.com/japan/%e3%83%86%e3%83%b3%e3%83%97%e3%83%ac%e3%83%bc%e3%83%88-sonova-%e3%81%a7%e3%81%ae%e3%82%b5%e3%82%b9%e3%83%86%e3%83%8a%e3%83%93%e3%83%aa%e3%83%86%e3%82%a3/"
+      ],
+      "pattern": "https://www.sonova.com/japan/{slug}"
+    },
+    {
+      "count": 9,
+      "examples": [
+        "https://www.sonova.com/korea/%ec%9a%b0%eb%a6%ac-%ed%9a%8c%ec%82%ac/",
+        "https://www.sonova.com/korea/%ec%b1%84%ec%9a%a9/",
+        "https://www.sonova.com/korea/geullobeol-gaeinjeongbo-bohojeongchaeg/"
+      ],
+      "pattern": "https://www.sonova.com/korea/{slug}"
+    },
+    {
+      "count": 9,
+      "examples": [
+        "https://www.sonova.com/usa/334-2/",
+        "https://www.sonova.com/usa/careers/",
+        "https://www.sonova.com/usa/contact/"
+      ],
+      "pattern": "https://www.sonova.com/usa/{slug}"
+    },
+    {
+      "count": 8,
+      "examples": [
+        "https://www.sonova.com/category/ad-hoc-announcement/",
+        "https://www.sonova.com/category/adhoc/",
+        "https://www.sonova.com/category/corporate/"
+      ],
+      "pattern": "https://www.sonova.com/category/{slug}"
+    },
+    {
+      "count": 7,
+      "examples": [
+        "https://www.sonova.com/belgium/conditions-dutilisation/",
+        "https://www.sonova.com/belgium/nl/",
+        "https://www.sonova.com/belgium/nl/?query-1-page=2"
+      ],
+      "pattern": "https://www.sonova.com/belgium/{slug}"
+    },
+    {
+      "count": 6,
+      "examples": [
+        "https://www.sonova.com/uk/wp-content/uploads/sites/26/2026/08/240729_Tax-Strategy-for-Sonova-Service-Centre-Limited.Final_.pdf",
+        "https://www.sonova.com/uk/wp-content/uploads/sites/26/2026/08/240729_Tax-Strategy-for-Sonova-UK-Limited.Final_.pdf",
+        "https://www.sonova.com/uk/wp-content/uploads/sites/26/2026/08/Call-Recording-Privacy-Notice.pdf"
+      ],
+      "pattern": "https://www.sonova.com/uk/wp-content/uploads/sites/{n}/{n}/{n}/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.sonova.com/brazil/wp-content/uploads/sites/27/2026/08/Dec-Igualda-Salarial-Portal-do-Empregador-Governo-Federal.pdf",
+        "https://www.sonova.com/brazil/wp-content/uploads/sites/27/2026/08/Relatorio-de-Transparencia-1%C2%B0-Semestre-2024.pdf",
+        "https://www.sonova.com/brazil/wp-content/uploads/sites/27/2026/08/Relatorio-de-Transparencia-2%C2%B0-Semestre-2024.pdf"
+      ],
+      "pattern": "https://www.sonova.com/brazil/wp-content/uploads/sites/{n}/{n}/{n}/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.sonova.com/italy/global-privacy-policy/",
+        "https://www.sonova.com/italy/informativa-sulla-privacy-dei-cookies/",
+        "https://www.sonova.com/italy/termini-di-utilizzo/"
+      ],
+      "pattern": "https://www.sonova.com/italy/{slug}"
+    },
+    {
+      "count": 4,
+      "examples": [
+        "https://www.sonova.com/turkey/cerez-politikasi/",
+        "https://www.sonova.com/turkey/kullanim-sartlari/",
+        "https://www.sonova.com/turkey/kuresel-gizlilik-politikasi/"
+      ],
+      "pattern": "https://www.sonova.com/turkey/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.sonova.com/austria/cookie-datenschutzhinweis/",
+        "https://www.sonova.com/austria/globale-datenschutzrichtlinie/",
+        "https://www.sonova.com/austria/nutzungsbedingungen/"
+      ],
+      "pattern": "https://www.sonova.com/austria/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.sonova.com/belgium/nl/cookieprivacyverklaring/",
+        "https://www.sonova.com/belgium/nl/gebruiksvoorwaarden/",
+        "https://www.sonova.com/belgium/nl/web-privacy-en-cookiebeleid/"
+      ],
+      "pattern": "https://www.sonova.com/belgium/nl/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.sonova.com/de/category/news/",
+        "https://www.sonova.com/de/category/nicht-kategorisiert/",
+        "https://www.sonova.com/de/category/produkt/"
+      ],
+      "pattern": "https://www.sonova.com/de/category/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.sonova.com/denmark/cookie-og-privatlivspolitik/",
+        "https://www.sonova.com/denmark/global-politik-om-beskyttelse-af-personoplysninger/",
+        "https://www.sonova.com/denmark/vilkaar-brug/"
+      ],
+      "pattern": "https://www.sonova.com/denmark/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.sonova.com/en/global-privacy-policy",
+        "https://www.sonova.com/en/investors",
+        "https://www.sonova.com/en/regulations-principles"
+      ],
+      "pattern": "https://www.sonova.com/en/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.sonova.com/hungary/globalis-adatvedelmi-szabalyzat/",
+        "https://www.sonova.com/hungary/sutikre-vonatkozo-adatvedelmi-nyilatkozat/",
+        "https://www.sonova.com/hungary/terms-of-use/"
+      ],
+      "pattern": "https://www.sonova.com/hungary/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.sonova.com/israel/hwdt-prtywt-bnwg-lqwbzy-cookie/",
+        "https://www.sonova.com/israel/mdynywt-prtywt-glwblyt/",
+        "https://www.sonova.com/israel/tny-hsymws/"
+      ],
+      "pattern": "https://www.sonova.com/israel/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.sonova.com/mexico/aviso-de-privacidad-de-cookies/",
+        "https://www.sonova.com/mexico/condiciones-de-uso/",
+        "https://www.sonova.com/mexico/politica-global-de-privacidad/"
+      ],
+      "pattern": "https://www.sonova.com/mexico/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.sonova.com/newzealand/cookie-privacy-notice/",
+        "https://www.sonova.com/newzealand/global-privacy-policy/",
+        "https://www.sonova.com/newzealand/terms-use/"
+      ],
+      "pattern": "https://www.sonova.com/newzealand/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.sonova.com/norway/global-privacy-policy/",
+        "https://www.sonova.com/norway/personvernerklaering-om-informasjonskapsler/",
+        "https://www.sonova.com/norway/vilkar-bruk/"
+      ],
+      "pattern": "https://www.sonova.com/norway/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.sonova.com/poland/globalna-polityka-prywatnosci/",
+        "https://www.sonova.com/poland/informacja-o-ochronie-prywatnosci-w-zakresie-plikow-cookie/",
+        "https://www.sonova.com/poland/regulamin/"
+      ],
+      "pattern": "https://www.sonova.com/poland/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.sonova.com/singapore/cookie-privacy-notice/",
+        "https://www.sonova.com/singapore/global-privacy-policy/",
+        "https://www.sonova.com/singapore/terms-use/"
+      ],
+      "pattern": "https://www.sonova.com/singapore/{slug}"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.sonova.com/sweden/anvandarvillkor/",
+        "https://www.sonova.com/sweden/global-privacy-policy/",
+        "https://www.sonova.com/sweden/sekretessmeddelande-rorande-cookies/"
+      ],
+      "pattern": "https://www.sonova.com/sweden/{slug}"
+    }
+  ],
+  "urls": [
+    "http://www.sonova.com/wp-content/uploads/2019/06/220328_Sonova20SBB202021_Reporting20Completion.pdf",
+    "http://www.sonova.com/wp-content/uploads/2019/06/250418_Sonova20SBB202022_Reporting.pdf",
+    "http://www.sonova.com/wp-content/uploads/2019/06/Sonova20SBB202018_Reporting_28012021_corrected_0.pdf",
+    "http://www.sonova.com/wp-content/uploads/2019/09/06_Sonova_AR_23-24_CorpGov_en.pdf",
+    "http://www.sonova.com/wp-content/uploads/2019/09/06_Sonova_AR_24-25_CorpGov_en.pdf",
+    "http://www.sonova.com/wp-content/uploads/2019/09/06_Sonova_AR_25-26_CorpGov_en_0.pdf",
+    "http://www.sonova.com/wp-content/uploads/2019/09/230612-Sonova-Holding-AG-Statuten-EN-fex2.pdf",
+    "http://www.sonova.com/wp-content/uploads/2019/09/AC-Charter-2023-_2023_05_12_BoD-EXE-ZOM.pdf",
+    "http://www.sonova.com/wp-content/uploads/2019/09/Organizational-Regulations_13_11_2025-FEX.pdf",
+    "http://www.sonova.com/wp-content/uploads/2019/09/tax_principles_final.pdf",
+    "http://www.sonova.com/wp-content/uploads/2019/10/07_Sonova_AR_23-24_Comp_en_0.pdf",
+    "http://www.sonova.com/wp-content/uploads/2019/10/07_Sonova_AR_24-25_Comp_en_0.pdf",
+    "http://www.sonova.com/wp-content/uploads/2019/10/07_Sonova_AR_25-26_Comp_en_0.pdf",
+    "http://www.sonova.com/wp-content/uploads/2019/10/20240901_General20Conditions20of20Purchase_Sonova_September_New.pdf",
+    "http://www.sonova.com/wp-content/uploads/2019/10/Sonova20Supplier20Code20of20Conduct20-20September202024.pdf",
+    "http://www.sonova.com/wp-content/uploads/2019/10/TIC_20Charter_10_06_2025.pdf",
+    "https://report.sonova.com/2018/en/csr-en/?_ga=2.39366243.1761423594.1652108087-1305325298.1651581777",
+    "https://report.sonova.com/2019/app/uploads/03_00_Sonova_AR18_CR_Report_en.pdf",
+    "https://report.sonova.com/2019/en/compensation-report/",
+    "https://report.sonova.com/2019/en/cr-en/?_ga=2.39366243.1761423594.1652108087-1305325298.1651581777",
+    "https://report.sonova.com/2020/de/cr-de/?_ga=2.40641890.1761423594.1652108087-1305325298.1651581777",
+    "https://report.sonova.com/2021/en/cr-en/",
+    "https://report.sonova.com/2022/en/esg",
+    "https://report.sonova.com/2023/en/esg",
+    "https://report.sonova.com/2024/en/esg/",
+    "https://report.sonova.com/2025/",
+    "https://report.sonova.com/2025/en/compensation-report",
+    "https://report.sonova.com/2025/en/esg",
+    "https://report.sonova.com/2026/",
+    "https://report.sonova.com/2026/en/sustainability",
+    "https://www.sonova.com/",
+    "https://www.sonova.com/ad-hoc-announcements/",
+    "https://www.sonova.com/ad-hoc-announcements/?query-1-page=2",
+    "https://www.sonova.com/ad-hoc-announcements/?query-1-page=3",
+    "https://www.sonova.com/ad-hoc-announcements/?query-1-page=4",
+    "https://www.sonova.com/advanced-bionics-receives-tuv-approval-for-integro-ci-cochlear-implant-platform/",
+    "https://www.sonova.com/analyst-coverage/",
+    "https://www.sonova.com/australia/",
+    "https://www.sonova.com/australia/careers/",
+    "https://www.sonova.com/australia/contact/",
+    "https://www.sonova.com/australia/cookie-privacy-notice/",
+    "https://www.sonova.com/australia/get-to-know-our-talents/",
+    "https://www.sonova.com/australia/global-privacy-policy/",
+    "https://www.sonova.com/australia/life-at-sonova/",
+    "https://www.sonova.com/australia/organizational-structure-australia/",
+    "https://www.sonova.com/australia/our-company/",
+    "https://www.sonova.com/australia/sustainability-at-sonova/",
+    "https://www.sonova.com/australia/terms-use/",
+    "https://www.sonova.com/austria/",
+    "https://www.sonova.com/austria/?query-1-page=2",
+    "https://www.sonova.com/austria/?query-1-page=3",
+    "https://www.sonova.com/austria/?query-1-page=44",
+    "https://www.sonova.com/austria/cookie-datenschutzhinweis/",
+    "https://www.sonova.com/austria/globale-datenschutzrichtlinie/",
+    "https://www.sonova.com/austria/nutzungsbedingungen/",
+    "https://www.sonova.com/belgium/",
+    "https://www.sonova.com/belgium/?query-1-page=2",
+    "https://www.sonova.com/belgium/?query-1-page=3",
+    "https://www.sonova.com/belgium/?query-1-page=88",
+    "https://www.sonova.com/belgium/conditions-dutilisation/",
+    "https://www.sonova.com/belgium/nl/",
+    "https://www.sonova.com/belgium/nl/?query-1-page=2",
+    "https://www.sonova.com/belgium/nl/?query-1-page=3",
+    "https://www.sonova.com/belgium/nl/?query-1-page=88",
+    "https://www.sonova.com/belgium/nl/cookieprivacyverklaring/",
+    "https://www.sonova.com/belgium/nl/gebruiksvoorwaarden/",
+    "https://www.sonova.com/belgium/nl/web-privacy-en-cookiebeleid/",
+    "https://www.sonova.com/belgium/politique-de-confidentialite-relative-aux-cookies/",
+    "https://www.sonova.com/belgium/politique-de-protection-des-donnees-personnelles-web-et-cookies/",
+    "https://www.sonova.com/board-directors/",
+    "https://www.sonova.com/bonds/",
+    "https://www.sonova.com/brand/phonak/",
+    "https://www.sonova.com/brands/",
+    "https://www.sonova.com/brands/?query-4-page=2",
+    "https://www.sonova.com/brands/?query-4-page=3",
+    "https://www.sonova.com/brands/?query-4-page=6",
+    "https://www.sonova.com/brazil/",
+    "https://www.sonova.com/brazil/334-2/",
+    "https://www.sonova.com/brazil/a-nossa-empresa/",
+    "https://www.sonova.com/brazil/a-vida-na-sonova/",
+    "https://www.sonova.com/brazil/carreiras-2/",
+    "https://www.sonova.com/brazil/conheca-os-nossos-talentos/",
+    "https://www.sonova.com/brazil/contato/",
+    "https://www.sonova.com/brazil/modelo-sustentabilidade-na-sonova/",
+    "https://www.sonova.com/brazil/oportunidades-de-carreira/",
+    "https://www.sonova.com/brazil/politica-de-privacidade-de-cookies/",
+    "https://www.sonova.com/brazil/politica-global-de-privacidade/",
+    "https://www.sonova.com/brazil/wp-content/uploads/sites/27/2026/08/Dec-Igualda-Salarial-Portal-do-Empregador-Governo-Federal.pdf",
+    "https://www.sonova.com/brazil/wp-content/uploads/sites/27/2026/08/Relatorio-de-Transparencia-1%C2%B0-Semestre-2024.pdf",
+    "https://www.sonova.com/brazil/wp-content/uploads/sites/27/2026/08/Relatorio-de-Transparencia-2%C2%B0-Semestre-2024.pdf",
+    "https://www.sonova.com/brazil/wp-content/uploads/sites/27/2026/09/Relatorio-de-Transparencia-e-Igualdade-Salarial-de-Mulheres-e-Homens-2o-Semestre-2026.pdf",
+    "https://www.sonova.com/canada/",
+    "https://www.sonova.com/canada/careers/",
+    "https://www.sonova.com/canada/contact-us/",
+    "https://www.sonova.com/canada/cookie-privacy-notice/",
+    "https://www.sonova.com/canada/fr/",
+    "https://www.sonova.com/canada/fr/carrieres-2/",
+    "https://www.sonova.com/canada/fr/carrieres/",
+    "https://www.sonova.com/canada/fr/decouvrir-nos-talents/",
+    "https://www.sonova.com/canada/fr/la-vie-chez-sonova/",
+    "https://www.sonova.com/canada/fr/le-developpement-durable-chez-sonova/",
+    "https://www.sonova.com/canada/fr/notre-entreprise/",
+    "https://www.sonova.com/canada/fr/nous-contacter/",
+    "https://www.sonova.com/canada/fr/politique-de-confidentialite-relative-aux-cookies/",
+    "https://www.sonova.com/canada/fr/politique-generale-de-protection-des-donnees-personnelles/",
+    "https://www.sonova.com/canada/fr/structure-organisationnelle/",
+    "https://www.sonova.com/canada/get-know-our-talents/",
+    "https://www.sonova.com/canada/global-privacy-policy/",
+    "https://www.sonova.com/canada/life-at-sonova/",
+    "https://www.sonova.com/canada/organizational-structure/",
+    "https://www.sonova.com/canada/our-company/",
+    "https://www.sonova.com/canada/sustainability-at-sonova/",
+    "https://www.sonova.com/canada/terms-use/",
+    "https://www.sonova.com/canada/wp-content/uploads/sites/2/2026/08/Sonova-Canada-forced-and-child-labour-report-2023-24-Sonova-Canada-Inc.pdf",
+    "https://www.sonova.com/careers/",
+    "https://www.sonova.com/category/ad-hoc-announcement/",
+    "https://www.sonova.com/category/adhoc/",
+    "https://www.sonova.com/category/corporate/",
+    "https://www.sonova.com/category/disclosure-shareholding/",
+    "https://www.sonova.com/category/financial-news/",
+    "https://www.sonova.com/category/financial/",
+    "https://www.sonova.com/category/news/",
+    "https://www.sonova.com/category/product/",
+    "https://www.sonova.com/certificates/",
+    "https://www.sonova.com/code-of-conduct/",
+    "https://www.sonova.com/company/",
+    "https://www.sonova.com/contact/",
+    "https://www.sonova.com/cookie-privacy-notice/",
+    "https://www.sonova.com/coordinated-vulnerability-disclosure-policy/",
+    "https://www.sonova.com/corporate-esg-reporting-and-disclosure/",
+    "https://www.sonova.com/corporate-governance-report/",
+    "https://www.sonova.com/current-outlook/",
+    "https://www.sonova.com/de",
+    "https://www.sonova.com/de/",
+    "https://www.sonova.com/de/abdeckung-durch-finanzanalysten-2/",
+    "https://www.sonova.com/de/abdeckung-durch-finanzanalysten/",
+    "https://www.sonova.com/de/ad-hoc-mitteilungen/",
+    "https://www.sonova.com/de/aktiendaten-2/",
+    "https://www.sonova.com/de/aktiendaten/",
+    "https://www.sonova.com/de/aktienkurs/",
+    "https://www.sonova.com/de/aktienregister/",
+    "https://www.sonova.com/de/aktienrueckkaufprogramme-2/",
+    "https://www.sonova.com/de/aktienrueckkaufprogramme/",
+    "https://www.sonova.com/de/aktionaersstruktur-2/",
+    "https://www.sonova.com/de/aktionaersstruktur/",
+    "https://www.sonova.com/de/aktueller-ausblick-2/",
+    "https://www.sonova.com/de/aktueller-ausblick/",
+    "https://www.sonova.com/de/anleihen-2/",
+    "https://www.sonova.com/de/anleihen/",
+    "https://www.sonova.com/de/arbeiten-bei-sonova/",
+    "https://www.sonova.com/de/berichterstattung-und-transparenz/",
+    "https://www.sonova.com/de/berufsbildungschweiz/",
+    "https://www.sonova.com/de/category/news/",
+    "https://www.sonova.com/de/category/nicht-kategorisiert/",
+    "https://www.sonova.com/de/category/produkt/",
+    "https://www.sonova.com/de/code-of-conduct/",
+    "https://www.sonova.com/de/cookie-datenschutzhinweis/",
+    "https://www.sonova.com/de/coordinated-vulnerability-disclosure-policy/",
+    "https://www.sonova.com/de/corporate-governance-bericht-2/",
+    "https://www.sonova.com/de/corporate-governance-bericht/",
+    "https://www.sonova.com/de/dividende/",
+    "https://www.sonova.com/de/dividendenzahlungen/",
+    "https://www.sonova.com/de/finanzkalender/",
+    "https://www.sonova.com/de/generalversammlung/",
+    "https://www.sonova.com/de/geschaeftsleitung/",
+    "https://www.sonova.com/de/globale-datenschutzrichtlinie/",
+    "https://www.sonova.com/de/hear-the-world-foundation/",
+    "https://www.sonova.com/de/hoergesundheit/",
+    "https://www.sonova.com/de/innovation/",
+    "https://www.sonova.com/de/investieren-in-sonova/",
+    "https://www.sonova.com/de/investoren/",
+    "https://www.sonova.com/de/investorenpraesentationen/",
+    "https://www.sonova.com/de/karriere/",
+    "https://www.sonova.com/de/kennzahlen/",
+    "https://www.sonova.com/de/kontakt/",
+    "https://www.sonova.com/de/marken/",
+    "https://www.sonova.com/de/medien/",
+    "https://www.sonova.com/de/mitwirkungsrechte-der-aktionaere/",
+    "https://www.sonova.com/de/nachhaltigkeit/",
+    "https://www.sonova.com/de/news/",
+    "https://www.sonova.com/de/nutzungsbedingungen/",
+    "https://www.sonova.com/de/performance-rechner/",
+    "https://www.sonova.com/de/recruitment-betrug/",
+    "https://www.sonova.com/de/registrierung-fuer-den-sonova-news-alert/",
+    "https://www.sonova.com/de/reglemente-grundsaetze/",
+    "https://www.sonova.com/de/sennheiser-und-mercedes-benz-bringen-performance-audio-auf-die-ueberholspur/",
+    "https://www.sonova.com/de/services-und-kontakte/",
+    "https://www.sonova.com/de/sonova-erzielt-202526-ein-starkes-ergebnis-waechst-schneller-als-der-markt-und-steigert-die/",
+    "https://www.sonova.com/de/sonova-strategie-update-staerkung-der-marktfuehrerschaft-und-umsatzambition-von-chf-6-mrd-bis/",
+    "https://www.sonova.com/de/unser-geschaeft-strategie/",
+    "https://www.sonova.com/de/unsere-mitarbeitenden/",
+    "https://www.sonova.com/de/unternehmen/",
+    "https://www.sonova.com/de/verwaltungsrat/",
+    "https://www.sonova.com/denmark/",
+    "https://www.sonova.com/denmark/?query-1-page=2",
+    "https://www.sonova.com/denmark/?query-1-page=3",
+    "https://www.sonova.com/denmark/?query-1-page=44",
+    "https://www.sonova.com/denmark/cookie-og-privatlivspolitik/",
+    "https://www.sonova.com/denmark/global-politik-om-beskyttelse-af-personoplysninger/",
+    "https://www.sonova.com/denmark/vilkaar-brug/",
+    "https://www.sonova.com/dividend/",
+    "https://www.sonova.com/en",
+    "https://www.sonova.com/en/",
+    "https://www.sonova.com/en/global-privacy-policy",
+    "https://www.sonova.com/en/investors",
+    "https://www.sonova.com/en/regulations-principles",
+    "https://www.sonova.com/euha-2026-sonova-showcases-innovation-leadership-with-ai-advances-beyond-hearing-aids/",
+    "https://www.sonova.com/event/baader-helvea-swiss-equities-conference-2027/",
+    "https://www.sonova.com/event/bank-of-america-global-healthcare-conference-2026/",
+    "https://www.sonova.com/event/chicago-milwaukee-roadshow-hy-2026-27/",
+    "https://www.sonova.com/event/citi-global-healthcare-conference/",
+    "https://www.sonova.com/event/euha-2026/",
+    "https://www.sonova.com/event/goldman-sachs-european-medtech-healthcare-services-conference-2026/",
+    "https://www.sonova.com/event/hy-2026-27-roadshow/",
+    "https://www.sonova.com/event/jp-morgan-european-healthcare-forum-2026/",
+    "https://www.sonova.com/event/miami-roadshow-hy-2026-27/",
+    "https://www.sonova.com/event/morgan-stanley-european-healthcare-conference/",
+    "https://www.sonova.com/event/morgan-stanley-global-healthcare-conference/",
+    "https://www.sonova.com/event/new-york-new-jersey-connecticut-roadshow-hy-2026-27/",
+    "https://www.sonova.com/event/octavian-seminar-2026-2/",
+    "https://www.sonova.com/event/oddo-bhf-forum-2027/",
+    "https://www.sonova.com/event/publication-half-year-results-202627/",
+    "https://www.sonova.com/event/quiet-period-prior-to-hy-2026-27-publication/",
+    "https://www.sonova.com/event/sonova-generalversammlung-2026/",
+    "https://www.sonova.com/event/ubs-european-healthcare-conference-2027/",
+    "https://www.sonova.com/financial-calendar/",
+    "https://www.sonova.com/financial-calendar/?query-2-page=2",
+    "https://www.sonova.com/financial-calendar/?query-4-page=18",
+    "https://www.sonova.com/financial-calendar/?query-4-page=2",
+    "https://www.sonova.com/financial-calendar/?query-4-page=3",
+    "https://www.sonova.com/financial-year-202425-sonova-achieves-market-share-gains-across-all-businesses-and/",
+    "https://www.sonova.com/finland/",
+    "https://www.sonova.com/finland/?query-1-page=2",
+    "https://www.sonova.com/finland/?query-1-page=3",
+    "https://www.sonova.com/finland/?query-1-page=44",
+    "https://www.sonova.com/finland/evasteiden-tietosuojailmoitus/",
+    "https://www.sonova.com/finland/kayttoehdot/",
+    "https://www.sonova.com/france/",
+    "https://www.sonova.com/france/carrieres/",
+    "https://www.sonova.com/france/decouvrir-nos-talents/",
+    "https://www.sonova.com/france/la-vie-chez-sonova/",
+    "https://www.sonova.com/france/le-developpement-durable-chez-sonova/",
+    "https://www.sonova.com/france/notre-entreprise/",
+    "https://www.sonova.com/france/nous-contacter/",
+    "https://www.sonova.com/france/politique-de-confidentialite-relative-aux-cookies/",
+    "https://www.sonova.com/france/politique-generale-de-protection-des-donnees-personnelles/",
+    "https://www.sonova.com/france/terms-use/",
+    "https://www.sonova.com/france/wp-content/uploads/sites/17/2026/08/2022-04-29-Strategie-fiscale-Sonova.pdf",
+    "https://www.sonova.com/general-shareholders-meeting/",
+    "https://www.sonova.com/general-shareholders-meeting/?query-1-page=2",
+    "https://www.sonova.com/general-shareholders-meeting/?query-1-page=3",
+    "https://www.sonova.com/general-shareholders-meeting/?query-1-page=4",
+    "https://www.sonova.com/germany/",
+    "https://www.sonova.com/germany/arbeiten-bei-sonova/",
+    "https://www.sonova.com/germany/cookie-datenschutzhinweis/",
+    "https://www.sonova.com/germany/globale-datenschutzrichtlinie/",
+    "https://www.sonova.com/germany/karriere/",
+    "https://www.sonova.com/germany/kontakt/",
+    "https://www.sonova.com/germany/nachhaltigkeit-bei-sonova/",
+    "https://www.sonova.com/germany/nutzungsbedingungen/",
+    "https://www.sonova.com/germany/organisationsstruktur/",
+    "https://www.sonova.com/germany/unser-unternehmen/",
+    "https://www.sonova.com/germany/unsere-mitarbeiterinnen-und-mitarbeiter/",
+    "https://www.sonova.com/get-to-know-our-talents/",
+    "https://www.sonova.com/global-privacy-policy/",
+    "https://www.sonova.com/group-executives/",
+    "https://www.sonova.com/hear-world-foundation/",
+    "https://www.sonova.com/hearing-health/",
+    "https://www.sonova.com/hearing-test/",
+    "https://www.sonova.com/hungary/",
+    "https://www.sonova.com/hungary/?query-1-page=2",
+    "https://www.sonova.com/hungary/?query-1-page=3",
+    "https://www.sonova.com/hungary/?query-1-page=44",
+    "https://www.sonova.com/hungary/globalis-adatvedelmi-szabalyzat/",
+    "https://www.sonova.com/hungary/sutikre-vonatkozo-adatvedelmi-nyilatkozat/",
+    "https://www.sonova.com/hungary/terms-of-use/",
+    "https://www.sonova.com/india/",
+    "https://www.sonova.com/india/careers",
+    "https://www.sonova.com/india/careers/",
+    "https://www.sonova.com/india/contact-us/",
+    "https://www.sonova.com/india/cookie-privacy-notice/",
+    "https://www.sonova.com/india/get-to-know-our-talents/",
+    "https://www.sonova.com/india/global-privacy-policy/",
+    "https://www.sonova.com/india/life-at-sonova/",
+    "https://www.sonova.com/india/organizational-structure/",
+    "https://www.sonova.com/india/our-company/",
+    "https://www.sonova.com/india/sustainability-at-sonova/",
+    "https://www.sonova.com/india/terms-use/",
+    "https://www.sonova.com/innovation/",
+    "https://www.sonova.com/introducing-sennheiser-momentum-true-wireless-5-the-flagship-momentum-experience-in-your-pocket/",
+    "https://www.sonova.com/investors/",
+    "https://www.sonova.com/investors/?query-10-page=2",
+    "https://www.sonova.com/investors/?query-10-page=3",
+    "https://www.sonova.com/investors/?query-10-page=91",
+    "https://www.sonova.com/israel/",
+    "https://www.sonova.com/israel/?query-1-page=2",
+    "https://www.sonova.com/israel/?query-1-page=3",
+    "https://www.sonova.com/israel/?query-1-page=44",
+    "https://www.sonova.com/israel/hwdt-prtywt-bnwg-lqwbzy-cookie/",
+    "https://www.sonova.com/israel/mdynywt-prtywt-glwblyt/",
+    "https://www.sonova.com/israel/tny-hsymws/",
+    "https://www.sonova.com/italy/",
+    "https://www.sonova.com/italy/?query-1-page=2",
+    "https://www.sonova.com/italy/?query-1-page=3",
+    "https://www.sonova.com/italy/?query-1-page=44",
+    "https://www.sonova.com/italy/global-privacy-policy/",
+    "https://www.sonova.com/italy/informativa-sulla-privacy-dei-cookies/",
+    "https://www.sonova.com/italy/termini-di-utilizzo/",
+    "https://www.sonova.com/italy/whistleblowing/",
+    "https://www.sonova.com/japan/",
+    "https://www.sonova.com/japan/%e3%82%ad%e3%83%a3%e3%83%aa%e3%82%a2/",
+    "https://www.sonova.com/japan/%e3%83%86%e3%83%b3%e3%83%97%e3%83%ac%e3%83%bc%e3%83%88-%e5%bd%93%e7%a4%be/",
+    "https://www.sonova.com/japan/%e3%83%86%e3%83%b3%e3%83%97%e3%83%ac%e3%83%bc%e3%83%88-sonova-%e3%81%a7%e3%81%ae%e3%82%b5%e3%82%b9%e3%83%86%e3%83%8a%e3%83%93%e3%83%aa%e3%83%86%e3%82%a3/",
+    "https://www.sonova.com/japan/%e7%a4%be%e5%93%a1%e7%b4%b9%e4%bb%8b/",
+    "https://www.sonova.com/japan/kutsuki-furaihashiniguansurutongzhi/",
+    "https://www.sonova.com/japan/mianzeshixiang/",
+    "https://www.sonova.com/japan/owenihewase/",
+    "https://www.sonova.com/japan/sonova-%e3%81%a7%e5%83%8d%e3%81%8f%e9%ad%85%e5%8a%9b/",
+    "https://www.sonova.com/japan/wp-content/uploads/sites/9/2026/11/Global-Privacy-Policy_Japanese-Final.pdf",
+    "https://www.sonova.com/japan/zuzhitizhi/",
+    "https://www.sonova.com/key-figures/",
+    "https://www.sonova.com/korea/",
+    "https://www.sonova.com/korea/%ec%9a%b0%eb%a6%ac-%ed%9a%8c%ec%82%ac/",
+    "https://www.sonova.com/korea/%ec%b1%84%ec%9a%a9/",
+    "https://www.sonova.com/korea/geullobeol-gaeinjeongbo-bohojeongchaeg/",
+    "https://www.sonova.com/korea/kuki-gaein-jeongbo-boho-jeongchaeg/",
+    "https://www.sonova.com/korea/munuihagi/",
+    "https://www.sonova.com/korea/sonova%ec%97%90%ec%84%9c%ec%9d%98-%ec%83%9d%ed%99%9c/",
+    "https://www.sonova.com/korea/sonova%ec%9d%98-%ec%9d%b8%ec%9e%ac%eb%93%a4-%ec%95%8c%ec%95%84%eb%b3%b4%ea%b8%b0/",
+    "https://www.sonova.com/korea/sonova%ec%9d%98-%ec%a7%80%ec%86%8d-%ea%b0%80%eb%8a%a5%ec%84%b1/",
+    "https://www.sonova.com/korea/terms-of-use/",
+    "https://www.sonova.com/life-at-sonova/",
+    "https://www.sonova.com/massachusetts-financial-services-company-controls-less-than-3-of-sonova-holding-ag/",
+    "https://www.sonova.com/mexico/",
+    "https://www.sonova.com/mexico/?query-1-page=2",
+    "https://www.sonova.com/mexico/?query-1-page=3",
+    "https://www.sonova.com/mexico/?query-1-page=44",
+    "https://www.sonova.com/mexico/aviso-de-privacidad-de-cookies/",
+    "https://www.sonova.com/mexico/condiciones-de-uso/",
+    "https://www.sonova.com/mexico/politica-global-de-privacidad/",
+    "https://www.sonova.com/netherlands/",
+    "https://www.sonova.com/netherlands/carrieres-2/",
+    "https://www.sonova.com/netherlands/carrieres/",
+    "https://www.sonova.com/netherlands/contact/",
+    "https://www.sonova.com/netherlands/cookieprivacyverklaring/",
+    "https://www.sonova.com/netherlands/disclaimer/",
+    "https://www.sonova.com/netherlands/duurzaamheid-bij-sonova/",
+    "https://www.sonova.com/netherlands/maak-kennis-met-onze-talenten/",
+    "https://www.sonova.com/netherlands/ons-bedrijf/",
+    "https://www.sonova.com/netherlands/organisatiestructuur/",
+    "https://www.sonova.com/netherlands/wereldwijd-privacybeleid/",
+    "https://www.sonova.com/netherlands/werken-bij-sonova/",
+    "https://www.sonova.com/new-eon-hearing-aid-portfolio-strengthens-phonaks-leadership-in-speech-understanding-scene-intelligence-and-made-for-all-connectivity/",
+    "https://www.sonova.com/news/",
+    "https://www.sonova.com/newsroom/",
+    "https://www.sonova.com/newzealand/",
+    "https://www.sonova.com/newzealand/?query-1-page=2",
+    "https://www.sonova.com/newzealand/?query-1-page=3",
+    "https://www.sonova.com/newzealand/?query-1-page=44",
+    "https://www.sonova.com/newzealand/cookie-privacy-notice/",
+    "https://www.sonova.com/newzealand/global-privacy-policy/",
+    "https://www.sonova.com/newzealand/terms-use/",
+    "https://www.sonova.com/norway/",
+    "https://www.sonova.com/norway/?query-1-page=2",
+    "https://www.sonova.com/norway/?query-1-page=3",
+    "https://www.sonova.com/norway/?query-1-page=44",
+    "https://www.sonova.com/norway/global-privacy-policy/",
+    "https://www.sonova.com/norway/personvernerklaering-om-informasjonskapsler/",
+    "https://www.sonova.com/norway/vilkar-bruk/",
+    "https://www.sonova.com/norway/wp-content/uploads/sites/22/2026/06/Apenhetsloven-Sonova-Norway-AS-%E2%80%93-2026_2027.pdf",
+    "https://www.sonova.com/our-business/",
+    "https://www.sonova.com/our-culture/",
+    "https://www.sonova.com/people/170/",
+    "https://www.sonova.com/people/172/",
+    "https://www.sonova.com/people/alistair-simpson/",
+    "https://www.sonova.com/people/anders-rosengren/",
+    "https://www.sonova.com/people/andreas-schmidlechner/",
+    "https://www.sonova.com/people/bernd-wagner/",
+    "https://www.sonova.com/people/bjorn-christ/",
+    "https://www.sonova.com/people/elodie-carr-cingari/",
+    "https://www.sonova.com/people/emanuele-bianchi/",
+    "https://www.sonova.com/people/eric-bernard/",
+    "https://www.sonova.com/people/fang-fang/",
+    "https://www.sonova.com/people/katya-kruglova/",
+    "https://www.sonova.com/people/lilika-beck/",
+    "https://www.sonova.com/people/luca-dalla-torre/",
+    "https://www.sonova.com/people/nicholai-dessypris/",
+    "https://www.sonova.com/people/oliver-lux/",
+    "https://www.sonova.com/people/olivier-fergg/",
+    "https://www.sonova.com/people/peter-dickson/",
+    "https://www.sonova.com/people/rahel-zickler/",
+    "https://www.sonova.com/people/roberto-di-fiore/",
+    "https://www.sonova.com/people/thomas-hies/",
+    "https://www.sonova.com/performance-calculator/",
+    "https://www.sonova.com/phonak-ambassadors-spotlight-hearing-health-next-generation-world-hearing-day/",
+    "https://www.sonova.com/phonak-eon-earns-hearing-technology-innovator-award/",
+    "https://www.sonova.com/phonak-launches-roger-on-sphere-the-first-ai-powered-remote-microphone-to-separate-speech-from-noise-in-real-time/",
+    "https://www.sonova.com/phonak-virto-tm-r-infinio-earns-2026-red-dot-award-product-design/",
+    "https://www.sonova.com/poland/",
+    "https://www.sonova.com/poland/?query-1-page=2",
+    "https://www.sonova.com/poland/?query-1-page=3",
+    "https://www.sonova.com/poland/?query-1-page=44",
+    "https://www.sonova.com/poland/globalna-polityka-prywatnosci/",
+    "https://www.sonova.com/poland/informacja-o-ochronie-prywatnosci-w-zakresie-plikow-cookie/",
+    "https://www.sonova.com/poland/regulamin/",
+    "https://www.sonova.com/recruitment-fraud/",
+    "https://www.sonova.com/registration-sonova-news-alert/",
+    "https://www.sonova.com/regulations-principles/",
+    "https://www.sonova.com/reports-and-presentations/",
+    "https://www.sonova.com/reports-and-presentations/?query-1-page=12",
+    "https://www.sonova.com/reports-and-presentations/?query-1-page=2",
+    "https://www.sonova.com/reports-and-presentations/?query-1-page=3",
+    "https://www.sonova.com/reports-and-presentations/?query-2-page=2",
+    "https://www.sonova.com/reports-and-presentations/?query-2-page=20",
+    "https://www.sonova.com/reports-and-presentations/?query-2-page=3",
+    "https://www.sonova.com/sennheiser-and-mercedes-benz-shift-performance-audio-into-high-gear/",
+    "https://www.sonova.com/services-and-contacts/",
+    "https://www.sonova.com/share-buyback-programs/",
+    "https://www.sonova.com/share-data/",
+    "https://www.sonova.com/share-quote/",
+    "https://www.sonova.com/share-register/",
+    "https://www.sonova.com/shareholder-structure/",
+    "https://www.sonova.com/shareholders-participation-rights/",
+    "https://www.sonova.com/singapore/",
+    "https://www.sonova.com/singapore/?query-1-page=2",
+    "https://www.sonova.com/singapore/?query-1-page=3",
+    "https://www.sonova.com/singapore/?query-1-page=44",
+    "https://www.sonova.com/singapore/cookie-privacy-notice/",
+    "https://www.sonova.com/singapore/global-privacy-policy/",
+    "https://www.sonova.com/singapore/terms-use/",
+    "https://www.sonova.com/singapore/wp-content/uploads/sites/11/2026/08/220311_Sonova-Tax-Strategy-Singapore.pdf",
+    "https://www.sonova.com/small-habits-big-impact-protecting-your-hearing-every-day/",
+    "https://www.sonova.com/sonova-delivers-strong-fy-2025-26-results-with-continued-market-outperformance-and-increased-profitability/",
+    "https://www.sonova.com/sonova-expands-ai-leadership-with-innovations-debuting-at-euha-2025/",
+    "https://www.sonova.com/sonova-expands-infinio-range-and-enters-new-market-segment-with-phonaks-smallest-and-first-rechargeable-in-the-ear-hearing-aid/",
+    "https://www.sonova.com/sonova-hy-2025-26-results-strong-sales-and-earnings-growth-in-local-currencies-outperforming-the-market/",
+    "https://www.sonova.com/sonova-hy-2026-27-results-raising-full-year-guidance-after-strong-first-half/",
+    "https://www.sonova.com/sonova-presents-renewed-strategy-to-expand-market-leadership-with-ambition-to-reach-chf-6-billion-in-revenue-by-fy-2030-31/",
+    "https://www.sonova.com/sonova-publishes-annual-report-202425/",
+    "https://www.sonova.com/sonova-strengthens-innovation-leadership-with-phonak-eon-portfolio-and-third-generation-proprietary-real-time-ai/",
+    "https://www.sonova.com/spain/",
+    "https://www.sonova.com/spain/aviso-de-privacidad-de-cookies/",
+    "https://www.sonova.com/spain/conozca-nuestros-talentos/",
+    "https://www.sonova.com/spain/contacto/",
+    "https://www.sonova.com/spain/empleo-2/",
+    "https://www.sonova.com/spain/empleo/",
+    "https://www.sonova.com/spain/la-vida-en-sonova/",
+    "https://www.sonova.com/spain/nuestra-empresa/",
+    "https://www.sonova.com/spain/politica-global-de-privacidad/",
+    "https://www.sonova.com/spain/sostenibilidad-en-sonova/",
+    "https://www.sonova.com/spain/terms-of-use/",
+    "https://www.sonova.com/sustainability/",
+    "https://www.sonova.com/sweden/",
+    "https://www.sonova.com/sweden/?query-1-page=2",
+    "https://www.sonova.com/sweden/?query-1-page=3",
+    "https://www.sonova.com/sweden/?query-1-page=44",
+    "https://www.sonova.com/sweden/anvandarvillkor/",
+    "https://www.sonova.com/sweden/global-privacy-policy/",
+    "https://www.sonova.com/sweden/sekretessmeddelande-rorande-cookies/",
+    "https://www.sonova.com/terms-use/",
+    "https://www.sonova.com/turkey/",
+    "https://www.sonova.com/turkey/?query-1-page=2",
+    "https://www.sonova.com/turkey/?query-1-page=3",
+    "https://www.sonova.com/turkey/?query-1-page=44",
+    "https://www.sonova.com/turkey/cerez-politikasi/",
+    "https://www.sonova.com/turkey/kullanim-sartlari/",
+    "https://www.sonova.com/turkey/kuresel-gizlilik-politikasi/",
+    "https://www.sonova.com/turkey/tanimlama-bilgisi-gizlilik-bildirimi/",
+    "https://www.sonova.com/uk/",
+    "https://www.sonova.com/uk/careers/",
+    "https://www.sonova.com/uk/contact-us/",
+    "https://www.sonova.com/uk/cookie-privacy-notice/",
+    "https://www.sonova.com/uk/get-to-know-our-talents/",
+    "https://www.sonova.com/uk/global-privacy-policy/",
+    "https://www.sonova.com/uk/life-at-sonova/",
+    "https://www.sonova.com/uk/our-company/",
+    "https://www.sonova.com/uk/sonova-uk-modern-slavery-statement/",
+    "https://www.sonova.com/uk/sustainability-at-sonova/",
+    "https://www.sonova.com/uk/terms-use/",
+    "https://www.sonova.com/uk/wp-content/uploads/sites/26/2026/08/240729_Tax-Strategy-for-Sonova-Service-Centre-Limited.Final_.pdf",
+    "https://www.sonova.com/uk/wp-content/uploads/sites/26/2026/08/240729_Tax-Strategy-for-Sonova-UK-Limited.Final_.pdf",
+    "https://www.sonova.com/uk/wp-content/uploads/sites/26/2026/08/Call-Recording-Privacy-Notice.pdf",
+    "https://www.sonova.com/uk/wp-content/uploads/sites/26/2026/08/SONOVA-UK-LIMITED-Batteries-Producer-Compliance-Certificate-2026.pdf",
+    "https://www.sonova.com/uk/wp-content/uploads/sites/26/2026/08/SONOVA-UK-LIMITED-WEEE-Producer-Compliance-Certificate-2026.pdf",
+    "https://www.sonova.com/uk/wp-content/uploads/sites/26/2026/09/Carbon_Reduction_Plan_2026_AB_SUK_and_SSC.pdf",
+    "https://www.sonova.com/usa/",
+    "https://www.sonova.com/usa/334-2/",
+    "https://www.sonova.com/usa/careers/",
+    "https://www.sonova.com/usa/contact/",
+    "https://www.sonova.com/usa/cookie-privacy-notice/",
+    "https://www.sonova.com/usa/get-to-know-our-talents/",
+    "https://www.sonova.com/usa/global-privacy-policy/",
+    "https://www.sonova.com/usa/life-at-sonova/",
+    "https://www.sonova.com/usa/our-company/",
+    "https://www.sonova.com/usa/sustainability-at-sonova/",
+    "https://www.sonova.com/why-invest-sonova-strategy/",
+    "https://www.sonova.com/wp-content/uploads/2018/05/03_00_sonova_ar17_csr_report_en.pdf",
+    "https://www.sonova.com/wp-content/uploads/2020/05/10_Sonova_AR_2019_20_CSR_Report_en_0.pdf",
+    "https://www.sonova.com/wp-content/uploads/2021/05/10_Sonova_AR_2020_21_CSR_Report_en_1.pdf",
+    "https://www.sonova.com/wp-content/uploads/2022/05/10_Sonova_AR_2021_22_ESG_report_en.pdf",
+    "https://www.sonova.com/wp-content/uploads/2023/05/10_Sonova_AR_2022_23_ESG_report_en_0.pdf",
+    "https://www.sonova.com/wp-content/uploads/2023/05/Protokoll-GV-2023_0.pdf",
+    "https://www.sonova.com/wp-content/uploads/2023/05/SHAB-Inserat_veroffentlicht.pdf",
+    "https://www.sonova.com/wp-content/uploads/2023/05/Sonova-Holding-AG-Statuten-EN-Propsosed-Amendments.pdf",
+    "https://www.sonova.com/wp-content/uploads/2023/05/Sonova-Holding-AG-Statuten-EN_CLEAR.pdf",
+    "https://www.sonova.com/wp-content/uploads/2023/05/WEB_GV_Einladung_2023_en.pdf",
+    "https://www.sonova.com/wp-content/uploads/2023/05/WEB_Summary_Report_22_23_EN.pdf",
+    "https://www.sonova.com/wp-content/uploads/2024/05/10_Sonova_AR_23-24_ESG_en.pdf",
+    "https://www.sonova.com/wp-content/uploads/2024/06/GV_Einladung_2024_Web_en.pdf",
+    "https://www.sonova.com/wp-content/uploads/2024/06/SHAB-Inserat_2024_veroffentlicht.pdf",
+    "https://www.sonova.com/wp-content/uploads/2024/06/Sonova-Holding-AG-_-AGM-Minutes-2024_Final-FEX_0.pdf",
+    "https://www.sonova.com/wp-content/uploads/2024/06/Sonova_AGM-2024_EN.pdf",
+    "https://www.sonova.com/wp-content/uploads/2024/06/Summary_Report_23_24_Web_en.pdf",
+    "https://www.sonova.com/wp-content/uploads/2025/05/01_Sonova_AR_24-25_Full_Report_en_2.pdf",
+    "https://www.sonova.com/wp-content/uploads/2025/05/02_Sonova_AR_24-25_Business_Report_en.pdf",
+    "https://www.sonova.com/wp-content/uploads/2025/05/06_Sonova_AR_24-25_CorpGov_en.pdf",
+    "https://www.sonova.com/wp-content/uploads/2025/05/07_Sonova_AR_24-25_Comp_en.pdf",
+    "https://www.sonova.com/wp-content/uploads/2025/05/08_Sonova_AR_24-25_Finance_en_0.pdf",
+    "https://www.sonova.com/wp-content/uploads/2025/05/10_Sonova_AR_24-25_ESG_en.pdf",
+    "https://www.sonova.com/wp-content/uploads/2025/05/20250610_AGM_EN.pdf",
+    "https://www.sonova.com/wp-content/uploads/2025/05/GV_Einladung_2025_Web_en.pdf",
+    "https://www.sonova.com/wp-content/uploads/2025/05/SHAB-Inserat_GV-2025_publiziert.pdf",
+    "https://www.sonova.com/wp-content/uploads/2025/05/Sonova-AGM-Minutes-2025.pdf",
+    "https://www.sonova.com/wp-content/uploads/2025/05/Sonova_FY24-2520Results20EN.pdf",
+    "https://www.sonova.com/wp-content/uploads/2025/05/Sonova_FY24-25_Presentation_2.pdf",
+    "https://www.sonova.com/wp-content/uploads/2025/05/Summary_Report_24_25_Web_en.pdf",
+    "https://www.sonova.com/wp-content/uploads/2025/11/MM_Sonova_HY25-2620Results_EN.pdf",
+    "https://www.sonova.com/wp-content/uploads/2025/11/Sonova_HY2025-2620Presentation.pdf",
+    "https://www.sonova.com/wp-content/uploads/2025/11/Sonova_Half-Year20report202025-26_EN.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/03/260323_Sonova-Strategy-Update-EN.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/03/Sonova-Strategy-Presentation_web.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/05/01_Sonova_AR_25-26_Full_Report_en.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/05/02_Sonova_AR_25-26_Business_Report_en.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/05/06_Sonova_AR_25-26_CorpGov_en.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/05/07_Sonova_AR_25-26_Comp_en.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/05/08_Sonova_AR_25-26_Finance_en.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/05/10_Sonova_AR_25-26_Sustainability_en.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/05/20260616_AGM_EN_ca1cee.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/05/GV_Einladung_2026_Web_en_0_3e6253.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/05/Minutes-AGM-signed_0_94f551.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/05/Restated-comparative-figures.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/05/Sonova-FY_25-26_Presentation.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/05/Sonova-FY_25-26_Presentation_0.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/05/Sonova_Abstimmungsresultate_GV2026_0_ade214.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/05/Sonova_FY25-26-Results_EN.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/05/Sonova_Prasenzmeldung_GV2026_0_862b47.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/07/SON_Infographic_World-Hearing-Day_Tips-for-healthy-ears_EN_update2026.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/08/10_Sonova_AR_24-25_ESG_en.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/08/2012-13-Sonova-Corporate-Social-Responsibility-Report.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/08/2013-14-Sonova-Corporate-Social-Responsibility-Report.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/08/2014-15-Sonova-Corporate-Social-Responsibility-Report.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/08/2015-16-Sonova-Corporate-Social-Responsibility-Report.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/08/2016-17-Sonova-Corporate-Social-Responsibility-Report.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/08/Sonova-Transaction-reporting-20171216-20171222.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/10/Investor-Presentation-EUHA-2026-1.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/HY_26-27_Presentation.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/NCC-Charter-Oct2026.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Arabic.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Chinese-Simplified.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Danish.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Dutch.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_English.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_French.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_German.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Hebrew.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Hungarian.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Italian.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Japanese.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Korean.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Polish.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Portuguese.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Spanish.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Turkish.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/SON_Code-of-Conduct_Vietnamese.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/Sonova_Financial-Information-1HY-26-27.pdf",
+    "https://www.sonova.com/wp-content/uploads/2026/11/Sonova_HY26-27-Results_EN.pdf"
+  ]
+}

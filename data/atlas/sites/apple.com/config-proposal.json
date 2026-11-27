@@ -1,0 +1,55 @@
+{
+  "checks": {
+    "catalogUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "catalogUrls.1": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "documentUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "modelUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "supportUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.1": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ]
+  },
+  "generatedAt": "2026-11-27T18:46:25.038Z",
+  "proposal": {
+    "catalogUrls": [
+      "https://www.apple.com/airpods-pro/",
+      "https://www.apple.com/airpods-pro/compare/"
+    ],
+    "documentUrlPattern": "^https://www\\.apple\\.com/environment/pdf/products/airpods/.*\\.pdf$",
+    "modelUrlPattern": "^https://www\\.apple\\.com/airpods-pro/specs/$",
+    "render": false,
+    "status": "active",
+    "supportUrls": [
+      "https://www.apple.com/airpods-pro/specs/",
+      "https://www.apple.com/airpods-pro/hearing-health/"
+    ]
+  }
+}

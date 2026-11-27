@@ -1,0 +1,465 @@
+{
+  "domain": "oticon.com",
+  "generatedAt": "2026-11-27T18:55:14.721Z",
+  "model": "sonnet",
+  "openQuestions": [
+    "Which /products/{n}/{slug} URLs exist for the current families Reveal, Zeal, Intent, Verit and Play SI? The pages read do not show them.",
+    "Do the Product downloads blocks on model pages link to PDFs, and on which hosts?",
+    "Does the model pattern's exclusion list drop models that should be kept? Opn, More, Ruby, Siya and others still appear in the catalog.",
+    "Is Zeal listed in the catalog? It is on the home page and the families list but not in the category pages read.",
+    "Does /products/accessories need render to list accessories? Its text shows none."
+  ],
+  "sections": {
+    "archive": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:25:32.378Z",
+            "url": "https://www.oticon.com/support"
+          }
+        ],
+        "text": "Web Archive has copies of the home page every year 2018–2026, latest 2026-11-17; /support also from 2018, latest 2026-10-09."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:25:27.954Z",
+            "url": "https://www.oticon.com/products"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:25:20.711Z",
+            "url": "https://www.oticon.com/hearing-loss"
+          }
+        ],
+        "text": "/products has copies only in 2025 (2) and 2026 (5), latest 2026-08-20; /hearing-loss has copies in 2025 and 2026 only."
+      }
+    ],
+    "links": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:26:46.152Z",
+            "url": "https://www.oticon.com/products/app"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:28:07.677Z",
+            "url": "https://www.oticon.com/inside-oticon/tax-exemption-certificates"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:26:49.451Z",
+            "url": "https://www.oticon.com/support/compatibility-guide"
+          }
+        ],
+        "text": "Documents are hosted on damcdn.demant.com (17 PDFs), p3.aprimocdn.net (44, mostly state tax exemption forms) and assets.ha.demant.com (1 CROS compatibility PDF)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:28:25.225Z",
+            "url": "https://www.oticon.com/about-us/marketsites"
+          }
+        ],
+        "text": "/about-us/marketsites links to country sites such as oticon.co.uk, oticon.de, oticon.fr, oticon.ca, oticon.com.au, and medton-hedim.co.il."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:25:50.994Z",
+            "url": "https://www.oticon.com/professionals"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:25:58.993Z",
+            "url": "https://www.oticon.com/professionals/hearing-solutions/ai"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:25:37.417Z",
+            "url": "https://www.oticon.com/about-us"
+          }
+        ],
+        "text": "Professionals pages link to myoticon.com, reveal.oticon.global and zeal.oticon.global; /about-us links to demant.com; the footer links to careers-demant.icims.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:25:11.805Z",
+            "url": "https://www.oticon.com/"
+          }
+        ],
+        "text": "The report lists no redirects."
+      }
+    ],
+    "next": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:54:00.867Z",
+            "url": "https://www.oticon.com/products/100051/oticon-opn-bte-plus-power"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:54:04.075Z",
+            "url": "https://www.oticon.com/products/1069796/oticon-cros-re-minirite-r"
+          }
+        ],
+        "text": "Check that the modelUrlPattern (excluding the cros, jet-px, more, opn, own, play-px, real, ruby, siya, xceed, zircon families) matches the intended current models in the sitemap's /products/{n}/{slug} URLs."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:54:04.075Z",
+            "url": "https://www.oticon.com/products/1069796/oticon-cros-re-minirite-r"
+          }
+        ],
+        "text": "Check whether model pages (full text) show the Product downloads PDF links, and fetch them with render if the plain fetch lacks them."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:27:15.361Z",
+            "url": "https://www.oticon.com/products/hearing-aids/family/intent"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:27:28.747Z",
+            "url": "https://www.oticon.com/products/hearing-aids/family/reveal"
+          }
+        ],
+        "text": "Check whether current Reveal, Zeal, Intent, Verit and Play SI models have /products/{n}/{slug} pages; the family pages show models but the model URLs are not shown in the pages read."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:25:30.179Z",
+            "url": "https://www.oticon.com/products-nhs/accessories/136477/connectclip"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:28:25.225Z",
+            "url": "https://www.oticon.com/about-us/marketsites"
+          }
+        ],
+        "text": "Check the /products-nhs section and the market sites for other editions of the catalog."
+      }
+    ],
+    "render": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:25:11.805Z",
+            "url": "https://www.oticon.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:26:39.186Z",
+            "url": "https://www.oticon.com/products/hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:27:15.361Z",
+            "url": "https://www.oticon.com/products/hearing-aids/family/intent"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:26:46.152Z",
+            "url": "https://www.oticon.com/products/app"
+          }
+        ],
+        "text": "The home page, /products/hearing-aids, the family pages (Intent, Reveal, Jet PX, Play SI, Verit, Real, Own, Own SI, Play PX, Xceed) and /products/app are marked as needing no render."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:25:27.954Z",
+            "url": "https://www.oticon.com/products"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:26:41.682Z",
+            "url": "https://www.oticon.com/products/accessories"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:27:26.470Z",
+            "url": "https://www.oticon.com/products/accessories/728329/easy-le-adapter"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:25:32.378Z",
+            "url": "https://www.oticon.com/support"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:26:49.451Z",
+            "url": "https://www.oticon.com/support/compatibility-guide"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:26:51.828Z",
+            "url": "https://www.oticon.com/support/troubleshooting"
+          }
+        ],
+        "text": "Marked as needing render: /products, /products/accessories, an accessory page (/products/accessories/728329/easy-le-adapter), /support, /support/compatibility-guide, /support/troubleshooting, /find-hearing-center, /hearing-test, /check-compatibility. /products/accessories shows no items in its text."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:54:00.867Z",
+            "url": "https://www.oticon.com/products/100051/oticon-opn-bte-plus-power"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:54:04.075Z",
+            "url": "https://www.oticon.com/products/1069796/oticon-cros-re-minirite-r"
+          }
+        ],
+        "text": "The text of the model pages read here (Opn BTE Plus Power, CROS RE miniRITE R) is cut off at the Product downloads block."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:54:16.975Z",
+            "url": "https://www.oticon.com/support/oticon-app/help-with-the-oticon-app"
+          }
+        ],
+        "text": "/support/oticon-app/help-with-the-oticon-app shows only a title and footer in the text, no article list."
+      }
+    ],
+    "structure": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:53:57.171Z",
+            "url": "https://www.oticon.com/robots.txt"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:25:08.747Z",
+            "url": "https://www.oticon.com/sitemap.xml"
+          }
+        ],
+        "text": "robots.txt returns 200, allows everything for all agents and lists https://www.oticon.com/sitemap.xml, which has 369 URLs."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:25:08.747Z",
+            "url": "https://www.oticon.com/sitemap.xml"
+          }
+        ],
+        "text": "The sitemap's largest sections are /products (111), /support (80), /professionals (68), /inside-oticon (43) and /hearing-loss (23); /products-nhs has 12 URLs."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:54:00.867Z",
+            "url": "https://www.oticon.com/products/100051/oticon-opn-bte-plus-power"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:54:04.075Z",
+            "url": "https://www.oticon.com/products/1069796/oticon-cros-re-minirite-r"
+          }
+        ],
+        "text": "Model pages follow /products/{n}/{slug} (73 in the sitemap), for example /products/100051/oticon-opn-bte-plus-power and /products/1069796/oticon-cros-re-minirite-r."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:27:15.361Z",
+            "url": "https://www.oticon.com/products/hearing-aids/family/intent"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:54:09.119Z",
+            "url": "https://www.oticon.com/products/hearing-aids/category/behind-the-ear"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:54:43.254Z",
+            "url": "https://www.oticon.com/products/hearing-aids/category/in-the-ear"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:54:46.963Z",
+            "url": "https://www.oticon.com/products/hearing-aids/category/children-and-teens"
+          }
+        ],
+        "text": "Family pages follow /products/hearing-aids/family/{slug} (16 in the sitemap). Category pages follow /products/hearing-aids/category/{slug} (5: behind-the-ear, in-the-ear, children-and-teens and others)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:27:26.470Z",
+            "url": "https://www.oticon.com/products/accessories/728329/easy-le-adapter"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:25:30.179Z",
+            "url": "https://www.oticon.com/products-nhs/accessories/136477/connectclip"
+          }
+        ],
+        "text": "Accessory pages follow /products/accessories/{n}/{slug} and /products-nhs/accessories/{n}/{slug} (12 each, same ids and slugs)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:54:09.119Z",
+            "url": "https://www.oticon.com/products/hearing-aids/category/behind-the-ear"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:54:43.254Z",
+            "url": "https://www.oticon.com/products/hearing-aids/category/in-the-ear"
+          }
+        ],
+        "text": "The catalog still lists discontinued or older families (Opn, Opn S, Opn Play, Xceed Play, Ruby, Siya, More, Zircon) next to current ones."
+      }
+    ],
+    "what": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:25:11.805Z",
+            "url": "https://www.oticon.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:28:30.237Z",
+            "url": "https://www.oticon.com/government-services/for-patients"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:28:07.677Z",
+            "url": "https://www.oticon.com/inside-oticon/tax-exemption-certificates"
+          }
+        ],
+        "text": "Oticon's own consumer and professional site; the US edition (Government Services, tax exemption certificates, US-language documents)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:25:11.805Z",
+            "url": "https://www.oticon.com/"
+          }
+        ],
+        "text": "The home page says Oticon, Reveal, Zeal, Intent, Play SI and Verit are trademarks of Oticon A/S."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:25:11.805Z",
+            "url": "https://www.oticon.com/"
+          }
+        ],
+        "text": "Current families on the home page: Reveal, Zeal, Intent, Jet PX, Play SI, Verit."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:25:11.805Z",
+            "url": "https://www.oticon.com/"
+          }
+        ],
+        "text": "The site is a live brand site with a single brand, oticon."
+      }
+    ],
+    "where": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:26:39.186Z",
+            "url": "https://www.oticon.com/products/hearing-aids"
+          }
+        ],
+        "text": "Catalog: /products/hearing-aids lists models grouped by category and families. The report shows it with 102 internal links and no render needed."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:54:09.119Z",
+            "url": "https://www.oticon.com/products/hearing-aids/category/behind-the-ear"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:54:43.254Z",
+            "url": "https://www.oticon.com/products/hearing-aids/category/in-the-ear"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:54:46.963Z",
+            "url": "https://www.oticon.com/products/hearing-aids/category/children-and-teens"
+          }
+        ],
+        "text": "Category pages list the models with their form factors: behind-the-ear, in-the-ear, children-and-teens."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:25:32.378Z",
+            "url": "https://www.oticon.com/support"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:26:49.451Z",
+            "url": "https://www.oticon.com/support/compatibility-guide"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:26:54.004Z",
+            "url": "https://www.oticon.com/support/pairing"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:26:51.828Z",
+            "url": "https://www.oticon.com/support/troubleshooting"
+          }
+        ],
+        "text": "Support pages: /support, /support/compatibility-guide, /support/pairing, /support/troubleshooting, /support/oticon-app, /support/care-and-cleaning, /support/batteries-and-charging."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:54:04.075Z",
+            "url": "https://www.oticon.com/products/1069796/oticon-cros-re-minirite-r"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:54:00.867Z",
+            "url": "https://www.oticon.com/products/100051/oticon-opn-bte-plus-power"
+          }
+        ],
+        "text": "Model pages have a Product downloads block with Overview and Technical Data entries (for example Oticon CROS RE miniRITE R, English (United States)); the PDF links were not listed in the report for that page."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:26:46.152Z",
+            "url": "https://www.oticon.com/products/app"
+          }
+        ],
+        "text": "/products/app links 7 PDFs on damcdn.demant.com: Companion App instructions for use (IFU) in several versions, a CBR document and a tinnitus SoundSupport information sheet."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:26:49.451Z",
+            "url": "https://www.oticon.com/support/compatibility-guide"
+          }
+        ],
+        "text": "/support/compatibility-guide links 4 PDFs: charger compatibility, phone compatibility list, streaming and accessories overview, and CROS compatibility overview."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:27:28.747Z",
+            "url": "https://www.oticon.com/products/hearing-aids/family/reveal"
+          }
+        ],
+        "text": "The Reveal family page links 6 PDFs (trifold, sales sheet, consumer brochure, differentiation tool, patient language guide, portfolio diagram)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:26:46.152Z",
+            "url": "https://www.oticon.com/products/app"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:25:43.737Z",
+            "url": "https://www.oticon.com/check-compatibility"
+          }
+        ],
+        "text": "The Oticon Companion app is at iOS id 1597064213 and Android com.oticon.app, linked from /products/app and /check-compatibility."
+      }
+    ]
+  },
+  "summary": {
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:26:39.186Z",
+        "url": "https://www.oticon.com/products/hearing-aids"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:54:00.867Z",
+        "url": "https://www.oticon.com/products/100051/oticon-opn-bte-plus-power"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:26:46.152Z",
+        "url": "https://www.oticon.com/products/app"
+      }
+    ],
+    "text": "oticon.com is Oticon's live US brand site (Demant group); the catalog is at /products/hearing-aids, with model pages at /products/{n}/{slug}, and documents are on external CDNs (damcdn.demant.com, p3.aprimocdn.net, assets.ha.demant.com)."
+  }
+}

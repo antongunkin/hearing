@@ -1,0 +1,34 @@
+{
+  "checks": {
+    "catalogUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "modelUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "supportUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ]
+  },
+  "generatedAt": "2026-11-27T18:48:01.920Z",
+  "proposal": {
+    "catalogUrls": [
+      "https://audienhearing.com/collections/all"
+    ],
+    "modelUrlPattern": "^https://audienhearing\\.com/products/(?:the-audien-atom-x-otc-hearing-aid|audien-atom-air-otc-hearing-aids|atom-pro-2|audien-atom-one-hearing-aid|audien-ion-pro-otc-hearing-aids|ion-iq|ion-air)$",
+    "render": false,
+    "status": "active",
+    "supportUrls": [
+      "https://audienhearing.com/pages/support"
+    ]
+  }
+}

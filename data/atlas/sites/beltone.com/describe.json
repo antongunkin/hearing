@@ -1,0 +1,334 @@
+{
+  "domain": "beltone.com",
+  "generatedAt": "2026-11-27T18:49:30.419Z",
+  "model": "sonnet",
+  "openQuestions": [
+    "Where do the user-guide PDF links on the support pages point? The report shows no PDFs there.",
+    "Which models does the catalog page list, and does it include Rely and Boost Ultra?",
+    "Do the /en international model pages overlap with the US catalog?"
+  ],
+  "sections": {
+    "archive": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:07:06.527Z",
+            "url": "https://www.beltone.com/en-us/"
+          }
+        ],
+        "text": "Web Archive has captures of /en-us (2019 to 2026, latest 20261104074120), /en, /en-ca and the US catalog page."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:07:54.404Z",
+            "url": "https://www.beltone.com/en-us/products/hearing-aids"
+          }
+        ],
+        "text": "The catalog page /en-us/products/hearing-aids has captures from 2023 to 2026, latest 20260921085907."
+      }
+    ],
+    "links": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:07:06.527Z",
+            "url": "https://www.beltone.com/en-us/"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:10:39.602Z",
+            "url": "https://shop.beltone.com/"
+          }
+        ],
+        "text": "The pages link ownabeltone.com (en-us and en-ca) and the shop at shop.beltone.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:07:06.527Z",
+            "url": "https://www.beltone.com/en-us/"
+          }
+        ],
+        "text": "The report lists no redirects."
+      }
+    ],
+    "next": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:48:34.624Z",
+            "url": "https://www.beltone.com/en-us/products/hearing-aids/beltone-boost-ultra"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:08:21.098Z",
+            "url": "https://www.beltone.com/en-us/help-center/hearing-aids-support"
+          }
+        ],
+        "text": "Check whether the model pattern should include beltone-boost-ultra, and whether the catalog page lists Boost Ultra and Rely."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:48:31.487Z",
+            "url": "https://www.beltone.com/en-us/help-center/hearing-aids-support/beltone-achieve-support"
+          }
+        ],
+        "text": "Check the support pages for real guide PDF URLs. The user-guide links were not visible in the page text."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:09:11.292Z",
+            "url": "https://www.beltone.com/en-ca/products/hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:48:42.713Z",
+            "url": "https://www.beltone.com/en/hearing-aids/beltone-hearing-solutions/beltone-achieve"
+          }
+        ],
+        "text": "Decide whether to scrape the en-ca and /en editions, which use different URL templates and model sets."
+      }
+    ],
+    "render": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:07:54.404Z",
+            "url": "https://www.beltone.com/en-us/products/hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:07:59.897Z",
+            "url": "https://www.beltone.com/en-us/products/hearing-aids/beltone-illuminate"
+          }
+        ],
+        "text": "Every crawled page has needsRender false, including the model pages, so the catalog and models work without scripts."
+      }
+    ],
+    "structure": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:48:26.904Z",
+            "url": "https://www.beltone.com/robots.txt"
+          }
+        ],
+        "text": "robots.txt disallows only /sitecore/content and lists sitemaps /en-us/xmlsitemap and /en/sitemapindex."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:07:00.430Z",
+            "url": "https://www.beltone.com/en-us/xmlsitemap"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:05:09.170Z",
+            "url": "https://www.beltone.com/en/sitemapindex"
+          }
+        ],
+        "text": "The sitemaps hold 1934 URLs: 1662 under /en-us, 160 under /en, 112 under /en-ca."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:05:16.314Z",
+            "url": "https://www.beltone.com/da/xmlsitemap"
+          }
+        ],
+        "text": "Per-locale xmlsitemap files exist for da, en-au, en-ca, en-gb, en-in, en-us, es-es, es-ln, fr-fr and it-it. de-at, de-de, fi-fi, ko-kr, pl-pl and pt-br return 404."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:08:16.787Z",
+            "url": "https://www.beltone.com/en-us/products/hearing-aids/beltone-achieve"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:09:35.629Z",
+            "url": "https://www.beltone.com/en-ca/products/hearing-aids/beltone-achieve"
+          }
+        ],
+        "text": "US model URL template: /en-us/products/hearing-aids/{slug} (8 pages). en-ca uses the same template (8 pages)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:07:00.430Z",
+            "url": "https://www.beltone.com/en-us/xmlsitemap"
+          }
+        ],
+        "text": "The en-us sitemap lists some odd /en/en-us/... URLs such as login and add-a-lead."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:07:21.820Z",
+            "url": "https://www.beltone.com/en-us/location/al/albertville/0050749002"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:11:07.479Z",
+            "url": "https://www.beltone.com/en-us/articles"
+          }
+        ],
+        "text": "Most of the US sitemap is clinic pages /en-us/location/{state}/{city}/{id} and articles /en-us/articles/{slug} (250)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:48:42.713Z",
+            "url": "https://www.beltone.com/en/hearing-aids/beltone-hearing-solutions/beltone-achieve"
+          }
+        ],
+        "text": "The /en site uses a different model template: /en/hearing-aids/beltone-hearing-solutions/{slug} (23 pages)."
+      }
+    ],
+    "what": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:07:06.527Z",
+            "url": "https://www.beltone.com/en-us/"
+          }
+        ],
+        "text": "beltone.com is the Beltone brand site, with a US edition at /en-us."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:48:45.504Z",
+            "url": "https://www.beltone.com/en/support/hearing-aids-support/beltone-achieve-support"
+          }
+        ],
+        "text": "The /en pages carry a Beltone Group address in Ballerup, Denmark and a country selector."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:10:39.602Z",
+            "url": "https://shop.beltone.com/"
+          }
+        ],
+        "text": "The site also has a separate shop at shop.beltone.com, titled Beltone's Official Online Store."
+      }
+    ],
+    "where": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:07:54.404Z",
+            "url": "https://www.beltone.com/en-us/products/hearing-aids"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:07:06.527Z",
+            "url": "https://www.beltone.com/en-us/"
+          }
+        ],
+        "text": "US catalog page: /en-us/products/hearing-aids. Menu models: Illuminate, Envision, Commence, Boost Max S, Serene, Achieve."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:48:34.624Z",
+            "url": "https://www.beltone.com/en-us/products/hearing-aids/beltone-boost-ultra"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:07:06.527Z",
+            "url": "https://www.beltone.com/en-us/"
+          }
+        ],
+        "text": "A Boost Ultra model page exists at /en-us/products/hearing-aids/beltone-boost-ultra, although the menu does not list it."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:08:21.098Z",
+            "url": "https://www.beltone.com/en-us/help-center/hearing-aids-support"
+          }
+        ],
+        "text": "Support hub /en-us/help-center/hearing-aids-support lists support pages for Illuminate, Envision, Commence, Boost Max S, Serene, Achieve, Rely, Boost Ultra and legacy models."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:48:31.487Z",
+            "url": "https://www.beltone.com/en-us/help-center/hearing-aids-support/beltone-achieve-support"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:49:06.049Z",
+            "url": "https://www.beltone.com/en-us/help-center/hearing-aids-support/beltone-illuminate-support"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:49:09.427Z",
+            "url": "https://www.beltone.com/en-us/help-center/hearing-aids-support/beltone-rely-support"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:48:37.516Z",
+            "url": "https://www.beltone.com/en-us/help-center/hearing-aids-support/beltone-boost-ultra-support"
+          }
+        ],
+        "text": "Per-model support pages list user guides (English and Spanish) by style, plus how-to topics, e.g. Achieve, Illuminate, Rely and Boost Ultra."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:08:16.787Z",
+            "url": "https://www.beltone.com/en-us/products/hearing-aids/beltone-achieve"
+          }
+        ],
+        "text": "The report finds no PDF links on the support pages it crawled. Its only PDF is a GN charger notice from May 2023, linked from the Achieve model pages."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:09:57.632Z",
+            "url": "https://www.beltone.com/en-ca/help-center/hearing-aids-support"
+          }
+        ],
+        "text": "The en-ca hearing-aids support page links a product list PDF on cdn1-originals.webdamdb.com (March 2024)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:48:45.504Z",
+            "url": "https://www.beltone.com/en/support/hearing-aids-support/beltone-achieve-support"
+          }
+        ],
+        "text": "The international /en site has support pages at /en/support/hearing-aids-support/{slug}. Its Achieve guides auto-download on click."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:07:59.897Z",
+            "url": "https://www.beltone.com/en-us/products/hearing-aids/beltone-illuminate"
+          },
+          {
+            "fetchedAt": "2026-11-27T17:08:24.749Z",
+            "url": "https://www.beltone.com/en-us/help-center/apps-support"
+          }
+        ],
+        "text": "Apps: the model pages link the HearMax app (iOS id 1161360579, Android com.beltone.hearmax). Apps support lists HearMax, Tinnitus Calmer and HearPlus."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T17:08:36.372Z",
+            "url": "https://www.beltone.com/en-us/help-center/the-cost-of-hearing-aids"
+          }
+        ],
+        "text": "The cost page gives price ranges by tier only, with no per-model prices."
+      }
+    ]
+  },
+  "summary": {
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:07:54.404Z",
+        "url": "https://www.beltone.com/en-us/products/hearing-aids"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:08:21.098Z",
+        "url": "https://www.beltone.com/en-us/help-center/hearing-aids-support"
+      }
+    ],
+    "text": "Beltone's live brand site: server-rendered (no scripts needed), US catalog at /en-us/products/hearing-aids with model pages and per-model support pages listing user-guide downloads; en-ca mirrors it and /en is an international site with different URLs."
+  }
+}

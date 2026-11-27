@@ -1,0 +1,55 @@
+{
+  "checks": {
+    "catalogUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "catalogUrls.1": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "documentUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "modelUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "supportUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.1": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ]
+  },
+  "generatedAt": "2026-11-27T19:02:23.084Z",
+  "proposal": {
+    "catalogUrls": [
+      "https://www.rexton.com/en-us/hearing-aids/reach/",
+      "https://www.rexton.com/en-us/hearing-aids/bicore/"
+    ],
+    "documentUrlPattern": "^https://cdn\\.rexton\\.com/-/media/.+\\.pdf",
+    "modelUrlPattern": "^https://www\\.rexton\\.com/en-us/hearing-aids/(reach|bicore|mycore|trucore)/[a-z0-9-]+/$",
+    "render": false,
+    "status": "active",
+    "supportUrls": [
+      "https://www.rexton.com/en-us/support/hearing-aids/bte-rechargeable/",
+      "https://www.rexton.com/en-us/support/faq/"
+    ]
+  }
+}

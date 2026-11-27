@@ -1,0 +1,404 @@
+{
+  "archive": {
+    "sections": [
+      {
+        "byYear": {
+          "2019": 45,
+          "2020": 82,
+          "2021": 63,
+          "2022": 130,
+          "2023": 203,
+          "2024": 192,
+          "2025": 198,
+          "2026": 261
+        },
+        "latest": "20261121081114",
+        "url": "https://www.apple.com/airpods-pro/"
+      }
+    ]
+  },
+  "budget": 60,
+  "domain": "apple.com",
+  "failures": [],
+  "generatedAt": "2026-11-27T16:59:44.543Z",
+  "mode": "live",
+  "outbound": [
+    {
+      "count": 5,
+      "domain": "icloud.com",
+      "examples": [
+        "https://www.icloud.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "regulations.gov",
+      "examples": [
+        "https://www.regulations.gov/document/EERE-2008-BT-STD-0005-0256"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "apps": {
+        "android": [],
+        "ios": [
+          "375380948"
+        ]
+      },
+      "external": [
+        "https://www.icloud.com/"
+      ],
+      "internalLinks": 106,
+      "jsonLdTypes": [
+        "Organization",
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.apple.com/environment/pdf/products/airpods/Apple_AirPods_Pro_3_PER_Sept2025.pdf",
+        "https://www.goldmansachs.com/privacy-and-cookies/Apple_Card_Privacy_Policy.pdf",
+        "https://www.goldmansachs.com/terms-and-conditions/Apple-Card-Customer-Agreement.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T16:59:23.275Z",
+        "url": "https://www.apple.com/airpods-pro/"
+      },
+      "title": "AirPods Pro 3 - Apple",
+      "url": "https://www.apple.com/airpods-pro/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": [
+          "375380948"
+        ]
+      },
+      "external": [
+        "https://www.icloud.com/"
+      ],
+      "internalLinks": 85,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T16:59:28.792Z",
+        "url": "https://www.apple.com/airpods-pro/hearing-health/"
+      },
+      "title": "AirPods Pro 3 - Hearing Health - Apple",
+      "url": "https://www.apple.com/airpods-pro/hearing-health/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": [
+          "375380948"
+        ]
+      },
+      "external": [
+        "https://www.regulations.gov/document/EERE-2008-BT-STD-0005-0256",
+        "https://www.icloud.com/"
+      ],
+      "internalLinks": 93,
+      "jsonLdTypes": [
+        "Organization",
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.apple.com/environment/pdf/products/airpods/Apple_AirPods_Pro_3_PER_Sept2025.pdf",
+        "https://www.apple.com/environment/pdf/Apple_Regulated_Substances_Specification.pdf",
+        "https://www.apple.com/environment/pdf/Apple_Environmental_Progress_Report_2026.pdf",
+        "https://www.goldmansachs.com/terms-and-conditions/Apple-Card-Customer-Agreement.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T16:59:32.410Z",
+        "url": "https://www.apple.com/airpods-pro/specs/"
+      },
+      "title": "AirPods Pro 3 - Technical Specifications - Apple",
+      "url": "https://www.apple.com/airpods-pro/specs/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": [
+          "375380948"
+        ]
+      },
+      "external": [
+        "https://www.icloud.com/"
+      ],
+      "internalLinks": 98,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T16:59:35.079Z",
+        "url": "https://www.apple.com/airpods-pro/compare/"
+      },
+      "title": "AirPods Pro 3 - Compare Models - Apple",
+      "url": "https://www.apple.com/airpods-pro/compare/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": [
+          "375380948"
+        ]
+      },
+      "external": [
+        "https://www.icloud.com/"
+      ],
+      "internalLinks": 80,
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T16:59:38.397Z",
+        "url": "https://www.apple.com/airpods-pro/feature-availability/"
+      },
+      "title": "AirPods Pro 3 - Hearing Health Feature Availability - Apple",
+      "url": "https://www.apple.com/airpods-pro/feature-availability/"
+    }
+  ],
+  "pdfHosts": [
+    {
+      "count": 4,
+      "examples": [
+        "https://www.apple.com/environment/pdf/products/airpods/Apple_AirPods_Pro_3_PER_Sept2025.pdf",
+        "https://www.apple.com/environment/pdf/Apple_Regulated_Substances_Specification.pdf",
+        "https://www.apple.com/environment/pdf/Apple_Environmental_Progress_Report_2026.pdf"
+      ],
+      "host": "apple.com"
+    },
+    {
+      "count": 3,
+      "examples": [
+        "https://www.goldmansachs.com/privacy-and-cookies/Apple_Card_Privacy_Policy.pdf",
+        "https://www.goldmansachs.com/terms-and-conditions/Apple-Card-Customer-Agreement.pdf"
+      ],
+      "host": "goldmansachs.com"
+    }
+  ],
+  "redirects": [],
+  "robots": {
+    "groups": [
+      {
+        "allow": [
+          "/ac/globalnav/2.0/*/images/ac-globalnav/globalnav/search/*"
+        ],
+        "disallow": [
+          "/*shop/browse/overlay/*",
+          "/*shop/iphone/payments/overlay/*",
+          "/cn/*/aow/*",
+          "/tmall*"
+        ],
+        "userAgents": [
+          "*"
+        ]
+      },
+      {
+        "allow": [
+          "/*shop/browse/overlay/*",
+          "/*shop/iphone/payments/overlay/*"
+        ],
+        "disallow": [],
+        "userAgents": [
+          "ChatGPT-User",
+          "GPTBot",
+          "OAI-SearchBot"
+        ]
+      },
+      {
+        "allow": [
+          "/cn/*",
+          "/cn-edu/*",
+          "/cn-k12/*"
+        ],
+        "disallow": [
+          "/*"
+        ],
+        "userAgents": [
+          "Baiduspider"
+        ]
+      },
+      {
+        "allow": [
+          "/cn/*",
+          "/cn-edu/*",
+          "/cn-k12/*"
+        ],
+        "disallow": [
+          "/*"
+        ],
+        "userAgents": [
+          "HaoSouSpider"
+        ]
+      },
+      {
+        "allow": [
+          "/cn/*",
+          "/cn-k12/*"
+        ],
+        "disallow": [
+          "/*"
+        ],
+        "userAgents": [
+          "Sogou web spider"
+        ]
+      },
+      {
+        "allow": [
+          "/cn/*",
+          "/cn-k12/*"
+        ],
+        "disallow": [
+          "/*"
+        ],
+        "userAgents": [
+          "Sogou inst spider"
+        ]
+      },
+      {
+        "allow": [
+          "/cn/*",
+          "/cn-k12/*"
+        ],
+        "disallow": [
+          "/*"
+        ],
+        "userAgents": [
+          "Sogou spider2"
+        ]
+      }
+    ],
+    "ref": {
+      "fetchedAt": "2026-11-27T16:58:06.801Z",
+      "url": "https://www.apple.com/robots.txt"
+    },
+    "sitemaps": [
+      "https://www.apple.com/shop/sitemap.xml",
+      "https://www.apple.com/autopush/sitemap/sitemap-index.xml",
+      "https://www.apple.com/newsroom/sitemap.xml",
+      "https://www.apple.com/retail/sitemap/sitemap.xml",
+      "https://www.apple.com/today/sitemap-index.xml"
+    ],
+    "status": 200
+  },
+  "sitemap": {
+    "refs": [
+      {
+        "fetchedAt": "2026-11-27T16:58:11.296Z",
+        "url": "https://www.apple.com/shop/sitemap.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:58:15.841Z",
+        "url": "https://www.apple.com/autopush/sitemap/sitemap-index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:58:18.038Z",
+        "url": "https://www.apple.com/newsroom/sitemap.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:58:22.990Z",
+        "url": "https://www.apple.com/retail/sitemap/sitemap.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:58:27.645Z",
+        "url": "https://www.apple.com/today/sitemap-index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:58:30.376Z",
+        "url": "https://www.apple.com.cn/shop/sitemap-index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:58:30.539Z",
+        "url": "https://www.apple.com/ae/shop/sitemap-index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:58:35.712Z",
+        "url": "https://www.apple.com/at/shop/sitemap-index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:58:40.774Z",
+        "url": "https://www.apple.com/au/shop/sitemap-index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:58:43.179Z",
+        "url": "https://www.apple.com/be-fr/shop/sitemap-index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:58:47.764Z",
+        "url": "https://www.apple.com/be-nl/shop/sitemap-index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:58:51.257Z",
+        "url": "https://www.apple.com/br/shop/sitemap-index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:58:55.608Z",
+        "url": "https://www.apple.com/ca/shop/sitemap-index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:58:59.380Z",
+        "url": "https://www.apple.com/ch-de/shop/sitemap-index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:59:01.991Z",
+        "url": "https://www.apple.com/ch-fr/shop/sitemap-index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:59:05.441Z",
+        "url": "https://www.apple.com/cl/shop/sitemap-index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:59:09.859Z",
+        "url": "https://www.apple.com/cz/shop/sitemap-index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:59:13.942Z",
+        "url": "https://www.apple.com/de/shop/sitemap-index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:59:16.300Z",
+        "url": "https://www.apple.com/dk/shop/sitemap-index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T16:59:18.722Z",
+        "url": "https://www.apple.com/es/shop/sitemap-index.xml"
+      }
+    ],
+    "sections": [],
+    "urlCount": 0
+  },
+  "start": "https://www.apple.com/airpods-pro/",
+  "templates": [
+    {
+      "count": 4,
+      "examples": [
+        "https://www.apple.com/airpods-pro/compare/",
+        "https://www.apple.com/airpods-pro/feature-availability/",
+        "https://www.apple.com/airpods-pro/hearing-health/"
+      ],
+      "pattern": "https://www.apple.com/airpods-pro/{slug}"
+    }
+  ],
+  "urls": [
+    "https://www.apple.com/airpods-pro/",
+    "https://www.apple.com/airpods-pro/compare/",
+    "https://www.apple.com/airpods-pro/feature-availability/",
+    "https://www.apple.com/airpods-pro/hearing-health/",
+    "https://www.apple.com/airpods-pro/specs/",
+    "https://www.apple.com/environment/pdf/Apple_Environmental_Progress_Report_2026.pdf",
+    "https://www.apple.com/environment/pdf/Apple_Regulated_Substances_Specification.pdf",
+    "https://www.apple.com/environment/pdf/products/airpods/Apple_AirPods_Pro_3_PER_Sept2025.pdf",
+    "https://www.goldmansachs.com/privacy-and-cookies/Apple_Card_Privacy_Policy.pdf",
+    "https://www.goldmansachs.com/terms-and-conditions/Apple-Card-Customer-Agreement.pdf"
+  ]
+}

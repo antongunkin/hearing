@@ -1,0 +1,560 @@
+{
+  "archive": {
+    "sections": []
+  },
+  "budget": 60,
+  "domain": "costco.com",
+  "failures": [
+    {
+      "detail": "rate-limited",
+      "reason": "refused",
+      "url": "https://www.costco.com/hearlink-remote-control-for-philips-hearing-aids.product.100909216.html"
+    }
+  ],
+  "generatedAt": "2026-11-27T17:19:49.641Z",
+  "mode": "live",
+  "outbound": [
+    {
+      "count": 4,
+      "domain": "citicards.citi.com",
+      "examples": [
+        "https://citicards.citi.com/usc/LPACA/Costco/cards/Dual/PartnerPS/index.html?promocode=Membership58N"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "costco.ca",
+      "examples": [
+        "https://www.costco.ca/"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "costco.co.jp",
+      "examples": [
+        "https://www.costco.co.jp/"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "costco.co.kr",
+      "examples": [
+        "https://www.costco.co.kr/"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "costco.co.nz",
+      "examples": [
+        "https://www.costco.co.nz/"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "costco.co.uk",
+      "examples": [
+        "https://www.costco.co.uk/"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "costco.com.au",
+      "examples": [
+        "https://www.costco.com.au/"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "costco.com.mx",
+      "examples": [
+        "https://www.costco.com.mx/"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "costco.com.tw",
+      "examples": [
+        "https://www.costco.com.tw/"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "costco.es",
+      "examples": [
+        "https://www.costco.es/"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "costco.fr",
+      "examples": [
+        "https://www.costco.fr/"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "costco.is",
+      "examples": [
+        "https://www.costco.is/"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "costco.se",
+      "examples": [
+        "https://www.costco.se/"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "costcobusinessdelivery.com",
+      "examples": [
+        "https://www.costcobusinessdelivery.com/"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "costcoconnection.com",
+      "examples": [
+        "https://www.costcoconnection.com/"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "costcotravel.com",
+      "examples": [
+        "https://www.costcotravel.com/?utm_source=costco.com&utm_medium=topnav&utm_campaign=mkt&utm_term=www.costcotravel.com&utm_content=20260202"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "facebook.com",
+      "examples": [
+        "https://www.facebook.com/costco"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "instagram.com",
+      "examples": [
+        "https://www.instagram.com/Costco/"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "pinterest.com",
+      "examples": [
+        "https://www.pinterest.com/costco"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "tiktok.com",
+      "examples": [
+        "https://www.tiktok.com/@costco?lang=en"
+      ]
+    },
+    {
+      "count": 3,
+      "domain": "audienhearing.com",
+      "examples": [
+        "https://audienhearing.com/pages/limited-warranty",
+        "https://audienhearing.com/pages/limited-warranty?_ab=0&_fd=0&_sc=1"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.costcobusinessdelivery.com/",
+        "https://www.costcotravel.com/?utm_source=costco.com&utm_medium=topnav&utm_campaign=mkt&utm_term=www.costcotravel.com&utm_content=20260202",
+        "https://www.costcoconnection.com/",
+        "https://citicards.citi.com/usc/LPACA/Costco/cards/Dual/PartnerPS/index.html?promocode=Membership58N",
+        "https://www.costco.ca/",
+        "https://www.costco.co.uk/",
+        "https://www.costco.com.mx/",
+        "https://www.costco.co.kr/",
+        "https://www.costco.com.tw/",
+        "https://www.costco.co.jp/",
+        "https://www.costco.com.au/",
+        "https://www.costco.is/",
+        "https://www.costco.fr/",
+        "https://www.costco.es/",
+        "https://www.costco.co.nz/",
+        "https://www.costco.se/",
+        "https://www.facebook.com/costco",
+        "https://www.pinterest.com/costco",
+        "https://www.instagram.com/Costco/",
+        "https://www.tiktok.com/@costco?lang=en"
+      ],
+      "internalLinks": 80,
+      "jsonLdTypes": [
+        "BreadcrumbList"
+      ],
+      "needsRender": false,
+      "pdfs": [
+        "https://mobilecontent.costco.com/live/resource/img/static-landing-pages/HAC000017B_240402_HistoryForm.pdf",
+        "https://mobilecontent.costco.com/live/resource/img/static-landing-pages/HAC000017SP_240402_HistoryForm.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:19:28.086Z",
+        "url": "https://www.costco.com/f/-/hearing-aid-center"
+      },
+      "title": "Costco Hearing Aid Center",
+      "url": "https://www.costco.com/f/-/hearing-aid-center"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.costcobusinessdelivery.com/",
+        "https://www.costcotravel.com/?utm_source=costco.com&utm_medium=topnav&utm_campaign=mkt&utm_term=www.costcotravel.com&utm_content=20260202",
+        "https://audienhearing.com/pages/limited-warranty",
+        "https://www.costcoconnection.com/",
+        "https://citicards.citi.com/usc/LPACA/Costco/cards/Dual/PartnerPS/index.html?promocode=Membership58N",
+        "https://www.costco.ca/",
+        "https://www.costco.co.uk/",
+        "https://www.costco.com.mx/",
+        "https://www.costco.co.kr/",
+        "https://www.costco.com.tw/",
+        "https://www.costco.co.jp/",
+        "https://www.costco.com.au/",
+        "https://www.costco.is/",
+        "https://www.costco.fr/",
+        "https://www.costco.es/",
+        "https://www.costco.co.nz/",
+        "https://www.costco.se/",
+        "https://www.facebook.com/costco",
+        "https://www.pinterest.com/costco",
+        "https://www.instagram.com/Costco/",
+        "https://www.tiktok.com/@costco?lang=en"
+      ],
+      "internalLinks": 81,
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:19:32.642Z",
+        "url": "https://www.costco.com/p/-/audien-atom-x-otc-hearing-aids-bundle/4201049668"
+      },
+      "title": "Audien Atom X OTC Hearing Aids Bundle | Costco",
+      "url": "https://www.costco.com/p/-/audien-atom-x-otc-hearing-aids-bundle/4201049668"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.costcobusinessdelivery.com/",
+        "https://www.costcotravel.com/?utm_source=costco.com&utm_medium=topnav&utm_campaign=mkt&utm_term=www.costcotravel.com&utm_content=20260202",
+        "https://audienhearing.com/pages/limited-warranty",
+        "https://www.costcoconnection.com/",
+        "https://citicards.citi.com/usc/LPACA/Costco/cards/Dual/PartnerPS/index.html?promocode=Membership58N",
+        "https://www.costco.ca/",
+        "https://www.costco.co.uk/",
+        "https://www.costco.com.mx/",
+        "https://www.costco.co.kr/",
+        "https://www.costco.com.tw/",
+        "https://www.costco.co.jp/",
+        "https://www.costco.com.au/",
+        "https://www.costco.is/",
+        "https://www.costco.fr/",
+        "https://www.costco.es/",
+        "https://www.costco.co.nz/",
+        "https://www.costco.se/",
+        "https://www.facebook.com/costco",
+        "https://www.pinterest.com/costco",
+        "https://www.instagram.com/Costco/",
+        "https://www.tiktok.com/@costco?lang=en"
+      ],
+      "internalLinks": 81,
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:19:37.202Z",
+        "url": "https://www.costco.com/p/-/audien-atom-x-otc-hearing-aids-bundle/4201049668"
+      },
+      "title": "Audien Atom X OTC Hearing Aids Bundle | Costco",
+      "url": "https://www.costco.com/p/-/audien-atom-x-otc-hearing-aids-bundle/4201049668"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "external": [
+        "https://www.costcobusinessdelivery.com/",
+        "https://www.costcotravel.com/?utm_source=costco.com&utm_medium=topnav&utm_campaign=mkt&utm_term=www.costcotravel.com&utm_content=20260202",
+        "https://audienhearing.com/pages/limited-warranty?_ab=0&_fd=0&_sc=1",
+        "https://www.costcoconnection.com/",
+        "https://citicards.citi.com/usc/LPACA/Costco/cards/Dual/PartnerPS/index.html?promocode=Membership58N",
+        "https://www.costco.ca/",
+        "https://www.costco.co.uk/",
+        "https://www.costco.com.mx/",
+        "https://www.costco.co.kr/",
+        "https://www.costco.com.tw/",
+        "https://www.costco.co.jp/",
+        "https://www.costco.com.au/",
+        "https://www.costco.is/",
+        "https://www.costco.fr/",
+        "https://www.costco.es/",
+        "https://www.costco.co.nz/",
+        "https://www.costco.se/",
+        "https://www.facebook.com/costco",
+        "https://www.pinterest.com/costco",
+        "https://www.instagram.com/Costco/",
+        "https://www.tiktok.com/@costco?lang=en"
+      ],
+      "internalLinks": 81,
+      "jsonLdTypes": [
+        "BreadcrumbList",
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T17:19:43.892Z",
+        "url": "https://www.costco.com/p/-/audien-ion-iq-otc-hearing-aids-bundle/4201050048"
+      },
+      "title": "Audien Ion IQ OTC Hearing Aids Bundle | Costco",
+      "url": "https://www.costco.com/p/-/audien-ion-iq-otc-hearing-aids-bundle/4201050048"
+    }
+  ],
+  "pdfHosts": [
+    {
+      "count": 2,
+      "examples": [
+        "https://mobilecontent.costco.com/live/resource/img/static-landing-pages/HAC000017B_240402_HistoryForm.pdf",
+        "https://mobilecontent.costco.com/live/resource/img/static-landing-pages/HAC000017SP_240402_HistoryForm.pdf"
+      ],
+      "host": "mobilecontent.costco.com"
+    }
+  ],
+  "redirects": [],
+  "robots": {
+    "groups": [
+      {
+        "allow": [
+          "/*?currentPage=*pageSize=*"
+        ],
+        "disallow": [
+          "/*WarehouseLocatorBrowseView*",
+          "/*AddressBookDisplayView*",
+          "/*ChangePassword*",
+          "/*CommunicationPreferenceView*",
+          "/*NonAjaxAddressBook*",
+          "/*OrderStatusCmd*",
+          "/*PaymentMethodDisplayView*",
+          "/*UserAccountView*",
+          "/*UserRegistrationErrorView*",
+          "/*CashCardBalanceInquiry*",
+          "/*CashCardFormView*",
+          "/*BillingPaymentDisplayView*",
+          "/*CheckoutReviewDisplayView*",
+          "/*CostcoOrderReview*",
+          "/*MultipleShipmentOrderSummaryView*",
+          "/*OrderBillingView*",
+          "/*OrderConfirmationView*",
+          "/*AccessControlErrorView*",
+          "/*AuthenticationPolicyErrorView*",
+          "/*CrossSiteRequestForgeryErrorView*",
+          "/*GenericApplicationError*",
+          "/*GenericError*",
+          "/*GenericSystemError*",
+          "/*InvalidInputErrorView*",
+          "/*InvalidProductView*",
+          "/*PasswordReEnterErrorView*",
+          "/*PreviewExclusionView*",
+          "/*ProductNotFoundView*",
+          "/*ProhibitedCharacterErrorView*",
+          "/*?*pageSize=*",
+          "/*?*sortBy=*",
+          "/RegisterAccount*",
+          "/UserRegistrationForm*",
+          "/*ResetPassword*",
+          "/Logoff*",
+          "/*ListOrdersDisplayTableView*",
+          "/*ListOrdersDisplayView*",
+          "/*OrderStatusDetailsView*",
+          "/*OrderStatusSummaryFSAView*",
+          "/*OrderStatusSummaryView*",
+          "/*OrderStatusTableDetailsDisplay*",
+          "/Browse/",
+          "/Common/",
+          "/Warehouse/",
+          "/CatalogSearch*",
+          "/*AjaxManageShoppingCartCmd*",
+          "/*CTOConfigureCmd*",
+          "/*WarehouseLocatorDirectionsView*",
+          "/Pharmacy/AccountRegister",
+          "/SiteMap$",
+          "/SiteMap?*",
+          "/*OrderByItemsDisplayView*",
+          "/*OrderDefinitionView*",
+          "/*SharedWishListView*"
+        ],
+        "userAgents": [
+          "*"
+        ]
+      }
+    ],
+    "ref": {
+      "fetchedAt": "2026-11-27T17:18:13.009Z",
+      "url": "https://www.costco.com/robots.txt"
+    },
+    "sitemaps": [
+      "https://www.costco.com/sitemap_lw_index.xml"
+    ],
+    "status": 200
+  },
+  "sitemap": {
+    "refs": [
+      {
+        "fetchedAt": "2026-11-27T17:18:16.776Z",
+        "url": "https://www.costco.com/sitemap_lw_index.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:18:22.051Z",
+        "url": "https://www.costco.com/sitemap_lw_r_000.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:18:28.976Z",
+        "url": "https://www.costco.com/sitemap_lw_r_mod_000.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:18:32.661Z",
+        "url": "https://www.costco.com/sitemap_lw_l_mod_001.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:18:35.226Z",
+        "url": "https://www.costco.com/sitemap_lw_s_000.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:18:40.306Z",
+        "url": "https://www.costco.com/sitemap_lw_ac_001.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:18:44.704Z",
+        "url": "https://www.costco.com/sitemap_lw_cmpp_p_001.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:18:47.384Z",
+        "url": "https://www.costco.com/sitemap_lw_l_001.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:18:50.960Z",
+        "url": "https://www.costco.com/sitemap_lw_p_mod_001.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:18:53.291Z",
+        "url": "https://www.costco.com/sitemap_lw_asc_001.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:18:57.516Z",
+        "url": "https://www.costco.com/sitemap_lw_c_000.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:19:01.994Z",
+        "url": "https://www.costco.com/sitemap_lw_r_001.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:19:08.978Z",
+        "url": "https://www.costco.com/sitemap_lw_i_mod_001.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:19:11.820Z",
+        "url": "https://www.costco.com/sitemap_lw_i_001.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:19:16.283Z",
+        "url": "https://www.costco.com/sitemap_lw_r_mod_001.xml"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:19:19.027Z",
+        "url": "https://www.costco.com/sitemap_lw_p_001.xml"
+      }
+    ],
+    "sections": [
+      {
+        "count": 7,
+        "path": "/p"
+      },
+      {
+        "count": 1,
+        "path": "/apple-airpods-pro-3%2c-wireless-earbuds%2c-active-noise-cancellation%2c-hearing-aid-feature%2c-heart-rate-sensing%2c-includes-2-years-of-applecare%2b.product.4000404510.html"
+      },
+      {
+        "count": 1,
+        "path": "/audien-atom-x-otc-hearing-aids-bundle.product.4201049668.html"
+      },
+      {
+        "count": 1,
+        "path": "/audien-ion-iq-otc-hearing-aids-bundle.product.4201050048.html"
+      },
+      {
+        "count": 1,
+        "path": "/costco-hearing-aid-center.product.100476358.html"
+      },
+      {
+        "count": 1,
+        "path": "/hearlink-audioclip-for-philips-hearing-aids.product.100909221.html"
+      },
+      {
+        "count": 1,
+        "path": "/hearlink-remote-control-for-philips-hearing-aids.product.100909216.html"
+      },
+      {
+        "count": 1,
+        "path": "/hearlink-tv-adapter-for-philips-hearing-aids.product.4000301685.html"
+      }
+    ],
+    "urlCount": 14
+  },
+  "start": "https://www.costco.com/hearing-aid-center.html",
+  "templates": [
+    {
+      "count": 9,
+      "examples": [
+        "https://www.costco.com/apple-airpods-pro-3%2c-wireless-earbuds%2c-active-noise-cancellation%2c-hearing-aid-feature%2c-heart-rate-sensing%2c-includes-2-years-of-applecare%2b.product.4000404510.html",
+        "https://www.costco.com/audien-atom-x-otc-hearing-aids-bundle.product.4201049668.html",
+        "https://www.costco.com/audien-ion-iq-otc-hearing-aids-bundle.product.4201050048.html"
+      ],
+      "pattern": "https://www.costco.com/{slug}"
+    }
+  ],
+  "urls": [
+    "https://mobilecontent.costco.com/live/resource/img/static-landing-pages/HAC000017B_240402_HistoryForm.pdf",
+    "https://mobilecontent.costco.com/live/resource/img/static-landing-pages/HAC000017SP_240402_HistoryForm.pdf",
+    "https://www.costco.com/apple-airpods-pro-3%2c-wireless-earbuds%2c-active-noise-cancellation%2c-hearing-aid-feature%2c-heart-rate-sensing%2c-includes-2-years-of-applecare%2b.product.4000404510.html",
+    "https://www.costco.com/audien-atom-x-otc-hearing-aids-bundle.product.4201049668.html",
+    "https://www.costco.com/audien-ion-iq-otc-hearing-aids-bundle.product.4201050048.html",
+    "https://www.costco.com/costco-hearing-aid-center.product.100476358.html",
+    "https://www.costco.com/f/-/hearing-aid-center",
+    "https://www.costco.com/hearing-aid-center.html",
+    "https://www.costco.com/hearing-aids-rewards-calculator.html",
+    "https://www.costco.com/hearlink-audioclip-for-philips-hearing-aids.product.100909221.html",
+    "https://www.costco.com/hearlink-remote-control-for-philips-hearing-aids.product.100909216.html",
+    "https://www.costco.com/hearlink-tv-adapter-for-philips-hearing-aids.product.4000301685.html",
+    "https://www.costco.com/p/-/apple-airpods-pro-3-wireless-earbuds-active-noise-cancellation-hearing-aid-feature-heart-rate-sensing-includes-2-years-of-applecare/4000404510",
+    "https://www.costco.com/p/-/audien-atom-x-otc-hearing-aids-bundle/4201049668",
+    "https://www.costco.com/p/-/audien-ion-iq-otc-hearing-aids-bundle/4201050048",
+    "https://www.costco.com/p/-/costco-hearing-aid-center/100476358",
+    "https://www.costco.com/p/-/hearlink-audioclip-for-philips-hearing-aids/100909221",
+    "https://www.costco.com/p/-/hearlink-remote-control-for-philips-hearing-aids/100909216",
+    "https://www.costco.com/p/-/hearlink-tv-adapter-for-philips-hearing-aids/4000301685"
+  ]
+}

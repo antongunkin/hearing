@@ -1,0 +1,344 @@
+{
+  "domain": "sonova.com",
+  "generatedAt": "2026-11-27T19:09:05.260Z",
+  "model": "sonnet",
+  "openQuestions": [
+    "Which pages are in the sitemaps? The report shows urlCount 0.",
+    "Which regional retail brand sites sit behind the paginated brands list?",
+    "Do the brand sites publish user guides and apps? The report does not say.",
+    "What does the Sennheiser consumer hearing divestment change for the brand list?"
+  ],
+  "sections": {
+    "archive": [],
+    "links": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:24:05.343Z",
+            "url": "https://www.sonova.com/"
+          }
+        ],
+        "text": "The home page links to the brand sites phonak.com, unitron.com, advancedbionics.com, audionova.com and hansaton.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:28:05.511Z",
+            "url": "https://www.sonova.com/brands/"
+          }
+        ],
+        "text": "The brands page links to phonak.com, unitron.com, hansaton.com, advancedbionics.com and sennheiser-hearing.com, and to regional retail brand sites such as audionova.dk, audionovaitalia.it and audiumbrasil.com.br."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:24:21.928Z",
+            "url": "https://www.sonova.com/canada/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:24:45.157Z",
+            "url": "https://www.sonova.com/australia/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:24:48.812Z",
+            "url": "https://www.sonova.com/newzealand/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:25:44.611Z",
+            "url": "https://www.sonova.com/germany/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:25:49.782Z",
+            "url": "https://www.sonova.com/hungary/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:26:05.673Z",
+            "url": "https://www.sonova.com/poland/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:25:25.671Z",
+            "url": "https://www.sonova.com/belgium/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:25:58.056Z",
+            "url": "https://www.sonova.com/netherlands/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:25:41.383Z",
+            "url": "https://www.sonova.com/france/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:26:19.541Z",
+            "url": "https://www.sonova.com/uk/"
+          }
+        ],
+        "text": "Country sites link to local retail sites such as connecthearing.ca, avenirhearing.ca, connecthearing.com.au, tritonhearing.co.nz, geers.de, geers.hu, geers.pl, lapperre.be, schoonenberg.nl, auditionsante.fr and bootshearingcare.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:24:39.788Z",
+            "url": "https://www.sonova.com/mexico/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:24:05.343Z",
+            "url": "https://www.sonova.com/"
+          }
+        ],
+        "text": "Career links go to career5.successfactors.eu. The China site is sonova.cn."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:26:42.542Z",
+            "url": "https://www.sonova.com/corporate-esg-reporting-and-disclosure/"
+          }
+        ],
+        "text": "An older ESG report is hosted on report.sonova.com, and its pages follow report.sonova.com/{year}/en/{slug}."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:24:05.343Z",
+            "url": "https://www.sonova.com/"
+          }
+        ],
+        "text": "The report shows no redirects."
+      }
+    ],
+    "next": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:28:05.511Z",
+            "url": "https://www.sonova.com/brands/"
+          }
+        ],
+        "text": "Treat this as a group site. Take hearing aid catalogs, manuals and apps from phonak.com, unitron.com, hansaton.com and advancedbionics.com."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:28:05.511Z",
+            "url": "https://www.sonova.com/brands/"
+          }
+        ],
+        "text": "Check the AudioNova and other retail brand sites for any product lists."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:24:14.360Z",
+            "url": "https://www.sonova.com/category/product/"
+          }
+        ],
+        "text": "Use the /category/product/ news for launch dates of new platforms."
+      }
+    ],
+    "render": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:24:05.343Z",
+            "url": "https://www.sonova.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:28:05.511Z",
+            "url": "https://www.sonova.com/brands/"
+          }
+        ],
+        "text": "Pages are server-rendered, with needsRender false on every page checked."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:28:05.511Z",
+            "url": "https://www.sonova.com/brands/"
+          }
+        ],
+        "text": "The brands page shows a country filter and pagination (1, 2, 3 … 6) for AudioNova entities, so the retail brand list may load beyond the first page."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:24:05.343Z",
+            "url": "https://www.sonova.com/"
+          }
+        ],
+        "text": "The report lists no failures."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:22:45.759Z",
+            "url": "https://www.sonova.com/sitemap_index.xml"
+          }
+        ],
+        "text": "The sitemap section of the report shows urlCount 0 and no sections, although 20 sitemap indexes were fetched."
+      }
+    ],
+    "structure": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:24:05.343Z",
+            "url": "https://www.sonova.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:28:05.511Z",
+            "url": "https://www.sonova.com/brands/"
+          }
+        ],
+        "text": "Top-level sections are Investors, Innovation, Hearing Health, Our Brands, Who We Are (Our Company), News and Careers."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:22:42.074Z",
+            "url": "https://www.sonova.com/robots.txt"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:24:16.902Z",
+            "url": "https://www.sonova.com/de/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:24:21.928Z",
+            "url": "https://www.sonova.com/canada/"
+          }
+        ],
+        "text": "Country sites sit under path prefixes such as /canada/, /usa/, /germany/ and /uk/, and /de/ holds the German version of the international site. Each country has its own sitemap_index.xml listed in robots.txt."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:24:14.360Z",
+            "url": "https://www.sonova.com/category/product/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:26:32.786Z",
+            "url": "https://www.sonova.com/ad-hoc-announcements/"
+          }
+        ],
+        "text": "Other templates are /people/{slug}, /event/{slug} and /category/{slug}. Paginated lists use ?query-1-page=N."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:22:42.074Z",
+            "url": "https://www.sonova.com/robots.txt"
+          }
+        ],
+        "text": "robots.txt has one group for all agents with no allow or disallow rules, and it lists 27 sitemap indexes."
+      }
+    ],
+    "what": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:24:05.343Z",
+            "url": "https://www.sonova.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:28:09.421Z",
+            "url": "https://www.sonova.com/company/"
+          }
+        ],
+        "text": "Sonova International is the corporate site of Sonova, a hearing care group headquartered in Stäfa, Switzerland, founded in 1947."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:24:05.343Z",
+            "url": "https://www.sonova.com/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:28:09.421Z",
+            "url": "https://www.sonova.com/company/"
+          }
+        ],
+        "text": "Sonova operates through the brands Phonak, Unitron, AudioNova and Advanced Bionics, plus regional brands such as Hansaton."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:28:05.511Z",
+            "url": "https://www.sonova.com/brands/"
+          }
+        ],
+        "text": "The brands page lists Wholesale (Phonak, Unitron, Hansaton), Retail (AudioNova and other regional brands), Cochlear Implants (Advanced Bionics) and Consumer Hearing (Sennheiser)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:28:09.421Z",
+            "url": "https://www.sonova.com/company/"
+          }
+        ],
+        "text": "In March 2026 Sonova decided to divest its Consumer Hearing business."
+      }
+    ],
+    "where": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:28:05.511Z",
+            "url": "https://www.sonova.com/brands/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:24:05.343Z",
+            "url": "https://www.sonova.com/"
+          }
+        ],
+        "text": "The site has no hearing aid model catalog. The brands page only links out to the brand sites."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:24:14.360Z",
+            "url": "https://www.sonova.com/category/product/"
+          }
+        ],
+        "text": "Product news is under /category/product/ and covers Phonak launches such as Roger On Sphere and the EON portfolio, and Advanced Bionics news."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:26:39.792Z",
+            "url": "https://www.sonova.com/reports-and-presentations/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:27:44.102Z",
+            "url": "https://www.sonova.com/regulations-principles/"
+          },
+          {
+            "fetchedAt": "2026-11-27T18:24:09.945Z",
+            "url": "https://www.sonova.com/hearing-health/"
+          }
+        ],
+        "text": "No user guides or datasheets were found. The PDFs are annual and financial reports, ESG reports, codes of conduct, tax strategies, AGM documents and an infographic."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T18:24:05.343Z",
+            "url": "https://www.sonova.com/"
+          }
+        ],
+        "text": "The report shows no iOS or Android app links on any page."
+      }
+    ]
+  },
+  "summary": {
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:24:05.343Z",
+        "url": "https://www.sonova.com/"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:28:05.511Z",
+        "url": "https://www.sonova.com/brands/"
+      }
+    ],
+    "text": "Sonova's corporate group site (investors, news, careers, country sites) with no hearing aid catalog; products live on brand sites such as phonak.com, unitron.com, hansaton.com and advancedbionics.com."
+  }
+}
