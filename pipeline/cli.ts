@@ -312,8 +312,8 @@ const RUN_STEP: Record<Step, (run: Run) => Promise<void>> = { scrape, fda, apps,
  * competitors change. Nothing is ever taken out, and the file is written only when there is a new pair.
  */
 async function recordPairs(dataDir: string): Promise<void> {
-  const { models, comparePairs } = await loadDataset(dataDir)
-  const current = selectCuratedPairs(buildCatalogIndex(models)).map(([a, b]) => pairSlug(a, b))
+  const { models, events, comparePairs } = await loadDataset(dataDir)
+  const current = selectCuratedPairs(buildCatalogIndex(models, events)).map(([a, b]) => pairSlug(a, b))
   const merged = [...new Set([...comparePairs, ...current])].sort()
   const added = merged.length - comparePairs.length
   if (added === 0) return

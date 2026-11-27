@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import { cache } from 'react'
 import { ModelList } from '@/src/components/ModelList'
 import { loadDataset } from '@/src/lib/data/load'
-import { latestFirst } from '@/src/lib/site/catalog-index'
+import { addedOn, latestFirst } from '@/src/lib/site/catalog-index'
 import { hostname } from '@/src/lib/site/format'
 import { canonical } from '@/src/lib/site/url'
 
@@ -28,11 +28,14 @@ async function find(slug: string) {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { brand: slug } = await params
-  const { brand } = await find(slug)
+  const { data, brand } = await find(slug)
+  // A page that lists no models has nothing of its own for search engines.
+  const empty = !data.models.some((model) => model.brand === slug)
   return {
     title: `${brand.name} hearing aids`,
     description: `${brand.name} hearing aids in the database, with type and release date.`,
     alternates: canonical(`/brands/${slug}`),
+    ...(empty && { robots: { index: false, follow: true } }),
   }
 }
 
@@ -41,7 +44,7 @@ export default async function BrandPage({ params }: Props) {
   const { data, brand } = await find(slug)
   const models = data.models
     .filter((model) => model.brand === slug)
-    .map((model) => ({ model, releaseDate: model.releaseDate?.value }))
+    .map((model) => ({ model, releaseDate: model.releaseDate?.value, addedOn: addedOn(model.slug, data.events) }))
     .sort(latestFirst)
     .map(({ model }) => model)
 

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { EventList } from '@/src/components/EventList'
 import { ModelList } from '@/src/components/ModelList'
 import { loadDataset } from '@/src/lib/data/load'
-import { latestFirst } from '@/src/lib/site/catalog-index'
+import { addedOn, latestFirst } from '@/src/lib/site/catalog-index'
 import { canonical } from '@/src/lib/site/url'
 
 export const metadata: Metadata = { alternates: canonical('/') }
@@ -11,7 +11,7 @@ export const metadata: Metadata = { alternates: canonical('/') }
 export default async function Home() {
   const { brands, models, events } = await loadDataset()
   const latestModels = models
-    .map((model) => ({ model, releaseDate: model.releaseDate?.value }))
+    .map((model) => ({ model, releaseDate: model.releaseDate?.value, addedOn: addedOn(model.slug, events) }))
     .sort(latestFirst)
     .slice(0, 12)
     .map(({ model }) => model)

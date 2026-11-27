@@ -20,8 +20,8 @@ export const dynamicParams = false
 const dataset = cache(() => loadDataset())
 
 export async function generateStaticParams() {
-  const { models, comparePairs } = await dataset()
-  return publishedPairs(buildCatalogIndex(models), comparePairs).map(([a, b]) => ({ pair: pairSlug(a, b) }))
+  const { models, events, comparePairs } = await dataset()
+  return publishedPairs(buildCatalogIndex(models, events), comparePairs).map(([a, b]) => ({ pair: pairSlug(a, b) }))
 }
 
 async function find(pair: string) {

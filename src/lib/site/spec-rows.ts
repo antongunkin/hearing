@@ -62,7 +62,8 @@ const ROWS: [label: string, of: (c: Column) => SpecCell][] = [
   ],
 ]
 
+/** The rows that have a value in at least one column: a row of dashes says nothing. */
 export function specRows(models: Model[]): SpecRow[] {
   const columns = specColumns(models)
-  return ROWS.map(([label, of]) => ({ label, cells: columns.map(of) }))
+  return ROWS.map(([label, of]) => ({ label, cells: columns.map(of) })).filter(({ cells }) => cells.some((cell) => cell !== null))
 }

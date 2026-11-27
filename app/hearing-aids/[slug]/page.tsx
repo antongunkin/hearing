@@ -56,7 +56,8 @@ export default async function ModelPage({ params }: Props) {
   const reviews = data.reviews.find((r) => r.slug === slug)
   const image = await pressImage(slug, brand)
   const styles = [...new Set(model.variants.map((variant) => variant.formFactor))]
-  const competitors = competitorsOf(slug, buildCatalogIndex(data.models)).map((other) => ({
+  const specs = specRows([model])
+  const competitors = competitorsOf(slug, buildCatalogIndex(data.models, data.events)).map((other) => ({
     pair: pairSlug(slug, other),
     name: productName(data.models.find((m) => m.slug === other)!, data.brands),
   }))
@@ -113,7 +114,11 @@ export default async function ModelPage({ params }: Props) {
         <p className="note">
           Each figure links to where it is stated: the maker or the FDA, unless it says “According to” a third party.
         </p>
-        <SpecTable columns={specColumns([model]).map((column) => column.label)} rows={specRows([model])} />
+        {specs.length === 0 ? (
+          <p>No specification with a source yet.</p>
+        ) : (
+          <SpecTable columns={specColumns([model]).map((column) => column.label)} rows={specs} />
+        )}
       </section>
 
       <AdSlot id="model-after-specs" minHeight={280} />

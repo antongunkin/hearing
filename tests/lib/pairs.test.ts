@@ -56,6 +56,12 @@ describe('competitorsOf', () => {
   const scores = (me: Partial<CatalogItem>, other: Partial<CatalogItem>) =>
     competitorsOf('me', [item('me', me), item('a-blank'), item('z-other', other)])[0] === 'z-other'
 
+  test('without release dates, the dates the models were added count for closeness', () => {
+    expect(scores({ addedOn: '2026-11-27' }, { addedOn: '2026-03-01' })).toBe(true)
+    expect(scores({ releaseDate: '2024-01' }, { addedOn: '2026-11-27' })).toBe(false)
+    expect(scores({ releaseDate: '2026-01', addedOn: '2020-01-01' }, { addedOn: '2026-11-27' })).toBe(true)
+  })
+
   test('scores 1 for prices within 30% of the lower one', () => {
     expect(scores({ priceMin: 1000 }, { priceMin: 1300 })).toBe(true)
     expect(scores({ priceMin: 1300 }, { priceMin: 1000 })).toBe(true)

@@ -38,6 +38,12 @@ describe('service pages', () => {
     expect(parse(<Page />).querySelector('a[href="/corrections"]')).not.toBeNull()
   })
 
+  test('methodology states when prices and complaint themes are published without a person', () => {
+    const text = parse(<Methodology />).body.textContent!.replace(/\s+/g, ' ')
+    expect(text).toContain(`official prices whose quote states one regular price and that move by at most ${config.maxAutoPriceChange * 100}%`)
+    expect(text).toContain(`complaint-theme shares from at least ${config.minThemeReviews} reviews`)
+  })
+
   test('about-bot shows the User-Agent the bot really sends', () => {
     vi.stubEnv('NEXT_PUBLIC_SITE_URL', 'https://site.example')
     const shown = config.userAgent.replace('https://site.example', '<site address>')

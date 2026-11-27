@@ -23,7 +23,8 @@ function closeness(a: CatalogItem, b: CatalogItem): number {
   if (a.priceMin !== undefined && b.priceMin !== undefined) {
     if (Math.abs(a.priceMin - b.priceMin) * 10 <= Math.min(a.priceMin, b.priceMin) * 3) score += 1
   }
-  const [released, other] = [month(a.releaseDate), month(b.releaseDate)]
+  // Without a release date, when the model was added stands in for it.
+  const [released, other] = [month(a.releaseDate ?? a.addedOn), month(b.releaseDate ?? b.addedOn)]
   if (released !== undefined && other !== undefined && Math.abs(released - other) <= 12) score += 1
   return score
 }

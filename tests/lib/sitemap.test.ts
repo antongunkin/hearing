@@ -52,6 +52,14 @@ const dataset = (fields: Partial<Dataset> = {}): Dataset => ({
 const urls = (data: Dataset) => buildSitemapEntries(data, BASE).map((entry) => entry.url)
 
 describe('buildSitemapEntries', () => {
+  test('a brand page with no models is left out', () => {
+    const empty = Brand.parse({ ...dataset().brands[0], slug: 'empty', name: 'Empty' })
+    const listed = urls(dataset({ brands: [...dataset().brands, empty] }))
+
+    expect(listed).toContain(`${BASE}/brands/acme`)
+    expect(listed).not.toContain(`${BASE}/brands/empty`)
+  })
+
   test('sitemap includes curated pair, excludes non-curated pair and /compare tool', () => {
     const listed = urls(dataset())
 

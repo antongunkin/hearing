@@ -34,10 +34,14 @@ export function buildSitemapEntries(dataset: Dataset, baseUrl: string): SitemapE
     entry('/', [...modelDates, ...eventDates]),
     entry('/hearing-aids', modelDates),
     ...models.map(({ slug }) => entry(`/hearing-aids/${slug}`, pageDates(slug))),
-    ...publishedPairs(buildCatalogIndex(models), comparePairs).map(([a, b]) =>
+    ...publishedPairs(buildCatalogIndex(models, events), comparePairs).map(([a, b]) =>
       entry(`/compare/${pairSlug(a, b)}`, [...pageDates(a), ...pageDates(b)]),
     ),
-    ...brands.map(({ slug }) => entry(`/brands/${slug}`, fetchDates(models.filter((m) => m.brand === slug)))),
+    // A brand page without models is not indexed (see its metadata).
+    ...brands.flatMap(({ slug }) => {
+      const own = models.filter((m) => m.brand === slug)
+      return own.length === 0 ? [] : [entry(`/brands/${slug}`, fetchDates(own))]
+    }),
     entry('/platforms', modelDates),
     entry('/news', eventDates),
     ...events.map((event) => entry(`/news/${event.id}`, [event.date])),

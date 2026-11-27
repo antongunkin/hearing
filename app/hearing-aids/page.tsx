@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 }
 
 export default async function CatalogPage() {
-  const { brands, models } = await loadDataset()
+  const { brands, models, events } = await loadDataset()
   return (
     <main className="page">
       <h1>All hearing aids</h1>
@@ -19,7 +19,7 @@ export default async function CatalogPage() {
         <p>No models in the database yet.</p>
       ) : (
         <CatalogFilters
-          items={buildCatalogIndex(models)}
+          items={buildCatalogIndex(models, events)}
           brandNames={Object.fromEntries(brands.map((brand) => [brand.slug, brand.name]))}
         />
       )}

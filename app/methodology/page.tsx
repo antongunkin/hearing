@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { config } from '@/pipeline/config'
 import { canonical } from '@/src/lib/site/url'
 
 export const metadata: Metadata = {
@@ -61,14 +62,16 @@ export default function MethodologyPage() {
       <p>
         A person approves new models, changes to specifications, everything labelled third-party, pros and cons, and
         video reviews before they are published. Routine updates that pass the automated checks are published without that
-        step: official prices, app versions, FDA clearance and recall records, customer ratings and complaint-theme
-        shares. News items are single sentences written with AI from those facts.
+        step: official prices whose quote states one regular price and that move by at most{' '}
+        {config.maxAutoPriceChange * 100}%, app versions, FDA clearance and recall records, customer ratings, and
+        complaint-theme shares from at least {config.minThemeReviews} reviews. News items are single sentences written
+        with AI from those facts; recall items use a fixed wording.
       </p>
 
       <h2>Customer reviews</h2>
       <p>
         We never publish the text of customer reviews. We show only each source’s rating and number of ratings, and the
-        share of the collected reviews that complain about each theme.
+        share of the collected reviews that complain about each theme, with the number of reviews it is counted from.
       </p>
 
       <h2>Pros and cons</h2>

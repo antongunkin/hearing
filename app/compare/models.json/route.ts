@@ -5,6 +5,6 @@ import { compareDataJson } from '@/src/lib/site/compare-data'
 export const dynamic = 'force-static'
 
 export async function GET() {
-  const { models, comparePairs } = await loadDataset()
-  return new Response(compareDataJson(models, comparePairs), { headers: { 'content-type': 'application/json' } })
+  const { models, events, comparePairs } = await loadDataset()
+  return new Response(compareDataJson(models, comparePairs, events), { headers: { 'content-type': 'application/json' } })
 }

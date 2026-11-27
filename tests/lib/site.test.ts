@@ -72,11 +72,13 @@ const item = (fields: Partial<CatalogItem> & { slug: string }): CatalogItem => (
 describe('specRows', () => {
   const row = (rows: ReturnType<typeof specRows>, label: string) => rows.find((r) => r.label === label)
 
-  test('specRows renders missing Rx price as null cell, not undefined', () => {
-    const rows = specRows([model({ type: 'rx', variants: [{ id: 'a', formFactor: 'RIC' }, { id: 'b', formFactor: 'BTE' }] })])
+  test('a row with no value in any column is left out; a missing value is a null cell, not undefined', () => {
+    const empty = model({ type: 'rx', variants: [{ id: 'a', formFactor: 'RIC' }, { id: 'b', formFactor: 'BTE' }] })
+    expect(specRows([empty])).toEqual([])
 
-    expect(row(rows, 'Price')?.cells).toStrictEqual([null, null])
-    for (const { cells } of rows) expect(cells).toStrictEqual([null, null])
+    const rows = specRows([empty, model({ slug: 'acme-two', variants: [{ id: 'two', formFactor: 'CIC', ipRating: cited('IP68') }] })])
+    expect(rows.map((r) => r.label)).toEqual(['Water and dust rating'])
+    expect(row(rows, 'Water and dust rating')?.cells).toStrictEqual([null, null, { text: 'IP68', source: cited('IP68') }])
   })
 
   test('has one column per variant, across models, each cell carrying its source', () => {
@@ -91,7 +93,8 @@ describe('specRows', () => {
     // A model-wide value stands in every column of its model; a flag the source does not state is unknown.
     expect(row(rows, 'Made for iPhone')?.cells.map((c) => c?.text ?? null)).toEqual(['Yes', 'Yes', null])
     expect(row(rows, 'Android streaming (ASHA)')?.cells[0]?.text).toBe('No')
-    expect(row(rows, 'Bluetooth LE Audio')?.cells[0]).toBeNull()
+    // No column states LE Audio: the row is left out.
+    expect(row(rows, 'Bluetooth LE Audio')).toBeUndefined()
     expect(row(rows, 'Released')?.cells[0]?.text).toBe('Mar 15, 2025')
   })
 
@@ -193,10 +196,27 @@ describe('catalog', () => {
     expect(slugs({ type: [], formFactor: [], power: [], brand: [], auracast: false })).toEqual(['known', 'unknown', 'other'])
   })
 
-  test('latestFirst orders by release date, undated last', () => {
-    const dated = [{ slug: 'a' }, { slug: 'b', releaseDate: '2024-01' }, { slug: 'c', releaseDate: '2025-06-01' }]
+  test('latestFirst orders by release date, else the date the model was added, undated last', () => {
+    const dated = [
+      { slug: 'a' },
+      { slug: 'b', releaseDate: '2024-01' },
+      { slug: 'c', releaseDate: '2025-06-01' },
+      { slug: 'd', addedOn: '2024-06-01' },
+    ]
 
-    expect([...dated].sort(latestFirst).map((i) => i.slug)).toEqual(['c', 'b', 'a'])
+    expect([...dated].sort(latestFirst).map((i) => i.slug)).toEqual(['c', 'd', 'b', 'a'])
+  })
+
+  test('the date a model was added comes from its new-model event, and is never its release date', () => {
+    const added = { id: 'e', type: 'new-model' as const, modelSlug: full.slug, date: '2026-11-27', key: full.slug, text: 'Added.', sources: [] }
+    const other = { ...added, id: 'f', type: 'price-change' as const, date: '2026-12-01' }
+    const undated = model({ slug: 'acme-undated' })
+    const [withDate, withoutDate] = buildCatalogIndex([full, undated], [added, other, { ...added, id: 'g', modelSlug: undated.slug }])
+
+    expect(withDate).toMatchObject({ releaseDate: '2025-03-15', addedOn: '2026-11-27' })
+    expect(withoutDate.releaseDate).toBeUndefined()
+    expect(withoutDate.addedOn).toBe('2026-11-27')
+    expect(buildCatalogIndex([undated])[0].addedOn).toBeUndefined()
   })
 })
 

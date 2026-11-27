@@ -1,4 +1,5 @@
 // The compact list the catalog filters in the browser. Client-safe: types only from the schemas.
+import type { Event } from '@/src/lib/schema/event'
 import type { Sourced } from '@/src/lib/schema/field'
 import type { FormFactor, Model, ModelType, PowerType } from '@/src/lib/schema/model'
 
@@ -15,6 +16,8 @@ export type CatalogItem = {
   /** Where `priceMin` is stated. Not the quote: the index is sent to the browser. */
   priceSource?: Pick<Sourced<unknown>, 'sourceUrl' | 'sourceType'>
   releaseDate?: string
+  /** When the model was added to the database: orders models without a release date, never shown as one. */
+  addedOn?: string
   weightGMin?: number
 }
 
@@ -30,8 +33,15 @@ export type CatalogFilter = {
 const unique = <T>(values: T[]) => [...new Set(values)]
 const lowest = (values: number[]) => (values.length === 0 ? undefined : Math.min(...values))
 
-export function buildCatalogIndex(models: Model[]): CatalogItem[] {
+/** The date of the model's `new-model` event, if it has one. */
+export function addedOn(slug: string, events: Event[]): string | undefined {
+  return events.find((event) => event.type === 'new-model' && event.modelSlug === slug)?.date.slice(0, 10)
+}
+
+/** `events` give the dates models were added (see `addedOn`). */
+export function buildCatalogIndex(models: Model[], events: Event[] = []): CatalogItem[] {
   return models.map((model) => {
+    const added = addedOn(model.slug, events)
     // The lowest price; of two equal ones, the one that needs no "According to".
     const [price] = model.variants
       .flatMap(({ priceUsd }) => {
@@ -52,6 +62,7 @@ export function buildCatalogIndex(models: Model[]): CatalogItem[] {
       connectivity: model.connectivity?.value ?? {},
       ...(price && { priceMin: price.min, priceSource: price.source }),
       ...(model.releaseDate && { releaseDate: model.releaseDate.value }),
+      ...(added && { addedOn: added }),
       ...(weightGMin !== undefined && { weightGMin }),
     }
   })
@@ -77,6 +88,7 @@ export function filterCatalog(items: CatalogItem[], f: CatalogFilter): CatalogIt
   )
 }
 
-/** Sort order: newest release first, undated last. */
-export const latestFirst = (a: { releaseDate?: string }, b: { releaseDate?: string }) =>
-  (b.releaseDate ?? '').localeCompare(a.releaseDate ?? '')
+type Dated = { releaseDate?: string; addedOn?: string }
+
+/** Sort order: newest release first; a model without a release date by when it was added; undated last. */
+export const latestFirst = (a: Dated, b: Dated) => (b.releaseDate ?? b.addedOn ?? '').localeCompare(a.releaseDate ?? a.addedOn ?? '')
