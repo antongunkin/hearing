@@ -1,0 +1,12 @@
+{
+  "group": "LXE Hearing",
+  "imageLicense": "none",
+  "name": "Eargo",
+  "scraper": {
+    "catalogUrls": ["https://www.eargo.com/products-hearing-aids"],
+    "modelUrlPattern": "^https://www\\.eargo\\.com/products-hearing-aids/[a-z0-9-]+/?$",
+    "render": false
+  },
+  "slug": "eargo",
+  "website": "https://www.eargo.com"
+}

@@ -1,0 +1,12 @@
+{
+  "group": "Demant",
+  "imageLicense": "none",
+  "name": "Bernafon",
+  "scraper": {
+    "catalogUrls": ["https://www.bernafon.us/products/hearing-aids"],
+    "modelUrlPattern": "^https://www\\.bernafon\\.us/products/\\d+/[a-z0-9-]+$",
+    "render": false
+  },
+  "slug": "bernafon",
+  "website": "https://www.bernafon.us"
+}

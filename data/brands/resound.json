@@ -1,0 +1,12 @@
+{
+  "group": "GN",
+  "imageLicense": "none",
+  "name": "ReSound",
+  "scraper": {
+    "catalogUrls": ["https://www.resound.com/en-us/hearing-aids/resound-hearing-aids"],
+    "modelUrlPattern": "^https://www\\.resound\\.com/en-us/hearing-aids/resound-hearing-aids/resound-[a-z0-9-]+$",
+    "render": false
+  },
+  "slug": "resound",
+  "website": "https://www.resound.com/en-us"
+}

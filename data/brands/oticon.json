@@ -1,0 +1,12 @@
+{
+  "group": "Demant",
+  "imageLicense": "none",
+  "name": "Oticon",
+  "scraper": {
+    "catalogUrls": ["https://www.oticon.com/products/hearing-aids"],
+    "modelUrlPattern": "^https://www\\.oticon\\.com/products/\\d+/oticon-(?!(?:cros|jet-px|more|opn|own(?!-si)|play-px|real|ruby|siya|xceed|zircon)(?:-|$))[a-z0-9-]+$",
+    "render": false
+  },
+  "slug": "oticon",
+  "website": "https://www.oticon.com"
+}

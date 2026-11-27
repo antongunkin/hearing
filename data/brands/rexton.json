@@ -1,0 +1,12 @@
+{
+  "group": "WS Audiology",
+  "imageLicense": "none",
+  "name": "Rexton",
+  "scraper": {
+    "catalogUrls": ["https://www.rexton.com/en-us/hearing-aids/reach/"],
+    "modelUrlPattern": "^https://www\\.rexton\\.com/en-us/hearing-aids/reach/[a-z0-9-]+/$",
+    "render": false
+  },
+  "slug": "rexton",
+  "website": "https://www.rexton.com/en-us"
+}

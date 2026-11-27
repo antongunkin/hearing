@@ -1,0 +1,12 @@
+{
+  "group": "Audien Hearing",
+  "imageLicense": "none",
+  "name": "Audien",
+  "scraper": {
+    "catalogUrls": ["https://audienhearing.com/collections/all"],
+    "modelUrlPattern": "^https://audienhearing\\.com/products/(?:the-audien-atom-x-otc-hearing-aid|audien-atom-air-otc-hearing-aids|atom-pro-2|audien-atom-one-hearing-aid|audien-ion-pro-otc-hearing-aids|ion-iq|ion-air)$",
+    "render": false
+  },
+  "slug": "audien",
+  "website": "https://audienhearing.com"
+}

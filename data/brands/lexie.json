@@ -1,0 +1,12 @@
+{
+  "group": "LXE Hearing",
+  "imageLicense": "none",
+  "name": "Lexie",
+  "scraper": {
+    "catalogUrls": ["https://lexiehearing.com/us"],
+    "modelUrlPattern": "^https://lexiehearing\\.com/us/(?:products|hearing-aids)/[a-z0-9-]+$",
+    "render": false
+  },
+  "slug": "lexie",
+  "website": "https://lexiehearing.com/us"
+}

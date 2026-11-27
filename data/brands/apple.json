@@ -1,0 +1,12 @@
+{
+  "group": "Apple",
+  "imageLicense": "none",
+  "name": "Apple",
+  "scraper": {
+    "catalogUrls": ["https://www.apple.com/airpods-pro/"],
+    "modelUrlPattern": "^https://www\\.apple\\.com/airpods-pro/specs/$",
+    "render": false
+  },
+  "slug": "apple",
+  "website": "https://www.apple.com"
+}

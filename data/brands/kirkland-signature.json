@@ -1,0 +1,12 @@
+{
+  "group": "Costco",
+  "imageLicense": "none",
+  "name": "Kirkland Signature",
+  "scraper": {
+    "catalogUrls": ["https://www.costco.com/hearing-aid-center.html"],
+    "modelUrlPattern": "^https://www\\.costco\\.com/(?:p/-/)?kirkland-signature-[a-z0-9.-]*hearing-aid[a-z0-9.-]*(?:/\\d+|\\.product\\.\\d+\\.html)$",
+    "render": false
+  },
+  "slug": "kirkland-signature",
+  "website": "https://www.costco.com"
+}

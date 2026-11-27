@@ -1,0 +1,12 @@
+{
+  "group": "WS Audiology",
+  "imageLicense": "none",
+  "name": "Widex",
+  "scraper": {
+    "catalogUrls": ["https://www.widex.com/en-us/hearing-aids/"],
+    "modelUrlPattern": "^https://www\\.widex\\.com/en-us/hearing-aids/(?:allure/[a-z0-9-]+|smartric)/$",
+    "render": false
+  },
+  "slug": "widex",
+  "website": "https://www.widex.com/en-us"
+}

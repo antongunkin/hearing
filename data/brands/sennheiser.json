@@ -1,0 +1,12 @@
+{
+  "group": "Sonova",
+  "imageLicense": "none",
+  "name": "Sennheiser",
+  "scraper": {
+    "catalogUrls": ["https://us.sennheiser-hearing.com/pages/otc-hearing-aids"],
+    "modelUrlPattern": "^https://us\\.sennheiser-hearing\\.com/products/sennheiser-all-day-clear[a-z0-9-]*$",
+    "render": false
+  },
+  "slug": "sennheiser",
+  "website": "https://us.sennheiser-hearing.com"
+}

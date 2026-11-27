@@ -1,0 +1,12 @@
+{
+  "group": "Demant",
+  "imageLicense": "none",
+  "name": "Philips",
+  "scraper": {
+    "catalogUrls": ["https://www.hearingsolutions.philips.com/en-us/products/hearing-aids"],
+    "modelUrlPattern": "^https://www\\.hearingsolutions\\.philips\\.com/en-us/products/\\d+/hearlink-(?!30-)[a-z0-9-]+$",
+    "render": false
+  },
+  "slug": "philips",
+  "website": "https://www.hearingsolutions.philips.com/en-us"
+}

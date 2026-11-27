@@ -1,0 +1,12 @@
+{
+  "group": "Starkey",
+  "imageLicense": "none",
+  "name": "Starkey",
+  "scraper": {
+    "catalogUrls": ["https://www.starkey.com/hearing-aids"],
+    "modelUrlPattern": "^https://www\\.starkey\\.com/hearing-aids/[a-z0-9-]*artificial-intelligence[a-z0-9-]*-hearing-aids$",
+    "render": false
+  },
+  "slug": "starkey",
+  "website": "https://www.starkey.com"
+}

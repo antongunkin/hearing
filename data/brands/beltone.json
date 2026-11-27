@@ -1,0 +1,12 @@
+{
+  "group": "GN",
+  "imageLicense": "none",
+  "name": "Beltone",
+  "scraper": {
+    "catalogUrls": ["https://www.beltone.com/en-us/products/hearing-aids"],
+    "modelUrlPattern": "^https://www\\.beltone\\.com/en-us/products/hearing-aids/beltone-[a-z0-9-]+$",
+    "render": false
+  },
+  "slug": "beltone",
+  "website": "https://www.beltone.com/en-us"
+}

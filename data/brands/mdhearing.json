@@ -1,0 +1,12 @@
+{
+  "group": "MDHearing",
+  "imageLicense": "none",
+  "name": "MDHearing",
+  "scraper": {
+    "catalogUrls": ["https://www.mdhearingaid.com/hearing-aid-comparisons/"],
+    "modelUrlPattern": "^https://www\\.mdhearingaid\\.com/hearing-aids/mdhearing-[a-z0-9-]+$",
+    "render": false
+  },
+  "slug": "mdhearing",
+  "website": "https://www.mdhearingaid.com"
+}
