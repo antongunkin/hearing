@@ -11,7 +11,7 @@ import { fetchPage } from '@/pipeline/fetch/fetcher'
 import { linksIn } from '@/pipeline/fetch/html'
 import { LlmLimitError } from '@/pipeline/llm'
 import { extractModel, linkDocuments, matchExistingModel, mergeCandidates, sameModelName, type ModelCandidate } from '@/pipeline/sources/brand-site'
-import { earliestCopy, latestCopy, pdfCopies, WaybackError, yearlyCopies } from '@/pipeline/sources/wayback'
+import { earliestCopy, latestCopy, pdfCopies, pdfTarget, WaybackError, yearlyCopies } from '@/pipeline/sources/wayback'
 import { archiveMonth, archiveUrl, citableArchiveUrl, parseArchiveUrl } from '@/src/lib/archive-url'
 import type { Brand } from '@/src/lib/schema/brand'
 import type { Sourced } from '@/src/lib/schema/field'
@@ -50,7 +50,6 @@ function keyOf(url: string): string {
   return `${parsed.hostname.replace(/^www\./, '').toLowerCase()}${parsed.pathname.replace(/\/$/, '')}${parsed.search}`
 }
 
-const bareHost = (url: string): string => new URL(url).hostname.replace(/^www\./, '')
 
 /**
  * The stored model of the brand that the candidate is, by its page's original URL or by name; null when none
@@ -166,7 +165,17 @@ export async function archiveCandidates(brand: Brand, models: Model[], opts: Arc
   const documentsOf = new Map<string, string[]>()
   const pattern = brand.scraper.documentUrlPattern
   if (pattern !== undefined && candidates.length > 0) {
-    const rows = (await tolerant(brand.website, () => pdfCopies(bareHost(brand.website), cdxOpts))) ?? []
+    const target = pdfTarget(brand.website, pattern)
+    const rows = await (async () => {
+      try {
+        return (await tolerant(brand.website, () => pdfCopies(target, cdxOpts))) ?? []
+      } catch (error) {
+        // A listing the archive timed out on twice is this brand's loss only; the run goes on.
+        if (!(error instanceof WaybackError) || error.reason !== 'listing-timeout') throw error
+        console.log(`Web Archive could not list ${target.url} (${error.detail}), documents from the archive skipped`)
+        return []
+      }
+    })()
     const isDocument = new RegExp(pattern)
     const copies = new Map(rows.filter((r) => isDocument.test(r.original)).map((r) => [r.original, r]))
     const slugOf = new Map([...originalsOf].flatMap(([slug, urls]) => urls.map((url) => [url, slug] as const)))

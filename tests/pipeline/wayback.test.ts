@@ -2,7 +2,7 @@
 import { afterEach, describe, expect, test, vi } from 'vitest'
 import { archiveCalendarUrl, archiveMonth, archiveUrl, citableArchiveUrl, parseArchiveUrl } from '@/src/lib/archive-url'
 import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
-import { copiesPerYear, cdx, earliestCopy, latestCopy, pdfCopies, yearlyCopies, cdxUrl, lastCopyPerYear, parseCdx, WaybackError, type CdxRow } from '@/pipeline/sources/wayback'
+import { copiesPerYear, cdx, earliestCopy, latestCopy, pdfCopies, pdfTarget, PDF_LIMIT, yearlyCopies, cdxUrl, lastCopyPerYear, parseCdx, WaybackError, type CdxRow } from '@/pipeline/sources/wayback'
 
 vi.mock('@/pipeline/fetch/fetcher', async (importOriginal) => ({
   ...(await importOriginal<typeof import('@/pipeline/fetch/fetcher')>()),
@@ -136,12 +136,44 @@ describe('archive queries', () => {
     expect(copies.map((c) => c.timestamp)).toEqual(['20181205000000', '20190701000000'])
   })
 
-  test('pdfCopies asks for one PDF per URL across the domain', async () => {
+  test('pdfCopies asks for one PDF per URL under the target, always with a limit', async () => {
     fetchMock.mockResolvedValue(answer([]))
-    expect(await pdfCopies('eargo.com')).toEqual([])
+    expect(await pdfCopies({ url: 'eargo.com', matchType: 'domain' })).toEqual([])
     expect(requested()).toContain('matchType=domain')
     expect(requested()).toContain('filter=mimetype%3Aapplication%2Fpdf')
     expect(requested()).toContain('collapse=urlkey')
+    expect(requested()).toContain(`limit=${PDF_LIMIT}`)
+    fetchMock.mockClear()
+    await pdfCopies({ url: 'www.phonak.com/content/dam/', matchType: 'prefix' })
+    expect(requested()).toContain('url=www.phonak.com%2Fcontent%2Fdam%2F&matchType=prefix')
+    expect(requested()).toContain(`limit=${PDF_LIMIT}`)
+  })
+
+  test('a 503 on the PDF listing is asked once more; twice is a listing-timeout', async () => {
+    const wall = { status: 'skipped', url: 'u', reason: 'bot-protection', detail: 'HTTP 503' } as FetchResult
+    fetchMock.mockResolvedValueOnce(wall).mockResolvedValueOnce(answer([]))
+    expect(await pdfCopies({ url: 'a.test', matchType: 'domain' })).toEqual([])
+    expect(fetchMock).toHaveBeenCalledTimes(2)
+
+    fetchMock.mockReset()
+    fetchMock.mockResolvedValue(wall)
+    const error = await pdfCopies({ url: 'a.test', matchType: 'domain' }).catch((e) => e)
+    expect(error).toBeInstanceOf(WaybackError)
+    expect((error as WaybackError).reason).toBe('listing-timeout')
+    expect(fetchMock).toHaveBeenCalledTimes(2)
+  })
+
+  test('a 429 on the PDF listing stops at once, and other queries do not retry a 503', async () => {
+    fetchMock.mockResolvedValue({ status: 'skipped', url: 'u', reason: 'rate-limited', detail: 'HTTP 429' } as FetchResult)
+    const error = await pdfCopies({ url: 'a.test', matchType: 'domain' }).catch((e) => e)
+    expect((error as WaybackError).reason).toBe('rate-limited')
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+
+    fetchMock.mockReset()
+    fetchMock.mockResolvedValue({ status: 'skipped', url: 'u', reason: 'bot-protection', detail: 'HTTP 503' } as FetchResult)
+    const other = await latestCopy('a.test/').catch((e) => e)
+    expect((other as WaybackError).reason).toBe('bot-protection')
+    expect(fetchMock).toHaveBeenCalledTimes(1)
   })
 
   test('earliestCopy takes the first 200 copy, latestCopy the last; none gives null', async () => {
@@ -155,4 +187,18 @@ describe('archive queries', () => {
     expect(await latestCopy('eargo.com/')).toBeNull()
     expect(requested()).toContain('limit=-1')
   })
+})
+
+describe('pdfTarget', () => {
+  const site = 'https://www.phonak.com/'
+  test.each([
+    ['^https://www\\.phonak\\.com/content/dam/celum/phonak/', 'www.phonak.com/content/dam/celum/phonak/'],
+    ['^https?://www\\.phonak\\.com/content/dam/.*\\.pdf$', 'www.phonak.com/content/dam/'],
+    ['^https://www\\.phonak\\.com/docs/guides?/', 'www.phonak.com/docs/guide'],
+  ])('%s lists the prefix', (pattern, url) => expect(pdfTarget(site, pattern)).toEqual({ url, matchType: 'prefix' }))
+
+  test.each([['\\.pdf$'], ['^https://www\\.phonak\\.com'], ['^https://www\\.phonak\\.com/'], ['^https://(?:www\\.)?phonak\\.com/x/'], ['^https://a\\.com/x/|^https://b\\.com/y/'], [undefined]])(
+    '%s lists the domain',
+    (pattern) => expect(pdfTarget(site, pattern)).toEqual({ url: 'phonak.com', matchType: 'domain' }),
+  )
 })

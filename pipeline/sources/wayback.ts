@@ -63,9 +63,16 @@ export function parseCdx(text: string): CdxRow[] {
   })
 }
 
+const isTimeout = (detail?: string) => detail === 'HTTP 503' || detail === 'HTTP 504'
+
 /** The copies the index lists for the query. Throws a WaybackError when the request is skipped. */
-export async function cdx(q: CdxQuery, opts: { refresh?: boolean } = {}): Promise<CdxRow[]> {
-  const page = await fetchPage(cdxUrl(q), { refresh: opts.refresh })
+export async function cdx(q: CdxQuery, opts: { refresh?: boolean; retryTimeout?: boolean } = {}): Promise<CdxRow[]> {
+  let page = await fetchPage(cdxUrl(q), { refresh: opts.refresh })
+  // A heavy listing the archive times out on (503/504) is asked once more, after the fetcher's usual archive pause; a second timeout is `listing-timeout`.
+  if (opts.retryTimeout && page.status === 'skipped' && isTimeout(page.detail)) {
+    page = await fetchPage(cdxUrl(q), { refresh: opts.refresh })
+    if (page.status === 'skipped' && isTimeout(page.detail)) throw new WaybackError('listing-timeout', page.detail)
+  }
   if (page.status === 'skipped') throw new WaybackError(page.reason, page.detail)
   return parseCdx(page.text)
 }
@@ -103,9 +110,43 @@ export async function yearlyCopies(url: string, opts: Opts = {}): Promise<CdxRow
   return lastCopyPerYear(rows, 2018)
 }
 
-/** Every PDF the archive holds under the domain, one copy per URL. */
-export function pdfCopies(domain: string, opts: Opts = {}): Promise<CdxRow[]> {
-  return cdx({ url: domain, matchType: 'domain', filters: ['mimetype:application/pdf', 'statuscode:200'], collapse: 'urlkey' }, opts)
+/** The most PDF copies one listing asks for; a domain-wide listing of a big site times out in the archive without a limit. */
+export const PDF_LIMIT = 5000
+
+export type PdfTarget = { url: string; matchType: 'prefix' | 'domain' }
+
+/**
+ * Where to list a brand's PDFs: the literal host and path at the start of `documentUrlPattern`
+ * (`^https://www\.phonak\.com/content/dam/` gives the prefix `www.phonak.com/content/dam/`), else the whole domain.
+ */
+export function pdfTarget(website: string, documentUrlPattern?: string): PdfTarget {
+  const domain: PdfTarget = { url: new URL(website).hostname.replace(/^www\./, ''), matchType: 'domain' }
+  const head = /^\^https\??:\/\//.exec(documentUrlPattern ?? '')
+  if (!documentUrlPattern || !head || documentUrlPattern.includes('|')) return domain
+  const rest = documentUrlPattern.slice(head[0].length)
+  let literal = ''
+  let i = 0
+  for (; i < rest.length; i++) {
+    const c = rest[i]
+    if (c === '\\' && /[./-]/.test(rest[i + 1] ?? '')) {
+      literal += rest[i + 1]
+      i++
+    } else if (/[\w/%~-]/.test(c)) literal += c
+    else break
+  }
+  // A quantifier binds to the character before it, which is then not certain.
+  if (/[?*{]/.test(rest[i] ?? '')) literal = literal.slice(0, -1)
+  const slash = literal.indexOf('/')
+  if (slash <= 0 || slash === literal.length - 1) return domain
+  return { url: literal, matchType: 'prefix' }
+}
+
+/** The PDFs the archive holds under the target, one copy per URL, at most PDF_LIMIT. A listing the archive times out on twice throws `listing-timeout`. */
+export function pdfCopies(target: PdfTarget, opts: Opts = {}): Promise<CdxRow[]> {
+  return cdx(
+    { url: target.url, matchType: target.matchType, filters: ['mimetype:application/pdf', 'statuscode:200'], collapse: 'urlkey', limit: PDF_LIMIT },
+    { ...opts, retryTimeout: true },
+  )
 }
 
 /** The earliest successful copy of the URL, or null when there is none. */

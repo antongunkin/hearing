@@ -250,6 +250,25 @@ describe('archiveCandidates', () => {
     expect(calls.every(([url]) => new URL(url).hostname === 'web.archive.org')).toBe(true)
   })
 
+  test('a PDF listing the archive timed out on twice skips the documents and the run goes on', async () => {
+    archive()
+    pages[raw('20201101000000', ZED)] = ok(raw('20201101000000', ZED), 'Acme Zed 2')
+    vi.mocked(pdfCopies).mockRejectedValue(new WaybackError('listing-timeout', 'HTTP 503'))
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {})
+    const changes = await archiveCandidates({ ...brand, scraper: { ...brand.scraper, documentUrlPattern: '^https://www\\.acme\\.test/docs/' } }, [], options())
+    expect(vi.mocked(pdfCopies).mock.calls[0][0]).toEqual({ url: 'www.acme.test/docs/', matchType: 'prefix' })
+    expect(log).toHaveBeenCalledWith('Web Archive could not list www.acme.test/docs/ (HTTP 503), documents from the archive skipped')
+    expect(changes.length).toBeGreaterThan(0)
+    log.mockRestore()
+  })
+
+  test('a 429 on the PDF listing stops the run', async () => {
+    archive()
+    pages[raw('20201101000000', ZED)] = ok(raw('20201101000000', ZED), 'Acme Zed 2')
+    vi.mocked(pdfCopies).mockRejectedValue(new WaybackError('rate-limited', 'HTTP 429'))
+    await expect(archiveCandidates(brand, [], options())).rejects.toBeInstanceOf(WaybackError)
+  })
+
   test('archived PDFs that match the pattern and name the model become documents', async () => {
     archive()
     pages[raw('20201101000000', ZED)] = ok(raw('20201101000000', ZED), 'Acme Zed 2')
@@ -262,7 +281,7 @@ describe('archiveCandidates', () => {
     ])
     pages[raw('20190101000000', guide)] = ok(raw('20190101000000', guide), 'User guide\nAcme Zed 2', undefined, 'application/pdf')
     const [change] = await archiveCandidates(brand, [], options())
-    expect(vi.mocked(pdfCopies).mock.calls[0][0]).toBe('acme.test')
+    expect(vi.mocked(pdfCopies).mock.calls[0][0]).toEqual({ url: 'acme.test', matchType: 'domain' })
     const after = change.after as Model
     expect(after.documents).toEqual([
       { kind: 'user-guide', title: 'User guide', url: `https://web.archive.org/web/20190101000000/${guide}`, fetchedAt: AT },
