@@ -103,6 +103,18 @@ describe('in development', () => {
     expect(JSON.parse(await readFile('data/rejections.json', 'utf8'))).toEqual(data.rejections)
   })
 
+  test('approve rejects only the left-out fields the owner unticked', async () => {
+    llmMock.mockResolvedValue({ text: 'Jabra Enhance Select 500 joined the database.' })
+    const at = { sourceUrl: 'https://www.jabraenhance.com/x', fetchedAt: '2026-11-26T10:00:00.000Z', sourceType: 'official' }
+    const offered = candidate('one')
+    Object.assign(offered.after, { platform: { value: 'A', quote: 'A', ...at }, tinnitus: { value: true, quote: 'yes', ...at } })
+    await writeJson(join(dir, 'data/pending/one-model.json'), offered)
+
+    await approveChange('one-model', ['platform', 'tinnitus'], ['tinnitus'])
+
+    expect((await loadDataset('data')).rejections).toHaveLength(1)
+  })
+
   test('a refused approval writes nothing', async () => {
     await expect(approveChange('one-model', ['type'])).rejects.toThrow(/without type/)
     expect(await files('models')).toEqual([])

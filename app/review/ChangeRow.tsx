@@ -1,5 +1,6 @@
 // A queued change to a stored model or its reviews, as "was → now"; also how any proposed value is shown.
 import type { ReactNode } from 'react'
+import { notRun } from '@/src/lib/review/card'
 import type { CheckResult, PendingChange } from '@/src/lib/schema/pending'
 import { approveChange, rejectChange } from './actions'
 
@@ -66,12 +67,16 @@ export function Value({ value }: { value: unknown }): ReactNode {
 }
 
 export function Checks({ checks }: { checks: CheckResult[] }) {
-  return checks.map((check, i) => (
-    <div key={i} style={check.ok ? undefined : failedStyle}>
-      {check.ok ? '✓' : '✗ failed:'} {check.name}
-      {check.detail && ` — ${check.detail}`}
-    </div>
-  ))
+  return checks.map((check, i) =>
+    notRun(check) ? (
+      <div key={i}>– not checked: {check.name} (Ollama is not available)</div>
+    ) : (
+      <div key={i} style={check.ok ? undefined : failedStyle}>
+        {check.ok ? '✓' : '✗ failed:'} {check.name}
+        {check.detail && ` — ${check.detail}`}
+      </div>
+    ),
+  )
 }
 
 export function ChangeRow({ item }: { item: PendingChange }) {

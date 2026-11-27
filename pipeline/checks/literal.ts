@@ -52,9 +52,11 @@ function normalize(text: string): string {
   return text.replace(/\s+/g, ' ').trim().toLowerCase()
 }
 
-/** Numbers and strings nested anywhere in the value, e.g. the bounds of an Rx price pair. */
-function leaves(value: unknown): unknown[] {
-  if (typeof value === 'object' && value !== null) return Object.values(value).flatMap(leaves)
+/** Numbers and strings nested anywhere in the value, e.g. the bounds of an Rx price pair; not those under `readings`. */
+function leaves(value: unknown, readings: readonly string[]): unknown[] {
+  if (typeof value === 'object' && value !== null) {
+    return Object.entries(value).flatMap(([key, child]) => (readings.includes(key) ? [] : leaves(child, readings)))
+  }
   return [value]
 }
 
@@ -79,8 +81,12 @@ function containsWhole(text: string, part: string): boolean {
   return new RegExp(String.raw`(?<![a-z0-9])(?<!\d[.,])${escapeRegExp(part)}(?![a-z0-9])(?![.,]\d)`).test(text)
 }
 
-/** Verifies that a sourced value is literally supported by the page text it cites. */
-export function literalCheck(field: Sourced<unknown>, sourceText: string): CheckResult {
+/**
+ * Verifies that a sourced value is literally supported by the page text it cites. `readings` are object
+ * keys whose values are interpretations of the text, such as an enum (`power.type` "rechargeable" from
+ * "up to 24 hours per charge"): like booleans, they are not looked up, and the cross-check reads them.
+ */
+export function literalCheck(field: Sourced<unknown>, sourceText: string, { readings = [] }: { readings?: readonly string[] } = {}): CheckResult {
   const quote = normalize(field.quote)
   if (quote === '' || !normalize(sourceText).includes(quote)) {
     return { name: 'literal', ok: false, detail: 'quote not found in source text' }
@@ -103,7 +109,7 @@ export function literalCheck(field: Sourced<unknown>, sourceText: string): Check
   }
 
   const numbers = findNumbers(quote)
-  const valueLeaves = leaves(field.value)
+  const valueLeaves = leaves(field.value, readings)
   const missing = valueLeaves.filter((leaf) => !isQuoted(leaf, quote, numbers))
   if (missing.length > 0) {
     return { name: 'literal', ok: false, detail: `value not in quote: ${JSON.stringify(missing)}` }

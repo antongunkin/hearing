@@ -1,4 +1,5 @@
 // A proposed new model: every field with its source and checks; the owner unticks what to leave out.
+import { cardDecision, failed, startsTicked } from '@/src/lib/review/card'
 import type { PendingChange } from '@/src/lib/schema/pending'
 import { approveChange, rejectChange } from './actions'
 import { cell, Checks, failedStyle, isCited, isObject, Value } from './ChangeRow'
@@ -27,14 +28,8 @@ export function ModelCard({ item }: { item: PendingChange }) {
   const { id } = item
   async function approve(form: FormData) {
     'use server'
-    const keep = new Set(form.getAll('keep'))
-    await approveChange(
-      id,
-      form
-        .getAll('field')
-        .map(String)
-        .filter((path) => !keep.has(path)),
-    )
+    const { skipPaths, rejectPaths } = cardDecision(form)
+    await approveChange(id, skipPaths, rejectPaths)
   }
   async function reject() {
     'use server'
@@ -65,14 +60,16 @@ export function ModelCard({ item }: { item: PendingChange }) {
           <tbody>
             {fields.map(({ path, value, optional }) => {
               const checks = checksOf(path)
-              const passed = checks.length > 0 && checks.every((check) => check.ok)
+              const ticked = startsTicked(checks)
               return (
-                <tr key={path} style={checks.some((check) => !check.ok) ? failedStyle : undefined}>
+                <tr key={path} style={checks.some(failed) ? failedStyle : undefined}>
                   <td style={cell}>
                     {optional ? (
                       <>
                         <input type="hidden" name="field" value={path} />
-                        <input type="checkbox" name="keep" value={path} defaultChecked={passed} aria-label={`include ${path}`} />
+                        {/* Unticking a field that started ticked rejects it; one that started unticked comes back next run. */}
+                        {ticked && <input type="hidden" name="ticked" value={path} />}
+                        <input type="checkbox" name="keep" value={path} defaultChecked={ticked} aria-label={`include ${path}`} />
                       </>
                     ) : (
                       <small>always</small>
@@ -92,7 +89,7 @@ export function ModelCard({ item }: { item: PendingChange }) {
               )
             })}
             {missing.map((path) => (
-              <tr key={path} style={item.checks[path].some((check) => !check.ok) ? failedStyle : undefined}>
+              <tr key={path} style={item.checks[path].some(failed) ? failedStyle : undefined}>
                 <td style={cell} />
                 <th scope="row" style={cell}>
                   <code>{path}</code>
@@ -105,6 +102,12 @@ export function ModelCard({ item }: { item: PendingChange }) {
             ))}
           </tbody>
         </table>
+        <p>
+          <small>
+            Unticking a field that started ticked rejects that value for good. A field that started unticked (a check
+            failed or none ran) is only left out: the next update proposes it again.
+          </small>
+        </p>
         <p>
           <button>Approve model</button> <button formAction={reject}>Reject model</button>
         </p>

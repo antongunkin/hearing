@@ -67,7 +67,9 @@ const dataset = (items: PendingChange[], extra: Partial<Dataset> = {}): Dataset 
   ...extra,
 })
 
-const approve = (data: Dataset, skipPaths?: string[]) => applyDecision(data, data.pending[0].id, { action: 'approve', skipPaths })
+/** Approves the first pending change; the left-out fields were unticked by the owner (rejected) unless `rejectPaths` says otherwise. */
+const approve = (data: Dataset, skipPaths?: string[], rejectPaths = skipPaths) =>
+  applyDecision(data, data.pending[0].id, { action: 'approve', skipPaths, rejectPaths })
 const written = (result: ReturnType<typeof applyDecision>) => result.writes[0].value as Model
 
 describe('applyDecision: new model', () => {
@@ -124,6 +126,21 @@ describe('applyDecision: new model', () => {
     // Already rejected: not stored twice.
     const repeat = approve(dataset([{ ...item, after: offered }], { models: [], rejections: result.rejections }), skip)
     expect(repeat.rejections).toEqual([])
+  })
+
+  test('a field left out that started unticked is not rejected: the next run proposes it again', () => {
+    const skip = ['platform', 'variants.0.weightG', 'variants.1.weightG']
+    // The owner unticked only the second variant's weight; the rest started unticked (a check failed).
+    const result = approve(dataset([item], { models: [] }), skip, ['variants.1.weightG'])
+    expect(written(result).platform).toBeUndefined()
+
+    const again = diffModel(written(result), { model: fresh, fieldChecks: {} })
+    expect(Object.fromEntries(again.map((change) => [change.path, route(change, result.rejections)]))).toEqual({
+      platform: 'pending',
+      'variants.0.weightG': 'pending',
+      'variants.1.weightG': 'drop',
+    })
+    expect(() => approve(dataset([item], { models: [] }), ['platform'], ['tinnitus'])).toThrow(/tinnitus is not left out/)
   })
 
   test('a whole entry of a list can be left out without shifting the other skipped paths', () => {

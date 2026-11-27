@@ -41,10 +41,11 @@ function decide(id: string, decision: Decision): Promise<void> {
   return done
 }
 
-export async function approveChange(id: string, skipPaths?: string[]): Promise<void> {
+/** For a new model: `skipPaths` are left out, and of those `rejectPaths` (unticked by the owner) are rejected. */
+export async function approveChange(id: string, skipPaths?: string[], rejectPaths?: string[]): Promise<void> {
   if (process.env.NODE_ENV !== 'development') throw new Error('review is dev-only')
   await assertLocalHost()
-  await decide(id, { action: 'approve', skipPaths })
+  await decide(id, { action: 'approve', skipPaths, rejectPaths })
 }
 
 export async function rejectChange(id: string): Promise<void> {

@@ -16,7 +16,11 @@ import type { Dataset } from '@/src/lib/data/load'
 import { Model } from '@/src/lib/schema/model'
 import type { PendingChange } from '@/src/lib/schema/pending'
 
-export type Decision = { action: 'approve'; skipPaths?: string[] } | { action: 'reject' }
+/**
+ * `skipPaths` are left out of a new model; of those, `rejectPaths` (the fields the owner unticked) are
+ * rejected. A field left out because it started unticked comes back with the next run, as a change to review.
+ */
+export type Decision = { action: 'approve'; skipPaths?: string[]; rejectPaths?: string[] } | { action: 'reject' }
 
 export type DecisionResult = {
   /** Paths are relative to the data directory. */
@@ -129,10 +133,21 @@ function assertCurrent(item: PendingChange, change: Change, dataset: Dataset): v
   }
 }
 
+/** Whether a change the next run would find is about one of the fields at `paths` of the new model `after`. */
+function aboutPaths(change: Change, paths: string[], after: unknown): boolean {
+  const entry = entryChange(change)
+  if (entry === null) return paths.some((path) => change.path === path || change.path.startsWith(`${path}.`))
+  // A whole entry is proposed at the index it will have in the stored list: matched by its id or slug instead.
+  return paths.some((path) => {
+    const left = entryChange({ path, after: getPath(after, path) })
+    return left !== null && left.list === entry.list && left.name === entry.name
+  })
+}
+
 /**
  * `approve` gives the writes that make the change (a new model without `skipPaths`) and the events it
  * gives; `reject` gives the fingerprint that keeps the pipeline from proposing it again. What `approve`
- * leaves out of a new model is rejected the same way. Both delete the pending file.
+ * leaves out of a new model at `rejectPaths` is rejected the same way. Both delete the pending file.
  */
 export function applyDecision(dataset: Dataset, pendingId: string, decision: Decision): DecisionResult {
   const item = dataset.pending.find((p) => p.id === pendingId)
@@ -149,9 +164,15 @@ export function applyDecision(dataset: Dataset, pendingId: string, decision: Dec
   let after = item.after
   let leftOut: string[] = []
   if (kind === 'new-model') {
-    const model = without(item.after, decision.skipPaths ?? [])
+    const skipPaths = decision.skipPaths ?? []
+    const rejectPaths = decision.rejectPaths ?? []
+    const stray = rejectPaths.find((path) => !skipPaths.includes(path))
+    if (stray !== undefined) throw new Error(`${stray} is not left out, so it cannot be rejected`)
+    const model = without(item.after, skipPaths)
     // The changes the next run would find between the stored model and the same extraction: what was left out.
-    leftOut = diffModel(model, { model: item.after as Model, fieldChecks: {} }).map(fingerprint)
+    leftOut = diffModel(model, { model: item.after as Model, fieldChecks: {} })
+      .filter((left) => aboutPaths(left, rejectPaths, item.after))
+      .map(fingerprint)
     after = model
   }
   const change: Change = { kind, modelSlug: item.modelSlug, path: item.path, before: item.before, after }

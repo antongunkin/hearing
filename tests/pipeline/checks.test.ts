@@ -99,6 +99,14 @@ describe('literalCheck', () => {
     expect(literalCheck(field({ value: 'lithium', quote }), quote).ok).toBe(false)
   })
 
+  test('enum leaves named as readings are interpretations, like booleans: the other leaves are still checked', () => {
+    const quote = 'battery life up to 24 hours'
+    const power = (batteryHours: number) => field({ value: { type: 'rechargeable', batteryHours }, quote })
+    expect(literalCheck(power(24), quote).ok).toBe(false) // "rechargeable" is not a word of the quote
+    expect(literalCheck(power(24), quote, { readings: ['type'] }).ok).toBe(true)
+    expect(literalCheck(power(30), quote, { readings: ['type'] })).toMatchObject({ ok: false, detail: 'value not in quote: [30]' })
+  })
+
   test('derived field needs its derivation input in the quote', () => {
     expect(literalCheck(derived({ value: 1.98, quote: 'only 0.07 oz', input: '0.07 oz' }), 'only 0.07 oz').ok).toBe(true)
     expect(literalCheck(derived({ value: 1.98, quote: 'only 0.07 oz', input: '0.08 oz' }), 'only 0.07 oz').ok).toBe(false)
