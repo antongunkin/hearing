@@ -218,6 +218,12 @@ describe('results', () => {
     expect(await get(`${site.origin}/a`)).toMatchObject({ status: 'skipped', reason: 'bot-protection' })
   })
 
+  test('200 help article behind a reCAPTCHA-protected form → ok, not a wall', async () => {
+    const site = await serve({ '/a': { body: await fixture('recaptcha-form-200.html') } })
+
+    expect(await get(`${site.origin}/a`)).toMatchObject({ status: 'ok' })
+  })
+
   test('a challenge page → skipped/bot-protection and is not cached', async () => {
     const site = await serve({ '/a': { status: 403, body: await fixture('cf-challenge.html') } })
 
@@ -368,6 +374,9 @@ describe('looksLikeBotWall', () => {
     ['an hCaptcha widget', '<div class="h-captcha" data-sitekey="k"></div>'],
     ['visible captcha text', `<p>Complete the CAPTCHA</p>${loader}`],
     ['another challenge-platform script', '<script src="/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1"></script>'],
+    ['a Cloudflare Turnstile splash', '<h1>Checking your browser</h1><div class="cf-turnstile" data-sitekey="k"></div>'],
+    ['a DataDome device-check iframe', '<iframe src="https://geo.captcha-delivery.com/captcha/?initialCid=x"></iframe>'],
+    ['a DataDome tag script', '<script src="https://js.datadome.co/tags.js"></script>'],
   ])('an app shell with %s is a wall', (_name, content) => {
     expect(looksLikeBotWall(200, small(shell + content))).toBe(true)
   })
@@ -388,6 +397,21 @@ describe('looksLikeBotWall', () => {
   test('an ordinary small page is not a wall', () => {
     expect(looksLikeBotWall(200, small('<p>Hello</p>'))).toBe(false)
     expect(looksLikeBotWall(404, small('<p>Not found</p>'))).toBe(false)
+  })
+
+  test('the reCAPTCHA v3 badge disclosure, the only visible "captcha", is not a wall', () => {
+    const badge = 'This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.'
+    expect(looksLikeBotWall(200, small(`<h1>Reset your password</h1><p>${badge}</p>`))).toBe(false)
+  })
+
+  test.each([
+    ['a require-contact-captcha meta flag', '<meta name="require-contact-captcha" content="false">'],
+    ['a hidden CaptchaValue form field', '<input type="hidden" name="fxb__CaptchaValue" value="">'],
+    ['a captcha.required validation attribute', '<input data-val-required="captcha.required" data-val="true">'],
+    ['a t-captcha submit button', '<button class="t-captcha">Submit</button>'],
+    ['the invisible reCAPTCHA v3 badge element', '<div class="grecaptcha-badge" data-style="none"></div>'],
+  ])('a thin real page carrying %s (benign token, no widget, no prompt) is not a wall', (_name, token) => {
+    expect(looksLikeBotWall(200, small(`<h1>Reset your password</h1>${token}`))).toBe(false)
   })
 })
 
