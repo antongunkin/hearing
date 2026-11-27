@@ -38,8 +38,11 @@ export type DecisionResult = {
  * the change), but its path and value tell what it writes.
  */
 function changeKind({ kind, path, after }: PendingChange): Change['kind'] {
-  if (kind === 'new-model' || kind === 'brand-config' || kind === 'relation') return kind
+  if (kind === 'new-model' || kind === 'brand-config' || kind === 'relation' || kind === 'brand-history') return kind
+  if (/^documents\.\d+$/.test(path)) return 'document'
   switch (path) {
+    case 'discontinued':
+      return 'discontinued'
     case 'events':
       return 'fda-event'
     case 'app.iosVersion':
@@ -100,6 +103,14 @@ function assertCurrent(item: PendingChange, change: Change, dataset: Dataset): v
     return
   }
   if (change.kind === 'fda-event' || change.kind === 'relation') return
+  if (change.kind === 'brand-history') {
+    const slug = /^brands\/([^/]+)\.history$/.exec(path)?.[1]
+    const stored = dataset.brands.find((b) => b.slug === slug)?.history
+    if (stored && !sameValue(stored, after) && (before === undefined || !sameValue(stored, before))) {
+      throw new Error(`brand ${slug} has a different history now: reject this proposal`)
+    }
+    return
+  }
   if (change.kind === 'brand-config') {
     const slug = path.replace(/^brands\//, '')
     const stored = dataset.brands.find((b) => b.slug === slug)
@@ -187,7 +198,7 @@ export function applyDecision(dataset: Dataset, pendingId: string, decision: Dec
       .map(fingerprint)
     after = model
   }
-  const change: Change = { kind, modelSlug: item.modelSlug, path: item.path, before: item.before, after }
+  const change: Change = { kind, modelSlug: item.modelSlug, path: item.path, before: item.before, after, origin: item.origin }
   assertCurrent(item, change, dataset)
   const { writes, events } = planChange(change, dataset)
   return {

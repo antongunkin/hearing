@@ -12,11 +12,12 @@ import type { ModelCandidate } from '@/pipeline/sources/brand-site'
 import { readJson, type Dataset } from '@/src/lib/data/load'
 import { slugify } from '@/src/lib/data/slug'
 import { sortKeys, writeJson } from '@/src/lib/data/write'
-import { Brand } from '@/src/lib/schema/brand'
+import { parseArchiveUrl } from '@/src/lib/archive-url'
+import { Brand, BrandHistory } from '@/src/lib/schema/brand'
 import { Event } from '@/src/lib/schema/event'
 import type { Sourced } from '@/src/lib/schema/field'
 import { Edge, Entity, Graph } from '@/src/lib/schema/graph'
-import { Model } from '@/src/lib/schema/model'
+import { Lineage, Model } from '@/src/lib/schema/model'
 import { PendingChange, type CandidateChange, type CheckResult } from '@/src/lib/schema/pending'
 import { Reviews } from '@/src/lib/schema/reviews'
 
@@ -76,11 +77,11 @@ function priceJump(before: unknown, after: unknown): CheckResult | null {
 }
 
 /** Lists whose entries are proposed whole, as `<list>.<index>`, and the field that tells their entries apart. */
-const ENTRY_KEYS = { variants: 'id', sameHardwareAs: 'slug' } as const
+const ENTRY_KEYS = { variants: 'id', sameHardwareAs: 'slug', documents: 'url' } as const
 
 /** What a change to a whole list entry is about; null for any other path. */
 export function entryChange({ path, before, after }: { path: string; before?: unknown; after: unknown }) {
-  const list = /^(variants|sameHardwareAs)\.\d+$/.exec(path)?.[1] as keyof typeof ENTRY_KEYS | undefined
+  const list = /^(variants|sameHardwareAs|documents)\.\d+$/.exec(path)?.[1] as keyof typeof ENTRY_KEYS | undefined
   if (list === undefined) return null
   const key: string = ENTRY_KEYS[list]
   const name = ((after ?? before) as Json)[key]
@@ -97,6 +98,8 @@ export function entryChange({ path, before, after }: { path: string; before?: un
  * `techLevel`. Variants are matched by id: a new variant is one change appended to the list, and a stored
  * variant the candidate no longer lists is one change with `after: null` (removal, by a person only).
  * Hardware twins are matched by slug and proposed the same way, a changed twin as its whole new entry.
+ * Documents are matched by URL (an archive copy by the URL it was taken from): each one the stored model
+ * lacks is proposed as a `document` at the next index, with its checks; none is ever removed.
  * A value the candidate lacks is kept: the source may have left it out this time. So a candidate that
  * names no twins at all (a brand page never does) removes none.
  */
@@ -131,7 +134,7 @@ export function diffModel(existing: Model | null, cand: ModelCandidate): Candida
     )
   const removed = (path: string, before: unknown) => push('spec-change', path, before, null, { [path]: [] })
 
-  const { variants, sameHardwareAs, ...fields } = cand.model
+  const { variants, sameHardwareAs, documents, ...fields } = cand.model
   proposePlain('type', existing.type, cand.model.type)
   for (const [path, after] of sourcedLeaves(fields)) proposeSourced(path, after, { [path]: cand.fieldChecks[path] ?? [] })
 
@@ -148,6 +151,16 @@ export function diffModel(existing: Model | null, cand: ModelCandidate): Candida
       if (!sameHardwareAs.some((t) => t.slug === twin.slug)) removed(`sameHardwareAs.${j}`, twin)
     })
   }
+
+  /** A document by the page it is a copy of: the live URL and an archive copy of it are one document. */
+  const original = (url: string) => parseArchiveUrl(url)?.original ?? url
+  let nextDocument = existing.documents.length
+  // A model read from a stored proposal may predate the field.
+  ;(documents ?? []).forEach((document, i) => {
+    if (existing.documents.some((d) => d.url === document.url || original(d.url) === original(document.url))) return
+    const target = `documents.${nextDocument++}`
+    push('document', target, undefined, document, entryChecks(`documents.${i}`, target))
+  })
 
   let appended = existing.variants.length
   variants.forEach((variant, i) => {
@@ -186,7 +199,7 @@ export async function withCrossChecks(c: CandidateChange): Promise<CandidateChan
   return { ...c, checks }
 }
 
-const AUTO_KINDS = new Set<CandidateChange['kind']>(['price', 'app-version', 'fda-event', 'review-stats', 'complaint-themes'])
+const AUTO_KINDS = new Set<CandidateChange['kind']>(['price', 'app-version', 'fda-event', 'review-stats', 'complaint-themes', 'document'])
 
 const passes = (c: CandidateChange) => Object.values(c.checks).every((checks) => checks.every((check) => check.ok))
 
@@ -203,7 +216,9 @@ export function route(c: CandidateChange, rejections: string[]): 'auto' | 'pendi
  * with failed checks marked on the card; any other change with a failed check is a `failed-check`.
  */
 function pendingKind(c: CandidateChange): PendingChange['kind'] {
-  if (c.kind === 'new-model' || c.kind === 'brand-config' || c.kind === 'relation') return c.kind
+  if (c.kind === 'new-model' || c.kind === 'brand-config' || c.kind === 'relation' || c.kind === 'brand-history') return c.kind
+  // A discontinuation, or a document that failed a check, is shown as a spec change, or as a failed check
+  // (an orphan product page carries a failed `lifecycle` check).
   if (!passes(c)) return 'failed-check'
   return c.kind === 'pros-cons' ? 'pros-cons' : 'spec-change'
 }
@@ -284,7 +299,7 @@ export type Write = { path: string; value: unknown }
 
 export type ChangePlan = { writes: Write[]; events: ({ event: NewEvent } & EventContext)[] }
 
-export type Change = Pick<CandidateChange, 'kind' | 'modelSlug' | 'path' | 'before' | 'after'>
+export type Change = Pick<CandidateChange, 'kind' | 'modelSlug' | 'path' | 'before' | 'after' | 'origin'>
 
 /**
  * The model with the change made. A whole list entry (see `entryChange`) is added at the end, replaced or
@@ -295,7 +310,9 @@ function changedModel(model: Model, change: Change): Model {
   const updated = structuredClone(model)
   const entry = entryChange(change)
   if (entry === null) {
-    setPath(updated as Json, path, after)
+    // Back on sale: the key goes, it is not stored as null.
+    if (after === null && !path.includes('.')) delete (updated as Json)[path]
+    else setPath(updated as Json, path, after)
   } else {
     const list = updated[entry.list] as unknown[]
     const index = entry.indexIn(updated)
@@ -332,6 +349,8 @@ export function planChange(c: Change, dataset: Dataset): ChangePlan {
 
     case 'new-model': {
       const added = Model.parse(c.after)
+      // An archive import is history, not news.
+      if (c.origin === 'archive') return { writes: [modelWrite(added)], events: [] }
       const sources = [...new Set(sourcedLeaves(added).map(([, field]) => field.sourceUrl))]
       const event: NewEvent = { type: 'new-model', modelSlug: added.slug, date: today(), key: added.slug, sources }
       return { writes: [modelWrite(added)], events: [{ event, product: productOf(added), facts: {} }] }
@@ -351,10 +370,42 @@ export function planChange(c: Change, dataset: Dataset): ChangePlan {
       return { writes, events: [] }
     }
 
+    case 'brand-history': {
+      const slug = /^brands\/([^/]+)\.history$/.exec(c.path)?.[1]
+      const stored = dataset.brands.find((b) => b.slug === slug)
+      if (stored === undefined) throw new Error(`brand-history for unknown brand ${c.path}`)
+      const brand = Brand.parse({ ...stored, history: BrandHistory.parse(c.after) })
+      return { writes: [{ path: `brands/${brand.slug}.json`, value: brand }], events: [] }
+    }
+
+    case 'discontinued': {
+      if (model === null) throw new Error(`discontinued for unknown model ${c.modelSlug}`)
+      const writes = [modelWrite(changedModel(model, c))]
+      const after = c.after as Model['discontinued'] | null
+      // Back on sale, a change of an earlier finding and an archive import are no news.
+      if (!after || c.before !== undefined || c.origin === 'archive') return { writes, events: [] }
+      const event: NewEvent = { type: 'model-discontinued', modelSlug: model.slug, date: today(), key: model.slug, sources: [after.source.sourceUrl] }
+      return { writes, events: [{ event, product: productOf(model), facts: {} }] }
+    }
+
+    case 'document': {
+      if (model === null) throw new Error(`document for unknown model ${c.modelSlug}`)
+      return { writes: [modelWrite(changedModel(model, c))], events: [] }
+    }
+
     case 'price':
     case 'app-version':
     case 'spec-change': {
       if (model === null) throw new Error(`${c.kind} for unknown model ${c.modelSlug}`)
+      if ((c.path === 'predecessor' || c.path === 'successor') && c.after !== null) {
+        // Both sides state it: the other model names this one the other way round, with the same source.
+        const lineage = Lineage.parse(c.after)
+        const other = dataset.models.find((m) => m.slug === lineage.slug)
+        if (other === undefined) throw new Error(`${c.path} ${lineage.slug} of ${model.slug} is not a stored model`)
+        const reverse = c.path === 'predecessor' ? 'successor' : 'predecessor'
+        const linked = Model.parse({ ...structuredClone(other), [reverse]: { slug: model.slug, source: lineage.source } })
+        return { writes: [modelWrite(changedModel(model, c)), modelWrite(linked)], events: [] }
+      }
       const writes = [modelWrite(changedModel(model, c))]
       const before = c.before as Sourced<unknown> | undefined
       if (c.kind === 'spec-change' || before === undefined) return { writes, events: [] }
@@ -383,12 +434,6 @@ export function planChange(c: Change, dataset: Dataset): ChangePlan {
       const parsed = Reviews.parse(updated)
       return { writes: [{ path: `reviews/${parsed.slug}.json`, value: parsed }], events: [] }
     }
-
-    // Produced by the archive and discontinuation work, which applies them; nothing proposes them yet.
-    case 'document':
-    case 'discontinued':
-    case 'brand-history':
-      throw new Error(`${c.kind} changes are not applied yet`)
   }
 }
 

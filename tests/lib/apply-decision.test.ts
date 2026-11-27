@@ -432,3 +432,73 @@ describe('applyDecision: brand-config and relation', () => {
     }
   })
 })
+
+describe('applyDecision: lifecycle, documents, lineage and brand history', () => {
+  const LIST = 'https://www.jabraenhance.com/archive/select-500'
+  const old = model({ slug: 'jabra-enhance-select-300', name: 'Select 300' })
+  const gone = { lastListed: '2026-10', source: field('Select 500', { sourceUrl: LIST }) }
+  const doc = { kind: 'user-guide' as const, title: 'Guide', url: 'https://www.jabraenhance.com/guide.pdf', fetchedAt: NOW }
+  const item = (change: Omit<CandidateChange, 'modelSlug' | 'checks'>, extra: Partial<PendingChange> = {}) =>
+    ({ ...pending(change), ...extra }) as PendingChange
+
+  const discontinue = item({ kind: 'discontinued', path: 'discontinued', after: gone })
+
+  test('approving a discontinuation writes it and gives model-discontinued; archive imports give no event', () => {
+    const result = applyDecision(dataset([discontinue]), discontinue.id, { action: 'approve' })
+    expect(written(result).discontinued).toEqual(gone)
+    expect(result.newEvents).toEqual([
+      { type: 'model-discontinued', modelSlug: SLUG, date: expect.stringMatching(/^\d{4}-\d{2}-\d{2}$/), key: SLUG, sources: [LIST] },
+    ])
+    const archived = { ...discontinue, origin: 'archive' as const }
+    expect(applyDecision(dataset([archived]), archived.id, { action: 'approve' }).newEvents).toEqual([])
+    const imported = pending({ kind: 'new-model', path: '', after: model() }, 'new-model')
+    expect(applyDecision(dataset([{ ...imported, origin: 'archive' }], { models: [] }), imported.id, { action: 'approve' }).newEvents).toEqual([])
+  })
+
+  test('back on sale removes discontinued, with no event', () => {
+    const back = item({ kind: 'discontinued', path: 'discontinued', before: gone, after: null })
+    const result = applyDecision(dataset([back], { models: [model({ discontinued: gone })] }), back.id, { action: 'approve' })
+    expect(Object.hasOwn(written(result), 'discontinued')).toBe(false)
+    expect(result.newEvents).toEqual([])
+  })
+
+  test('a discontinuation is never applied automatically; a failed check makes it a failed-check card', () => {
+    expect(route({ kind: 'discontinued', modelSlug: SLUG, path: 'discontinued', after: gone, checks: {} }, [])).toBe('pending')
+  })
+
+  test('a new document is added; a replaced one takes the place of the old', () => {
+    const added = item({ kind: 'document', path: 'documents.0', after: doc })
+    expect(written(applyDecision(dataset([added]), added.id, { action: 'approve' })).documents).toEqual([doc])
+    const next = { ...doc, url: 'https://www.jabraenhance.com/guide-v2.pdf' }
+    const replaced = item({ kind: 'document', path: 'documents.0', before: doc, after: { ...next, url: doc.url, title: 'Guide v2' } })
+    const stored = dataset([replaced], { models: [model({ documents: [doc] })] })
+    expect(written(applyDecision(stored, replaced.id, { action: 'approve' })).documents).toEqual([{ ...doc, title: 'Guide v2' }])
+  })
+
+  test('approving a successor writes both models', () => {
+    const successor = item({ kind: 'spec-change', path: 'successor', after: { slug: old.slug, source: field('Select 300', { sourceUrl: LIST }) } })
+    const result = applyDecision(dataset([successor], { models: [model(), old] }), successor.id, { action: 'approve' })
+    expect(result.writes.map((w) => w.path).sort()).toEqual([`models/${old.slug}.json`, `models/${SLUG}.json`])
+    const by = (slug: string) => result.writes.find((w) => w.path === `models/${slug}.json`)!.value as Model
+    expect(by(SLUG).successor?.slug).toBe(old.slug)
+    expect(by(old.slug).predecessor).toEqual({ slug: SLUG, source: field('Select 300', { sourceUrl: LIST }) })
+    expect(() => applyDecision(dataset([successor]), successor.id, { action: 'approve' })).toThrow('not a stored model')
+  })
+
+  test('approving a brand history writes the brand', () => {
+    const fact = (n: number) => ({ date: `2020-0${n}`, text: `Fact ${n}`, sourceUrl: LIST, quote: `Fact ${n}`, fetchedAt: NOW })
+    const history = { facts: [fact(1), fact(2), fact(3)] }
+    const proposal = { ...pending({ kind: 'spec-change', path: 'brands/jabra-enhance.history', after: history }, 'brand-history'), modelSlug: null }
+    const result = applyDecision(dataset([proposal]), proposal.id, { action: 'approve' })
+    expect(result.writes).toEqual([{ path: 'brands/jabra-enhance.json', value: expect.objectContaining({ slug: 'jabra-enhance', history }) }])
+    expect(result.newEvents).toEqual([])
+  })
+
+  test('approving a new model without its discontinued field or one document leaves them out whole', () => {
+    const fresh = model({ discontinued: gone, documents: [doc, { ...doc, url: 'https://www.jabraenhance.com/b.pdf' }] })
+    const proposal = pending({ kind: 'new-model', path: '', after: fresh }, 'new-model')
+    const result = approve(dataset([proposal], { models: [] }), ['discontinued', 'documents.0'])
+    expect(Object.hasOwn(written(result), 'discontinued')).toBe(false)
+    expect(written(result).documents.map((d) => d.url)).toEqual(['https://www.jabraenhance.com/b.pdf'])
+  })
+})

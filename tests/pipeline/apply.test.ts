@@ -446,3 +446,51 @@ describe('applyAuto', () => {
     })
   })
 })
+
+describe('documents and lifecycle changes', () => {
+  const doc = { kind: 'user-guide' as const, title: 'Guide', url: 'https://www.jabraenhance.com/guide.pdf', fetchedAt: NEW }
+  const documentChange = (checks: CheckResult[]): CandidateChange => ({
+    kind: 'document',
+    modelSlug: 'jabra-enhance-select-500',
+    path: 'documents.0',
+    after: doc,
+    checks: { 'documents.0': checks },
+  })
+
+  test('diffModel proposes the documents the model lacks (an archive copy by its original), and removes none', () => {
+    const checks = { 'documents.1': [{ name: 'document' as const, ok: true }] }
+    const archived = { ...doc, url: 'https://web.archive.org/web/20200101000000id_/https://www.jabraenhance.com/guide.pdf' }
+    const second = { ...doc, url: 'https://www.jabraenhance.com/two.pdf' }
+    const stored = model({ documents: [doc] })
+    const found = diffModel(stored, { model: model({ documents: [archived, second] }), fieldChecks: checks })
+    expect(found).toEqual([{ kind: 'document', modelSlug: stored.slug, path: 'documents.1', after: second, checks }])
+    expect(diffModel(stored, { model: model(), fieldChecks: {} })).toEqual([])
+  })
+
+  test('a new document passing its checks is applied automatically; a failed one is reviewed', async () => {
+    const passing = documentChange([{ name: 'document', ok: true }])
+    const failing = documentChange([{ name: 'document', ok: false, detail: 'model name not in text' }])
+    expect(route(passing, [])).toBe('auto')
+    expect(route(failing, [])).toBe('pending')
+    const data = dataset()
+    expect(await applyAuto(passing, data, dir)).toEqual([])
+    expect((await readJsonFile('models/jabra-enhance-select-500.json')).documents).toEqual([doc])
+    const id = await enqueue(failing, dir)
+    expect(PendingChange.parse(await readJsonFile(`pending/${id}.json`)).kind).toBe('failed-check')
+  })
+
+  test('a discontinuation always waits for review; an orphan page shows as a failed check, an origin is kept', async () => {
+    const gone = { kind: 'discontinued' as const, modelSlug: 'jabra-enhance-select-500', path: 'discontinued', after: null, checks: {} }
+    expect(route({ ...gone, after: { source: { value: 'Select 500', quote: 'x', ...at(NEW) } } }, [])).toBe('pending')
+    const orphan = { ...gone, origin: 'archive' as const, checks: { discontinued: [{ name: 'lifecycle' as const, ok: false, detail: 'orphan-product-page' }] } }
+    const id = await enqueue(orphan, dir)
+    expect(await readJsonFile(`pending/${id}.json`)).toMatchObject({ kind: 'failed-check', origin: 'archive' })
+    expect(await enqueue({ ...gone, checks: {} }, dir)).toBe(id)
+    expect(await readJsonFile(`pending/${id}.json`)).toMatchObject({ kind: 'spec-change' })
+  })
+
+  test('a brand history keeps its kind when queued', async () => {
+    const id = await enqueue({ kind: 'brand-history', modelSlug: null, path: 'brands/jabra-enhance.history', after: {}, checks: {} }, dir)
+    expect(await readJsonFile(`pending/${id}.json`)).toMatchObject({ kind: 'brand-history' })
+  })
+})
