@@ -152,6 +152,11 @@
     "name": "Lexie"
   },
   {
+    "id": "brand:lexie-hearing",
+    "kind": "brand",
+    "name": "Lexie Hearing"
+  },
+  {
     "id": "brand:oticon",
     "kind": "brand",
     "name": "Oticon"
@@ -230,6 +235,11 @@
     "id": "company:hear-the-world-foundation",
     "kind": "company",
     "name": "Hear the World Foundation"
+  },
+  {
+    "id": "company:lxe-hearing",
+    "kind": "company",
+    "name": "LXE Hearing"
   },
   {
     "id": "company:lxe-hearing-inc",

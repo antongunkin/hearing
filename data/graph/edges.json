@@ -450,6 +450,37 @@
     "visibility": "internal"
   },
   {
+    "from": "company:lxe-hearing",
+    "kind": "owns",
+    "since": "2025",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T20:16:00.132Z",
+        "kind": "press-release",
+        "quote": "LXE Hearing, the company formed through the 2025 merger of Eargo and hearX, has begun winding down its U.S. operations, according to notices posted on the Eargo, Lexie Hearing, and LXE Hearing websites.",
+        "url": "https://www.hearingtracker.com/news/eargo-and-lexie-parent-lxe-hearing-begins-u-s-wind-down"
+      }
+    ],
+    "status": "proposed",
+    "to": "brand:eargo",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:lxe-hearing",
+    "kind": "owns",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T20:15:55.868Z",
+        "kind": "press-release",
+        "quote": "LXE Hearing, the parent company of Eargo, Lexie Hearing, Go Hearing, and hearX, has announced it is winding down its US operations after failing to identify a viable path forward following restructuring efforts.",
+        "url": "https://hearingreview.com/hearing-products/hearing-aids/otc/lxe-hearing-announces-wind-down-of-us-operations-affecting-eargo-lexie-and-go-brands"
+      }
+    ],
+    "status": "proposed",
+    "to": "brand:lexie-hearing",
+    "visibility": "internal"
+  },
+  {
     "from": "company:lxe-hearing-inc",
     "kind": "owns",
     "sources": [
