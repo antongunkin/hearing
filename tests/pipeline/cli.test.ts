@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
 import { priorCatalogCopies } from '@/pipeline/archive/catalog-history'
+import { archiveCandidates } from '@/pipeline/archive/wayback-models'
 import { crossCheck } from '@/pipeline/checks/crosscheck'
 import { planChange } from '@/pipeline/apply'
 import { main } from '@/pipeline/cli'
@@ -24,6 +25,7 @@ import { PendingChange } from '@/src/lib/schema/pending'
 import { Reviews } from '@/src/lib/schema/reviews'
 
 vi.mock('@/pipeline/archive/catalog-history', () => ({ priorCatalogCopies: vi.fn() }))
+vi.mock('@/pipeline/archive/wayback-models', () => ({ archiveCandidates: vi.fn() }))
 vi.mock('@/pipeline/fetch/fetcher', async (importOriginal) => ({
   ...(await importOriginal<typeof import('@/pipeline/fetch/fetcher')>()),
   fetchPage: vi.fn(),
@@ -1144,5 +1146,57 @@ describe('archive', () => {
     await main(['archive', '--brand', 'jabra-enhance', '--limit', '1'], opts)
     expect(vi.mocked(discoverModelUrls).mock.calls.map(([b]) => b.slug)).toEqual(['jabra-enhance'])
     expect(vi.mocked(extractModel)).toHaveBeenCalledTimes(1)
+  })
+
+  describe('archive-wayback', () => {
+    const gone = { ...brand, status: 'gone' as const }
+    const found = async () => {
+      const zed = { ...model('Zed 2'), discontinued: { source: { value: 'Zed 2', quote: 'Jabra Enhance Zed 2', sourceUrl: 'https://web.archive.org/web/2020/https://x.test/', fetchedAt: FETCHED_AT, sourceType: 'official' as const } } }
+      vi.mocked(archiveCandidates).mockResolvedValue([{ kind: 'new-model', modelSlug: zed.slug, path: '', after: zed, checks: {} }])
+    }
+
+    test('a gone brand gets its archive models as pending cards with origin archive, and no live catalog read', async () => {
+      await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), gone)
+      await found()
+      expect(await main(['archive'], opts)).toBe(0)
+      const card = PendingChange.parse(JSON.parse(await readFile(join(dataDir, 'pending', 'jabra-enhance-zed-2-model.json'), 'utf8')))
+      expect(card.origin).toBe('archive')
+      expect(discoverModelUrls).not.toHaveBeenCalled()
+      expect(vi.mocked(archiveCandidates).mock.calls[0][2].liveModelUrls.size).toBe(0)
+    })
+
+    test('an active brand without archive.catalogUrls has no wayback unit; with them the live catalog models are left out', async () => {
+      await found()
+      vi.mocked(discoverModelUrls).mockResolvedValue([])
+      await main(['archive'], opts)
+      expect(archiveCandidates).not.toHaveBeenCalled()
+
+      await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), { ...brand, archive: { catalogUrls: [BASE] } })
+      vi.mocked(discoverModelUrls).mockResolvedValue([{ modelUrl: `${BASE}/live`, documentUrls: [], inCatalog: true }])
+      await main(['archive'], opts)
+      expect([...vi.mocked(archiveCandidates).mock.calls[0][2].liveModelUrls]).toEqual([`${BASE}/live`])
+    })
+
+    test('an active brand whose live catalog was not read whole gets no archive proposals', async () => {
+      await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), { ...brand, archive: { catalogUrls: [BASE] } })
+      vi.mocked(discoverModelUrls).mockImplementation(async (_b, o) => {
+        o?.onEmpty?.(BASE)
+        return []
+      })
+      await main(['archive'], opts)
+      expect(archiveCandidates).not.toHaveBeenCalled()
+      expect(log.join('\n')).toContain('live catalog was not read whole')
+    })
+
+    test('archive-excluded is logged and the run goes on; a 429 from the archive stops it', async () => {
+      await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), gone)
+      vi.mocked(archiveCandidates).mockRejectedValue(new WaybackError('archive-excluded', 'HTTP 403'))
+      expect(await main(['archive'], opts)).toBe(0)
+      expect(log.join('\n')).toContain('web.archive.org does not serve this site, no archive models')
+
+      vi.mocked(archiveCandidates).mockRejectedValue(new WaybackError('rate-limited', 'HTTP 429'))
+      expect(await main(['archive'], opts)).toBe(2)
+      expect(log).toContain('web.archive.org refused requests. Resume later: npm run archive -- --resume')
+    })
   })
 })

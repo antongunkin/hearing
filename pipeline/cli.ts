@@ -18,6 +18,7 @@ import { Progress } from '@/pipeline/progress'
 import { priorCatalogCopies } from '@/pipeline/archive/catalog-history'
 import { checkDocument, replaceDeadDocuments, type OnSkip } from '@/pipeline/archive/documents'
 import { isInScope, lifecycleOf, listingIn } from '@/pipeline/archive/lifecycle'
+import { archiveCandidates } from '@/pipeline/archive/wayback-models'
 import { WaybackError } from '@/pipeline/sources/wayback'
 import { discoverModelUrls, extractModel, matchExistingModel, mergeCandidates, type ModelCandidate } from '@/pipeline/sources/brand-site'
 import { fetchIosVersion, lookupApp, type AppRecord } from '@/pipeline/sources/itunes'
@@ -737,8 +738,49 @@ async function archiveDocuments(run: Run, brand: Brand): Promise<void> {
 }
 
 /**
- * Per brand, in order: support pages, documents (Web Archive catalog copies and brand history come with their
- * units). A brand whose site refuses stops there and is recorded as refused: a plain `--resume` skips it but
+ * `archive-wayback`: models found only in Web Archive copies of the brand's catalog pages (a gone brand's, or an
+ * active brand's `archive.catalogUrls`), as discontinued cards, with their documents. An active brand's live
+ * catalog is read first: the models it lists belong to `update`, and when it cannot be read whole nothing is proposed.
+ * A refusal by the brand's site stops the brand, one by web.archive.org the command; a site the archive does not
+ * serve (`archive-excluded`) is logged and the run goes on.
+ */
+async function archiveWayback(run: Run, brand: Brand): Promise<void> {
+  const liveModelUrls = new Set<string>()
+  if (brand.status === 'active') {
+    let complete = true
+    const onSkip = (url: string, reason: string, detail?: string) => {
+      if (REFUSALS.has(reason)) throw new BrandRefusedError(url, reason)
+      complete = false
+      skippedSource(run, url, reason, detail)
+    }
+    const found = await discoverModelUrls(brand, { onSkip, onEmpty: () => (complete = false) })
+    if (!complete) {
+      console.log(`${brand.slug}: the live catalog was not read whole, Web Archive models not proposed`)
+      return
+    }
+    for (const group of found.filter((g) => g.inCatalog)) liveModelUrls.add(group.modelUrl)
+  }
+  try {
+    const changes = await archiveCandidates(brand, run.dataset.models, {
+      limit: run.limit,
+      refresh: run.refresh,
+      liveModelUrls,
+      onSkip: documentSkip(run),
+      onFail: (label, error) => {
+        run.tally.failed++
+        console.warn(`${label} failed: ${message(error)}`)
+      },
+    })
+    for (const change of changes) await handle(run, change)
+  } catch (error) {
+    if (!(error instanceof WaybackError && error.reason === 'archive-excluded')) throw error
+    skippedSource(run, brand.slug, 'archive-excluded', `${config.archiveHosts[0]} does not serve this site, no archive models`)
+  }
+}
+
+/**
+ * Per brand, in order: support pages, Web Archive models, documents (brand history comes with its
+ * unit). A brand whose site refuses stops there and is recorded as refused: a plain `--resume` skips it but
  * still lists it, a run with `--brand <slug>` tries again.
  */
 async function archive(run: Run): Promise<void> {
@@ -752,6 +794,9 @@ async function archive(run: Run): Promise<void> {
     try {
       if (brand.status === 'active' && (brand.scraper.supportUrls ?? []).length > 0) {
         await unit(run, `archive-support:${brand.slug}`, () => archiveSupport(run, brand), isBrandRefusal)
+      }
+      if (brand.status === 'gone' || (brand.archive?.catalogUrls ?? []).length > 0) {
+        await unit(run, `archive-wayback:${brand.slug}`, () => archiveWayback(run, brand), (e) => isBrandRefusal(e) || isArchiveStop(e))
       }
       await unit(run, `archive-documents:${brand.slug}`, () => archiveDocuments(run, brand), (e) => isBrandRefusal(e) || isArchiveStop(e))
     } catch (error) {
