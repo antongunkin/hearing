@@ -7,11 +7,14 @@ import { RAW_DIR, readLog } from '@/pipeline/fetch/raw-store'
 import { Progress } from '@/pipeline/progress'
 import { LlmLimitError } from '@/pipeline/llm'
 import { loadDataset, readJson, type Dataset } from '@/src/lib/data/load'
+import { slugify } from '@/src/lib/data/slug'
 import { writeJson } from '@/src/lib/data/write'
 import { Brand } from '@/src/lib/schema/brand'
 import { crawlSite, SiteRefusedError } from './crawl'
 import { describeSite } from './describe'
-import { readGraph, writeGraph } from './graph-store'
+import { readGraph, upsertEntity, writeGraph } from './graph-store'
+import { queueRelation, type ProposedRelation } from './relation'
+import { appPublishers, fdaApplicants, RelationSourceError, searchClaims } from './relations'
 import { SiteReport, Sites, type Site } from './schema'
 import { saveDescription } from './site-files'
 
@@ -56,6 +59,52 @@ async function describeOne(site: Site, ctx: { dataset: Dataset; dataDir: string;
   return true
 }
 
+/** `relations` for the brands and group companies of the chosen sites, then (on a full run) the FDA applicants. */
+async function relationsRun(chosen: Site[], ctx: { sites: Site[]; dataset: Dataset; dataDir: string; progress: Progress; all: boolean; refresh: boolean }) {
+  const { sites, dataset, dataDir, progress, all, refresh } = ctx
+  console.log('SEC skipped: the pipeline sends no contact header, so EDGAR is not asked')
+  const queue = async (relations: ProposedRelation[]) => {
+    let queued = 0
+    for (const rel of relations) if ((await queueRelation(rel, dataset, dataDir)) === 'queued') queued++
+    return queued
+  }
+  const search = { brands: dataset.brands, sites, refresh }
+
+  const units = new Map<string, { name: string; kind: 'brand' | 'company'; brand?: Brand }>()
+  for (const site of chosen) {
+    for (const slug of site.brands) {
+      const brand = dataset.brands.find((candidate) => candidate.slug === slug)
+      if (brand) units.set(`brand:${slug}`, { name: brand.name, kind: 'brand', brand })
+    }
+    if (site.company) units.set(`company:${slugify(site.company)}`, { name: site.company, kind: 'company' })
+  }
+  for (const [key, { name, kind, brand }] of units) {
+    if (progress.has(key)) continue
+    const relations = await searchClaims({ name, kind }, search)
+    for (const site of brand ? sites.filter((candidate) => candidate.brands.includes(brand.slug)) : []) {
+      let report: SiteReport
+      try {
+        report = await readJson(join(dataDir, 'atlas', 'sites', site.domain, 'report.json'), SiteReport)
+      } catch (error) {
+        if (!isMissing(error)) throw error
+        continue
+      }
+      relations.push(...(await appPublishers(report, brand!)))
+    }
+    const queued = await queue(relations)
+    console.log(`${key}: ${relations.length} relations found, ${queued} queued`)
+    await progress.done(key)
+  }
+  if (all && !progress.has('fda-applicants')) {
+    const { entities, relations } = await fdaApplicants(dataset.brands)
+    // The applicants are part of the graph even where no brand matches them.
+    await writeGraph(entities.reduce(upsertEntity, await readGraph(dataDir)), dataDir)
+    const queued = await queue(relations)
+    console.log(`fda-applicants: ${entities.length} applicants, ${relations.length} relations found, ${queued} queued`)
+    await progress.done('fda-applicants')
+  }
+}
+
 /** Runs a command; resolves to the exit code: 0 done, 1 bad arguments, 2 stopped (usage limit or refusal). */
 export async function atlasMain(argv: string[], opts: AtlasOptions = {}): Promise<number> {
   const { dataDir = 'data', progressDir = '.cache/progress', rawDir = RAW_DIR } = opts
@@ -76,11 +125,6 @@ export async function atlasMain(argv: string[], opts: AtlasOptions = {}): Promis
     console.error(`Usage: cli.ts <${COMMANDS.join('|')}> [--site <domain>] [--resume] [--refresh]`)
     return 1
   }
-  if (command === 'relations') {
-    console.error(`${command}: not implemented`)
-    return 1
-  }
-
   const sites = await readJson(join(dataDir, 'atlas', 'sites.json'), Sites)
   const chosen = values.site === undefined ? sites : sites.filter((site) => site.domain === values.site)
   if (chosen.length === 0) {
@@ -94,7 +138,11 @@ export async function atlasMain(argv: string[], opts: AtlasOptions = {}): Promis
   const failed: string[] = []
   let dataset: Dataset | undefined
   try {
-    for (const site of chosen) {
+    if (command === 'relations') {
+      dataset ??= await loadDataset(dataDir)
+      await relationsRun(chosen, { sites, dataset, dataDir, progress, all: values.site === undefined, refresh: values.refresh })
+    }
+    for (const site of command === 'relations' ? [] : chosen) {
       if (progress.has(site.domain)) continue
       if (command === 'describe') {
         dataset ??= await loadDataset(dataDir)
@@ -115,7 +163,7 @@ export async function atlasMain(argv: string[], opts: AtlasOptions = {}): Promis
       console.log(`${site.domain}: ${report.pages.length} pages, ${report.failures.length} failures`)
     }
   } catch (error) {
-    if (!(error instanceof SiteRefusedError || error instanceof LlmLimitError)) throw error
+    if (!(error instanceof SiteRefusedError || error instanceof LlmLimitError || error instanceof RelationSourceError)) throw error
     const flags = ['--resume', ...(values.site ? ['--site', values.site] : []), ...(values.refresh ? ['--refresh'] : [])]
     console.error(`${error.message}. Resume later: npm run atlas:${command} -- ${flags.join(' ')}`)
     return 2
