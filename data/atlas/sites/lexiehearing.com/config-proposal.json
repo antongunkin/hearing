@@ -1,0 +1,81 @@
+{
+  "checks": {
+    "archive.catalogUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "archive.catalogUrls.1": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "archive.catalogUrls.2": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "catalogUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "documentUrlPattern": [
+      {
+        "name": "pattern",
+        "ok": true
+      }
+    ],
+    "modelUrlPattern": [
+      {
+        "detail": "matches no URL of the report",
+        "name": "pattern",
+        "ok": false
+      }
+    ],
+    "supportUrls.0": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.1": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.2": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ]
+  },
+  "generatedAt": "2026-11-27T19:22:22.625Z",
+  "proposal": {
+    "archive": {
+      "catalogUrls": [
+        "https://web.archive.org/web/20221227104706id_/https://www.lexiehearing.com/us/",
+        "https://web.archive.org/web/20231206131705id_/https://lexiehearing.com/us",
+        "https://web.archive.org/web/20241220152942id_/https://lexiehearing.com/us"
+      ]
+    },
+    "catalogUrls": [
+      "https://lexiehearing.com/us"
+    ],
+    "documentUrlPattern": "^https://www\\.lexiehearing\\.com/documents/.+\\.pdf$",
+    "modelUrlPattern": "^https://(?:www\\.)?lexiehearing\\.com/us/(?:products|hearing-aids)/[a-z0-9-]+$",
+    "render": false,
+    "status": "gone",
+    "supportUrls": [
+      "https://www.lexiehearing.com/us/support",
+      "https://www.lexiehearing.com/us/support-lexie-b2-resources",
+      "https://www.lexiehearing.com/us/support-lexie-b3-resources"
+    ]
+  }
+}

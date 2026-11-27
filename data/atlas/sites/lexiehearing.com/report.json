@@ -1,0 +1,634 @@
+{
+  "archive": {
+    "sections": [
+      {
+        "byYear": {
+          "2021": 14,
+          "2022": 32,
+          "2023": 29,
+          "2024": 64,
+          "2025": 36,
+          "2026": 26
+        },
+        "latest": "20261025110241",
+        "url": "https://lexiehearing.com/us"
+      }
+    ]
+  },
+  "budget": 60,
+  "domain": "lexiehearing.com",
+  "failures": [
+    {
+      "detail": "https://web.archive.org/web/20261025110241id_/https://www.lexiehearing.com/us/support-lexie-b1-resources: ECONNREFUSED",
+      "reason": "http-error",
+      "url": "https://www.lexiehearing.com/us/support-lexie-b1-resources"
+    },
+    {
+      "detail": "https://web.archive.org/web/20261025110241id_/https://www.lexiehearing.com/us/support-lexie-lumen-resources: ECONNREFUSED",
+      "reason": "http-error",
+      "url": "https://www.lexiehearing.com/us/support-lexie-lumen-resources"
+    },
+    {
+      "detail": "https://web.archive.org/web/20261025110241id_/https://www.lexiehearing.com/us/support-lexie-h1-resources: ECONNREFUSED",
+      "reason": "http-error",
+      "url": "https://www.lexiehearing.com/us/support-lexie-h1-resources"
+    },
+    {
+      "detail": "https://web.archive.org/web/20261025110241id_/https://www.lexiehearing.com/us: ECONNREFUSED",
+      "reason": "http-error",
+      "url": "https://www.lexiehearing.com/us"
+    },
+    {
+      "detail": "https://web.archive.org/web/20261025110241id_/https://www.lexiehearing.com/us/how-to-videos: ECONNREFUSED",
+      "reason": "http-error",
+      "url": "https://www.lexiehearing.com/us/how-to-videos"
+    },
+    {
+      "detail": "https://web.archive.org/web/20261025110241id_/https://www.lexiehearing.com/us/privacy: ECONNREFUSED",
+      "reason": "http-error",
+      "url": "https://www.lexiehearing.com/us/privacy"
+    },
+    {
+      "detail": "https://web.archive.org/web/20261025110241id_/https://www.lexiehearing.com/us/terms-web: ECONNREFUSED",
+      "reason": "http-error",
+      "url": "https://www.lexiehearing.com/us/terms-web"
+    },
+    {
+      "detail": "https://web.archive.org/web/20261016233718id_/https://www.lexiehearing.com/: ECONNREFUSED",
+      "reason": "http-error",
+      "url": "https://www.lexiehearing.com/"
+    }
+  ],
+  "generatedAt": "2026-11-27T19:21:43.428Z",
+  "mode": "archive",
+  "outbound": [
+    {
+      "count": 4,
+      "domain": "instagram.com",
+      "examples": [
+        "https://www.instagram.com/hearingwithlexie/"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "linkedin.com",
+      "examples": [
+        "https://www.linkedin.com/company/lexie-hearing/"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "twitter.com",
+      "examples": [
+        "https://twitter.com/lexie_hearing"
+      ]
+    },
+    {
+      "count": 4,
+      "domain": "web.facebook.com",
+      "examples": [
+        "https://web.facebook.com/lexiehearing/"
+      ]
+    },
+    {
+      "count": 3,
+      "domain": "play.google.com",
+      "examples": [
+        "https://play.google.com/store/apps/details?id=com.hearxgroup.lexie&hl=en_US&pli=1",
+        "https://play.google.com/store/apps/details?id=com.hearxgroup.lexie"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "account.shareasale.com",
+      "examples": [
+        "https://account.shareasale.com/shareasale.cfm?merchantID=109444&storeID=1"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "apps.apple.com",
+      "examples": [
+        "https://apps.apple.com/app/lexie-hearing/id1525380701"
+      ]
+    },
+    {
+      "count": 2,
+      "domain": "docs.google.com",
+      "examples": [
+        "https://docs.google.com/forms/d/e/1FAIpQLScINjUe7oFhw_MQM5RdaLNabUYiGKGyqP-HyRCpcgQN46Qe6Q/viewform?usp=share_link"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "bbb.org",
+      "examples": [
+        "https://www.bbb.org/us/il/dekalb/profile/hearing-assistive-devices/lexie-hearing-0654-1000014782/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "bostonglobe.com",
+      "examples": [
+        "https://www.bostonglobe.com/2022/10/17/business/listen-up-hearing-aids-go-over-the-counter-monday/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "edition.cnn.com",
+      "examples": [
+        "https://edition.cnn.com/2022/10/17/health/over-the-counter-hearing-aids-available"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "google.com",
+      "examples": [
+        "https://www.google.com/chrome/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "hearingtracker.com",
+      "examples": [
+        "https://www.hearingtracker.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "hearsoundly.com",
+      "examples": [
+        "https://www.hearsoundly.com/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "mozilla.org",
+      "examples": [
+        "https://www.mozilla.org/en-US/firefox/new/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "nytimes.com",
+      "examples": [
+        "https://www.nytimes.com/wirecutter/blog/over-the-counter-hearing-aids/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "people.com",
+      "examples": [
+        "https://people.com/health/new-over-the-counter-hearing-aids-a-game-changer-for-millions-of-americans/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "reviewed.com",
+      "examples": [
+        "https://www.reviewed.com/accessibility/content/lexie-b2-bose-hearing-aids-review-price-no-prescription"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "shareasale.com",
+      "examples": [
+        "https://www.shareasale.com/shareasale.cfm?merchantID=109444"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "usatoday.com",
+      "examples": [
+        "https://www.usatoday.com/story/money/reviewed/2022/10/17/otc-hearing-aids-buy-now-bose-lively/10523887002/"
+      ]
+    },
+    {
+      "count": 1,
+      "domain": "washingtonpost.com",
+      "examples": [
+        "https://www.washingtonpost.com/business/2022/10/16/hearing-aids-retail-consumer/"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "archiveTimestamp": "20210914095744",
+      "external": [
+        "https://www.bbb.org/us/il/dekalb/profile/hearing-assistive-devices/lexie-hearing-0654-1000014782/",
+        "https://www.hearingtracker.com/",
+        "https://www.hearsoundly.com/",
+        "https://web.facebook.com/lexiehearing/",
+        "https://www.instagram.com/hearingwithlexie/",
+        "https://twitter.com/lexie_hearing",
+        "https://www.linkedin.com/company/lexie-hearing/",
+        "https://www.google.com/chrome/",
+        "https://www.mozilla.org/en-US/firefox/new/"
+      ],
+      "internalLinks": 18,
+      "jsonLdTypes": [
+        "Product",
+        "Organization"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T19:19:27.742Z",
+        "url": "https://web.archive.org/web/20210914095744id_/https://lexiehearing.com/us/"
+      },
+      "title": "Lexie Hearing: Low Cost, Premium Hearing Aid",
+      "url": "https://web.archive.org/web/20210914095744id_/https://lexiehearing.com/us/"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "archiveTimestamp": "20221227104706",
+      "external": [
+        "https://www.nytimes.com/wirecutter/blog/over-the-counter-hearing-aids/",
+        "https://edition.cnn.com/2022/10/17/health/over-the-counter-hearing-aids-available",
+        "https://www.bostonglobe.com/2022/10/17/business/listen-up-hearing-aids-go-over-the-counter-monday/",
+        "https://people.com/health/new-over-the-counter-hearing-aids-a-game-changer-for-millions-of-americans/",
+        "https://www.washingtonpost.com/business/2022/10/16/hearing-aids-retail-consumer/",
+        "https://www.usatoday.com/story/money/reviewed/2022/10/17/otc-hearing-aids-buy-now-bose-lively/10523887002/",
+        "https://www.reviewed.com/accessibility/content/lexie-b2-bose-hearing-aids-review-price-no-prescription",
+        "https://www.shareasale.com/shareasale.cfm?merchantID=109444",
+        "https://web.facebook.com/lexiehearing/",
+        "https://www.instagram.com/hearingwithlexie/",
+        "https://twitter.com/lexie_hearing",
+        "https://www.linkedin.com/company/lexie-hearing/"
+      ],
+      "internalLinks": 22,
+      "jsonLdTypes": [
+        "Product"
+      ],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T19:19:34.612Z",
+        "url": "https://web.archive.org/web/20221227104706id_/https://www.lexiehearing.com/us/"
+      },
+      "title": "Lexie Hearing: Low Cost, Premium Hearing Aids",
+      "url": "https://web.archive.org/web/20221227104706id_/https://www.lexiehearing.com/us/"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.hearxgroup.lexie"
+        ],
+        "ios": [
+          "1525380701"
+        ]
+      },
+      "archiveTimestamp": "20231206131705",
+      "external": [
+        "https://play.google.com/store/apps/details?id=com.hearxgroup.lexie&hl=en_US&pli=1",
+        "https://apps.apple.com/app/lexie-hearing/id1525380701",
+        "https://play.google.com/store/apps/details?id=com.hearxgroup.lexie",
+        "https://account.shareasale.com/shareasale.cfm?merchantID=109444&storeID=1",
+        "https://web.facebook.com/lexiehearing/",
+        "https://www.instagram.com/hearingwithlexie/",
+        "https://twitter.com/lexie_hearing",
+        "https://www.linkedin.com/company/lexie-hearing/",
+        "https://docs.google.com/forms/d/e/1FAIpQLScINjUe7oFhw_MQM5RdaLNabUYiGKGyqP-HyRCpcgQN46Qe6Q/viewform?usp=share_link"
+      ],
+      "internalLinks": 21,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T19:19:40.379Z",
+        "url": "https://web.archive.org/web/20231206131705id_/https://lexiehearing.com/us"
+      },
+      "title": "Lexie Hearing OTC Hearing Aids",
+      "url": "https://web.archive.org/web/20231206131705id_/https://lexiehearing.com/us"
+    },
+    {
+      "apps": {
+        "android": [
+          "com.hearxgroup.lexie"
+        ],
+        "ios": [
+          "1525380701"
+        ]
+      },
+      "archiveTimestamp": "20241220152942",
+      "external": [
+        "https://apps.apple.com/app/lexie-hearing/id1525380701",
+        "https://play.google.com/store/apps/details?id=com.hearxgroup.lexie",
+        "https://account.shareasale.com/shareasale.cfm?merchantID=109444&storeID=1",
+        "https://web.facebook.com/lexiehearing/",
+        "https://www.instagram.com/hearingwithlexie/",
+        "https://twitter.com/lexie_hearing",
+        "https://www.linkedin.com/company/lexie-hearing/",
+        "https://docs.google.com/forms/d/e/1FAIpQLScINjUe7oFhw_MQM5RdaLNabUYiGKGyqP-HyRCpcgQN46Qe6Q/viewform?usp=share_link"
+      ],
+      "internalLinks": 24,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T19:19:46.502Z",
+        "url": "https://web.archive.org/web/20241220152942id_/https://lexiehearing.com/us"
+      },
+      "title": "Lexie OTC Hearing Aids",
+      "url": "https://web.archive.org/web/20241220152942id_/https://lexiehearing.com/us"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "archiveTimestamp": "20251217073104",
+      "external": [],
+      "internalLinks": 0,
+      "jsonLdTypes": [],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T19:19:52.122Z",
+        "url": "https://web.archive.org/web/20251217073104id_/https://lexiehearing.com/us"
+      },
+      "title": "Lexie Hearing Aids | Behind the ear, OTC hearing aids",
+      "url": "https://web.archive.org/web/20251217073104id_/https://lexiehearing.com/us"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "archiveTimestamp": "20261025110241",
+      "external": [],
+      "internalLinks": 4,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T19:20:00.252Z",
+        "url": "https://web.archive.org/web/20261025110241id_/https://lexiehearing.com/us"
+      },
+      "title": "Lexie Hearing Aids | Behind the ear, OTC hearing aids",
+      "url": "https://web.archive.org/web/20261025110241id_/https://lexiehearing.com/us"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "archiveTimestamp": "20261015105222",
+      "external": [],
+      "internalLinks": 10,
+      "jsonLdTypes": [],
+      "needsRender": true,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T19:20:11.730Z",
+        "url": "https://web.archive.org/web/20261015105222id_/https://www.lexiehearing.com/us/support"
+      },
+      "title": "Lexie Support includes all the resources you need",
+      "url": "https://web.archive.org/web/20261015105222id_/https://www.lexiehearing.com/us/support"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "archiveTimestamp": "20261017014450",
+      "external": [],
+      "internalLinks": 4,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T19:20:23.096Z",
+        "url": "https://web.archive.org/web/20261017014450id_/https://www.lexiehearing.com/us/privacy"
+      },
+      "title": "Privacy Policy | Lexie Hearing",
+      "url": "https://web.archive.org/web/20261017014450id_/https://www.lexiehearing.com/us/privacy"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "archiveTimestamp": "20261015074000",
+      "external": [],
+      "internalLinks": 5,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [],
+      "ref": {
+        "fetchedAt": "2026-11-27T19:20:34.565Z",
+        "url": "https://web.archive.org/web/20261015074000id_/https://lexiehearing.com/us/terms-web"
+      },
+      "title": "Read Our Terms and Conditions Here | Lexie Hearing | USA",
+      "url": "https://web.archive.org/web/20261015074000id_/https://lexiehearing.com/us/terms-web"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "archiveTimestamp": "20261015061414",
+      "external": [],
+      "internalLinks": 4,
+      "jsonLdTypes": [],
+      "needsRender": true,
+      "pdfs": [
+        "https://www.lexiehearing.com/documents/quick-start-guide/Lexie_Lumen_Quick_Start_Guide.pdf",
+        "https://www.lexiehearing.com/documents/Lexie%20Lumen_Companion%20Mic_User%20Manual_v3.0.pdf",
+        "https://www.lexiehearing.com/documents/user-manual/Lexie_Lumen_User_Manual.pdf",
+        "https://www.lexiehearing.com/documents/Lexie_Lumen_Electronic_HA_Dryer_User_Manual_v2.0.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T19:20:45.874Z",
+        "url": "https://web.archive.org/web/20261015061414id_/https://www.lexiehearing.com/us/support-lexie-b3-resources"
+      },
+      "title": "Lexie B3 Resources",
+      "url": "https://web.archive.org/web/20261015061414id_/https://www.lexiehearing.com/us/support-lexie-b3-resources"
+    },
+    {
+      "apps": {
+        "android": [],
+        "ios": []
+      },
+      "archiveTimestamp": "20261015070957",
+      "external": [],
+      "internalLinks": 4,
+      "jsonLdTypes": [],
+      "needsRender": false,
+      "pdfs": [
+        "https://www.lexiehearing.com/documents/quick-start-guide/Lexie_Lumen_Quick_Start_Guide.pdf",
+        "https://www.lexiehearing.com/documents/Lexie%20Lumen_Companion%20Mic_User%20Manual_v3.0.pdf",
+        "https://www.lexiehearing.com/documents/user-manual/Lexie_Lumen_User_Manual.pdf",
+        "https://www.lexiehearing.com/documents/Lexie_Lumen_Electronic_HA_Dryer_User_Manual_v2.0.pdf"
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T19:20:57.088Z",
+        "url": "https://web.archive.org/web/20261015070957id_/https://www.lexiehearing.com/us/support-lexie-b2-resources"
+      },
+      "title": "Lexie B2 Resources",
+      "url": "https://web.archive.org/web/20261015070957id_/https://www.lexiehearing.com/us/support-lexie-b2-resources"
+    }
+  ],
+  "pdfHosts": [
+    {
+      "count": 8,
+      "examples": [
+        "https://www.lexiehearing.com/documents/quick-start-guide/Lexie_Lumen_Quick_Start_Guide.pdf",
+        "https://www.lexiehearing.com/documents/Lexie%20Lumen_Companion%20Mic_User%20Manual_v3.0.pdf",
+        "https://www.lexiehearing.com/documents/user-manual/Lexie_Lumen_User_Manual.pdf"
+      ],
+      "host": "lexiehearing.com"
+    }
+  ],
+  "redirects": [],
+  "robots": {
+    "archived": {
+      "groups": [
+        {
+          "allow": [
+            "*",
+            "*?utm_source",
+            "*?utm_source*"
+          ],
+          "disallow": [
+            "/us/assets/site/*",
+            "/us/assets/documents/**/*",
+            "/us/assets/img/press-kit/*.pdf",
+            "/us/assets/img/press-kit/infographics/*.pdf",
+            "/us/assets/img/press-kit/press-releases/*.pdf"
+          ],
+          "userAgents": [
+            "*"
+          ]
+        }
+      ],
+      "ref": {
+        "fetchedAt": "2026-11-27T19:19:19.618Z",
+        "url": "https://web.archive.org/web/20260205221941id_/https://lexiehearing.com/robots.txt"
+      }
+    },
+    "groups": [],
+    "ref": null,
+    "sitemaps": [],
+    "status": null
+  },
+  "sitemap": {
+    "refs": [],
+    "sections": [],
+    "urlCount": 0
+  },
+  "start": "https://lexiehearing.com/us",
+  "templates": [
+    {
+      "count": 46,
+      "examples": [
+        "https://lexiehearing.com/us/about-lexie",
+        "https://lexiehearing.com/us/about-lexie.html",
+        "https://lexiehearing.com/us/accessories"
+      ],
+      "pattern": "https://lexiehearing.com/us/{slug}"
+    },
+    {
+      "count": 26,
+      "examples": [
+        "https://www.lexiehearing.com/us/about-lexie",
+        "https://www.lexiehearing.com/us/best-online-hearing-test",
+        "https://www.lexiehearing.com/us/compare-hearing-aids"
+      ],
+      "pattern": "https://www.lexiehearing.com/us/{slug}"
+    }
+  ],
+  "urls": [
+    "https://lexiehearing.com/us",
+    "https://lexiehearing.com/us/",
+    "https://lexiehearing.com/us/about-lexie",
+    "https://lexiehearing.com/us/about-lexie.html",
+    "https://lexiehearing.com/us/accessories",
+    "https://lexiehearing.com/us/accessories/lexie-b1-powered-by-bose",
+    "https://lexiehearing.com/us/best-online-hearing-test",
+    "https://lexiehearing.com/us/best-online-hearing-test.html",
+    "https://lexiehearing.com/us/checkout.html",
+    "https://lexiehearing.com/us/compare-hearing-aids",
+    "https://lexiehearing.com/us/contact",
+    "https://lexiehearing.com/us/contact.html",
+    "https://lexiehearing.com/us/healthcare-partners",
+    "https://lexiehearing.com/us/hearing-expert-writers",
+    "https://lexiehearing.com/us/hearing-expert-writers.html",
+    "https://lexiehearing.com/us/how-to-videos",
+    "https://lexiehearing.com/us/how-to-videos.html",
+    "https://lexiehearing.com/us/index.html",
+    "https://lexiehearing.com/us/lexie-b1-powered-by-bose-hearing-aids",
+    "https://lexiehearing.com/us/lexie-b2-plus-powered-by-bose-hearing-aids",
+    "https://lexiehearing.com/us/lexie-b2-powered-by-bose-hearing-aids",
+    "https://lexiehearing.com/us/lexie-care",
+    "https://lexiehearing.com/us/lexie-club",
+    "https://lexiehearing.com/us/lexie-lumen-hearing-aid",
+    "https://lexiehearing.com/us/lexie-lumen-hearing-aid.html",
+    "https://lexiehearing.com/us/lexie-privacy-policy",
+    "https://lexiehearing.com/us/lexie-returns-refunds-policy",
+    "https://lexiehearing.com/us/lexie-rewards",
+    "https://lexiehearing.com/us/lexie-rewards.html",
+    "https://lexiehearing.com/us/lexie-usa-intended-use-notice",
+    "https://lexiehearing.com/us/lexie-usa-website-terms-and-conditions",
+    "https://lexiehearing.com/us/library",
+    "https://lexiehearing.com/us/library/",
+    "https://lexiehearing.com/us/outlet-store",
+    "https://lexiehearing.com/us/payment-options",
+    "https://lexiehearing.com/us/payment-options.html",
+    "https://lexiehearing.com/us/press-kit",
+    "https://lexiehearing.com/us/press-kit.html",
+    "https://lexiehearing.com/us/privacy",
+    "https://lexiehearing.com/us/privacy-policy.html",
+    "https://lexiehearing.com/us/returns",
+    "https://lexiehearing.com/us/returns-refunds-policy.html",
+    "https://lexiehearing.com/us/sitemap",
+    "https://lexiehearing.com/us/support",
+    "https://lexiehearing.com/us/support.html",
+    "https://lexiehearing.com/us/terms-conditions.html",
+    "https://lexiehearing.com/us/terms-web",
+    "https://lexiehearing.com/us/the-lexie-app-and-lexie-care-promise",
+    "https://lexiehearing.com/us/the-lexie-app-and-lexie-care-promise.html",
+    "https://www.lexiehearing.com/",
+    "https://www.lexiehearing.com/documents/Lexie%20Lumen_Companion%20Mic_User%20Manual_v3.0.pdf",
+    "https://www.lexiehearing.com/documents/Lexie_Lumen_Electronic_HA_Dryer_User_Manual_v2.0.pdf",
+    "https://www.lexiehearing.com/documents/quick-start-guide/Lexie_Lumen_Quick_Start_Guide.pdf",
+    "https://www.lexiehearing.com/documents/user-manual/Lexie_Lumen_User_Manual.pdf",
+    "https://www.lexiehearing.com/us",
+    "https://www.lexiehearing.com/us/",
+    "https://www.lexiehearing.com/us/about-lexie",
+    "https://www.lexiehearing.com/us/accessories/lexie-b1-powered-by-bose",
+    "https://www.lexiehearing.com/us/best-online-hearing-test",
+    "https://www.lexiehearing.com/us/compare-hearing-aids",
+    "https://www.lexiehearing.com/us/contact",
+    "https://www.lexiehearing.com/us/hearing-expert-writers",
+    "https://www.lexiehearing.com/us/how-to-videos",
+    "https://www.lexiehearing.com/us/lexie-b1-powered-by-bose-hearing-aids",
+    "https://www.lexiehearing.com/us/lexie-b2-powered-by-bose-hearing-aids",
+    "https://www.lexiehearing.com/us/lexie-lumen-hearing-aid",
+    "https://www.lexiehearing.com/us/lexie-privacy-policy",
+    "https://www.lexiehearing.com/us/lexie-returns-refunds-policy",
+    "https://www.lexiehearing.com/us/lexie-rewards",
+    "https://www.lexiehearing.com/us/lexie-usa-website-terms-and-conditions",
+    "https://www.lexiehearing.com/us/library",
+    "https://www.lexiehearing.com/us/library/can-you-use-an-fsa-hsa-for-hearing-aids",
+    "https://www.lexiehearing.com/us/payment-options",
+    "https://www.lexiehearing.com/us/press-kit",
+    "https://www.lexiehearing.com/us/privacy",
+    "https://www.lexiehearing.com/us/sitemap",
+    "https://www.lexiehearing.com/us/support",
+    "https://www.lexiehearing.com/us/support-lexie-b1-resources",
+    "https://www.lexiehearing.com/us/support-lexie-b2-resources",
+    "https://www.lexiehearing.com/us/support-lexie-b3-resources",
+    "https://www.lexiehearing.com/us/support-lexie-h1-resources",
+    "https://www.lexiehearing.com/us/support-lexie-lumen-resources",
+    "https://www.lexiehearing.com/us/terms-web",
+    "https://www.lexiehearing.com/us/the-lexie-app-and-lexie-care-promise"
+  ]
+}

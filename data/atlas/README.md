@@ -31,8 +31,8 @@ Read README.md and notes.md before working with a site in `sites/<domain>/`. Aft
 | [demant.com](sites/demant.com/) | 2026-11-27 | 2026-11-27 | - | demant.com is the corporate site of the Demant group (investor relations, sustainability, news, careers). It has no hearing aid catalog, no model pages and no user guides, so it is not one brand's site. | Where are the websites of Bernafon, Sonic and Philips Hearing Solutions? The pages only name them.; Does the group have official Oticon or other brand apps? No app links were found.; What does the full 2019 text of the history page say? The page is cut off. |
 | [wsa.com](sites/wsa.com/) | 2026-11-27 | 2026-11-27 | - | wsa.com is the corporate site of WS Audiology (WSA), not a brand shop: it has no model catalog or documents, and it links to the brand sites Signia, Widex, Rexton, Audio Service and Vibe. | Which pages on soundpreference.com, if any, hold product information?; Do the brand sites (signia.net, widex.com, rexton.com, audioservice.com, vibe-hearing.com) hold the catalogs and user guides? They were not read.; What does /media/downloads/ contain?; Which apps does WSA publish? No app store links were found on wsa.com.; Which ownership statements does the cut-off text of the merger press release make? |
 | [gn.com](sites/gn.com/) | 2026-11-27 | 2026-11-27 | - | gn.com is the corporate site of GN Store Nord A/S (investor, newsroom, careers); it has no hearing aid catalog, only brand links, and states the Hearing business is being sold to Amplifon. | Which hearing brands (ReSound, Beltone, Interton, Danavox, Jabra Enhance) are included in the sale to Amplifon is not stated in the pages read.; Whether the sale has completed is open; expected by the end of 2026.; The hearing technology section of /Solutions/Products shows no product details in the text.; The content of the EMTN Access Documents page behind the terms notice was not seen. |
-| [eargo.com](sites/eargo.com/) | 2026-11-27 | 2026-11-27 | gone | eargo.com is Eargo's own brand site, now only readable through the Web Archive. The live site refuses connections. The archive holds snapshots from 2018 to 2026, and the 2026 guides page lists Eargo 8, Eargo SE, LINK by Eargo and Eargo 7. | Does the archive hold copies of /products-hearing-aids and the model pages? The CDX lookup failed.; Why did the Oct 2026 snapshots refuse connections? Are they really missing?; Is the site still selling? Which models were on sale at the end?; Where are the PDFs for Eargo 5 to 8, SE and LINK?; Is there an Eargo app listing? None was found. |
-| [lexiehearing.com](sites/lexiehearing.com/) | - | - | gone | - | - |
+| [eargo.com](sites/eargo.com/) | 2026-11-27 | 2026-11-27 | gone | Eargo's own brand site, read only through Web Archive copies: the catalog page (/products-hearing-aids) came back empty, and the useful content is the /guides/ pages for Eargo 8, SE, LINK and 7, each with a Use & Care and a Tech & Regulatory PDF. | Does the live eargo.com still answer and sell hearing aids? The report has no live robots or pages.; What models does the archived /products-hearing-aids page list? Its copy was empty.; What are the real PDF URLs behind the Download PDF links on the guides pages?; Do the model URLs under /products-hearing-aids/ match the configured pattern? None were seen. |
+| [lexiehearing.com](sites/lexiehearing.com/) | 2026-11-27 | 2026-11-27 | gone | Lexie (LXE Hearing) is wound down: the live site no longer answers, and the US operations went into assignment for the benefit of creditors on July 15, 2026. Only Web Archive copies remain, with the last catalog snapshot from 2022 and the manuals on support pages. | What model page URLs existed? The report shows no /products/ or /hearing-aids/ page, so the current modelUrlPattern is unconfirmed.; Are the PDFs on www.lexiehearing.com/documents/ archived, and are there manuals for B1, H1 or B3 that differ from the Lumen-named files?; Did any buyer take over the Lexie brand after the wind-down? The pages mention the assignee evaluating asset sales but state no outcome.; Do the 201 archive captures include model pages beyond the homepage? |
 | [livelyhearing.com](sites/livelyhearing.com/) | - | - | - | - | - |
 
 ## Candidate domains
@@ -40,19 +40,19 @@ Read README.md and notes.md before working with a site in `sites/<domain>/`. Aft
 Linked from the reports but not crawled. Add one to `sites.json` only on the owner's word.
 
 - facebook.com (781 links)
-- instagram.com (671 links)
-- linkedin.com (668 links)
+- instagram.com (675 links)
+- linkedin.com (672 links)
 - youtube.com (639 links)
 - sennheiser-hearing.com (460 links)
 - support.sennheiser-hearing.com (228 links)
-- twitter.com (224 links)
+- twitter.com (228 links)
 - tiktok.com (159 links)
 - x.com (137 links)
 - career5.successfactors.eu (136 links)
 - resoundpro.com (102 links)
-- play.google.com (80 links)
+- play.google.com (83 links)
 - sennheiser.com (76 links)
-- bbb.org (70 links)
+- bbb.org (71 links)
 - gn.wd3.myworkdayjobs.com (62 links)
 - hear-the-world.com (61 links)
 - philips.com (60 links)
@@ -60,6 +60,7 @@ Linked from the reports but not crawled. Add one to `sites.json` only on the own
 - sonova.cn (60 links)
 - starkeyhearingfoundation.org (60 links)
 - app.certexpress.com (59 links)
+- apps.apple.com (59 links)
 - b2b.myunitron.com (59 links)
 - bernafon.com (59 links)
 - ownabeltone.com (59 links)
@@ -67,7 +68,6 @@ Linked from the reports but not crawled. Add one to `sites.json` only on the own
 - advancedbionics.com (58 links)
 - careers-demant.icims.com (58 links)
 - gnresoundblog.com (58 links)
-- apps.apple.com (57 links)
 - widexpro.com (57 links)
 
 ## How to update the atlas

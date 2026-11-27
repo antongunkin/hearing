@@ -2,9 +2,8 @@
   "checks": {
     "archive.catalogUrls.0": [
       {
-        "detail": "not in the report or the fetch log",
         "name": "log",
-        "ok": false
+        "ok": true
       }
     ],
     "catalogUrls.0": [
@@ -25,23 +24,51 @@
         "name": "log",
         "ok": true
       }
+    ],
+    "supportUrls.1": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.2": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.3": [
+      {
+        "name": "log",
+        "ok": true
+      }
+    ],
+    "supportUrls.4": [
+      {
+        "name": "log",
+        "ok": true
+      }
     ]
   },
-  "generatedAt": "2026-11-27T19:11:39.995Z",
+  "generatedAt": "2026-11-27T19:24:48.796Z",
   "proposal": {
     "archive": {
       "catalogUrls": [
-        "https://web.archive.org/web/2023id_/https://www.eargo.com/products-hearing-aids"
+        "https://web.archive.org/web/20260417045936id_/https://www.eargo.com/products-hearing-aids/"
       ]
     },
     "catalogUrls": [
       "https://www.eargo.com/products-hearing-aids"
     ],
     "modelUrlPattern": "^https://www\\.eargo\\.com/products-hearing-aids/[a-z0-9-]+/?$",
-    "render": false,
+    "render": true,
     "status": "gone",
     "supportUrls": [
-      "https://www.eargo.com/guides/"
+      "https://www.eargo.com/guides/",
+      "https://www.eargo.com/guides/eargo-8/",
+      "https://www.eargo.com/guides/eargo-7/",
+      "https://www.eargo.com/guides/eargo-se/",
+      "https://www.eargo.com/guides/link-by-eargo/"
     ]
   }
 }

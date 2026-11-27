@@ -1,1 +1,1237 @@
-[]
+[
+  {
+    "from": "brand:apple",
+    "kind": "files-as",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:18:13.610Z",
+        "kind": "fda-record",
+        "quote": "Apple, Inc.",
+        "url": "https://api.fda.gov/device/510k.json?search=product_code:(%22ESD%22+%22LRB%22+%22QUF%22+%22OSM%22+%22QUG%22+%22QDD%22+%22QUH%22+%22SCR%22+%22KLW%22)+AND+decision_date:[2018-01-01+TO+2026-11-27]&limit=1000&skip=0"
+      }
+    ],
+    "status": "proposed",
+    "to": "fda-applicant:apple-inc",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:apple",
+    "kind": "publishes",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:12:24.714Z",
+        "kind": "app-store",
+        "quote": "Apple Inc.",
+        "url": "https://itunes.apple.com/lookup?id=375380948"
+      }
+    ],
+    "status": "proposed",
+    "to": "app:ios-375380948",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:beltone",
+    "kind": "publishes",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:12:50.708Z",
+        "kind": "app-store",
+        "quote": "GN Hearing Care Corporation",
+        "url": "https://itunes.apple.com/lookup?id=1161360579"
+      }
+    ],
+    "status": "proposed",
+    "to": "app:ios-1161360579",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:bernafon",
+    "kind": "publishes",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:13:04.530Z",
+        "kind": "app-store",
+        "quote": "Bernafon AG",
+        "url": "https://itunes.apple.com/lookup?id=1597062293"
+      }
+    ],
+    "status": "proposed",
+    "to": "app:ios-1597062293",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:eargo",
+    "kind": "files-as",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:18:13.610Z",
+        "kind": "fda-record",
+        "quote": "Eargo, Inc.",
+        "url": "https://api.fda.gov/device/510k.json?search=product_code:(%22ESD%22+%22LRB%22+%22QUF%22+%22OSM%22+%22QUG%22+%22QDD%22+%22QUH%22+%22SCR%22+%22KLW%22)+AND+decision_date:[2018-01-01+TO+2026-11-27]&limit=1000&skip=0"
+      }
+    ],
+    "status": "proposed",
+    "to": "fda-applicant:eargo-inc",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:jabra-enhance",
+    "kind": "publishes",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:13:32.348Z",
+        "kind": "app-store",
+        "quote": "GN Consumer Hearing Corporation",
+        "url": "https://itunes.apple.com/lookup?id=1502033340"
+      }
+    ],
+    "status": "proposed",
+    "to": "app:ios-1502033340",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:oticon",
+    "kind": "publishes",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:14:19.500Z",
+        "kind": "app-store",
+        "quote": "Oticon",
+        "url": "https://itunes.apple.com/lookup?id=1597064213"
+      }
+    ],
+    "status": "proposed",
+    "to": "app:ios-1597064213",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:resound",
+    "kind": "publishes",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:14:59.712Z",
+        "kind": "app-store",
+        "quote": "GN Resound A/S",
+        "url": "https://itunes.apple.com/lookup?id=1134918918"
+      }
+    ],
+    "status": "proposed",
+    "to": "app:ios-1134918918",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:resound",
+    "kind": "publishes",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:15:03.412Z",
+        "kind": "app-store",
+        "quote": "GN Resound A/S",
+        "url": "https://itunes.apple.com/lookup?id=928432517"
+      }
+    ],
+    "status": "proposed",
+    "to": "app:ios-928432517",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:resound",
+    "kind": "publishes",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:00:15.308Z",
+        "kind": "company-page",
+        "quote": "The new ReSound Smart 3D app allows you to personalize and control your hearing aids in all kinds of environments and situations.",
+        "url": "https://www.resound.com/en-us/help/apps/smart-3d"
+      }
+    ],
+    "status": "proposed",
+    "to": "app:resound-smart-3d",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:sennheiser",
+    "kind": "publishes",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:15:34.932Z",
+        "kind": "app-store",
+        "quote": "Sonova Consumer Hearing GmbH",
+        "url": "https://itunes.apple.com/lookup?id=1408526071"
+      }
+    ],
+    "status": "proposed",
+    "to": "app:ios-1408526071",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:sennheiser",
+    "kind": "publishes",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:15:37.473Z",
+        "kind": "app-store",
+        "quote": "Sonova Consumer Hearing GmbH",
+        "url": "https://itunes.apple.com/lookup?id=1611165453"
+      }
+    ],
+    "status": "proposed",
+    "to": "app:ios-1611165453",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:sennheiser",
+    "kind": "publishes",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:15:30.967Z",
+        "kind": "app-store",
+        "quote": "Sonova Consumer Hearing GmbH",
+        "url": "https://itunes.apple.com/lookup?id=1632398035"
+      }
+    ],
+    "status": "proposed",
+    "to": "app:ios-1632398035",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:sennheiser",
+    "kind": "publishes",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:15:42.242Z",
+        "kind": "app-store",
+        "quote": "Sonova Consumer Hearing GmbH",
+        "url": "https://itunes.apple.com/lookup?id=6448098057"
+      }
+    ],
+    "status": "proposed",
+    "to": "app:ios-6448098057",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:starkey",
+    "kind": "files-as",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:18:13.610Z",
+        "kind": "fda-record",
+        "quote": "Starkey Laboratories, Inc.",
+        "url": "https://api.fda.gov/device/510k.json?search=product_code:(%22ESD%22+%22LRB%22+%22QUF%22+%22OSM%22+%22QUG%22+%22QDD%22+%22QUH%22+%22SCR%22+%22KLW%22)+AND+decision_date:[2018-01-01+TO+2026-11-27]&limit=1000&skip=0"
+      }
+    ],
+    "status": "proposed",
+    "to": "fda-applicant:starkey-laboratories-inc",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:starkey",
+    "kind": "publishes",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:16:05.680Z",
+        "kind": "app-store",
+        "quote": "Starkey Laboratories, Inc.",
+        "url": "https://itunes.apple.com/lookup?id=1549559068"
+      }
+    ],
+    "status": "proposed",
+    "to": "app:ios-1549559068",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:starkey",
+    "kind": "publishes",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:16:10.716Z",
+        "kind": "app-store",
+        "quote": "Starkey Laboratories, Inc.",
+        "url": "https://itunes.apple.com/lookup?id=336938292"
+      }
+    ],
+    "status": "proposed",
+    "to": "app:ios-336938292",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:starkey",
+    "kind": "publishes",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:16:14.096Z",
+        "kind": "app-store",
+        "quote": "Starkey Laboratories, Inc.",
+        "url": "https://itunes.apple.com/lookup?id=6449296331"
+      }
+    ],
+    "status": "proposed",
+    "to": "app:ios-6449296331",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:starkey",
+    "kind": "publishes",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:16:19.256Z",
+        "kind": "app-store",
+        "quote": "Starkey Laboratories, Inc.",
+        "url": "https://itunes.apple.com/lookup?id=966601084"
+      }
+    ],
+    "status": "proposed",
+    "to": "app:ios-966601084",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:unitron",
+    "kind": "publishes",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:16:35.677Z",
+        "kind": "app-store",
+        "quote": "Sonova AG",
+        "url": "https://itunes.apple.com/lookup?id=1256680977"
+      }
+    ],
+    "status": "proposed",
+    "to": "app:ios-1256680977",
+    "visibility": "internal"
+  },
+  {
+    "from": "brand:widex",
+    "kind": "publishes",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:16:46.220Z",
+        "kind": "app-store",
+        "quote": "Widex AS",
+        "url": "https://itunes.apple.com/lookup?id=1195907597"
+      }
+    ],
+    "status": "proposed",
+    "to": "app:ios-1195907597",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:demant",
+    "kind": "makes-for",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:31:19.766Z",
+        "kind": "company-page",
+        "quote": "Demant and Philips announce that they have established a partnership where Demant will bring Philips-branded hearing solutions to market, thus adding a fourth hearing aid brand to the Demant Group.",
+        "url": "https://www.demant.com/about/our-history"
+      }
+    ],
+    "status": "proposed",
+    "to": "brand:philips",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:demant",
+    "kind": "owns",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:31:19.766Z",
+        "kind": "company-page",
+        "quote": "In January, the Group acquires Bernafon – a hearing aid manufacturer based in Switzerland, which is today still a company in the Demant Group.",
+        "url": "https://www.demant.com/about/our-history"
+      }
+    ],
+    "status": "proposed",
+    "to": "brand:bernafon",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:demant",
+    "kind": "owns",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:29:44.352Z",
+        "kind": "company-page",
+        "quote": "Demant’s Hearing Care business, Audika Group, is a global network of more than 3,500 clinics in 20+ countries",
+        "url": "https://www.demant.com/about/sound-audio-and-good-hearing"
+      }
+    ],
+    "status": "proposed",
+    "to": "company:audika-group",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:gn",
+    "kind": "files-as",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:18:13.610Z",
+        "kind": "fda-record",
+        "quote": "GN Hearing A/S",
+        "url": "https://api.fda.gov/device/510k.json?search=product_code:(%22ESD%22+%22LRB%22+%22QUF%22+%22OSM%22+%22QUG%22+%22QDD%22+%22QUH%22+%22SCR%22+%22KLW%22)+AND+decision_date:[2018-01-01+TO+2026-11-27]&limit=1000&skip=0"
+      }
+    ],
+    "status": "proposed",
+    "to": "fda-applicant:gn-hearing-a-s",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:gn-hearing-a-s",
+    "kind": "operates",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:59:37.103Z",
+        "kind": "company-page",
+        "quote": "GN Hearing A/S - Lautrupbjerg 7 - 2750 Ballerup - Denmark | 2026 GN Hearing, All Rights Reserved.",
+        "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/enzo-q"
+      }
+    ],
+    "status": "proposed",
+    "to": "brand:resound",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:gn-store-nord-a-s",
+    "kind": "owns",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:40:34.188Z",
+        "kind": "company-page",
+        "quote": "GN-owned brands that are responsible for bringing these technologies to life:",
+        "url": "https://www.gn.com/About/GN-Group"
+      }
+    ],
+    "status": "proposed",
+    "to": "brand:beltone",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:gn-store-nord-a-s",
+    "kind": "owns",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:40:34.188Z",
+        "kind": "company-page",
+        "quote": "GN-owned brands that are responsible for bringing these technologies to life:",
+        "url": "https://www.gn.com/About/GN-Group"
+      }
+    ],
+    "status": "proposed",
+    "to": "brand:danavox",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:gn-store-nord-a-s",
+    "kind": "owns",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:40:34.188Z",
+        "kind": "company-page",
+        "quote": "GN-owned brands that are responsible for bringing these technologies to life:",
+        "url": "https://www.gn.com/About/GN-Group"
+      }
+    ],
+    "status": "proposed",
+    "to": "brand:interton",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:gn-store-nord-a-s",
+    "kind": "owns",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:40:34.188Z",
+        "kind": "company-page",
+        "quote": "GN-owned brands that are responsible for bringing these technologies to life:",
+        "url": "https://www.gn.com/About/GN-Group"
+      }
+    ],
+    "status": "proposed",
+    "to": "brand:resound",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:lxe-hearing-inc",
+    "kind": "owns",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:20:34.565Z",
+        "kind": "company-page",
+        "quote": "LXE Hearing, Inc., a Delaware Corporation and its affiliates and subsidiaries (“we”, “us”, “our”, “hearX USA”, “Lexie Hearing”, the “Company”), owns and/or licenses this website;",
+        "url": "https://web.archive.org/web/20261015074000id_/https://lexiehearing.com/us/terms-web"
+      }
+    ],
+    "status": "proposed",
+    "to": "brand:lexie",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:lxe-hearing-inc",
+    "kind": "publishes",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:20:34.565Z",
+        "kind": "company-page",
+        "quote": "the Lexie Hearing application available on Android and iOS platforms (the “App”)",
+        "url": "https://web.archive.org/web/20261015074000id_/https://lexiehearing.com/us/terms-web"
+      }
+    ],
+    "status": "proposed",
+    "to": "app:lexie-hearing-app",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:phonak-holding-ag",
+    "kind": "renamed-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:28:09.421Z",
+        "kind": "company-page",
+        "quote": "Renaming of Phonak Holding AG to Sonova",
+        "url": "https://www.sonova.com/company/"
+      }
+    ],
+    "status": "proposed",
+    "to": "company:sonova",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:sonova",
+    "kind": "files-as",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:18:13.610Z",
+        "kind": "fda-record",
+        "quote": "Sonova AG",
+        "url": "https://api.fda.gov/device/510k.json?search=product_code:(%22ESD%22+%22LRB%22+%22QUF%22+%22OSM%22+%22QUG%22+%22QDD%22+%22QUH%22+%22SCR%22+%22KLW%22)+AND+decision_date:[2018-01-01+TO+2026-11-27]&limit=1000&skip=0"
+      }
+    ],
+    "status": "proposed",
+    "to": "fda-applicant:sonova-ag",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:sonova",
+    "kind": "owns",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:57:39.207Z",
+        "kind": "company-page",
+        "quote": "Phonak – A Sonova brand",
+        "url": "https://www.phonak.com/en-us/support/user-guides/accessories"
+      }
+    ],
+    "status": "proposed",
+    "to": "brand:phonak",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:sonova",
+    "kind": "owns",
+    "since": "2006",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:24:05.343Z",
+        "kind": "company-page",
+        "quote": "Initiated in 2006 by Sonova Group, Hear the World Foundation supports children in low- and middle-income countries who require access to audiological care.",
+        "url": "https://www.sonova.com/"
+      }
+    ],
+    "status": "proposed",
+    "to": "company:hear-the-world-foundation",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:sonova-consumer-hearing-usa-llc",
+    "kind": "operates",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:55:29.580Z",
+        "kind": "company-page",
+        "quote": "# Agent Instructions — Sennheiser US - Sonova Consumer Hearing USA LLC",
+        "url": "https://us.sennheiser-hearing.com/agents.md"
+      }
+    ],
+    "status": "proposed",
+    "to": "brand:sennheiser",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:william-demant-foundation",
+    "kind": "owns",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:31:25.010Z",
+        "kind": "company-page",
+        "quote": "William Demant Foundation is the majority shareholder in Demant A/S (55-60%) through William Demant Invest A/S, which is the wholly owned holding company for William Demant Foundation’s investment activities.",
+        "url": "https://www.demant.com/about/our-business"
+      }
+    ],
+    "status": "proposed",
+    "to": "company:demant",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:william-demant-holding",
+    "kind": "renamed-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:31:19.766Z",
+        "kind": "company-page",
+        "quote": "William Demant Holding A/S changes name to Demant A/S and launches a new brand strategy to support collaboration across the Group and increase the sense of belonging to a global parent company with a long history and foundation ownership.",
+        "url": "https://www.demant.com/about/our-history"
+      }
+    ],
+    "status": "proposed",
+    "to": "company:demant-a-s",
+    "visibility": "internal"
+  },
+  {
+    "from": "company:wsa",
+    "kind": "owns",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:37:03.652Z",
+        "kind": "company-page",
+        "quote": "Signia",
+        "url": "https://www.wsa.com/brands/"
+      }
+    ],
+    "status": "proposed",
+    "to": "brand:signia",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:assets-we.cas.dgs.com",
+    "kind": "hosts-documents-for",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:28:21.954Z",
+        "kind": "crawl",
+        "url": "https://www.demant.com/"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:demant.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:assets.ha.demant.com",
+    "kind": "hosts-documents-for",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:12:32.319Z",
+        "kind": "crawl",
+        "url": "https://www.bernafon.us/support/compatibility-guide"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:bernafon.us",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:assets.ha.demant.com",
+    "kind": "hosts-documents-for",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:26:49.451Z",
+        "kind": "crawl",
+        "url": "https://www.oticon.com/support/compatibility-guide"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:oticon.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:audienhearing.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:02:36.737Z",
+        "kind": "crawl",
+        "url": "https://audienhearing.com/blogs/home/earbuds-that-look-like-hearing-aids-airpods-vs-otc-hearing-aids"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:apple.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:audienhearing.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:02:45.951Z",
+        "kind": "crawl",
+        "url": "https://audienhearing.com/blogs/home/the-best-rechargeable-hearing-aids-for-seniors-2026"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:jabraenhance.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:audienhearing.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:02:41.665Z",
+        "kind": "crawl",
+        "url": "https://audienhearing.com/blogs/home/the-best-otc-hearing-aids-without-an-app-2026"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:mdhearingaid.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:audienhearing.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:02:45.951Z",
+        "kind": "crawl",
+        "url": "https://audienhearing.com/blogs/home/the-best-rechargeable-hearing-aids-for-seniors-2026"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:us.sennheiser-hearing.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:bernafon.us",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:14:00.456Z",
+        "kind": "crawl",
+        "url": "https://www.bernafon.us/support/pairing/apple/how-to-pair-hearing-aids-with-apple-watch"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:apple.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:cdn.mediavalet.com",
+    "kind": "hosts-documents-for",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:05:05.594Z",
+        "kind": "crawl",
+        "url": "https://www.starkey.com/"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:starkey.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:costco.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:19:32.642Z",
+        "kind": "crawl",
+        "url": "https://www.costco.com/p/-/audien-atom-x-otc-hearing-aids-bundle/4201049668"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:audienhearing.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:d9jpa82qnx9c8.cloudfront.net",
+    "kind": "hosts-documents-for",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:43:16.187Z",
+        "kind": "crawl",
+        "url": "https://web.archive.org/web/20181223225142id_/https://eargo.com/"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:eargo.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:damcdn.demant.com",
+    "kind": "hosts-documents-for",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:12:29.375Z",
+        "kind": "crawl",
+        "url": "https://www.bernafon.us/products/bernafon-app"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:bernafon.us",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:damcdn.demant.com",
+    "kind": "hosts-documents-for",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:33:11.449Z",
+        "kind": "crawl",
+        "url": "https://www.hearingsolutions.philips.com/en-us/products/hearlink-2-app"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:hearingsolutions.philips.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:damcdn.demant.com",
+    "kind": "hosts-documents-for",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:26:46.152Z",
+        "kind": "crawl",
+        "url": "https://www.oticon.com/products/app"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:oticon.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:demant.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:28:29.167Z",
+        "kind": "crawl",
+        "url": "https://www.demant.com/about/sound-audio-and-good-hearing#whd"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:oticon.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:demant.com",
+    "kind": "redirects-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:30:47.632Z",
+        "kind": "crawl",
+        "url": "https://www.demant.com/investor-relations/shareholder-portal"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:portal.computershare.dk",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:ghgprotocol.org",
+    "kind": "hosts-documents-for",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:31:09.970Z",
+        "kind": "crawl",
+        "url": "https://www.demant.com/sustainability/supplier-engagement-programme"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:demant.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:gn.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:40:56.735Z",
+        "kind": "crawl",
+        "url": "https://www.gn.com/Privacy-Policy"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:apple.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:gn.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:40:34.188Z",
+        "kind": "crawl",
+        "url": "https://www.gn.com/About/GN-Group"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:beltone.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:gn.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:40:34.188Z",
+        "kind": "crawl",
+        "url": "https://www.gn.com/About/GN-Group"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:jabraenhance.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:gn.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:38:47.259Z",
+        "kind": "crawl",
+        "url": "https://www.gn.com/Solutions/Products"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:resound.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:goldmansachs.com",
+    "kind": "hosts-documents-for",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T16:59:23.275Z",
+        "kind": "crawl",
+        "url": "https://www.apple.com/airpods-pro/"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:apple.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:hearingloss.org",
+    "kind": "hosts-documents-for",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:16:18.831Z",
+        "kind": "crawl",
+        "url": "https://www.jabraenhance.com/hearing-aid-guide"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:jabraenhance.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:hearingsolutions.philips.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:32:53.885Z",
+        "kind": "crawl",
+        "url": "https://www.hearingsolutions.philips.com/en-us/find-hearing-center"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:costco.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:jnnp.bmj.com",
+    "kind": "hosts-documents-for",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:06:26.698Z",
+        "kind": "crawl",
+        "url": "https://www.starkey.com/hearing-loss/reasons-to-get-help"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:starkey.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:oticon.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:25:37.417Z",
+        "kind": "crawl",
+        "url": "https://www.oticon.com/about-us"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:27:50.312Z",
+        "kind": "crawl",
+        "url": "https://www.oticon.com/campaigns-b2c/reveal"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:demant.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:p3.aprimocdn.net",
+    "kind": "hosts-documents-for",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:26:49.451Z",
+        "kind": "crawl",
+        "url": "https://www.oticon.com/support/compatibility-guide"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:oticon.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:resound.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:43:10.586Z",
+        "kind": "crawl",
+        "url": "https://www.resound.com/en-us/"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:gn.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:rexton.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:50:15.885Z",
+        "kind": "crawl",
+        "url": "https://www.rexton.com/en-us/"
+      },
+      {
+        "fetchedAt": "2026-11-27T17:50:21.653Z",
+        "kind": "crawl",
+        "url": "https://www.rexton.com/da-dk/"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:wsa.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:signia.net",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:03:12.209Z",
+        "kind": "crawl",
+        "url": "https://www.signia.net/de-de/"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:wsa.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:sonova.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:24:05.343Z",
+        "kind": "crawl",
+        "url": "https://www.sonova.com/"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:phonak.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:sonova.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:24:05.343Z",
+        "kind": "crawl",
+        "url": "https://www.sonova.com/"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:unitron.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:unitron.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:13:33.963Z",
+        "kind": "crawl",
+        "url": "https://www.unitron.com/content/unitron/language-masters/en/hearing-solutions/accessories"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:phonak.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:unitron.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:10:34.594Z",
+        "kind": "crawl",
+        "url": "https://www.unitron.com/en-us"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:sonova.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:us.sennheiser-hearing.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T17:55:21.359Z",
+        "kind": "crawl",
+        "url": "https://us.sennheiser-hearing.com/"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:sonova.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:widex.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:17:53.066Z",
+        "kind": "crawl",
+        "url": "https://www.widex.com/cs-cz/"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:18:04.129Z",
+        "kind": "crawl",
+        "url": "https://www.widex.com/de-de/"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:wsa.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:wsa-com-prod-bwa6fdbwhjcnhbd2.a03.azurefd.net",
+    "kind": "hosts-documents-for",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:36:54.687Z",
+        "kind": "crawl",
+        "url": "https://www.wsa.com/sustainability/"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:wsa.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:wsa.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:33:43.215Z",
+        "kind": "crawl",
+        "url": "https://www.wsa.com/"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:rexton.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:wsa.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:33:43.215Z",
+        "kind": "crawl",
+        "url": "https://www.wsa.com/"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:signia.net",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:wsa.com",
+    "kind": "links-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:33:43.215Z",
+        "kind": "crawl",
+        "url": "https://www.wsa.com/"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:33:55.256Z",
+        "kind": "crawl",
+        "url": "https://www.wsa.com/press-release/sivantos-and-widex-merge-to-create-global-hearing-aid-leader-2/"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:widex.com",
+    "visibility": "internal"
+  },
+  {
+    "from": "domain:wsa.com",
+    "kind": "redirects-to",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:37:10.275Z",
+        "kind": "crawl",
+        "url": "https://www.wsa.com/sound-preference-se/"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:37:14.526Z",
+        "kind": "crawl",
+        "url": "https://www.wsa.com/sound-preference-dk/"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:37:19.061Z",
+        "kind": "crawl",
+        "url": "https://www.wsa.com/sound-preference-nl/"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:37:22.809Z",
+        "kind": "crawl",
+        "url": "https://www.wsa.com/sound-preference-za/"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:37:26.064Z",
+        "kind": "crawl",
+        "url": "https://www.wsa.com/sound-preference-fr-ch/"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:37:30.125Z",
+        "kind": "crawl",
+        "url": "https://www.wsa.com/sound-preference-de-at/"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:37:33.367Z",
+        "kind": "crawl",
+        "url": "https://www.wsa.com/sound-preference-de-ch/"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:37:36.448Z",
+        "kind": "crawl",
+        "url": "https://www.wsa.com/sound-preference-tr/"
+      },
+      {
+        "fetchedAt": "2026-11-27T18:37:39.574Z",
+        "kind": "crawl",
+        "url": "https://www.wsa.com/sound-preference-it/"
+      }
+    ],
+    "status": "observed",
+    "to": "domain:soundpreference.com",
+    "visibility": "internal"
+  }
+]

@@ -22,62 +22,62 @@
   "domain": "eargo.com",
   "failures": [
     {
-      "detail": "https://web.archive.org/web/20261008224430id_/https://eargo.com/guides/: ECONNREFUSED",
-      "reason": "http-error",
+      "detail": "robots.txt unavailable: https://web.archive.org/robots.txt: ECONNREFUSED",
+      "reason": "robots",
       "url": "https://eargo.com/guides/"
     },
     {
-      "detail": "https://web.archive.org/web/20261008224430id_/https://eargo.com/privacy/: ECONNREFUSED",
-      "reason": "http-error",
+      "detail": "robots.txt unavailable: https://web.archive.org/robots.txt: ECONNREFUSED",
+      "reason": "robots",
       "url": "https://eargo.com/privacy/"
     },
     {
-      "detail": "https://web.archive.org/web/20261008224430id_/https://eargo.com/terms-of-use/: ECONNREFUSED",
-      "reason": "http-error",
+      "detail": "robots.txt unavailable: https://web.archive.org/robots.txt: ECONNREFUSED",
+      "reason": "robots",
       "url": "https://eargo.com/terms-of-use/"
     },
     {
-      "detail": "https://web.archive.org/web/20261008224430id_/https://www.eargo.com/guides/eargo-8/: ECONNREFUSED",
-      "reason": "http-error",
+      "detail": "robots.txt unavailable: https://web.archive.org/robots.txt: ECONNREFUSED",
+      "reason": "robots",
       "url": "https://www.eargo.com/guides/eargo-8/"
     },
     {
-      "detail": "https://web.archive.org/web/20261008224430id_/https://www.eargo.com/guides/eargo-se/: ECONNREFUSED",
-      "reason": "http-error",
+      "detail": "robots.txt unavailable: https://web.archive.org/robots.txt: ECONNREFUSED",
+      "reason": "robots",
       "url": "https://www.eargo.com/guides/eargo-se/"
     },
     {
-      "detail": "https://web.archive.org/web/20261008224430id_/https://www.eargo.com/guides/link-by-eargo/: ECONNREFUSED",
-      "reason": "http-error",
+      "detail": "robots.txt unavailable: https://web.archive.org/robots.txt: ECONNREFUSED",
+      "reason": "robots",
       "url": "https://www.eargo.com/guides/link-by-eargo/"
     },
     {
-      "detail": "https://web.archive.org/web/20261008224430id_/https://www.eargo.com/guides/eargo-7/: ECONNREFUSED",
-      "reason": "http-error",
+      "detail": "robots.txt unavailable: https://web.archive.org/robots.txt: ECONNREFUSED",
+      "reason": "robots",
       "url": "https://www.eargo.com/guides/eargo-7/"
     },
     {
-      "detail": "https://web.archive.org/web/20261008224430id_/https://www.eargo.com/: ECONNREFUSED",
-      "reason": "http-error",
+      "detail": "robots.txt unavailable: https://web.archive.org/robots.txt: ECONNREFUSED",
+      "reason": "robots",
       "url": "https://www.eargo.com/"
     },
     {
-      "detail": "https://web.archive.org/web/20261008224430id_/https://www.eargo.com/privacy/: ECONNREFUSED",
-      "reason": "http-error",
+      "detail": "robots.txt unavailable: https://web.archive.org/robots.txt: ECONNREFUSED",
+      "reason": "robots",
       "url": "https://www.eargo.com/privacy/"
     },
     {
-      "detail": "https://web.archive.org/web/20261008224430id_/https://www.eargo.com/terms-of-use/: ECONNREFUSED",
-      "reason": "http-error",
+      "detail": "robots.txt unavailable: https://web.archive.org/robots.txt: ECONNREFUSED",
+      "reason": "robots",
       "url": "https://www.eargo.com/terms-of-use/"
     },
     {
-      "detail": "Web Archive CDX skipped: http-error (https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fwww.eargo.com%2Fproducts-hearing-aids&from=2018&filter=statuscode%3A200&collapse=timestamp%3A8&output=json&fl=timestamp%2Coriginal%2Cstatuscode%2Cmimetype%2Cdigest: ECONNREFUSED)",
-      "reason": "http-error",
+      "detail": "Web Archive CDX skipped: robots (robots.txt unavailable: https://web.archive.org/robots.txt: ECONNREFUSED)",
+      "reason": "robots",
       "url": "https://www.eargo.com/products-hearing-aids"
     }
   ],
-  "generatedAt": "2026-11-27T18:45:20.770Z",
+  "generatedAt": "2026-11-27T19:21:55.019Z",
   "mode": "archive",
   "outbound": [
     {

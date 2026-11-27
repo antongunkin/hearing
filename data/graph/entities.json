@@ -1,1 +1,569 @@
-[]
+[
+  {
+    "id": "app:ios-1134918918",
+    "iosId": "1134918918",
+    "kind": "app",
+    "name": "ReSound Smart 3D"
+  },
+  {
+    "id": "app:ios-1161360579",
+    "iosId": "1161360579",
+    "kind": "app",
+    "name": "Beltone HearMax"
+  },
+  {
+    "id": "app:ios-1195907597",
+    "iosId": "1195907597",
+    "kind": "app",
+    "name": "Widex Zen, Tinnitus Management"
+  },
+  {
+    "id": "app:ios-1256680977",
+    "iosId": "1256680977",
+    "kind": "app",
+    "name": "Unitron Remote Plus"
+  },
+  {
+    "id": "app:ios-1408526071",
+    "iosId": "1408526071",
+    "kind": "app",
+    "name": "Sennheiser Smart Control"
+  },
+  {
+    "id": "app:ios-1502033340",
+    "iosId": "1502033340",
+    "kind": "app",
+    "name": "Jabra Enhance Select"
+  },
+  {
+    "id": "app:ios-1549559068",
+    "iosId": "1549559068",
+    "kind": "app",
+    "name": "My Starkey"
+  },
+  {
+    "id": "app:ios-1597062293",
+    "iosId": "1597062293",
+    "kind": "app",
+    "name": "Bernafon App"
+  },
+  {
+    "id": "app:ios-1597064213",
+    "iosId": "1597064213",
+    "kind": "app",
+    "name": "Oticon Companion"
+  },
+  {
+    "id": "app:ios-1611165453",
+    "iosId": "1611165453",
+    "kind": "app",
+    "name": "Sennheiser Hearing Test"
+  },
+  {
+    "id": "app:ios-1632398035",
+    "iosId": "1632398035",
+    "kind": "app",
+    "name": "Sennheiser All-Day Clear"
+  },
+  {
+    "id": "app:ios-336938292",
+    "iosId": "336938292",
+    "kind": "app",
+    "name": "Starkey T² Remote"
+  },
+  {
+    "id": "app:ios-375380948",
+    "iosId": "375380948",
+    "kind": "app",
+    "name": "Apple Store"
+  },
+  {
+    "id": "app:ios-6448098057",
+    "iosId": "6448098057",
+    "kind": "app",
+    "name": "Sennheiser Smart Control Plus"
+  },
+  {
+    "id": "app:ios-6449296331",
+    "iosId": "6449296331",
+    "kind": "app",
+    "name": "SoundCheck Live"
+  },
+  {
+    "id": "app:ios-928432517",
+    "iosId": "928432517",
+    "kind": "app",
+    "name": "ReSound Tinnitus Relief"
+  },
+  {
+    "id": "app:ios-966601084",
+    "iosId": "966601084",
+    "kind": "app",
+    "name": "Starkey Relax"
+  },
+  {
+    "id": "app:lexie-hearing-app",
+    "kind": "app",
+    "name": "Lexie Hearing app"
+  },
+  {
+    "id": "app:resound-smart-3d",
+    "kind": "app",
+    "name": "ReSound Smart 3D"
+  },
+  {
+    "id": "brand:apple",
+    "kind": "brand",
+    "name": "Apple"
+  },
+  {
+    "id": "brand:beltone",
+    "kind": "brand",
+    "name": "Beltone"
+  },
+  {
+    "id": "brand:bernafon",
+    "kind": "brand",
+    "name": "Bernafon"
+  },
+  {
+    "id": "brand:danavox",
+    "kind": "brand",
+    "name": "Danavox"
+  },
+  {
+    "id": "brand:eargo",
+    "kind": "brand",
+    "name": "Eargo"
+  },
+  {
+    "id": "brand:interton",
+    "kind": "brand",
+    "name": "Interton"
+  },
+  {
+    "id": "brand:jabra-enhance",
+    "kind": "brand",
+    "name": "Jabra Enhance"
+  },
+  {
+    "id": "brand:lexie",
+    "kind": "brand",
+    "name": "Lexie"
+  },
+  {
+    "id": "brand:oticon",
+    "kind": "brand",
+    "name": "Oticon"
+  },
+  {
+    "id": "brand:philips",
+    "kind": "brand",
+    "name": "Philips"
+  },
+  {
+    "id": "brand:phonak",
+    "kind": "brand",
+    "name": "Phonak"
+  },
+  {
+    "id": "brand:resound",
+    "kind": "brand",
+    "name": "ReSound"
+  },
+  {
+    "id": "brand:sennheiser",
+    "kind": "brand",
+    "name": "Sennheiser"
+  },
+  {
+    "id": "brand:signia",
+    "kind": "brand",
+    "name": "Signia"
+  },
+  {
+    "id": "brand:starkey",
+    "kind": "brand",
+    "name": "Starkey"
+  },
+  {
+    "id": "brand:unitron",
+    "kind": "brand",
+    "name": "Unitron"
+  },
+  {
+    "id": "brand:widex",
+    "kind": "brand",
+    "name": "Widex"
+  },
+  {
+    "id": "company:audika-group",
+    "kind": "company",
+    "name": "Audika Group"
+  },
+  {
+    "id": "company:demant",
+    "kind": "company",
+    "name": "Demant"
+  },
+  {
+    "id": "company:demant-a-s",
+    "kind": "company",
+    "name": "Demant A/S"
+  },
+  {
+    "id": "company:gn",
+    "kind": "company",
+    "name": "GN"
+  },
+  {
+    "id": "company:gn-hearing-a-s",
+    "kind": "company",
+    "name": "GN Hearing A/S"
+  },
+  {
+    "id": "company:gn-store-nord-a-s",
+    "kind": "company",
+    "name": "GN Store Nord A/S"
+  },
+  {
+    "id": "company:hear-the-world-foundation",
+    "kind": "company",
+    "name": "Hear the World Foundation"
+  },
+  {
+    "id": "company:lxe-hearing-inc",
+    "kind": "company",
+    "name": "LXE Hearing, Inc."
+  },
+  {
+    "id": "company:phonak-holding-ag",
+    "kind": "company",
+    "name": "Phonak Holding AG"
+  },
+  {
+    "id": "company:sonova",
+    "kind": "company",
+    "name": "Sonova"
+  },
+  {
+    "id": "company:sonova-consumer-hearing-usa-llc",
+    "kind": "company",
+    "name": "Sonova Consumer Hearing USA LLC"
+  },
+  {
+    "id": "company:william-demant-foundation",
+    "kind": "company",
+    "name": "William Demant Foundation"
+  },
+  {
+    "id": "company:william-demant-holding",
+    "kind": "company",
+    "name": "William Demant Holding"
+  },
+  {
+    "id": "company:wsa",
+    "kind": "company",
+    "name": "WSA"
+  },
+  {
+    "id": "domain:apple.com",
+    "kind": "domain",
+    "name": "apple.com"
+  },
+  {
+    "id": "domain:assets-we.cas.dgs.com",
+    "kind": "domain",
+    "name": "assets-we.cas.dgs.com"
+  },
+  {
+    "id": "domain:assets.ha.demant.com",
+    "kind": "domain",
+    "name": "assets.ha.demant.com"
+  },
+  {
+    "id": "domain:audienhearing.com",
+    "kind": "domain",
+    "name": "audienhearing.com"
+  },
+  {
+    "id": "domain:beltone.com",
+    "kind": "domain",
+    "name": "beltone.com"
+  },
+  {
+    "id": "domain:bernafon.us",
+    "kind": "domain",
+    "name": "bernafon.us"
+  },
+  {
+    "id": "domain:cdn.mediavalet.com",
+    "kind": "domain",
+    "name": "cdn.mediavalet.com"
+  },
+  {
+    "id": "domain:costco.com",
+    "kind": "domain",
+    "name": "costco.com"
+  },
+  {
+    "id": "domain:d9jpa82qnx9c8.cloudfront.net",
+    "kind": "domain",
+    "name": "d9jpa82qnx9c8.cloudfront.net"
+  },
+  {
+    "id": "domain:damcdn.demant.com",
+    "kind": "domain",
+    "name": "damcdn.demant.com"
+  },
+  {
+    "id": "domain:demant.com",
+    "kind": "domain",
+    "name": "demant.com"
+  },
+  {
+    "id": "domain:eargo.com",
+    "kind": "domain",
+    "name": "eargo.com"
+  },
+  {
+    "id": "domain:ghgprotocol.org",
+    "kind": "domain",
+    "name": "ghgprotocol.org"
+  },
+  {
+    "id": "domain:gn.com",
+    "kind": "domain",
+    "name": "gn.com"
+  },
+  {
+    "id": "domain:goldmansachs.com",
+    "kind": "domain",
+    "name": "goldmansachs.com"
+  },
+  {
+    "id": "domain:hearingloss.org",
+    "kind": "domain",
+    "name": "hearingloss.org"
+  },
+  {
+    "id": "domain:hearingsolutions.philips.com",
+    "kind": "domain",
+    "name": "hearingsolutions.philips.com"
+  },
+  {
+    "id": "domain:jabraenhance.com",
+    "kind": "domain",
+    "name": "jabraenhance.com"
+  },
+  {
+    "id": "domain:jnnp.bmj.com",
+    "kind": "domain",
+    "name": "jnnp.bmj.com"
+  },
+  {
+    "id": "domain:mdhearingaid.com",
+    "kind": "domain",
+    "name": "mdhearingaid.com"
+  },
+  {
+    "id": "domain:oticon.com",
+    "kind": "domain",
+    "name": "oticon.com"
+  },
+  {
+    "id": "domain:p3.aprimocdn.net",
+    "kind": "domain",
+    "name": "p3.aprimocdn.net"
+  },
+  {
+    "id": "domain:phonak.com",
+    "kind": "domain",
+    "name": "phonak.com"
+  },
+  {
+    "id": "domain:portal.computershare.dk",
+    "kind": "domain",
+    "name": "portal.computershare.dk"
+  },
+  {
+    "id": "domain:resound.com",
+    "kind": "domain",
+    "name": "resound.com"
+  },
+  {
+    "id": "domain:rexton.com",
+    "kind": "domain",
+    "name": "rexton.com"
+  },
+  {
+    "id": "domain:signia.net",
+    "kind": "domain",
+    "name": "signia.net"
+  },
+  {
+    "id": "domain:sonova.com",
+    "kind": "domain",
+    "name": "sonova.com"
+  },
+  {
+    "id": "domain:soundpreference.com",
+    "kind": "domain",
+    "name": "soundpreference.com"
+  },
+  {
+    "id": "domain:starkey.com",
+    "kind": "domain",
+    "name": "starkey.com"
+  },
+  {
+    "id": "domain:unitron.com",
+    "kind": "domain",
+    "name": "unitron.com"
+  },
+  {
+    "id": "domain:us.sennheiser-hearing.com",
+    "kind": "domain",
+    "name": "us.sennheiser-hearing.com"
+  },
+  {
+    "id": "domain:widex.com",
+    "kind": "domain",
+    "name": "widex.com"
+  },
+  {
+    "id": "domain:wsa-com-prod-bwa6fdbwhjcnhbd2.a03.azurefd.net",
+    "kind": "domain",
+    "name": "wsa-com-prod-bwa6fdbwhjcnhbd2.a03.azurefd.net"
+  },
+  {
+    "id": "domain:wsa.com",
+    "kind": "domain",
+    "name": "wsa.com"
+  },
+  {
+    "id": "fda-applicant:apple-inc",
+    "kind": "fda-applicant",
+    "name": "Apple, Inc."
+  },
+  {
+    "id": "fda-applicant:aureliym-gmbh",
+    "kind": "fda-applicant",
+    "name": "Aureliym GmbH"
+  },
+  {
+    "id": "fda-applicant:bose-corporation",
+    "kind": "fda-applicant",
+    "name": "Bose Corporation"
+  },
+  {
+    "id": "fda-applicant:concha-labs",
+    "kind": "fda-applicant",
+    "name": "Concha Labs"
+  },
+  {
+    "id": "fda-applicant:duearity-ab",
+    "kind": "fda-applicant",
+    "name": "Duearity AB"
+  },
+  {
+    "id": "fda-applicant:eargo-inc",
+    "kind": "fda-applicant",
+    "name": "Eargo, Inc."
+  },
+  {
+    "id": "fda-applicant:gn-hearing-a-s",
+    "kind": "fda-applicant",
+    "name": "GN Hearing A/S"
+  },
+  {
+    "id": "fda-applicant:goldenear-company-inc",
+    "kind": "fda-applicant",
+    "name": "Goldenear Company, Inc."
+  },
+  {
+    "id": "fda-applicant:hearx-sa-pty-ltd",
+    "kind": "fda-applicant",
+    "name": "Hearx SA (Pty) , Ltd."
+  },
+  {
+    "id": "fda-applicant:huizhou-jinghao-medical-technology-co-ltd",
+    "kind": "fda-applicant",
+    "name": "Huizhou Jinghao Medical Technology Co., Ltd."
+  },
+  {
+    "id": "fda-applicant:intricon-corporation",
+    "kind": "fda-applicant",
+    "name": "Intricon Corporation"
+  },
+  {
+    "id": "fda-applicant:kaz-usa-inc-a-helen-of-troy-company",
+    "kind": "fda-applicant",
+    "name": "Kaz USA, Inc., A Helen of Troy Company"
+  },
+  {
+    "id": "fda-applicant:levo-medical-corporation",
+    "kind": "fda-applicant",
+    "name": "Levo Medical Corporation"
+  },
+  {
+    "id": "fda-applicant:luxottica-group-s-p-a",
+    "kind": "fda-applicant",
+    "name": "Luxottica Group S.P.A."
+  },
+  {
+    "id": "fda-applicant:mdhearingaid",
+    "kind": "fda-applicant",
+    "name": "Mdhearingaid"
+  },
+  {
+    "id": "fda-applicant:meta-platform-technologies-llc",
+    "kind": "fda-applicant",
+    "name": "Meta Platform Technologies, LLC"
+  },
+  {
+    "id": "fda-applicant:nuheara-limited",
+    "kind": "fda-applicant",
+    "name": "Nuheara Limited"
+  },
+  {
+    "id": "fda-applicant:pnq-health",
+    "kind": "fda-applicant",
+    "name": "Pnq Health"
+  },
+  {
+    "id": "fda-applicant:samsung-electronics-co-ltd",
+    "kind": "fda-applicant",
+    "name": "Samsung Electronics Co., Ltd."
+  },
+  {
+    "id": "fda-applicant:sivantos-gmbh",
+    "kind": "fda-applicant",
+    "name": "Sivantos GmbH"
+  },
+  {
+    "id": "fda-applicant:sonova-ag",
+    "kind": "fda-applicant",
+    "name": "Sonova AG"
+  },
+  {
+    "id": "fda-applicant:soundwave-hearing-llc",
+    "kind": "fda-applicant",
+    "name": "Soundwave Hearing, LLC"
+  },
+  {
+    "id": "fda-applicant:starkey-laboratories-inc",
+    "kind": "fda-applicant",
+    "name": "Starkey Laboratories, Inc."
+  },
+  {
+    "id": "fda-applicant:tuned-ltd",
+    "kind": "fda-applicant",
+    "name": "Tuned , Ltd."
+  },
+  {
+    "id": "fda-applicant:wsaud-a-s",
+    "kind": "fda-applicant",
+    "name": "Wsaud A/S"
+  }
+]

@@ -1,0 +1,307 @@
+{
+  "domain": "lexiehearing.com",
+  "generatedAt": "2026-11-27T19:22:22.625Z",
+  "model": "sonnet",
+  "openQuestions": [
+    "What model page URLs existed? The report shows no /products/ or /hearing-aids/ page, so the current modelUrlPattern is unconfirmed.",
+    "Are the PDFs on www.lexiehearing.com/documents/ archived, and are there manuals for B1, H1 or B3 that differ from the Lumen-named files?",
+    "Did any buyer take over the Lexie brand after the wind-down? The pages mention the assignee evaluating asset sales but state no outcome.",
+    "Do the 201 archive captures include model pages beyond the homepage?"
+  ],
+  "sections": {
+    "archive": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:19:34.612Z",
+            "url": "https://web.archive.org/web/20221227104706id_/https://www.lexiehearing.com/us/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:19:27.742Z",
+            "url": "https://web.archive.org/web/20210914095744id_/https://lexiehearing.com/us/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:19:40.379Z",
+            "url": "https://web.archive.org/web/20231206131705id_/https://lexiehearing.com/us"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:19:46.502Z",
+            "url": "https://web.archive.org/web/20241220152942id_/https://lexiehearing.com/us"
+          }
+        ],
+        "text": "Snapshots with the product catalog and prices: 2022-12-27 (www.lexiehearing.com/us/), and homepages from 2021, 2023 and 2024."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:20:11.730Z",
+            "url": "https://web.archive.org/web/20261015105222id_/https://www.lexiehearing.com/us/support"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:20:45.874Z",
+            "url": "https://web.archive.org/web/20261015061414id_/https://www.lexiehearing.com/us/support-lexie-b3-resources"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:20:57.088Z",
+            "url": "https://web.archive.org/web/20261015070957id_/https://www.lexiehearing.com/us/support-lexie-b2-resources"
+          }
+        ],
+        "text": "Support and manual page snapshots date from October 2026 (Oct 15 for support, B2 and B3 resources)."
+      }
+    ],
+    "links": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:20:00.252Z",
+            "url": "https://web.archive.org/web/20261025110241id_/https://lexiehearing.com/us"
+          }
+        ],
+        "text": "The wind-down notice names Eargo and Go as sister brands, and the same assignment covers the Eargo companies."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:20:45.874Z",
+            "url": "https://web.archive.org/web/20261015061414id_/https://www.lexiehearing.com/us/support-lexie-b3-resources"
+          }
+        ],
+        "text": "No redirects were recorded. PDFs are hosted on lexiehearing.com itself (8 seen)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:19:34.612Z",
+            "url": "https://web.archive.org/web/20221227104706id_/https://www.lexiehearing.com/us/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:19:46.502Z",
+            "url": "https://web.archive.org/web/20241220152942id_/https://lexiehearing.com/us"
+          }
+        ],
+        "text": "Outbound links go to social networks, app stores, press, review sites and a ShareASale affiliate account."
+      }
+    ],
+    "next": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:19:46.502Z",
+            "url": "https://web.archive.org/web/20241220152942id_/https://lexiehearing.com/us"
+          }
+        ],
+        "text": "Read the 2023 and 2024 homepages and the compare-hearing-aids and accessories archive copies to find model page URLs and the full model list."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:19:19.618Z",
+            "url": "https://web.archive.org/web/20260205221941id_/https://lexiehearing.com/robots.txt"
+          }
+        ],
+        "text": "Check that the PDF URLs under /documents/ are archived, since robots.txt disallows /us/assets/documents/ and the manuals were due offline October 30, 2026."
+      }
+    ],
+    "render": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:19:52.122Z",
+            "url": "https://web.archive.org/web/20251217073104id_/https://lexiehearing.com/us"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:20:11.730Z",
+            "url": "https://web.archive.org/web/20261015105222id_/https://www.lexiehearing.com/us/support"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:20:45.874Z",
+            "url": "https://web.archive.org/web/20261015061414id_/https://www.lexiehearing.com/us/support-lexie-b3-resources"
+          }
+        ],
+        "text": "The Dec 2025 homepage snapshot and the /us/support and B3 resources snapshots need scripts (0 links on the homepage, 'Loading...' placeholders)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:19:27.742Z",
+            "url": "https://web.archive.org/web/20210914095744id_/https://lexiehearing.com/us/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:20:00.252Z",
+            "url": "https://web.archive.org/web/20261025110241id_/https://lexiehearing.com/us"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:20:57.088Z",
+            "url": "https://web.archive.org/web/20261015070957id_/https://www.lexiehearing.com/us/support-lexie-b2-resources"
+          }
+        ],
+        "text": "The 2021–2024 homepages, the Oct 2026 homepage, the privacy and terms pages and the B2 resources page do not need rendering."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:20:34.565Z",
+            "url": "https://web.archive.org/web/20261015074000id_/https://lexiehearing.com/us/terms-web"
+          }
+        ],
+        "text": "The Terms prohibit web scraping, screen scraping and data mining of the site."
+      }
+    ],
+    "structure": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:19:19.618Z",
+            "url": "https://web.archive.org/web/20260205221941id_/https://lexiehearing.com/robots.txt"
+          }
+        ],
+        "text": "The report finds no sitemap and no live robots.txt. The archived robots.txt (Feb 2026) has one group for all agents."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:19:19.618Z",
+            "url": "https://web.archive.org/web/20260205221941id_/https://lexiehearing.com/robots.txt"
+          }
+        ],
+        "text": "The archived robots.txt disallows /us/assets/site/*, /us/assets/documents/**/* and press-kit PDFs."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:20:45.874Z",
+            "url": "https://web.archive.org/web/20261015061414id_/https://www.lexiehearing.com/us/support-lexie-b3-resources"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:20:57.088Z",
+            "url": "https://web.archive.org/web/20261015070957id_/https://www.lexiehearing.com/us/support-lexie-b2-resources"
+          }
+        ],
+        "text": "Support resource pages follow support-lexie-{model}-resources (b2, b3 read; b1, lumen, h1 seen as failed fetches)."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:19:34.612Z",
+            "url": "https://web.archive.org/web/20221227104706id_/https://www.lexiehearing.com/us/"
+          }
+        ],
+        "text": "The Dec 2022 homepage showed three models: Lexie B2, Lexie B1 and Lexie Lumen, with a Compare All and an Accessories link."
+      }
+    ],
+    "what": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:20:34.565Z",
+            "url": "https://web.archive.org/web/20261015074000id_/https://lexiehearing.com/us/terms-web"
+          }
+        ],
+        "text": "lexiehearing.com/us is the US site of Lexie Hearing OTC hearing aids, owned or licensed by LXE Hearing, Inc., a Delaware corporation."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:20:34.565Z",
+            "url": "https://web.archive.org/web/20261015074000id_/https://lexiehearing.com/us/terms-web"
+          }
+        ],
+        "text": "The Terms list Lexie Lumen, B1, B2, B2 Plus (Powered by Bose), H1 Hearing Buds and B3."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:20:34.565Z",
+            "url": "https://web.archive.org/web/20261015074000id_/https://lexiehearing.com/us/terms-web"
+          }
+        ],
+        "text": "The site no longer accepts orders for new devices or other products."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:20:00.252Z",
+            "url": "https://web.archive.org/web/20261025110241id_/https://lexiehearing.com/us"
+          }
+        ],
+        "text": "On July 15, 2026, LXE Hearing, Inc. and four related U.S. companies each entered an assignment for the benefit of creditors under California law and began winding down."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:19:34.612Z",
+            "url": "https://web.archive.org/web/20221227104706id_/https://www.lexiehearing.com/us/"
+          }
+        ],
+        "text": "The December 2022 page says Lexie is 'A product of hearX Group'."
+      }
+    ],
+    "where": [
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:19:34.612Z",
+            "url": "https://web.archive.org/web/20221227104706id_/https://www.lexiehearing.com/us/"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:20:00.252Z",
+            "url": "https://web.archive.org/web/20261025110241id_/https://lexiehearing.com/us"
+          }
+        ],
+        "text": "The only catalog evidence is the Dec 2022 homepage, which lists B2 ($999), B1 ($849) and Lumen ($799/$699) with prices. The 2026 homepage is a wind-down notice with no catalog."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:20:11.730Z",
+            "url": "https://web.archive.org/web/20261015105222id_/https://www.lexiehearing.com/us/support"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:20:00.252Z",
+            "url": "https://web.archive.org/web/20261025110241id_/https://lexiehearing.com/us"
+          }
+        ],
+        "text": "Support hub is /us/support. The notice says the manuals archive stays there until October 30, 2026."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:20:45.874Z",
+            "url": "https://web.archive.org/web/20261015061414id_/https://www.lexiehearing.com/us/support-lexie-b3-resources"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:20:57.088Z",
+            "url": "https://web.archive.org/web/20261015070957id_/https://www.lexiehearing.com/us/support-lexie-b2-resources"
+          }
+        ],
+        "text": "The B2 and B3 resource pages link four PDFs: Quick Start Guide, Companion Mic manual, User Manual and Electronic Dryer manual, all named Lexie_Lumen. Both pages list the same four URLs."
+      },
+      {
+        "sources": [
+          {
+            "fetchedAt": "2026-11-27T19:19:46.502Z",
+            "url": "https://web.archive.org/web/20241220152942id_/https://lexiehearing.com/us"
+          },
+          {
+            "fetchedAt": "2026-11-27T19:20:00.252Z",
+            "url": "https://web.archive.org/web/20261025110241id_/https://lexiehearing.com/us"
+          }
+        ],
+        "text": "App: iOS id 1525380701 and Android com.hearxgroup.lexie (seen in 2023 and 2024 snapshots). It leaves the app stores on October 8, 2026."
+      }
+    ]
+  },
+  "summary": {
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T19:20:00.252Z",
+        "url": "https://web.archive.org/web/20261025110241id_/https://lexiehearing.com/us"
+      },
+      {
+        "fetchedAt": "2026-11-27T19:19:34.612Z",
+        "url": "https://web.archive.org/web/20221227104706id_/https://www.lexiehearing.com/us/"
+      }
+    ],
+    "text": "Lexie (LXE Hearing) is wound down: the live site no longer answers, and the US operations went into assignment for the benefit of creditors on July 15, 2026. Only Web Archive copies remain, with the last catalog snapshot from 2022 and the manuals on support pages."
+  }
+}
