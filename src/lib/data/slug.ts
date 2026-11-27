@@ -67,8 +67,11 @@ const DESCRIPTOR_WORDS = new Set(['aid', 'aids', 'bte', 'cic', 'device', 'fit', 
 /** Words that join two model names in one device text: "Select 300 and Select 550" names neither alone. */
 const LIST_WORDS = new Set(['and', 'or', 'vs'])
 
-/** A technology level or variant token: "90", "5", "P90-R" (as "p90", "r"), "R", "RT", "UP". */
-const isVariantWord = (word: string | undefined) => word !== undefined && (/\d/.test(word) || /^[a-z]{1,2}$/.test(word))
+/** Short letter codes that follow a model name as a variant: "Moxi R", "Lumity RT". Compared lowercase. */
+const VARIANT_LETTERS = new Set(['r', 'rt', 'ric', 'bte', 'ite', 'itc', 'cic', 'iic', 'up', 'sp', 'm', 'mnr', 't', 'x'])
+
+/** A variant token: a code with a digit ("90", "p90", "b70") or one of `VARIANT_LETTERS`. "Go", "in" and "to" are not. */
+const isVariantWord = (word: string | undefined) => word !== undefined && (/\d/.test(word) || VARIANT_LETTERS.has(word.toLowerCase()))
 
 /**
  * Whether `name` stands in `text` as whole words and the model name ends there: nothing follows, or only

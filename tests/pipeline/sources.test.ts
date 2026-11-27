@@ -259,6 +259,15 @@ describe('matchModel', () => {
     expect(matchModel('GN Hearing A/S', 'Jabra Enhance Zed 2 Pro', brands, [model('jabra-enhance', 'Zed')])).toBeUndefined()
   })
 
+  test('a 2-letter word after a name is not a variant: "Moxi Go", "Moxi in Blue" do not name "Moxi", while "Moxi R" does', () => {
+    const unitron = [brand('unitron', 'Unitron', 'Unitron')]
+    const moxi = [model('unitron', 'Moxi')]
+    expect(matchModel('Unitron Hearing', 'Unitron Moxi Go', unitron, moxi)).toBeUndefined()
+    expect(matchModel('Unitron Hearing', 'Unitron Moxi in Blue', unitron, moxi)).toBeUndefined()
+    expect(matchModel('Unitron Hearing', 'Unitron Moxi R', unitron, moxi)?.name).toBe('Moxi')
+    expect(matchModel('GN Hearing A/S', 'Jabra Enhance Select 550 90-R', brands, [model('jabra-enhance', 'Select 550')])?.name).toBe('Select 550')
+  })
+
   test('a sibling brand that is not among the selected models still excludes the match', () => {
     // `brands` is every brand of the dataset; `models` are only those of the selected brand.
     const all = [...brands, brand('resound', 'ReSound', 'GN')]
