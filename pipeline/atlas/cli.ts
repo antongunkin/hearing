@@ -60,8 +60,8 @@ async function describeOne(site: Site, ctx: { dataset: Dataset; dataDir: string;
 }
 
 /** `relations` for the brands and group companies of the chosen sites, then (on a full run) the FDA applicants. */
-async function relationsRun(chosen: Site[], ctx: { sites: Site[]; dataset: Dataset; dataDir: string; progress: Progress; all: boolean; refresh: boolean }) {
-  const { sites, dataset, dataDir, progress, all, refresh } = ctx
+async function relationsRun(chosen: Site[], ctx: { sites: Site[]; dataset: Dataset; dataDir: string; progress: Progress; rawDir: string; all: boolean; refresh: boolean }) {
+  const { sites, dataset, dataDir, progress, rawDir, all, refresh } = ctx
   console.log('SEC skipped: the pipeline sends no contact header, so EDGAR is not asked')
   const queue = async (relations: ProposedRelation[]) => {
     let queued = 0
@@ -89,14 +89,14 @@ async function relationsRun(chosen: Site[], ctx: { sites: Site[]; dataset: Datas
         if (!isMissing(error)) throw error
         continue
       }
-      relations.push(...(await appPublishers(report, brand!)))
+      relations.push(...(await appPublishers(report, brand!, rawDir)))
     }
     const queued = await queue(relations)
     console.log(`${key}: ${relations.length} relations found, ${queued} queued`)
     await progress.done(key)
   }
   if (all && !progress.has('fda-applicants')) {
-    const { entities, relations } = await fdaApplicants(dataset.brands)
+    const { entities, relations } = await fdaApplicants(dataset.brands, rawDir)
     // The applicants are part of the graph even where no brand matches them.
     await writeGraph(entities.reduce(upsertEntity, await readGraph(dataDir)), dataDir)
     const queued = await queue(relations)
@@ -140,7 +140,7 @@ export async function atlasMain(argv: string[], opts: AtlasOptions = {}): Promis
   try {
     if (command === 'relations') {
       dataset ??= await loadDataset(dataDir)
-      await relationsRun(chosen, { sites, dataset, dataDir, progress, all: values.site === undefined, refresh: values.refresh })
+      await relationsRun(chosen, { sites, dataset, dataDir, progress, rawDir, all: values.site === undefined, refresh: values.refresh })
     }
     for (const site of command === 'relations' ? [] : chosen) {
       if (progress.has(site.domain)) continue

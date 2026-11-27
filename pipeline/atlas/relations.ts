@@ -6,13 +6,16 @@ import { z } from 'zod'
 import { literalCheck } from '@/pipeline/checks/literal'
 import { config } from '@/pipeline/config'
 import { fetchPage } from '@/pipeline/fetch/fetcher'
+import { findInLog, RAW_DIR, readBody, readLog, type FetchLogEntry } from '@/pipeline/fetch/raw-store'
 import { llm } from '@/pipeline/llm'
 import { fetchClearances } from '@/pipeline/sources/openfda'
 import { lookupApp } from '@/pipeline/sources/itunes'
 import { currentMonth, fetchableUrls } from '@/pipeline/sources/reviews'
+import { loadBlocklist } from '@/src/lib/data/load'
 import { containsName, normalizeName, slugify } from '@/src/lib/data/slug'
 import type { Brand } from '@/src/lib/schema/brand'
 import type { Sourced } from '@/src/lib/schema/field'
+import type { CheckResult } from '@/src/lib/schema/pending'
 import { Edge, edgeKey, Entity, type EdgeKind, type SourceKind } from '@/src/lib/schema/graph'
 import { entityFor, type ProposedRelation } from './relation'
 import type { Site, SiteReport } from './schema'
@@ -23,6 +26,23 @@ export class RelationSourceError extends Error {
     super(message)
     this.name = 'RelationSourceError'
   }
+}
+
+/**
+ * The checks of a quote that a record states: its fetch-log line exists (`log`) and the quote is in the
+ * stored body of that reply (`literal`). Without the line or body there is only a failed `log`.
+ */
+async function recordChecks(quote: string, ref: { url: string; fetchedAt: string }, log: FetchLogEntry[], rawDir: string): Promise<Record<string, CheckResult[]>> {
+  const entry = findInLog(log, ref)
+  if (entry?.bodyHash === undefined) return { quote: [{ name: 'log', ok: false, detail: 'not in the fetch log' }] }
+  let text: string
+  try {
+    text = new TextDecoder().decode(await readBody(entry.bodyHash, rawDir))
+  } catch {
+    return { quote: [{ name: 'log', ok: false, detail: 'stored body cannot be read' }] }
+  }
+  const field: Sourced<null> = { value: null, quote, sourceUrl: ref.url, fetchedAt: ref.fetchedAt, sourceType: 'official' }
+  return { quote: [{ name: 'log', ok: true }, literalCheck(field, text)] }
 }
 
 /** A longer quote is a passage of someone else's text, not the statement of a relation. */
@@ -100,7 +120,7 @@ List the relations that a page states in so many words, in which "${subject.name
 - renamed-to: the subject is now called the object.
 Every claim has: subject and object as the page writes them, their kinds (brand, company or app), "since" ("YYYY" or "YYYY-MM") only when the page gives it, "url" of the page that states it, "quote": an exact, character-for-character copy of that page's text (one sentence, at most about 300 characters) that states the relation and names the subject or the object, and "sourceKind": company-page (a page of the companies' own website), press-release, sec-filing, fda-record, app-store, or third-party (an independent report; only for makes-for).
 At most ${MAX_URLS} pages. Never use pages on Google, Amazon or YouTube. Only use pages the search actually returned; an empty list is a fine answer.`
-  const found = await llm({ prompt, schema: Claims, provider: 'claude', tools: ['WebSearch'], model: config.llm.describeModel })
+  const found = await llm({ prompt, schema: Claims, provider: 'claude', tools: ['WebSearch'], model: config.llm.claudeModel })
 
   const normal = (url: string) => {
     const parsed = URL.parse(url)
@@ -109,9 +129,11 @@ At most ${MAX_URLS} pages. Never use pages on Google, Amazon or YouTube. Only us
   }
   // sec.gov is left out before the fetch: no request goes to it.
   const candidates = (await fetchableUrls(found.claims.map((claim) => claim.url))).filter((url) => !onDomain(hostOf(url), 'sec.gov')).slice(0, MAX_URLS)
+  // A page that redirects to sec.gov is refused too.
+  const blocklist = [...(await loadBlocklist()), 'sec.gov']
   const pages = new Map<string, Extract<Awaited<ReturnType<typeof fetchPage>>, { status: 'ok' }>>()
   for (const url of candidates) {
-    const page = await fetchPage(url, { refresh: ctx.refresh })
+    const page = await fetchPage(url, { refresh: ctx.refresh, blocklist })
     if (page.status === 'skipped') {
       console.warn(`${subject.name}: ${url} skipped: ${page.reason}${page.detail ? ` (${page.detail})` : ''}`)
     } else {
@@ -135,7 +157,11 @@ At most ${MAX_URLS} pages. Never use pages on Google, Amazon or YouTube. Only us
     const sourceKind = sourceKindFor(page.url, claim.sourceKind, claim.kind, ownDomains)
     if (sourceKind === null) continue
     const from = Entity.safeParse(entityFor(claim.subject, claim.subjectKind, ctx.brands))
-    const to = Entity.safeParse(entityFor(claim.object, claim.objectKind, ctx.brands))
+    // An app is one node whichever way it was found: by its iOS id when the page's URL gives it.
+    const iosId = claim.objectKind === 'app' ? /\/id(\d+)|[?&]id=(\d+)/.exec(page.url)?.slice(1).find(Boolean) : undefined
+    const to = Entity.safeParse(
+      iosId ? { id: `app:ios-${iosId}`, kind: 'app', name: claim.object.trim(), iosId } : entityFor(claim.object, claim.objectKind, ctx.brands),
+    )
     const edge = Edge.safeParse({
       from: from.data?.id,
       to: to.data?.id,
@@ -157,7 +183,7 @@ At most ${MAX_URLS} pages. Never use pages on Google, Amazon or YouTube. Only us
  * and a proposed `files-as` relation from a brand whose name the applicant contains, or from the group
  * company whose name it contains. The source is the openFDA page, the quote the applicant as written.
  */
-export async function fdaApplicants(brands: Brand[]): Promise<{ entities: Entity[]; relations: ProposedRelation[] }> {
+export async function fdaApplicants(brands: Brand[], rawDir: string = RAW_DIR): Promise<{ entities: Entity[]; relations: ProposedRelation[] }> {
   let clearances
   try {
     clearances = await fetchClearances(config.onSaleSince)
@@ -167,6 +193,7 @@ export async function fdaApplicants(brands: Brand[]): Promise<{ entities: Entity
     throw error
   }
 
+  const log = await readLog(rawDir)
   const entities = new Map<string, Entity>()
   const relations: ProposedRelation[] = []
   for (const { applicant, ref } of clearances) {
@@ -191,15 +218,16 @@ export async function fdaApplicants(brands: Brand[]): Promise<{ entities: Entity
         sources: [{ url: ref.url, quote: name, fetchedAt: ref.fetchedAt, kind: 'fda-record' }],
       })
       if (!from.success || !edge.success || relations.some((rel) => edgeKey(rel.edge) === edgeKey(edge.data))) continue
-      relations.push({ edge: edge.data, entities: [from.data, entity.data], checks: { applicant: [{ name: 'literal', ok: true }] } })
+      relations.push({ edge: edge.data, entities: [from.data, entity.data], checks: await recordChecks(name, ref, log, rawDir) })
     }
   }
   return { entities: [...entities.values()], relations }
 }
 
 /** `publishes` relations from the brand to each iOS app of the report's pages whose seller is the brand or its group. */
-export async function appPublishers(report: SiteReport, brand: Brand): Promise<ProposedRelation[]> {
+export async function appPublishers(report: SiteReport, brand: Brand, rawDir: string = RAW_DIR): Promise<ProposedRelation[]> {
   const ids = [...new Set(report.pages.flatMap((page) => page.apps.ios))]
+  const log = await readLog(rawDir)
   const relations: ProposedRelation[] = []
   for (const id of ids) {
     const app = await lookupApp(id)
@@ -218,7 +246,7 @@ export async function appPublishers(report: SiteReport, brand: Brand): Promise<P
       sources: [{ url: app.lookupUrl, quote: app.seller, fetchedAt: app.fetchedAt, kind: 'app-store' }],
     })
     if (!to.success || !edge.success) continue
-    relations.push({ edge: edge.data, entities: [from, to.data], checks: { seller: [{ name: 'literal', ok: true }] } })
+    relations.push({ edge: edge.data, entities: [from, to.data], checks: await recordChecks(app.seller, { url: app.lookupUrl, fetchedAt: app.fetchedAt }, log, rawDir) })
   }
   return relations
 }

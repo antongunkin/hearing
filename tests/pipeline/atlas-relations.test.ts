@@ -9,6 +9,8 @@ import { appPublishers, fdaApplicants, RelationSourceError, searchClaims, source
 import type { Site, SiteReport } from '@/pipeline/atlas/schema'
 import { Sites } from '@/pipeline/atlas/schema'
 import { fetchPage } from '@/pipeline/fetch/fetcher'
+import { appendLog, storeBody } from '@/pipeline/fetch/raw-store'
+import { config } from '@/pipeline/config'
 import { llm } from '@/pipeline/llm'
 import { lookupApp } from '@/pipeline/sources/itunes'
 import { fetchClearances } from '@/pipeline/sources/openfda'
@@ -55,11 +57,18 @@ const claim = (extra: Record<string, unknown> = {}) => ({
 const claims = (...list: unknown[]) => vi.mocked(llm).mockReset().mockResolvedValue({ claims: list })
 
 let dir: string
+let rawDir: string
+/** Puts a reply in the raw store and the fetch log, as the fetcher does. */
+async function logReply(url: string, body: string) {
+  await appendLog({ url, redirects: [], fetchedAt: FETCHED_AT, status: 200, contentType: 'application/json', bodyHash: await storeBody(new TextEncoder().encode(body), rawDir), via: 'live', rendered: false }, rawDir)
+}
 let web: Record<string, string | { skip: 'rate-limited' | 'http-error' }>
 const fetched = () => vi.mocked(fetchPage).mock.calls.map(([url]) => url)
 
 beforeEach(async () => {
   dir = await mkdtemp(join(tmpdir(), 'atlas-relations-'))
+  rawDir = join(dir, 'raw')
+  vi.spyOn(console, 'warn').mockImplementation(() => {})
   web = { [NEWS]: `Business news. ${OWNS} More text.` }
   vi.mocked(fetchPage).mockReset().mockImplementation(async (url) => {
     const reply = web[url]
@@ -73,6 +82,7 @@ beforeEach(async () => {
 })
 
 afterEach(async () => {
+  vi.restoreAllMocks()
   await rm(dir, { recursive: true, force: true })
 })
 
@@ -95,7 +105,7 @@ test('a claim whose quote is on the page becomes a proposed internal edge with i
   claims(claim({ since: '2020' }))
   const [rel] = await searchClaims({ name: 'XBrand', kind: 'brand' }, ctx)
 
-  expect(vi.mocked(llm).mock.calls[0][0]).toMatchObject({ provider: 'claude', tools: ['WebSearch'] })
+  expect(vi.mocked(llm).mock.calls[0][0]).toMatchObject({ provider: 'claude', tools: ['WebSearch'], model: config.llm.claudeModel })
   expect(vi.mocked(llm).mock.calls[0][0].prompt).toMatch(/as of \d{4}-\d{2}/)
   expect(rel.edge).toEqual({
     from: 'company:x-group-holding',
@@ -145,6 +155,26 @@ test('search results go through fetchableUrls: Google, Amazon and SEC pages are 
   expect(found).toHaveLength(1)
 })
 
+test('a claim page is fetched with sec.gov in the blocklist, so a redirect to it is refused', async () => {
+  claims(claim())
+  await searchClaims({ name: 'XBrand', kind: 'brand' }, ctx)
+  expect(vi.mocked(fetchPage).mock.calls[0][1]?.blocklist).toContain('sec.gov')
+})
+
+test('an app found by search and the same app found in the store are one graph node', async () => {
+  const store = 'https://apps.apple.com/us/app/xbrand-remote/id123456'
+  web[store] = 'XBrand Remote. XBrand Remote is an app published by XBrand Inc.'
+  claims(claim({ kind: 'publishes', subject: 'XBrand', subjectKind: 'brand', object: 'XBrand Remote', objectKind: 'app', url: store, quote: 'XBrand Remote is an app published by XBrand Inc.', sourceKind: 'app-store' }))
+  const [rel] = await searchClaims({ name: 'XBrand', kind: 'brand' }, ctx)
+  expect(rel.edge.to).toBe('app:ios-123456')
+  expect(rel.entities[1]).toEqual({ id: 'app:ios-123456', kind: 'app', name: 'XBrand Remote', iosId: '123456' })
+
+  // Without an iOS id in the URL the slug is the id.
+  web[NEWS] = 'XBrand Remote is an app published by XBrand Inc.'
+  claims(claim({ kind: 'publishes', subject: 'XBrand', subjectKind: 'brand', object: 'XBrand Remote', objectKind: 'app', quote: 'XBrand Remote is an app published by XBrand Inc.' }))
+  expect((await searchClaims({ name: 'XBrand', kind: 'brand' }, ctx))[0].edge.to).toBe('app:xbrand-remote')
+})
+
 test('a refused page drops only the claims that cite it', async () => {
   web['https://rate.test/a'] = { skip: 'rate-limited' }
   claims(claim({ url: 'https://rate.test/a' }), claim())
@@ -161,7 +191,8 @@ test('FDA applicants become entities; one naming a brand or its group gets a pro
     clearance('X Group Holding GmbH', 'K3'),
     clearance('Unrelated Audio LLC', 'K4'),
   ])
-  const { entities, relations } = await fdaApplicants([brand])
+  await logReply(ref.url, JSON.stringify({ results: ['XBrand Hearing Inc.', 'X Group Holding GmbH', 'Unrelated Audio LLC'].map((applicant) => ({ applicant })) }))
+  const { entities, relations } = await fdaApplicants([brand], rawDir)
 
   expect(entities.map((entity) => entity.id)).toEqual(['fda-applicant:xbrand-hearing-inc', 'fda-applicant:x-group-holding-gmbh', 'fda-applicant:unrelated-audio-llc'])
   expect(relations.map((rel) => [rel.edge.from, rel.edge.kind, rel.edge.to, rel.edge.status, rel.edge.visibility])).toEqual([
@@ -169,11 +200,22 @@ test('FDA applicants become entities; one naming a brand or its group gets a pro
     ['company:x-group', 'files-as', 'fda-applicant:x-group-holding-gmbh', 'proposed', 'internal'],
   ])
   expect(relations[0].edge.sources).toEqual([{ url: ref.url, quote: 'XBrand Hearing Inc.', fetchedAt: FETCHED_AT, kind: 'fda-record' }])
+  expect(relations[0].checks.quote).toEqual([{ name: 'log', ok: true }, { name: 'literal', ok: true }])
+})
+
+test('the checks of an FDA relation are computed: a reply missing from the fetch log, or without the applicant, fails', async () => {
+  const ref = { url: 'https://api.fda.gov/device/510k.json?x', fetchedAt: FETCHED_AT }
+  vi.mocked(fetchClearances).mockResolvedValue([{ kNumber: 'K1', applicant: 'XBrand Hearing Inc.', deviceName: 'd', decisionDate: '2024-01-01', cdrhUrl: 'https://x.test', ref }])
+  expect((await fdaApplicants([brand], rawDir)).relations[0].checks.quote).toEqual([{ name: 'log', ok: false, detail: 'not in the fetch log' }])
+  await logReply(ref.url, '{"results":[]}')
+  const [log, literal] = (await fdaApplicants([brand], rawDir)).relations[0].checks.quote
+  expect(log.ok).toBe(true)
+  expect(literal).toMatchObject({ name: 'literal', ok: false })
 })
 
 test('an openFDA refusal stops the unit', async () => {
   vi.mocked(fetchClearances).mockRejectedValue(new Error('openFDA 510k skipped: rate-limited'))
-  await expect(fdaApplicants([brand])).rejects.toBeInstanceOf(RelationSourceError)
+  await expect(fdaApplicants([brand], rawDir)).rejects.toBeInstanceOf(RelationSourceError)
 })
 
 const report = (ios: string[]): SiteReport => ({ pages: [{ apps: { ios } }, { apps: { ios: ['1'] } }] }) as unknown as SiteReport
@@ -181,7 +223,9 @@ const app = (seller: string) => ({ iosId: '1', name: 'XBrand Remote', seller, ur
 
 test('an app whose seller is the brand gives a publishes relation; another seller or a removed app gives none', async () => {
   vi.mocked(lookupApp).mockResolvedValueOnce(app('XBrand Inc.')).mockResolvedValueOnce('removed')
-  const [rel, ...rest] = await appPublishers(report(['1', '2']), brand)
+  await logReply('https://itunes.apple.com/lookup?id=1', '{"results":[{"sellerName":"XBrand Inc."}]}')
+  const [rel, ...rest] = await appPublishers(report(['1', '2']), brand, rawDir)
+  expect(rel.checks.quote).toEqual([{ name: 'log', ok: true }, { name: 'literal', ok: true }])
   expect(rest).toEqual([])
   expect(rel.edge).toMatchObject({
     from: 'brand:xbrand',
@@ -194,22 +238,23 @@ test('an app whose seller is the brand gives a publishes relation; another selle
   expect(rel.entities[1]).toEqual({ id: 'app:ios-1', kind: 'app', name: 'XBrand Remote', iosId: '1' })
 
   vi.mocked(lookupApp).mockResolvedValue(app('Someone Else Ltd'))
-  expect(await appPublishers(report(['1']), brand)).toEqual([])
+  expect(await appPublishers(report(['1']), brand, rawDir)).toEqual([])
 })
 
 test('a skipped App Store lookup stops the unit', async () => {
   vi.mocked(lookupApp).mockResolvedValue(null)
-  await expect(appPublishers(report(['1']), brand)).rejects.toBeInstanceOf(RelationSourceError)
+  await expect(appPublishers(report(['1']), brand, rawDir)).rejects.toBeInstanceOf(RelationSourceError)
 })
 
 test('atlas:relations queues every kept relation as a proposed internal edge and a relation card; SEC is never asked', async () => {
   const dataDir = join(dir, 'data')
-  const opts = { dataDir, progressDir: join(dir, 'progress') }
+  const opts = { dataDir, progressDir: join(dir, 'progress'), rawDir }
   await writeJson(join(dataDir, 'brands', 'xbrand.json'), brand)
   await writeJson(join(dataDir, 'rejections.json'), [])
   await writeJson(join(dataDir, 'blocklist.json'), [])
   await writeJson(join(dataDir, 'atlas', 'sites.json'), Sites.parse([site]))
   claims(claim())
+  await logReply('https://api.fda.gov/x', '{"applicant":"XBrand Hearing Inc."}')
   vi.mocked(fetchClearances).mockResolvedValue([
     { kNumber: 'K1', applicant: 'XBrand Hearing Inc.', deviceName: 'd', decisionDate: '2024-01-01', cdrhUrl: 'https://x.test', ref: { url: 'https://api.fda.gov/x', fetchedAt: FETCHED_AT } },
     { kNumber: 'K2', applicant: 'Unrelated Audio LLC', deviceName: 'd', decisionDate: '2024-01-01', cdrhUrl: 'https://x.test', ref: { url: 'https://api.fda.gov/x', fetchedAt: FETCHED_AT } },
@@ -237,7 +282,7 @@ test('atlas:relations queues every kept relation as a proposed internal edge and
 
 test('a refused openFDA stops the run with exit 2 and --resume skips finished units', async () => {
   const dataDir = join(dir, 'data')
-  const opts = { dataDir, progressDir: join(dir, 'progress') }
+  const opts = { dataDir, progressDir: join(dir, 'progress'), rawDir }
   await writeJson(join(dataDir, 'brands', 'xbrand.json'), brand)
   await writeJson(join(dataDir, 'rejections.json'), [])
   await writeJson(join(dataDir, 'blocklist.json'), [])
