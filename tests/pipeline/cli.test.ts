@@ -1159,6 +1159,57 @@ describe('archive', () => {
     expect(vi.mocked(extractModel)).toHaveBeenCalledTimes(1)
   })
 
+  describe('archive-history', () => {
+    const NEWS = 'https://news.test/sale'
+    const TEXT = 'Jabra Enhance filed for bankruptcy protection in 2024. Jabra Enhance stopped selling hearing aids in the spring. The Jabra Enhance app is no longer supported.'
+    const fact = (n: number, quote: string) => ({ date: `2024-0${n}`, text: `Own words number ${n}.`, sourceIndex: 1, quote })
+    const withHistory = { ...brand, historySources: [NEWS] }
+    const drafts = () =>
+      vi.mocked(llm).mockResolvedValue({
+        facts: [fact(1, 'Jabra Enhance filed for bankruptcy protection in 2024.'), fact(2, 'Jabra Enhance stopped selling hearing aids in the spring.'), fact(3, 'The Jabra Enhance app is no longer supported.')],
+        relations: [],
+      })
+    beforeEach(() => {
+      vi.mocked(discoverModelUrls).mockResolvedValue([])
+      vi.mocked(fetchPage).mockImplementation(async (url) => ({ ...okPage(url), text: TEXT }))
+    })
+
+    test('a brand with history sources gets a brand-history card (origin archive, never applied by itself)', async () => {
+      await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), withHistory)
+      drafts()
+      expect(await main(['archive'], opts)).toBe(0)
+      const card = PendingChange.parse(JSON.parse(await readFile(join(dataDir, 'pending', 'industry-brands-jabra-enhance-history.json'), 'utf8')))
+      expect(card).toMatchObject({ kind: 'brand-history', origin: 'archive', refs: [NEWS] })
+      expect((await loadDataset(dataDir)).brands[0].history).toBeUndefined()
+    })
+
+    test('a brand without history sources has no history unit', async () => {
+      drafts()
+      await main(['archive'], opts)
+      expect(llm).not.toHaveBeenCalled()
+    })
+
+    test('a skipped App Store lookup fails the unit: no card, the failure is reported', async () => {
+      await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), withHistory)
+      await writeJson(join(dataDir, 'models', 'jabra-enhance-select-300.json'), model('Select 300', { app: { name: 'Jabra', iosId: '55' } }))
+      drafts()
+      vi.mocked(lookupApp).mockResolvedValue(null)
+      await main(['archive'], opts)
+      expect(llm).not.toHaveBeenCalled()
+      expect(await filesUnder(join(dataDir, 'pending'))).toEqual([])
+      expect(log.join('\n')).toContain('archive-history:jabra-enhance failed: the App Store lookup of 55 was skipped')
+    })
+
+    test('a gone brand\'s history source is read as a Web Archive copy only', async () => {
+      await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), { ...withHistory, status: 'gone', historySources: ['https://www.jabraenhance.com/news/closing'] })
+      vi.mocked(archiveCandidates).mockResolvedValue([])
+      vi.mocked(latestCopy).mockResolvedValue({ timestamp: '20240101000000', original: 'https://www.jabraenhance.com/news/closing', statusCode: '200', mimeType: 'text/html', digest: 'd' })
+      drafts()
+      await main(['archive'], opts)
+      expect(vi.mocked(fetchPage).mock.calls.map(([url]) => url)).toEqual(['https://web.archive.org/web/20240101000000id_/https://www.jabraenhance.com/news/closing'])
+    })
+  })
+
   describe('archive-wayback', () => {
     const gone = { ...brand, status: 'gone' as const }
     const found = async () => {

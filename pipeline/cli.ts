@@ -17,7 +17,9 @@ import { readCache } from '@/pipeline/llm/cache'
 import { Progress } from '@/pipeline/progress'
 import { priorCatalogCopies } from '@/pipeline/archive/catalog-history'
 import { checkDocument, replaceDeadDocuments, type OnSkip } from '@/pipeline/archive/documents'
+import { appStatus, draftHistory, readHistorySources } from '@/pipeline/archive/history'
 import { isInScope, lifecycleOf, listingIn } from '@/pipeline/archive/lifecycle'
+import { queueRelation } from '@/pipeline/atlas/relation'
 import { archiveCandidates } from '@/pipeline/archive/wayback-models'
 import { WaybackError } from '@/pipeline/sources/wayback'
 import { discoverModelUrls, extractModel, matchExistingModel, mergeCandidates, type ModelCandidate } from '@/pipeline/sources/brand-site'
@@ -836,8 +838,28 @@ async function archiveWayback(run: Run, brand: Brand): Promise<void> {
 }
 
 /**
- * Per brand, in order: support pages, Web Archive models, documents (brand history comes with its
- * unit). A brand whose site refuses stops there and is recorded as refused: a plain `--resume` skips it but
+ * `archive-history`: what happened to a brand, from its `historySources` (a gone brand's own pages only as Web
+ * Archive copies) and its app's App Store record, as a `brand-history` card for review. Company relations the
+ * sources state are queued as proposed. A skipped App Store lookup fails the unit, which a resume repeats.
+ */
+async function archiveHistory(run: Run, brand: Brand): Promise<void> {
+  const pages = await readHistorySources(brand, { refresh: run.refresh, onSkip: documentSkip(run) })
+  if (pages.length === 0) {
+    console.log(`${brand.slug}: no history source could be read`)
+    return
+  }
+  const app = await appStatus(brand, run.dataset)
+  const { change, relations } = await draftHistory(brand, pages, app, run.dataset.brands)
+  if (change === null) console.log(`${brand.slug}: fewer than 3 sourced facts, no history proposed`)
+  else await handle(run, change)
+  for (const relation of relations) {
+    if ((await queueRelation(relation, run.dataset, run.dataDir)) === 'queued') run.tally.pending++
+    else run.tally.dropped++
+  }
+}
+
+/**
+ * Per brand, in order: support pages, Web Archive models, documents, brand history. A brand whose site refuses stops there and is recorded as refused: a plain `--resume` skips it but
  * still lists it, a run with `--brand <slug>` tries again.
  */
 async function archive(run: Run): Promise<void> {
@@ -856,6 +878,9 @@ async function archive(run: Run): Promise<void> {
         await unit(run, `archive-wayback:${brand.slug}`, () => archiveWayback(run, brand), (e) => isBrandRefusal(e) || isArchiveStop(e))
       }
       await unit(run, `archive-documents:${brand.slug}`, () => archiveDocuments(run, brand), (e) => isBrandRefusal(e) || isArchiveStop(e))
+      if ((brand.historySources ?? []).length > 0) {
+        await unit(run, `archive-history:${brand.slug}`, () => archiveHistory(run, brand), (e) => isBrandRefusal(e) || isArchiveStop(e))
+      }
     } catch (error) {
       if (!isBrandRefusal(error)) throw error
       console.warn(`${brand.slug}: ${(error as Error).message}, brand stopped`)
