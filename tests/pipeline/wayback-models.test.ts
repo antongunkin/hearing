@@ -303,8 +303,24 @@ describe('archiveCandidates', () => {
     const changes = await archiveCandidates(active, [model('Old 1')], options({ liveModelUrls: new Set([ZED]) }))
     expect(vi.mocked(latestCopy).mock.calls.map(([url]) => url)).toEqual([OLD])
     expect(changes).toEqual([])
-    // An active brand without `archive` has no archive step.
-    expect(await archiveCandidates({ ...active, archive: undefined } as Brand, [], options())).toEqual([])
+  })
+
+  test('an active brand without archive.catalogUrls reads Web Archive copies of its live catalog URLs, with its own model pattern', async () => {
+    archive({ catalog: { '20200301000000': ['zed-2', 'old-1'] } })
+    pages[raw('20201101000000', OLD)] = ok(raw('20201101000000', OLD), 'Acme Old 1')
+    const active = { ...brand, status: 'active' } as Brand
+    const changes = await archiveCandidates(active, [], options({ liveModelUrls: new Set([ZED]) }))
+    expect(vi.mocked(yearlyCopies).mock.calls[0][0]).toBe(CATALOG)
+    expect(vi.mocked(latestCopy).mock.calls.map(([url]) => url)).toEqual([OLD]) // the live model is left to update
+    expect(changes.map((c) => c.modelSlug)).toEqual(['acme-old-1'])
+    expect(changes[0].after).toMatchObject({ discontinued: { lastListed: '2020-03' } })
+  })
+
+  test('the catalog copies that were read are handed to onCatalogs', async () => {
+    archive()
+    const seen: string[][] = []
+    await archiveCandidates(brand, [], options({ onCatalogs: (copies: { url: string }[]) => seen.push(copies.map((c) => c.url)) }))
+    expect(seen).toEqual([[`https://web.archive.org/web/20180615000000/${CATALOG}`, `https://web.archive.org/web/20200301000000/${CATALOG}`]])
   })
 
   test('--limit bounds the model pages read', async () => {

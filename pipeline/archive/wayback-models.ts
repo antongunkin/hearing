@@ -30,6 +30,8 @@ export type ArchiveOpts = {
   liveModelUrls: Set<string>
   /** Told of every fetch that was skipped; a 429 or a bot wall stops the run through a `WaybackError`. */
   onSkip?: OnSkip
+  /** Given the catalog copies that were read (as the archive served them), for whoever needs them as scope evidence. */
+  onCatalogs?: (copies: OkPage[]) => void
   /** Told of a model that failed (an unreadable page, a bad extraction); the others go on. */
   onFail?: (label: string, error: unknown) => void
 }
@@ -69,7 +71,8 @@ export function findStored(brand: Brand, models: Model[], candidate: Model, orig
 
 export async function archiveCandidates(brand: Brand, models: Model[], opts: ArchiveOpts): Promise<CandidateChange[]> {
   const gone = brand.status === 'gone'
-  const catalogUrls = brand.archive?.catalogUrls ?? (gone ? brand.scraper.catalogUrls : [])
+  // A brand without `archive.catalogUrls` (gone or active) is read through its live catalog URLs, which are the originals the archive knows.
+  const catalogUrls = brand.archive?.catalogUrls ?? brand.scraper.catalogUrls
   if (catalogUrls.length === 0) return []
   const cdxOpts = opts.refresh ? { refresh: true } : {}
 
@@ -128,6 +131,7 @@ export async function archiveCandidates(brand: Brand, models: Model[], opts: Arc
       }
     }
   }
+  opts.onCatalogs?.(catalogs.map((copy) => copy.page))
   // Nothing found is more often a pattern that does not fit the old links (http, no www.) than an empty catalog.
   if (modelLinks === 0) console.log(`${brand.slug}: no model page link matches ${modelPattern} in ${catalogs.length} catalog copies, check catalogUrls and modelUrlPattern`)
   const listingsOf = (...named: Pick<Model, 'brand' | 'name' | 'aliases'>[]): Listing[] =>

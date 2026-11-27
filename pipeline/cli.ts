@@ -67,6 +67,8 @@ type Run = {
   origin?: 'archive'
   /** `archive`: brands whose own site refused, in this run or an earlier one that this run resumes. */
   refused: string[]
+  /** `archive`: the Web Archive catalog copies `archive-wayback` read, by brand: scope evidence for `archive-support`. */
+  archiveCatalogs: Map<string, Page[]>
   /** Lookups of discontinued models done once (`reviews`, `youtube`, hardware twins): see `pipeline/once.ts`. */
   once: OnceLedger
   /** Pending ids written by this run: a second proposal under one id replaces the first, which is reported. */
@@ -860,7 +862,9 @@ async function archiveSupport(run: Run, brand: Brand): Promise<void> {
       for (const change of diffModel(existing, candidate)) if (change.kind === 'document') await handle(run, change)
       continue
     }
-    if (!isInScope(candidate.model, {})) {
+    // An undated model counts when a catalog copy of 2018 or later (read by `archive-wayback` in this run) lists it.
+    const listings = (run.archiveCatalogs.get(brand.slug) ?? []).flatMap((copy) => listingIn(candidate.model, copy) ?? [])
+    if (!isInScope(candidate.model, { archiveListings: listings })) {
       console.log(`${slug}: no official release date since ${config.onSaleSince.slice(0, 4)}, left out`)
       continue
     }
@@ -897,7 +901,7 @@ async function archiveSupport(run: Run, brand: Brand): Promise<void> {
       console.log(`${slug}: its product page was not read, lifecycle not decided`)
       continue
     }
-    const lifecycle = lifecycleOf(candidate.model, { inLiveCatalog: false, listings: [], liveProductPage, namingPage: pages[0] })
+    const lifecycle = lifecycleOf(candidate.model, { inLiveCatalog: false, listings, liveProductPage, namingPage: pages[0] })
     if (lifecycle === null || lifecycle.kind === 'on-sale') {
       console.log(`${slug}: its support page does not name it, not proposed`)
       continue
@@ -905,7 +909,7 @@ async function archiveSupport(run: Run, brand: Brand): Promise<void> {
     await addDocuments(run, brand, null, candidate, urls, skip)
     const lifecycleCheck: CheckResult[] = lifecycle.kind === 'orphan' ? [{ name: 'lifecycle', ok: false, detail: 'orphan-product-page' }] : []
     const archived: ModelCandidate = {
-      model: { ...candidate.model, discontinued: { source: lifecycle.source } },
+      model: { ...candidate.model, discontinued: { ...(lifecycle.kind === 'discontinued' && lifecycle.lastListed !== undefined && { lastListed: lifecycle.lastListed }), source: lifecycle.source } },
       fieldChecks: { ...candidate.fieldChecks, ...(lifecycleCheck.length > 0 && { discontinued: lifecycleCheck }) },
     }
     for (const change of diffModel(null, archived)) await handle(run, change)
@@ -939,7 +943,7 @@ async function archiveDocuments(run: Run, brand: Brand): Promise<void> {
 
 /**
  * `archive-wayback`: models found only in Web Archive copies of the brand's catalog pages (a gone brand's, or an
- * active brand's `archive.catalogUrls`), as discontinued cards, with their documents. An active brand's live
+ * active brand's `archive.catalogUrls`, else its live `scraper.catalogUrls`), as discontinued cards, with their documents. An active brand's live
  * catalog is read first: the models it lists belong to `update`, and when it cannot be read whole nothing is proposed.
  * A refusal by the brand's site stops the brand, one by web.archive.org the command; a site the archive does not
  * serve (`archive-excluded`) is logged and the run goes on.
@@ -965,6 +969,7 @@ async function archiveWayback(run: Run, brand: Brand): Promise<void> {
       limit: run.limit,
       refresh: run.refresh,
       liveModelUrls,
+      onCatalogs: (copies) => run.archiveCatalogs.set(brand.slug, copies),
       onSkip: documentSkip(run),
       onFail: (label, error) => {
         run.tally.failed++
@@ -1024,11 +1029,12 @@ async function archive(run: Run): Promise<void> {
       continue
     }
     try {
+      // Wayback first: the catalog copies it reads are scope evidence for the support models.
+      if ((brand.archive?.catalogUrls ?? brand.scraper.catalogUrls).length > 0) {
+        await unit(run, `archive-wayback:${brand.slug}`, () => archiveWayback(run, brand), (e) => isBrandRefusal(e) || isArchiveStop(e))
+      }
       if (brand.status === 'active' && (brand.scraper.supportUrls ?? []).length > 0) {
         await unit(run, `archive-support:${brand.slug}`, () => archiveSupport(run, brand), isBrandRefusal)
-      }
-      if (brand.status === 'gone' || (brand.archive?.catalogUrls ?? []).length > 0) {
-        await unit(run, `archive-wayback:${brand.slug}`, () => archiveWayback(run, brand), (e) => isBrandRefusal(e) || isArchiveStop(e))
       }
       await unit(run, `archive-documents:${brand.slug}`, () => archiveDocuments(run, brand), (e) => isBrandRefusal(e) || isArchiveStop(e))
       if ((brand.historySources ?? []).length > 0) {
@@ -1125,6 +1131,7 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
     progress: await Progress.open(join(progressDir, progressFile), values.resume),
     once: await OnceLedger.open(onceFile),
     refused: [],
+    archiveCatalogs: new Map(),
     queued: new Set(),
     tally: { auto: 0, pending: 0, dropped: 0, skipped: 0, failed: 0 },
   }

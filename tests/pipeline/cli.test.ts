@@ -1088,6 +1088,7 @@ describe('archive', () => {
   }
   beforeEach(async () => {
     await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), withSupport)
+    vi.mocked(archiveCandidates).mockResolvedValue([]) // an active brand's live catalog URLs are archive catalog URLs too
   })
 
   test('archive is its own command and not part of update', async () => {
@@ -1191,6 +1192,20 @@ describe('archive', () => {
     await main(['archive'], opts)
     expect(await filesUnder(join(dataDir, 'pending'))).toEqual([])
     expect(log).toContain('jabra-enhance-select-200: the live catalog was not read whole, not proposed')
+  })
+
+  test('an undated support-only model that a 2018+ Web Archive catalog copy lists is in scope, with that lastListed', async () => {
+    supportLinks()
+    vi.mocked(extractModel).mockResolvedValue(dated('Select 200', '2016-05'))
+    const copy = { ...okPage('https://web.archive.org/web/20200301000000/https://jabra.test/catalog'), text: 'Jabra Enhance Select 200\nJabra Enhance Pro' }
+    vi.mocked(archiveCandidates).mockImplementation(async (_b, _m, o) => {
+      o.onCatalogs?.([copy])
+      return []
+    })
+    await main(['archive'], opts)
+    const card = await pending('jabra-enhance-select-200-model')
+    expect((card.after as Model).discontinued?.lastListed).toBe('2020-03')
+    expect(log).not.toContain('jabra-enhance-select-200: no official release date since 2018, left out')
   })
 
   test('a model without an official 2018+ date is left out', async () => {
@@ -1410,7 +1425,7 @@ describe('archive', () => {
     supportLinks([SUPPORT_MODEL, `${SUPPORT}/select-300`])
     vi.mocked(extractModel).mockImplementation(async () => dated('Select 200'))
     await main(['archive', '--brand', 'jabra-enhance', '--limit', '1'], opts)
-    expect(vi.mocked(discoverModelUrls).mock.calls.map(([b]) => b.slug)).toEqual(['jabra-enhance'])
+    expect([...new Set(vi.mocked(discoverModelUrls).mock.calls.map(([b]) => b.slug))]).toEqual(['jabra-enhance'])
     expect(vi.mocked(extractModel)).toHaveBeenCalledTimes(1)
   })
 
@@ -1520,11 +1535,14 @@ describe('archive', () => {
       expect(vi.mocked(archiveCandidates).mock.calls[0][2].liveModelUrls.size).toBe(0)
     })
 
-    test('an active brand without archive.catalogUrls has no wayback unit; with them the live catalog models are left out', async () => {
+    test('an active brand without archive.catalogUrls gets a wayback unit too (its live catalog URLs); the live catalog models are left out', async () => {
       await found()
-      vi.mocked(discoverModelUrls).mockResolvedValue([])
+      vi.mocked(discoverModelUrls).mockResolvedValue([{ modelUrl: `${BASE}/live`, documentUrls: [], inCatalog: true }])
       await main(['archive'], opts)
-      expect(archiveCandidates).not.toHaveBeenCalled()
+      expect(archiveCandidates).toHaveBeenCalledTimes(1)
+      expect([...vi.mocked(archiveCandidates).mock.calls[0][2].liveModelUrls]).toEqual([`${BASE}/live`])
+      expect((await pending('jabra-enhance-zed-2-model')).origin).toBe('archive')
+      vi.mocked(archiveCandidates).mockClear()
 
       await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), { ...brand, archive: { catalogUrls: [BASE] } })
       vi.mocked(discoverModelUrls).mockResolvedValue([{ modelUrl: `${BASE}/live`, documentUrls: [], inCatalog: true }])
