@@ -4,6 +4,8 @@ import { diffModel, route } from '@/pipeline/apply'
 import type { Dataset } from '@/src/lib/data/load'
 import { applyDecision } from '@/src/lib/review/apply-decision'
 import type { Sourced } from '@/src/lib/schema/field'
+import type { Brand } from '@/src/lib/schema/brand'
+import type { Edge, Entity } from '@/src/lib/schema/graph'
 import { Model } from '@/src/lib/schema/model'
 import type { CandidateChange, PendingChange } from '@/src/lib/schema/pending'
 
@@ -320,6 +322,113 @@ describe('applyDecision: reject', () => {
       expect(route(change, result.rejections)).toBe('drop')
       // Rejected before: not stored twice.
       expect(applyDecision(dataset([item], { rejections: result.rejections }), item.id, { action: 'reject' }).rejections).toEqual([])
+    }
+  })
+})
+
+describe('applyDecision: brand-config and relation', () => {
+  const phonak: Brand = {
+    slug: 'phonak',
+    name: 'Phonak',
+    group: 'Sonova',
+    website: 'https://www.phonak.com',
+    imageLicense: 'none',
+    defaultType: 'rx',
+    status: 'active',
+    scraper: { catalogUrls: [], modelUrlPattern: '', render: false },
+  }
+  const proposed: Brand = { ...phonak, scraper: { ...phonak.scraper, catalogUrls: ['https://www.phonak.com/hearing-aids'] } }
+  const edited: Brand = { ...phonak, group: 'Sonova Holding' }
+  const brandConfig = ({ before, after }: { before?: Brand; after: Brand }) =>
+    pending({ kind: 'brand-config', path: `brands/${after.slug}`, ...(before && { before }), after }, 'brand-config') as PendingChange
+  const withoutModel = (item: PendingChange): PendingChange => ({ ...item, modelSlug: null })
+  const proposal = (args: Parameters<typeof brandConfig>[0]) => withoutModel(brandConfig(args))
+
+  test('approving a brand-config writes the brand file', () => {
+    const item = proposal({ before: phonak, after: proposed })
+    const result = applyDecision(dataset([item], { brands: [phonak] }), item.id, { action: 'approve' })
+    expect(result.writes).toEqual([{ path: 'brands/phonak.json', value: proposed }])
+    expect(result.deletes).toEqual([`pending/${item.id}.json`])
+    expect(result.newEvents).toEqual([])
+  })
+
+  test('a brand-config for a gone brand without a file creates it', () => {
+    const item = proposal({ after: proposed })
+    const result = applyDecision(dataset([item]), item.id, { action: 'approve' })
+    expect(result.writes).toEqual([{ path: 'brands/phonak.json', value: proposed }])
+  })
+
+  test('a brand-config whose brand changed since is refused', () => {
+    const item = proposal({ before: phonak, after: proposed })
+    expect(() => applyDecision(dataset([item], { brands: [edited] }), item.id, { action: 'approve' })).toThrow(
+      'brand phonak has changed since this was proposed: reject it, or run atlas:describe again',
+    )
+  })
+
+  test('a brand-config without before is refused when a different file exists', () => {
+    const item = proposal({ after: proposed })
+    expect(() => applyDecision(dataset([item], { brands: [phonak] }), item.id, { action: 'approve' })).toThrow('already exists')
+  })
+
+  test('approving a new brand twice passes when the file already equals the proposal', () => {
+    const item = proposal({ after: proposed })
+    const result = applyDecision(dataset([item], { brands: [proposed] }), item.id, { action: 'approve' })
+    expect(result.writes).toEqual([{ path: 'brands/phonak.json', value: proposed }])
+    expect(result.deletes).toEqual([`pending/${item.id}.json`])
+  })
+
+  test('a brand-config that does not parse as a brand cannot be approved', () => {
+    const item = proposal({ after: { ...proposed, website: 'not a url' } })
+    expect(() => applyDecision(dataset([item]), item.id, { action: 'approve' })).toThrow()
+  })
+
+  const NOTE = 'https://www.sonova.com/en/about'
+  const entities: Entity[] = [
+    { id: 'company:sonova', kind: 'company', name: 'Sonova' },
+    { id: 'brand:phonak', kind: 'brand', name: 'Phonak' },
+  ]
+  const edge: Edge = {
+    from: 'company:sonova',
+    to: 'brand:phonak',
+    kind: 'owns',
+    visibility: 'internal',
+    status: 'proposed',
+    sources: [{ url: NOTE, quote: 'Phonak is a Sonova brand', fetchedAt: NOW, kind: 'company-page' }],
+  }
+  const relation = (value: Edge): PendingChange =>
+    withoutModel(pending({ kind: 'relation', path: 'graph/company:sonova owns brand:phonak', after: { edge: value, entities } }, 'relation'))
+
+  test('approving a relation makes the edge public and verified and adds its entities', () => {
+    const item = relation(edge)
+    const result = applyDecision(dataset([item]), item.id, { action: 'approve' })
+    const [entityFile, edgeFile] = result.writes
+    expect(entityFile).toEqual({ path: 'graph/entities.json', value: [entities[1], entities[0]] })
+    expect(edgeFile).toEqual({ path: 'graph/edges.json', value: [{ ...edge, visibility: 'public', status: 'verified' }] })
+    expect(result.newEvents).toEqual([])
+  })
+
+  test('approving a relation keeps what the graph already holds', () => {
+    const other: Entity = { id: 'company:demant', kind: 'company', name: 'Demant' }
+    const item = relation(edge)
+    const result = applyDecision(dataset([item], { graph: { entities: [other], edges: [] } }), item.id, { action: 'approve' })
+    expect((result.writes[0].value as Entity[]).map((e) => e.id)).toEqual(['brand:phonak', 'company:demant', 'company:sonova'])
+  })
+
+  test('a relation without a quoted primary source cannot be approved', () => {
+    const noQuote = relation({ ...edge, sources: [{ url: NOTE, fetchedAt: NOW, kind: 'company-page' }] })
+    expect(() => applyDecision(dataset([noQuote]), noQuote.id, { action: 'approve' })).toThrow('quoted primary source')
+    const crawl = relation({ ...edge, sources: [{ url: NOTE, quote: 'x', fetchedAt: NOW, kind: 'crawl' }] })
+    expect(() => applyDecision(dataset([crawl]), crawl.id, { action: 'approve' })).toThrow()
+  })
+
+  test('rejecting either kind records its fingerprint; the same proposal later drops', () => {
+    for (const item of [proposal({ before: phonak, after: proposed }), relation(edge)]) {
+      const candidate = JSON.parse(JSON.stringify({ kind: item.kind, modelSlug: null, path: item.path, before: item.before, after: item.after, checks: {} }))
+      const result = applyDecision(dataset([item]), item.id, { action: 'reject' })
+      expect(result).toMatchObject({ writes: [], deletes: [`pending/${item.id}.json`] })
+      expect(result.rejections).toHaveLength(1)
+      expect(route(candidate, [])).toBe('pending')
+      expect(route(candidate, result.rejections)).toBe('drop')
     }
   })
 })

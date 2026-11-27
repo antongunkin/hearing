@@ -6,13 +6,16 @@ import { crossCheck, isRisky } from '@/pipeline/checks/crosscheck'
 import { config } from '@/pipeline/config'
 import { isDuplicateEvent } from '@/pipeline/checks/dedupe'
 import { forbiddenCheck } from '@/pipeline/checks/forbidden'
+import { graphFiles, upsertEdge, upsertEntity } from '@/pipeline/atlas/graph-store'
 import { llm, LlmLimitError } from '@/pipeline/llm'
 import type { ModelCandidate } from '@/pipeline/sources/brand-site'
 import { readJson, type Dataset } from '@/src/lib/data/load'
 import { slugify } from '@/src/lib/data/slug'
 import { sortKeys, writeJson } from '@/src/lib/data/write'
+import { Brand } from '@/src/lib/schema/brand'
 import { Event } from '@/src/lib/schema/event'
 import type { Sourced } from '@/src/lib/schema/field'
+import { Edge, Entity, Graph } from '@/src/lib/schema/graph'
 import { Model } from '@/src/lib/schema/model'
 import { PendingChange, type CandidateChange, type CheckResult } from '@/src/lib/schema/pending'
 import { Reviews } from '@/src/lib/schema/reviews'
@@ -196,11 +199,11 @@ export function route(c: CandidateChange, rejections: string[]): 'auto' | 'pendi
 }
 
 /**
- * How the review page shows a queued change. A new model keeps its kind with its failed checks marked on
- * the card; any other change with a failed check is a `failed-check`.
+ * How the review page shows a queued change. A new model, a brand config and a relation keep their kind
+ * with failed checks marked on the card; any other change with a failed check is a `failed-check`.
  */
 function pendingKind(c: CandidateChange): PendingChange['kind'] {
-  if (c.kind === 'new-model') return 'new-model'
+  if (c.kind === 'new-model' || c.kind === 'brand-config' || c.kind === 'relation') return c.kind
   if (!passes(c)) return 'failed-check'
   return c.kind === 'pros-cons' ? 'pros-cons' : 'spec-change'
 }
@@ -330,6 +333,20 @@ export function planChange(c: Change, dataset: Dataset): ChangePlan {
       const sources = [...new Set(sourcedLeaves(added).map(([, field]) => field.sourceUrl))]
       const event: NewEvent = { type: 'new-model', modelSlug: added.slug, date: today(), key: added.slug, sources }
       return { writes: [modelWrite(added)], events: [{ event, product: productOf(added), facts: {} }] }
+    }
+
+    case 'brand-config': {
+      const brand = Brand.parse(c.after)
+      return { writes: [{ path: `brands/${brand.slug}.json`, value: brand }], events: [] }
+    }
+
+    case 'relation': {
+      const { edge, entities } = z.strictObject({ edge: z.unknown(), entities: z.array(Entity) }).parse(c.after)
+      // Approving is what makes an edge public: it must stand on a quoted primary source by itself.
+      const approved = Edge.parse({ ...(edge as Json), visibility: 'public', status: 'verified' })
+      const graph = Graph.parse(entities.reduce(upsertEntity, dataset.graph))
+      const writes = graphFiles(upsertEdge(graph, approved))
+      return { writes, events: [] }
     }
 
     case 'price':

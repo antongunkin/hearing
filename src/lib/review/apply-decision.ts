@@ -38,7 +38,7 @@ export type DecisionResult = {
  * the change), but its path and value tell what it writes.
  */
 function changeKind({ kind, path, after }: PendingChange): Change['kind'] {
-  if (kind === 'new-model') return 'new-model'
+  if (kind === 'new-model' || kind === 'brand-config' || kind === 'relation') return kind
   switch (path) {
     case 'events':
       return 'fda-event'
@@ -99,7 +99,19 @@ function assertCurrent(item: PendingChange, change: Change, dataset: Dataset): v
     if (model && !sameValue(model, after)) throw new Error(`model ${model.slug} already exists: reject this change`)
     return
   }
-  if (change.kind === 'fda-event') return
+  if (change.kind === 'fda-event' || change.kind === 'relation') return
+  if (change.kind === 'brand-config') {
+    const slug = path.replace(/^brands\//, '')
+    const stored = dataset.brands.find((b) => b.slug === slug)
+    if (stored && !sameValue(stored, after) && (before === undefined || !sameValue(stored, before))) {
+      throw new Error(
+        before === undefined
+          ? `brand ${slug} already exists: reject this proposal`
+          : `brand ${slug} has changed since this was proposed: reject it, or run atlas:describe again`,
+      )
+    }
+    return
+  }
   const stale = (what: string) =>
     new Error(`${what} of ${modelSlug} has changed since this was proposed: reject it, or run the update again`)
 

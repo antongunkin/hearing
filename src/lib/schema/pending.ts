@@ -2,7 +2,7 @@ import { z } from 'zod'
 import { IsoDateTime, Slug } from './field'
 
 export const CheckResult = z.strictObject({
-  name: z.enum(['literal', 'range', 'crosscheck', 'dedupe', 'forbidden', 'price-basis', 'brand-type']),
+  name: z.enum(['literal', 'range', 'crosscheck', 'dedupe', 'forbidden', 'price-basis', 'brand-type', 'pattern', 'log']),
   ok: z.boolean(),
   detail: z.string().optional(),
 })
@@ -16,11 +16,13 @@ const change = {
   after: z.unknown(),
   /** Check results keyed by field path. */
   checks: z.record(z.string(), z.array(CheckResult)),
+  /** URLs or repository paths the card shows as where the proposal comes from. */
+  refs: z.array(z.string()).optional(),
 }
 
 export const PendingChange = z.strictObject({
   id: Slug,
-  kind: z.enum(['new-model', 'spec-change', 'pros-cons', 'failed-check']),
+  kind: z.enum(['new-model', 'spec-change', 'pros-cons', 'failed-check', 'brand-config', 'relation']),
   ...change,
   createdAt: IsoDateTime,
 })
@@ -36,6 +38,8 @@ export const CandidateChange = z.strictObject({
     'new-model',
     'spec-change',
     'pros-cons',
+    'brand-config',
+    'relation',
   ]),
   ...change,
 })

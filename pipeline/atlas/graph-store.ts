@@ -39,9 +39,16 @@ export function upsertEdge(graph: Graph, edge: Edge): Graph {
 
 const byText = (a: string, b: string) => (a < b ? -1 : a > b ? 1 : 0)
 
+/** The two graph files as stored (paths relative to the data directory): entities by id, edges by key. */
+export function graphFiles(graph: Graph): { path: string; value: unknown }[] {
+  const valid = Graph.parse(graph)
+  return [
+    { path: 'graph/entities.json', value: [...valid.entities].sort((a, b) => byText(a.id, b.id)) },
+    { path: 'graph/edges.json', value: [...valid.edges].sort((a, b) => byText(edgeKey(a), edgeKey(b))) },
+  ]
+}
+
 /** Writes `graph/entities.json` (by id) and `graph/edges.json` (by key) under the data directory. */
 export async function writeGraph(graph: Graph, dir = 'data'): Promise<void> {
-  const valid = Graph.parse(graph)
-  await writeJson(join(dir, 'graph', 'entities.json'), [...valid.entities].sort((a, b) => byText(a.id, b.id)))
-  await writeJson(join(dir, 'graph', 'edges.json'), [...valid.edges].sort((a, b) => byText(edgeKey(a), edgeKey(b))))
+  for (const { path, value } of graphFiles(graph)) await writeJson(join(dir, path), value)
 }

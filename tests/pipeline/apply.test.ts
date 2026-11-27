@@ -221,6 +221,29 @@ describe('route', () => {
     expect(file).toBe(`${pending.id}.json`)
   })
 
+  test('enqueue keeps the kind of a brand-config with a failed check', async () => {
+    const failing: CandidateChange = {
+      kind: 'brand-config',
+      modelSlug: null,
+      path: 'brands/jabra-enhance',
+      before: brand,
+      after: { ...brand, scraper: { ...brand.scraper, modelUrlPattern: '(' } },
+      checks: { 'scraper.modelUrlPattern': [{ name: 'pattern', ok: false, detail: 'not a regular expression' }] },
+      refs: ['data/atlas/sites/jabraenhance.com/report.json'],
+    }
+    expect(route(failing, [])).toBe('pending')
+    const id = await enqueue(failing, dir)
+    const stored = PendingChange.parse(await readJsonFile(`pending/${id}.json`))
+    expect(stored).toMatchObject({ kind: 'brand-config', modelSlug: null, path: 'brands/jabra-enhance', refs: failing.refs })
+    expect(id).toBe('industry-brands-jabra-enhance')
+  })
+
+  test('enqueue keeps the kind of a relation', async () => {
+    const after = { edge: { from: 'company:gn', to: 'brand:jabra-enhance', kind: 'owns' }, entities: [] }
+    const id = await enqueue({ kind: 'relation', modelSlug: null, path: 'graph/company:gn owns brand:jabra-enhance', after, checks: {} }, dir)
+    expect(PendingChange.parse(await readJsonFile(`pending/${id}.json`)).kind).toBe('relation')
+  })
+
   test('a third-party value never applies automatically', () => {
     const rx = { value: { min: 3000, max: 5000, perPair: true }, unit: 'USD', quote: '$3,000–$5,000 per pair', ...at(NEW) }
     expect(route(change({ after: { ...rx, sourceType: 'third-party' } }), [])).toBe('pending')
