@@ -324,4 +324,26 @@ describe('archiveCandidates', () => {
     expect(await archiveCandidates(brand, [], options({ onSkip: (_u: string, reason: string) => skips.push(reason) }))).toEqual([])
     expect(skips).toEqual(['archive-excluded'])
   })
+
+  test('a copy without page text is skipped before the model is asked, not failed', async () => {
+    archive({ catalog: { '20200301000000': ['zed-2', 'old-1'] } })
+    pages[raw('20201101000000', ZED)] = ok(raw('20201101000000', ZED), '  \n', '<html><script>app()</script></html>')
+    pages[raw('20201101000000', OLD)] = ok(raw('20201101000000', OLD), 'Acme Old 1 hearing aid')
+    const skips: string[][] = []
+    const failures: string[] = []
+    await archiveCandidates(brand, [], options({ onSkip: (url: string, reason: string) => skips.push([url, reason]), onFail: (label: string) => failures.push(label) }))
+    expect(skips).toEqual([[ZED, 'no-page-text']])
+    expect(failures).toEqual([])
+    expect(vi.mocked(extractModel).mock.calls.map(([, read]) => read[0].url)).toEqual([`https://web.archive.org/web/20201101000000/${OLD}`])
+  })
+
+  test('a network error on one copy is a skip of that copy; the run goes on', async () => {
+    archive({ catalog: { '20200301000000': ['zed-2', 'old-1'] } })
+    pages[raw('20201101000000', ZED)] = { status: 'skipped', url: '', reason: 'http-error', detail: 'x: ECONNRESET' }
+    pages[raw('20201101000000', OLD)] = ok(raw('20201101000000', OLD), 'Acme Old 1 hearing aid')
+    const skips: string[] = []
+    await archiveCandidates(brand, [], options({ onSkip: (_u: string, reason: string) => skips.push(reason) }))
+    expect(skips).toEqual(['http-error'])
+    expect(vi.mocked(extractModel)).toHaveBeenCalledTimes(1)
+  })
 })

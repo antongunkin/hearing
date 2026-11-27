@@ -20,7 +20,7 @@ import { checkDocument, replaceDeadDocuments, type OnSkip } from '@/pipeline/arc
 import { AppLookupSkipped, appStatus, draftHistory, ownHosts, readHistorySources } from '@/pipeline/archive/history'
 import { isInScope, lifecycleOf, listingIn } from '@/pipeline/archive/lifecycle'
 import { queueRelation } from '@/pipeline/atlas/relation'
-import { archiveCandidates, findStored } from '@/pipeline/archive/wayback-models'
+import { archiveCandidates, findStored, NO_PAGE_TEXT } from '@/pipeline/archive/wayback-models'
 import { WaybackError } from '@/pipeline/sources/wayback'
 import { discoverModelUrls, extractModel, matchExistingModel, mergeCandidates, sameModelName, type ModelCandidate } from '@/pipeline/sources/brand-site'
 import { fetchIosVersion, lookupApp, type AppRecord } from '@/pipeline/sources/itunes'
@@ -126,7 +126,8 @@ async function modelUnit(
 /** Counts and logs a source that gave nothing. */
 function skippedSource(run: Run, url: string, reason: string, detail?: string): void {
   run.tally.skipped++
-  console.warn(`${url} skipped: ${reason}${detail ? ` (${detail})` : ''}`)
+  if (reason === NO_PAGE_TEXT) console.warn(`${url}: no page text, skipped`)
+  else console.warn(`${url} skipped: ${reason}${detail ? ` (${detail})` : ''}`)
 }
 
 /**

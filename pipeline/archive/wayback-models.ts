@@ -34,6 +34,11 @@ export type ArchiveOpts = {
   onFail?: (label: string, error: unknown) => void
 }
 
+/** The `onSkip` reason of a model page whose copy holds no usable text. */
+export const NO_PAGE_TEXT = 'no-page-text'
+/** A page with less text than this (characters) is empty for extraction. */
+const MIN_PAGE_TEXT = 5
+
 const originalOf = (url: string): string => parseArchiveUrl(url)?.original ?? url
 
 /** A URL as a key: scheme, `www.`, fragment, trailing slash and case of the host ignored. */
@@ -138,6 +143,11 @@ export async function archiveCandidates(brand: Brand, models: Model[], opts: Arc
       if (row === null) continue
       const copy = await read(row.timestamp, row.original)
       if (copy === null) continue
+      // A script-built shop page (a JS shell) has no text in its copy: nothing to extract, and nothing to ask the model.
+      if (copy.page.text.trim().length < MIN_PAGE_TEXT) {
+        opts.onSkip?.(original, NO_PAGE_TEXT)
+        continue
+      }
       const candidate = await extractModel(brand, [copy.page])
       const slug = candidate.model.slug
       candidates.push(candidate)
