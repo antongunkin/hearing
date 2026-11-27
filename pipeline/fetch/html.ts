@@ -45,3 +45,31 @@ export function linksIn(html: string, baseUrl: string): string[] {
   }
   return [...links]
 }
+
+/** The page's <title>, whitespace collapsed; undefined when there is none. */
+export function pageTitle(html: string): string | undefined {
+  const { document } = new JSDOM(html, { virtualConsole: new VirtualConsole() }).window
+  return document.title.trim() || undefined
+}
+
+const APPLE_STORE = new Set(['apps.apple.com', 'itunes.apple.com'])
+
+/**
+ * The companion apps the page links to: App Store ids (`…/id<N>`, developer pages aside) and Google Play
+ * package ids. Each once, in document order.
+ */
+export function appStoreLinks(html: string, baseUrl: string): { ios: string[]; android: string[] } {
+  const ios: string[] = []
+  const android: string[] = []
+  for (const link of linksIn(html, baseUrl)) {
+    const url = new URL(link)
+    if (APPLE_STORE.has(url.hostname)) {
+      const id = /\/id(\d+)(?=\/|$)/.exec(url.pathname)?.[1]
+      if (id && !url.pathname.includes('/developer/') && !ios.includes(id)) ios.push(id)
+    } else if (url.hostname === 'play.google.com' && url.pathname.startsWith('/store/apps/details')) {
+      const id = url.searchParams.get('id')
+      if (id && !android.includes(id)) android.push(id)
+    }
+  }
+  return { ios, android }
+}

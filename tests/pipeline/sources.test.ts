@@ -6,8 +6,8 @@ import { fileURLToPath } from 'node:url'
 import { afterEach, describe, expect, test, vi } from 'vitest'
 import { fetchPage, isBlocked, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { llm, LlmOutputError } from '@/pipeline/llm'
-import { fetchIosVersion } from '@/pipeline/sources/itunes'
-import { fetchFdaEvents } from '@/pipeline/sources/openfda'
+import { fetchIosVersion, lookupApp } from '@/pipeline/sources/itunes'
+import { fetchClearances, fetchFdaEvents } from '@/pipeline/sources/openfda'
 import { extractExpertProsCons, synthesizeProsCons } from '@/pipeline/sources/pros-cons'
 import { complaintThemes, discoverReviewSources, extractRetailReviews } from '@/pipeline/sources/reviews'
 import { discoverThirdPartyFacts } from '@/pipeline/sources/third-party-facts'
@@ -173,6 +173,53 @@ describe('fetchIosVersion', () => {
 
     expect(await fetchIosVersion('1')).toBeNull()
     expect(await fetchIosVersion('1')).toBeNull()
+  })
+})
+
+describe('lookupApp', () => {
+  test('a found app gives its name, seller, store page and the lookup it came from', async () => {
+    const lookup = JSON.stringify({
+      resultCount: 1,
+      results: [{ trackName: 'Jabra Enhance', sellerName: 'GN Hearing A/S', trackViewUrl: 'https://apps.apple.com/us/app/jabra-enhance/id1000000000?uo=4' }],
+    })
+    fetchMock.mockImplementation(async (url) => okPage(url, lookup))
+
+    expect(await lookupApp('1000000000')).toEqual({
+      iosId: '1000000000',
+      name: 'Jabra Enhance',
+      seller: 'GN Hearing A/S',
+      url: 'https://apps.apple.com/us/app/jabra-enhance/id1000000000?uo=4',
+      lookupUrl: 'https://itunes.apple.com/lookup?id=1000000000',
+      fetchedAt: FETCHED_AT,
+    })
+  })
+
+  test('resultCount 0 is removed; a skipped lookup is null', async () => {
+    vi.spyOn(console, 'warn').mockImplementation(() => {})
+    fetchMock.mockImplementationOnce(async (url) => okPage(url, '{"resultCount":0,"results":[]}'))
+    fetchMock.mockImplementationOnce(async (url) => ({ status: 'skipped', url, reason: 'robots' }))
+
+    expect(await lookupApp('1')).toBe('removed')
+    expect(await lookupApp('1')).toBeNull()
+  })
+})
+
+describe('fetchClearances', () => {
+  test('gives the CDRH page and the openFDA page it was read from', async () => {
+    fetchMock.mockImplementation(async (url) => okPage(url, await fixture('openfda/510k.json')))
+
+    const [first] = await fetchClearances('2023-11-01T00:00:00Z')
+
+    expect(first).toEqual({
+      kNumber: 'K254108',
+      applicant: 'GN Hearing A/S',
+      deviceName: 'Jabra Enhance Select Self-fit (Jabra Enhance Select 550)',
+      decisionDate: '2026-06-25',
+      cdrhUrl: 'https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K254108',
+      ref: { url: fetchMock.mock.calls[0][0], fetchedAt: FETCHED_AT },
+    })
+    expect(fetchMock.mock.calls[0][0]).toContain('+AND+decision_date:[2023-11-01+TO+')
+    expect(fetchMock.mock.calls[0][1]).toEqual({ refresh: true })
   })
 })
 
