@@ -17,7 +17,7 @@ import { readCache } from '@/pipeline/llm/cache'
 import { Progress } from '@/pipeline/progress'
 import { priorCatalogCopies } from '@/pipeline/archive/catalog-history'
 import { checkDocument, replaceDeadDocuments, type OnSkip } from '@/pipeline/archive/documents'
-import { appStatus, draftHistory, readHistorySources } from '@/pipeline/archive/history'
+import { AppLookupSkipped, appStatus, draftHistory, ownHosts, readHistorySources } from '@/pipeline/archive/history'
 import { isInScope, lifecycleOf, listingIn } from '@/pipeline/archive/lifecycle'
 import { queueRelation } from '@/pipeline/atlas/relation'
 import { archiveCandidates } from '@/pipeline/archive/wayback-models'
@@ -843,12 +843,24 @@ async function archiveWayback(run: Run, brand: Brand): Promise<void> {
  * sources state are queued as proposed. A skipped App Store lookup fails the unit, which a resume repeats.
  */
 async function archiveHistory(run: Run, brand: Brand): Promise<void> {
-  const pages = await readHistorySources(brand, { refresh: run.refresh, onSkip: documentSkip(run) })
+  // Before any fetch: a skipped lookup stops the run (see `AppLookupSkipped`).
+  const app = await appStatus(brand, run.dataset)
+  const own = ownHosts(brand)
+  // Only the brand's own site refusing stops the brand; a news site that refuses is left out with a log line.
+  const onSkip: OnSkip = (url, reason, detail) => {
+    const host = new URL(url).hostname.replace(/^www\./, '')
+    const ownSite = own.some((domain) => host === domain || host.endsWith(`.${domain}`))
+    if (REFUSALS.has(reason) && !ownSite && !config.archiveHosts.includes(new URL(url).hostname)) {
+      skippedSource(run, url, reason, `${detail ?? ''} (not the brand's site, source left out)`.trim())
+      return
+    }
+    documentSkip(run)(url, reason, detail)
+  }
+  const pages = await readHistorySources(brand, { refresh: run.refresh, onSkip })
   if (pages.length === 0) {
     console.log(`${brand.slug}: no history source could be read`)
     return
   }
-  const app = await appStatus(brand, run.dataset)
   const { change, relations } = await draftHistory(brand, pages, app, run.dataset.brands)
   if (change === null) console.log(`${brand.slug}: fewer than 3 sourced facts, no history proposed`)
   else await handle(run, change)
@@ -879,7 +891,7 @@ async function archive(run: Run): Promise<void> {
       }
       await unit(run, `archive-documents:${brand.slug}`, () => archiveDocuments(run, brand), (e) => isBrandRefusal(e) || isArchiveStop(e))
       if ((brand.historySources ?? []).length > 0) {
-        await unit(run, `archive-history:${brand.slug}`, () => archiveHistory(run, brand), (e) => isBrandRefusal(e) || isArchiveStop(e))
+        await unit(run, `archive-history:${brand.slug}`, () => archiveHistory(run, brand), (e) => isBrandRefusal(e) || isArchiveStop(e) || e instanceof AppLookupSkipped)
       }
     } catch (error) {
       if (!isBrandRefusal(error)) throw error
@@ -981,7 +993,7 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
     if (command === 'archive') await archive(run)
     else for (const step of steps) await RUN_STEP[step](run)
   } catch (error) {
-    const stopped = error instanceof LlmLimitError ? `${PROVIDER_NAMES[error.provider]} usage limit reached.` : isArchiveStop(error) ? `${config.archiveHosts[0]} refused requests.` : undefined
+    const stopped = error instanceof LlmLimitError ? `${PROVIDER_NAMES[error.provider]} usage limit reached.` : isArchiveStop(error) ? `${config.archiveHosts[0]} refused requests.` : error instanceof AppLookupSkipped ? `${error.message}; no more App Store lookups this run.` : undefined
     if (stopped === undefined) throw error
     summary()
     // The same command and filters: work done under other filters is not skipped (see `Run.scope`).

@@ -54,8 +54,8 @@ function iosIdOf(url: string): string | undefined {
   return /\/id(\d+)|[?&]id=(\d+)/.exec(url)?.slice(1).find(Boolean)
 }
 
-const hostOf = (url: string) => URL.parse(url)?.hostname.replace(/^www\./, '').replace(/\.$/, '').toLowerCase() ?? ''
-const onDomain = (host: string, domain: string) => host === domain || host.endsWith(`.${domain}`)
+export const hostOf = (url: string) => URL.parse(url)?.hostname.replace(/^www\./, '').replace(/\.$/, '').toLowerCase() ?? ''
+export const onDomain = (host: string, domain: string) => host === domain || host.endsWith(`.${domain}`)
 
 /**
  * The kind a source may have, or null: `sec-filing` only on sec.gov, `fda-record` only on fda.gov,
@@ -81,6 +81,53 @@ export function sourceKindFor(url: string, claimed: SourceKind, edgeKind: EdgeKi
     case 'crawl':
       return null
   }
+}
+
+export type ClaimToVerify = {
+  kind: EdgeKind
+  subject: string
+  subjectKind: 'brand' | 'company'
+  object: string
+  objectKind: 'brand' | 'company' | 'app'
+  since?: string
+  quote: string
+  sourceKind: SourceKind
+}
+
+/**
+ * The relation a claim states, or null when it does not hold: the page names both sides, the quote is short,
+ * names one of them and is literally on the page, the source kind fits the host (`kindUrl`, the page unless
+ * given), both ends are valid nodes and differ. A date stays only as far as the quote states it. The edge is
+ * internal and proposed and cites `citeUrl` (the page unless given); `object` replaces the node of the object.
+ */
+export function verifyClaim(
+  claim: ClaimToVerify,
+  page: { url: string; text: string; fetchedAt: string },
+  opts: { brands: Brand[]; ownDomains: string[]; citeUrl?: string; kindUrl?: string; object?: unknown },
+): ProposedRelation | null {
+  const names = [claim.subject, claim.object]
+  if (!names.every((name) => containsName(page.text, name))) return null
+  if (claim.quote.length > MAX_QUOTE_CHARS || !names.some((name) => containsName(claim.quote, name))) return null
+  // The relation is what the quote states in words: only the quote is looked up.
+  const field: Sourced<null> = { value: null, quote: claim.quote, sourceUrl: page.url, fetchedAt: page.fetchedAt, sourceType: 'official' }
+  const literal = literalCheck(field, page.text)
+  if (!literal.ok) return null
+  const sourceKind = sourceKindFor(opts.kindUrl ?? page.url, claim.sourceKind, claim.kind, opts.ownDomains)
+  if (sourceKind === null) return null
+  const from = Entity.safeParse(entityFor(claim.subject, claim.subjectKind, opts.brands))
+  const to = Entity.safeParse(opts.object ?? entityFor(claim.object, claim.objectKind, opts.brands))
+  const since = datedIn(claim.quote, claim.since)
+  const edge = Edge.safeParse({
+    from: from.data?.id,
+    to: to.data?.id,
+    kind: claim.kind,
+    ...(since !== undefined && { since }),
+    visibility: 'internal',
+    status: 'proposed',
+    sources: [{ url: opts.citeUrl ?? page.url, quote: claim.quote, fetchedAt: page.fetchedAt, kind: sourceKind }],
+  })
+  if (!from.success || !to.success || !edge.success || from.data.id === to.data.id) return null
+  return { edge: edge.data, entities: [from.data, to.data], checks: { quote: [literal] } }
 }
 
 const Claim = z.strictObject({
@@ -168,36 +215,15 @@ At most ${MAX_URLS} pages. Never use pages on Google, Amazon or YouTube. Only us
     // A page that redirected to a gone domain is refused too.
     if (!page || isGone(page.url)) continue
     const names = [claim.subject, claim.object]
-    if (!names.every((name) => containsName(page.text, name))) continue
-    if (claim.quote.length > MAX_QUOTE_CHARS || !names.some((name) => containsName(claim.quote, name))) continue
-    // The relation is what the quote states in words: only the quote is looked up.
-    const field: Sourced<null> = { value: null, quote: claim.quote, sourceUrl: page.url, fetchedAt: page.fetchedAt, sourceType: 'official' }
-    const literal = literalCheck(field, page.text)
-    if (!literal.ok) continue
-
-    const ownDomains = names.flatMap((name) => domainsOf(name, ctx))
-    const sourceKind = sourceKindFor(page.url, claim.sourceKind, claim.kind, ownDomains)
-    if (sourceKind === null) continue
-    const from = Entity.safeParse(entityFor(claim.subject, claim.subjectKind, ctx.brands))
     // An app is one node whichever way it was found: by its iOS id when the page's URL gives it.
     const iosId = claim.objectKind === 'app' ? iosIdOf(page.url) : undefined
-    const to = Entity.safeParse(
-      iosId ? { id: `app:ios-${iosId}`, kind: 'app', name: claim.object.trim(), iosId } : entityFor(claim.object, claim.objectKind, ctx.brands),
-    )
-    // A date is kept only as far as the quote states it.
-    const since = datedIn(claim.quote, claim.since)
-    const edge = Edge.safeParse({
-      from: from.data?.id,
-      to: to.data?.id,
-      kind: claim.kind,
-      ...(since !== undefined && { since }),
-      visibility: 'internal',
-      status: 'proposed',
-      sources: [{ url: page.url, quote: claim.quote, fetchedAt: page.fetchedAt, kind: sourceKind }],
+    const relation = verifyClaim(claim, page, {
+      brands: ctx.brands,
+      ownDomains: names.flatMap((name) => domainsOf(name, ctx)),
+      ...(iosId && { object: { id: `app:ios-${iosId}`, kind: 'app', name: claim.object.trim(), iosId } }),
     })
-    if (!from.success || !to.success || !edge.success || from.data.id === to.data.id) continue
-    if (relations.some((rel) => edgeKey(rel.edge) === edgeKey(edge.data))) continue
-    relations.push({ edge: edge.data, entities: [from.data, to.data], checks: { quote: [literal] } })
+    if (relation === null || relations.some((rel) => edgeKey(rel.edge) === edgeKey(relation.edge))) continue
+    relations.push(relation)
   }
   return relations
 }

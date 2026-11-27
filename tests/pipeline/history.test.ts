@@ -36,20 +36,22 @@ const eargo: Brand = {
 
 const NEWS = 'https://news.test/sale'
 const TEXT = [
-  'Eargo filed for bankruptcy protection in 2024.',
+  'Eargo filed for bankruptcy protection in March 2024.',
   'Patient Square Capital agreed to buy Eargo in a restructuring.',
   'The Eargo app is no longer supported after the closure.',
   'Customers can reach service through the Eargo support line.',
   'Eargo stopped selling hearing aids in the spring.',
   'Warranty claims are handled by the new owner.',
+  'Eargo closed its offices in March 2024.',
 ].join(' ')
 const page = (url = NEWS, text = TEXT): OkPage => ({ status: 'ok', url, text, contentHash: 'h', fetchedAt: AT })
 
+const WORDS = ['alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta', 'eta']
 const fact = (n: number, extra: Record<string, unknown> = {}) => ({
-  date: `2024-0${n}`,
-  text: `Fact number ${n} in our own words.`,
+  date: '2024-03',
+  text: `Fact ${WORDS[n - 1]} in our own words.`,
   sourceIndex: 1,
-  quote: 'Eargo filed for bankruptcy protection in 2024.',
+  quote: 'Eargo filed for bankruptcy protection in March 2024.',
   ...extra,
 })
 const drafted = (facts: unknown[], relations: unknown[] = []) => vi.mocked(llm).mockReset().mockResolvedValue({ facts, relations })
@@ -84,11 +86,42 @@ describe('draftHistory', () => {
       fact(2, { date: '2024' }),
       fact(3, { quote: TEXT }),
       fact(4, { sourceIndex: 2 }),
-      ...[1, 2, 3, 4, 5, 6, 7].map((n) => fact(n, { text: `Own words number ${n}.` })),
+      ...[1, 2, 3, 4, 5, 6, 7].map((n) => fact(n, { text: `Own words ${WORDS[n - 1]}.` })),
     ])
     const { change } = await draftHistory(eargo, [page()])
     const facts = (change?.after as { facts: { text: string }[] }).facts
-    expect(facts.map((f) => f.text)).toEqual([1, 2, 3, 4, 5].map((n) => `Own words number ${n}.`))
+    expect(facts.map((f) => f.text)).toEqual([1, 2, 3, 4, 5].map((n) => `Own words ${WORDS[n - 1]}.`))
+  })
+
+  test('a date or a number that its quote does not state drops the fact, and every drop is logged', async () => {
+    drafted([
+      fact(1),
+      fact(2),
+      fact(3),
+      fact(4, { date: '2024-07' }),
+      fact(5, { text: 'It sold 5000 units.' }),
+      fact(6, { text: 'The brand was bankrupt.', quote: 'Eargo closed its offices in March 2024.' }),
+    ])
+    const { change } = await draftHistory(eargo, [page()])
+    expect((change?.after as { facts: unknown[] }).facts).toHaveLength(3)
+    const lines = vi.mocked(console.warn).mock.calls.map(([line]) => String(line))
+    expect(lines.some((line) => /fact dropped \(.*\): 2024-07/.test(line))).toBe(true)
+    expect(lines.some((line) => line.includes('a number of the text is not in the quote'))).toBe(true)
+    expect(lines.some((line) => line.includes('is not in the quote') && line.includes('bankrupt'))).toBe(true)
+  })
+
+  test('a loaded term stays when its quote has it', async () => {
+    drafted([fact(1, { text: 'The company went bankrupt.' }), fact(2), fact(3)])
+    expect((await draftHistory(eargo, [page()])).change).not.toBeNull()
+  })
+
+  test('the copy rule: 11 shared words are kept, 12 are dropped', async () => {
+    const source = 'alpha one two three four five six seven eight nine ten eleven twelve thirteen'
+    const bare = page(NEWS, `Eargo filed for bankruptcy protection in March 2024. ${source}`)
+    const words = source.split(' ')
+    drafted([fact(1, { text: words.slice(0, 11).join(' ') }), fact(2), fact(3, { text: words.slice(0, 12).join(' ') }), fact(4)])
+    const { change } = await draftHistory(eargo, [bare])
+    expect((change?.after as { facts: { text: string }[] }).facts.map((f) => f.text)).toEqual([words.slice(0, 11).join(' '), 'Fact beta in our own words.', 'Fact delta in our own words.'])
   })
 
   test('the draft always goes to review, with the page urls as refs and the brand path', async () => {
@@ -129,9 +162,9 @@ describe('draftHistory', () => {
   })
 
   test('a relation stated on the brand\'s own archived page is a company-page', async () => {
-    const quote = 'Eargo filed for bankruptcy protection in 2024.'
+    const quote = 'Eargo is now called Eargo Health.'
     drafted([fact(1), fact(2), fact(3)], [{ kind: 'renamed-to', subject: 'Eargo', subjectKind: 'brand', object: 'Eargo Health', objectKind: 'company', sourceIndex: 1, quote }])
-    const copy = page('https://web.archive.org/web/20240101000000id_/https://eargo.com/news/closing', `${TEXT} Eargo Health`)
+    const copy = page('https://web.archive.org/web/20240101000000id_/https://eargo.com/news/closing', `${TEXT} Eargo is now called Eargo Health.`)
     const { relations } = await draftHistory(eargo, [copy])
     expect(relations[0]?.edge.sources[0].kind).toBe('company-page')
   })

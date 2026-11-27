@@ -1161,12 +1161,12 @@ describe('archive', () => {
 
   describe('archive-history', () => {
     const NEWS = 'https://news.test/sale'
-    const TEXT = 'Jabra Enhance filed for bankruptcy protection in 2024. Jabra Enhance stopped selling hearing aids in the spring. The Jabra Enhance app is no longer supported.'
-    const fact = (n: number, quote: string) => ({ date: `2024-0${n}`, text: `Own words number ${n}.`, sourceIndex: 1, quote })
+    const TEXT = 'Jabra Enhance filed for bankruptcy protection in March 2024. Jabra Enhance stopped selling hearing aids in March 2024. The Jabra Enhance app is no longer supported since March 2024.'
+    const fact = (n: number, quote: string) => ({ date: '2024-03', text: `Own words ${'abc'[n - 1]}.`, sourceIndex: 1, quote })
     const withHistory = { ...brand, historySources: [NEWS] }
     const drafts = () =>
       vi.mocked(llm).mockResolvedValue({
-        facts: [fact(1, 'Jabra Enhance filed for bankruptcy protection in 2024.'), fact(2, 'Jabra Enhance stopped selling hearing aids in the spring.'), fact(3, 'The Jabra Enhance app is no longer supported.')],
+        facts: [fact(1, 'Jabra Enhance filed for bankruptcy protection in March 2024.'), fact(2, 'Jabra Enhance stopped selling hearing aids in March 2024.'), fact(3, 'The Jabra Enhance app is no longer supported since March 2024.')],
         relations: [],
       })
     beforeEach(() => {
@@ -1189,15 +1189,43 @@ describe('archive', () => {
       expect(llm).not.toHaveBeenCalled()
     })
 
-    test('a skipped App Store lookup fails the unit: no card, the failure is reported', async () => {
+    test('a skipped App Store lookup stops the run: exit 2, resume hint, progress kept, no card; --resume repeats only that unit', async () => {
       await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), withHistory)
       await writeJson(join(dataDir, 'models', 'jabra-enhance-select-300.json'), model('Select 300', { app: { name: 'Jabra', iosId: '55' } }))
       drafts()
       vi.mocked(lookupApp).mockResolvedValue(null)
-      await main(['archive'], opts)
+      expect(await main(['archive'], opts)).toBe(2)
       expect(llm).not.toHaveBeenCalled()
       expect(await filesUnder(join(dataDir, 'pending'))).toEqual([])
-      expect(log.join('\n')).toContain('archive-history:jabra-enhance failed: the App Store lookup of 55 was skipped')
+      expect(log.join('\n')).toContain('the App Store lookup of 55 was skipped; no more App Store lookups this run. Resume later: npm run archive -- --resume')
+      const done = JSON.parse(await readFile(join(dir, 'cache', 'progress', 'archive.json'), 'utf8')).done as string[]
+      expect(done).toContain('brand=* limit=* archive-documents:jabra-enhance')
+      expect(done).not.toContain('brand=* limit=* archive-history:jabra-enhance')
+
+      vi.mocked(lookupApp).mockResolvedValue('removed')
+      vi.mocked(fetchPage).mockClear()
+      expect(await main(['archive', '--resume'], opts)).toBe(0)
+      expect(await filesUnder(join(dataDir, 'pending'))).toHaveLength(1)
+    })
+
+    test('a news source that refuses is left out; the brand is not recorded refused and other sources still draft', async () => {
+      const WALL = 'https://wall.test/story'
+      await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), { ...withHistory, historySources: [WALL, NEWS] })
+      vi.mocked(fetchPage).mockImplementation(async (url) => (url === WALL ? { status: 'skipped', url, reason: 'bot-protection', detail: 'HTTP 403' } : { ...okPage(url), text: TEXT }))
+      drafts()
+      expect(await main(['archive'], opts)).toBe(0)
+      expect(log.join('\n')).toContain('source left out')
+      expect(log.join('\n')).not.toContain('Refused by their own sites')
+      expect(await filesUnder(join(dataDir, 'pending'))).toHaveLength(1)
+    })
+
+    test('a refusal by the brand\'s own site still stops that brand', async () => {
+      const OWN = 'https://www.jabraenhance.com/news/closing'
+      await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), { ...withHistory, historySources: [OWN, NEWS] })
+      vi.mocked(fetchPage).mockImplementation(async (url) => (url === OWN ? { status: 'skipped', url, reason: 'robots', detail: 'disallowed' } : { ...okPage(url), text: TEXT }))
+      drafts()
+      expect(await main(['archive'], opts)).toBe(2)
+      expect(log.join('\n')).toContain('Refused by their own sites: jabra-enhance')
     })
 
     test('a gone brand\'s history source is read as a Web Archive copy only', async () => {

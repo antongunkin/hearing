@@ -4,32 +4,30 @@
 // header), and a page that redirects to sec.gov is refused.
 import { z } from 'zod'
 import type { OnSkip } from '@/pipeline/archive/documents'
-import { sourceKindFor } from '@/pipeline/atlas/relations'
-import { datedIn, entityFor, MAX_QUOTE_CHARS, type ProposedRelation } from '@/pipeline/atlas/relation'
+import { hostOf, onDomain, verifyClaim } from '@/pipeline/atlas/relations'
+import { MAX_QUOTE_CHARS, type ProposedRelation } from '@/pipeline/atlas/relation'
 import type { OkPage } from '@/pipeline/atlas/facts'
 import { forbiddenCheck } from '@/pipeline/checks/forbidden'
 import { literalCheck } from '@/pipeline/checks/literal'
 import { config } from '@/pipeline/config'
 import { excerpt, PROMPT_TEXT_BUDGET } from '@/pipeline/excerpt'
+import { findNumbers } from '@/pipeline/units'
 import { fetchPage } from '@/pipeline/fetch/fetcher'
 import { llm } from '@/pipeline/llm'
 import { lookupApp } from '@/pipeline/sources/itunes'
 import { latestCopy, WaybackError } from '@/pipeline/sources/wayback'
 import { archiveUrl, citableArchiveUrl, parseArchiveUrl } from '@/src/lib/archive-url'
 import { loadBlocklist, type Dataset } from '@/src/lib/data/load'
-import { containsName } from '@/src/lib/data/slug'
 import { BrandHistory, type Brand } from '@/src/lib/schema/brand'
 import type { Sourced } from '@/src/lib/schema/field'
-import { Edge, edgeKey, Entity } from '@/src/lib/schema/graph'
+import { edgeKey } from '@/src/lib/schema/graph'
 import type { CandidateChange, CheckResult } from '@/src/lib/schema/pending'
 
-const hostOf = (url: string) => URL.parse(url)?.hostname.replace(/^www\./, '').replace(/\.$/, '').toLowerCase() ?? ''
-const onDomain = (host: string, domain: string) => host === domain || host.endsWith(`.${domain}`)
 const skipLine = (url: string, reason: string, detail?: string) => console.warn(`${url} skipped: ${reason}${detail ? ` (${detail})` : ''}`)
 
-/** The hosts of a brand's own site: its website and catalog pages. */
-function ownHosts(brand: Brand): string[] {
-  const urls = [brand.website, ...brand.scraper.catalogUrls, ...(brand.archive?.catalogUrls ?? [])]
+/** The hosts of a brand's own site: its website, catalog and support pages. */
+export function ownHosts(brand: Brand): string[] {
+  const urls = [brand.website, ...brand.scraper.catalogUrls, ...(brand.scraper.supportUrls ?? []), ...(brand.archive?.catalogUrls ?? [])]
   return [...new Set(urls.map(hostOf).filter((host) => host !== ''))]
 }
 
@@ -55,29 +53,29 @@ export async function readHistorySources(brand: Brand, opts: SourceOpts = {}): P
 
   for (const source of brand.historySources ?? []) {
     if (onDomain(hostOf(originalOf(source)), 'sec.gov')) {
-      skipLine(source, 'blocklist', 'sec.gov is never read')
+      skip(source, 'blocklist', 'sec.gov is never read')
       continue
     }
     let target = source
+    const named = parseArchiveUrl(source)
     if (isGoneHost(source)) {
-      const named = parseArchiveUrl(source)
       let copy: { timestamp: string; original: string } | null
       try {
         copy = named ?? (await latestCopy(source, opts.refresh ? { refresh: true } : {}))
       } catch (error) {
         if (error instanceof WaybackError && error.reason === 'archive-excluded') {
-          skipLine(source, 'archive-excluded', `${config.archiveHosts[0]} does not serve this site`)
+          skip(source, 'archive-excluded', `${config.archiveHosts[0]} does not serve this site`)
           continue
         }
         throw error
       }
       if (copy === null) {
-        skipLine(source, 'no-archive-copy', 'no Web Archive copy of this page')
+        skip(source, 'no-archive-copy', 'no Web Archive copy of this page')
         continue
       }
       target = archiveUrl(copy.timestamp, copy.original, { raw: true })
-    } else if (parseArchiveUrl(source) !== null) {
-      target = archiveUrl(parseArchiveUrl(source)!.timestamp, parseArchiveUrl(source)!.original, { raw: true })
+    } else if (named !== null) {
+      target = archiveUrl(named.timestamp, named.original, { raw: true })
     }
 
     const page = await fetchPage(target, { ...(opts.refresh && { refresh: true }), blocklist })
@@ -87,7 +85,7 @@ export async function readHistorySources(brand: Brand, opts: SourceOpts = {}): P
     }
     // A redirect may have left the page asked for.
     if (onDomain(hostOf(originalOf(page.url)), 'sec.gov') || (gone && parseArchiveUrl(page.url) === null && isGoneHost(page.url))) {
-      skipLine(page.url, 'blocklist', 'redirected to a domain that is never read')
+      skip(page.url, 'blocklist', 'redirected to a domain that is never read')
       continue
     }
     pages.push(page)
@@ -153,6 +151,12 @@ const Draft = z.strictObject({
 const DATE = /^\d{4}-\d{2}(-\d{2})?$/
 const FOCUS = /clos|bankrupt|insolven|liquidat|acquir|acquisition|sold|sale|merg|discontinu|wound|ceas|app\b|service|support|warranty|repair|rename|rebrand/gi
 const COPIED_RUN = 12
+/** Words that accuse or characterise a company: a fact may use one only when its quote does (by the stem). */
+const LOADED = [/bankrupt/, /insolven/, /fraud/, /lawsuit/, /\bsued\b/, /\brecall/, /\bscam/, /investigat/, /shut(?:ting)? down/, /closed down/]
+function loadedTermsMissing(text: string, quote: string): string | undefined {
+  const [t, q] = [normal(text), normal(quote)]
+  return LOADED.find((term) => term.test(t) && !term.test(q))?.source
+}
 const normal = (text: string) => text.replace(/\s+/g, ' ').trim().toLowerCase()
 
 /** Whether `text` repeats a run of `COPIED_RUN` words of the source: a copied sentence is not our own words. */
@@ -192,23 +196,54 @@ Cover: whether and when the brand closed or stopped selling, a sale or merger an
 ${appLine}
 Return "facts": 3 to 5 items, each with "date" ("YYYY-MM" or "YYYY-MM-DD", the date of the event), "text" (one sentence in your own words; never copy a sentence of a source), "sourceIndex" (the number N of the [Source N] that states it) and "quote" (an exact, character-for-character copy of one sentence of that source, at most ${MAX_QUOTE_CHARS} characters, that supports the fact).
 Return "relations": a company or brand that owns another ("owns", subject owns object) or a brand renamed ("renamed-to"), as the source writes the names, with their kinds, "since" ("YYYY" or "YYYY-MM") only when the source gives it, "sourceIndex" and an exact "quote" naming the subject or the object. An empty list is fine.
+State only what the quote says; do not characterise the company, give causes or motives, or use a word such as bankruptcy, fraud, lawsuit or recall unless the quote does. The quote must state the date of the fact (month and year).
 Never claim anything was tested or tried by us.
 
 ${sources}`
   const draft = await llm({ prompt, schema: Draft, provider: 'claude', model: config.llm.claudeModel })
 
-  const check = (quote: string, page: OkPage): CheckResult => {
+  const check = (quote: string, page: OkPage, value: string | null = null): CheckResult => {
     if (quote.length > MAX_QUOTE_CHARS) return { name: 'literal', ok: false, detail: 'quote is longer than a sentence' }
-    const field: Sourced<null> = { value: null, quote, sourceUrl: page.url, fetchedAt: page.fetchedAt, sourceType: 'official' }
+    const field: Sourced<string | null> = { value, quote, sourceUrl: page.url, fetchedAt: page.fetchedAt, sourceType: 'official' }
     return literalCheck(field, page.text)
   }
+  const dropped = (fact: { date: string; text: string }, reason: string) => console.warn(`${brand.slug}: fact dropped (${reason}): ${fact.date} ${fact.text.slice(0, 80)}`)
 
   const facts: BrandHistory['facts'] = []
   for (const fact of draft.facts) {
     const page = pages[fact.sourceIndex - 1]
-    if (page === undefined || !DATE.test(fact.date) || fact.text.trim() === '') continue
-    if (!check(fact.quote, page).ok || !forbiddenCheck(fact.text).ok) continue
-    if (copiesSource(fact.text, page.text)) continue
+    if (page === undefined) {
+      dropped(fact, 'no such source')
+      continue
+    }
+    if (!DATE.test(fact.date) || fact.text.trim() === '') {
+      dropped(fact, 'bad date or empty text')
+      continue
+    }
+    // The date is looked up in the quote too: it must state that month (or day).
+    const literal = check(fact.quote, page, fact.date)
+    if (!literal.ok) {
+      dropped(fact, `${literal.detail}`)
+      continue
+    }
+    if (!forbiddenCheck(fact.text).ok) {
+      dropped(fact, 'forbidden phrase')
+      continue
+    }
+    const quoted = findNumbers(fact.quote).map((n) => n.value)
+    if (findNumbers(fact.text).some((n) => !quoted.includes(n.value))) {
+      dropped(fact, 'a number of the text is not in the quote')
+      continue
+    }
+    const loaded = loadedTermsMissing(fact.text, fact.quote)
+    if (loaded !== undefined) {
+      dropped(fact, `loaded term "${loaded}" is not in the quote`)
+      continue
+    }
+    if (copiesSource(fact.text, page.text)) {
+      dropped(fact, 'copies its source')
+      continue
+    }
     facts.push({ date: fact.date, text: fact.text.trim(), sourceUrl: citableArchiveUrl(page.url), quote: fact.quote, fetchedAt: page.fetchedAt })
   }
 
@@ -217,29 +252,16 @@ ${sources}`
   for (const claim of draft.relations) {
     const page = pages[claim.sourceIndex - 1]
     if (page === undefined) continue
-    const names = [claim.subject, claim.object]
-    if (!names.every((name) => containsName(page.text, name)) || !names.some((name) => containsName(claim.quote, name))) continue
-    const literal = check(claim.quote, page)
-    if (!literal.ok) continue
+    // An archive copy is the page it copies: the host of the original decides the source kind.
     const original = originalOf(page.url)
-    const claimed = onDomain(hostOf(original), own[0]) ? 'company-page' : 'press-release'
-    const sourceKind = sourceKindFor(original, claimed, claim.kind, own)
-    if (sourceKind === null) continue
-    const from = Entity.safeParse(entityFor(claim.subject, claim.subjectKind, brands))
-    const to = Entity.safeParse(entityFor(claim.object, claim.objectKind, brands))
-    const since = datedIn(claim.quote, claim.since)
-    const edge = Edge.safeParse({
-      from: from.data?.id,
-      to: to.data?.id,
-      kind: claim.kind,
-      ...(since !== undefined && { since }),
-      visibility: 'internal',
-      status: 'proposed',
-      sources: [{ url: citableArchiveUrl(page.url), quote: claim.quote, fetchedAt: page.fetchedAt, kind: sourceKind }],
-    })
-    if (!from.success || !to.success || !edge.success || from.data.id === to.data.id) continue
-    if (relations.some((rel) => edgeKey(rel.edge) === edgeKey(edge.data))) continue
-    relations.push({ edge: edge.data, entities: [from.data, to.data], checks: { quote: [literal] } })
+    const relation = verifyClaim(
+      { ...claim, sourceKind: onDomain(hostOf(original), own[0]) ? 'company-page' : 'press-release' },
+      page,
+      { brands, ownDomains: own, citeUrl: citableArchiveUrl(page.url), kindUrl: original },
+    )
+    if (relation === null) continue
+    if (relations.some((rel) => edgeKey(rel.edge) === edgeKey(relation.edge))) continue
+    relations.push(relation)
   }
 
   if (facts.length < 3) return { change: null, relations }
