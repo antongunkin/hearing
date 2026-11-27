@@ -77,11 +77,20 @@ export async function atlasMain(argv: string[], opts: AtlasOptions = {}): Promis
     return 1
   }
 
-  const progress = await Progress.open(join(progressDir, `atlas-${command}.json`), values.resume)
+  // A run limited to one site keeps its own record: it must not clear the finished units of a stopped full run.
+  const unit = values.site === undefined ? '' : `-${values.site}`
+  const progress = await Progress.open(join(progressDir, `atlas-${command}${unit}.json`), values.resume)
+  const failed: string[] = []
   try {
     for (const site of chosen) {
       if (progress.has(site.domain)) continue
       const { report, graph } = await crawlSite(site, sites, { refresh: values.refresh, brands: await brandsOf(site, dataDir) })
+      if (report.pages.length === 0) {
+        // Nothing was read: the old report is better than an empty one, and the unit stays open.
+        console.warn(`${site.domain}: no page could be read (${report.failures.length} failures); report kept as it was`)
+        failed.push(site.domain)
+        continue
+      }
       // Only a finished crawl replaces the old report.
       await writeJson(join(dataDir, 'atlas', 'sites', site.domain, 'report.json'), report)
       await writeGraph(graph(await readGraph(dataDir)), dataDir)
@@ -94,6 +103,7 @@ export async function atlasMain(argv: string[], opts: AtlasOptions = {}): Promis
     console.error(`${error.message}. Resume later: npm run atlas:${command} -- ${flags.join(' ')}`)
     return 2
   }
+  if (failed.length > 0) return 1
   await progress.clear()
   return 0
 }

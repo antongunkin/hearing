@@ -182,7 +182,7 @@ export async function crawlSite(
         continue
       }
       sitemapRefs.push({ url: file.url, fetchedAt: file.fetchedAt })
-      const parsed = parseSitemap(file.text)
+      const parsed = parseSitemap(file.html ?? file.text)
       for (const next of parsed.sitemaps) if (!queued.has(next)) (queued.add(next), queue.push(next))
       for (const entry of parsed.urls) {
         const target = URL.parse(entry)
@@ -288,10 +288,16 @@ export async function crawlSite(
         if (!page) continue
         const finalUrl = parseArchiveUrl(page.url)?.original ?? page.url
         seen.add(finalUrl)
-        if (!archive && page.url !== item.request) {
-          redirects.push({ from: item.request, to: page.url, ref: { url: item.request, fetchedAt: page.fetchedAt } })
-          const to = URL.parse(page.url)
-          if (to && ENTITY_KEY.test(bare(to.hostname)) && !isInternal(to, site)) redirectEdges.push({ to: bare(to.hostname), ref: { url: item.request, fetchedAt: page.fetchedAt } })
+        const landed = URL.parse(page.url)
+        if (!archive && landed && landed.hostname !== new URL(item.request).hostname) {
+          const ref = { url: item.request, fetchedAt: page.fetchedAt }
+          redirects.push({ from: item.request, to: page.url, ref })
+          if (!isInternal(landed, site)) {
+            // Someone else's page: not this site's page, and its links are not this site's links.
+            const host = bare(landed.hostname)
+            if (ENTITY_KEY.test(host) && !isAppStoreHost(host)) redirectEdges.push({ to: host, ref })
+            continue
+          }
         }
         for (const link of record(page)) {
           if (seen.has(link)) continue

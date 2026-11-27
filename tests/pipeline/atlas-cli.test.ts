@@ -5,6 +5,7 @@ import { join } from 'node:path'
 import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 import { atlasMain } from '@/pipeline/atlas/cli'
 import { crawlSite, SiteRefusedError } from '@/pipeline/atlas/crawl'
+import { upsertEdge, upsertEntity } from '@/pipeline/atlas/graph-store'
 import { Sites, SiteReport, type Site } from '@/pipeline/atlas/schema'
 import { writeJson } from '@/src/lib/data/write'
 import { Graph } from '@/src/lib/schema/graph'
@@ -22,6 +23,17 @@ let dir: string
 let opts: { dataDir: string; progressDir: string }
 const reportPath = (domain: string) => join(dir, 'data', 'atlas', 'sites', domain, 'report.json')
 
+const pageFor = (s: Site) => ({
+  url: s.start,
+  ref: { url: s.start, fetchedAt: FETCHED_AT },
+  internalLinks: 0,
+  external: [],
+  pdfs: [],
+  apps: { ios: [], android: [] },
+  jsonLdTypes: [],
+  needsRender: false,
+})
+
 const reportFor = (s: Site): SiteReport => ({
   domain: s.domain,
   generatedAt: FETCHED_AT,
@@ -30,7 +42,7 @@ const reportFor = (s: Site): SiteReport => ({
   budget: 60,
   robots: { ref: null, status: null, sitemaps: [], groups: [] },
   sitemap: { refs: [], urlCount: 0, sections: [] },
-  pages: [],
+  pages: [pageFor(s)],
   templates: [],
   outbound: [],
   redirects: [],
@@ -46,20 +58,18 @@ beforeEach(async () => {
   await writeJson(join(opts.dataDir, 'atlas', 'sites.json'), Sites.parse(SITES))
   vi.mocked(crawlSite).mockReset().mockImplementation(async (s) => ({
     report: reportFor(s),
-    graph: (g) => ({
-      entities: [...g.entities, { id: `domain:${s.domain}`, kind: 'domain', name: s.domain }, ...(g.entities.some((e) => e.id === 'domain:x.test') ? [] : [{ id: 'domain:x.test', kind: 'domain' as const, name: 'x.test' }])],
-      edges: [
-        ...g.edges,
-        {
-          from: `domain:${s.domain}`,
-          to: 'domain:x.test',
-          kind: 'links-to',
-          visibility: 'internal',
-          status: 'observed',
-          sources: [{ url: s.start, fetchedAt: FETCHED_AT, kind: 'crawl' }],
-        },
-      ],
-    }),
+    graph: (g) => {
+      let next = upsertEntity(g, { id: `domain:${s.domain}`, kind: 'domain', name: s.domain })
+      next = upsertEntity(next, { id: 'domain:x.test', kind: 'domain', name: 'x.test' })
+      return upsertEdge(next, {
+        from: `domain:${s.domain}`,
+        to: 'domain:x.test',
+        kind: 'links-to',
+        visibility: 'internal',
+        status: 'observed',
+        sources: [{ url: s.start, fetchedAt: FETCHED_AT, kind: 'crawl' }],
+      })
+    },
   }))
   vi.spyOn(console, 'log').mockImplementation(() => {})
   vi.spyOn(console, 'error').mockImplementation(() => {})
@@ -92,6 +102,27 @@ test('a refused site keeps its old report and its unit; --resume crawls it again
   expect(await atlasMain(['crawl', '--resume'], opts)).toBe(0)
   expect(vi.mocked(crawlSite).mock.calls.map(([s]) => s.domain)).toEqual(['two.test'])
   expect(await readFile(reportPath('two.test'), 'utf8')).not.toBe(oldReport)
+})
+
+test('a crawl that read no page keeps the old report, is not done and exits 1', async () => {
+  await writeJson(reportPath('two.test'), { old: true })
+  const oldReport = await readFile(reportPath('two.test'), 'utf8')
+  vi.spyOn(console, 'warn').mockImplementation(() => {})
+  vi.mocked(crawlSite).mockImplementation(async (s) => ({ report: { ...reportFor(s), pages: s.domain === 'two.test' ? [] : [pageFor(s)] }, graph: (g) => g }))
+  expect(await atlasMain(['crawl'], opts)).toBe(1)
+  expect(await readFile(reportPath('two.test'), 'utf8')).toBe(oldReport)
+  vi.mocked(crawlSite).mockClear()
+  expect(await atlasMain(['crawl', '--resume'], opts)).toBe(1)
+  expect(vi.mocked(crawlSite).mock.calls.map(([s]) => s.domain)).toEqual(['two.test'])
+})
+
+test('a successful --site run leaves the progress of a stopped full run alone', async () => {
+  vi.mocked(crawlSite).mockRejectedValueOnce(new SiteRefusedError('one.test', 'https://one.test/', 'rate-limited'))
+  expect(await atlasMain(['crawl'], opts)).toBe(2)
+  expect(await atlasMain(['crawl', '--site', 'two.test'], opts)).toBe(0)
+  vi.mocked(crawlSite).mockClear()
+  expect(await atlasMain(['crawl', '--resume'], opts)).toBe(0)
+  expect(vi.mocked(crawlSite).mock.calls.map(([s]) => s.domain)).toEqual(['one.test', 'two.test'])
 })
 
 test('--site limits the run to one domain; an unknown domain exits 1', async () => {

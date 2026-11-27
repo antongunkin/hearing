@@ -41,8 +41,9 @@ beforeEach(() => {
     return {
       status: 'ok',
       url: typeof reply === 'string' ? url : reply.url,
-      text: html,
-      ...(url.endsWith('.xml') || url.endsWith('.txt') ? {} : { html }),
+      // A sitemap served as text/html: the fetcher's text is only what a reader sees, the tags are in html.
+      text: url.endsWith('.xml') ? html.replace(/<[^>]*>/g, ' ') : html,
+      ...(url.endsWith('.txt') ? {} : { html }),
       contentHash: 'h',
       fetchedAt: FETCHED_AT,
       contentType: 'text/html',
@@ -203,4 +204,25 @@ test('parseRobotsTxt reads groups, the wildcard Crawl-delay and sitemaps', () =>
     sitemaps: ['https://x.test/s.xml'],
     crawlDelaySec: 2,
   })
+})
+
+test('an off-site redirect is recorded with its edge but the landing page is not this site\'s page', async () => {
+  web[home] = anchors('/moved', '/app')
+  web[`${origin}/moved`] = { url: 'https://www.new.test/moved', html: anchors('https://other.test/nav') }
+  web[`${origin}/app`] = { url: 'https://apps.apple.com/us/app/x/id1', html: anchors() }
+  const { report, graph } = await crawlSite(site, [site, other])
+  expect(report.pages.map((p) => p.url)).toEqual([home])
+  expect(report.urls).not.toContain('https://www.new.test/moved')
+  expect(report.outbound.map((o) => o.domain)).not.toContain('other.test')
+  expect(report.redirects.map((r) => r.to).sort()).toEqual(['https://apps.apple.com/us/app/x/id1', 'https://www.new.test/moved'])
+  const g = Graph.parse(graph({ entities: [], edges: [] }))
+  expect(g.edges.map((e) => `${e.from} ${e.kind} ${e.to}`)).toEqual(['domain:brand.test redirects-to domain:new.test'])
+})
+
+test('a same-host redirect is not listed', async () => {
+  web[home] = anchors('/a')
+  web[`${origin}/a`] = { url: `${origin}/a/`, html: anchors() }
+  const { report } = await crawlSite(site, [site])
+  expect(report.redirects).toEqual([])
+  expect(report.pages).toHaveLength(2)
 })
