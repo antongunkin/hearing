@@ -121,14 +121,14 @@ let dir: string
 let dataDir: string
 /** Where `update` keeps its progress; each command has its own file in the progress directory. */
 let progressFile: string
-let opts: { dataDir: string; progressDir: string; prosConsDir: string }
+let opts: { dataDir: string; progressDir: string; prosConsDir: string; onceFile: string }
 let log: string[]
 
 beforeEach(async () => {
   dir = await mkdtemp(join(tmpdir(), 'cli-'))
   dataDir = join(dir, 'data')
   progressFile = join(dir, 'cache', 'progress', 'update.json')
-  opts = { dataDir, progressDir: join(dir, 'cache', 'progress'), prosConsDir: join(dir, 'cache', 'pros-cons') }
+  opts = { dataDir, progressDir: join(dir, 'cache', 'progress'), prosConsDir: join(dir, 'cache', 'pros-cons'), onceFile: join(dir, 'cache', 'once.json') }
   vi.stubEnv('NEXT_PUBLIC_SITE_URL', 'https://hearing.test')
   await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), brand)
   await writeJson(join(dataDir, 'rejections.json'), [])
@@ -860,6 +860,76 @@ test('a support-only model without an official date since 2018 is left out; one 
   expect(await filesUnder(join(dataDir, 'pending'))).toEqual(['jabra-enhance-select-500-model.json'])
   expect(log).toContain('jabra-enhance-select-100: not sold since 2018 by its sources, left out')
   expect(log).toContain('jabra-enhance-select-200: found only on support pages, left to the archive command')
+})
+
+describe('discontinued models: looked up once', () => {
+  const fact = { date: '2019', text: 'Jabra Enhance stopped selling hearing aids.', sourceUrl: `${BASE}/history`, quote: 'Jabra Enhance', fetchedAt: FETCHED_AT }
+
+  test('a discontinued model gets reviews and videos once, again only with --refresh', async () => {
+    await storeSelect300({ discontinued: { source: SOURCE } })
+
+    expect(await main(['reviews'], opts)).toBe(0)
+    expect(await main(['reviews'], opts)).toBe(0)
+    expect(discoverReviewSources).toHaveBeenCalledTimes(1)
+    expect(await main(['reviews', '--refresh'], opts)).toBe(0)
+    expect(discoverReviewSources).toHaveBeenCalledTimes(2)
+
+    expect(await main(['youtube'], opts)).toBe(0)
+    expect(await main(['youtube'], opts)).toBe(0)
+    expect(searchVideos).toHaveBeenCalledTimes(1)
+    expect(await main(['youtube', '--refresh'], opts)).toBe(0)
+    expect(searchVideos).toHaveBeenCalledTimes(2)
+  })
+
+  test('a model on sale gets reviews on every run', async () => {
+    await storeSelect300()
+
+    expect(await main(['reviews'], opts)).toBe(0)
+    expect(await main(['reviews'], opts)).toBe(0)
+    expect(discoverReviewSources).toHaveBeenCalledTimes(2)
+  })
+
+  test('third-party prices are never looked up for a discontinued model, and its hardware twins are looked up once', async () => {
+    await storeSelect300({ discontinued: { source: SOURCE } })
+    vi.mocked(discoverModelUrls).mockResolvedValue([])
+
+    expect(await main(['scrape'], opts)).toBe(0)
+    expect(await main(['scrape'], opts)).toBe(0)
+
+    expect(discoverThirdPartyFacts).toHaveBeenCalledTimes(1)
+    expect(discoverThirdPartyFacts).toHaveBeenCalledWith(expect.anything(), expect.objectContaining({ prices: false }))
+  })
+
+  test('no app version lookup when the brand note says the app was removed', async () => {
+    await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), {
+      ...brand,
+      history: {
+        facts: [fact, fact, fact],
+        app: { name: 'Jabra Enhance', iosId: '123', available: false, checkedAt: FETCHED_AT, sourceUrl: 'https://itunes.apple.com/lookup?id=123' },
+      },
+    })
+    await storeSelect300({ discontinued: { source: SOURCE }, app: { name: 'Jabra Enhance', iosId: '123' } })
+
+    expect(await main(['apps'], opts)).toBe(0)
+
+    expect(fetchIosVersion).not.toHaveBeenCalled()
+  })
+
+  test('a discontinued model whose app is still on the App Store gets its version looked up', async () => {
+    await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), {
+      ...brand,
+      history: {
+        facts: [fact, fact, fact],
+        app: { name: 'Jabra Enhance', iosId: '123', available: true, checkedAt: FETCHED_AT, sourceUrl: 'https://itunes.apple.com/lookup?id=123' },
+      },
+    })
+    await storeSelect300({ discontinued: { source: SOURCE }, app: { name: 'Jabra Enhance', iosId: '123' } })
+    vi.mocked(fetchIosVersion).mockResolvedValue(null)
+
+    expect(await main(['apps'], opts)).toBe(0)
+
+    expect(fetchIosVersion).toHaveBeenCalledTimes(1)
+  })
 })
 
 describe('archive', () => {

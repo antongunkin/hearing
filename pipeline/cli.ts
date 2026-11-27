@@ -27,6 +27,7 @@ import { fetchIosVersion, lookupApp, type AppRecord } from '@/pipeline/sources/i
 import { fetchClearances, fetchFdaEvents, matchModel, type Clearance510k } from '@/pipeline/sources/openfda'
 import { findInLog, readBody, readLog, type FetchLogEntry, type LogRef } from '@/pipeline/fetch/raw-store'
 import { extractExpertProsCons, synthesizeProsCons } from '@/pipeline/sources/pros-cons'
+import { OnceLedger } from '@/pipeline/once'
 import { complaintThemes, currentMonth, discoverReviewSources, extractRetailReviews } from '@/pipeline/sources/reviews'
 import { discoverThirdPartyFacts } from '@/pipeline/sources/third-party-facts'
 import { analyzeVideo, searchVideos, YouTubeError } from '@/pipeline/sources/youtube'
@@ -66,6 +67,8 @@ type Run = {
   origin?: 'archive'
   /** `archive`: brands whose own site refused, in this run or an earlier one that this run resumes. */
   refused: string[]
+  /** Lookups of discontinued models done once (`reviews`, `youtube`, hardware twins): see `pipeline/once.ts`. */
+  once: OnceLedger
   /** Pending ids written by this run: a second proposal under one id replaces the first, which is reported. */
   queued: Set<string>
   tally: { auto: number; pending: number; dropped: number; skipped: number; failed: number }
@@ -91,6 +94,31 @@ async function unit(run: Run, key: string, work: () => Promise<void>, passes?: (
   const scoped = `${run.scope} ${key}`
   if (run.progress.has(scoped)) return
   if (await guard(run, key, work, passes)) await run.progress.done(scoped)
+}
+
+/**
+ * One model's lookup. A discontinued model's is done once: marked in the ledger when it succeeds, and run again
+ * only with `--refresh`. A model on sale is looked up on every run.
+ */
+async function modelUnit(
+  run: Run,
+  step: 'reviews' | 'youtube' | 'third-party',
+  slug: string,
+  work: () => Promise<void>,
+  passes?: (error: unknown) => boolean,
+): Promise<void> {
+  const key = `${step}:${slug}`
+  const discontinued = storedModel(run, slug).discontinued !== undefined
+  if (discontinued && !run.refresh && run.once.has(key)) return
+  await unit(
+    run,
+    key,
+    async () => {
+      await work()
+      if (discontinued) await run.once.mark(key)
+    },
+    passes,
+  )
 }
 
 /** Counts and logs a source that gave nothing. */
@@ -438,8 +466,14 @@ async function scrape(run: Run): Promise<void> {
     })
   }
   for (const slug of modelSlugs(run)) {
-    await unit(run, `third-party:${slug}`, async () => {
-      const changes = await discoverThirdPartyFacts(storedModel(run, slug), { asOf: run.asOf, refresh: run.refresh })
+    await modelUnit(run, 'third-party', slug, async () => {
+      const model = storedModel(run, slug)
+      // A discontinued model has no current price: only its hardware twins are looked up.
+      const changes = await discoverThirdPartyFacts(model, {
+        asOf: run.asOf,
+        refresh: run.refresh,
+        ...(model.discontinued !== undefined && { prices: false }),
+      })
       for (const change of changes) await handle(run, change)
     })
   }
@@ -514,12 +548,17 @@ async function recordCheck(ref: LogRef, kNumber: string, deviceName: string, log
   return held ? { name: 'literal', ok: true } : { name: 'literal', ok: false, detail: 'K-number and device name not in one logged record' }
 }
 
+/** A discontinued model whose brand's note says its app is no longer on the App Store: no version lookup. */
+const appRemoved = (run: Run, model: Model) =>
+  model.discontinued !== undefined && run.dataset.brands.find((brand) => brand.slug === model.brand)?.history?.app?.available === false
+
 /** iOS app versions from the App Store; models that share an app are looked up once. */
 async function apps(run: Run): Promise<void> {
   const versions = new Map<string, Awaited<ReturnType<typeof fetchIosVersion>>>()
   for (const slug of modelSlugs(run)) {
-    const iosId = storedModel(run, slug).app?.iosId
-    if (iosId === undefined) continue
+    const model = storedModel(run, slug)
+    const iosId = model.app?.iosId
+    if (iosId === undefined || appRemoved(run, model)) continue
     await unit(run, `apps:${slug}`, async () => {
       if (!versions.has(iosId)) {
         const version = await fetchIosVersion(iosId)
@@ -555,7 +594,7 @@ async function proposeProsCons(run: Run, slug: string, kind: 'expert' | 'video',
 /** Customer ratings and complaint themes from shop pages (applied when checked), and pros and cons from expert reviews (reviewed). */
 async function reviews(run: Run): Promise<void> {
   for (const slug of modelSlugs(run)) {
-    await unit(run, `reviews:${slug}`, async () => {
+    await modelUnit(run, 'reviews', slug, async () => {
       const model = storedModel(run, slug)
       const { expert, retail } = await discoverReviewSources(model, { asOf: run.asOf })
 
@@ -613,9 +652,10 @@ async function youtube(run: Run): Promise<void> {
     (error instanceof LlmLimitError && error.provider === 'gemini')
   try {
     for (const slug of modelSlugs(run)) {
-      await unit(
+      await modelUnit(
         run,
-        `youtube:${slug}`,
+        'youtube',
+        slug,
         async () => {
           const model = storedModel(run, slug)
           const videos: Reviews['videos'] = []
@@ -920,14 +960,14 @@ async function recordPairs(dataDir: string): Promise<void> {
 }
 
 /** `progressDir` holds one progress file per command, so that running one step does not end a stopped `update`. */
-export type CliOptions = { dataDir?: string; progressDir?: string; prosConsDir?: string }
+export type CliOptions = { dataDir?: string; progressDir?: string; prosConsDir?: string; onceFile?: string }
 
 /**
  * Runs a command; resolves to the exit code: 0 done, 1 bad arguments or no site URL, 2 stopped by a usage
  * limit.
  */
 export async function main(argv: string[], opts: CliOptions = {}): Promise<number> {
-  const { dataDir = 'data', progressDir = '.cache/progress', prosConsDir = '.cache/pros-cons' } = opts
+  const { dataDir = 'data', progressDir = '.cache/progress', prosConsDir = '.cache/pros-cons', onceFile = '.cache/once.json' } = opts
   let parsed
   try {
     parsed = parseArgs({
@@ -980,6 +1020,7 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
     ...(command === 'archive' && { origin: 'archive' as const }),
     scope: `brand=${values.brand ?? '*'} limit=${values.limit ?? '*'}`,
     progress: await Progress.open(join(progressDir, progressFile), values.resume),
+    once: await OnceLedger.open(onceFile),
     refused: [],
     queued: new Set(),
     tally: { auto: 0, pending: 0, dropped: 0, skipped: 0, failed: 0 },

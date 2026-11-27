@@ -796,6 +796,18 @@ describe('discoverThirdPartyFacts', () => {
     expect(fetchMock.mock.calls[1]).toEqual([PRICE_URL, { refresh: undefined }])
   })
 
+  test('prices: false searches and extracts hardware twins only, so no price is looked up', async () => {
+    await serve()
+    replies({ priceSources: [PRICE_URL], sameHardwareSources: [PRICE_URL] }, { prices: [], sameHardware: extraction.sameHardware })
+
+    const changes = await discoverThirdPartyFacts(rx, { prices: false })
+
+    expect(llmMock.mock.calls[0][0].prompt).toContain('- priceSources: an empty list')
+    expect(llmMock.mock.calls[1][0].prompt).toContain('- prices: an empty list')
+    expect(fetchMock.mock.calls.map(([url]) => url)).toEqual([PRICE_URL])
+    expect(changes.map((change) => change.path)).toEqual(['sameHardwareAs'])
+  })
+
   test('a skipped page, or one that does not name the model, gives nothing', async () => {
     vi.spyOn(console, 'warn').mockImplementation(() => {})
     fetchMock.mockImplementationOnce(async (url) => ({ status: 'skipped', url, reason: 'bot-protection' }))
