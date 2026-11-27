@@ -281,6 +281,7 @@ async function addDocuments(run: Run, brand: Brand, existing: Model | null, cand
       documents.push(checked.document)
     })
   }
+  // Only the checked documents stay: whatever extractModel produced for `documents` is replaced.
   candidate.model = { ...candidate.model, documents }
 }
 

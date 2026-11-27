@@ -43,6 +43,12 @@ describe('checkDocument', () => {
     expect(result?.checks.filter((c) => !c.ok)).toHaveLength(1)
   })
 
+  test('a page that is not a PDF is kept with a failed check', async () => {
+    vi.mocked(fetchPage).mockResolvedValue(pdf(LIVE, 'Phonak Paradise', 'text/html'))
+    const result = await checkDocument(phonak, paradise, LIVE)
+    expect(result?.checks.filter((c) => !c.ok).map((c) => c.detail)).toEqual(['the document is not a PDF'])
+  })
+
   test('no PDF fetched, or a PDF with no text, is no document', async () => {
     vi.mocked(fetchPage).mockResolvedValue(gone(LIVE, 'HTTP 404'))
     expect(await checkDocument(phonak, paradise, LIVE)).toBeNull()
@@ -98,6 +104,12 @@ describe('replaceDeadDocuments', () => {
     vi.mocked(fetchPage).mockImplementation(async (url) => (url === COPY ? pdf(COPY, 'Phonak Lumity') : gone(LIVE, 'HTTP 404')))
     vi.mocked(latestCopy).mockResolvedValue({ timestamp: '20240101000000', original: LIVE, statusCode: '200', mimeType: 'application/pdf', digest: 'd' })
     expect(await replaceDeadDocuments(stored, { brand: phonak })).toEqual([])
+
+    // The copy's original fails the brand pattern.
+    vi.mocked(fetchPage).mockImplementation(async (url) => (url === LIVE ? gone(LIVE, 'HTTP 404') : pdf(url, 'Phonak Paradise')))
+    vi.mocked(latestCopy).mockResolvedValue({ timestamp: '20240101000000', original: `${LIVE}?x=1`, statusCode: '200', mimeType: 'application/pdf', digest: 'd' })
+    expect(await replaceDeadDocuments(stored, { brand: phonak })).toEqual([])
+    vi.mocked(latestCopy).mockResolvedValue({ timestamp: '20240101000000', original: LIVE, statusCode: '200', mimeType: 'application/pdf', digest: 'd' })
 
     vi.mocked(fetchPage).mockResolvedValue(pdf(LIVE, 'Phonak Paradise'))
     expect(await replaceDeadDocuments(stored, { brand: phonak })).toEqual([])

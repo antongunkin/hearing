@@ -51,11 +51,10 @@ function downloadUrl(url: string): string {
 
 /**
  * The three checks of a document of a model: the original URL matches the brand's pattern, the PDF downloads
- * and has text, the text names the model. Null when no readable PDF came back. `brand` undefined skips the
- * pattern (a replacement copy of a document that was already the model's).
+ * and has text, the text names the model. Null when no readable PDF came back.
  */
 async function verify(
-  brand: Pick<Brand, 'scraper'> | undefined,
+  brand: Brand,
   model: Named,
   url: string,
   opts: { refresh?: boolean },
@@ -65,15 +64,12 @@ async function verify(
   if (page.status !== 'ok' || page.text.trim() === '') return null
 
   const original = parseArchiveUrl(url)?.original ?? url
-  const pattern = brand?.scraper.documentUrlPattern
-  const checks: CheckResult[] = []
-  if (brand !== undefined) {
-    checks.push(
-      pattern !== undefined && new RegExp(pattern).test(original)
-        ? { name: 'document', ok: true }
-        : { name: 'document', ok: false, detail: 'the document URL does not match the brand pattern' },
-    )
-  }
+  const pattern = brand.scraper.documentUrlPattern
+  const checks: CheckResult[] = [
+    pattern !== undefined && new RegExp(pattern).test(original)
+      ? { name: 'document', ok: true }
+      : { name: 'document', ok: false, detail: 'the document URL does not match the brand pattern' },
+  ]
   checks.push(
     /application\/pdf/i.test(page.contentType ?? '')
       ? { name: 'document', ok: true }
@@ -104,12 +100,11 @@ export function checkDocument(
 
 /**
  * Stored live documents whose link is dead (HTTP 404 or 410), each replaced by the latest Web Archive copy
- * when that copy is itself a document of the model (a PDF with text that names it, and with `opts.brand`
- * the brand's pattern). A gone brand's live links are not fetched; no copy means no change.
+ * when that copy passes `checkDocument` (brand pattern on its original, a PDF with text, the model's name). A gone brand's live links are not fetched; no copy means no change.
  */
 export async function replaceDeadDocuments(
   model: Model,
-  opts: { refresh?: boolean; brand?: Brand; gone?: boolean } = {},
+  opts: { brand: Brand; refresh?: boolean; gone?: boolean },
 ): Promise<CandidateChange[]> {
   if (opts.gone) return []
   const changes: CandidateChange[] = []
