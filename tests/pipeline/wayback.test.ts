@@ -111,6 +111,12 @@ describe('cdx', () => {
     expect(error).toBeInstanceOf(WaybackError)
     expect((error as WaybackError).reason).toBe('rate-limited')
   })
+
+  test('an excluded site is told apart from a refusal by its reason and detail', async () => {
+    fetchMock.mockResolvedValue({ status: 'skipped', url: 'x', reason: 'archive-excluded', detail: 'HTTP 403' })
+
+    expect(await cdx({ url: 'eargo.com' }).catch((e: unknown) => e)).toMatchObject({ reason: 'archive-excluded', detail: 'HTTP 403' })
+  })
 })
 
 const cdxJson = (rows: CdxRow[]) =>

@@ -13,7 +13,7 @@ import { readRobots } from './robots'
 
 export type FetchResult =
   | { status: 'ok'; url: string; text: string; html?: string; contentHash: string; fetchedAt: string; bodyHash?: string; contentType?: string }
-  | { status: 'skipped'; url: string; reason: 'robots' | 'blocklist' | 'bot-protection' | 'rate-limited' | 'http-error'; detail?: string }
+  | { status: 'skipped'; url: string; reason: 'robots' | 'blocklist' | 'bot-protection' | 'rate-limited' | 'archive-excluded' | 'http-error'; detail?: string }
 
 type Ok = Extract<FetchResult, { status: 'ok' }>
 
@@ -217,6 +217,8 @@ export async function fetchPage(url: string, opts: FetchOptions = {}): Promise<F
   const reply = await request(start, check, opts.render ? renderRequest : plainRequest, ({ status, contentType, body }) => {
     const source = /application\/pdf/i.test(contentType) ? '' : new TextDecoder().decode(body)
     if (status === 429) return { reason: 'rate-limited', detail: 'HTTP 429' }
+    // The Web Archive answers an excluded site (its owner asked it not to serve it) with an empty 403; a 403 with a page is a wall.
+    if (status === 403 && body.length === 0 && config.archiveHosts.includes(start.hostname)) return { reason: 'archive-excluded', detail: 'HTTP 403' }
     if (looksLikeBotWall(status, source)) return { reason: 'bot-protection', detail: `HTTP ${status}` }
     if (status < 200 || status > 299) return { reason: 'http-error', detail: `HTTP ${status}` }
   })

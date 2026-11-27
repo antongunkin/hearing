@@ -212,6 +212,14 @@ describe('results', () => {
     expect(site.paths().filter((path) => path === '/a')).toHaveLength(2)
   })
 
+  test('an empty 403 from an archive host → skipped/archive-excluded; one with a page, or from another host, is a wall', async () => {
+    const site = await serve({ '/excluded': { status: 403 }, '/wall': { status: 403, body: await fixture('cf-challenge.html') } })
+    expect(await get(`${site.origin}/excluded`)).toMatchObject({ status: 'skipped', reason: 'bot-protection', detail: 'HTTP 403' })
+    Object.assign(config, { archiveHosts: ['127.0.0.1'], archiveDelayMs: 0 })
+    expect(await get(`${site.origin}/excluded`)).toMatchObject({ status: 'skipped', reason: 'archive-excluded', detail: 'HTTP 403' })
+    expect(await get(`${site.origin}/wall`)).toMatchObject({ status: 'skipped', reason: 'bot-protection' })
+  })
+
   test('other failures → skipped/http-error', async () => {
     const site = await serve({ '/down': 'hang-up' })
 

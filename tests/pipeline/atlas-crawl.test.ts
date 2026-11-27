@@ -139,6 +139,39 @@ test('a refusal by web.archive.org stops the step for every site', async () => {
   await expect(crawlSite(arch, [arch])).rejects.toBeInstanceOf(ArchiveRefusedError)
 })
 
+test('a CDX 403 from the archive excludes the site from archive coverage; the live crawl goes on', async () => {
+  web[home] = anchors('/hearing-aids')
+  web[`${origin}/hearing-aids`] = anchors()
+  vi.mocked(cdx).mockRejectedValue(new WaybackError('archive-excluded', 'HTTP 403'))
+  const { report, refused } = await crawlSite(site, [site])
+  expect(refused).toBeUndefined()
+  expect(report.pages.map((p) => p.url)).toEqual([home, `${origin}/hearing-aids`])
+  expect(report.archive.sections).toEqual([])
+  expect(report.failures).toContainEqual({ url: home, reason: 'archive-excluded', detail: 'HTTP 403' })
+})
+
+test('an archive site whose copies are excluded stops only itself, with an archive-excluded failure', async () => {
+  const arch: Site = { ...site, mode: 'archive' }
+  vi.mocked(cdx).mockRejectedValue(new WaybackError('archive-excluded', 'HTTP 403'))
+  const { report, refused } = await crawlSite(arch, [arch])
+  expect(refused).toBeInstanceOf(SiteRefusedError)
+  expect(refused).not.toBeInstanceOf(ArchiveRefusedError)
+  expect(refused).toMatchObject({ reason: 'archive-excluded', domain: 'brand.test' })
+  expect(report.pages).toEqual([])
+  expect(report.failures).toEqual([{ url: home, reason: 'archive-excluded', detail: 'HTTP 403' }])
+  expect(requested).toEqual([])
+})
+
+test('an excluded archive copy stops an archive site, not the run', async () => {
+  const arch: Site = { ...site, mode: 'archive' }
+  vi.mocked(cdx).mockResolvedValue([row('20210901000000')])
+  web[archiveUrl('20210901000000', `${origin}/robots.txt`, { raw: true })] = { skip: 'archive-excluded', detail: 'HTTP 403' }
+  const { refused, report } = await crawlSite(arch, [arch])
+  expect(refused).toMatchObject({ reason: 'archive-excluded' })
+  expect(refused).not.toBeInstanceOf(ArchiveRefusedError)
+  expect(report.failures.at(-1)).toMatchObject({ reason: 'archive-excluded', detail: 'HTTP 403' })
+})
+
 test('robots and http-error skips are failures; only requests made use the budget', async () => {
   web[home] = anchors('/blocked', '/missing', '/hearing-aids')
   web[`${origin}/blocked`] = { skip: 'robots', detail: 'disallowed by robots.txt' }

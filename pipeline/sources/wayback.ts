@@ -18,14 +18,17 @@ export type CdxQuery = {
   limit?: number
 }
 
-/** A CDX request was not answered: `reason` is the fetcher's skip reason (`rate-limited`, `bot-protection`, …). */
+/** A CDX request was not answered: `reason` is the fetcher's skip reason (`rate-limited`, `bot-protection`, …).
+ * `archive-excluded` (an empty 403) is per site: the owner asked the archive not to serve it. Only `rate-limited` and `bot-protection` stop a run. */
 export class WaybackError extends Error {
   readonly reason: string
+  readonly detail?: string
 
   constructor(reason: string, detail?: string) {
     super(`Web Archive CDX skipped: ${reason}${detail ? ` (${detail})` : ''}`)
     this.name = 'WaybackError'
     this.reason = reason
+    this.detail = detail
   }
 }
 

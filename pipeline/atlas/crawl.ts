@@ -11,13 +11,16 @@ import { isInternal, pageFacts, parseSitemap, sections, urlTemplates, type OkPag
 import { upsertEdge, upsertEntity } from './graph-store'
 import type { PageFacts, RobotsGroup, Site, SiteReport } from './schema'
 
+/** `archive-excluded`: the Web Archive does not serve this site (an empty 403); that is the site's outcome, not the archive's refusal. */
+export type SiteRefusal = 'rate-limited' | 'bot-protection' | 'archive-excluded'
+
 /** The site asked us to slow down or keep out: that site stops (the run goes on with the next one). */
 export class SiteRefusedError extends Error {
   readonly domain: string
   readonly url: string
-  readonly reason: 'rate-limited' | 'bot-protection'
+  readonly reason: SiteRefusal
 
-  constructor(domain: string, url: string, reason: 'rate-limited' | 'bot-protection') {
+  constructor(domain: string, url: string, reason: SiteRefusal) {
     super(`${domain} refused ${url}: ${reason}`)
     this.name = 'SiteRefusedError'
     this.domain = domain
@@ -36,8 +39,10 @@ export class ArchiveRefusedError extends SiteRefusedError {
 }
 
 /** The refusal of a request: by the Web Archive when it went to an archive host, else by the site. */
-export function refusalOf(domain: string, url: string, reason: 'rate-limited' | 'bot-protection'): SiteRefusedError {
+export function refusalOf(domain: string, url: string, reason: SiteRefusal): SiteRefusedError {
   const host = URL.parse(url)?.hostname ?? ''
+  // An excluded site stops only itself, whoever said so.
+  if (reason === 'archive-excluded') return new SiteRefusedError(domain, url, reason)
   return config.archiveHosts.includes(host) ? new ArchiveRefusedError(domain, url, reason) : new SiteRefusedError(domain, url, reason)
 }
 
@@ -147,6 +152,8 @@ export async function crawlSite(
   const load = async (url: string): Promise<FetchResult> => {
     const result = await fetchPage(url, { refresh })
     if (result.status === 'skipped' && isRefusal(result.reason)) throw refusalOf(site.domain, url, result.reason)
+    // An archive site is read only from the archive: a copy it will not serve leaves nothing else to read.
+    if (result.status === 'skipped' && result.reason === 'archive-excluded' && archive) throw refusalOf(site.domain, url, result.reason)
     return result
   }
   const fail = (url: string, result: Skipped) =>
@@ -157,7 +164,8 @@ export async function crawlSite(
     } catch (error) {
       if (!(error instanceof WaybackError)) throw error
       if (isRefusal(error.reason)) throw new ArchiveRefusedError(site.domain, url, error.reason)
-      failures.push({ url, reason: error.reason, detail: error.message })
+      if (error.reason === 'archive-excluded' && archive) throw refusalOf(site.domain, url, error.reason)
+      failures.push({ url, reason: error.reason, detail: error.reason === 'archive-excluded' ? (error.detail ?? error.message) : error.message })
       return undefined
     }
   }
@@ -356,7 +364,11 @@ export async function crawlSite(
     // The site refused: no more requests to it; the report keeps what was read. The archive's refusal goes on up.
     if (!(error instanceof SiteRefusedError) || error instanceof ArchiveRefusedError) throw error
     refused = error
-    failures.push({ url: error.url, reason: 'refused', detail: error.reason })
+    failures.push(
+      error.reason === 'archive-excluded'
+        ? { url: error.url, reason: 'archive-excluded', detail: 'HTTP 403' }
+        : { url: error.url, reason: 'refused', detail: error.reason },
+    )
   }
 
   // 6. Summaries.
