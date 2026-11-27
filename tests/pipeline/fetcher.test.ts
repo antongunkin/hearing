@@ -1,5 +1,6 @@
 // @vitest-environment node
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { createHash } from 'node:crypto'
+import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { createServer, type RequestListener, type Server } from 'node:http'
 import type { AddressInfo } from 'node:net'
 import { tmpdir } from 'node:os'
@@ -9,6 +10,7 @@ import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test, vi 
 import { config } from '@/pipeline/config'
 import { looksLikeBotWall } from '@/pipeline/fetch/bot-detect'
 import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
+import { readBody, readLog } from '@/pipeline/fetch/raw-store'
 
 const launch = vi.hoisted(() => vi.fn())
 vi.mock('playwright', () => ({ chromium: { launch } }))
@@ -349,7 +351,13 @@ describe('politeness', () => {
       get(`https://${host}/a`, { refresh: true }),
       get(`https://${host}/b`, { refresh: true }),
     ])
-    await vi.advanceTimersByTimeAsync(30_000)
+    // Storing the bodies is real file I/O, so the pauses are timed out one at a time as they are set.
+    let settled = false
+    void both.then(() => (settled = true))
+    while (!settled) {
+      if (vi.getTimerCount() > 0) await vi.advanceTimersToNextTimerAsync()
+      await new Promise((resolve) => setImmediate(resolve))
+    }
     await both
   }
 
@@ -557,5 +565,149 @@ describe('render', () => {
     expect(ok(await get(`${site.origin}/app`, { render: true })).text).toBe('rendered')
     expect(ok(await get(`${site.origin}/app`)).text).toBe('rendered')
     expect(launch).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('raw store and fetch log', () => {
+  const sha256 = (data: string | Uint8Array) => createHash('sha256').update(data).digest('hex')
+  const logged = async (url: string) => (await readLog('.cache/raw')).filter((e) => e.url === url)
+
+  test('two refreshed fetches of an unchanged page: two log lines, one body', async () => {
+    const site = await serve({ '/same': page('same') })
+    const url = `${site.origin}/same`
+
+    await get(url, { refresh: true })
+    await get(url, { refresh: true })
+
+    const lines = await logged(url)
+    expect(lines).toHaveLength(2)
+    expect(new Set(lines.map((e) => e.bodyHash)).size).toBe(1)
+  })
+
+  test('a changed page keeps the earlier body', async () => {
+    const routes: Record<string, Route> = { '/change': page('one') }
+    const site = await serve(routes)
+    const url = `${site.origin}/change`
+
+    await get(url, { refresh: true })
+    routes['/change'] = page('two')
+    await get(url, { refresh: true })
+
+    const hashes = (await logged(url)).map((e) => e.bodyHash!)
+    expect(new Set(hashes).size).toBe(2)
+    const files = await readdir('.cache/raw')
+    for (const hash of hashes) expect(files).toContain(hash)
+  })
+
+  test('a redirect chain is one line; the 3xx body is not stored', async () => {
+    const redirectBody = 'moved, see the new place'
+    const site = await serve({
+      '/old': { status: 301, headers: { location: '/new' }, body: redirectBody },
+      '/new': page('new'),
+    })
+
+    await get(`${site.origin}/old`)
+
+    const lines = await logged(`${site.origin}/old`)
+    expect(lines).toHaveLength(1)
+    expect(lines[0].redirects).toEqual([{ url: `${site.origin}/old`, status: 301 }])
+    expect(lines[0].finalUrl).toBe(`${site.origin}/new`)
+    expect(await readdir('.cache/raw')).not.toContain(sha256(redirectBody))
+  })
+
+  test('robots.txt requests and refusals are logged with their reason', async () => {
+    const wall = await fixture('captcha-200.html')
+    const site = await serve({
+      '/robots.txt': robots('User-agent: *\nDisallow: /private'),
+      '/private/a': page('secret'),
+      '/wall': { body: wall },
+    })
+    const disallowed = `${site.origin}/private/a`
+    const blocked = 'https://blocked.test/a'
+    const walled = `${site.origin}/wall`
+
+    await get(disallowed)
+    await get(blocked, { blocklist: ['blocked.test'] })
+    await get(walled)
+
+    const log = await readLog('.cache/raw')
+    expect(log.find((e) => e.url === `${site.origin}/robots.txt`)?.status).toBe(200)
+    expect(log.find((e) => e.url === disallowed)).toMatchObject({ skipped: 'robots' })
+    expect(log.find((e) => e.url === disallowed)?.status).toBeUndefined()
+    expect(log.find((e) => e.url === blocked)).toMatchObject({ skipped: 'blocklist' })
+    expect(log.find((e) => e.url === walled)).toMatchObject({ skipped: 'bot-protection', status: 200 })
+  })
+
+  test('an HTTP error is logged with its status', async () => {
+    const site = await serve({})
+    await get(`${site.origin}/gone`)
+    expect((await logged(`${site.origin}/gone`))[0]).toMatchObject({ status: 404, skipped: 'http-error' })
+  })
+
+  test('a PDF is stored as its bytes', async () => {
+    const site = await serve({ '/d.pdf': { type: 'application/pdf', body: await fixture('datasheet.pdf') } })
+
+    const result = ok(await get(`${site.origin}/d.pdf`))
+
+    expect(await readBody(result.bodyHash!)).toEqual(new Uint8Array(await fixture('datasheet.pdf')))
+    expect(result.contentType).toBe('application/pdf')
+  })
+
+  test('the result carries the fetchedAt and bodyHash of its log line', async () => {
+    const site = await serve({ '/line': page('line') })
+
+    const result = ok(await get(`${site.origin}/line`))
+
+    const [line] = await logged(`${site.origin}/line`)
+    expect(line).toMatchObject({ fetchedAt: result.fetchedAt, bodyHash: result.bodyHash, via: 'live', rendered: false })
+  })
+
+  test('a cached copy from before the log is not used', async () => {
+    const site = await serve({ '/old-cache': page('fresh') })
+    const url = `${site.origin}/old-cache`
+    const result = { status: 'ok', url, text: 'stale', contentHash: '0'.repeat(64), fetchedAt: '2020-01-01T00:00:00.000Z' }
+    await mkdir('.cache/pages', { recursive: true })
+    await writeFile(`.cache/pages/${sha256(url)}.json`, JSON.stringify({ rendered: false, result }))
+
+    expect(ok(await get(url)).text).toBe('fresh')
+    expect(site.paths().filter((path) => path === '/old-cache')).toHaveLength(1)
+  })
+
+  test('a rendered page is stored as rendered HTML with rendered: true', async () => {
+    const site = await serve({})
+    const rendered = '<html><body><p>Weight 2.1 g</p></body></html>'
+    launch.mockResolvedValue({
+      close: vi.fn(),
+      newContext: async () => {
+        let handler: (route: unknown) => Promise<void>
+        return {
+          route: async (_pattern: string, given: typeof handler) => void (handler = given),
+          newPage: async () => ({
+            goto: async () => {
+              await handler({
+                request: () => ({ url: () => `${site.origin}/spa`, isNavigationRequest: () => true }),
+                abort: async () => {},
+                fulfill: async () => {},
+                fetch: async () => ({
+                  status: () => 200,
+                  ok: () => true,
+                  headers: () => ({ 'content-type': 'text/html' }),
+                  body: async () => Buffer.from('<html><body>shell</body></html>'),
+                }),
+              })
+            },
+            waitForLoadState: async () => {},
+            content: async () => rendered,
+          }),
+        }
+      },
+    })
+
+    const result = ok(await get(`${site.origin}/spa`, { render: true }))
+
+    const [line] = await logged(`${site.origin}/spa`)
+    expect(line).toMatchObject({ rendered: true, bodyHash: sha256(rendered) })
+    expect(result.bodyHash).toBe(sha256(rendered))
+    expect(new TextDecoder().decode(await readBody(result.bodyHash!))).toBe(rendered)
   })
 })

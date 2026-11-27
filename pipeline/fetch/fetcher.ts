@@ -8,10 +8,11 @@ import { looksLikeBotWall } from './bot-detect'
 import { isHtml, visibleText } from './html'
 import { pdfText } from './pdf'
 import { BrowserLaunchError, renderPage } from './render'
+import { appendLog, storeBody, type FetchLogEntry } from './raw-store'
 import { readRobots } from './robots'
 
 export type FetchResult =
-  | { status: 'ok'; url: string; text: string; html?: string; contentHash: string; fetchedAt: string }
+  | { status: 'ok'; url: string; text: string; html?: string; contentHash: string; fetchedAt: string; bodyHash?: string; contentType?: string }
   | { status: 'skipped'; url: string; reason: 'robots' | 'blocklist' | 'bot-protection' | 'http-error'; detail?: string }
 
 type Ok = Extract<FetchResult, { status: 'ok' }>
@@ -20,7 +21,7 @@ type Ok = Extract<FetchResult, { status: 'ok' }>
 export type Refusal = Pick<Extract<FetchResult, { status: 'skipped' }>, 'reason' | 'detail'>
 
 /** One HTTP answer, redirects not followed. */
-export type Reply = { status: number; contentType: string; location: string | null; body: Uint8Array }
+export type Reply = { status: number; contentType: string; location: string | null; body: Uint8Array; rendered?: true }
 
 export interface FetchOptions {
   /** Run the page's scripts in headless Chromium. */
@@ -34,6 +35,8 @@ export interface FetchOptions {
 /** Google and Amazon under any country domain are not scraped whatever the list says. */
 const NEVER_FETCH = /(?:^|\.)(?:google|amazon)\.(?:com?\.[a-z]{2}|[a-z]{2,3})$/
 const CACHE_DIR = '.cache/pages'
+/** Hosts whose pages are old copies of someone else's site. */
+const ARCHIVE_HOSTS = ['web.archive.org']
 const MAX_REDIRECTS = 5
 const TIMEOUT_MS = 30_000
 const MAX_TIMER_MS = 2 ** 31 - 1
@@ -85,29 +88,85 @@ async function plainRequest(url: URL): Promise<Reply> {
   }
 }
 
+type Hop = { url: string; status: number }
+
 /** Follows redirects by hand, so that every hop is checked before it is requested, and paced. */
 async function follow(
   url: URL,
   check: (url: URL) => Refusal | undefined | Promise<Refusal | undefined>,
   send: (url: URL) => Promise<Reply>,
-): Promise<(Reply & { url: URL }) | Refusal> {
+): Promise<(Reply & { url: URL; hops: Hop[] }) | (Refusal & { hops: Hop[] })> {
+  const hops: Hop[] = []
   for (let hop = 0; hop <= MAX_REDIRECTS; hop++) {
     const refusal = await check(url)
-    if (refusal) return refusal
+    if (refusal) return { ...refusal, hops }
     let reply: Reply
     try {
       reply = await paced(url.hostname, () => send(url))
     } catch (error) {
       if (error instanceof BrowserLaunchError) throw error // The setup is broken, not the source.
       const { message, cause } = error as Error & { cause?: { code?: string } }
-      return { reason: 'http-error', detail: `${url.href}: ${cause?.code ?? message}` }
+      return { reason: 'http-error', detail: `${url.href}: ${cause?.code ?? message}`, hops }
     }
-    if (reply.status < 300 || reply.status > 399 || !reply.location) return { ...reply, url }
+    if (reply.status < 300 || reply.status > 399 || !reply.location) return { ...reply, url, hops }
     const next = URL.parse(reply.location, url)
-    if (!next) return { reason: 'http-error', detail: `${url.href}: invalid redirect to ${reply.location}` }
+    if (!next) return { reason: 'http-error', detail: `${url.href}: invalid redirect to ${reply.location}`, hops }
+    hops.push({ url: url.href, status: reply.status })
     url = next
   }
-  return { reason: 'http-error', detail: `more than ${MAX_REDIRECTS} redirects` }
+  return { reason: 'http-error', detail: `more than ${MAX_REDIRECTS} redirects`, hops }
+}
+
+const baseEntry = (start: URL, fetchedAt: string, redirects: Hop[]): FetchLogEntry => ({
+  url: start.href,
+  redirects,
+  fetchedAt,
+  via: ARCHIVE_HOSTS.includes(start.hostname) ? 'archive' : 'live',
+  rendered: false,
+})
+
+/** Logs a request that was refused or failed, with the status of the last reply when there was one. */
+const logRefusal = (start: URL, { reason, detail }: Refusal, fetchedAt: string, hops: Hop[] = [], status?: number) =>
+  appendLog({
+    ...baseEntry(start, fetchedAt, hops),
+    ...(status !== undefined && { status }),
+    skipped: reason,
+    ...(detail !== undefined && { detail }),
+  })
+
+/**
+ * One request through `follow`, written to the fetch log whatever came of it. `judge` may turn a
+ * reply into a refusal (a bot wall, an error status); the log line then carries the reply's status.
+ * The body of a final, non-3xx reply is kept in the raw store.
+ */
+async function request(
+  start: URL,
+  check: (url: URL) => Refusal | undefined | Promise<Refusal | undefined>,
+  send: (url: URL) => Promise<Reply>,
+  judge?: (reply: Reply) => Refusal | undefined,
+): Promise<(Reply & { url: URL; fetchedAt: string; bodyHash?: string }) | Refusal> {
+  const reached = await follow(start, check, send)
+  const fetchedAt = new Date().toISOString()
+  if ('reason' in reached) {
+    const last = reached.hops.at(-1)
+    await logRefusal(start, reached, fetchedAt, reached.hops, last?.status)
+    return { reason: reached.reason, detail: reached.detail }
+  }
+
+  const { hops: _hops, ...reply } = reached
+  const stored = reply.status < 300 || reply.status > 399
+  const bodyHash = stored ? await storeBody(reply.body) : undefined
+  const refusal = judge?.(reply)
+  await appendLog({
+    ...baseEntry(start, fetchedAt, reached.hops),
+    ...(reply.url.href !== start.href && { finalUrl: reply.url.href }),
+    status: reply.status,
+    ...(reply.contentType && { contentType: reply.contentType }),
+    ...(bodyHash && { bodyHash }),
+    rendered: reply.rendered === true,
+    ...(refusal && { skipped: refusal.reason, ...(refusal.detail !== undefined && { detail: refusal.detail }) }),
+  })
+  return refusal ?? { ...reply, fetchedAt, bodyHash }
 }
 
 /**
@@ -122,7 +181,7 @@ export async function fetchPage(url: string, opts: FetchOptions = {}): Promise<F
     if (isBlocked(target, blocklist)) return { reason: 'blocklist', detail: target.hostname }
   }
   const robotsFor = async ({ origin, hostname }: URL) => {
-    const robots = await readRobots(origin, (file) => follow(file, refuse, plainRequest))
+    const robots = await readRobots(origin, (file) => request(file, refuse, plainRequest))
     crawlDelays.set(hostname, Math.max(crawlDelays.get(hostname) ?? 0, robots.crawlDelayMs))
     return robots
   }
@@ -141,23 +200,28 @@ export async function fetchPage(url: string, opts: FetchOptions = {}): Promise<F
 
   const start = new URL(url)
   const refusal = refuse(start)
-  if (refusal) return skipped(refusal)
+  if (refusal) {
+    await logRefusal(start, refusal, new Date().toISOString())
+    return skipped(refusal)
+  }
 
   const cache = join(CACHE_DIR, `${createHash('sha256').update(url).digest('hex')}.json`)
   if (!opts.refresh) {
-    const hit = (await readCache(cache)) as { rendered: boolean; result: Ok } | undefined
+    const hit = (await readCache(cache)) as { rendered: boolean; logged?: true; result: Ok } | undefined
     // A copy fetched without scripts does not answer a render request, and a domain may be blocked since.
-    if (hit && (hit.rendered || !opts.render) && !refuse(new URL(hit.result.url))) return hit.result
+    if (hit?.logged && (hit.rendered || !opts.render) && !refuse(new URL(hit.result.url))) return hit.result
   }
 
-  const reply = await follow(start, check, opts.render ? renderRequest : plainRequest)
+  const reply = await request(start, check, opts.render ? renderRequest : plainRequest, ({ status, contentType, body }) => {
+    const source = /application\/pdf/i.test(contentType) ? '' : new TextDecoder().decode(body)
+    if (looksLikeBotWall(status, source)) return { reason: 'bot-protection', detail: `HTTP ${status}` }
+    if (status < 200 || status > 299) return { reason: 'http-error', detail: `HTTP ${status}` }
+  })
   if ('reason' in reply) return skipped(reply)
 
-  const { status, contentType, body } = reply
+  const { contentType, body } = reply
   const isPdf = /application\/pdf/i.test(contentType)
   const source = isPdf ? '' : new TextDecoder().decode(body)
-  if (looksLikeBotWall(status, source)) return skipped({ reason: 'bot-protection', detail: `HTTP ${status}` })
-  if (status < 200 || status > 299) return skipped({ reason: 'http-error', detail: `HTTP ${status}` })
 
   const html = !isPdf && isHtml(contentType) ? source : undefined
   let text: string
@@ -174,8 +238,10 @@ export async function fetchPage(url: string, opts: FetchOptions = {}): Promise<F
     ...(html !== undefined && { html }),
     // Of the text, not the bytes: tokens and nonces in the markup would change it on every visit.
     contentHash: createHash('sha256').update(text).digest('hex'),
-    fetchedAt: new Date().toISOString(),
+    fetchedAt: reply.fetchedAt,
+    bodyHash: reply.bodyHash,
+    contentType,
   }
-  await writeJson(cache, { rendered: opts.render ?? false, result })
+  await writeJson(cache, { rendered: opts.render ?? false, logged: true, result })
   return result
 }

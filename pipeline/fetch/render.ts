@@ -65,7 +65,7 @@ export async function renderPage(url: URL, allows: (url: URL) => boolean): Promi
     }
     // Pages that keep polling never go idle: take what is there after the timeout.
     await page.waitForLoadState('networkidle', { timeout: IDLE_TIMEOUT_MS }).catch(() => {})
-    return { ...reply!, contentType: 'text/html', body: new TextEncoder().encode(await page.content()) }
+    return { ...reply!, contentType: 'text/html', body: new TextEncoder().encode(await page.content()), rendered: true }
   } finally {
     await browser.close()
   }
