@@ -1,5 +1,5 @@
 // @vitest-environment node
-import { mkdtemp, readdir, readFile, rm } from 'node:fs/promises'
+import { mkdtemp, readdir, readFile, rm, stat } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { afterEach, beforeEach, expect, test, vi } from 'vitest'
@@ -282,4 +282,59 @@ test('--resume with other --brand or --limit does not skip work done under the o
 
   // Select 100 was done for "jabra-enhance, 2 models", not for "all brands, 1 model": done again.
   expect(vi.mocked(extractModel).mock.calls.map(([, pages]) => pages[0].url)).toEqual([`${BASE}/select-100`])
+})
+
+const pairsFile = () => join(dataDir, 'compare-pairs.json')
+const recorded = async () => JSON.parse(await readFile(pairsFile(), 'utf8'))
+async function store(...names: string[]) {
+  for (const name of names) {
+    const stored = model(name)
+    await writeJson(join(dataDir, 'models', `${stored.slug}.json`), stored)
+  }
+}
+
+test('pairs: adds the current pairs to the recorded ones, once', async () => {
+  await store('Select 100', 'Select 200', 'Select 300')
+  // Recorded earlier; one of its models is gone for now.
+  await writeJson(pairsFile(), ['jabra-enhance-select-100-vs-jabra-enhance-select-50'])
+  // A stopped run waits to be resumed.
+  await writeJson(progressFile, { done: ['x'] })
+
+  expect(await main(['pairs'], opts)).toBe(0)
+
+  const all = [
+    'jabra-enhance-select-100-vs-jabra-enhance-select-200',
+    'jabra-enhance-select-100-vs-jabra-enhance-select-300',
+    'jabra-enhance-select-100-vs-jabra-enhance-select-50',
+    'jabra-enhance-select-200-vs-jabra-enhance-select-300',
+  ]
+  expect(await recorded()).toEqual(all)
+  expect(log).toEqual(['pairs: 3 added, 4 recorded'])
+  expect(JSON.parse(await readFile(progressFile, 'utf8'))).toEqual({ done: ['x'] })
+
+  const written = await stat(pairsFile())
+  expect(await main(['pairs'], opts)).toBe(0)
+  expect(await recorded()).toEqual(all)
+  expect((await stat(pairsFile())).ino).toBe(written.ino) // not written again: writeJson would replace the file
+  expect(log).toHaveLength(1)
+  for (const source of [discoverModelUrls, fetchPage, fetchFdaEvents, fetchIosVersion, llm]) expect(source).not.toHaveBeenCalled()
+})
+
+test('pairs: writes no file while there is no pair', async () => {
+  await store('Select 100')
+
+  expect(await main(['pairs'], opts)).toBe(0)
+
+  await expect(stat(pairsFile())).rejects.toThrow()
+})
+
+test('update ends by recording the pairs; one step alone does not', async () => {
+  await store('Select 100', 'Select 200')
+  vi.mocked(discoverModelUrls).mockResolvedValue([])
+
+  expect(await main(['apps'], opts)).toBe(0)
+  await expect(stat(pairsFile())).rejects.toThrow()
+
+  expect(await main(['update'], opts)).toBe(0)
+  expect(await recorded()).toEqual(['jabra-enhance-select-100-vs-jabra-enhance-select-200'])
 })

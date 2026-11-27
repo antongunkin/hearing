@@ -12,7 +12,8 @@
     "fda": "tsx pipeline/cli.ts fda",
     "apps": "tsx pipeline/cli.ts apps",
     "reviews": "tsx pipeline/cli.ts reviews",
-    "youtube": "tsx pipeline/cli.ts youtube"
+    "youtube": "tsx pipeline/cli.ts youtube",
+    "pairs": "tsx pipeline/cli.ts pairs"
   },
   "dependencies": {
     "@google/genai": "^3.6.1",

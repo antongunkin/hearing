@@ -2,6 +2,7 @@ import { readdir, readFile } from 'node:fs/promises'
 import { basename, join } from 'node:path'
 import { z } from 'zod'
 import { Brand } from '../schema/brand'
+import { ComparePairs } from '../schema/compare-pairs'
 import { Event } from '../schema/event'
 import { Model } from '../schema/model'
 import { PendingChange } from '../schema/pending'
@@ -15,6 +16,8 @@ export type Dataset = {
   pending: PendingChange[]
   rejections: string[]
   blocklist: string[]
+  /** Pair slugs that have had a comparison page. */
+  comparePairs: string[]
 }
 
 export class DataValidationError extends Error {
@@ -73,6 +76,16 @@ async function readRecords<K extends 'slug' | 'id', T extends Record<K, string>>
 
 const list = z.array(z.string())
 
+/** No file yet means no pair has been recorded; a file that is there must be right. */
+async function loadComparePairs(dir: string): Promise<string[]> {
+  try {
+    return await readJson(join(dir, 'compare-pairs.json'), ComparePairs)
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return []
+    throw error
+  }
+}
+
 /** Domains the pipeline must not touch. The file is required: without it they would be fetched again. */
 export function loadBlocklist(dir = 'data'): Promise<string[]> {
   return readJson(join(dir, 'blocklist.json'), list)
@@ -80,7 +93,7 @@ export function loadBlocklist(dir = 'data'): Promise<string[]> {
 
 export async function loadDataset(dir = 'data'): Promise<Dataset> {
   // The two lists are required: without them blocked domains and rejected changes would come back.
-  const [brands, models, reviews, events, pending, rejections, blocklist] = await Promise.all([
+  const [brands, models, reviews, events, pending, rejections, blocklist, comparePairs] = await Promise.all([
     readRecords(join(dir, 'brands'), Brand, 'slug'),
     readRecords(join(dir, 'models'), Model, 'slug'),
     readRecords(join(dir, 'reviews'), Reviews, 'slug'),
@@ -88,6 +101,7 @@ export async function loadDataset(dir = 'data'): Promise<Dataset> {
     readRecords(join(dir, 'pending'), PendingChange, 'id'),
     readJson(join(dir, 'rejections.json'), list),
     loadBlocklist(dir),
+    loadComparePairs(dir),
   ])
-  return { brands, models, reviews, events, pending, rejections, blocklist }
+  return { brands, models, reviews, events, pending, rejections, blocklist, comparePairs }
 }

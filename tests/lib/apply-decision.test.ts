@@ -63,6 +63,7 @@ const dataset = (items: PendingChange[], extra: Partial<Dataset> = {}): Dataset 
   pending: items,
   rejections: [],
   blocklist: [],
+  comparePairs: [],
   ...extra,
 })
 

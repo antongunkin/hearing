@@ -1,5 +1,6 @@
 // `npm run update`: every source in turn, each change dropped, applied or queued for review. A run stopped by
 // the Claude usage limit goes on with `--resume`. `scrape`, `fda`, `apps`, `reviews` and `youtube` run one step.
+// `update` ends by recording the comparison pairs; `pairs` does only that.
 import { join, resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { parseArgs } from 'node:util'
@@ -19,10 +20,13 @@ import { discoverThirdPartyFacts } from '@/pipeline/sources/third-party-facts'
 import { analyzeVideo, searchVideos, YouTubeError } from '@/pipeline/sources/youtube'
 import { loadDataset, type Dataset } from '@/src/lib/data/load'
 import { writeJson } from '@/src/lib/data/write'
+import { ComparePairs } from '@/src/lib/schema/compare-pairs'
 import type { Brand } from '@/src/lib/schema/brand'
 import type { Model } from '@/src/lib/schema/model'
 import type { CandidateChange } from '@/src/lib/schema/pending'
 import type { Reviews } from '@/src/lib/schema/reviews'
+import { buildCatalogIndex } from '@/src/lib/site/catalog-index'
+import { pairSlug, selectCuratedPairs } from '@/src/lib/site/pairs'
 
 type Page = Extract<FetchResult, { status: 'ok' }>
 
@@ -283,6 +287,21 @@ async function youtube(run: Run): Promise<void> {
 
 const RUN_STEP: Record<Step, (run: Run) => Promise<void>> = { scrape, fda, apps, reviews, youtube }
 
+/**
+ * Adds the pairs that are curated now to `compare-pairs.json`, so that their pages stay when the closest
+ * competitors change. Nothing is ever taken out, and the file is written only when there is a new pair.
+ */
+async function recordPairs(dataDir: string): Promise<void> {
+  const { models, comparePairs } = await loadDataset(dataDir)
+  const current = selectCuratedPairs(buildCatalogIndex(models)).map(([a, b]) => pairSlug(a, b))
+  const merged = [...new Set([...comparePairs, ...current])].sort()
+  const added = merged.length - comparePairs.length
+  if (added === 0) return
+  // Checked before writing: a file the loader refuses would stop the site build.
+  await writeJson(join(dataDir, 'compare-pairs.json'), ComparePairs.parse(merged))
+  console.log(`pairs: ${added} added, ${merged.length} recorded`)
+}
+
 export type CliOptions = { dataDir?: string; progressFile?: string; prosConsDir?: string }
 
 /** Runs a command; resolves to the exit code: 0 done, 1 bad arguments, 2 stopped by the usage limit. */
@@ -309,9 +328,15 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
   const steps: readonly Step[] | undefined =
     command === 'update' ? STEPS : STEPS.includes(command as Step) ? [command as Step] : undefined
   const limit = values.limit === undefined ? Infinity : Number(values.limit)
-  if (steps === undefined || positionals.length > 1 || !(Number.isInteger(limit) || limit === Infinity) || limit < 1) {
-    console.error(`Usage: cli.ts <update|${STEPS.join('|')}> [--brand <slug>] [--resume] [--refresh] [--limit <n>]`)
+  const known = steps !== undefined || command === 'pairs'
+  if (!known || positionals.length > 1 || !(Number.isInteger(limit) || limit === Infinity) || limit < 1) {
+    console.error(`Usage: cli.ts <update|pairs|${STEPS.join('|')}> [--brand <slug>] [--resume] [--refresh] [--limit <n>]`)
     return 1
+  }
+  // Not a step of the run: it leaves the progress of a stopped one alone.
+  if (steps === undefined) {
+    await recordPairs(dataDir)
+    return 0
   }
 
   const dataset = await loadDataset(dataDir)
@@ -349,6 +374,7 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
     return 2
   }
   await run.progress.clear()
+  if (command === 'update') await recordPairs(dataDir)
   summary()
   return 0
 }

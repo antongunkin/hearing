@@ -8,20 +8,20 @@ import { ProsCons } from '@/src/components/ProsCons'
 import { ReviewSummary } from '@/src/components/ReviewSummary'
 import { loadDataset } from '@/src/lib/data/load'
 import { buildCatalogIndex } from '@/src/lib/site/catalog-index'
-import { pairSlug, parsePairSlug, selectCuratedPairs } from '@/src/lib/site/pairs'
+import { pairSlug, parsePairSlug, publishedPairs } from '@/src/lib/site/pairs'
 import { productName } from '@/src/lib/site/product'
 import { canonical } from '@/src/lib/site/url'
 
 type Props = { params: Promise<{ pair: string }> }
 
-/** Only the curated pairs have a page; the compare tool shows any other. */
+/** Only the curated and recorded pairs have a page; the compare tool shows any other. */
 export const dynamicParams = false
 
 const dataset = cache(() => loadDataset())
 
 export async function generateStaticParams() {
-  const { models } = await dataset()
-  return selectCuratedPairs(buildCatalogIndex(models)).map(([a, b]) => ({ pair: pairSlug(a, b) }))
+  const { models, comparePairs } = await dataset()
+  return publishedPairs(buildCatalogIndex(models), comparePairs).map(([a, b]) => ({ pair: pairSlug(a, b) }))
 }
 
 async function find(pair: string) {

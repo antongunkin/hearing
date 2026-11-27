@@ -74,6 +74,7 @@ const dataset = (extra: Partial<Dataset> = {}): Dataset => ({
   pending: [],
   rejections: [],
   blocklist: [],
+  comparePairs: [],
   ...extra,
 })
 

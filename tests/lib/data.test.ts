@@ -46,6 +46,7 @@ describe('loadDataset', () => {
     await put('pending/p1.json', pending)
     await put('rejections.json', ['abc'])
     await put('blocklist.json', ['example.com'])
+    await put('compare-pairs.json', ['phonak-x-vs-phonak-y'])
 
     expect(await loadDataset(dir)).toEqual({
       brands: [brand],
@@ -55,12 +56,13 @@ describe('loadDataset', () => {
       pending: [pending],
       rejections: ['abc'],
       blocklist: ['example.com'],
+      comparePairs: ['phonak-x-vs-phonak-y'],
     })
   })
 
   test('treats missing record directories as empty', async () => {
     expect(await loadDataset(dir)).toEqual({
-      brands: [], models: [], reviews: [], events: [], pending: [], rejections: [], blocklist: [],
+      brands: [], models: [], reviews: [], events: [], pending: [], rejections: [], blocklist: [], comparePairs: [],
     })
   })
 
@@ -68,6 +70,21 @@ describe('loadDataset', () => {
     await rm(join(dir, list))
 
     await expect(loadDataset(dir)).rejects.toThrow(list)
+  })
+
+  test.each([
+    ['is not JSON', '['],
+    ['is not a list', { pairs: [] }],
+    ['has a pair in the wrong order', ['b-vs-a']],
+    ['has a self-pair', ['a-vs-a']],
+    ['has text that is no pair', ['a']],
+    ['is not sorted', ['c-vs-d', 'a-vs-b']],
+    ['repeats a pair', ['a-vs-b', 'a-vs-b']],
+  ])('fails when compare-pairs.json %s', async (_, content) => {
+    await put('compare-pairs.json', content)
+
+    await expect(loadDataset(dir)).rejects.toThrow(/compare-pairs\.json/)
+    await expect(loadDataset(dir)).rejects.toBeInstanceOf(DataValidationError)
   })
 
   test.each([

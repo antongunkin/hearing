@@ -76,13 +76,22 @@ describe('CompareTable', () => {
 
 describe('compareDataJson', () => {
   test('carries the models without their quotes, and the curated pairs', () => {
-    const json = compareDataJson([two, one])
+    const json = compareDataJson([two, one], [])
 
     expect(json).not.toContain('words of the third party')
     const data = JSON.parse(json)
     expect(data.pairs).toEqual(['acme-one-vs-acme-two'])
     expect(data.models.map((m: Model) => m.slug)).toEqual(['acme-two', 'acme-one'])
     expect(data.models[0].variants[0].priceUsd).toMatchObject({ value: 2000, sourceType: 'third-party' })
+  })
+
+  test('lists a recorded pair that is no longer among the closest', () => {
+    // Twelve alike: the last two are in nobody's top ten, each other's included.
+    const twelve = Array.from({ length: 12 }, (_, i) => model(`m-${String(i).padStart(2, '0')}`, `M${i}`))
+    const pairs = (stored: string[]) => JSON.parse(compareDataJson(twelve, stored)).pairs
+
+    expect(pairs([])).not.toContain('m-10-vs-m-11')
+    expect(pairs(['m-10-vs-m-11'])).toContain('m-10-vs-m-11')
   })
 })
 

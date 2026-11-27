@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 import type { CatalogItem } from '@/src/lib/site/catalog-index'
-import { competitorsOf, pairSlug, parsePairSlug, selectCuratedPairs } from '@/src/lib/site/pairs'
+import { competitorsOf, pairSlug, parsePairSlug, publishedPairs, selectCuratedPairs } from '@/src/lib/site/pairs'
 
 const item = (slug: string, fields: Partial<CatalogItem> = {}): CatalogItem => ({
   slug,
@@ -113,6 +113,40 @@ describe('selectCuratedPairs', () => {
   test('has no pairs for fewer than two models', () => {
     expect(selectCuratedPairs([])).toEqual([])
     expect(selectCuratedPairs([item('alone')])).toEqual([])
+  })
+})
+
+describe('publishedPairs', () => {
+  // Eleven alike: each lists all ten others. A twelfth that sorts first takes a place in every list.
+  const eleven = Array.from({ length: 11 }, (_, i) => item(`m-${String(i + 1).padStart(2, '0')}`))
+  const twelve = [item('m-00'), ...eleven]
+  const slugs = (pairs: [string, string][]) => pairs.map(([a, b]) => pairSlug(a, b))
+
+  test('keeps a stored pair that a new model pushed out of both top tens', () => {
+    expect(slugs(selectCuratedPairs(eleven))).toContain('m-10-vs-m-11')
+    expect(slugs(selectCuratedPairs(twelve))).not.toContain('m-10-vs-m-11')
+
+    expect(slugs(publishedPairs(twelve, slugs(selectCuratedPairs(eleven))))).toContain('m-10-vs-m-11')
+  })
+
+  test('drops a stored pair whose model is gone, and text that is no pair', () => {
+    const pairs = slugs(publishedPairs(eleven, ['m-01-vs-m-99', 'a-gone-vs-m-01', 'm-02-vs-m-01', 'nonsense']))
+
+    expect(pairs).toEqual(slugs(selectCuratedPairs(eleven)))
+  })
+
+  test('is the current pairs and the stored ones, once each, in one order', () => {
+    const stored = ['m-10-vs-m-11', 'm-01-vs-m-02']
+    const pairs = publishedPairs(twelve, stored)
+
+    expect(slugs(pairs)).toEqual([...new Set([...slugs(selectCuratedPairs(twelve)), ...stored])].sort())
+    for (const [a, b] of pairs) expect(a < b).toBe(true)
+    expect(publishedPairs([...twelve].reverse(), [...stored].reverse())).toEqual(pairs)
+    expect(publishedPairs(twelve, [])).toEqual(selectCuratedPairs(twelve))
+  })
+
+  test('passes k on to the selection', () => {
+    expect(publishedPairs(many, [], 2)).toEqual(selectCuratedPairs(many, 2))
   })
 })
 

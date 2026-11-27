@@ -1,4 +1,5 @@
-// Which models are compared: each model's closest competitors. Client-safe: the compare tool names pairs too.
+// Which models are compared: each model's closest competitors, and the pairs already published.
+// Client-safe: the compare tool names pairs too.
 import { SLUG_PATTERN } from '@/src/lib/schema/slug-pattern'
 import type { CatalogItem } from './catalog-index'
 
@@ -53,13 +54,30 @@ export function parsePairSlug(pair: string): [string, string] | null {
   return SLUG_PATTERN.test(a) && SLUG_PATTERN.test(b) && a < b ? [a, b] : null
 }
 
-/** The pairs that get a page: every model with each of its closest competitors, once each. */
+/** Canonical pairs once each, in the order of their pair slugs. */
+function inOrder(pairs: [string, string][]): [string, string][] {
+  const bySlugOfPair = new Map(pairs.map((pair) => [pairSlug(...pair), pair]))
+  return [...bySlugOfPair.keys()].sort(bySlug).map((key) => bySlugOfPair.get(key)!)
+}
+
+/** Each model with each of its closest competitors, once each. */
 export function selectCuratedPairs(items: CatalogItem[], k = 10): [string, string][] {
-  const pairs = new Map<string, [string, string]>()
-  for (const { slug } of items) {
-    for (const other of competitorsOf(slug, items, k)) {
-      pairs.set(pairSlug(slug, other), slug < other ? [slug, other] : [other, slug])
-    }
-  }
-  return [...pairs.keys()].sort(bySlug).map((key) => pairs.get(key)!)
+  return inOrder(
+    items.flatMap(({ slug }) =>
+      competitorsOf(slug, items, k).map((other): [string, string] => (slug < other ? [slug, other] : [other, slug])),
+    ),
+  )
+}
+
+/**
+ * The pairs that get a page: the curated ones, and every pair recorded before (`stored`, pair slugs) whose
+ * models are both still there, so that a published page does not vanish when a closer competitor arrives.
+ */
+export function publishedPairs(items: CatalogItem[], stored: string[], k = 10): [string, string][] {
+  const listed = new Set(items.map((item) => item.slug))
+  const kept = stored.flatMap((text) => {
+    const pair = parsePairSlug(text)
+    return pair?.every((slug) => listed.has(slug)) ? [pair] : []
+  })
+  return inOrder([...selectCuratedPairs(items, k), ...kept])
 }

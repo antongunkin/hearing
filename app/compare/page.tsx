@@ -7,7 +7,7 @@ import { productName } from '@/src/lib/site/product'
 export const metadata: Metadata = {
   title: 'Compare hearing aids',
   description: 'The specifications of any two hearing aids side by side, with their sources.',
-  // Any pair at all: only the curated pair pages are for search engines.
+  // Any pair at all: only the pair pages are for search engines.
   robots: { index: false, follow: true },
 }
 
