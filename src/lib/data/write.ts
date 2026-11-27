@@ -2,7 +2,8 @@ import { randomUUID } from 'node:crypto'
 import { mkdir, rename, rm, writeFile } from 'node:fs/promises'
 import { dirname } from 'node:path'
 
-function sortKeys(_key: string, value: unknown): unknown {
+/** A `JSON.stringify` replacer that sorts object keys, so equal values always give the same text. */
+export function sortKeys(_key: string, value: unknown): unknown {
   if (value === null || typeof value !== 'object' || Array.isArray(value)) return value
   return Object.fromEntries(Object.entries(value).sort(([a], [b]) => (a < b ? -1 : 1)))
 }

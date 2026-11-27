@@ -100,6 +100,10 @@ function declaredStats(html: string): Stats | undefined {
   return found.size === 1 ? [...found.values()][0] : undefined
 }
 
+/** A rating read off the scale it is given on: the "5" of "4.3 out of 5" or "4.3/5". */
+const isScale = ({ value, quote }: { value: number; quote: string }) =>
+  [...quote.matchAll(/(?:out of|\/)\s*(\d+(?:\.\d+)?)/gi)].some((match) => Number(match[1]) === value)
+
 /**
  * The shop's average rating (out of 5), rating count and the review texts on the page. Rating and count
  * come from the page's JSON-LD, else must be literally quoted from its text; review texts are copied from
@@ -127,9 +131,10 @@ ${excerpt(page.text, PROMPT_TEXT_BUDGET, REVIEW_WORDS)}`
     literalCheck({ ...field, sourceUrl: page.url, fetchedAt: page.fetchedAt, sourceType: 'official' }, page.text).ok
       ? field.value
       : undefined
+  const rating = out.rating && !isScale(out.rating) ? stated(out.rating) : undefined
   const declared = page.html === undefined ? undefined : declaredStats(page.html)
   // Both from one place: a declared average must not be paired with a count read from elsewhere.
-  const stats = declared ?? { rating: stated(out.rating) ?? NaN, count: stated(out.count) ?? NaN }
+  const stats = declared ?? { rating: rating ?? NaN, count: stated(out.count) ?? NaN }
   if (!isStats(stats)) return null
 
   const text = collapse(page.text)

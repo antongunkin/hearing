@@ -7,6 +7,7 @@ import { applyAuto, diffModel, enqueue, eventText, fingerprint, route, withCross
 import { crossCheck } from '@/pipeline/checks/crosscheck'
 import { llm, LlmLimitError, LlmOutputError } from '@/pipeline/llm'
 import type { Dataset } from '@/src/lib/data/load'
+import { writeJson } from '@/src/lib/data/write'
 import type { Sourced } from '@/src/lib/schema/field'
 import { Model } from '@/src/lib/schema/model'
 import { PendingChange, type CandidateChange, type CheckResult } from '@/src/lib/schema/pending'
@@ -339,6 +340,35 @@ describe('applyAuto', () => {
     expect(event).toMatchObject({ ...fda, id: '2026-06-25-fda-clearance-jabra-enhance-select-500-k254108' })
     expect(await applyAuto(c, data, dir)).toEqual([])
     expect(await readdir(join(dir, 'events'))).toEqual([`${event.id}.json`])
+  })
+
+  test('an FDA recall is worded by the template, never by the LLM', async () => {
+    const recall = {
+      type: 'fda-recall',
+      modelSlug: 'jabra-enhance-select-500',
+      date: '2026-06-25',
+      key: 'Z-1234-2026',
+      sources: ['https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfres/res.cfm?id=1'],
+    }
+    const c = change({ kind: 'fda-event', path: 'events', before: undefined, after: recall, checks: {} })
+    const [event] = await applyAuto(c, dataset(), dir)
+    expect(event.text).toBe('FDA posted a recall for Jabra Enhance Select 500 (Z-1234-2026).')
+    expect(llmMock).not.toHaveBeenCalled()
+  })
+
+  test('the model file is read again before a change: an approval made during the run is kept', async () => {
+    const data = dataset()
+    // Approved in /review while the run was going: the file has a platform the loaded dataset lacks.
+    const approved = model({ platform: { value: 'SoundScape', quote: 'SoundScape', ...at(NEW) } })
+    await writeJson(join(dir, 'models', 'jabra-enhance-select-500.json'), approved)
+    llmMock.mockResolvedValue({ text: 'Jabra Enhance Select 500 now lists at $995.' })
+
+    await applyAuto(change({}), data, dir)
+
+    const stored = Model.parse(await readJsonFile('models/jabra-enhance-select-500.json'))
+    expect(stored.platform?.value).toBe('SoundScape')
+    expect(stored.variants[0].priceUsd).toEqual(price(995))
+    expect(data.models[0]).toEqual(stored)
   })
 
   test('a new version of an app that models share gives one app-update event, not one per model', async () => {

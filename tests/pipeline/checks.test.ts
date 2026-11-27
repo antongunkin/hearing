@@ -304,6 +304,15 @@ describe('isDuplicateEvent', () => {
   test('returns false for an empty list', () => {
     expect(isDuplicateEvent(ev('2026-11-01'), [])).toBe(false)
   })
+
+  test('an FDA record is one event whichever model it was matched to', () => {
+    for (const type of ['fda-clearance', 'fda-recall'] as const) {
+      const record = { ...ev('2026-11-01'), type, key: 'K254108' }
+      expect(isDuplicateEvent({ ...record, modelSlug: 'model-b' }, [record]), type).toBe(true)
+      expect(isDuplicateEvent({ ...record, modelSlug: null }, [record]), type).toBe(true)
+      expect(isDuplicateEvent({ ...record, key: 'K254109' }, [record]), type).toBe(false)
+    }
+  })
 })
 
 describe('forbiddenCheck', () => {

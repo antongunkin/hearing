@@ -322,11 +322,15 @@ async function recordPairs(dataDir: string): Promise<void> {
   console.log(`pairs: ${added} added, ${merged.length} recorded`)
 }
 
-export type CliOptions = { dataDir?: string; progressFile?: string; prosConsDir?: string }
+/** `progressDir` holds one progress file per command, so that running one step does not end a stopped `update`. */
+export type CliOptions = { dataDir?: string; progressDir?: string; prosConsDir?: string }
 
-/** Runs a command; resolves to the exit code: 0 done, 1 bad arguments, 2 stopped by the usage limit. */
+/**
+ * Runs a command; resolves to the exit code: 0 done, 1 bad arguments or no site URL, 2 stopped by a usage
+ * limit.
+ */
 export async function main(argv: string[], opts: CliOptions = {}): Promise<number> {
-  const { dataDir = 'data', progressFile = '.cache/progress.json', prosConsDir = '.cache/pros-cons' } = opts
+  const { dataDir = 'data', progressDir = '.cache/progress', prosConsDir = '.cache/pros-cons' } = opts
   let parsed
   try {
     parsed = parseArgs({
@@ -358,6 +362,13 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
     await recordPairs(dataDir)
     return 0
   }
+  // Every step sends requests, and the bot does not go out without saying where to read about it.
+  try {
+    void config.userAgent
+  } catch (error) {
+    console.error(message(error))
+    return 1
+  }
 
   const dataset = await loadDataset(dataDir)
   const brands = values.brand === undefined ? dataset.brands : dataset.brands.filter((brand) => brand.slug === values.brand)
@@ -375,7 +386,7 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
     refresh: values.refresh,
     asOf: currentMonth(),
     scope: `brand=${values.brand ?? '*'} limit=${values.limit ?? '*'}`,
-    progress: await Progress.open(progressFile, values.resume),
+    progress: await Progress.open(join(progressDir, `${command}.json`), values.resume),
     queued: new Set(),
     tally: { auto: 0, pending: 0, dropped: 0, skipped: 0, failed: 0 },
   }

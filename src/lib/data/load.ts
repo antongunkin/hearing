@@ -30,7 +30,8 @@ export class DataValidationError extends Error {
   }
 }
 
-async function readJson<T>(file: string, schema: z.ZodType<T>): Promise<T> {
+/** One JSON file, checked against `schema`. */
+export async function readJson<T>(file: string, schema: z.ZodType<T>): Promise<T> {
   const text = await readFile(file, 'utf8')
   let json: unknown
   try {

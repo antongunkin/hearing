@@ -8,9 +8,9 @@ import { isDuplicateEvent } from '@/pipeline/checks/dedupe'
 import { forbiddenCheck } from '@/pipeline/checks/forbidden'
 import { llm, LlmLimitError } from '@/pipeline/llm'
 import type { ModelCandidate } from '@/pipeline/sources/brand-site'
-import type { Dataset } from '@/src/lib/data/load'
+import { readJson, type Dataset } from '@/src/lib/data/load'
 import { slugify } from '@/src/lib/data/slug'
-import { writeJson } from '@/src/lib/data/write'
+import { sortKeys, writeJson } from '@/src/lib/data/write'
 import { Event } from '@/src/lib/schema/event'
 import type { Sourced } from '@/src/lib/schema/field'
 import { Model } from '@/src/lib/schema/model'
@@ -31,11 +31,7 @@ export function sourcedLeaves(node: unknown, path = ''): [string, Sourced<unknow
 
 /** JSON with object keys sorted, so equal values always give the same text. */
 export function stableStringify(value: unknown): string {
-  return JSON.stringify(value, (_key, node) =>
-    node === null || typeof node !== 'object' || Array.isArray(node)
-      ? node
-      : Object.fromEntries(Object.entries(node).sort(([a], [b]) => (a < b ? -1 : 1))),
-  )
+  return JSON.stringify(value, sortKeys)
 }
 
 /** A sourced value as its value and unit only: the same value cited from another page or quote is the same. */
@@ -244,9 +240,11 @@ function templateText(event: NewEvent, product: string | null, facts: Json): str
 /**
  * One neutral sentence for the event feed, written by Claude from the facts given. A sentence that
  * fails the forbidden-phrase check, or no usable answer, gives a fixed template instead; only a usage
- * limit stops it. `product` is the display name, such as "Jabra Enhance Select 500".
+ * limit stops it. A recall, the most sensitive claim, always gets the template. `product` is the display
+ * name, such as "Jabra Enhance Select 500".
  */
 export async function eventText(event: NewEvent, product: string | null, facts: Json = {}): Promise<string> {
+  if (event.type === 'fda-recall') return templateText(event, product, facts)
   const prompt = `Write one short, neutral sentence (at most 30 words) for the news feed of a hearing aid database about the event below.
 Use only the facts given; add nothing. Third person, no opinions, no advice. Never write as if anyone tried the product (no "tested", "hands-on", "we wore", "in our testing", "our audiologist").
 
@@ -393,12 +391,30 @@ function upsert<T extends { slug: string }>(records: T[], record: T): void {
 }
 
 /**
+ * Puts the model or reviews file the change writes into `dataset` as it is on disk now: the owner may have
+ * approved a change to it in /review since the run loaded the data.
+ */
+async function reloadRecord(c: CandidateChange, dataset: Dataset, dir: string): Promise<void> {
+  if (c.modelSlug === null || c.kind === 'fda-event') return
+  const reviews = c.path.startsWith(REVIEWS_PREFIX)
+  // The review page imports this file: without the comment, the build traces the whole project for this path.
+  const file = join(/*turbopackIgnore: true*/ dir, reviews ? 'reviews' : 'models', `${c.modelSlug}.json`)
+  try {
+    if (reviews) upsert(dataset.reviews, await readJson(file, Reviews))
+    else upsert(dataset.models, await readJson(file, Model))
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error
+  }
+}
+
+/**
  * Applies a change that `route` sent to `auto`: writes the model, reviews or event file and keeps
  * `dataset` in step. Returns the feed events it wrote (see `planChange`). Events are written before the
  * data, and a duplicate is not written again, so a run stopped in between is safe to repeat.
  */
 export async function applyAuto(c: CandidateChange, dataset: Dataset, dir = 'data'): Promise<Event[]> {
   if (!AUTO_KINDS.has(c.kind)) throw new Error(`a ${c.kind} change is never applied automatically`)
+  await reloadRecord(c, dataset, dir)
   const { writes, events } = planChange(c, dataset)
   const written: Event[] = []
   for (const event of events) written.push(...(await writeEvent(event, dataset, dir)))

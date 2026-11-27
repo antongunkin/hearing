@@ -246,6 +246,8 @@ describe('reviews', () => {
     ['no rating', { ...retailReply, rating: undefined }],
     ['a rating the page does not state', { ...retailReply, rating: { value: 4.9, quote: '4.3 out of 5 stars' } }],
     ['a count with an invented quote', { ...retailReply, count: { value: 9000, quote: '9000 reviews' } }],
+    ['a rating that is the scale ("5" of "out of 5")', { ...retailReply, rating: { value: 5, quote: '4.3 out of 5 stars' } }],
+    ['a rating that is the scale ("5" of "/5")', { ...retailReply, rating: { value: 5, quote: '4.3/5' } }],
   ])('extractRetailReviews → null for %s', async (_, reply) => {
     replies(reply)
 

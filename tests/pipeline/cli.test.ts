@@ -97,15 +97,17 @@ const candidate = (name: string): ModelCandidate => ({ model: model(name), field
 
 let dir: string
 let dataDir: string
+/** Where `update` keeps its progress; each command has its own file in the progress directory. */
 let progressFile: string
-let opts: { dataDir: string; progressFile: string; prosConsDir: string }
+let opts: { dataDir: string; progressDir: string; prosConsDir: string }
 let log: string[]
 
 beforeEach(async () => {
   dir = await mkdtemp(join(tmpdir(), 'cli-'))
   dataDir = join(dir, 'data')
-  progressFile = join(dir, 'cache', 'progress.json')
-  opts = { dataDir, progressFile, prosConsDir: join(dir, 'cache', 'pros-cons') }
+  progressFile = join(dir, 'cache', 'progress', 'update.json')
+  opts = { dataDir, progressDir: join(dir, 'cache', 'progress'), prosConsDir: join(dir, 'cache', 'pros-cons') }
+  vi.stubEnv('NEXT_PUBLIC_SITE_URL', 'https://hearing.test')
   await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), brand)
   await writeJson(join(dataDir, 'rejections.json'), [])
   await writeJson(join(dataDir, 'blocklist.json'), [])
@@ -125,6 +127,7 @@ beforeEach(async () => {
 })
 
 afterEach(async () => {
+  vi.unstubAllEnvs()
   vi.resetAllMocks()
   vi.restoreAllMocks()
   await rm(dir, { recursive: true, force: true })
@@ -366,6 +369,39 @@ test('the usage-limit message names the provider and the exact command to resume
   expect(await main(['scrape', '--brand', 'jabra-enhance', '--limit', '3', '--refresh'], opts)).toBe(2)
 
   expect(log).toContain('Claude usage limit reached. Resume later: npm run scrape -- --resume --brand jabra-enhance --limit 3 --refresh')
+})
+
+test('a step command without NEXT_PUBLIC_SITE_URL stops before any work, with exit 1', async () => {
+  vi.stubEnv('NEXT_PUBLIC_SITE_URL', '')
+  await store('Select 100', 'Select 200')
+  await writeJson(progressFile, { done: ['x'] })
+
+  for (const command of ['update', 'scrape', 'fda', 'apps', 'reviews', 'youtube']) {
+    expect(await main([command], opts), command).toBe(1)
+  }
+
+  expect(log.filter((line) => line.includes('NEXT_PUBLIC_SITE_URL is not set'))).toHaveLength(6)
+  for (const source of [discoverModelUrls, fetchPage, fetchFdaEvents, fetchIosVersion, discoverReviewSources, searchVideos]) {
+    expect(source).not.toHaveBeenCalled()
+  }
+  expect(JSON.parse(await readFile(progressFile, 'utf8'))).toEqual({ done: ['x'] })
+  await expect(stat(pairsFile())).rejects.toThrow()
+  // Pairs need no requests.
+  expect(await main(['pairs'], opts)).toBe(0)
+})
+
+test("a single step run between a stopped update and its resume leaves the update's progress alone", async () => {
+  vi.mocked(discoverModelUrls).mockResolvedValue([{ modelUrl: `${BASE}/select-100`, documentUrls: [] }])
+  vi.mocked(extractModel).mockResolvedValue(candidate('Select 100'))
+  vi.mocked(fetchFdaEvents).mockRejectedValueOnce(new LlmLimitError('claude', 'usage limit'))
+  expect(await main(['update'], opts)).toBe(2)
+  const saved = await readFile(progressFile, 'utf8')
+
+  expect(await main(['fda'], opts)).toBe(0)
+  expect(await readFile(progressFile, 'utf8')).toBe(saved)
+
+  expect(await main(['update', '--resume'], opts)).toBe(0)
+  expect(extractModel).toHaveBeenCalledTimes(1) // the brand was done before the stop
 })
 
 test('--resume with other --brand or --limit does not skip work done under the old filters', async () => {
