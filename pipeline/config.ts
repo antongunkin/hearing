@@ -3,7 +3,13 @@ export const config = {
   maxDelayMs: 5000,
   /**
    * Requests to a Web Archive host are at least this far apart. The atlas spec asks for at least 4000;
-   * 5000 leaves a margin. (The archive.org rate rule itself was not re-read for this change.)
+   * 5000 (12 a minute) leaves a margin.
+   * Read 2026-11-27: archive.org publishes no numeric limit for Wayback/CDX requests. Checked
+   * https://archive.org/developers/wayback-cdx-server.html (404) and
+   * https://blog.archive.org/2026/09/15/an-update-on-wayback-machine-access/ (HTTP 429 means too many
+   * requests; no figure). The only figure found is second-hand: the `wayback` Python package's release notes
+   * (v0.5.1, https://wayback.readthedocs.io/en/latest/release-history.html) say the server's hard limit is
+   * about 24 requests a minute, i.e. one per 2.5 s; 5000 ms stays well under it.
    */
   archiveDelayMs: 5000,
   /** Hosts whose pages are old copies of someone else's site. */
