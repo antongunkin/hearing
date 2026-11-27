@@ -62,10 +62,10 @@ function readEnvelope(stdout: string): Envelope | undefined {
 }
 
 export async function callClaude(
-  request: { prompt: string; jsonSchema: object; tools?: string[] },
+  request: { prompt: string; jsonSchema: object; tools?: string[]; model?: string },
   exec: Exec = defaultExec,
 ): Promise<unknown> {
-  const { prompt, jsonSchema, tools } = request
+  const { prompt, jsonSchema, tools, model = config.llm.claudeModel } = request
   const args = [
     '-p',
     prompt,
@@ -74,7 +74,7 @@ export async function callClaude(
     '--json-schema',
     JSON.stringify(jsonSchema),
     '--model',
-    config.llm.claudeModel,
+    model,
     ...ISOLATION,
     '--tools',
     tools?.join(',') ?? '', // '' disables every built-in tool

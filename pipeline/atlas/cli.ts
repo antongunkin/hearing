@@ -4,19 +4,21 @@ import { join, resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { parseArgs } from 'node:util'
 import { z } from 'zod'
+import { RAW_DIR, readLog } from '@/pipeline/fetch/raw-store'
 import { Progress } from '@/pipeline/progress'
 import { LlmLimitError } from '@/pipeline/llm'
-import { readJson } from '@/src/lib/data/load'
+import { loadDataset, readJson, type Dataset } from '@/src/lib/data/load'
 import { writeJson } from '@/src/lib/data/write'
 import { Brand } from '@/src/lib/schema/brand'
 import { Edge, Entity, Graph } from '@/src/lib/schema/graph'
 import { crawlSite, SiteRefusedError } from './crawl'
+import { describeSite, saveDescription } from './describe'
 import { writeGraph } from './graph-store'
-import { Sites, type Site } from './schema'
+import { SiteReport, Sites, type Site } from './schema'
 
 const COMMANDS = ['crawl', 'describe', 'relations'] as const
 
-export type AtlasOptions = { dataDir?: string; progressDir?: string }
+export type AtlasOptions = { dataDir?: string; progressDir?: string; rawDir?: string }
 
 const isMissing = (error: unknown) => (error as NodeJS.ErrnoException).code === 'ENOENT'
 
@@ -45,9 +47,31 @@ async function readGraph(dataDir: string): Promise<Graph> {
   return Graph.parse({ entities: await read('entities.json', Entity), edges: await read('edges.json', Edge) })
 }
 
+/** `describe` for one site; false when the site has no report yet (skipped with a message). */
+async function describeOne(site: Site, ctx: { dataset: Dataset; dataDir: string; rawDir: string }): Promise<boolean> {
+  const { dataset, dataDir, rawDir } = ctx
+  let report: SiteReport
+  try {
+    report = await readJson(join(dataDir, 'atlas', 'sites', site.domain, 'report.json'), SiteReport)
+  } catch (error) {
+    if (!isMissing(error)) throw error
+    console.warn(`${site.domain}: no report.json, skipped (run atlas:crawl first)`)
+    return false
+  }
+  const result = await describeSite(site, report, { dataset, log: await readLog(rawDir), rawDir })
+  const queued = await saveDescription(site, result, { dataset, dataDir })
+  for (const line of result.dropped) console.warn(`${site.domain}: dropped ${line}`)
+  const kept = Object.values(result.description.sections).flat().length
+  console.log(
+    `${site.domain}: ${kept} statements (${result.dropped.length} dropped), brand config ${queued.proposal}, ` +
+      `relations ${queued.relations.queued} queued, ${queued.relations.dropped} dropped`,
+  )
+  return true
+}
+
 /** Runs a command; resolves to the exit code: 0 done, 1 bad arguments, 2 stopped (usage limit or refusal). */
 export async function atlasMain(argv: string[], opts: AtlasOptions = {}): Promise<number> {
-  const { dataDir = 'data', progressDir = '.cache/progress' } = opts
+  const { dataDir = 'data', progressDir = '.cache/progress', rawDir = RAW_DIR } = opts
   let parsed
   try {
     parsed = parseArgs({
@@ -65,7 +89,7 @@ export async function atlasMain(argv: string[], opts: AtlasOptions = {}): Promis
     console.error(`Usage: cli.ts <${COMMANDS.join('|')}> [--site <domain>] [--resume] [--refresh]`)
     return 1
   }
-  if (command !== 'crawl') {
+  if (command === 'relations') {
     console.error(`${command}: not implemented`)
     return 1
   }
@@ -81,9 +105,15 @@ export async function atlasMain(argv: string[], opts: AtlasOptions = {}): Promis
   const unit = values.site === undefined ? '' : `-${values.site}`
   const progress = await Progress.open(join(progressDir, `atlas-${command}${unit}.json`), values.resume)
   const failed: string[] = []
+  let dataset: Dataset | undefined
   try {
     for (const site of chosen) {
       if (progress.has(site.domain)) continue
+      if (command === 'describe') {
+        dataset ??= await loadDataset(dataDir)
+        if (await describeOne(site, { dataset, dataDir, rawDir })) await progress.done(site.domain)
+        continue
+      }
       const { report, graph } = await crawlSite(site, sites, { refresh: values.refresh, brands: await brandsOf(site, dataDir) })
       if (report.pages.length === 0) {
         // Nothing was read: the old report is better than an empty one, and the unit stays open.

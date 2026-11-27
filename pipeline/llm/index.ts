@@ -15,6 +15,8 @@ export interface LlmOptions<T> {
   provider: 'claude' | 'ollama' | 'gemini'
   /** Claude only. */
   tools?: ['WebSearch']
+  /** Claude only: the model to use instead of `config.llm.claudeModel`. */
+  model?: string
   /** Gemini only. */
   youtubeUrl?: string
 }
@@ -31,7 +33,7 @@ const ATTEMPTS = 2
 
 export async function llm<T>(options: LlmOptions<T>, deps: LlmDeps = {}): Promise<T> {
   const { prompt, schema, provider, tools, youtubeUrl } = options
-  const model = config.llm[`${provider}Model`]
+  const model = (provider === 'claude' ? options.model : undefined) ?? config.llm[`${provider}Model`]
   // The Claude CLI validator accepts draft-07 only (see claude-cli.ts).
   const jsonSchema = z.toJSONSchema(schema, { target: provider === 'claude' ? 'draft-7' : 'draft-2020-12' })
 
@@ -45,7 +47,7 @@ export async function llm<T>(options: LlmOptions<T>, deps: LlmDeps = {}): Promis
   const call = () => {
     switch (provider) {
       case 'claude':
-        return callClaude({ prompt, jsonSchema, tools }, deps.exec)
+        return callClaude({ prompt, jsonSchema, tools, model }, deps.exec)
       case 'ollama':
         return callOllama({ prompt, jsonSchema }, deps.fetch)
       case 'gemini':

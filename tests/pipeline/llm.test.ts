@@ -162,6 +162,25 @@ describe('claude', () => {
     expect(exec).toHaveBeenCalledTimes(2)
   })
 
+  test('the model option replaces the provider model and keys the cache', async () => {
+    const exec = vi.fn<NonNullable<LlmDeps['exec']>>(async () => ({
+      stdout: envelope({ structured_output: { ok: true } }),
+      stderr: '',
+    }))
+
+    await run({ exec }, { model: 'sonnet' })
+    expect(exec.mock.calls[0][1]).toEqual(expect.arrayContaining(['--model', 'sonnet']))
+    expect(exec.mock.calls[0][1]).not.toContain(config.llm.claudeModel)
+
+    // A call without `model` is not answered from that cache entry, and uses the provider model.
+    await run({ exec })
+    expect(exec).toHaveBeenCalledTimes(2)
+    expect(exec.mock.calls[1][1]).toEqual(expect.arrayContaining(['--model', config.llm.claudeModel]))
+
+    await run({ exec }, { model: 'sonnet' })
+    expect(exec).toHaveBeenCalledTimes(2)
+  })
+
   test('cached value that no longer passes the schema is fetched again', async () => {
     const exec = stubExec(envelope({ structured_output: { ok: true } }))
     await run({ exec })

@@ -131,10 +131,9 @@ test('--site limits the run to one domain; an unknown domain exits 1', async () 
   expect(await atlasMain(['crawl', '--site', 'nope.test'], opts)).toBe(1)
 })
 
-test('bad arguments exit 1, and the later commands are not implemented yet', async () => {
+test('bad arguments exit 1, and relations is not implemented yet', async () => {
   expect(await atlasMain([], opts)).toBe(1)
   expect(await atlasMain(['crawl', '--bogus'], opts)).toBe(1)
-  expect(await atlasMain(['describe'], opts)).toBe(1)
   expect(await atlasMain(['relations'], opts)).toBe(1)
 })
 

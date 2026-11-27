@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { HttpUrl, IsoDateTime, Slug } from '@/src/lib/schema/field'
+import { BrandStatus } from '@/src/lib/schema/brand'
 import { ModelType } from '@/src/lib/schema/model'
 
 /** One fetch-log line a fact was read from. */
@@ -101,3 +102,48 @@ export const SiteReport = z.strictObject({
   urls: z.array(z.string()),
 })
 export type SiteReport = z.infer<typeof SiteReport>
+
+/** The sections of a site README, in order. */
+export const SECTION_KEYS = ['what', 'structure', 'where', 'render', 'links', 'archive', 'next'] as const
+export type SectionKey = (typeof SECTION_KEYS)[number]
+
+export const SECTION_HEADINGS: Record<SectionKey, string> = {
+  what: 'What this site is and whose',
+  structure: 'Structure',
+  where: 'Catalog, support, documents and apps',
+  render: 'Rendering and quirks',
+  links: 'Links to other sites',
+  archive: 'Web Archive',
+  next: 'What the next agent should check',
+}
+
+/** An object with one key per section, each holding `item`. */
+export function bySection<T extends z.ZodType>(item: T) {
+  return z.strictObject(Object.fromEntries(SECTION_KEYS.map((key) => [key, item])) as Record<SectionKey, T>)
+}
+
+/** One sentence of a site description and the fetch-log lines it was read from. */
+export const Statement = z.strictObject({ text: z.string().min(1), sources: z.array(LogRefSchema).min(1) })
+export type Statement = z.infer<typeof Statement>
+
+export const Description = z.strictObject({
+  domain: z.string(),
+  generatedAt: IsoDateTime,
+  model: z.string(),
+  summary: z.string(),
+  sections: bySection(z.array(Statement)),
+  openQuestions: z.array(z.string()),
+})
+export type Description = z.infer<typeof Description>
+
+/** What `atlas:describe` proposes for the brand's scraper config (`data/brands/<slug>.json`). */
+export const ConfigProposal = z.strictObject({
+  catalogUrls: z.array(HttpUrl),
+  supportUrls: z.array(HttpUrl),
+  modelUrlPattern: z.string(),
+  documentUrlPattern: z.string().optional(),
+  render: z.boolean(),
+  archive: z.strictObject({ catalogUrls: z.array(HttpUrl), modelUrlPattern: z.string().optional() }).optional(),
+  status: BrandStatus,
+})
+export type ConfigProposal = z.infer<typeof ConfigProposal>
