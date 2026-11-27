@@ -65,3 +65,17 @@ test('a malformed relation shows an error on its card instead of crashing; until
   }
   expect(renderToStaticMarkup(<AtlasCard item={good} />)).toContain('since 2015 until 2021')
 })
+
+test('a relation card shows an archive source as the citable copy, without the id_ flag', () => {
+  const item: PendingChange = {
+    ...base, id: 'industry-graph-z', kind: 'relation', path: 'graph/z', checks: {},
+    after: {
+      edge: { from: 'company:gn', to: 'brand:phonak', kind: 'owns', visibility: 'internal', status: 'proposed',
+        sources: [{ url: 'https://web.archive.org/web/20190301000000id_/https://gn.example/about', quote: 'q', fetchedAt: '2026-11-26T10:00:00.000Z', kind: 'company-page' }] },
+      entities: [{ id: 'company:gn', kind: 'company', name: 'GN' }, { id: 'brand:phonak', kind: 'brand', name: 'Phonak' }],
+    },
+  }
+  const html = renderToStaticMarkup(<AtlasCard item={item} />)
+  expect(html).toContain('https://web.archive.org/web/20190301000000/https://gn.example/about')
+  expect(html).not.toContain('id_/')
+})

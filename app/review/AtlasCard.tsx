@@ -1,4 +1,5 @@
 // A proposal of the site atlas: a brand's config as a diff, or a relation between companies, brands and apps.
+import { citableArchiveUrl } from '@/src/lib/archive-url'
 import { configDiff } from '@/src/lib/review/config-diff'
 import { failed } from '@/src/lib/review/card'
 import { z } from 'zod'
@@ -77,7 +78,7 @@ export function AtlasCard({ item }: { item: PendingChange }) {
           <ul aria-label="Sources">
             {relation.edge.sources.map((source) => (
               <li key={source.url}>
-                <Value value={source.url} /> <small>({source.kind})</small>
+                <Value value={citableArchiveUrl(source.url)} /> <small>({source.kind})</small>
                 {source.quote && (
                   <>
                     <br />

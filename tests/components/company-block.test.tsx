@@ -59,3 +59,13 @@ test('crawl and unquoted sources are not shown; a gone brand\'s own host is name
   expect([...withHost.querySelectorAll('a')].map((a) => a.getAttribute('href'))).toEqual(['https://web.archive.org/web/20190301/https://www.parked.example/about'])
   expect(withHost.body.textContent).toContain('Source: www.parked.example')
 })
+
+test('a source on a subdomain of a gone brand\'s host is named, not linked; another domain ending the same way is linked', () => {
+  const sources = [
+    { url: 'https://shop.parked.example/about', quote: 'q', fetchedAt: at, kind: 'company-page' as const },
+    { url: 'https://notparked.example/about', quote: 'q', fetchedAt: at, kind: 'press-release' as const },
+  ]
+  const doc = parse(renderToStaticMarkup(<CompanyBlock data={{ siblings: [], makers: [], apps: [], owner: { name: 'GN', sources } }} brands={[]} goneHost="www.parked.example" />))
+  expect([...doc.querySelectorAll('a')].map((a) => a.getAttribute('href'))).toEqual(['https://notparked.example/about'])
+  expect(doc.body.textContent).toContain('Source: shop.parked.example')
+})

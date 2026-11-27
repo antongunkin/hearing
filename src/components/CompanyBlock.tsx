@@ -6,12 +6,18 @@ import type { CompanyBlockData } from '@/src/lib/site/companies'
 import { hostname } from '@/src/lib/site/format'
 import { SourceNote } from './SourceNote'
 
-/** A source of a relation. A Web Archive copy is labelled as one, with its month; a third party is named. */
 const bare = (host: string) => host.replace(/^www\./, '')
 
+/** Whether `host` is the gone host or one of its subdomains. */
+const onGoneHost = (host: string, goneHost: string) => {
+  const gone = bare(goneHost)
+  return bare(host) === gone || host.endsWith(`.${gone}`)
+}
+
 /**
+ * The sources of a relation. A Web Archive copy is labelled as one, with its month; a third party is named.
  * Only quoted sources other than the crawl are shown. `goneHost` is the host of a gone brand's own site: it may
- * be parked or taken over, so a live source on it is named, not linked.
+ * be parked or taken over, so a live source on it (or on a subdomain of it) is named, not linked.
  */
 export function EdgeSources({ sources, goneHost }: { sources: EdgeSource[]; goneHost?: string }) {
   return sources.filter((source) => source.quote !== undefined && source.kind !== 'crawl').map((source) => {
@@ -25,7 +31,7 @@ export function EdgeSources({ sources, goneHost }: { sources: EdgeSource[]; gone
         </a>
       )
     }
-    if (goneHost !== undefined && bare(hostname(source.url)) === bare(goneHost)) {
+    if (goneHost !== undefined && onGoneHost(hostname(source.url), goneHost)) {
       return <span key={source.url}>Source: {hostname(source.url)}</span>
     }
     return (
