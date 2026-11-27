@@ -44,10 +44,13 @@ describe('service pages', () => {
     expect(text).toContain(`complaint-theme shares from at least ${config.minThemeReviews} reviews`)
   })
 
-  test('about-bot shows the User-Agent the bot really sends', () => {
-    vi.stubEnv('NEXT_PUBLIC_SITE_URL', 'https://site.example')
-    const shown = config.userAgent.replace('https://site.example', '<site address>')
+  test('about-bot names no bot or User-Agent and states the real rules', () => {
+    const text = parse(<AboutBot />).body.textContent!.replace(/\s+/g, ' ')
 
-    expect(parse(<AboutBot />).querySelector('code')?.textContent).toBe(shown)
+    expect(text).not.toMatch(/HearingDBBot|Mozilla|Chrome/i)
+    expect(text).not.toMatch(/identifies itself with/i)
+    expect(text).toContain('the * rules')
+    expect(text).toContain('waits 2 to 5 seconds')
+    expect(text).toContain('bot protection')
   })
 })

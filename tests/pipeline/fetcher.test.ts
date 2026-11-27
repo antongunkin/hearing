@@ -15,7 +15,6 @@ vi.mock('playwright', () => ({ chromium: { launch } }))
 
 const fixture = (name: string) => readFile(fileURLToPath(new URL(`../fixtures/pages/${name}`, import.meta.url)))
 
-const USER_AGENT = 'HearingDBBot/0.1 (+https://hearing.test/about-bot)'
 const delays = { minDelayMs: config.minDelayMs, maxDelayMs: config.maxDelayMs }
 const home = process.cwd()
 
@@ -81,7 +80,7 @@ function ok(result: FetchResult) {
 describe('robots.txt', () => {
   test('robots disallow → skipped/robots, no request made', async () => {
     const site = await serve({
-      '/robots.txt': robots('User-agent: HearingDBBot\nDisallow: /private'),
+      '/robots.txt': robots('User-agent: *\nDisallow: /private'),
       '/private/a': page('secret'),
     })
 
@@ -370,7 +369,7 @@ describe('politeness', () => {
     ['shorter than the pause does not shorten it', 1, 2000],
   ])('a Crawl-delay for us %s', async (_name, seconds, expected) => {
     const requests = fakeHost(
-      `User-agent: other\nCrawl-delay: 25\n\nUser-agent: HearingDBBot\nCrawl-delay: ${seconds}`,
+      `User-agent: HearingDBBot\nCrawl-delay: 25\n\nUser-agent: *\nCrawl-delay: ${seconds}`,
     )
 
     await twoPages(`crawl-${seconds}.test`)
@@ -387,26 +386,30 @@ describe('politeness', () => {
     expect(requests.map((request) => request.path)).toEqual(['/robots.txt'])
   })
 
-  test('sends configured User-Agent', async () => {
+  test('our code sets no User-Agent header; nothing browser-like goes out', async () => {
     const site = await serve({ '/a': page('a') })
 
     await get(`${site.origin}/a`)
 
-    expect(site.hits.map((hit) => hit.userAgent)).toEqual([USER_AGENT, USER_AGENT])
+    const agents = site.hits.map((hit) => hit.userAgent)
+    expect(agents).toHaveLength(2)
+    for (const agent of agents) {
+      expect(agent).not.toMatch(/mozilla|chrome|safari|hearingdbbot/i)
+    }
+    for (const file of ['fetcher.ts', 'render.ts', 'robots.ts']) {
+      expect(await readFile(join(home, 'pipeline/fetch', file), 'utf8')).not.toMatch(/user-?agent|mozilla|chrome\//i)
+    }
   })
 
-  test('without NEXT_PUBLIC_SITE_URL the bot sends its plain name, with no URL', async () => {
-    vi.stubEnv('NEXT_PUBLIC_SITE_URL', '  ')
-    const site = await serve({ '/a': page('a') })
+  test('robots.txt applies the * group, not a product token', async () => {
+    const site = await serve({
+      '/robots.txt': robots('User-agent: HearingDBBot\nDisallow: /\n\nUser-agent: *\nDisallow: /private'),
+      '/ok': page('ok'),
+      '/private/a': page('secret'),
+    })
 
-    expect(config.userAgent).toBe('HearingDBBot/0.1')
-    await get(`${site.origin}/a`)
-
-    expect(site.hits.map((hit) => hit.userAgent)).toEqual(['HearingDBBot/0.1', 'HearingDBBot/0.1'])
-  })
-
-  test('with NEXT_PUBLIC_SITE_URL the User-Agent names the about-bot page', () => {
-    expect(config.userAgent).toBe('HearingDBBot/0.1 (+https://hearing.test/about-bot)')
+    expect(await get(`${site.origin}/ok`)).toMatchObject({ status: 'ok' })
+    expect(await get(`${site.origin}/private/a`)).toMatchObject({ status: 'skipped', reason: 'robots' })
   })
 })
 
@@ -477,7 +480,8 @@ describe('render', () => {
     const result = ok(await get(`${site.origin}/app`, { render: true }))
 
     expect(result.text).toBe('Weight 2.1 g')
-    expect(browser.options()).toMatchObject({ userAgent: USER_AGENT, serviceWorkers: 'block' })
+    expect(browser.options()).toMatchObject({ serviceWorkers: 'block' })
+    expect(browser.options()).not.toHaveProperty('userAgent')
     expect(browser.close).toHaveBeenCalled()
     // Waiting for "load" hangs in Chromium when the refused navigation came from a script during it.
     expect(browser.navigated).toHaveBeenCalledWith({ waitUntil: 'commit' })

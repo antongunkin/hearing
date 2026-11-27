@@ -1,5 +1,5 @@
-// FDA 510(k) clearances and recalls from openFDA. An API, but fetched like any page: honest User-Agent,
-// robots.txt and pauses included.
+// FDA 510(k) clearances and recalls from openFDA. An API, but fetched like any page: robots.txt and pauses
+// included.
 import { z } from 'zod'
 import { config } from '@/pipeline/config'
 import { fetchPage } from '@/pipeline/fetch/fetcher'

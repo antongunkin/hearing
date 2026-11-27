@@ -1,5 +1,4 @@
 import robotsParser from 'robots-parser'
-import { config } from '@/pipeline/config'
 import type { Refusal, Reply } from './fetcher'
 
 export type Robots = {
@@ -8,6 +7,9 @@ export type Robots = {
   /** The pause the site asks for between requests; 0 when it asks for none. */
   crawlDelayMs: number
 }
+
+/** We send no product token, so only the wildcard (`*`) group of robots.txt applies to us. */
+const ROBOTS_TOKEN = '*'
 
 const byOrigin = new Map<string, Promise<Robots>>()
 
@@ -23,8 +25,8 @@ async function read(origin: string, get: (url: URL) => Promise<Reply | Refusal>)
 
   const parser = robotsParser(file.href, new TextDecoder().decode(reply.body))
   return {
-    refusal: (url) => (parser.isAllowed(url.href, config.userAgent) ? undefined : 'disallowed by robots.txt'),
-    crawlDelayMs: (parser.getCrawlDelay(config.userAgent) ?? 0) * 1000,
+    refusal: (url) => (parser.isAllowed(url.href, ROBOTS_TOKEN) ? undefined : 'disallowed by robots.txt'),
+    crawlDelayMs: (parser.getCrawlDelay(ROBOTS_TOKEN) ?? 0) * 1000,
   }
 }
 

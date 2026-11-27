@@ -74,7 +74,6 @@ function paced<T>(host: string, request: () => Promise<T>): Promise<T> {
 
 async function plainRequest(url: URL): Promise<Reply> {
   const response = await fetch(url, {
-    headers: { 'user-agent': config.userAgent },
     redirect: 'manual',
     signal: AbortSignal.timeout(TIMEOUT_MS),
   })

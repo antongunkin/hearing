@@ -4,7 +4,7 @@ import { canonical } from '@/src/lib/site/url'
 
 export const metadata: Metadata = {
   title: 'About our bot',
-  description: 'How HearingDBBot identifies itself, what it reads, the rules it follows and how to keep it away.',
+  description: 'How this site collects its data: what is read, the rules followed and how to ask us to stay away.',
   alternates: canonical('/about-bot'),
 }
 
@@ -14,18 +14,15 @@ export default function AboutBotPage() {
     <main className="page prose">
       <h1>About our bot</h1>
       <p>
-        HearingDBBot reads public web pages to collect the facts in this database. It identifies itself with this
-        User-Agent, where the address is that of this site (before the site had an address it sent only HearingDBBot/0.1):
+        An automated collector reads public web pages to gather the facts in this database. It does not announce itself
+        under a name of its own.
       </p>
-      <pre>
-        <code>{'HearingDBBot/0.1 (+<site address>/about-bot)'}</code>
-      </pre>
 
       <h2>Rules it follows</h2>
       <ul>
         <li>It reads public pages only and never logs in.</li>
         <li>
-          It follows robots.txt, including Crawl-delay. If a site has a robots.txt that cannot be read, it stays away.
+          It follows the rules that robots.txt gives to all visitors (the <code>*</code> rules), including Crawl-delay. If a site has a robots.txt that cannot be read, it stays away.
         </li>
         <li>
           It makes one request at a time to a host and waits 2 to 5 seconds between requests, or longer if Crawl-delay
@@ -37,17 +34,20 @@ export default function AboutBotPage() {
         <li>It does not scrape Google (including Shopping and Play) or Amazon.</li>
       </ul>
       <p>
-        Some pages are built by scripts. Those are opened in a headless browser with the same User-Agent, which loads the
+        Some pages are built by scripts. Those are opened in a headless browser, which loads the
         files such a page asks for as a browser would, without a pause between them.
       </p>
       <p>
-        Pages about reviews and prices are found by a web search; the bot then reads them under the rules above. Video
-        details come from the official YouTube Data API rather than from the bot.
+        Pages about reviews and prices are found by a web search; the collector then reads them under the rules above. Video
+        details come from the official YouTube Data API rather than from the collector.
       </p>
 
       <h2>Keeping it away</h2>
-      <p>To keep the bot off your site, add this to your robots.txt:</p>
-      <pre>{'User-agent: HearingDBBot\nDisallow: /'}</pre>
+      <p>
+        Because the collector uses no name of its own, only rules for all visitors can hold it back. Add them to your
+        robots.txt:
+      </p>
+      <pre>{'User-agent: *\nDisallow: /'}</pre>
       <p>
         To have material removed or corrected, or to ask us to stop reading your site, see{' '}
         <Link href="/corrections">Corrections</Link>.

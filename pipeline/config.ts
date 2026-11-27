@@ -1,11 +1,4 @@
 export const config = {
-  /** A getter, so the site URL is read after `.env.local` has been loaded. No personal contacts here. */
-  get userAgent() {
-    const site = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/+$/, '')
-    // Until the site has a domain the bot goes out under its plain name: honest, no URL, never browser-like.
-    if (!site) return 'HearingDBBot/0.1'
-    return `HearingDBBot/0.1 (+${site}/about-bot)`
-  },
   minDelayMs: 2000,
   maxDelayMs: 5000,
   releasedAfter: '2023-11-01',

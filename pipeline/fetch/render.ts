@@ -1,4 +1,3 @@
-import { config } from '@/pipeline/config'
 import { looksLikeBotWall } from './bot-detect'
 import type { Reply } from './fetcher'
 import { isHtml } from './html'
@@ -23,7 +22,7 @@ export async function renderPage(url: URL, allows: (url: URL) => boolean): Promi
     throw new BrowserLaunchError(cause)
   })
   try {
-    const context = await browser.newContext({ userAgent: config.userAgent, serviceWorkers: 'block' })
+    const context = await browser.newContext({ serviceWorkers: 'block' })
     let requested = false
     let reply: Reply | undefined
     let runs = false

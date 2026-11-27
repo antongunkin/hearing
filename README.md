@@ -64,13 +64,13 @@ cp .env.example .env.local
 
 | Key | Used by | If empty |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | pipeline and site | The bot's User-Agent is the plain `HearingDBBot/0.1`, with no URL, so the pipeline runs before the site has a domain; once set it is `HearingDBBot/0.1 (+<url>/about-bot)`. A local site build has no canonical URLs and no sitemap URLs; a production build on Vercel fails. |
+| `NEXT_PUBLIC_SITE_URL` | pipeline and site | The pipeline does not need it: it sends no custom User-Agent. A local site build has no canonical URLs and no sitemap URLs; a production build on Vercel fails. |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | site (`/corrections`) | No address is shown, so a company has no way to ask for a correction or removal. |
 | `GEMINI_API_KEY` | `youtube` step (free tier) | Video analysis is skipped. |
 | `YOUTUBE_API_KEY` | `youtube` step | Video search is skipped. |
 | `NEXT_PUBLIC_GA_ID` | site analytics | No analytics. |
 
-Set `NEXT_PUBLIC_SITE_URL` to your real domain as soon as you have one, so the bot points to its `/about-bot` page. Set it and
+Set `NEXT_PUBLIC_SITE_URL` to your real domain as soon as you have one, so canonical and sitemap URLs are right. Set it and
 `NEXT_PUBLIC_CONTACT_EMAIL` on Vercel too: they are not read from your computer there.
 
 ## Run the pipeline
@@ -221,7 +221,7 @@ brand's `defaultType` fixes it for the next run of that brand.
 
 ## Scraping rules
 
-The bot names itself honestly, obeys `robots.txt` and `Crawl-delay`, pauses between requests, and skips a
+The collector sends no custom User-Agent (no bot name, nothing browser-like), obeys the `*` rules in `robots.txt` and `Crawl-delay`, pauses between requests, and skips a
 site that answers with a captcha, a 403/429 or other bot protection. Do not work around a skip. Google
 (including Shopping and Play) and Amazon are never fetched. Add a domain to `data/blocklist.json` to stop
 all requests to it.
