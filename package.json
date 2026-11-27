@@ -13,6 +13,7 @@
     "apps": "tsx pipeline/cli.ts apps",
     "reviews": "tsx pipeline/cli.ts reviews",
     "youtube": "tsx pipeline/cli.ts youtube",
+    "archive": "tsx pipeline/cli.ts archive",
     "pairs": "tsx pipeline/cli.ts pairs",
     "atlas:crawl": "tsx pipeline/atlas/cli.ts crawl",
     "atlas:describe": "tsx pipeline/atlas/cli.ts describe",

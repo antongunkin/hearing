@@ -86,7 +86,13 @@ export function entryChange({ path, before, after }: { path: string; before?: un
   const key: string = ENTRY_KEYS[list]
   const name = ((after ?? before) as Json)[key]
   /** Where the entry stands in the model now, whatever index it was proposed at; -1 when it is not there. */
-  const indexIn = (model: Model) => (model[list] as unknown as Json[]).findIndex((entry) => entry[key] === name)
+  const indexIn = (model: Model) => {
+    const entries = model[list] as unknown as Json[]
+    const at = entries.findIndex((entry) => entry[key] === name)
+    // A replacement has a new key (a dead document link becomes its archive copy): it takes the place of the entry it replaces.
+    const replaced = before === undefined ? undefined : (before as Json)[key]
+    return at !== -1 || replaced === undefined ? at : entries.findIndex((entry) => entry[key] === replaced)
+  }
   return { list, name, indexIn }
 }
 

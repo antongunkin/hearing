@@ -2,6 +2,8 @@
 // the Claude usage limit goes on with `--resume` (the message prints the command). `scrape`, `fda`, `apps`,
 // `reviews` and `youtube` run one step.
 // `update` ends by recording the comparison pairs; `pairs` does only that.
+// `archive` is its own command: models sold since 2018 that the live catalog no longer lists, from support pages and
+// the Web Archive. Every change it makes has `origin: 'archive'` and so never becomes a feed event.
 import { join, resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { parseArgs } from 'node:util'
@@ -13,8 +15,9 @@ import { LlmLimitError, LlmUnavailableError } from '@/pipeline/llm'
 import { readCache } from '@/pipeline/llm/cache'
 import { Progress } from '@/pipeline/progress'
 import { priorCatalogCopies } from '@/pipeline/archive/catalog-history'
-import { checkDocument } from '@/pipeline/archive/documents'
+import { checkDocument, replaceDeadDocuments } from '@/pipeline/archive/documents'
 import { isInScope, lifecycleOf, listingIn } from '@/pipeline/archive/lifecycle'
+import { WaybackError } from '@/pipeline/sources/wayback'
 import { discoverModelUrls, extractModel, matchExistingModel, mergeCandidates, type ModelCandidate } from '@/pipeline/sources/brand-site'
 import { fetchIosVersion, lookupApp, type AppRecord } from '@/pipeline/sources/itunes'
 import { fetchFdaEvents } from '@/pipeline/sources/openfda'
@@ -29,7 +32,7 @@ import { ComparePairs } from '@/src/lib/schema/compare-pairs'
 import type { Brand } from '@/src/lib/schema/brand'
 import type { Sourced } from '@/src/lib/schema/field'
 import type { Model } from '@/src/lib/schema/model'
-import type { CandidateChange } from '@/src/lib/schema/pending'
+import type { CandidateChange, CheckResult } from '@/src/lib/schema/pending'
 import type { Reviews } from '@/src/lib/schema/reviews'
 import { buildCatalogIndex } from '@/src/lib/site/catalog-index'
 import { pairSlug, selectCuratedPairs } from '@/src/lib/site/pairs'
@@ -54,6 +57,8 @@ type Run = {
   /** The filters of the run (`--brand`, `--limit`): work done under other filters is not this run's. */
   scope: string
   progress: Progress
+  /** `archive`: stamped on every change the run makes. */
+  origin?: 'archive'
   /** Pending ids written by this run: a second proposal under one id replaces the first, which is reported. */
   queued: Set<string>
   tally: { auto: number; pending: number; dropped: number; skipped: number; failed: number }
@@ -88,7 +93,8 @@ function skippedSource(run: Run, url: string, reason: string, detail?: string): 
 }
 
 /** Drops, applies or queues one change. Risky fields are read again only for a change that is kept. */
-async function handle(run: Run, change: CandidateChange): Promise<void> {
+async function handle(run: Run, made: CandidateChange): Promise<void> {
+  const change: CandidateChange = run.origin === undefined ? made : { ...made, origin: run.origin }
   if (route(change, run.dataset.rejections) === 'drop') {
     run.tally.dropped++
     return
@@ -535,6 +541,148 @@ async function youtube(run: Run): Promise<void> {
   }
 }
 
+/** A brand's own site refused (bot protection, rate limit, robots): that brand stops, the command goes on with the next. */
+class BrandRefusedError extends Error {
+  constructor(
+    readonly url: string,
+    readonly reason: string,
+  ) {
+    super(`${url} refused: ${reason}`)
+    this.name = 'BrandRefusedError'
+  }
+}
+const REFUSALS = new Set(['rate-limited', 'bot-protection', 'robots'])
+const isBrandRefusal = (error: unknown) => error instanceof BrandRefusedError
+/** The Web Archive itself asked us to slow down or keep out: nothing more can be asked of it, the whole command stops. */
+const isArchiveStop = (error: unknown) => error instanceof WaybackError && (error.reason === 'rate-limited' || error.reason === 'bot-protection')
+
+/** A model page that answers is a live product page, not a support page, when it is on the brand's own site outside its support pages. */
+function isProductPage(brand: Brand, found: Page): boolean {
+  if (new URL(found.url).host !== new URL(brand.website).host) return false
+  return !(brand.scraper.supportUrls ?? []).some((support) => found.url.startsWith(support))
+}
+
+/**
+ * `archive-support`: the models the brand's support pages link. A model that no stored model matches and that
+ * is in scope by an official 2018+ date becomes a new, discontinued card (its page is the naming source; a live
+ * product page makes it an orphan, flagged); one that matches a stored model only adds documents.
+ */
+async function archiveSupport(run: Run, brand: Brand): Promise<void> {
+  const support: Brand = { ...brand, scraper: { ...brand.scraper, catalogUrls: [] } }
+  const onSkip = (url: string, reason: string, detail?: string) => {
+    if (REFUSALS.has(reason)) throw new BrandRefusedError(url, reason)
+    skippedSource(run, url, reason, detail)
+  }
+  const found = (await discoverModelUrls(support, { refresh: run.refresh, onSkip })).slice(0, run.limit)
+  const candidates: ModelCandidate[] = []
+  const documentsOf = new Map<string, Set<string>>()
+  const pageOf = new Map<string, Page>()
+  const read = async (url: string, opts: { render?: boolean }): Promise<Page | null> => {
+    const result = await fetchPage(url, { ...opts, refresh: run.refresh })
+    if (result.status === 'ok') return result
+    if (REFUSALS.has(result.reason)) throw new BrandRefusedError(url, result.reason)
+    skippedSource(run, url, result.reason, result.detail)
+    return null
+  }
+  for (const { modelUrl, documentUrls } of found) {
+    await guard(
+      run,
+      modelUrl,
+      async () => {
+        const modelPage = await read(modelUrl, { render: brand.scraper.render })
+        if (modelPage === null) return
+        const pages = [modelPage]
+        for (const url of documentUrls) {
+          const document = await read(url, {})
+          if (document) pages.push(document)
+        }
+        const candidate = await extractModel(brand, pages)
+        candidates.push(candidate)
+        const slug = candidate.model.slug
+        if (!pageOf.has(slug)) pageOf.set(slug, modelPage)
+        documentsOf.set(slug, new Set([...(documentsOf.get(slug) ?? []), ...documentUrls]))
+      },
+      isBrandRefusal,
+    )
+  }
+
+  for (const candidate of mergeCandidates(candidates)) {
+    const { slug } = candidate.model
+    const urls = [...(documentsOf.get(slug) ?? [])]
+    const existing = matchExistingModel(candidate.model, run.dataset.models)
+    if (existing !== null) {
+      await addDocuments(run, brand, existing, candidate, urls)
+      for (const change of diffModel(existing, candidate)) if (change.kind === 'document') await handle(run, change)
+      continue
+    }
+    if (!isInScope(candidate.model, {})) {
+      console.log(`${slug}: no official release date since ${config.onSaleSince.slice(0, 4)}, left out`)
+      continue
+    }
+    const naming = pageOf.get(slug)!
+    const lifecycle = lifecycleOf(candidate.model, {
+      inLiveCatalog: false,
+      listings: [],
+      liveProductPage: isProductPage(brand, naming) ? naming : undefined,
+      namingPage: naming,
+    })
+    if (lifecycle === null || lifecycle.kind === 'on-sale') {
+      console.log(`${slug}: its support page does not name it, not proposed`)
+      continue
+    }
+    await addDocuments(run, brand, null, candidate, urls)
+    const lifecycleCheck: CheckResult[] = lifecycle.kind === 'orphan' ? [{ name: 'lifecycle', ok: false, detail: 'orphan-product-page' }] : []
+    const archived: ModelCandidate = {
+      model: { ...candidate.model, discontinued: { source: lifecycle.source } },
+      fieldChecks: { ...candidate.fieldChecks, ...(lifecycleCheck.length > 0 && { discontinued: lifecycleCheck }) },
+    }
+    for (const change of diffModel(null, archived)) await handle(run, change)
+  }
+}
+
+/** `archive-documents`: stored documents whose live link is dead, replaced by a checked Web Archive copy. A gone brand's live links are not fetched. */
+async function archiveDocuments(run: Run, brand: Brand): Promise<void> {
+  const gone = brand.status === 'gone'
+  for (const { slug } of run.dataset.models.filter((m) => m.brand === brand.slug).slice(0, run.limit)) {
+    try {
+      for (const change of await replaceDeadDocuments(storedModel(run, slug), { brand, gone, refresh: run.refresh })) await handle(run, change)
+    } catch (error) {
+      // The archive does not serve this site: no archive data for it, not a failure.
+      if (!(error instanceof WaybackError && error.reason === 'archive-excluded')) throw error
+      console.log(`${brand.slug}: ${config.archiveHosts[0]} does not serve this site, documents not replaced`)
+      return
+    }
+  }
+}
+
+/**
+ * Per brand, in order: support pages, documents (Web Archive catalog copies and brand history come with their
+ * units). A brand whose site refuses stops there and is recorded as refused: a plain `--resume` skips it, a run
+ * with `--brand <slug>` tries again. Returns the brands refused in this run.
+ */
+async function archive(run: Run): Promise<string[]> {
+  const refused: string[] = []
+  for (const brand of run.brands) {
+    const refusedKey = `${run.scope} archive-refused:${brand.slug}`
+    if (run.progress.has(refusedKey)) {
+      console.log(`${brand.slug}: refused earlier, skipped (retry it with --brand ${brand.slug})`)
+      continue
+    }
+    try {
+      if (brand.status === 'active' && (brand.scraper.supportUrls ?? []).length > 0) {
+        await unit(run, `archive-support:${brand.slug}`, () => archiveSupport(run, brand), isBrandRefusal)
+      }
+      await unit(run, `archive-documents:${brand.slug}`, () => archiveDocuments(run, brand), isArchiveStop)
+    } catch (error) {
+      if (!(error instanceof BrandRefusedError)) throw error
+      console.warn(`${brand.slug}: ${error.message}, brand stopped`)
+      await run.progress.done(refusedKey)
+      refused.push(brand.slug)
+    }
+  }
+  return refused
+}
+
 const RUN_STEP: Record<Step, (run: Run) => Promise<void>> = { scrape, fda, apps, reviews, youtube }
 
 /**
@@ -580,11 +728,11 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
   const { positionals, values } = parsed
   const command = positionals[0]
   const steps: readonly Step[] | undefined =
-    command === 'update' ? STEPS : STEPS.includes(command as Step) ? [command as Step] : undefined
+    command === 'update' ? STEPS : command === 'archive' ? [] : STEPS.includes(command as Step) ? [command as Step] : undefined
   const limit = values.limit === undefined ? Infinity : Number(values.limit)
   const known = steps !== undefined || command === 'pairs'
   if (!known || positionals.length > 1 || !(Number.isInteger(limit) || limit === Infinity) || limit < 1) {
-    console.error(`Usage: cli.ts <update|pairs|${STEPS.join('|')}> [--brand <slug>] [--resume] [--refresh] [--limit <n>]`)
+    console.error(`Usage: cli.ts <update|archive|pairs|${STEPS.join('|')}> [--brand <slug>] [--resume] [--refresh] [--limit <n>]`)
     return 1
   }
   // Not a step of the run: it leaves the progress of a stopped one alone.
@@ -608,6 +756,7 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
     refresh: values.refresh,
     asOf: currentMonth(),
     startedAt: new Date().toISOString(),
+    ...(command === 'archive' && { origin: 'archive' as const }),
     scope: `brand=${values.brand ?? '*'} limit=${values.limit ?? '*'}`,
     progress: await Progress.open(join(progressDir, `${command}.json`), values.resume),
     queued: new Set(),
@@ -618,10 +767,13 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
     console.log(`Summary: auto ${auto}, pending ${pending}, dropped ${dropped}, skipped sources ${skipped}, failed ${failed}`)
   }
 
+  let refused: string[] = []
   try {
-    for (const step of steps) await RUN_STEP[step](run)
+    if (command === 'archive') refused = await archive(run)
+    else for (const step of steps) await RUN_STEP[step](run)
   } catch (error) {
-    if (!(error instanceof LlmLimitError)) throw error
+    const stopped = error instanceof LlmLimitError ? `${PROVIDER_NAMES[error.provider]} usage limit reached.` : isArchiveStop(error) ? `${config.archiveHosts[0]} refused requests.` : undefined
+    if (stopped === undefined) throw error
     summary()
     // The same command and filters: work done under other filters is not skipped (see `Run.scope`).
     const flags = [
@@ -630,7 +782,13 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
       ...(values.limit ? ['--limit', values.limit] : []),
       ...(values.refresh ? ['--refresh'] : []),
     ]
-    console.error(`${PROVIDER_NAMES[error.provider]} usage limit reached. Resume later: npm run ${command} -- ${flags.join(' ')}`)
+    console.error(`${stopped} Resume later: npm run ${command} -- ${flags.join(' ')}`)
+    return 2
+  }
+  if (refused.length > 0) {
+    // Progress stays: a plain `--resume` skips these brands, `--brand <slug>` tries one again.
+    summary()
+    console.error(`Refused by their own sites: ${refused.join(', ')}. Try one again later: npm run archive -- --brand <slug>`)
     return 2
   }
   await run.progress.clear()

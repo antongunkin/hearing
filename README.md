@@ -104,6 +104,7 @@ Each step can also run alone:
 | `npm run apps` | iOS app versions, for models whose data file has `app.iosId` (added by hand). |
 | `npm run reviews` | Shop ratings, complaint themes, pros and cons from expert reviews. |
 | `npm run youtube` | Video reviews (needs both API keys). |
+| `npm run archive` | Not part of `update`. Models sold since 2018 that the live catalog no longer lists: support-page models (as discontinued cards) and dead document links replaced by Web Archive copies. Every change goes to review or is applied without a feed event. |
 | `npm run pairs` | Adds the current comparison pairs to `data/compare-pairs.json`. Takes no flags. |
 
 All steps but `scrape` work on stored models, so on an empty database they find nothing until you have
@@ -115,6 +116,11 @@ approved models.
 | `--limit <n>` | At most `n` models per brand. |
 | `--refresh` | Fetch pages again. Fetched pages are cached in `.cache/` with no expiry, so use it for every routine update. |
 | `--resume` | Continue a stopped run: skip what it had finished. Give the same command, `--brand` and `--limit` as before. |
+
+`archive` takes `--brand`, `--limit` (model pages per brand), `--resume` and `--refresh`, and keeps its progress in
+`.cache/progress/archive.json`. A brand whose own site refuses a request (bot protection, rate limit, robots) is
+skipped and the run goes on; it ends with exit code 2 and lists the refused brands. A plain `--resume` skips them,
+`npm run archive -- --brand <slug>` tries one again. If web.archive.org refuses, the whole run stops with a resume hint.
 
 Pass flags after `--`, for example:
 

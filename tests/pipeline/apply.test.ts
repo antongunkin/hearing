@@ -484,6 +484,14 @@ describe('documents and lifecycle changes', () => {
     expect(PendingChange.parse(await readJsonFile(`pending/${id}.json`)).kind).toBe('failed-check')
   })
 
+  test('a document change with a before replaces that entry, whatever its new URL', async () => {
+    const copy = { ...doc, url: `https://web.archive.org/web/20200101000000/${doc.url}` }
+    const data = dataset()
+    await applyAuto(documentChange(Array(3).fill({ name: 'document', ok: true })), data, dir)
+    await applyAuto({ ...documentChange(Array(3).fill({ name: 'document', ok: true })), before: doc, after: copy }, data, dir)
+    expect((await readJsonFile('models/jabra-enhance-select-500.json')).documents).toEqual([copy])
+  })
+
   test('a discontinuation always waits for review; an orphan page shows as a failed check, an origin is kept', async () => {
     const gone = { kind: 'discontinued' as const, modelSlug: 'jabra-enhance-select-500', path: 'discontinued', after: null, checks: {} }
     expect(route({ ...gone, after: { source: { value: 'Select 500', quote: 'x', ...at(NEW) } } }, [])).toBe('pending')
