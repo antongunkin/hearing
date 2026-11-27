@@ -83,7 +83,12 @@ function linkDocuments(
  */
 export async function discoverModelUrls(
   brand: Brand,
-  opts: { refresh?: boolean; onSkip?: (url: string, reason: string, detail?: string) => void } = {},
+  opts: {
+    refresh?: boolean
+    onSkip?: (url: string, reason: string, detail?: string) => void
+    /** A catalog page that was read but gave no model link (no HTML, or a layout without them): the catalog is not whole. */
+    onEmpty?: (url: string) => void
+  } = {},
 ): Promise<ModelSources[]> {
   const { catalogUrls, supportUrls, modelUrlPattern, documentUrlPattern, render } = brand.scraper
   const isModel = new RegExp(modelUrlPattern)
@@ -101,13 +106,19 @@ export async function discoverModelUrls(
       else console.warn(`${brand.slug}: catalog ${url} skipped: ${page.reason}${page.detail ? ` (${page.detail})` : ''}`)
       continue
     }
-    if (page.html === undefined) continue
+    if (page.html === undefined) {
+      if (fromCatalog) opts.onEmpty?.(url)
+      continue
+    }
+    let modelLinks = 0
     for (const link of linksIn(page.html, page.url)) {
       if (isModel.test(link)) {
+        modelLinks++
         models.add(link)
         if (fromCatalog) inCatalog.add(link)
       } else if (isDatasheet?.test(link)) datasheets.add(link)
     }
+    if (fromCatalog && modelLinks === 0) opts.onEmpty?.(url)
   }
   const { sources, unmatched } = linkDocuments(brand, [...models], [...datasheets], inCatalog)
   if (unmatched > 0) console.warn(`${brand.slug}: ${unmatched} documents match no model page`)

@@ -504,14 +504,32 @@ test('a model missing from a complete catalog is proposed as discontinued, for r
   expect(JSON.parse(await readFile(join(dataDir, 'models', `${stored.slug}.json`), 'utf8')).discontinued).toBeUndefined()
 })
 
-test('a model no catalog copy ever named gets no proposal', async () => {
-  await storeSelect300()
+test('a model that no logged copy names is still proposed as discontinued, without a date, sourced to the catalog it is absent from', async () => {
+  const stored = await storeSelect300()
   catalogLists500()
   vi.mocked(priorCatalogCopies).mockResolvedValue([copy('2026-03-05T00:00:00.000Z', 'Something else')])
 
   expect(await main(['scrape'], opts)).toBe(0)
 
-  expect(await filesUnder(join(dataDir, 'pending'))).toEqual(['jabra-enhance-select-500-model.json'])
+  const card = await pendingCard(`${stored.slug}-discontinued`)
+  expect(card).toMatchObject({ kind: 'spec-change', path: 'discontinued' })
+  const after = card.after as { lastListed?: string; source: Record<string, unknown> }
+  expect(after.lastListed).toBeUndefined()
+  expect(after.source).toMatchObject({ value: 'Select 300', sourceUrl: BASE, sourceType: 'derived', derivation: { op: 'from-list' } })
+})
+
+test('an earlier logged copy of the model\'s own page that names it gives a dateless discontinuation sourced to that page', async () => {
+  const stored = await storeSelect300()
+  catalogLists500()
+  vi.mocked(priorCatalogCopies).mockImplementation(async (urls) =>
+    urls[0] === `${BASE}/x` ? [{ ...okPage(`${BASE}/x`), text: 'Jabra Enhance Select 300 hearing aid' }] : [],
+  )
+
+  expect(await main(['scrape'], opts)).toBe(0)
+
+  const after = (await pendingCard(`${stored.slug}-discontinued`)).after as { lastListed?: string; source: { sourceUrl: string; sourceType: string } }
+  expect(after.lastListed).toBeUndefined()
+  expect(after.source).toMatchObject({ sourceUrl: `${BASE}/x`, sourceType: 'official' })
 })
 
 test('a skipped catalog page, a limit, a lost model page, or no model links at all proposes no discontinuation', async () => {
@@ -578,22 +596,64 @@ test('a live product page outside the catalog is flagged orphan-product-page', a
   expect(vi.mocked(fetchPage)).toHaveBeenCalledWith(`${BASE}/x`, { render: false, refresh: true })
 })
 
-test('an own page that redirects, or answers with a refusal, is not an orphan proof', async () => {
+test('an own page that answers 404 or 410 is gone: a plain discontinuation', async () => {
   const stored = await storeSelect300()
   catalogLists500()
+  for (const code of ['HTTP 404', 'HTTP 410']) {
+    await rm(join(dataDir, 'pending'), { recursive: true, force: true })
+    vi.mocked(fetchPage).mockImplementation(async (url) =>
+      url === `${BASE}/x` ? { status: 'skipped', url, reason: 'http-error', detail: code } : okPage(url),
+    )
+    expect(await main(['scrape'], opts)).toBe(0)
+    expect((await pendingCard(`${stored.slug}-discontinued`)).kind).toBe('spec-change')
+  }
+})
+
+test('an own page that fails for any other reason leaves the model unchecked this run', async () => {
+  const stored = await storeSelect300()
+  catalogLists500()
+  const failures = [
+    { reason: 'http-error', detail: 'HTTP 502' },
+    { reason: 'http-error', detail: 'request failed: ETIMEDOUT' },
+    { reason: 'rate-limited', detail: 'HTTP 429' },
+    { reason: 'bot-protection', detail: 'HTTP 403' },
+  ] as const
+  for (const failure of failures) {
+    vi.mocked(fetchPage).mockImplementation(async (url) => (url === `${BASE}/x` ? { status: 'skipped', url, ...failure } : okPage(url)))
+    expect(await main(['scrape'], opts)).toBe(0)
+    expect(await filesUnder(join(dataDir, 'pending'))).not.toContain(`${stored.slug}-discontinued.json`)
+  }
+  expect(log).toContain(`${stored.slug}: own page not read, lifecycle not checked`)
+})
+
+test('an own page that redirects to an address the catalog links is a listed model; a slash variant of the same page is still an orphan', async () => {
+  const stored = await storeSelect300()
+  catalogLists500()
+  vi.mocked(fetchPage).mockImplementation(async (url) =>
+    url === `${BASE}/x` ? { ...okPage(`${BASE}/select-500/`), text: 'Jabra Enhance Select 300' } : okPage(url),
+  )
+  expect(await main(['scrape'], opts)).toBe(0)
+  expect(await filesUnder(join(dataDir, 'pending'))).not.toContain(`${stored.slug}-discontinued.json`)
+
+  vi.mocked(fetchPage).mockImplementation(async (url) =>
+    url === `${BASE}/x` ? { ...okPage(`${BASE}/x/`), text: 'Jabra Enhance Select 300' } : okPage(url),
+  )
+  expect(await main(['scrape'], opts)).toBe(0)
+  expect((await pendingCard(`${stored.slug}-discontinued`)).kind).toBe('failed-check')
+})
+
+test('a catalog page that gives no model link makes the catalog incomplete', async () => {
+  await storeSelect300()
   vi.mocked(priorCatalogCopies).mockResolvedValue([copy('2026-03-05T00:00:00.000Z', 'Jabra Enhance Select 300')])
+  vi.mocked(extractModel).mockResolvedValue(candidate('Select 500'))
+  vi.mocked(discoverModelUrls).mockImplementation(async (_brand, o) => {
+    o?.onEmpty?.(BASE)
+    return [LISTED]
+  })
 
-  vi.mocked(fetchPage).mockImplementation(async (url) =>
-    url === `${BASE}/x` ? { ...okPage(`${BASE}/elsewhere`), text: 'Jabra Enhance Select 300' } : okPage(url),
-  )
   expect(await main(['scrape'], opts)).toBe(0)
-  expect((await pendingCard(`${stored.slug}-discontinued`)).kind).toBe('spec-change')
 
-  await rm(join(dataDir, 'pending'), { recursive: true })
-  vi.mocked(fetchPage).mockImplementation(async (url) =>
-    url === `${BASE}/x` ? { status: 'skipped', url, reason: 'rate-limited', detail: 'HTTP 429' } : okPage(url),
-  )
-  expect(await main(['scrape'], opts)).toBe(0)
+  expect(log).toContain('jabra-enhance: catalog incomplete, lifecycle not checked')
   expect((await filesUnder(join(dataDir, 'pending'))).filter((f) => f.includes('discontinued'))).toEqual([])
 })
 

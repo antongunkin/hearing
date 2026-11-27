@@ -26,6 +26,7 @@ import { loadDataset, type Dataset } from '@/src/lib/data/load'
 import { writeJson } from '@/src/lib/data/write'
 import { ComparePairs } from '@/src/lib/schema/compare-pairs'
 import type { Brand } from '@/src/lib/schema/brand'
+import type { Sourced } from '@/src/lib/schema/field'
 import type { Model } from '@/src/lib/schema/model'
 import type { CandidateChange } from '@/src/lib/schema/pending'
 import type { Reviews } from '@/src/lib/schema/reviews'
@@ -154,36 +155,63 @@ function ownPageOf(model: Model, brand: Brand): string | undefined {
  */
 async function lifecycleChanges(run: Run, brand: Brand, matched: Set<string>, listedUrls: string[]): Promise<void> {
   const stored = run.dataset.models.filter((model) => model.brand === brand.slug)
-  const listed = new Set([...listedUrls, ...brand.scraper.catalogUrls])
+  const listed = new Set([...listedUrls, ...brand.scraper.catalogUrls].map(plain))
   const copies = await priorCatalogCopies(brand.scraper.catalogUrls, run.startedAt)
   for (const model of stored) {
     if (matched.has(model.slug)) {
       if (model.discontinued) await handle(run, { kind: 'discontinued', modelSlug: model.slug, path: 'discontinued', before: model.discontinued, after: null, checks: {} })
       continue
     }
-    if (model.discontinued || [...citedUrls(model)].some((url) => listed.has(url))) continue
+    if (model.discontinued || [...citedUrls(model)].some((url) => listed.has(plain(url)))) continue
 
     const listings = copies.flatMap((copy) => listingIn(model, copy) ?? [])
     const own = ownPageOf(model, brand)
     let liveProductPage: Page | undefined
     if (own !== undefined) {
       const result = await fetchPage(own, { render: brand.scraper.render, refresh: true })
-      if (result.status === 'ok' && new URL(result.url).href === new URL(own).href) liveProductPage = result
-      else if (result.status === 'skipped' && result.reason !== 'http-error') {
-        // Neither answer nor refusal to answer says the page is gone.
+      if (result.status === 'ok') {
+        // An address the catalog links, reached by redirect, is a listed model under another URL.
+        if (listed.has(plain(result.url))) continue
+        // Another address of the same site (slash, locale) still shows the page is live; another site shows nothing.
+        if (new URL(result.url).host === new URL(own).host) liveProductPage = result
+      } else if (!/^HTTP (404|410)$/.test(result.detail ?? '') || result.reason !== 'http-error') {
+        // Only a plain "not found" says the page is gone; a refusal, a timeout or a server error says nothing.
         skippedSource(run, own, result.reason, result.detail)
         console.log(`${model.slug}: own page not read, lifecycle not checked`)
         continue
       }
     }
-    const lifecycle = lifecycleOf(model, { inLiveCatalog: false, listings, liveProductPage })
-    if (lifecycle === null || lifecycle.kind === 'on-sale') {
-      console.log(`${model.slug}: not in the catalog, no listing found, lifecycle not decided`)
-      continue
-    }
-    const after = { ...(lifecycle.kind === 'discontinued' && lifecycle.lastListed !== undefined && { lastListed: lifecycle.lastListed }), source: lifecycle.source }
-    const checks: CandidateChange['checks'] = lifecycle.kind === 'orphan' ? { discontinued: [{ name: 'lifecycle' as const, ok: false, detail: 'orphan-product-page' }] } : {}
-    await handle(run, { kind: 'discontinued', modelSlug: model.slug, path: 'discontinued', after, checks })
+    // A logged earlier copy of the model's own page, when no catalog copy names it.
+    const namingPage = own === undefined ? undefined : (await priorCatalogCopies([own], run.startedAt))[0]
+    const lifecycle = lifecycleOf(model, { inLiveCatalog: false, listings, liveProductPage, namingPage })
+    if (lifecycle?.kind === 'on-sale') continue
+    const checks: CandidateChange['checks'] = lifecycle?.kind === 'orphan' ? { discontinued: [{ name: 'lifecycle' as const, ok: false, detail: 'orphan-product-page' }] } : {}
+    const source = lifecycle?.source ?? absentFrom(model, brand, run.startedAt)
+    const lastListed = lifecycle?.kind === 'discontinued' ? lifecycle.lastListed : undefined
+    await handle(run, { kind: 'discontinued', modelSlug: model.slug, path: 'discontinued', after: { ...(lastListed !== undefined && { lastListed }), source }, checks })
+  }
+}
+
+/** A URL without its fragment and closing slash, so that `/x` and `/x/` are one page. */
+function plain(url: string): string {
+  const parsed = new URL(url)
+  parsed.hash = ''
+  return parsed.href.replace(/\/$/, '')
+}
+
+/**
+ * The only source left for a model that the whole catalog no longer lists and no logged page names: the
+ * catalog itself. Stored as a derived value (the list the model is absent from), dated by the run that read it.
+ */
+function absentFrom(model: Model, brand: Brand, at: string): Sourced<string> {
+  const [catalog] = brand.scraper.catalogUrls
+  return {
+    value: model.name,
+    quote: `not listed on ${catalog}`,
+    sourceUrl: catalog,
+    fetchedAt: at,
+    sourceType: 'derived',
+    derivation: { op: 'from-list', input: `absent from ${brand.scraper.catalogUrls.join(', ')} on ${at.slice(0, 10)}` },
   }
 }
 
@@ -207,7 +235,10 @@ async function scrape(run: Run): Promise<void> {
         if (brand.scraper.catalogUrls.includes(url)) complete = false
         skippedSource(run, url, reason, detail)
       }
-      const found = await discoverModelUrls(brand, { refresh: run.refresh, onSkip })
+      const onEmpty = () => {
+        complete = false
+      }
+      const found = await discoverModelUrls(brand, { refresh: run.refresh, onSkip, onEmpty })
       const groups = found.slice(0, run.limit)
       const candidates: ModelCandidate[] = []
       /** Whether a catalog page links a model, by slug (the pages of one family are one model). */

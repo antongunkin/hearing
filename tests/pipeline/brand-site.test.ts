@@ -144,6 +144,19 @@ describe('discoverModelUrls', () => {
     ])
   })
 
+  test('a catalog page with no HTML or no model link is reported to onEmpty; support pages are not', async () => {
+    const support = brand.scraper.supportUrls![0]
+    fetchMock.mockImplementation(async (url) => (url === support ? okPage(url, 'support', '<p>none</p>') : okPage(url, 'catalog')))
+    const onEmpty = vi.fn()
+    await discoverModelUrls(brand, { onEmpty })
+    expect(onEmpty.mock.calls).toEqual([[brand.scraper.catalogUrls[0]]])
+
+    onEmpty.mockClear()
+    fetchMock.mockImplementation(async (url) => okPage(url, 'x', '<p>no links</p>'))
+    await discoverModelUrls(brand, { onEmpty })
+    expect(onEmpty.mock.calls).toEqual([[brand.scraper.catalogUrls[0]]])
+  })
+
   test('a skipped catalog is reported to onSkip instead of the log', async () => {
     fetchMock.mockImplementation(async (url) => ({ status: 'skipped', url, reason: 'bot-protection', detail: 'HTTP 403' }))
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
