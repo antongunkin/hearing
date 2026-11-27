@@ -96,6 +96,24 @@ describe('atlas page facts', () => {
     expect(parseSitemap(index)).toEqual({ urls: [], sitemaps: ['https://brand.test/s1.xml', 'https://brand.test/s2.xml'] })
   })
 
+  test('parseSitemap ignores image, video and news locations', () => {
+    const images = `<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+      <url><loc>https://brand.test/hearing-aids/a</loc>
+        <image:image><image:loc>https://cdn.brand.test/a.jpg</image:loc></image:image></url></urlset>`
+    expect(parseSitemap(images)).toEqual({ urls: ['https://brand.test/hearing-aids/a'], sitemaps: [] })
+  })
+
+  test('parseSitemap keeps a loc under a prefix bound to the sitemap namespace', () => {
+    const prefixed = `<sm:urlset xmlns:sm="http://www.sitemaps.org/schemas/sitemap/0.9"><sm:url><sm:loc>https://brand.test/p</sm:loc></sm:url></sm:urlset>`
+    expect(parseSitemap(prefixed)).toEqual({ urls: ['https://brand.test/p'], sitemaps: [] })
+  })
+
+  test('parseSitemap does not throw on a numeric entity outside Unicode', () => {
+    const bad = `<urlset><url><loc>https://brand.test/a&#99999999;b</loc></url><url><loc>https://brand.test/ok</loc></url></urlset>`
+    expect(() => parseSitemap(bad)).not.toThrow()
+    expect(parseSitemap(bad).urls).toContain('https://brand.test/ok')
+  })
+
   test('sections counts URLs by first path segment, most first', () => {
     expect(sections(['https://brand.test/', 'https://brand.test/hearing-aids/a', 'https://brand.test/hearing-aids/b', 'https://brand.test/about'])).toEqual([
       { path: '/hearing-aids', count: 2 },

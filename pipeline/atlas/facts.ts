@@ -115,14 +115,32 @@ export function urlTemplates(urls: string[], minCount = 3): UrlTemplate[] {
 
 const XML_ENTITIES: Record<string, string> = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'" }
 
-/** The `<loc>` values of a sitemap, entities decoded, HTTP(S) URLs only. */
+const SITEMAP_NS = 'http://www.sitemaps.org/schemas/sitemap/0.9'
+
+/** Decodes the five XML entities and numeric references; a reference outside Unicode is left as it is. */
+function decodeEntities(value: string): string {
+  return value.replace(/&(amp|lt|gt|quot|apos|#\d+|#x[\da-f]+);/gi, (entity, name: string) => {
+    if (name[0] !== '#') return XML_ENTITIES[name.toLowerCase()] ?? entity
+    const code = name[1].toLowerCase() === 'x' ? parseInt(name.slice(2), 16) : parseInt(name.slice(1), 10)
+    return Number.isInteger(code) && code <= 0x10ffff ? String.fromCodePoint(code) : entity
+  })
+}
+
+/**
+ * The `<loc>` values of a sitemap, entities decoded, HTTP(S) URLs only. Only unprefixed `loc` and `loc`
+ * under a prefix bound to the sitemap namespace count, so image, video and news locations do not.
+ */
 function locs(xml: string): string[] {
-  const values = [...xml.matchAll(/<(?:\w+:)?loc>\s*([^<]*?)\s*<\/(?:\w+:)?loc>/g)].map((match) =>
-    match[1].replace(/&(amp|lt|gt|quot|apos|#\d+|#x[\da-f]+);/gi, (entity, name: string) => {
-      if (name[0] === '#') return String.fromCodePoint(name[1].toLowerCase() === 'x' ? parseInt(name.slice(2), 16) : parseInt(name.slice(1), 10))
-      return XML_ENTITIES[name.toLowerCase()] ?? entity
-    }),
-  )
+  const bound = new Set<string>()
+  for (const match of xml.matchAll(/xmlns(?::([\w.-]+))?\s*=\s*["']([^"']*)["']/g)) {
+    if (match[2] === SITEMAP_NS && match[1] !== undefined) bound.add(match[1])
+  }
+  const values: string[] = []
+  for (const match of xml.matchAll(/<(?:([\w.-]+):)?loc>\s*([^<]*?)\s*<\/(?:[\w.-]+:)?loc>/g)) {
+    const [, prefix, raw] = match
+    if (prefix !== undefined && !bound.has(prefix)) continue
+    values.push(decodeEntities(raw))
+  }
   return values.filter((value) => {
     const url = URL.parse(value)
     return url !== null && /^https?:$/.test(url.protocol)
