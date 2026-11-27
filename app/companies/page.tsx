@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { EdgeSources } from '@/src/components/CompanyBlock'
 import { loadDataset } from '@/src/lib/data/load'
+import { hostname } from '@/src/lib/site/format'
 import { ownershipTable } from '@/src/lib/site/companies'
 import { canonical } from '@/src/lib/site/url'
 
@@ -21,6 +22,10 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function CompaniesPage() {
   const { graph, brands } = await loadDataset()
   const rows = ownershipTable(graph, brands)
+  const goneHost = (slug: string) => {
+    const stored = brands.find((b) => b.slug === slug)
+    return stored?.status === 'gone' ? hostname(stored.website) : undefined
+  }
   return (
     <main className="page">
       <h1>{TITLE}</h1>
@@ -34,7 +39,7 @@ export default async function CompaniesPage() {
               {row.brands.map((brand) => (
                 <li key={brand.slug}>
                   <Link href={`/brands/${brand.slug}`}>{brand.name}</Link>
-                  {brand.since && ` since ${brand.since}`} <EdgeSources sources={brand.sources} />
+                  {brand.since && ` since ${brand.since}`} <EdgeSources sources={brand.sources} goneHost={goneHost(brand.slug)} />
                 </li>
               ))}
             </ul>

@@ -76,7 +76,7 @@ export default async function BrandPage({ params }: Props) {
           )}
         </p>
       )}
-      {company && <CompanyBlock data={company} brands={data.brands} />}
+      {company && <CompanyBlock data={company} brands={data.brands} goneHost={brand.status === 'gone' ? hostname(brand.website) : undefined} />}
       {models.length === 0 ? (
         <p>No {brand.name} models in the database yet.</p>
       ) : (

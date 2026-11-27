@@ -7,8 +7,14 @@ import { hostname } from '@/src/lib/site/format'
 import { SourceNote } from './SourceNote'
 
 /** A source of a relation. A Web Archive copy is labelled as one, with its month; a third party is named. */
-export function EdgeSources({ sources }: { sources: EdgeSource[] }) {
-  return sources.map((source) => {
+const bare = (host: string) => host.replace(/^www\./, '')
+
+/**
+ * Only quoted sources other than the crawl are shown. `goneHost` is the host of a gone brand's own site: it may
+ * be parked or taken over, so a live source on it is named, not linked.
+ */
+export function EdgeSources({ sources, goneHost }: { sources: EdgeSource[]; goneHost?: string }) {
+  return sources.filter((source) => source.quote !== undefined && source.kind !== 'crawl').map((source) => {
     const archived = parseArchiveUrl(source.url)
     const href = citableArchiveUrl(source.url)
     if (archived) {
@@ -18,6 +24,9 @@ export function EdgeSources({ sources }: { sources: EdgeSource[] }) {
           {source.kind === 'third-party' ? `According to ${host}` : `Source: ${host}`} (archived copy, {archiveMonth(archived.timestamp)})
         </a>
       )
+    }
+    if (goneHost !== undefined && bare(hostname(source.url)) === bare(goneHost)) {
+      return <span key={source.url}>Source: {hostname(source.url)}</span>
     }
     return (
       <SourceNote
@@ -31,7 +40,7 @@ export function EdgeSources({ sources }: { sources: EdgeSource[] }) {
 const appStore = (id: string) => `https://apps.apple.com/app/id${id}`
 const playStore = (id: string) => `https://play.google.com/store/apps/details?id=${id}`
 
-export function CompanyBlock({ data, brands }: { data: CompanyBlockData; brands: Brand[] }) {
+export function CompanyBlock({ data, brands, goneHost }: { data: CompanyBlockData; brands: Brand[]; goneHost?: string }) {
   const { owner, siblings, makers, apps } = data
   const sibling = siblings.flatMap((slug) => brands.find((b) => b.slug === slug) ?? [])
   return (
@@ -40,7 +49,7 @@ export function CompanyBlock({ data, brands }: { data: CompanyBlockData; brands:
       {owner && (
         <p>
           Owned by {owner.name}
-          {owner.since && ` since ${owner.since}`} <EdgeSources sources={owner.sources} />
+          {owner.since && ` since ${owner.since}`} <EdgeSources sources={owner.sources} goneHost={goneHost} />
         </p>
       )}
       {sibling.length > 0 && (
@@ -58,7 +67,7 @@ export function CompanyBlock({ data, brands }: { data: CompanyBlockData; brands:
         <ul aria-label="Makers">
           {makers.map((maker) => (
             <li key={maker.name}>
-              Made by {maker.name} <EdgeSources sources={maker.sources} />
+              Made by {maker.name} <EdgeSources sources={maker.sources} goneHost={goneHost} />
             </li>
           ))}
         </ul>
@@ -80,7 +89,7 @@ export function CompanyBlock({ data, brands }: { data: CompanyBlockData; brands:
                   <a href={playStore(app.androidId)}>Google Play</a>
                 </>
               )}{' '}
-              <EdgeSources sources={app.sources} />
+              <EdgeSources sources={app.sources} goneHost={goneHost} />
             </li>
           ))}
         </ul>

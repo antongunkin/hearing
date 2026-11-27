@@ -1,7 +1,8 @@
 // A proposal of the site atlas: a brand's config as a diff, or a relation between companies, brands and apps.
 import { configDiff } from '@/src/lib/review/config-diff'
 import { failed } from '@/src/lib/review/card'
-import type { Edge, Entity } from '@/src/lib/schema/graph'
+import { z } from 'zod'
+import { Edge, Entity } from '@/src/lib/schema/graph'
 import type { PendingChange } from '@/src/lib/schema/pending'
 import { approveChange, rejectChange } from './actions'
 import { cell, Checks, failedStyle, Value } from './ChangeRow'
@@ -41,7 +42,7 @@ function AllChecks({ checks }: { checks: PendingChange['checks'] }) {
   )
 }
 
-type Proposed = { edge: Edge; entities: Entity[] }
+const Proposed = z.strictObject({ edge: Edge, entities: z.array(Entity) })
 
 export function AtlasCard({ item }: { item: PendingChange }) {
   const { id } = item
@@ -54,17 +55,24 @@ export function AtlasCard({ item }: { item: PendingChange }) {
     await rejectChange(id)
   }
 
-  const relation = item.kind === 'relation' ? (item.after as Proposed) : null
+  const parsed = item.kind === 'relation' ? Proposed.safeParse(item.after) : null
+  const relation = parsed?.success ? parsed.data : null
   const nameOf = (entityId: string) => relation?.entities.find((e) => e.id === entityId)?.name ?? entityId
   const anyFailed = Object.values(item.checks).some((results) => results.some(failed))
 
   return (
     <article style={{ marginBottom: 32, ...(anyFailed && { borderLeft: '4px solid #7a0000', paddingLeft: 8 }) }}>
-      {relation ? (
+      {parsed && !parsed.success ? (
+        <>
+          <h3>Relation: {item.path}</h3>
+          <p style={failedStyle}>Malformed proposal, reject it: {parsed.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join('; ')}</p>
+        </>
+      ) : relation ? (
         <>
           <h3>
             {nameOf(relation.edge.from)} {relation.edge.kind} {nameOf(relation.edge.to)}
             {relation.edge.since && ` since ${relation.edge.since}`}
+            {relation.edge.until && ` until ${relation.edge.until}`}
           </h3>
           <ul aria-label="Sources">
             {relation.edge.sources.map((source) => (

@@ -24,7 +24,7 @@ test('an archived source is linked as an archive copy with its month; owner, sib
     owner: { name: 'GN', since: '2019', sources: [{ url: 'https://web.archive.org/web/20190301id_/https://gn.example/about', quote: 'q', fetchedAt: at, kind: 'company-page' }] },
     siblings: ['beta'],
     makers: [],
-    apps: [{ name: 'App', iosId: '42', androidId: 'com.x', sources: [{ url: 'https://apps.apple.com/app/id42', fetchedAt: at, kind: 'app-store' }] }],
+    apps: [{ name: 'App', iosId: '42', androidId: 'com.x', sources: [{ url: 'https://apps.apple.com/app/id42', quote: 'q', fetchedAt: at, kind: 'app-store' }] }],
   })
   const hrefs = [...doc.querySelectorAll('a')].map((a) => a.getAttribute('href'))
   expect(doc.body.textContent).toContain('Owned by GN since 2019')
@@ -34,4 +34,28 @@ test('an archived source is linked as an archive copy with its month; owner, sib
   expect(hrefs).toContain('https://apps.apple.com/app/id42')
   expect(hrefs).toContain('https://play.google.com/store/apps/details?id=com.x')
   expect(doc.body.innerHTML).not.toContain('ld+json')
+})
+
+test('crawl and unquoted sources are not shown; a gone brand\'s own host is named, not linked', () => {
+  const doc = html({
+    siblings: [],
+    makers: [],
+    apps: [],
+    owner: {
+      name: 'GN',
+      sources: [
+        { url: 'https://www.parked.example/about', quote: 'q', fetchedAt: at, kind: 'company-page' },
+        { url: 'https://crawl.example/x', fetchedAt: at, kind: 'crawl' },
+        { url: 'https://web.archive.org/web/20190301/https://www.parked.example/about', quote: 'q', fetchedAt: at, kind: 'company-page' },
+      ],
+    },
+  })
+  const withHost = parse(renderToStaticMarkup(<CompanyBlock data={{ siblings: [], makers: [], apps: [], owner: { name: 'GN', sources: [
+    { url: 'https://www.parked.example/about', quote: 'q', fetchedAt: at, kind: 'company-page' },
+    { url: 'https://crawl.example/x', fetchedAt: at, kind: 'crawl' },
+    { url: 'https://web.archive.org/web/20190301/https://www.parked.example/about', quote: 'q', fetchedAt: at, kind: 'company-page' },
+  ] } }} brands={[]} goneHost="parked.example" />))
+  expect(doc.body.innerHTML).not.toContain('crawl.example')
+  expect([...withHost.querySelectorAll('a')].map((a) => a.getAttribute('href'))).toEqual(['https://web.archive.org/web/20190301/https://www.parked.example/about'])
+  expect(withHost.body.textContent).toContain('Source: www.parked.example')
 })

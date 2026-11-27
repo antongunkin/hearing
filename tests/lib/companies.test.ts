@@ -72,3 +72,27 @@ test('a source note cites an archive copy without the raw flag and marks third p
   expect(edgeSourceNote(archived)).toEqual({ sourceUrl: 'https://web.archive.org/web/20190301/https://www.gn.example/about', sourceType: 'official' })
   expect(edgeSourceNote({ ...src, kind: 'third-party' }).sourceType).toBe('third-party')
 })
+
+describe('ended edges', () => {
+  const ended = (from: string, kind: Edge['kind'], to: string) => edge(from, kind, to, { since: '2015', until: '2021' })
+
+  test('an ended owner never shows; a current owner wins whatever the order', () => {
+    const old = ended('company:maker', 'owns', 'brand:phonak')
+    for (const edges of [[old, owns], [owns, old]]) {
+      expect(companyBlock('phonak', graphWith(edges))?.owner?.name).toBe('GN')
+    }
+    expect(companyBlock('phonak', graphWith([old]))).toBeNull()
+    expect(ownershipTable(graphWith([old]), brands)).toEqual([])
+  })
+
+  test('an ended owner\'s other brands, makers and apps are not current', () => {
+    const graph = graphWith([
+      owns,
+      ended('company:gn', 'owns', 'brand:beta'),
+      ended('company:maker', 'makes-for', 'brand:phonak'),
+      ended('brand:phonak', 'publishes', 'app:phonak-app'),
+    ])
+    expect(companyBlock('phonak', graph)).toEqual({ owner: { name: 'GN', since: '2019', sources: [src] }, siblings: [], makers: [], apps: [] })
+    expect(ownershipTable(graph, brands).map((r) => r.brands.map((b) => b.slug))).toEqual([['phonak']])
+  })
+})

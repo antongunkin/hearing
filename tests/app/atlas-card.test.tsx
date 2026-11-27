@@ -51,3 +51,17 @@ test('a relation card reads "<from> <kind> <to> since <since>" with each source 
   expect(html).toContain('company-page')
   expect(html).toContain('✓')
 })
+
+test('a malformed relation shows an error on its card instead of crashing; until is shown', () => {
+  const bad: PendingChange = { ...base, id: 'industry-graph-bad', kind: 'relation', path: 'graph/bad', after: { edge: 1 }, checks: {} }
+  expect(renderToStaticMarkup(<AtlasCard item={bad} />)).toContain('Malformed proposal')
+  const good = {
+    ...base, id: 'industry-graph-y', kind: 'relation' as const, path: 'graph/y', checks: {},
+    after: {
+      edge: { from: 'company:gn', to: 'brand:phonak', kind: 'owns', since: '2015', until: '2021', visibility: 'internal', status: 'proposed',
+        sources: [{ url: 'https://gn.example/about', quote: 'q', fetchedAt: '2026-11-26T10:00:00.000Z', kind: 'company-page' }] },
+      entities: [{ id: 'company:gn', kind: 'company', name: 'GN' }, { id: 'brand:phonak', kind: 'brand', name: 'Phonak' }],
+    },
+  }
+  expect(renderToStaticMarkup(<AtlasCard item={good} />)).toContain('since 2015 until 2021')
+})

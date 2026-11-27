@@ -16,6 +16,9 @@ export type OwnershipRow = {
   brands: { slug: string; name: string; since?: string; sources: EdgeSource[] }[]
 }
 
+/** An edge with an `until` has ended: it is history, never shown as current. */
+export const isCurrent = (edge: Edge) => edge.until === undefined
+
 /** The only edges the site shows. */
 export const publicEdges = (graph: Graph): Edge[] =>
   graph.edges.filter((edge) => edge.visibility === 'public' && edge.status === 'verified')
@@ -25,7 +28,7 @@ const brandSlug = (id: string) => (id.startsWith('brand:') ? id.slice('brand:'.l
 
 export function companyBlock(brandSlugOf: string, graph: Graph): CompanyBlockData | null {
   const id = `brand:${brandSlugOf}`
-  const edges = publicEdges(graph)
+  const edges = publicEdges(graph).filter(isCurrent)
   const entity = (entityId: string): Entity | undefined => graph.entities.find((e) => e.id === entityId)
   const nameOf = (entityId: string) => entity(entityId)?.name ?? entityId
 
@@ -64,7 +67,7 @@ export function companyBlock(brandSlugOf: string, graph: Graph): CompanyBlockDat
 export function ownershipTable(graph: Graph, brands: Brand[]): OwnershipRow[] {
   const rows = new Map<string, OwnershipRow>()
   for (const edge of publicEdges(graph)) {
-    if (edge.kind !== 'owns') continue
+    if (edge.kind !== 'owns' || !isCurrent(edge)) continue
     const brand = brands.find((b) => `brand:${b.slug}` === edge.to)
     const company = graph.entities.find((e) => e.id === edge.from)
     if (!brand || !company) continue

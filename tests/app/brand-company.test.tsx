@@ -40,3 +40,9 @@ test('the Company block shows public verified edges only', async () => {
   expect(await render('active', [edge({})])).toContain('Owned by GN')
   expect(await render('active', [edge({ visibility: 'internal', status: 'proposed' })])).not.toContain('Company')
 })
+
+test('a gone brand\'s Company block does not link a source on its own domain', async () => {
+  const html = await render('gone', [edge({ sources: [{ ...src, url: 'https://parked.example/about' }] })])
+  expect(html).toContain('Owned by GN')
+  expect(html).not.toContain('href="https://parked.example/about"')
+})
