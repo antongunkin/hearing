@@ -22,7 +22,7 @@ const isSourced = (node: unknown): node is Sourced<unknown> =>
   typeof node === 'object' && node !== null && !Array.isArray(node) && 'sourceType' in node && 'value' in node && 'quote' in node
 
 /** The sourced values inside `node` by field path, not looking inside a sourced value. */
-function sourcedLeaves(node: unknown, path = ''): [string, Sourced<unknown>][] {
+export function sourcedLeaves(node: unknown, path = ''): [string, Sourced<unknown>][] {
   if (isSourced(node)) return [[path, node]]
   if (typeof node !== 'object' || node === null) return []
   return Object.entries(node).flatMap(([key, child]) => sourcedLeaves(child, path === '' ? key : `${path}.${key}`))
@@ -49,7 +49,7 @@ const withoutCitations = (node: unknown): unknown => {
 const substance = (value: unknown): string =>
   stableStringify(JSON.parse(stableStringify(withoutCitations(value ?? null)), (key, node) => (key === 'fetchedAt' ? undefined : node)))
 
-const sameValue = (a: unknown, b: unknown) => substance(a) === substance(b)
+export const sameValue = (a: unknown, b: unknown) => substance(a) === substance(b)
 
 /**
  * Identifies a change across runs, so that a rejected one is not proposed again: by what it says, not
@@ -60,6 +60,10 @@ export function fingerprint(c: { kind: CandidateChange['kind']; modelSlug: strin
   const what = c.kind === 'new-model' ? 'new-model' : substance(c.after)
   return createHash('sha256').update(`${c.modelSlug}|${c.path}|${what}`).digest('hex')
 }
+
+/** The kind of a change to one sourced value: an official price is a `price`, anything else a `spec-change`. */
+export const sourcedKind = (path: string, after: unknown): 'price' | 'spec-change' =>
+  isSourced(after) && after.sourceType === 'official' && path.endsWith('.priceUsd') ? 'price' : 'spec-change'
 
 /**
  * The changes from the stored model to a freshly extracted one. A new model is one `new-model` change
@@ -82,8 +86,7 @@ export function diffModel(existing: Model | null, cand: ModelCandidate): Candida
   const proposeSourced = (path: string, after: Sourced<unknown>, checks: Record<string, CheckResult[]>) => {
     const before = stored.get(path)
     if (before !== undefined && sameValue(before.value, after.value)) return
-    const price = after.sourceType === 'official' && path.endsWith('.priceUsd')
-    push(price ? 'price' : 'spec-change', path, before, after, checks)
+    push(sourcedKind(path, after), path, before, after, checks)
   }
   /** A plain field the candidate states, when it differs from the stored one. */
   const proposePlain = (path: string, before: unknown, after: unknown) => {
@@ -168,7 +171,7 @@ export async function enqueue(c: CandidateChange, dir = 'data'): Promise<void> {
 
 const EventSentence = z.strictObject({ text: z.string().min(1) })
 
-type NewEvent = Omit<Event, 'id' | 'text'>
+export type NewEvent = Omit<Event, 'id' | 'text'>
 
 function templateText(event: NewEvent, product: string | null, facts: Json): string {
   const subject = product ?? 'A hearing aid'
@@ -219,77 +222,135 @@ function setPath(target: Json, path: string, value: unknown): void {
 
 const REVIEWS_PREFIX = 'reviews.'
 
-/**
- * Applies a change that `route` sent to `auto`: writes the model, reviews or event file and keeps
- * `dataset` in step. Returns the feed events it wrote: `price-change` and `app-update` when a known
- * value changes (not when it is first learned), `fda-clearance`/`fda-recall` for an FDA event. An
- * `app-update` belongs to the app (no model, key `<iosId>:<version>`), so models that share an app give
- * one. Events are written before the data, and a duplicate is not written again, so a run stopped in
- * between is safe to repeat.
- */
-export async function applyAuto(c: CandidateChange, dataset: Dataset, dir = 'data'): Promise<Event[]> {
-  const model = dataset.models.find((m) => m.slug === c.modelSlug) ?? null
-  const brand = model && dataset.brands.find((b) => b.slug === model.brand)
-  const product = model && `${brand?.name ?? model.brand} ${model.name}`
+/** A path naming a whole variant, which is added or removed. */
+export const VARIANT_PATH = /^variants\.\d+$/
 
-  const emit = async (event: NewEvent, facts: Json, subject = product): Promise<Event[]> => {
-    if (isDuplicateEvent({ ...event, id: 'new', text: '' }, dataset.events)) return []
-    const id = slugify(`${event.date.slice(0, 10)} ${event.type} ${event.modelSlug ?? ''} ${event.key}`)
-    const written = Event.parse({ ...event, id, text: await eventText(event, subject, facts) })
-    await writeJson(join(dir, 'events', `${id}.json`), written)
-    dataset.events.push(written)
-    return [written]
+/** What an event is still missing: what `eventText` needs to word it. `product` is the display name. */
+export type EventContext = { product: string | null; facts: Json }
+
+/** A file under the data directory, and its new content. */
+export type Write = { path: string; value: unknown }
+
+export type ChangePlan = { writes: Write[]; events: ({ event: NewEvent } & EventContext)[] }
+
+export type Change = Pick<CandidateChange, 'kind' | 'modelSlug' | 'path' | 'before' | 'after'>
+
+/** The model with the change made. A variant is added at the end and removed by its id, wherever it stands now. */
+function changedModel(model: Model, { path, before, after }: Change): Model {
+  const updated = structuredClone(model)
+  if (!VARIANT_PATH.test(path)) {
+    setPath(updated as Json, path, after)
+  } else if (after === null) {
+    updated.variants = updated.variants.filter((v) => v.id !== (before as Model['variants'][number]).id)
+  } else {
+    const added = after as Model['variants'][number]
+    const stored = updated.variants.find((v) => v.id === added.id)
+    if (stored === undefined) updated.variants.push(added)
+    else if (!sameValue(stored, added)) throw new Error(`variant ${added.id} of ${model.slug} already exists`)
   }
+  return Model.parse(updated)
+}
+
+/**
+ * What applying a change to the dataset writes, and the feed events it gives: `new-model`; `price-change`
+ * and `app-update` when a known value changes (not when it is first learned); `fda-clearance`/`fda-recall`
+ * for an FDA event. An `app-update` belongs to the app (no model, key `<iosId>:<version>`), so models that
+ * share an app give one. Pure: nothing is read or written.
+ */
+export function planChange(c: Change, dataset: Dataset): ChangePlan {
+  const model = dataset.models.find((m) => m.slug === c.modelSlug) ?? null
+  const brandName = (slug: string) => dataset.brands.find((b) => b.slug === slug)?.name ?? slug
+  const productOf = (m: Model) => `${brandName(m.brand)} ${m.name}`
+  const modelWrite = (value: Model): Write => ({ path: `models/${value.slug}.json`, value })
 
   switch (c.kind) {
-    case 'fda-event':
-      return emit(c.after as NewEvent, {})
+    case 'fda-event': {
+      const event = c.after as NewEvent
+      const subject = dataset.models.find((m) => m.slug === event.modelSlug)
+      return { writes: [], events: [{ event, product: subject ? productOf(subject) : null, facts: {} }] }
+    }
+
+    case 'new-model': {
+      const added = Model.parse(c.after)
+      const sources = [...new Set(sourcedLeaves(added).map(([, field]) => field.sourceUrl))]
+      const event: NewEvent = { type: 'new-model', modelSlug: added.slug, date: today(), key: added.slug, sources }
+      return { writes: [modelWrite(added)], events: [{ event, product: productOf(added), facts: {} }] }
+    }
 
     case 'price':
-    case 'app-version': {
+    case 'app-version':
+    case 'spec-change': {
       if (model === null) throw new Error(`${c.kind} for unknown model ${c.modelSlug}`)
-      const updated = structuredClone(model) as Json
-      setPath(updated, c.path, c.after)
-      const parsed = Model.parse(updated)
+      const writes = [modelWrite(changedModel(model, c))]
       const before = c.before as Sourced<unknown> | undefined
+      if (c.kind === 'spec-change' || before === undefined) return { writes, events: [] }
       const after = c.after as Sourced<unknown>
-      let events: Event[] = []
-      if (before !== undefined) {
-        const base = { modelSlug: model.slug, date: today(), sources: [after.sourceUrl] }
-        events =
-          c.kind === 'price'
-            ? await emit(
-                { ...base, type: 'price-change', key: `${c.path}:${stableStringify(after.value)}` },
-                { variant: model.variants[Number(c.path.split('.')[1])]?.id, before: before.value, after: after.value },
-              )
-            : // One event per app release, not per model: brand apps serve every model of the brand.
-              await emit(
-                { ...base, modelSlug: null, type: 'app-update', key: `${model.app?.iosId ?? model.slug}:${after.value}` },
-                { app: model.app?.name, version: after.value },
-                brand?.name ?? model.brand,
-              )
+      const base = { modelSlug: model.slug, date: today(), sources: [after.sourceUrl] }
+      if (c.kind === 'price') {
+        const event: NewEvent = { ...base, type: 'price-change', key: `${c.path}:${stableStringify(after.value)}` }
+        const facts = { variant: model.variants[Number(c.path.split('.')[1])]?.id, before: before.value, after: after.value }
+        return { writes, events: [{ event, product: productOf(model), facts }] }
       }
-      await writeJson(join(dir, 'models', `${model.slug}.json`), parsed)
-      dataset.models[dataset.models.indexOf(model)] = parsed
-      return events
+      // One event per app release, not per model: brand apps serve every model of the brand.
+      const key = `${model.app?.iosId ?? model.slug}:${after.value}`
+      const event: NewEvent = { ...base, modelSlug: null, type: 'app-update', key }
+      return { writes, events: [{ event, product: brandName(model.brand), facts: { app: model.app?.name, version: after.value } }] }
     }
 
     case 'review-stats':
-    case 'complaint-themes': {
+    case 'complaint-themes':
+    case 'pros-cons': {
       if (c.modelSlug === null || !c.path.startsWith(REVIEWS_PREFIX)) throw new Error(`bad ${c.kind} change at ${c.path}`)
-      const index = dataset.reviews.findIndex((r) => r.slug === c.modelSlug)
       const updated = structuredClone(
-        dataset.reviews[index] ?? { slug: c.modelSlug, customer: [], complaintThemes: [], prosCons: null, videos: [] },
+        dataset.reviews.find((r) => r.slug === c.modelSlug) ??
+          { slug: c.modelSlug, customer: [], complaintThemes: [], prosCons: null, videos: [] },
       ) as Json
       setPath(updated, c.path.slice(REVIEWS_PREFIX.length), c.after)
       const parsed = Reviews.parse(updated)
-      await writeJson(join(dir, 'reviews', `${parsed.slug}.json`), parsed)
-      if (index === -1) dataset.reviews.push(parsed)
-      else dataset.reviews[index] = parsed
-      return []
+      return { writes: [{ path: `reviews/${parsed.slug}.json`, value: parsed }], events: [] }
     }
-
-    default:
-      throw new Error(`a ${c.kind} change is never applied automatically`)
   }
+}
+
+/**
+ * Writes the event to `data/events/` with its id and sentence, and adds it to `dataset`. A duplicate is
+ * not written again (and costs no LLM call). Returns what it wrote.
+ */
+export async function writeEvent(
+  { event, product, facts }: ChangePlan['events'][number],
+  dataset: Dataset,
+  dir = 'data',
+): Promise<Event[]> {
+  if (isDuplicateEvent({ ...event, id: 'new', text: '' }, dataset.events)) return []
+  const id = slugify(`${event.date.slice(0, 10)} ${event.type} ${event.modelSlug ?? ''} ${event.key}`)
+  const written = Event.parse({ ...event, id, text: await eventText(event, product, facts) })
+  await writeJson(join(dir, 'events', `${id}.json`), written)
+  dataset.events.push(written)
+  return [written]
+}
+
+/** Puts `record` in place of the one with its slug, or adds it. */
+function upsert<T extends { slug: string }>(records: T[], record: T): void {
+  const index = records.findIndex((r) => r.slug === record.slug)
+  if (index === -1) records.push(record)
+  else records[index] = record
+}
+
+/**
+ * Applies a change that `route` sent to `auto`: writes the model, reviews or event file and keeps
+ * `dataset` in step. Returns the feed events it wrote (see `planChange`). Events are written before the
+ * data, and a duplicate is not written again, so a run stopped in between is safe to repeat.
+ */
+export async function applyAuto(c: CandidateChange, dataset: Dataset, dir = 'data'): Promise<Event[]> {
+  if (!AUTO_KINDS.has(c.kind)) throw new Error(`a ${c.kind} change is never applied automatically`)
+  const { writes, events } = planChange(c, dataset)
+  const written: Event[] = []
+  for (const event of events) written.push(...(await writeEvent(event, dataset, dir)))
+  for (const { path, value } of writes) {
+    // The review page imports this file: without the comment, the build traces the whole project for this path.
+    await writeJson(join(/*turbopackIgnore: true*/ dir, path), value)
+    if (path.startsWith('models/')) upsert(dataset.models, value as Model)
+    else upsert(dataset.reviews, value as Reviews)
+  }
+  return written
 }
