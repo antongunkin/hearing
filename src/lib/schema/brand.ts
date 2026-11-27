@@ -1,9 +1,28 @@
 import { z } from 'zod'
-import { HttpUrl, Slug } from './field'
+import { HttpUrl, IsoDateTime, Slug } from './field'
 import { ModelType } from './model'
 
 export const BrandStatus = z.enum(['active', 'gone'])
 export type BrandStatus = z.infer<typeof BrandStatus>
+
+const HistoryFact = z.strictObject({
+  /** `YYYY-MM` or `YYYY-MM-DD`. */
+  date: z.string().regex(/^\d{4}-\d{2}(-\d{2})?$/),
+  text: z.string().min(1),
+  sourceUrl: HttpUrl,
+  /** A quote that occurs literally in the source. */
+  quote: z.string().min(1),
+  fetchedAt: IsoDateTime,
+})
+export type HistoryFact = z.infer<typeof HistoryFact>
+
+export const BrandHistory = z.strictObject({
+  facts: z.array(HistoryFact).min(3).max(5),
+  app: z
+    .strictObject({ name: z.string(), iosId: z.string(), available: z.boolean(), checkedAt: IsoDateTime, sourceUrl: HttpUrl })
+    .optional(),
+})
+export type BrandHistory = z.infer<typeof BrandHistory>
 
 export const Brand = z.strictObject({
   slug: Slug,
@@ -25,5 +44,8 @@ export const Brand = z.strictObject({
   }),
   /** Where the Web Archive copies of a gone brand's model pages are found. */
   archive: z.strictObject({ catalogUrls: z.array(HttpUrl), modelUrlPattern: z.string().optional() }).optional(),
+  /** What happened to the brand, in 3 to 5 sourced facts. */
+  history: BrandHistory.optional(),
+  historySources: z.array(HttpUrl).optional(),
 })
 export type Brand = z.infer<typeof Brand>

@@ -451,7 +451,7 @@ describe('isInScope', () => {
   const at = (value: string) =>
     ({ releaseDate: { value, sourceUrl: MODEL_URL, quote: value, fetchedAt: '2026-11-26T10:00:00.000Z', sourceType: 'official' } }) as Model
 
-  test('compares the release date with config.releasedAfter at the precision given', () => {
+  test('compares the release date with config.eventsSince at the precision given', () => {
     expect(isInScope(at('2024-08'))).toBe(true)
     expect(isInScope(at('2023-11'))).toBe(true)
     expect(isInScope(at('2023-11-01'))).toBe(true)
@@ -467,6 +467,7 @@ describe('matchExistingModel', () => {
     name,
     aliases,
     type: 'rx',
+    documents: [],
     sameHardwareAs: [],
     variants: [],
   })

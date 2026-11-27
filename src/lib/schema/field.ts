@@ -6,12 +6,15 @@ export const HttpUrl = z.url({ protocol: /^https?$/ })
 export const IsoDateTime = z.iso.datetime()
 // Slugs and ids become file names and URL segments.
 export const Slug = z.string().regex(SLUG_PATTERN)
+// A month as `YYYY-MM`.
+export const YearMonth = z.string().regex(/^\d{4}-(0[1-9]|1[0-2])$/)
 
 export const SourceType = z.enum(['official', 'third-party', 'derived'])
 export type SourceType = z.infer<typeof SourceType>
 
 export const Derivation = z.strictObject({
-  op: z.enum(['oz-to-g', 'in-to-mm', 'pair-to-unit', 'from-list']),
+  /** `earliest-archive-copy`: the input is the timestamp of the earliest Web Archive copy of the page. */
+  op: z.enum(['oz-to-g', 'in-to-mm', 'pair-to-unit', 'from-list', 'earliest-archive-copy']),
   input: z.string(),
 })
 export type Derivation = z.infer<typeof Derivation>

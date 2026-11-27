@@ -29,7 +29,7 @@ const brand = {
   status: 'active',
   scraper: { catalogUrls: ['https://www.phonak.com/en-us'], modelUrlPattern: '/hearing-aids/', render: false },
 }
-const model = { slug: 'phonak-x', brand: 'phonak', name: 'X', aliases: [], type: 'rx', sameHardwareAs: [], variants: [] }
+const model = { slug: 'phonak-x', brand: 'phonak', name: 'X', aliases: [], type: 'rx', sameHardwareAs: [], variants: [], documents: [] }
 const reviews = { slug: 'phonak-x', customer: [], complaintThemes: [], prosCons: null, videos: [] }
 const event = { id: 'e1', type: 'new-model', modelSlug: 'phonak-x', date: '2026-11-26', key: 'k', text: 't', sources: [] }
 const pending = { id: 'p1', kind: 'new-model', modelSlug: null, path: '', after: model, checks: {}, createdAt: '2026-11-26T00:00:00Z' }

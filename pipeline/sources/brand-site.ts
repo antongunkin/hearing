@@ -407,11 +407,11 @@ export function matchExistingModel(candidate: Model, models: Model[]): Model | n
 }
 
 /**
- * Released on or after `config.releasedAfter`, compared at the precision of the date given ("2023-11"
+ * Released on or after `config.eventsSince`, compared at the precision of the date given ("2023-11"
  * counts). Without a date the model stays in: extractModel flags it with `no-release-date` for review.
  */
 export function isInScope(m: Model): boolean {
   const date = m.releaseDate?.value
   if (date === undefined) return true
-  return date >= config.releasedAfter.slice(0, date.length)
+  return date >= config.eventsSince.slice(0, date.length)
 }

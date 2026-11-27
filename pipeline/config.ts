@@ -14,7 +14,7 @@ export const config = {
   archiveDelayMs: 5000,
   /** Hosts whose pages are old copies of someone else's site. */
   archiveHosts: ['web.archive.org'],
-  releasedAfter: '2023-11-01',
+  eventsSince: '2023-11-01',
   /** A model counts as on sale when it was sold on or after this date. */
   onSaleSince: '2018-01-01',
   /** Limits of one site-atlas run. */

@@ -238,6 +238,8 @@ function templateText(event: NewEvent, product: string | null, facts: Json): str
       return `FDA posted a recall for ${subject} (${event.key}).`
     case 'app-update':
       return `${facts.app ?? `The app for ${subject}`} for iOS was updated to version ${facts.version}.`
+    case 'model-discontinued':
+      return `${subject} is no longer listed by its maker.`
   }
 }
 
@@ -381,6 +383,12 @@ export function planChange(c: Change, dataset: Dataset): ChangePlan {
       const parsed = Reviews.parse(updated)
       return { writes: [{ path: `reviews/${parsed.slug}.json`, value: parsed }], events: [] }
     }
+
+    // Produced by the archive and discontinuation work, which applies them; nothing proposes them yet.
+    case 'document':
+    case 'discontinued':
+    case 'brand-history':
+      throw new Error(`${c.kind} changes are not applied yet`)
   }
 }
 

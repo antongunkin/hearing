@@ -11,6 +11,7 @@ import { writeJson } from '@/src/lib/data/write'
 import type { Sourced } from '@/src/lib/schema/field'
 import { Model } from '@/src/lib/schema/model'
 import { PendingChange, type CandidateChange, type CheckResult } from '@/src/lib/schema/pending'
+import { EVENT_LABELS } from '@/src/lib/site/format'
 
 vi.mock('@/pipeline/llm', async (importOriginal) => ({
   ...(await importOriginal<typeof import('@/pipeline/llm')>()),
@@ -343,6 +344,13 @@ describe('applyAuto', () => {
 
     llmMock.mockRejectedValueOnce(new LlmLimitError('claude', 'limit'))
     await expect(eventText(event, 'Jabra Enhance Select 500', {})).rejects.toBeInstanceOf(LlmLimitError)
+  })
+
+  test('model-discontinued has a label and a template sentence', async () => {
+    expect(EVENT_LABELS['model-discontinued']).toBe('Discontinued')
+    llmMock.mockRejectedValueOnce(new LlmOutputError('bad'))
+    const discontinued = { type: 'model-discontinued' as const, modelSlug: 'phonak-x', date: '2026-11-27', key: 'phonak-x', sources: [] }
+    expect(await eventText(discontinued, 'Phonak Paradise', {})).toBe('Phonak Paradise is no longer listed by its maker.')
   })
 
   test('first known price or app version gives no event; fda event is written once', async () => {

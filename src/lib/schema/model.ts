@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { HttpUrl, Slug, sourced } from './field'
+import { HttpUrl, IsoDateTime, Slug, sourced, YearMonth } from './field'
 
 export const FormFactor = z.enum(['RIC', 'BTE', 'ITE', 'ITC', 'CIC', 'IIC', 'earbud'])
 export type FormFactor = z.infer<typeof FormFactor>
@@ -35,6 +35,19 @@ function* thirdPartyPaths(node: unknown, path: (string | number)[] = []): Genera
   }
 }
 
+/** A predecessor or successor: another model's slug, with the source that says so. */
+export const Lineage = z.strictObject({ slug: Slug, source: sourced(z.string()) })
+export type Lineage = z.infer<typeof Lineage>
+
+/** A document the maker publishes for the model: linked, never stored. */
+export const ModelDocument = z.strictObject({
+  kind: z.enum(['user-guide', 'datasheet', 'other']),
+  title: z.string().min(1),
+  url: HttpUrl,
+  fetchedAt: IsoDateTime,
+})
+export type ModelDocument = z.infer<typeof ModelDocument>
+
 const ModelFields = z.strictObject({
   slug: Slug,
   brand: z.string().min(1),
@@ -43,8 +56,11 @@ const ModelFields = z.strictObject({
   type: ModelType,
   releaseDate: sourced(z.string()).optional(),
   platform: sourced(z.string()).optional(),
-  predecessor: z.string().optional(),
-  successor: z.string().optional(),
+  predecessor: Lineage.optional(),
+  successor: Lineage.optional(),
+  /** Absent means on sale. `source.value` is the model name as the maker lists it. */
+  discontinued: z.strictObject({ lastListed: YearMonth.optional(), source: sourced(z.string()) }).optional(),
+  documents: z.array(ModelDocument).default([]),
   sameHardwareAs: z.array(z.strictObject({ slug: Slug, source: sourced(z.string()) })),
   materials: sourced(z.array(z.string())).optional(),
   colors: sourced(z.array(z.string())).optional(),

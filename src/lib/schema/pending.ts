@@ -2,7 +2,7 @@ import { z } from 'zod'
 import { IsoDateTime, Slug } from './field'
 
 export const CheckResult = z.strictObject({
-  name: z.enum(['literal', 'range', 'crosscheck', 'dedupe', 'forbidden', 'price-basis', 'brand-type', 'pattern', 'log']),
+  name: z.enum(['literal', 'range', 'crosscheck', 'dedupe', 'forbidden', 'price-basis', 'brand-type', 'pattern', 'log', 'lifecycle', 'document']),
   ok: z.boolean(),
   detail: z.string().optional(),
 })
@@ -18,11 +18,13 @@ const change = {
   checks: z.record(z.string(), z.array(CheckResult)),
   /** URLs or repository paths the card shows as where the proposal comes from. */
   refs: z.array(z.string()).optional(),
+  /** `archive`: found by the `archive` command, so it never creates a feed event by itself. */
+  origin: z.literal('archive').optional(),
 }
 
 export const PendingChange = z.strictObject({
   id: Slug,
-  kind: z.enum(['new-model', 'spec-change', 'pros-cons', 'failed-check', 'brand-config', 'relation']),
+  kind: z.enum(['new-model', 'spec-change', 'pros-cons', 'failed-check', 'brand-config', 'relation', 'brand-history']),
   ...change,
   createdAt: IsoDateTime,
 })
@@ -40,6 +42,9 @@ export const CandidateChange = z.strictObject({
     'pros-cons',
     'brand-config',
     'relation',
+    'document',
+    'discontinued',
+    'brand-history',
   ]),
   ...change,
 })

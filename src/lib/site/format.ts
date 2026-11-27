@@ -42,6 +42,7 @@ export const EVENT_LABELS = {
   'fda-clearance': 'FDA clearance',
   'fda-recall': 'FDA recall',
   'app-update': 'App update',
+  'model-discontinued': 'Discontinued',
 } as const
 
 /** `rechargeable` or a disposable battery size. */

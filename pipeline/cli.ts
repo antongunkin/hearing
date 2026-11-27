@@ -156,7 +156,7 @@ async function scrape(run: Run): Promise<void> {
       for (const candidate of mergeCandidates(candidates)) {
         const existing = matchExistingModel(candidate.model, run.dataset.models)
         if (existing === null && !isInScope(candidate.model)) {
-          console.log(`${candidate.model.slug}: released before ${config.releasedAfter}, left out`)
+          console.log(`${candidate.model.slug}: released before ${config.eventsSince}, left out`)
           continue
         }
         for (const change of diffModel(existing, candidate)) await handle(run, change)
@@ -175,7 +175,7 @@ async function scrape(run: Run): Promise<void> {
 async function fda(run: Run): Promise<void> {
   await unit(run, 'fda', async () => {
     const models = run.dataset.models.filter((model) => run.brands.some((brand) => brand.slug === model.brand))
-    const found = await fetchFdaEvents(config.releasedAfter, run.brands, models)
+    const found = await fetchFdaEvents(config.eventsSince, run.brands, models)
     const unmatched = found.filter((event) => !event.matched).length
     if (unmatched > 0) console.log(`fda: ${unmatched} events name no stored model, left out`)
     for (const { event, matched } of found) {

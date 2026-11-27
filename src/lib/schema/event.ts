@@ -3,7 +3,7 @@ import { HttpUrl, IsoDateTime, Slug } from './field'
 
 export const Event = z.strictObject({
   id: Slug,
-  type: z.enum(['new-model', 'price-change', 'fda-clearance', 'fda-recall', 'app-update']),
+  type: z.enum(['new-model', 'price-change', 'fda-clearance', 'fda-recall', 'app-update', 'model-discontinued']),
   modelSlug: Slug.nullable(),
   date: z.union([z.iso.date(), IsoDateTime]),
   key: z.string(),

@@ -50,7 +50,7 @@ describe('Model', () => {
   const withVariant = (extra: object) => ({ ...model, variants: [{ ...model.variants[0], ...extra }] })
 
   test('accepts a model whose spec fields are all absent', () => {
-    expect(Model.parse(model)).toEqual(model)
+    expect(Model.parse(model)).toEqual({ ...model, documents: [] })
   })
 
   test.each([
@@ -58,7 +58,7 @@ describe('Model', () => {
     ['a per-pair price range', { min: 2000, max: 4000, perPair: true }],
   ])('accepts %s', (_label, value) => {
     const input = withVariant({ priceUsd: { ...official, value } })
-    expect(Model.parse(input)).toEqual(input)
+    expect(Model.parse(input)).toEqual({ ...input, documents: [] })
   })
 
   test('rejects a bare spec value without a source', () => {
@@ -104,6 +104,7 @@ const model = {
   sameHardwareAs: [{ slug: 'unitron-y', source: { ...official, value: 'same platform' } }],
   app: { name: 'myPhonak', androidUrl: 'https://play.google.com/store/apps/details?id=x' },
   variants: [{ id: 'ric-90', formFactor: 'RIC', weightG: { ...official, value: 2.1 } }],
+  documents: [{ kind: 'user-guide', title: 'myPhonak guide', url: 'https://www.phonak.com/guide.pdf', fetchedAt: meta.fetchedAt }],
 }
 const reviews = {
   slug: 'phonak-x',
@@ -272,4 +273,49 @@ test('a brand needs a status and no longer takes datasheetUrlPattern', () => {
   expect(Brand.safeParse({ ...brand, status: undefined }).success).toBe(false)
   expect(Brand.safeParse({ ...brand, scraper: { ...brand.scraper, datasheetUrlPattern: 'x' } }).success).toBe(false)
   expect(Brand.parse({ ...brand, archive: { catalogUrls: ['https://www.eargo.com/products-hearing-aids'] } }).archive?.catalogUrls).toHaveLength(1)
+})
+
+describe('archive fields', () => {
+  const model = {
+    slug: 'phonak-x',
+    brand: 'phonak',
+    name: 'X',
+    aliases: [],
+    type: 'rx',
+    sameHardwareAs: [],
+    variants: [{ id: 'ric-90', formFactor: 'RIC' }],
+  }
+  const listed = { ...official, value: 'Paradise' }
+  const fact = { date: '2019-03', text: 'Phonak launched the Paradise platform.', sourceUrl: 'https://www.phonak.com/news', quote: 'Paradise', fetchedAt: meta.fetchedAt }
+
+  test('a model may be discontinued with or without a month, and lists documents', () => {
+    const withDocument = {
+      ...model,
+      discontinued: { source: listed },
+      documents: [{ kind: 'user-guide', title: 'Paradise user guide', url: 'https://www.phonak.com/x.pdf', fetchedAt: meta.fetchedAt }],
+    }
+    expect(Model.parse(withDocument).discontinued?.lastListed).toBeUndefined()
+    expect(Model.parse({ ...model, discontinued: { lastListed: '2023-10', source: listed } }).discontinued?.lastListed).toBe('2023-10')
+    expect(Model.parse(model).documents).toEqual([])
+    expect(Model.safeParse({ ...model, discontinued: { lastListed: '2023-13', source: listed } }).success).toBe(false)
+  })
+
+  test('predecessor and successor need a source', () => {
+    expect(Model.safeParse({ ...model, successor: 'phonak-lumity' }).success).toBe(false)
+    expect(Model.safeParse({ ...model, successor: { slug: 'phonak-lumity', source: { ...official, value: 'Lumity' } } }).success).toBe(true)
+  })
+
+  test('a brand history has 3 to 5 sourced facts', () => {
+    const history = (count: number) => ({ facts: Array.from({ length: count }, () => fact) })
+    expect(Brand.safeParse({ ...brand, history: history(3) }).success).toBe(true)
+    expect(Brand.safeParse({ ...brand, history: history(5) }).success).toBe(true)
+    expect(Brand.safeParse({ ...brand, history: history(2) }).success).toBe(false)
+    expect(Brand.safeParse({ ...brand, history: history(6) }).success).toBe(false)
+    expect(Brand.safeParse({ ...brand, history: { facts: [fact, fact, { ...fact, date: '2019' }] } }).success).toBe(false)
+  })
+
+  test('a derived release date may cite the earliest archive copy', () => {
+    const field = { ...meta, value: '2018-03', sourceType: 'derived', derivation: { op: 'earliest-archive-copy', input: '20180315120000' } }
+    expect(sourced(z.string()).parse(field)).toEqual(field)
+  })
 })
