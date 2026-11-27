@@ -36,5 +36,13 @@ export const hostname = (url: string) => new URL(url).hostname
 
 export const TYPE_LABELS = { otc: 'Over-the-counter', rx: 'Prescription', consumer: 'Consumer earbud' } as const
 
+export const EVENT_LABELS = {
+  'new-model': 'New model',
+  'price-change': 'Price change',
+  'fda-clearance': 'FDA clearance',
+  'fda-recall': 'FDA recall',
+  'app-update': 'App update',
+} as const
+
 /** `rechargeable` or a disposable battery size. */
 export const powerLabel = (type: string) => (type === 'rechargeable' ? 'Rechargeable' : `Size ${type} disposable`)

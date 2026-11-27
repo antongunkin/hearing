@@ -1,0 +1,64 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
+import { cache } from 'react'
+import { ModelList } from '@/src/components/ModelList'
+import { loadDataset } from '@/src/lib/data/load'
+import { latestFirst } from '@/src/lib/site/catalog-index'
+import { hostname } from '@/src/lib/site/format'
+import { canonical } from '@/src/lib/site/url'
+
+type Props = { params: Promise<{ brand: string }> }
+
+export const dynamicParams = false
+
+const dataset = cache(() => loadDataset())
+
+export async function generateStaticParams() {
+  const { brands } = await dataset()
+  return brands.map(({ slug }) => ({ brand: slug }))
+}
+
+async function find(slug: string) {
+  const data = await dataset()
+  const brand = data.brands.find((b) => b.slug === slug)
+  if (!brand) notFound()
+  return { data, brand }
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { brand: slug } = await params
+  const { brand } = await find(slug)
+  return {
+    title: `${brand.name} hearing aids`,
+    description: `${brand.name} hearing aids in the database, with type and release date.`,
+    alternates: canonical(`/brands/${slug}`),
+  }
+}
+
+export default async function BrandPage({ params }: Props) {
+  const { brand: slug } = await params
+  const { data, brand } = await find(slug)
+  const models = data.models
+    .filter((model) => model.brand === slug)
+    .map((model) => ({ model, releaseDate: model.releaseDate?.value }))
+    .sort(latestFirst)
+    .map(({ model }) => model)
+
+  return (
+    <main className="page">
+      <nav className="breadcrumbs" aria-label="Breadcrumb">
+        <Link href="/hearing-aids">All hearing aids</Link>
+      </nav>
+      <h1>{brand.name} hearing aids</h1>
+      <p>
+        Maker’s website: <a href={brand.website}>{hostname(brand.website)}</a>
+      </p>
+      {models.length === 0 ? (
+        <p>No {brand.name} models in the database yet.</p>
+      ) : (
+        <ModelList models={models} brands={data.brands} />
+      )}
+    </main>
+  )
+}

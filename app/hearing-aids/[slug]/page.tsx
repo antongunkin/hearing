@@ -6,9 +6,9 @@ import { cache } from 'react'
 import { AdSlot } from '@/src/components/AdSlot'
 import { BuyBoxSlot } from '@/src/components/BuyBoxSlot'
 import { FormFactorIcon } from '@/src/components/FormFactorIcon'
+import { HardwareTwin } from '@/src/components/HardwareTwin'
 import { ProsCons } from '@/src/components/ProsCons'
 import { ReviewSummary } from '@/src/components/ReviewSummary'
-import { SourceNote } from '@/src/components/SourceNote'
 import { SpecTable } from '@/src/components/SpecTable'
 import { YouTubeEmbed } from '@/src/components/YouTubeEmbed'
 import { loadDataset } from '@/src/lib/data/load'
@@ -78,6 +78,12 @@ export default async function ModelPage({ params }: Props) {
           <h1>{product}</h1>
           <dl className="facts">
             <div>
+              <dt>Brand</dt>
+              <dd>
+                <Link href={`/brands/${brand.slug}`}>{brand.name}</Link>
+              </dd>
+            </div>
+            <div>
               <dt>Type</dt>
               <dd>{TYPE_LABELS[model.type]}</dd>
             </div>
@@ -133,22 +139,11 @@ export default async function ModelPage({ params }: Props) {
         <section aria-labelledby="twins-heading">
           <h2 id="twins-heading">Same hardware as</h2>
           <ul>
-            {model.sameHardwareAs.map((twin) => {
-              // A twin may not be in the database: then only the name its source gives is known.
-              const other = data.models.find((m) => m.slug === twin.slug)
-              return (
-                <li key={twin.slug}>
-                  {other ? (
-                    <Link href={`/hearing-aids/${other.slug}`}>
-                      {productName(other, data.brands)}
-                    </Link>
-                  ) : (
-                    twin.source.value
-                  )}{' '}
-                  <SourceNote source={twin.source} />
-                </li>
-              )
-            })}
+            {model.sameHardwareAs.map((twin) => (
+              <li key={twin.slug}>
+                <HardwareTwin twin={twin} models={data.models} brands={data.brands} />
+              </li>
+            ))}
           </ul>
         </section>
       )}
