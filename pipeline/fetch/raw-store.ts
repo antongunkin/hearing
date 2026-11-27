@@ -21,7 +21,7 @@ export const FetchLogEntry = z.strictObject({
   bodyHash: z.string().regex(/^[0-9a-f]{64}$/).optional(),
   via: z.enum(['live', 'archive']),
   rendered: z.boolean(),
-  skipped: z.enum(['robots', 'blocklist', 'bot-protection', 'rate-limited', 'archive-excluded', 'http-error']).optional(),
+  skipped: z.enum(['robots', 'blocklist', 'bot-protection', 'rate-limited', 'archive-excluded', 'archived-wall', 'http-error']).optional(),
   detail: z.string().optional(),
 })
 export type FetchLogEntry = z.infer<typeof FetchLogEntry>

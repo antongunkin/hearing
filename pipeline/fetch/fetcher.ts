@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto'
 import { join } from 'node:path'
 import { config } from '@/pipeline/config'
 import { readCache } from '@/pipeline/llm/cache'
+import { parseArchiveUrl } from '@/src/lib/archive-url'
 import { loadBlocklist } from '@/src/lib/data/load'
 import { writeJson } from '@/src/lib/data/write'
 import { looksLikeBotWall } from './bot-detect'
@@ -13,7 +14,7 @@ import { readRobots } from './robots'
 
 export type FetchResult =
   | { status: 'ok'; url: string; text: string; html?: string; contentHash: string; fetchedAt: string; bodyHash?: string; contentType?: string }
-  | { status: 'skipped'; url: string; reason: 'robots' | 'blocklist' | 'bot-protection' | 'rate-limited' | 'archive-excluded' | 'http-error'; detail?: string }
+  | { status: 'skipped'; url: string; reason: 'robots' | 'blocklist' | 'bot-protection' | 'rate-limited' | 'archive-excluded' | 'archived-wall' | 'http-error'; detail?: string }
 
 type Ok = Extract<FetchResult, { status: 'ok' }>
 
@@ -230,7 +231,11 @@ export async function fetchPage(url: string, opts: FetchOptions = {}): Promise<F
     if (status === 429) return { reason: 'rate-limited', detail: 'HTTP 429' }
     // The Web Archive answers an excluded site (its owner asked it not to serve it) with an empty 403; a 403 with a page is a wall.
     if (status === 403 && body.length === 0 && config.archiveHosts.includes(start.hostname)) return { reason: 'archive-excluded', detail: 'HTTP 403' }
-    if (looksLikeBotWall(status, source)) return { reason: 'bot-protection', detail: `HTTP ${status}` }
+    if (looksLikeBotWall(status, source)) {
+      // A raw copy answered 2xx: the archive served what the site showed its crawler, a wall it captured. That is this copy's outcome, not a refusal.
+      if (status >= 200 && status <= 299 && config.archiveHosts.includes(start.hostname) && parseArchiveUrl(url)?.raw) return { reason: 'archived-wall', detail: `HTTP ${status}, the copy is a captured bot wall` }
+      return { reason: 'bot-protection', detail: `HTTP ${status}` }
+    }
     if (status < 200 || status > 299) return { reason: 'http-error', detail: `HTTP ${status}` }
   })
   if ('reason' in reply) return skipped(reply)

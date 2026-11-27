@@ -235,6 +235,37 @@ describe('results', () => {
     expect(await get(`${site.origin}/wall`)).toMatchObject({ status: 'skipped', reason: 'bot-protection' })
   })
 
+  describe('Web Archive copies', () => {
+    const copy = 'https://web.archive.org/web/20201031003124id_/https://audienhearing.com/collections/all'
+    const stub = (status: number, body: string) => {
+      Object.assign(config, { archiveDelayMs: 0 })
+      vi.stubGlobal('fetch', async (input: URL) =>
+        new Response(input.pathname === '/robots.txt' ? '' : body, { status: input.pathname === '/robots.txt' ? 404 : status, headers: { 'content-type': 'text/html' } }),
+      )
+    }
+
+    test('a 200 raw copy that is a captured bot wall → skipped/archived-wall, logged so', async () => {
+      stub(200, (await fixture('captcha-200.html')).toString())
+      expect(await get(copy, { refresh: true })).toMatchObject({ status: 'skipped', reason: 'archived-wall' })
+      expect((await readLog()).at(-1)).toMatchObject({ url: copy, status: 200, skipped: 'archived-wall' })
+    })
+
+    test('a 429 from the archive is still rate-limited', async () => {
+      stub(429, 'slow down')
+      expect(await get(copy, { refresh: true })).toMatchObject({ status: 'skipped', reason: 'rate-limited' })
+    })
+
+    test('a 503 wall page from the archive itself is still bot-protection', async () => {
+      stub(503, (await fixture('cf-challenge.html')).toString())
+      expect(await get(copy, { refresh: true })).toMatchObject({ status: 'skipped', reason: 'bot-protection' })
+    })
+
+    test('a live 200 wall page is still bot-protection', async () => {
+      stub(200, (await fixture('captcha-200.html')).toString())
+      expect(await get('https://audienhearing.com/collections/all', { refresh: true })).toMatchObject({ status: 'skipped', reason: 'bot-protection' })
+    })
+  })
+
   test('other failures → skipped/http-error', async () => {
     const site = await serve({ '/down': 'hang-up' })
 

@@ -353,6 +353,16 @@ describe('archiveCandidates', () => {
     expect(vi.mocked(extractModel).mock.calls.map(([, read]) => read[0].url)).toEqual([`https://web.archive.org/web/20201101000000/${OLD}`])
   })
 
+  test('a copy that is a captured bot wall is a skip of that copy; the run goes on', async () => {
+    archive({ catalog: { '20200301000000': ['zed-2', 'old-1'] } })
+    pages[raw('20201101000000', ZED)] = { status: 'skipped', url: '', reason: 'archived-wall', detail: 'HTTP 200, the copy is a captured bot wall' }
+    pages[raw('20201101000000', OLD)] = ok(raw('20201101000000', OLD), 'Acme Old 1 hearing aid')
+    const skips: string[] = []
+    await archiveCandidates(brand, [], options({ onSkip: (_u: string, reason: string) => skips.push(reason) }))
+    expect(skips).toEqual(['archived-wall'])
+    expect(vi.mocked(extractModel)).toHaveBeenCalledTimes(1)
+  })
+
   test('a network error on one copy is a skip of that copy; the run goes on', async () => {
     archive({ catalog: { '20200301000000': ['zed-2', 'old-1'] } })
     pages[raw('20201101000000', ZED)] = { status: 'skipped', url: '', reason: 'http-error', detail: 'x: ECONNRESET' }
