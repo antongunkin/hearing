@@ -26,7 +26,7 @@ export default function AboutBotPage() {
         </li>
         <li>
           It makes one request at a time to a host and waits 2 to 5 seconds between requests, or longer if Crawl-delay
-          asks for it.
+          asks for it. For copies kept by the Web Archive it waits at least 5 seconds.
         </li>
         <li>
           A captcha, bot protection, a 403, a 429 or any other refusal means the page is skipped. Nothing is bypassed.

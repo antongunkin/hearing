@@ -13,7 +13,7 @@ import { readRobots } from './robots'
 
 export type FetchResult =
   | { status: 'ok'; url: string; text: string; html?: string; contentHash: string; fetchedAt: string; bodyHash?: string; contentType?: string }
-  | { status: 'skipped'; url: string; reason: 'robots' | 'blocklist' | 'bot-protection' | 'http-error'; detail?: string }
+  | { status: 'skipped'; url: string; reason: 'robots' | 'blocklist' | 'bot-protection' | 'rate-limited' | 'http-error'; detail?: string }
 
 type Ok = Extract<FetchResult, { status: 'ok' }>
 
@@ -35,8 +35,6 @@ export interface FetchOptions {
 /** Google and Amazon under any country domain are not scraped whatever the list says. */
 const NEVER_FETCH = /(?:^|\.)(?:google|amazon)\.(?:com?\.[a-z]{2}|[a-z]{2,3})$/
 const CACHE_DIR = '.cache/pages'
-/** Hosts whose pages are old copies of someone else's site. */
-const ARCHIVE_HOSTS = ['web.archive.org']
 const MAX_REDIRECTS = 5
 const TIMEOUT_MS = 30_000
 const MAX_TIMER_MS = 2 ** 31 - 1
@@ -59,13 +57,17 @@ const crawlDelays = new Map<string, number>()
 
 /**
  * Runs requests to one host one at a time. Between them passes a random pause, or the host's
- * Crawl-delay when that is longer.
+ * Crawl-delay or, for a Web Archive host, the archive pause, when that is longer.
  */
 function paced<T>(host: string, request: () => Promise<T>): Promise<T> {
   const result = (queues.get(host) ?? Promise.resolve(-Infinity)).then(async (endedAt) => {
     const { minDelayMs, maxDelayMs } = config
     // Worked out only now: the robots.txt just received may have asked for a longer pause.
-    const pause = Math.max(minDelayMs + Math.random() * (maxDelayMs - minDelayMs), crawlDelays.get(host) ?? 0)
+    const pause = Math.max(
+      minDelayMs + Math.random() * (maxDelayMs - minDelayMs),
+      crawlDelays.get(host) ?? 0,
+      config.archiveHosts.includes(host) ? config.archiveDelayMs : 0,
+    )
     const wait = Math.min(endedAt + pause - Date.now(), MAX_TIMER_MS) // A longer timer fires at once.
     if (wait > 0) await new Promise((resolve) => setTimeout(resolve, wait))
     return request()
@@ -121,7 +123,7 @@ const baseEntry = (start: URL, fetchedAt: string, redirects: Hop[]): FetchLogEnt
   url: start.href,
   redirects,
   fetchedAt,
-  via: ARCHIVE_HOSTS.includes(start.hostname) ? 'archive' : 'live',
+  via: config.archiveHosts.includes(start.hostname) ? 'archive' : 'live',
   rendered: false,
 })
 
@@ -214,6 +216,7 @@ export async function fetchPage(url: string, opts: FetchOptions = {}): Promise<F
 
   const reply = await request(start, check, opts.render ? renderRequest : plainRequest, ({ status, contentType, body }) => {
     const source = /application\/pdf/i.test(contentType) ? '' : new TextDecoder().decode(body)
+    if (status === 429) return { reason: 'rate-limited', detail: 'HTTP 429' }
     if (looksLikeBotWall(status, source)) return { reason: 'bot-protection', detail: `HTTP ${status}` }
     if (status < 200 || status > 299) return { reason: 'http-error', detail: `HTTP ${status}` }
   })

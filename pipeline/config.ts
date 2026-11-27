@@ -1,7 +1,18 @@
 export const config = {
   minDelayMs: 2000,
   maxDelayMs: 5000,
+  /**
+   * Requests to a Web Archive host are at least this far apart. The atlas spec asks for at least 4000;
+   * 5000 leaves a margin. (The archive.org rate rule itself was not re-read for this change.)
+   */
+  archiveDelayMs: 5000,
+  /** Hosts whose pages are old copies of someone else's site. */
+  archiveHosts: ['web.archive.org'],
   releasedAfter: '2023-11-01',
+  /** A model counts as on sale when it was sold on or after this date. */
+  onSaleSince: '2018-01-01',
+  /** Limits of one site-atlas run. */
+  atlas: { pageBudget: 60, sitemapBudget: 20, cdxSections: 6, maxReportUrls: 3000, keyPages: 8, moreUrls: 10, moreRounds: 2 },
   /** An official price that moves by more than this share is reviewed, not applied: it may be a sale or a misread. */
   maxAutoPriceChange: 0.25,
   /** Complaint themes are proposed only from at least this many reviews of the model. */
@@ -18,6 +29,7 @@ export const config = {
   youtubeApiUrl: 'https://www.googleapis.com/youtube/v3',
   llm: {
     claudeModel: 'haiku',
+    describeModel: 'sonnet',
     ollamaModel: 'qwen3:8b',
     ollamaUrl: 'http://localhost:11434',
     // Ollama's default context is small and silently truncates long pages.

@@ -18,6 +18,7 @@ vi.mock('playwright', () => ({ chromium: { launch } }))
 const fixture = (name: string) => readFile(fileURLToPath(new URL(`../fixtures/pages/${name}`, import.meta.url)))
 
 const delays = { minDelayMs: config.minDelayMs, maxDelayMs: config.maxDelayMs }
+const archive = { archiveHosts: config.archiveHosts, archiveDelayMs: config.archiveDelayMs }
 const home = process.cwd()
 
 // The cache and the blocklist are relative to the working directory.
@@ -37,7 +38,7 @@ beforeEach(() => {
   Object.assign(config, { minDelayMs: 0, maxDelayMs: 0 })
 })
 afterEach(async () => {
-  Object.assign(config, delays)
+  Object.assign(config, delays, archive)
   vi.useRealTimers()
   vi.unstubAllEnvs()
   vi.unstubAllGlobals()
@@ -261,6 +262,14 @@ describe('results', () => {
   })
 })
 
+describe('rate limits', () => {
+  test('a 429 is skipped as rate-limited and logged so', async () => {
+    const site = await serve({ '/busy': { status: 429, body: 'slow down' } })
+    expect(await get(`${site.origin}/busy`)).toMatchObject({ status: 'skipped', reason: 'rate-limited', detail: 'HTTP 429' })
+    expect((await readLog()).at(-1)).toMatchObject({ status: 429, skipped: 'rate-limited' })
+  })
+})
+
 describe('looksLikeBotWall', () => {
   const small = (body: string) => `<html><body>${body}</body></html>`
   const article = `<p>${'Hearing aid specifications. '.repeat(100)}</p>`
@@ -370,6 +379,15 @@ describe('politeness', () => {
 
     expect(requests.map((request) => request.path)).toEqual(['/robots.txt', '/a', '/b'])
     for (const gap of gaps(requests)) expect(gap).toBeGreaterThanOrEqual(2000)
+  })
+
+  test('requests to an archive host are at least archiveDelayMs apart', async () => {
+    const requests = fakeHost()
+    Object.assign(config, { archiveHosts: ['polite-archive.test'], archiveDelayMs: 4000 })
+
+    await twoPages('polite-archive.test')
+
+    expect(gaps(requests)).toEqual([4000, 4000])
   })
 
   test.each([
