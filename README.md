@@ -117,10 +117,19 @@ approved models.
 | `--refresh` | Fetch pages again. Fetched pages are cached in `.cache/` with no expiry, so use it for every routine update. |
 | `--resume` | Continue a stopped run: skip what it had finished. Give the same command, `--brand` and `--limit` as before. |
 
+`update` and `scrape` stop a brand whose own site answers with a rate limit (HTTP 429) or a bot wall: no more of its
+pages are asked for this run, the other brands go on, and the run ends with exit code 2 and the refused brands;
+`--resume` reads them again. A page that robots.txt disallows is only skipped.
+
 `archive` takes `--brand`, `--limit` (model pages per brand), `--resume` and `--refresh`, and keeps its progress in
-`.cache/progress/archive.json`. A brand whose own site refuses a request (bot protection, rate limit, robots) is
+`.cache/progress/archive.json`. A brand whose own site refuses a request (bot protection, rate limit) is
 skipped and the run goes on; it ends with exit code 2 and lists the refused brands. A plain `--resume` skips them,
 `npm run archive -- --brand <slug>` tries one again. If web.archive.org refuses, the whole run stops with a resume hint.
+Approve or reject `update`'s new-model cards in `/review` before you run `archive`: a support-page model is proposed as
+discontinued only when no stored model, no model of the live catalog and no pending new-model card has its name.
+
+A gone brand's own site (its website, catalog and support hosts and their subdomains) is never fetched by any command:
+not as a shop or review page a search returns, not through a redirect.
 
 Pass flags after `--`, for example:
 

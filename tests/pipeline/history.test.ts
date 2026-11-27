@@ -149,6 +149,14 @@ describe('draftHistory', () => {
       const after = await run(`In 2024 the news came out. ${quoteOnly}`, '2024-03')
       expect(after?.facts.map((f) => f.date)).toEqual(['2024', '2024', '2024'])
     })
+
+    test('a bare year dates the fact only near its quote, and never a copyright year', async () => {
+      const filler = 'Other news of the week. '.repeat(12) // about 290 characters
+      expect(await run(`${quoteOnly} ${filler}© 2024 Example News`, '2024')).toBeUndefined()
+      expect(await run(`Copyright 2019-2024. ${quoteOnly}`, '2024')).toBeUndefined()
+      expect(await run(`Archive 2024. ${filler}${quoteOnly}`, '2024')).toBeUndefined()
+      expect((await run(`${quoteOnly} The shops closed in 2024. © 2025 Example News`, '2024'))?.facts.map((f) => f.date)).toEqual(['2024', '2024', '2024'])
+    })
   })
 
   test('the draft always goes to review, with the page urls as refs and the brand path', async () => {

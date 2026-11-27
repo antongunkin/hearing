@@ -75,11 +75,11 @@ const isVariantWord = (word: string | undefined) => word !== undefined && (/\d/.
 
 /**
  * Whether `name` stands in `text` as whole words and the model name ends there: nothing follows, or only
- * descriptors and variant tokens, or a description starting with "with". A further model word ("Charge&Go X"
+ * descriptors and variant tokens, or a description starting with "with" (or with one of `endWords`). A further model word ("Charge&Go X"
  * after "Pure") means a longer model, and a list ("and", "or", "vs") names several. "with" may also come before
  * the name ("Hearing aid with Jabra Enhance Select 550").
  */
-export function endsName(text: string, name: string): boolean {
+export function endsName(text: string, name: string, opts: { endWords?: ReadonlySet<string> } = {}): boolean {
   const hay = wordsOf(normalizeName(text))
   const needle = wordsOf(normalizeName(name))
   if (needle.length === 0) return false
@@ -87,8 +87,29 @@ export function endsName(text: string, name: string): boolean {
     if (!needle.every((word, k) => hay[i + k] === word) || LIST_WORDS.has(hay[i - 1])) return false
     let next = i + needle.length
     while (next < hay.length && (isVariantWord(hay[next]) || DESCRIPTOR_WORDS.has(hay[next]))) next++
-    return next === hay.length || hay[next] === 'with'
+    return next === hay.length || hay[next] === 'with' || opts.endWords?.has(hay[next]) === true
   })
+}
+
+/** Words that start what a document is after the model name ("Select 300 user guide", "More instructions for use"). */
+const DOCUMENT_WORDS = new Set(['brochure', 'data', 'datasheet', 'guide', 'information', 'instruction', 'instructions', 'leaflet', 'manual', 'product', 'quick', 'specifications', 'technical', 'user'])
+
+/**
+ * Whether one line of `text` names the model as a whole model: `namesModel` holds for that line and the name ends
+ * there (`endsName`, a document's own words such as "user guide" may follow), a weak name read together with the
+ * brand in front of it. A document for "Oticon More" must
+ * say "Oticon More" in one line: "Oticon" in one and "learn more" in another is not enough, and "Signia Pure
+ * Charge&Go X" does not name "Pure".
+ */
+export function aLineNamesModel(text: string, model: { brand: string; name: string; aliases: string[] }): boolean {
+  const brand = wordsOf(fold(model.brand.replaceAll('-', ' ')))
+  return text.split('\n').some((line) =>
+    [model.name, ...model.aliases].some((name) => {
+      const words = wordsOf(nameWithoutBrand(model.brand, name))
+      if (words.length === 0 || !namesModel(line, { brand: model.brand, name, aliases: [] })) return false
+      return endsName(line, (isWeak(words) ? [...brand, ...words] : words).join(' '), { endWords: DOCUMENT_WORDS })
+    }),
+  )
 }
 
 /** Lowercase ASCII words joined by hyphens; empty when the text has no letters or digits. */

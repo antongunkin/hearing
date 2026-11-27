@@ -31,10 +31,43 @@ describe('checkDocument', () => {
     expect(result?.checks).toHaveLength(3)
     expect(result?.checks.find((c) => !c.ok)?.detail).toBe('the document does not name the model')
 
-    vi.mocked(fetchPage).mockResolvedValue(pdf(LIVE, 'User Guide\nPhonak Audéo Paradise'))
+    vi.mocked(fetchPage).mockResolvedValue(pdf(LIVE, 'User Guide\nPhonak Paradise user guide'))
     const good = await checkDocument(phonak, paradise, LIVE)
     expect(good?.checks.every((c) => c.ok && c.name === 'document')).toBe(true)
     expect(good?.document).toEqual({ kind: 'user-guide', title: 'User Guide', url: LIVE, fetchedAt: AT })
+  })
+
+  test('a one-word name must follow the brand in one line: "Oticon More", not "Oticon" and "learn more"', async () => {
+    const oticon = { ...phonak, slug: 'oticon', name: 'Oticon' } as Brand
+    const more = { brand: 'oticon', name: 'More', aliases: [] as string[] }
+    const url = 'https://www.oticon.com/docs/guide.pdf'
+    const named = async (text: string) => {
+      vi.mocked(fetchPage).mockResolvedValue(pdf(url, text))
+      return (await checkDocument(oticon, more, url))?.checks[2]
+    }
+    expect(await named('Oticon Real instructions for use\nTo learn more, visit our website')).toMatchObject({ ok: false, detail: 'the document does not name the model' })
+    expect((await named('Oticon hearing aids. Learn more about Oticon Intent'))?.ok).toBe(false)
+    expect((await named('Welcome\nOticon More™ Instructions for use'))?.ok).toBe(true)
+  })
+
+  test('a longer model name is not the model: "Signia Pure Charge&Go X" does not name "Pure"', async () => {
+    const signia = { ...phonak, slug: 'signia', name: 'Signia' } as Brand
+    const pure = { brand: 'signia', name: 'Pure', aliases: [] as string[] }
+    const url = 'https://www.signia.net/docs/pure.pdf'
+    vi.mocked(fetchPage).mockResolvedValue(pdf(url, 'Signia Pure Charge&Go X user guide'))
+    expect((await checkDocument(signia, pure, url))?.checks[2].ok).toBe(false)
+    vi.mocked(fetchPage).mockResolvedValue(pdf(url, 'Signia Pure 312 X user guide'))
+    expect((await checkDocument(signia, pure, url))?.checks[2].ok).toBe(true)
+  })
+
+  test('a candidate merged into a stored model: the document must name the stored model too', async () => {
+    const candidate = { brand: 'phonak', name: 'Audéo Paradise', aliases: [] as string[] }
+    const stored = { brand: 'phonak', name: 'Paradise Life', aliases: [] as string[] }
+    vi.mocked(fetchPage).mockResolvedValue(pdf(LIVE, 'Phonak Audéo Paradise user guide'))
+    expect((await checkDocument(phonak, candidate, LIVE))?.checks[2].ok).toBe(true)
+    expect((await checkDocument(phonak, candidate, LIVE, { stored }))?.checks[2]).toMatchObject({ ok: false, detail: 'the document does not name the model' })
+    vi.mocked(fetchPage).mockResolvedValue(pdf(LIVE, 'Phonak Audéo Paradise user guide\nPhonak Paradise Life'))
+    expect((await checkDocument(phonak, candidate, LIVE, { stored }))?.checks[2].ok).toBe(true)
   })
 
   test('a URL outside the brand pattern fails its check', async () => {
@@ -57,7 +90,7 @@ describe('checkDocument', () => {
   })
 
   test('an archive copy is read raw and cited without the raw flag, its original matched against the pattern', async () => {
-    vi.mocked(fetchPage).mockResolvedValue(pdf(COPY, 'Phonak Audéo Paradise'))
+    vi.mocked(fetchPage).mockResolvedValue(pdf(COPY, 'Phonak Paradise'))
     const result = await checkDocument(phonak, paradise, COPY.replace('id_', ''))
     expect(vi.mocked(fetchPage).mock.calls[0][0]).toBe(COPY)
     expect(result?.document.url).toBe(COPY.replace('id_', ''))
@@ -87,7 +120,7 @@ describe('replaceDeadDocuments', () => {
   } as unknown as Model
 
   test('a dead live PDF is replaced by its archived copy; without a copy it stays', async () => {
-    vi.mocked(fetchPage).mockImplementation(async (url) => (url === COPY ? pdf(COPY, 'Phonak Audéo Paradise') : gone(LIVE, 'HTTP 404')))
+    vi.mocked(fetchPage).mockImplementation(async (url) => (url === COPY ? pdf(COPY, 'Phonak Paradise') : gone(LIVE, 'HTTP 404')))
     vi.mocked(latestCopy).mockResolvedValue({ timestamp: '20240101000000', original: 'https://www.phonak.com/docs/Phonak_Audeo_P_User_Guide.pdf', statusCode: '200', mimeType: 'application/pdf', digest: 'd' })
 
     const [change, ...rest] = await replaceDeadDocuments(stored, { brand: phonak })

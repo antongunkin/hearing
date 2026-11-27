@@ -49,7 +49,7 @@ const bareHost = (url: string): string => new URL(url).hostname.replace(/^www\./
  * The stored model of the brand that the candidate is, by its page's original URL or by name; null when none
  * or when more than one qualifies (then a model is not merged into a guess). An exact name wins over a looser one.
  */
-function findStored(brand: Brand, models: Model[], candidate: Model, originals: string[]): Model | null {
+export function findStored(brand: Brand, models: Model[], candidate: Model, originals: string[]): Model | null {
   const own = models.filter((m) => m.brand === brand.slug)
   const exact = matchExistingModel(candidate, own)
   if (exact !== null) return exact
@@ -105,8 +105,10 @@ export async function archiveCandidates(brand: Brand, models: Model[], opts: Arc
   // 1. The catalog copies: the latest of each year since 2018, of each catalog URL as the brand's own site knew it.
   const catalogs: Copy[] = []
   const modelUrls = new Map<string, string>()
-  const isModel = new RegExp(brand.archive?.modelUrlPattern ?? brand.scraper.modelUrlPattern)
+  const modelPattern = brand.archive?.modelUrlPattern ?? brand.scraper.modelUrlPattern
+  const isModel = new RegExp(modelPattern)
   const live = new Set([...opts.liveModelUrls].map(keyOf))
+  let modelLinks = 0
   for (const catalogUrl of new Set(catalogUrls.map(originalOf))) {
     for (const row of (await tolerant(catalogUrl, () => yearlyCopies(catalogUrl, cdxOpts))) ?? []) {
       const copy = await read(row.timestamp, row.original)
@@ -115,10 +117,14 @@ export async function archiveCandidates(brand: Brand, models: Model[], opts: Arc
       // 2. The model pages the copy links, as the brand's own URLs.
       for (const link of copy.page.html === undefined ? [] : linksIn(copy.page.html, copy.original)) {
         const original = originalOf(link)
-        if (isModel.test(original) && !live.has(keyOf(original)) && !modelUrls.has(keyOf(original))) modelUrls.set(keyOf(original), original)
+        if (!isModel.test(original)) continue
+        modelLinks++
+        if (!live.has(keyOf(original)) && !modelUrls.has(keyOf(original))) modelUrls.set(keyOf(original), original)
       }
     }
   }
+  // Nothing found is more often a pattern that does not fit the old links (http, no www.) than an empty catalog.
+  if (modelLinks === 0) console.log(`${brand.slug}: no model page link matches ${modelPattern} in ${catalogs.length} catalog copies, check catalogUrls and modelUrlPattern`)
   const listingsOf = (...named: Pick<Model, 'brand' | 'name' | 'aliases'>[]): Listing[] =>
     catalogs.flatMap((copy) => named.flatMap((model) => listingIn(model, copy.page) ?? []))
 
@@ -193,7 +199,7 @@ export async function archiveCandidates(brand: Brand, models: Model[], opts: Arc
     const documents: Model['documents'] = []
     for (const url of documentUrls) {
       if (stored.has(originalOf(url))) continue
-      const checked = await tolerant(url, () => checkDocument(brand, candidate.model, url, { onSkip }))
+      const checked = await tolerant(url, () => checkDocument(brand, candidate.model, url, { onSkip, ...(existing !== null && { stored: existing }) }))
       if (checked === null) continue
       fieldChecks[`documents.${documents.length}`] = checked.checks
       documents.push(checked.document)

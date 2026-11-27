@@ -46,9 +46,12 @@ const withoutCitations = (node: unknown): unknown => {
   return Object.fromEntries(Object.entries(node).map(([key, child]) => [key, withoutCitations(child)]))
 }
 
-/** What a value says, as text: no citations and no fetch dates, so a value read again later is the same. */
+/** Dates of a reading, not of what was read: `fetchedAt`, and the `checkedAt` of a brand history's app lookup. */
+const READ_DATES = new Set(['fetchedAt', 'checkedAt'])
+
+/** What a value says, as text: no citations and no fetch or check dates, so a value read again later is the same. */
 const substance = (value: unknown): string =>
-  stableStringify(JSON.parse(stableStringify(withoutCitations(value ?? null)), (key, node) => (key === 'fetchedAt' ? undefined : node)))
+  stableStringify(JSON.parse(stableStringify(withoutCitations(value ?? null)), (key, node) => (READ_DATES.has(key) ? undefined : node)))
 
 export const sameValue = (a: unknown, b: unknown) => substance(a) === substance(b)
 
@@ -58,8 +61,21 @@ export const sameValue = (a: unknown, b: unknown) => substance(a) === substance(
  * rejected model stays rejected whatever its page says next time.
  */
 export function fingerprint(c: { kind: CandidateChange['kind']; modelSlug: string | null; path: string; after: unknown }): string {
+  const document = documentKey(c)
+  if (document !== null) return createHash('sha256').update(`${c.modelSlug}|${document}`).digest('hex')
   const what = c.kind === 'new-model' ? 'new-model' : substance(c.after)
   return createHash('sha256').update(`${c.modelSlug}|${c.path}|${what}`).digest('hex')
+}
+
+/**
+ * A document change by the page its URL copies (`documents:<original URL>`), not by the index it is proposed at:
+ * the index moves once another document is applied, the PDF stays the same one. Null for any other change.
+ */
+function documentKey(c: { kind: CandidateChange['kind']; path: string; after: unknown }): string | null {
+  if (c.kind !== 'document' || !/^documents\.\d+$/.test(c.path)) return null
+  const url = (c.after as { url?: unknown } | null)?.url
+  if (typeof url !== 'string') return null
+  return `documents:${parseArchiveUrl(url)?.original ?? url}`
 }
 
 /** The kind of a change to one sourced value: an official price is a `price`, anything else a `spec-change`. */
@@ -234,12 +250,18 @@ function pendingKind(c: CandidateChange): PendingChange['kind'] {
   return c.kind === 'pros-cons' ? 'pros-cons' : 'spec-change'
 }
 
-/**
- * Writes the change to `data/pending/`, one file per model and path: a newer proposal replaces an older one.
- * Returns the pending id.
- */
-export const pendingId = (c: Pick<CandidateChange, 'modelSlug' | 'path'>): string => [c.modelSlug ?? 'industry', slugify(c.path) || 'model'].join('-')
+/** The id of a change's pending card: model and path, a document by its original URL (see `documentKey`). */
+export function pendingId(c: Pick<CandidateChange, 'kind' | 'modelSlug' | 'path' | 'after'>): string {
+  const document = documentKey(c)
+  // A document by its original URL, shortened: one card per PDF, whatever index it is proposed at.
+  const what = document === null ? slugify(c.path) || 'model' : `document-${createHash('sha256').update(document).digest('hex').slice(0, 12)}`
+  return [c.modelSlug ?? 'industry', what].join('-')
+}
 
+/**
+ * Writes the change to `data/pending/`, one file per model and path (per PDF for a document): a newer proposal
+ * replaces an older one. Returns the pending id.
+ */
 export async function enqueue(c: CandidateChange, dir = 'data'): Promise<string> {
   const id = pendingId(c)
   const pending = PendingChange.parse({ ...c, id, kind: pendingKind(c), createdAt: new Date().toISOString() })

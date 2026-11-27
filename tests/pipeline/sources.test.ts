@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { afterEach, describe, expect, test, vi } from 'vitest'
-import { fetchPage, isBlocked, type FetchResult } from '@/pipeline/fetch/fetcher'
+import { blockDomains, fetchPage, isBlocked, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { llm, LlmOutputError } from '@/pipeline/llm'
 import { fetchIosVersion, lookupApp } from '@/pipeline/sources/itunes'
 import { fetchClearances, fetchFdaEvents, matchModel } from '@/pipeline/sources/openfda'
@@ -312,6 +312,16 @@ describe('reviews', () => {
       retail: ['https://shop.example/phonak-sphere'],
     })
     expect(llmMock.mock.calls[0][0]).toMatchObject({ provider: 'claude', tools: ['WebSearch'] })
+  })
+
+  test("discoverReviewSources drops a gone brand's shop (blockDomains), as retail or expert", async () => {
+    replies({ expert: ['https://www.eargo.test/blog/review'], retail: ['https://shop.eargo.test/eargo-7', 'https://shop.example/eargo-7'] })
+    blockDomains(['eargo.test'])
+    try {
+      expect(await discoverReviewSources(model('eargo', 'Seven'))).toEqual({ expert: [], retail: ['https://shop.example/eargo-7'] })
+    } finally {
+      blockDomains([])
+    }
   })
 
   test('the search prompt names the month, so that a cached answer lasts one month', async () => {

@@ -17,31 +17,38 @@ export function groupMismatches(brands: Brand[], graph: Graph): string[] {
   return messages
 }
 
-const hostOf = (url: string): string | null => URL.parse(url)?.hostname.replace(/^www\./, '').toLowerCase() ?? null
+const hostOf = (url: string): string => URL.parse(url)?.hostname.replace(/^www\./, '').replace(/\.$/, '').toLowerCase() ?? ''
 
-/** Every `sourceUrl` in the value, at any depth. */
-function sourceUrls(node: unknown): string[] {
+/** The hosts of a brand's own site: its website, catalog, support and archive catalog pages, without `www.`. */
+export function ownHosts(brand: Pick<Brand, 'website' | 'scraper' | 'archive'>): string[] {
+  const urls = [brand.website, ...(brand.scraper?.catalogUrls ?? []), ...(brand.scraper?.supportUrls ?? []), ...(brand.archive?.catalogUrls ?? [])]
+  return [...new Set(urls.map(hostOf).filter((host) => host !== ''))]
+}
+
+/** Every link in the value, at any depth: a `sourceUrl`, a document `url`, an entry of `sources`. */
+function linksOf(node: unknown): string[] {
   if (typeof node !== 'object' || node === null) return []
-  if (Array.isArray(node)) return node.flatMap(sourceUrls)
-  return Object.entries(node).flatMap(([key, child]) => (key === 'sourceUrl' && typeof child === 'string' ? [child] : sourceUrls(child)))
+  if (Array.isArray(node)) return node.flatMap(linksOf)
+  return Object.entries(node).flatMap(([key, child]) => {
+    if ((key === 'sourceUrl' || key === 'url') && typeof child === 'string') return [child]
+    if (key === 'sources' && Array.isArray(child)) return [...child.filter((c): c is string => typeof c === 'string'), ...linksOf(child)]
+    return linksOf(child)
+  })
 }
 
 /**
- * Every sourced `sourceUrl` and document `url` of a gone brand's models that points at the brand's own website
- * (its host with or without `www.`, or a subdomain of it): the site no longer answers, so links go to Web Archive copies.
+ * Every link of the data that points at a gone brand's own site (its website, catalog or support hosts, with or
+ * without `www.`, or a subdomain of them): the site no longer answers, so links go to Web Archive copies. Every
+ * model file is looked at (a twin or a third-party price of another brand may cite it too), every reviews file and
+ * every brand's history.
  */
-export function liveLinksOfGoneBrands(dataset: Pick<Dataset, 'brands' | 'models'>): string[] {
-  const links: string[] = []
-  for (const brand of dataset.brands.filter((b) => b.status === 'gone')) {
-    const own = hostOf(brand.website)
-    if (own === null) continue
-    const isOwn = (url: string) => {
-      const host = URL.parse(url)?.hostname.toLowerCase().replace(/^www\./, '')
-      return host !== undefined && (host === own || host.endsWith(`.${own}`))
-    }
-    for (const model of dataset.models.filter((m) => m.brand === brand.slug)) {
-      for (const url of [...sourceUrls(model), ...model.documents.map((d) => d.url)]) if (isOwn(url)) links.push(url)
-    }
+export function liveLinksOfGoneBrands(dataset: Pick<Dataset, 'brands' | 'models'> & Partial<Pick<Dataset, 'reviews'>>): string[] {
+  const gone = dataset.brands.filter((b) => b.status === 'gone').flatMap(ownHosts)
+  if (gone.length === 0) return []
+  const isGone = (url: string) => {
+    const host = hostOf(url)
+    return host !== '' && gone.some((domain) => host === domain || host.endsWith(`.${domain}`))
   }
+  const links = [...dataset.models, ...(dataset.reviews ?? []), ...dataset.brands.map((brand) => brand.history)].flatMap(linksOf).filter(isGone)
   return [...new Set(links)]
 }

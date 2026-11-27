@@ -6,9 +6,9 @@ import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
 import { priorCatalogCopies } from '@/pipeline/archive/catalog-history'
 import { archiveCandidates } from '@/pipeline/archive/wayback-models'
 import { crossCheck } from '@/pipeline/checks/crosscheck'
-import { planChange } from '@/pipeline/apply'
+import { fingerprint, pendingId, planChange } from '@/pipeline/apply'
 import { main } from '@/pipeline/cli'
-import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
+import { blockDomains, fetchPage, isBlocked, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { llm, LlmLimitError, LlmOutputError } from '@/pipeline/llm'
 import { discoverModelUrls, extractModel, type ModelCandidate } from '@/pipeline/sources/brand-site'
 import { latestCopy, WaybackError } from '@/pipeline/sources/wayback'
@@ -26,7 +26,10 @@ import { PendingChange } from '@/src/lib/schema/pending'
 import { Reviews } from '@/src/lib/schema/reviews'
 
 vi.mock('@/pipeline/archive/catalog-history', () => ({ priorCatalogCopies: vi.fn() }))
-vi.mock('@/pipeline/archive/wayback-models', () => ({ archiveCandidates: vi.fn() }))
+vi.mock('@/pipeline/archive/wayback-models', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@/pipeline/archive/wayback-models')>()),
+  archiveCandidates: vi.fn(),
+}))
 vi.mock('@/pipeline/fetch/fetcher', async (importOriginal) => ({
   ...(await importOriginal<typeof import('@/pipeline/fetch/fetcher')>()),
   fetchPage: vi.fn(),
@@ -343,8 +346,30 @@ describe('scrape: documents', () => {
 
     const stored = Model.parse(JSON.parse(await readFile(join(dataDir, 'models', 'jabra-enhance-select-300.json'), 'utf8')))
     expect(stored.documents.map((d) => d.url)).toEqual([GUIDE])
-    const card = await pendingFile('jabra-enhance-select-300-documents-1')
+    const id = pendingId({ kind: 'document', modelSlug: 'jabra-enhance-select-300', path: 'documents.1', after: { url: OTHER } })
+    const card = await pendingFile(id)
     expect(card).toMatchObject({ path: 'documents.1', after: { url: OTHER } })
+  })
+
+  test('a rejected document stays rejected and a pending one keeps its card once another document is applied', async () => {
+    expect(await scrapeDocuments([model('Select 300')])).toBe(0)
+    const card = (await filesUnder(join(dataDir, 'pending'))).filter((f) => f.includes('document'))
+    expect(card).toHaveLength(1)
+    const queued = await pendingFile(card[0].replace(/\.json$/, ''))
+    // The owner rejects OTHER; GUIDE was applied at documents.0.
+    await writeJson(join(dataDir, 'rejections.json'), [fingerprint({ kind: 'document', modelSlug: queued.modelSlug, path: queued.path, after: queued.after })])
+    await rm(join(dataDir, 'pending'), { recursive: true, force: true })
+
+    // Next run: a third PDF is applied first, so OTHER would now be proposed at documents.2.
+    const THIRD = `${BASE}/docs/select-300-datasheet.pdf`
+    vi.mocked(discoverModelUrls).mockResolvedValue([{ modelUrl: `${BASE}/select-300`, documentUrls: [THIRD, OTHER], inCatalog: true }])
+    vi.mocked(fetchPage).mockImplementation(async (url) =>
+      url === THIRD ? pdfPage(url, 'Jabra Enhance Select 300 datasheet') : url === OTHER ? pdfPage(url, 'Jabra Enhance Select 100 user guide') : okPage(url),
+    )
+    expect(await main(['scrape', '--limit', '5'], opts)).toBe(0)
+    const stored = Model.parse(JSON.parse(await readFile(join(dataDir, 'models', 'jabra-enhance-select-300.json'), 'utf8')))
+    expect(stored.documents.map((d) => d.url)).toEqual([GUIDE, THIRD])
+    expect((await filesUnder(join(dataDir, 'pending'))).filter((f) => f.includes('document'))).toEqual([])
   })
 
   test('a document that cannot be fetched is left out', async () => {
@@ -355,6 +380,20 @@ describe('scrape: documents', () => {
     const card = await pendingFile('jabra-enhance-select-300-model')
     expect((card.after as Model).documents).toEqual([])
   })
+})
+
+test("every command blocks a gone brand's own hosts before any step: a shop or search hit on them is never fetched", async () => {
+  await writeJson(join(dataDir, 'brands', 'eargo.json'), {
+    ...brand, slug: 'eargo', name: 'Eargo', website: 'https://eargo.test', status: 'gone',
+    scraper: { ...brand.scraper, catalogUrls: ['https://shop.eargo.test/hearing-aids'], supportUrls: ['https://support.eargo-help.test/'] },
+  })
+  expect(isBlocked(new URL('https://eargo.test/seven'), [])).toBe(false)
+  expect(await main(['reviews'], opts)).toBe(0)
+  for (const url of ['https://eargo.test/seven', 'https://www.eargo.test/shop', 'https://shop.eargo.test/x', 'https://support.eargo-help.test/faq']) {
+    expect(isBlocked(new URL(url), []), url).toBe(true)
+  }
+  expect(isBlocked(new URL(BASE), [])).toBe(false) // an active brand's site is not
+  blockDomains([])
 })
 
 test('a gone brand is not scraped live', async () => {
@@ -696,7 +735,7 @@ test('a skipped catalog page, a limit, a lost model page, or no model links at a
 
   // A catalog page that was skipped.
   vi.mocked(discoverModelUrls).mockImplementation(async (_brand, o) => {
-    o?.onSkip?.(BASE, 'bot-protection', 'HTTP 403')
+    o?.onSkip?.(BASE, 'robots', 'disallowed')
     return [LISTED]
   })
   expect(await main(['scrape'], opts)).toBe(0)
@@ -771,8 +810,7 @@ test('an own page that fails for any other reason leaves the model unchecked thi
   const failures = [
     { reason: 'http-error', detail: 'HTTP 502' },
     { reason: 'http-error', detail: 'request failed: ETIMEDOUT' },
-    { reason: 'rate-limited', detail: 'HTTP 429' },
-    { reason: 'bot-protection', detail: 'HTTP 403' },
+    { reason: 'robots', detail: 'disallowed' },
   ] as const
   for (const failure of failures) {
     vi.mocked(fetchPage).mockImplementation(async (url) => (url === `${BASE}/x` ? { status: 'skipped', url, ...failure } : okPage(url)))
@@ -780,6 +818,64 @@ test('an own page that fails for any other reason leaves the model unchecked thi
     expect(await filesUnder(join(dataDir, 'pending'))).not.toContain(`${stored.slug}-discontinued.json`)
   }
   expect(log).toContain(`${stored.slug}: own page not read, lifecycle not checked`)
+
+  // A rate limit or a bot wall on the own page stops the brand: exit 2, the brand is not done, nothing proposed.
+  for (const failure of [{ reason: 'rate-limited', detail: 'HTTP 429' }, { reason: 'bot-protection', detail: 'HTTP 403' }] as const) {
+    vi.mocked(fetchPage).mockImplementation(async (url) => (url === `${BASE}/x` ? { status: 'skipped', url, ...failure } : okPage(url)))
+    expect(await main(['scrape'], opts)).toBe(2)
+    expect(await filesUnder(join(dataDir, 'pending'))).not.toContain(`${stored.slug}-discontinued.json`)
+    expect(JSON.parse(await readFile(join(dir, 'cache', 'progress', 'scrape.json'), 'utf8')).done).not.toContain('brand=* limit=* scrape:jabra-enhance')
+  }
+})
+
+test('update: a rate limit or bot wall on a brand page stops that brand, the next brand is scraped, exit 2 with the list', async () => {
+  await writeJson(join(dataDir, 'brands', 'audien.json'), { ...brand, slug: 'audien', name: 'Audien', website: 'https://audien.com', scraper: { ...brand.scraper, documentUrlPattern: '\\.pdf$' } })
+  await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), { ...brand, scraper: { ...brand.scraper, documentUrlPattern: '\\.pdf$' } })
+  const atom = candidate('Atom')
+  atom.model = Model.parse({ ...atom.model, slug: 'audien-atom', brand: 'audien' })
+  vi.mocked(discoverModelUrls).mockImplementation(async (b) =>
+    b.slug === 'audien'
+      ? [
+          { modelUrl: 'https://audien.com/atom', documentUrls: ['https://audien.com/atom.pdf'], inCatalog: true },
+          { modelUrl: 'https://audien.com/atom-2', documentUrls: [], inCatalog: true },
+        ]
+      : [{ modelUrl: `${BASE}/select-300`, documentUrls: [], inCatalog: true }],
+  )
+  vi.mocked(extractModel).mockImplementation(async (b) => (b.slug === 'audien' ? atom : candidate('Select 300')))
+  // The PDF read with the model page answers 429.
+  vi.mocked(fetchPage).mockImplementation(async (url) => (url === 'https://audien.com/atom.pdf' ? { status: 'skipped', url, reason: 'rate-limited', detail: 'HTTP 429' } : okPage(url)))
+
+  expect(await main(['update'], opts)).toBe(2)
+
+  const asked = vi.mocked(fetchPage).mock.calls.map(([url]) => url)
+  expect(asked.filter((url) => url.startsWith('https://audien.com'))).toEqual(['https://audien.com/atom', 'https://audien.com/atom.pdf'])
+  expect(await filesUnder(join(dataDir, 'pending'))).toEqual(['jabra-enhance-select-300-model.json'])
+  expect(log).toContain('audien: https://audien.com/atom.pdf refused: rate-limited, brand stopped')
+  expect(log.at(-1)).toBe('Refused by their own sites: audien. Try again later: npm run update -- --resume')
+  const done = JSON.parse(await readFile(progressFile, 'utf8')).done
+  expect(done).toContain('brand=* limit=* scrape:jabra-enhance')
+  expect(done).not.toContain('brand=* limit=* scrape:audien')
+})
+
+test('update: a document of a stored model that answers with a bot wall stops the brand (addDocuments)', async () => {
+  await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), { ...brand, scraper: { ...brand.scraper, documentUrlPattern: '\\.pdf$' } })
+  const stored = model('Select 300')
+  await writeJson(join(dataDir, 'models', `${stored.slug}.json`), stored)
+  const PDF = `${BASE}/docs/select-300-user-guide.pdf`
+  const PDF2 = `${BASE}/docs/select-300-datasheet.pdf`
+  vi.mocked(discoverModelUrls).mockResolvedValue([{ modelUrl: `${BASE}/select-300`, documentUrls: [PDF, PDF2], inCatalog: true }])
+  vi.mocked(extractModel).mockResolvedValue(candidate('Select 300'))
+  // The model page reads its PDFs from the cache; checkDocument asks again and meets the wall.
+  let pdfAsked = 0
+  vi.mocked(fetchPage).mockImplementation(async (url) => {
+    if (url !== PDF && url !== PDF2) return okPage(url)
+    pdfAsked++
+    return pdfAsked <= 2 ? { ...okPage(url), contentType: 'application/pdf' } : { status: 'skipped', url, reason: 'bot-protection', detail: 'HTTP 403' }
+  })
+  expect(await main(['scrape'], opts)).toBe(2)
+  // The second PDF is not asked for again after the wall.
+  expect(pdfAsked).toBe(3)
+  expect(log.join('\n')).toContain('Refused by their own sites: jabra-enhance')
 })
 
 test('an own page that redirects to an address the catalog links is a listed model; a slash variant of the same page is still an orphan', async () => {
@@ -862,6 +958,24 @@ test('a support-only model without an official date since 2018 is left out; one 
   expect(log).toContain('jabra-enhance-select-200: found only on support pages, left to the archive command')
 })
 
+test('a stored model that only support pages link gets no price change and no price event from them', async () => {
+  const price = (value: number) => ({ value, quote: `USD ${value}`, sourceUrl: `${BASE}/support/select-300`, fetchedAt: FETCHED_AT, sourceType: 'official' as const })
+  const stored = model('Select 300')
+  const withPrice = Model.parse({ ...stored, variants: [{ ...stored.variants[0], priceUsd: price(800) }] })
+  await writeJson(join(dataDir, 'models', `${stored.slug}.json`), withPrice)
+  vi.mocked(discoverModelUrls).mockResolvedValue([{ modelUrl: `${BASE}/support/select-300`, documentUrls: [], inCatalog: false }])
+  vi.mocked(extractModel).mockResolvedValue({
+    model: Model.parse({ ...withPrice, variants: [{ ...withPrice.variants[0], priceUsd: price(780) }] }),
+    fieldChecks: { 'variants.0.priceUsd': [{ name: 'literal', ok: true }] },
+  })
+  expect(await main(['scrape', '--limit', '5'], opts)).toBe(0)
+  const after = Model.parse(JSON.parse(await readFile(join(dataDir, 'models', `${stored.slug}.json`), 'utf8')))
+  expect(after.variants[0].priceUsd?.value).toBe(800)
+  expect(await filesUnder(join(dataDir, 'events'))).toEqual([])
+  expect(await filesUnder(join(dataDir, 'pending'))).toEqual([])
+  expect(log).toContain(`${stored.slug}: variants.0.priceUsd read on support pages only, price left out`)
+})
+
 describe('discontinued models: looked up once', () => {
   const fact = { date: '2019', text: 'Jabra Enhance stopped selling hearing aids.', sourceUrl: `${BASE}/history`, quote: 'Jabra Enhance', fetchedAt: FETCHED_AT }
 
@@ -879,6 +993,24 @@ describe('discontinued models: looked up once', () => {
     expect(searchVideos).toHaveBeenCalledTimes(1)
     expect(await main(['youtube', '--refresh'], opts)).toBe(0)
     expect(searchVideos).toHaveBeenCalledTimes(2)
+  })
+
+  test('a lookup with a skipped shop or a failure inside is not used up: the next run asks again', async () => {
+    await storeSelect300({ discontinued: { source: SOURCE } })
+    const shop = 'https://shop.example/select-300'
+    vi.mocked(discoverReviewSources).mockResolvedValue({ expert: [], retail: [shop] })
+    vi.mocked(fetchPage).mockImplementation(async (url) => ({ status: 'skipped', url, reason: 'rate-limited', detail: 'HTTP 429' }))
+    expect(await main(['reviews'], opts)).toBe(0)
+    // A failure caught inside the lookup (the shop page could not be read as reviews).
+    vi.mocked(fetchPage).mockImplementation(async (url) => okPage(url))
+    vi.mocked(extractRetailReviews).mockRejectedValue(new Error('unreadable'))
+    expect(await main(['reviews'], opts)).toBe(0)
+    expect(discoverReviewSources).toHaveBeenCalledTimes(2)
+    // A clean lookup is marked: the third run does not ask.
+    vi.mocked(extractRetailReviews).mockResolvedValue(null)
+    expect(await main(['reviews'], opts)).toBe(0)
+    expect(await main(['reviews'], opts)).toBe(0)
+    expect(discoverReviewSources).toHaveBeenCalledTimes(3)
   })
 
   test('a model on sale gets reviews on every run', async () => {
@@ -992,8 +1124,55 @@ describe('archive', () => {
     await main(['archive'], opts)
     expect(vi.mocked(extractModel)).toHaveBeenCalledTimes(1) // the catalog-linked page is not read
     expect((await pending('jabra-enhance-select-200-model')).origin).toBeUndefined() // update's card stays
-    expect(log.join('\n')).toContain('already queued by another command')
+    expect(log).toContain('jabra-enhance-select-200: a pending new-model card names "Select 200", left to it')
     expect(log).toContain(`${BASE}/select-200: in the live catalog, left to update`)
+  })
+
+  test('an archive proposal never replaces a card another command queued under the same id', async () => {
+    const stored = model('Select 200')
+    await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), { ...withSupport, status: 'gone' })
+    await writeJson(join(dataDir, 'models', `${stored.slug}.json`), stored)
+    const source = { value: 'Select 200', quote: 'Select 200', sourceUrl: `https://web.archive.org/web/2020/${BASE}`, fetchedAt: FETCHED_AT, sourceType: 'official' as const }
+    vi.mocked(archiveCandidates).mockResolvedValue([{ kind: 'discontinued', modelSlug: stored.slug, path: 'discontinued', after: { source }, checks: { discontinued: [] } }])
+    const queued = { id: `${stored.slug}-discontinued`, kind: 'spec-change', modelSlug: stored.slug, path: 'discontinued', after: { source }, checks: {}, createdAt: FETCHED_AT }
+    await writeJson(join(dataDir, 'pending', `${stored.slug}-discontinued.json`), queued)
+    await main(['archive'], opts)
+    expect((await pending(`${stored.slug}-discontinued`)).origin).toBeUndefined()
+    expect(log.join('\n')).toContain('already queued by another command')
+  })
+
+  test('a support-page model on sale under another name is not proposed: a stored suffix name, a live catalog model, a pending card', async () => {
+    const SUPPORT_LUMITY = `${SUPPORT}/audeo-lumity`
+    const lumity = (name: string, slug = 'jabra-enhance-audeo-lumity'): ModelCandidate => ({ ...dated('Lumity'), model: Model.parse({ ...dated('Lumity').model, name, slug }) })
+
+    // A stored "Lumity" is the support page's "Audéo Lumity": only documents, no new card.
+    await writeJson(join(dataDir, 'models', 'jabra-enhance-lumity.json'), Model.parse({ ...model('Lumity'), slug: 'jabra-enhance-lumity' }))
+    vi.mocked(discoverModelUrls).mockResolvedValue([{ modelUrl: SUPPORT_LUMITY, documentUrls: [], inCatalog: false }])
+    vi.mocked(fetchPage).mockImplementation(async (url) => ({ ...okPage(url), text: 'Jabra Enhance Audéo Lumity support' }))
+    vi.mocked(extractModel).mockResolvedValue(lumity('Audéo Lumity'))
+    expect(await main(['archive'], opts)).toBe(0)
+    expect(await filesUnder(join(dataDir, 'pending'))).toEqual([])
+    await rm(join(dataDir, 'models'), { recursive: true, force: true })
+
+    // The live catalog lists "Lumity" at another URL: the catalog model page is read for its name.
+    vi.mocked(discoverModelUrls).mockResolvedValue([
+      { modelUrl: `${BASE}/lumity`, documentUrls: [], inCatalog: true },
+      { modelUrl: SUPPORT_LUMITY, documentUrls: [], inCatalog: false },
+    ])
+    vi.mocked(extractModel).mockImplementation(async (_b, pages) => (pages[0].url === `${BASE}/lumity` ? lumity('Lumity', 'jabra-enhance-lumity') : lumity('Audéo Lumity')))
+    expect(await main(['archive'], opts)).toBe(0)
+    expect(await filesUnder(join(dataDir, 'pending'))).toEqual([])
+    expect(log).toContain('jabra-enhance-audeo-lumity: the live catalog lists "Lumity", left to update')
+
+    // A pending new-model card of update names it: the catalog is not even read.
+    await writeJson(join(dataDir, 'pending', 'jabra-enhance-lumity-model.json'), {
+      id: 'jabra-enhance-lumity-model', kind: 'new-model', modelSlug: 'jabra-enhance-lumity', path: '', after: lumity('Lumity', 'jabra-enhance-lumity').model, checks: {}, createdAt: FETCHED_AT,
+    })
+    vi.mocked(discoverModelUrls).mockResolvedValue([{ modelUrl: SUPPORT_LUMITY, documentUrls: [], inCatalog: false }])
+    vi.mocked(extractModel).mockClear()
+    expect(await main(['archive'], opts)).toBe(0)
+    expect(await filesUnder(join(dataDir, 'pending'))).toEqual(['jabra-enhance-lumity-model.json'])
+    expect(log).toContain('jabra-enhance-audeo-lumity: a pending new-model card names "Lumity", left to it')
   })
 
   test('a catalog page that was not read leaves new models unproposed', async () => {
@@ -1292,10 +1471,20 @@ describe('archive', () => {
     test('a refusal by the brand\'s own site still stops that brand', async () => {
       const OWN = 'https://www.jabraenhance.com/news/closing'
       await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), { ...withHistory, historySources: [OWN, NEWS] })
-      vi.mocked(fetchPage).mockImplementation(async (url) => (url === OWN ? { status: 'skipped', url, reason: 'robots', detail: 'disallowed' } : { ...okPage(url), text: TEXT }))
+      vi.mocked(fetchPage).mockImplementation(async (url) => (url === OWN ? { status: 'skipped', url, reason: 'rate-limited', detail: 'HTTP 429' } : { ...okPage(url), text: TEXT }))
       drafts()
       expect(await main(['archive'], opts)).toBe(2)
       expect(log.join('\n')).toContain('Refused by their own sites: jabra-enhance')
+    })
+
+    test('robots.txt disallowing a page of the brand\'s own site is a plain skip, not a refusal', async () => {
+      const OWN = 'https://www.jabraenhance.com/news/closing'
+      await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), { ...withHistory, historySources: [OWN, NEWS] })
+      vi.mocked(fetchPage).mockImplementation(async (url) => (url === OWN ? { status: 'skipped', url, reason: 'robots', detail: 'disallowed' } : { ...okPage(url), text: TEXT }))
+      drafts()
+      expect(await main(['archive'], opts)).toBe(0)
+      expect(log).toContain(`${OWN} skipped: robots (disallowed)`)
+      expect(log.join('\n')).not.toContain('Refused by their own sites')
     })
 
     test('a gone brand\'s history source is read as a Web Archive copy only', async () => {

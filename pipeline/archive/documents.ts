@@ -1,8 +1,8 @@
 // Official manuals and datasheets of a model: which PDFs are documents of it, and what replaces a dead link.
-import { namesModel } from '@/pipeline/archive/lifecycle'
 import { fetchPage } from '@/pipeline/fetch/fetcher'
 import { latestCopy } from '@/pipeline/sources/wayback'
 import { archiveUrl, citableArchiveUrl, parseArchiveUrl } from '@/src/lib/archive-url'
+import { aLineNamesModel } from '@/src/lib/data/slug'
 import type { Brand } from '@/src/lib/schema/brand'
 import type { Model, ModelDocument } from '@/src/lib/schema/model'
 import type { CandidateChange, CheckResult } from '@/src/lib/schema/pending'
@@ -52,16 +52,19 @@ function downloadUrl(url: string): string {
   return archived ? archiveUrl(archived.timestamp, archived.original, { raw: true }) : url
 }
 
+type CheckOpts = {
+  refresh?: boolean
+  onSkip?: OnSkip
+  /** The stored model the candidate was merged into: the document is given to it, so it must name it too. */
+  stored?: Named
+}
+
 /**
  * The three checks of a document of a model: the original URL matches the brand's pattern, the PDF downloads
- * and has text, the text names the model. Null when no readable PDF came back.
+ * and has text, a line of the text names the model (and the stored model it goes to) as a whole model, see
+ * `aLineNamesModel`. Null when no readable PDF came back.
  */
-async function verify(
-  brand: Brand,
-  model: Named,
-  url: string,
-  opts: { refresh?: boolean; onSkip?: OnSkip },
-): Promise<Checked | null> {
+async function verify(brand: Brand, model: Named, url: string, opts: CheckOpts): Promise<Checked | null> {
   const download = downloadUrl(url)
   const page = await fetchPage(download, opts.refresh ? { refresh: true } : {})
   if (page.status === 'skipped') opts.onSkip?.(download, page.reason, page.detail)
@@ -81,7 +84,7 @@ async function verify(
       : { name: 'document', ok: false, detail: 'the document is not a PDF' },
   )
   checks.push(
-    namesModel(model, page.text)
+    [model, ...(opts.stored === undefined ? [] : [opts.stored])].every((named) => aLineNamesModel(page.text, named))
       ? { name: 'document', ok: true }
       : { name: 'document', ok: false, detail: 'the document does not name the model' },
   )
@@ -94,12 +97,7 @@ async function verify(
   return { document, checks }
 }
 
-export function checkDocument(
-  brand: Brand,
-  model: Named,
-  url: string,
-  opts: { refresh?: boolean; onSkip?: OnSkip } = {},
-): Promise<Checked | null> {
+export function checkDocument(brand: Brand, model: Named, url: string, opts: CheckOpts = {}): Promise<Checked | null> {
   return verify(brand, model, url, opts)
 }
 

@@ -30,6 +30,22 @@ describe('liveLinksOfGoneBrands', () => {
     expect(liveLinksOfGoneBrands(dataset as unknown as Dataset)).toEqual(['https://acme.test/p', 'https://shop.acme.test/g.pdf'])
   })
 
+  test('names a gone brand\'s live link in a reviews file, in another brand\'s twin source and on its support host', () => {
+    const goneBrand = { ...brand('gone'), scraper: { catalogUrls: [], supportUrls: ['https://support.acme-help.test/'], modelUrlPattern: '', render: false } } as unknown as Brand
+    const other = { brand: 'zeta', slug: 'zeta-one', variants: [], documents: [], sameHardwareAs: [{ slug: 'acme-zed', source: field('https://acme.test/twin') }] } as unknown as Model
+    const reviews = {
+      slug: 'acme-zed',
+      customer: [{ sourceUrl: 'https://www.acme.test/shop/zed', rating: 4, count: 10, fetchedAt: '2026-11-27T10:00:00.000Z' }],
+      complaintThemes: [],
+      prosCons: { pros: [{ text: 'x', sources: ['https://support.acme-help.test/faq', 'https://review.example/zed'] }], cons: [] },
+      videos: [],
+    }
+    const dataset = { brands: [goneBrand], models: [other], reviews: [reviews] }
+    expect(liveLinksOfGoneBrands(dataset as unknown as Dataset).sort()).toEqual(
+      ['https://support.acme-help.test/faq', 'https://acme.test/twin', 'https://www.acme.test/shop/zed'].sort(),
+    )
+  })
+
   test('an active brand may link its own site', () => {
     const dataset = { brands: [brand('active')], models: [model(['https://www.acme.test/p'])] }
     expect(liveLinksOfGoneBrands(dataset as unknown as Dataset)).toEqual([])

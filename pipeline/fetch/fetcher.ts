@@ -39,12 +39,23 @@ const MAX_REDIRECTS = 5
 const TIMEOUT_MS = 30_000
 const MAX_TIMER_MS = 2 ** 31 - 1
 
-/** Whether the bot may not touch the URL's host: Google, Amazon, or a blocklisted domain or its subdomain. */
+/** Domains this process never touches whatever list a caller gives: a gone brand's own hosts (see `blockDomains`). */
+let alwaysBlocked: string[] = []
+
+/**
+ * Sets the domains no request of this process may touch, on top of every blocklist (replacing the ones set
+ * before): a command sets a gone brand's own hosts, so that no step, redirect or search result reaches them.
+ */
+export function blockDomains(domains: string[]): void {
+  alwaysBlocked = [...domains]
+}
+
+/** Whether the bot may not touch the URL's host: Google, Amazon, or a blocklisted (or `blockDomains`) domain or its subdomain. */
 export function isBlocked(url: URL, blocklist: string[]): boolean {
-  const host = url.hostname.replace(/\.$/, '')
+  const host = url.hostname.replace(/\.$/, '').toLowerCase()
   return (
     NEVER_FETCH.test(host) ||
-    blocklist.some((domain) => host === domain.toLowerCase() || host.endsWith(`.${domain.toLowerCase()}`))
+    [...blocklist, ...alwaysBlocked].some((domain) => host === domain.toLowerCase() || host.endsWith(`.${domain.toLowerCase()}`))
   )
 }
 

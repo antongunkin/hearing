@@ -11,7 +11,7 @@ import { parseArgs } from 'node:util'
 import { z } from 'zod'
 import { applyAuto, diffModel, enqueue, pendingId, route, sourcedLeaves, withCrossChecks } from '@/pipeline/apply'
 import { config } from '@/pipeline/config'
-import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
+import { blockDomains, fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { LlmLimitError, LlmUnavailableError } from '@/pipeline/llm'
 import { readCache } from '@/pipeline/llm/cache'
 import { Progress } from '@/pipeline/progress'
@@ -20,9 +20,9 @@ import { checkDocument, replaceDeadDocuments, type OnSkip } from '@/pipeline/arc
 import { AppLookupSkipped, appStatus, draftHistory, ownHosts, readHistorySources } from '@/pipeline/archive/history'
 import { isInScope, lifecycleOf, listingIn } from '@/pipeline/archive/lifecycle'
 import { queueRelation } from '@/pipeline/atlas/relation'
-import { archiveCandidates } from '@/pipeline/archive/wayback-models'
+import { archiveCandidates, findStored } from '@/pipeline/archive/wayback-models'
 import { WaybackError } from '@/pipeline/sources/wayback'
-import { discoverModelUrls, extractModel, matchExistingModel, mergeCandidates, type ModelCandidate } from '@/pipeline/sources/brand-site'
+import { discoverModelUrls, extractModel, matchExistingModel, mergeCandidates, sameModelName, type ModelCandidate } from '@/pipeline/sources/brand-site'
 import { fetchIosVersion, lookupApp, type AppRecord } from '@/pipeline/sources/itunes'
 import { fetchClearances, fetchFdaEvents, matchModel, type Clearance510k } from '@/pipeline/sources/openfda'
 import { findInLog, readBody, readLog, type FetchLogEntry, type LogRef } from '@/pipeline/fetch/raw-store'
@@ -97,8 +97,9 @@ async function unit(run: Run, key: string, work: () => Promise<void>, passes?: (
 }
 
 /**
- * One model's lookup. A discontinued model's is done once: marked in the ledger when it succeeds, and run again
- * only with `--refresh`. A model on sale is looked up on every run.
+ * One model's lookup. A discontinued model's is done once: marked in the ledger when it succeeds with nothing
+ * failed or skipped on the way (a shop's 429 caught inside is no answer), and run again only with `--refresh`.
+ * A model on sale is looked up on every run.
  */
 async function modelUnit(
   run: Run,
@@ -114,8 +115,9 @@ async function modelUnit(
     run,
     key,
     async () => {
+      const { failed, skipped } = run.tally
       await work()
-      if (discontinued) await run.once.mark(key)
+      if (discontinued && run.tally.failed === failed && run.tally.skipped === skipped) await run.once.mark(key)
     },
     passes,
   )
@@ -125,6 +127,31 @@ async function modelUnit(
 function skippedSource(run: Run, url: string, reason: string, detail?: string): void {
   run.tally.skipped++
   console.warn(`${url} skipped: ${reason}${detail ? ` (${detail})` : ''}`)
+}
+
+/**
+ * A brand's own site refused (a rate limit or a bot wall): no more requests go to it this run. That brand stops,
+ * the command goes on with the next. A robots.txt "disallow" is no refusal of this kind: no request was made, and
+ * asking again later gives the same answer, so that page is a plain skip.
+ */
+class BrandRefusedError extends Error {
+  constructor(
+    readonly url: string,
+    readonly reason: string,
+  ) {
+    super(`${url} refused: ${reason}`)
+    this.name = 'BrandRefusedError'
+  }
+}
+const REFUSALS = new Set(['rate-limited', 'bot-protection'])
+const isBrandRefusal = (error: unknown) => error instanceof BrandRefusedError
+
+/** What a skipped fetch of the brand's site means: a refusal stops the brand, any other skip leaves that page out. */
+function brandSkip(run: Run): OnSkip {
+  return (url, reason, detail) => {
+    if (REFUSALS.has(reason)) throw new BrandRefusedError(url, reason)
+    skippedSource(run, url, reason, detail)
+  }
 }
 
 /** Drops, applies or queues one change. Risky fields are read again only for a change that is kept. */
@@ -162,11 +189,15 @@ async function queuedOrigin(run: Run, id: string): Promise<string | null> {
   }
 }
 
-/** The page, or null (counted and logged) when the source is skipped. */
-async function page(run: Run, url: string, opts: { render?: boolean; refresh?: boolean }): Promise<Page | null> {
+/**
+ * The page, or null (counted and logged) when the source is skipped. On the brand's own site (`ownSite`), a rate
+ * limit or a bot wall throws `BrandRefusedError` instead: no more pages of that site are asked for this run.
+ */
+async function page(run: Run, url: string, opts: { render?: boolean; refresh?: boolean }, ownSite = false): Promise<Page | null> {
   const result = await fetchPage(url, opts)
   if (result.status === 'ok') return result
-  skippedSource(run, url, result.reason, result.detail)
+  if (ownSite) brandSkip(run)(url, result.reason, result.detail)
+  else skippedSource(run, url, result.reason, result.detail)
   return null
 }
 
@@ -260,14 +291,14 @@ const sameSite = (a: string, b: string) => bareHost(a) === bareHost(b)
 
 /**
  * A model's own page, fetched fresh (a cached copy has no expiry and says nothing about now). Only a plain
- * "not found" (404, 410) is `gone`; a refusal, a timeout or a server error is `unread` (counted and logged):
- * it says nothing about the page, so the lifecycle is not decided on it.
+ * "not found" (404, 410) is `gone`; robots, a timeout or a server error is `unread` (counted and logged): it says
+ * nothing about the page, so the lifecycle is not decided on it. A rate limit or a bot wall stops the brand.
  */
 async function readOwnPage(run: Run, url: string, render: boolean): Promise<{ status: 'ok'; page: Page } | { status: 'gone' } | { status: 'unread' }> {
   const result = await fetchPage(url, { render, refresh: true })
   if (result.status === 'ok') return { status: 'ok', page: result }
   if (result.reason === 'http-error' && /^HTTP (404|410)$/.test(result.detail ?? '')) return { status: 'gone' }
-  skippedSource(run, url, result.reason, result.detail)
+  brandSkip(run)(url, result.reason, result.detail)
   return { status: 'unread' }
 }
 
@@ -351,7 +382,8 @@ async function addDocuments(run: Run, brand: Brand, existing: Model | null, cand
       run,
       `${candidate.model.slug} ${url}`,
       async () => {
-        const checked = await checkDocument(brand, candidate.model, url, { refresh: run.refresh, onSkip })
+        // A candidate merged into a stored model gives the document to that model: the PDF must name it too.
+        const checked = await checkDocument(brand, candidate.model, url, { refresh: run.refresh, onSkip, ...(existing !== null && { stored: existing }) })
         if (checked === null) return
         candidate.fieldChecks[`documents.${documents.length}`] = checked.checks
         documents.push(checked.document)
@@ -386,7 +418,8 @@ function absentFrom(model: Model, page: CatalogPage): Sourced<string> {
  * unit: the pages of a model family are merged (see mergeCandidates) before they are compared with the
  * data, so each model is compared once. A brand stopped half-way is read again on resume; the LLM answers
  * for pages read before come from its cache (the pages too, without `--refresh`). A page that fails is
- * counted and left out.
+ * counted and left out. A rate limit or a bot wall on any page of a brand (catalog, model page, PDF, own page)
+ * stops that brand: it is not done, the run goes on with the next brand and ends with exit 2 and the list.
  */
 async function scrape(run: Run): Promise<void> {
   for (const brand of run.brands) {
@@ -394,76 +427,13 @@ async function scrape(run: Run): Promise<void> {
       console.log(`${brand.slug}: gone, not scraped live`)
       continue
     }
-    await unit(run, `scrape:${brand.slug}`, async () => {
-      // Lifecycle is judged only when the whole catalog was read: no `--limit`, no catalog or model page lost.
-      let complete = !Number.isFinite(run.limit)
-      const onSkip = (url: string, reason: string, detail?: string) => {
-        if (brand.scraper.catalogUrls.includes(url)) complete = false
-        skippedSource(run, url, reason, detail)
-      }
-      const onEmpty = () => {
-        complete = false
-      }
-      let catalogPage: CatalogPage | undefined
-      const onCatalog = (url: string, read: { quote: string; fetchedAt: string }) => {
-        catalogPage ??= { url, ...read }
-      }
-      const found = await discoverModelUrls(brand, { refresh: run.refresh, onSkip, onEmpty, onCatalog })
-      const groups = found.slice(0, run.limit)
-      const candidates: ModelCandidate[] = []
-      /** Whether a catalog page links a model, by slug (the pages of one family are one model). */
-      const inCatalog = new Map<string, boolean>()
-      /** The document URLs the pages of a model (a family is one model) link, by slug. */
-      const documentsOf = new Map<string, Set<string>>()
-      for (const { modelUrl, documentUrls, inCatalog: linked } of groups) {
-        const read = await guard(run, modelUrl, async () => {
-          const modelPage = await page(run, modelUrl, { render: brand.scraper.render, refresh: run.refresh })
-          if (modelPage === null) {
-            complete = false
-            return
-          }
-          const pages = [modelPage]
-          for (const url of documentUrls) {
-            const document = await page(run, url, { refresh: run.refresh })
-            if (document) pages.push(document)
-          }
-          const candidate = await extractModel(brand, pages)
-          candidates.push(candidate)
-          inCatalog.set(candidate.model.slug, inCatalog.get(candidate.model.slug) === true || linked)
-          documentsOf.set(candidate.model.slug, new Set([...(documentsOf.get(candidate.model.slug) ?? []), ...documentUrls]))
-        })
-        if (!read) complete = false
-      }
-
-      const matched = new Set<string>()
-      const lookups: AppLookups = new Map()
-      let lookupSkipped = false
-      for (const candidate of mergeCandidates(candidates)) {
-        const existing = matchExistingModel(candidate.model, run.dataset.models)
-        const inLiveCatalog = inCatalog.get(candidate.model.slug) === true
-        if (existing !== null) {
-          if (inLiveCatalog) matched.add(existing.slug)
-        } else if (!isInScope(candidate.model, { inLiveCatalog })) {
-          console.log(`${candidate.model.slug}: not sold since ${config.onSaleSince.slice(0, 4)} by its sources, left out`)
-          continue
-        } else if (!inLiveCatalog) {
-          // Found on support pages only: the `archive` command decides whether it belongs.
-          console.log(`${candidate.model.slug}: found only on support pages, left to the archive command`)
-          continue
-        }
-        await addDocuments(run, brand, existing, candidate, [...(documentsOf.get(candidate.model.slug) ?? [])])
-        for (const change of diffModel(existing, candidate)) await handle(run, change)
-        if (existing !== null && !(await linkChanges(run, existing, candidate, lookups))) lookupSkipped = true
-      }
-
-      if (complete && groups.some((group) => group.inCatalog)) {
-        await lifecycleChanges(run, brand, matched, groups.filter((group) => group.inCatalog).map((group) => group.modelUrl), catalogPage)
-      } else {
-        console.log(`${brand.slug}: catalog incomplete, lifecycle not checked`)
-      }
-      // A skipped lookup is not "no app": the brand is not done, and a resumed run asks again.
-      if (lookupSkipped) throw new Error(`${brand.slug}: an iTunes lookup was skipped, app links not decided`)
-    })
+    try {
+      await scrapeBrand(run, brand)
+    } catch (error) {
+      if (!isBrandRefusal(error)) throw error
+      console.warn(`${brand.slug}: ${(error as Error).message}, brand stopped`)
+      run.refused.push(brand.slug)
+    }
   }
   for (const slug of modelSlugs(run)) {
     await modelUnit(run, 'third-party', slug, async () => {
@@ -477,6 +447,93 @@ async function scrape(run: Run): Promise<void> {
       for (const change of changes) await handle(run, change)
     })
   }
+}
+
+/** One brand of `scrape`, as one unit; a `BrandRefusedError` goes to the caller. */
+async function scrapeBrand(run: Run, brand: Brand): Promise<void> {
+  await unit(run, `scrape:${brand.slug}`, async () => {
+    // Lifecycle is judged only when the whole catalog was read: no `--limit`, no catalog or model page lost.
+    let complete = !Number.isFinite(run.limit)
+    const onSkip = (url: string, reason: string, detail?: string) => {
+      if (REFUSALS.has(reason)) throw new BrandRefusedError(url, reason)
+      if (brand.scraper.catalogUrls.includes(url)) complete = false
+      skippedSource(run, url, reason, detail)
+    }
+    const onEmpty = () => {
+      complete = false
+    }
+    let catalogPage: CatalogPage | undefined
+    const onCatalog = (url: string, read: { quote: string; fetchedAt: string }) => {
+      catalogPage ??= { url, ...read }
+    }
+    const found = await discoverModelUrls(brand, { refresh: run.refresh, onSkip, onEmpty, onCatalog })
+    const groups = found.slice(0, run.limit)
+    const candidates: ModelCandidate[] = []
+    /** Whether a catalog page links a model, by slug (the pages of one family are one model). */
+    const inCatalog = new Map<string, boolean>()
+    /** The document URLs the pages of a model (a family is one model) link, by slug. */
+    const documentsOf = new Map<string, Set<string>>()
+    for (const { modelUrl, documentUrls, inCatalog: linked } of groups) {
+      const read = await guard(
+        run,
+        modelUrl,
+        async () => {
+          const modelPage = await page(run, modelUrl, { render: brand.scraper.render, refresh: run.refresh }, true)
+          if (modelPage === null) {
+            complete = false
+            return
+          }
+          const pages = [modelPage]
+          for (const url of documentUrls) {
+            const document = await page(run, url, { refresh: run.refresh }, true)
+            if (document) pages.push(document)
+          }
+          const candidate = await extractModel(brand, pages)
+          candidates.push(candidate)
+          inCatalog.set(candidate.model.slug, inCatalog.get(candidate.model.slug) === true || linked)
+          documentsOf.set(candidate.model.slug, new Set([...(documentsOf.get(candidate.model.slug) ?? []), ...documentUrls]))
+        },
+        isBrandRefusal,
+      )
+      if (!read) complete = false
+    }
+
+    const matched = new Set<string>()
+    const lookups: AppLookups = new Map()
+    let lookupSkipped = false
+    for (const candidate of mergeCandidates(candidates)) {
+      const existing = matchExistingModel(candidate.model, run.dataset.models)
+      const inLiveCatalog = inCatalog.get(candidate.model.slug) === true
+      if (existing !== null) {
+        if (inLiveCatalog) matched.add(existing.slug)
+      } else if (!isInScope(candidate.model, { inLiveCatalog })) {
+        console.log(`${candidate.model.slug}: not sold since ${config.onSaleSince.slice(0, 4)} by its sources, left out`)
+        continue
+      } else if (!inLiveCatalog) {
+        // Found on support pages only: the `archive` command decides whether it belongs.
+        console.log(`${candidate.model.slug}: found only on support pages, left to the archive command`)
+        continue
+      }
+      await addDocuments(run, brand, existing, candidate, [...(documentsOf.get(candidate.model.slug) ?? [])], brandSkip(run))
+      for (const change of diffModel(existing, candidate)) {
+        // A stored model that only support pages link is not on sale: their price is no current price, and makes no price event.
+        if (!inLiveCatalog && change.kind === 'price') {
+          console.log(`${change.modelSlug}: ${change.path} read on support pages only, price left out`)
+          continue
+        }
+        await handle(run, change)
+      }
+      if (existing !== null && !(await linkChanges(run, existing, candidate, lookups))) lookupSkipped = true
+    }
+
+    if (complete && groups.some((group) => group.inCatalog)) {
+      await lifecycleChanges(run, brand, matched, groups.filter((group) => group.inCatalog).map((group) => group.modelUrl), catalogPage)
+    } else {
+      console.log(`${brand.slug}: catalog incomplete, lifecycle not checked`)
+    }
+    // A skipped lookup is not "no app": the brand is not done, and a resumed run asks again.
+    if (lookupSkipped) throw new Error(`${brand.slug}: an iTunes lookup was skipped, app links not decided`)
+  }, isBrandRefusal)
 }
 
 /** FDA clearances and recalls of stored models, since the catalog's cut-off date; a repeated event is not written again. */
@@ -681,18 +738,6 @@ async function youtube(run: Run): Promise<void> {
   }
 }
 
-/** A brand's own site refused (bot protection, rate limit, robots): that brand stops, the command goes on with the next. */
-class BrandRefusedError extends Error {
-  constructor(
-    readonly url: string,
-    readonly reason: string,
-  ) {
-    super(`${url} refused: ${reason}`)
-    this.name = 'BrandRefusedError'
-  }
-}
-const REFUSALS = new Set(['rate-limited', 'bot-protection', 'robots'])
-const isBrandRefusal = (error: unknown) => error instanceof BrandRefusedError
 /** The Web Archive itself asked us to slow down or keep out: nothing more can be asked of it, the whole command stops. */
 const isArchiveStop = (error: unknown) => error instanceof WaybackError && (error.reason === 'rate-limited' || error.reason === 'bot-protection')
 
@@ -714,10 +759,12 @@ function documentSkip(run: Run): OnSkip {
 
 /**
  * `archive-support`: the models the brand's support pages link that its live catalog does not (what `update`
- * leaves to this command). One that matches no stored model and is in scope by an official 2018+ date becomes a
- * new, discontinued card, its page the naming source; a live product page of it makes it an orphan, flagged for
- * review. One that matches a stored model only adds documents. Support model pages are not product pages and
- * are not looked at for that flag: an unlisted model whose only live page is a support page is not flagged.
+ * leaves to this command). One that matches no stored model (by name, a suffix too, or by its page: see
+ * `findStored`), no model of the live catalog and no pending `new-model` card, and is in scope by an official
+ * 2018+ date, becomes a new, discontinued card, its page the naming source; a live product page of it makes it an
+ * orphan, flagged for review. One that matches a stored model only adds documents. Support model pages are not
+ * product pages and are not looked at for that flag: an unlisted model whose only live page is a support page is
+ * not flagged. Run it after the owner has approved `update`'s new-model cards (see README).
  */
 async function archiveSupport(run: Run, brand: Brand): Promise<void> {
   // The whole catalog is asked too: a model it links is on sale and belongs to `update`. A catalog page lost says nothing.
@@ -765,11 +812,47 @@ async function archiveSupport(run: Run, brand: Brand): Promise<void> {
     )
   }
 
+  /** Names of the models on sale: those the live catalog's model pages give (read only when needed), null when one was lost. */
+  let liveNames: string[] | null | undefined
+  const catalogNames = async (): Promise<string[] | null> => {
+    if (liveNames !== undefined) return liveNames
+    const names: string[] = []
+    let whole = true
+    for (const { modelUrl } of all.filter((g) => g.inCatalog)) {
+      const ok = await guard(
+        run,
+        modelUrl,
+        async () => {
+          const modelPage = await read(modelUrl, { render: brand.scraper.render })
+          if (modelPage === null) {
+            whole = false
+            return
+          }
+          const { model } = await extractModel(brand, [modelPage])
+          names.push(model.name, ...model.aliases)
+        },
+        isBrandRefusal,
+      )
+      if (!ok) whole = false
+    }
+    liveNames = whole ? names : null
+    return liveNames
+  }
+  /** Names of the brand's pending `new-model` cards (any command's), but the archive card this candidate would replace. */
+  const pendingNames = (slug: string): string[] =>
+    run.dataset.pending
+      .filter((card) => card.kind === 'new-model' && !(card.modelSlug === slug && card.origin === 'archive'))
+      .map((card) => card.after as Partial<Model>)
+      .filter((after) => after.brand === brand.slug)
+      .flatMap((after) => [after.name ?? '', ...(after.aliases ?? [])])
+  const sameAs = (model: Model, names: string[]) =>
+    names.find((name) => name !== '' && [model.name, ...model.aliases].some((own) => sameModelName(brand.slug, name, own)))
+
   const skip = documentSkip(run)
   for (const candidate of mergeCandidates(candidates)) {
     const { slug } = candidate.model
     const urls = [...(documentsOf.get(slug) ?? [])]
-    const existing = matchExistingModel(candidate.model, run.dataset.models)
+    const existing = findStored(brand, run.dataset.models, candidate.model, (pagesOf.get(slug) ?? []).map((p) => p.url))
     if (existing !== null) {
       await addDocuments(run, brand, existing, candidate, urls, skip)
       for (const change of diffModel(existing, candidate)) if (change.kind === 'document') await handle(run, change)
@@ -781,6 +864,22 @@ async function archiveSupport(run: Run, brand: Brand): Promise<void> {
     }
     if (!catalogComplete) {
       console.log(`${slug}: the live catalog was not read whole, not proposed`)
+      continue
+    }
+    // A model on sale under another URL or name ("Audéo Lumity" on the support page, "Lumity" in the catalog) belongs to `update`.
+    const queuedAs = sameAs(candidate.model, pendingNames(slug))
+    if (queuedAs !== undefined) {
+      console.log(`${slug}: a pending new-model card names "${queuedAs}", left to it`)
+      continue
+    }
+    const live = await catalogNames()
+    if (live === null) {
+      console.log(`${slug}: a model page of the live catalog was not read, not proposed`)
+      continue
+    }
+    const listedAs = sameAs(candidate.model, live)
+    if (listedAs !== undefined) {
+      console.log(`${slug}: the live catalog lists "${listedAs}", left to update`)
       continue
     }
     const pages = pagesOf.get(slug) ?? []
@@ -1005,6 +1104,8 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
     console.error(`Unknown brand: ${values.brand}`)
     return 1
   }
+  // A gone brand's own site is never fetched, by any step: not its catalog, not a shop or search result on it, not a redirect.
+  blockDomains(dataset.brands.filter((brand) => brand.status === 'gone').flatMap(ownHosts))
 
   // An archive run limited to one brand keeps its own record: it must not clear the finished units and refusals of a full run.
   const progressFile = command === 'archive' && values.brand !== undefined ? `archive-${values.brand}.json` : `${command}.json`
@@ -1030,6 +1131,13 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
     console.log(`Summary: auto ${auto}, pending ${pending}, dropped ${dropped}, skipped sources ${skipped}, failed ${failed}`)
   }
 
+  // The same command and filters: work done under other filters is not skipped (see `Run.scope`).
+  const resume = `npm run ${command} -- ${[
+    '--resume',
+    ...(values.brand ? ['--brand', values.brand] : []),
+    ...(values.limit ? ['--limit', values.limit] : []),
+    ...(values.refresh ? ['--refresh'] : []),
+  ].join(' ')}`
   try {
     if (command === 'archive') await archive(run)
     else for (const step of steps) await RUN_STEP[step](run)
@@ -1037,21 +1145,17 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
     const stopped = error instanceof LlmLimitError ? `${PROVIDER_NAMES[error.provider]} usage limit reached.` : isArchiveStop(error) ? `${config.archiveHosts[0]} refused requests.` : error instanceof AppLookupSkipped ? `${error.message}; no more App Store lookups this run.` : undefined
     if (stopped === undefined) throw error
     summary()
-    // The same command and filters: work done under other filters is not skipped (see `Run.scope`).
-    const flags = [
-      '--resume',
-      ...(values.brand ? ['--brand', values.brand] : []),
-      ...(values.limit ? ['--limit', values.limit] : []),
-      ...(values.refresh ? ['--refresh'] : []),
-    ]
-    const also = run.refused.length > 0 ? `. Refused by their own sites: ${run.refused.join(', ')}; try each again later: npm run archive -- --brand <slug>` : ''
-    console.error(`${stopped} Resume later: npm run ${command} -- ${flags.join(' ')}${also}`)
+    const retry = command === 'archive' ? 'try each again later: npm run archive -- --brand <slug>' : 'a resumed run reads them again'
+    const also = run.refused.length > 0 ? `. Refused by their own sites: ${run.refused.join(', ')}; ${retry}` : ''
+    console.error(`${stopped} Resume later: ${resume}${also}`)
     return 2
   }
   if (run.refused.length > 0) {
-    // Progress stays: a plain `--resume` skips these brands but lists them again, `--brand <slug>` tries one again.
+    // Progress stays. `archive`: a plain `--resume` skips these brands but lists them again, `--brand <slug>` tries one
+    // again. `update` and `scrape`: a refused brand's unit is not done, so `--resume` reads that brand again.
     summary()
-    console.error(`Refused by their own sites: ${run.refused.join(', ')}. Try one again later: ${run.refused.map((slug) => `npm run archive -- --brand ${slug}`).join('; ')}`)
+    const retry = command === 'archive' ? run.refused.map((slug) => `npm run archive -- --brand ${slug}`).join('; ') : resume
+    console.error(`Refused by their own sites: ${run.refused.join(', ')}. Try again later: ${retry}`)
     return 2
   }
   if (command === 'archive' && values.brand !== undefined) {

@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test, vi } from 'vitest'
 import { config } from '@/pipeline/config'
 import { looksLikeBotWall } from '@/pipeline/fetch/bot-detect'
-import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
+import { blockDomains, fetchPage, isBlocked, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { readBody, readLog } from '@/pipeline/fetch/raw-store'
 
 const launch = vi.hoisted(() => vi.fn())
@@ -151,6 +151,21 @@ describe('blocklist', () => {
     await writeFile('data/blocklist.json', '["listed.test"]')
     expect(await fetchPage('https://listed.test/a')).toMatchObject({ status: 'skipped', reason: 'blocklist' })
     expect(fetch).not.toHaveBeenCalled()
+  })
+
+  test('blockDomains: a gone brand\'s hosts are refused whatever list the caller gives, redirects too', async () => {
+    const target = await serve({ '/a': page('a') })
+    const site = await serve({ '/go': { status: 302, headers: { location: `http://localhost:${target.port}/a` } } })
+    blockDomains(['gone.test', 'localhost'])
+    try {
+      expect(isBlocked(new URL('https://shop.gone.test/p'), [])).toBe(true)
+      expect(await get('https://www.gone.test/p', { blocklist: [] })).toMatchObject({ status: 'skipped', reason: 'blocklist' })
+      expect(await get(`${site.origin}/go`, { blocklist: [] })).toMatchObject({ status: 'skipped', reason: 'blocklist' })
+      expect(target.hits).toEqual([])
+    } finally {
+      blockDomains([])
+    }
+    expect(isBlocked(new URL('https://shop.gone.test/p'), [])).toBe(false)
   })
 
   test('a redirect to a blocklisted domain is not followed', async () => {

@@ -17,6 +17,7 @@ import { llm } from '@/pipeline/llm'
 import { lookupApp } from '@/pipeline/sources/itunes'
 import { latestCopy, WaybackError } from '@/pipeline/sources/wayback'
 import { archiveUrl, citableArchiveUrl, parseArchiveUrl } from '@/src/lib/archive-url'
+import { ownHosts } from '@/src/lib/data/consistency'
 import { loadBlocklist, type Dataset } from '@/src/lib/data/load'
 import { BrandHistory, type Brand } from '@/src/lib/schema/brand'
 import type { Sourced } from '@/src/lib/schema/field'
@@ -25,11 +26,7 @@ import type { CandidateChange, CheckResult } from '@/src/lib/schema/pending'
 
 const skipLine = (url: string, reason: string, detail?: string) => console.warn(`${url} skipped: ${reason}${detail ? ` (${detail})` : ''}`)
 
-/** The hosts of a brand's own site: its website, catalog and support pages. */
-export function ownHosts(brand: Brand): string[] {
-  const urls = [brand.website, ...brand.scraper.catalogUrls, ...(brand.scraper.supportUrls ?? []), ...(brand.archive?.catalogUrls ?? [])]
-  return [...new Set(urls.map(hostOf).filter((host) => host !== ''))]
-}
+export { ownHosts }
 
 /** The page URL as it stands on the web: an archive copy is the page it copies. */
 const originalOf = (url: string) => parseArchiveUrl(url)?.original ?? url
@@ -226,7 +223,8 @@ ${sources}`
       continue
     }
     // The date is looked up on the whole page (a dateline is not part of the quote), in the archive copy's own text.
-    const date = dateOnPage(fact.date, page.text)
+    // A bare year counts only near the quote (see `dateOnPage`): a footer's or a link's year dates nothing.
+    const date = dateOnPage(fact.date, page.text, fact.quote)
     if (date === null) {
       dropped(fact, 'the date is not on the page')
       continue

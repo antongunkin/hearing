@@ -3,7 +3,7 @@ import { mkdtemp, readdir, readFile, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
-import { applyAuto, diffModel, enqueue, eventText, fingerprint, route, withCrossChecks } from '@/pipeline/apply'
+import { applyAuto, diffModel, enqueue, eventText, fingerprint, pendingId, route, withCrossChecks } from '@/pipeline/apply'
 import { crossCheck } from '@/pipeline/checks/crosscheck'
 import { llm, LlmLimitError, LlmOutputError } from '@/pipeline/llm'
 import type { Dataset } from '@/src/lib/data/load'
@@ -248,6 +248,35 @@ describe('route', () => {
   test('a third-party value never applies automatically', () => {
     const rx = { value: { min: 3000, max: 5000, perPair: true }, unit: 'USD', quote: '$3,000–$5,000 per pair', ...at(NEW) }
     expect(route(change({ after: { ...rx, sourceType: 'third-party' } }), [])).toBe('pending')
+  })
+
+  test('a brand history read again on a later day is the same change: the app lookup date counts for nothing', () => {
+    const fact = { date: '2024-03', text: 'Own words.', sourceUrl: 'https://news.test/a', quote: 'q', fetchedAt: '2026-11-01T00:00:00.000Z' }
+    const history = (checkedAt: string) => ({
+      facts: [fact, fact, fact],
+      app: { name: 'Eargo', iosId: '1', available: false, checkedAt, sourceUrl: 'https://itunes.apple.com/lookup?id=1' },
+    })
+    const change = (checkedAt: string) => ({ kind: 'brand-history' as const, modelSlug: null, path: 'brands/eargo.history', after: history(checkedAt), checks: {} })
+    const rejected = fingerprint(change('2026-11-01T00:00:00.000Z'))
+    expect(fingerprint(change('2026-11-27T00:00:00.000Z'))).toBe(rejected)
+    expect(route(change('2026-11-27T00:00:00.000Z'), [rejected])).toBe('drop')
+    // Approved and stored: the same history read again changes nothing.
+    expect(route({ ...change('2026-11-27T00:00:00.000Z'), before: history('2026-11-01T00:00:00.000Z') }, [])).toBe('drop')
+    expect(fingerprint({ ...change('2026-11-27T00:00:00.000Z'), after: { ...history('x'), app: { ...history('x').app, available: true } } })).not.toBe(rejected)
+  })
+
+  test('a document change is identified by its original URL, not the index it is proposed at', () => {
+    const live = 'https://www.x.test/docs/a.pdf'
+    const doc = (url: string) => ({ kind: 'user-guide', title: 'A', url, fetchedAt: '2026-11-27T10:00:00.000Z' })
+    const at = (path: string, url: string) => ({ kind: 'document' as const, modelSlug: 'x-a', path, after: doc(url) })
+    const archived = `https://web.archive.org/web/20240101000000/${live}`
+    expect(fingerprint(at('documents.2', live))).toBe(fingerprint(at('documents.1', live)))
+    expect(fingerprint(at('documents.2', archived))).toBe(fingerprint(at('documents.1', live)))
+    expect(pendingId(at('documents.2', live))).toBe(pendingId(at('documents.1', archived)))
+    expect(pendingId(at('documents.1', live))).toMatch(/^x-a-document-[0-9a-f]{12}$/)
+    expect(fingerprint(at('documents.1', 'https://www.x.test/docs/b.pdf'))).not.toBe(fingerprint(at('documents.1', live)))
+    const change = { ...at('documents.3', live), checks: { 'documents.3': [] } }
+    expect(route(change, [fingerprint(at('documents.1', live))])).toBe('drop')
   })
 
   test('rejected fingerprint → drop; after equal to before → drop', () => {

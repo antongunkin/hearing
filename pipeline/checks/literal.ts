@@ -38,12 +38,19 @@ function datesIn(text: string): CalendarDate[] {
   ]
 }
 
+/** How far from the quote a bare year may stand to date it: about a paragraph. */
+const YEAR_NEAR_QUOTE = 200
+// "© 2024", "(c) 2019-2024", "Copyright 2024": the year of a footer, not of a fact.
+const COPYRIGHT_BEFORE = /(?:©|\(c\)|copyright)\s*(?:\d{4}\s*[-–]\s*)?$/
+
 /**
  * The date (`YYYY`, `YYYY-MM` or `YYYY-MM-DD`) that a page's text supports, or null. A date with a month needs a
- * date of that year and month anywhere in the text; when the text gives no month of that year at all but names the
- * year, the year alone is supported; a different month of that year supports nothing.
+ * date of that year and month anywhere in the text; when the text gives no month of that year at all, the year
+ * alone is supported by a date of that year or by the bare year within `YEAR_NEAR_QUOTE` characters of the quote
+ * (not a copyright year, and not anywhere else on the page: a footer or a link says nothing about the fact); a
+ * different month of that year supports nothing.
  */
-export function dateOnPage(date: string, pageText: string): string | null {
+export function dateOnPage(date: string, pageText: string, quote: string): string | null {
   const match = /^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?$/.exec(date)
   if (!match) return null
   const [, year, month, day] = match
@@ -55,7 +62,17 @@ export function dateOnPage(date: string, pageText: string): string | null {
     // Another month of that year on the page contradicts the date; no month at all leaves the year.
     if (dates.length > 0) return null
   }
-  return dates.length > 0 || containsWhole(text, year) ? year : null
+  return dates.length > 0 || bareYearNear(text, year, normalize(quote)) ? year : null
+}
+
+/** Whether `year` stands as a whole number within `YEAR_NEAR_QUOTE` characters of the quote, not as a copyright year. */
+function bareYearNear(text: string, year: string, quote: string): boolean {
+  const at = quote === '' ? -1 : text.indexOf(quote)
+  if (at === -1) return false
+  const from = Math.max(0, at - YEAR_NEAR_QUOTE)
+  const near = text.slice(from, at + quote.length + YEAR_NEAR_QUOTE)
+  const whole = new RegExp(String.raw`(?<![a-z0-9])(?<!\d[.,])${escapeRegExp(year)}(?![a-z0-9])(?![.,]\d)`, 'g')
+  return [...near.matchAll(whole)].some((m) => !COPYRIGHT_BEFORE.test(text.slice(Math.max(0, from + m.index - 20), from + m.index)))
 }
 
 /** An ISO value is supported when the quote gives the same day (or month, if the value has no day). */

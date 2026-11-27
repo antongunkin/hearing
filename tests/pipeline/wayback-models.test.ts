@@ -107,6 +107,20 @@ describe('archiveCandidates', () => {
     expect(vi.mocked(extractModel).mock.calls[0][1][0].url).toBe(`https://web.archive.org/web/20201101000000/${ZED}`) // cited without id_
   })
 
+  test('catalog copies that link no model page matching the pattern are logged, not passed over in silence', async () => {
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {})
+    archive()
+    // A pattern written for today's https://www. links misses the old http links of the copies.
+    const strict = { ...brand, archive: { catalogUrls: [CATALOG], modelUrlPattern: '^https://shop\\.acme\\.test/' } } as Brand
+    expect(await archiveCandidates(strict, [], options())).toEqual([])
+    expect(log.mock.calls.map(([line]) => String(line))).toContain('acme: no model page link matches ^https://shop\\.acme\\.test/ in 2 catalog copies, check catalogUrls and modelUrlPattern')
+    log.mockClear()
+    archive()
+    pages[raw('20201101000000', ZED)] = ok(raw('20201101000000', ZED), 'Acme Zed 2 hearing aid')
+    await archiveCandidates(brand, [], options())
+    expect(log.mock.calls.map(([line]) => String(line)).some((line) => line.includes('no model page link'))).toBe(false)
+  })
+
   test('archive.catalogUrls given as Web Archive copies are queried by their original URL', async () => {
     archive()
     const withCopy = { ...brand, archive: { catalogUrls: [archiveUrl('20190101000000', CATALOG)] } } as Brand
