@@ -1,11 +1,21 @@
 {
+  "archive": {
+    "catalogUrls": [
+      "https://www.eargo.com/",
+      "https://shop.eargo.com/store",
+      "https://www.eargo.com/products-hearing-aids"
+    ],
+    "modelUrlPattern": "^https?://(?:shop\\.eargo\\.com/eargo-[a-z0-9-]+|(?:www\\.)?eargo\\.com/guides/(?:eargo-[a-z0-9-]+|link-by-eargo))/?$"
+  },
   "defaultType": "otc",
   "group": "LXE Hearing",
   "imageLicense": "none",
   "name": "Eargo",
   "scraper": {
-    "catalogUrls": ["https://www.eargo.com/products-hearing-aids"],
-    "modelUrlPattern": "^https://www\\.eargo\\.com/products-hearing-aids/[a-z0-9-]+/?$",
+    "catalogUrls": [
+      "https://www.eargo.com/products-hearing-aids"
+    ],
+    "modelUrlPattern": "^https?://(?:shop\\.eargo\\.com/eargo-[a-z0-9-]+|(?:www\\.)?eargo\\.com/guides/(?:eargo-[a-z0-9-]+|link-by-eargo))/?$",
     "render": false
   },
   "slug": "eargo",

@@ -1,11 +1,20 @@
 {
+  "archive": {
+    "catalogUrls": [
+      "https://lexiehearing.com/us"
+    ],
+    "modelUrlPattern": "^https?://(?:www\\.)?lexiehearing\\.com/us/lexie-[a-z0-9-]+-hearing-aids?(?:\\.html)?$"
+  },
   "defaultType": "otc",
   "group": "LXE Hearing",
   "imageLicense": "none",
   "name": "Lexie",
   "scraper": {
-    "catalogUrls": ["https://lexiehearing.com/us"],
-    "modelUrlPattern": "^https://lexiehearing\\.com/us/(?:products|hearing-aids)/[a-z0-9-]+$",
+    "catalogUrls": [
+      "https://lexiehearing.com/us"
+    ],
+    "documentUrlPattern": "^https?://(?:www\\.)?lexiehearing\\.com/documents/.+\\.pdf$",
+    "modelUrlPattern": "^https?://(?:www\\.)?lexiehearing\\.com/us/lexie-[a-z0-9-]+-hearing-aids?(?:\\.html)?$",
     "render": false
   },
   "slug": "lexie",
