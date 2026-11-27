@@ -65,13 +65,29 @@ export function fingerprint(c: { kind: CandidateChange['kind']; modelSlug: strin
 export const sourcedKind = (path: string, after: unknown): 'price' | 'spec-change' =>
   isSourced(after) && after.sourceType === 'official' && path.endsWith('.priceUsd') ? 'price' : 'spec-change'
 
+/** Lists whose entries are proposed whole, as `<list>.<index>`, and the field that tells their entries apart. */
+const ENTRY_KEYS = { variants: 'id', sameHardwareAs: 'slug' } as const
+
+/** What a change to a whole list entry is about; null for any other path. */
+export function entryChange({ path, before, after }: { path: string; before?: unknown; after: unknown }) {
+  const list = /^(variants|sameHardwareAs)\.\d+$/.exec(path)?.[1] as keyof typeof ENTRY_KEYS | undefined
+  if (list === undefined) return null
+  const key: string = ENTRY_KEYS[list]
+  const name = ((after ?? before) as Json)[key]
+  /** Where the entry stands in the model now, whatever index it was proposed at; -1 when it is not there. */
+  const indexIn = (model: Model) => (model[list] as unknown as Json[]).findIndex((entry) => entry[key] === name)
+  return { list, name, indexIn }
+}
+
 /**
  * The changes from the stored model to a freshly extracted one. A new model is one `new-model` change
  * (path `''`). Otherwise there is one change per sourced value whose value differs (an official price is
  * a `price`, anything else a `spec-change`), and a `spec-change` for a new `type`, `formFactor` or
  * `techLevel`. Variants are matched by id: a new variant is one change appended to the list, and a stored
  * variant the candidate no longer lists is one change with `after: null` (removal, by a person only).
- * A value the candidate lacks is kept: the source may have left it out this time.
+ * Hardware twins are matched by slug and proposed the same way, a changed twin as its whole new entry.
+ * A value the candidate lacks is kept: the source may have left it out this time. So a candidate that
+ * names no twins at all (a brand page never does) removes none.
  */
 export function diffModel(existing: Model | null, cand: ModelCandidate): CandidateChange[] {
   if (existing === null) {
@@ -93,22 +109,39 @@ export function diffModel(existing: Model | null, cand: ModelCandidate): Candida
     if (after !== undefined && !sameValue(before, after)) push('spec-change', path, before, after, { [path]: cand.fieldChecks[path] ?? [] })
   }
 
-  const { variants, ...fields } = cand.model
+  /** The candidate's checks of a list entry, under the path the entry will be stored at. */
+  const entryChecks = (from: string, to: string) =>
+    Object.fromEntries(
+      Object.entries(cand.fieldChecks)
+        .filter(([path]) => path === from || path.startsWith(`${from}.`))
+        .map(([path, results]) => [to + path.slice(from.length), results]),
+    )
+  const removed = (path: string, before: unknown) => push('spec-change', path, before, null, { [path]: [] })
+
+  const { variants, sameHardwareAs, ...fields } = cand.model
   proposePlain('type', existing.type, cand.model.type)
   for (const [path, after] of sourcedLeaves(fields)) proposeSourced(path, after, { [path]: cand.fieldChecks[path] ?? [] })
+
+  let twins = existing.sameHardwareAs.length
+  sameHardwareAs.forEach((twin, i) => {
+    const j = existing.sameHardwareAs.findIndex((t) => t.slug === twin.slug)
+    const before = existing.sameHardwareAs[j]
+    if (before !== undefined && sameValue(before, twin)) return
+    const target = `sameHardwareAs.${j === -1 ? twins++ : j}`
+    push('spec-change', target, before, twin, entryChecks(`sameHardwareAs.${i}`, target))
+  })
+  if (sameHardwareAs.length > 0) {
+    existing.sameHardwareAs.forEach((twin, j) => {
+      if (!sameHardwareAs.some((t) => t.slug === twin.slug)) removed(`sameHardwareAs.${j}`, twin)
+    })
+  }
 
   let appended = existing.variants.length
   variants.forEach((variant, i) => {
     const j = existing.variants.findIndex((v) => v.id === variant.id)
     const target = `variants.${j === -1 ? appended++ : j}`
     if (j === -1) {
-      // The candidate's checks, under the path the variant will be stored at.
-      const checks = Object.fromEntries(
-        Object.entries(cand.fieldChecks)
-          .filter(([path]) => path === `variants.${i}` || path.startsWith(`variants.${i}.`))
-          .map(([path, results]) => [target + path.slice(`variants.${i}`.length), results]),
-      )
-      push('spec-change', target, undefined, variant, checks)
+      push('spec-change', target, undefined, variant, entryChecks(`variants.${i}`, target))
       return
     }
     proposePlain(`${target}.formFactor`, existing.variants[j].formFactor, variant.formFactor)
@@ -119,7 +152,7 @@ export function diffModel(existing: Model | null, cand: ModelCandidate): Candida
   })
 
   existing.variants.forEach((variant, j) => {
-    if (!variants.some((v) => v.id === variant.id)) push('spec-change', `variants.${j}`, variant, null, { [`variants.${j}`]: [] })
+    if (!variants.some((v) => v.id === variant.id)) removed(`variants.${j}`, variant)
   })
   return changes
 }
@@ -222,9 +255,6 @@ function setPath(target: Json, path: string, value: unknown): void {
 
 const REVIEWS_PREFIX = 'reviews.'
 
-/** A path naming a whole variant, which is added or removed. */
-export const VARIANT_PATH = /^variants\.\d+$/
-
 /** What an event is still missing: what `eventText` needs to word it. `product` is the display name. */
 export type EventContext = { product: string | null; facts: Json }
 
@@ -235,18 +265,27 @@ export type ChangePlan = { writes: Write[]; events: ({ event: NewEvent } & Event
 
 export type Change = Pick<CandidateChange, 'kind' | 'modelSlug' | 'path' | 'before' | 'after'>
 
-/** The model with the change made. A variant is added at the end and removed by its id, wherever it stands now. */
-function changedModel(model: Model, { path, before, after }: Change): Model {
+/**
+ * The model with the change made. A whole list entry (see `entryChange`) is added at the end, replaced or
+ * removed by its id or slug, wherever it stands now.
+ */
+function changedModel(model: Model, change: Change): Model {
+  const { path, before, after } = change
   const updated = structuredClone(model)
-  if (!VARIANT_PATH.test(path)) {
+  const entry = entryChange(change)
+  if (entry === null) {
     setPath(updated as Json, path, after)
-  } else if (after === null) {
-    updated.variants = updated.variants.filter((v) => v.id !== (before as Model['variants'][number]).id)
   } else {
-    const added = after as Model['variants'][number]
-    const stored = updated.variants.find((v) => v.id === added.id)
-    if (stored === undefined) updated.variants.push(added)
-    else if (!sameValue(stored, added)) throw new Error(`variant ${added.id} of ${model.slug} already exists`)
+    const list = updated[entry.list] as unknown[]
+    const index = entry.indexIn(updated)
+    if (after === null) {
+      if (index !== -1) list.splice(index, 1)
+    } else if (index === -1) {
+      list.push(after)
+    } else if (!sameValue(list[index], after)) {
+      if (before === undefined) throw new Error(`${entry.list} entry ${entry.name} of ${model.slug} already exists`)
+      list[index] = after
+    }
   }
   return Model.parse(updated)
 }

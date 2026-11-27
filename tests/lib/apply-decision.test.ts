@@ -113,7 +113,7 @@ describe('applyDecision: new model', () => {
     // The next run reads the same values from another page.
     const recited = JSON.parse(JSON.stringify(offered).replaceAll(PAGE, OTHER)) as Model
     const again = diffModel(stored, { model: recited, fieldChecks: {} })
-    expect(again.map((change) => change.path)).toEqual(['platform', 'sameHardwareAs.0.source', 'variants.0.priceUsd', 'variants.1.weightG'])
+    expect(again.map((change) => change.path)).toEqual(['platform', 'sameHardwareAs.0', 'variants.0.priceUsd', 'variants.1.weightG'])
     for (const change of again) expect(route(change, result.rejections), change.path).toBe('drop')
 
     const heavier = model({ ...offered, variants: [offered.variants[0], { ...ite, weightG: weight(1.7) }] })
@@ -183,6 +183,32 @@ describe('applyDecision: other pending kinds', () => {
     expect(removal).toMatchObject({ path: 'variants.0', after: null })
     const removed = approve(dataset([pending(removal)], { models: [two] }))
     expect(written(removed).variants).toEqual([ite])
+  })
+
+  const twin = (slug: string, name = slug.toUpperCase()) => ({ slug, source: field(name, { sourceType: 'third-party' }) })
+
+  test.each([
+    ['a new twin', [], [twin('a')], [twin('a')]],
+    ['a twin listed before a stored one', [twin('b')], [twin('a'), twin('b')], [twin('b'), twin('a')]],
+    ['a removed twin', [twin('a'), twin('b')], [twin('b')], [twin('b')]],
+    ['a renamed twin', [twin('a'), twin('b')], [twin('a'), twin('b', 'B 2')], [twin('a'), twin('b', 'B 2')]],
+  ])('%s, as diffModel proposes it, is written by slug', (_name, stored, listed, expected) => {
+    const changes = diff(model({ sameHardwareAs: stored }), model({ sameHardwareAs: listed }))
+    expect(changes).toHaveLength(1)
+    const item = pending(JSON.parse(JSON.stringify(changes[0])))
+
+    const result = approve(dataset([item], { models: [model({ sameHardwareAs: stored })] }))
+
+    expect(written(result).sameHardwareAs).toEqual(expected)
+    // Approved again after a run stopped half-way: nothing moves.
+    expect(written(approve(dataset([item], { models: [written(result)] }))).sameHardwareAs).toEqual(expected)
+  })
+
+  test('a twin that changed or went since the proposal is refused', () => {
+    const [change] = diff(model({ sameHardwareAs: [twin('a')] }), model({ sameHardwareAs: [twin('a', 'A 2')] }))
+    for (const now of [[], [twin('a', 'A 3')]]) {
+      expect(() => approve(dataset([pending(change)], { models: [model({ sameHardwareAs: now })] }))).toThrow(/changed since/)
+    }
   })
 
   test('a variant is not removed while changes still point at it or past it', () => {

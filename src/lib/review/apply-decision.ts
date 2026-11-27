@@ -2,11 +2,11 @@
 import { z } from 'zod'
 import {
   diffModel,
+  entryChange,
   fingerprint,
   planChange,
   sameValue,
   sourcedKind,
-  VARIANT_PATH,
   type Change,
   type EventContext,
   type NewEvent,
@@ -96,10 +96,23 @@ function assertCurrent(item: PendingChange, change: Change, dataset: Dataset): v
     return
   }
   if (change.kind === 'fda-event') return
+  const stale = (what: string) =>
+    new Error(`${what} of ${modelSlug} has changed since this was proposed: reject it, or run the update again`)
 
-  if (VARIANT_PATH.test(path)) {
-    if (after !== null || !model) return
-    const index = model.variants.findIndex((v) => v.id === (before as Model['variants'][number]).id)
+  const entry = entryChange(change)
+  if (entry) {
+    if (!model) return
+    const index = entry.indexIn(model)
+    if (after !== null) {
+      // A new entry has no `before`: a clash with a stored one is refused when it is written.
+      const stored = model[entry.list][index]
+      if (before !== undefined && !(stored && (sameValue(stored, before) || sameValue(stored, after)))) {
+        throw stale(`${entry.list} entry ${entry.name}`)
+      }
+      return
+    }
+    // Twin changes name their entry by slug, so only the variants' indices matter to other changes.
+    if (entry.list !== 'variants') return
     // Removing a variant moves the later ones down, under the feet of changes that name them by index.
     const stranded = dataset.pending.filter((other) => {
       const at = /^variants\.(\d+)\./.exec(other.path)?.[1]
@@ -112,7 +125,7 @@ function assertCurrent(item: PendingChange, change: Change, dataset: Dataset): v
   const record = path.startsWith('reviews.') ? { reviews: dataset.reviews.find((r) => r.slug === modelSlug) } : model
   const current = orNothing(getPath(record, path))
   if (!sameValue(current, orNothing(before)) && !sameValue(current, orNothing(after))) {
-    throw new Error(`${path} of ${modelSlug} has changed since this was proposed: reject it, or run the update again`)
+    throw stale(path)
   }
 }
 

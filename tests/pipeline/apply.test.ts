@@ -154,6 +154,28 @@ describe('diffModel', () => {
   })
 })
 
+test('diffModel: twins are matched by slug and proposed as whole entries, always for review', () => {
+  const twin = (slug: string, name = slug.toUpperCase()) => ({
+    slug,
+    source: { value: name, quote: name, ...at(NEW), sourceType: 'third-party' as const },
+  })
+  const diff = (stored: Model['sameHardwareAs'], listed: Model['sameHardwareAs'], fieldChecks: Record<string, CheckResult[]> = {}) =>
+    diffModel(model({ sameHardwareAs: stored }), { model: model({ sameHardwareAs: listed }), fieldChecks })
+  const base = { kind: 'spec-change', modelSlug: 'jabra-enhance-select-500' }
+
+  // A twin listed first is still new, and appended: the stored one is not overwritten. Its checks move with it.
+  const added = diff([twin('b')], [twin('a'), twin('b')], { 'sameHardwareAs.0.source': ok })
+  expect(added).toEqual([{ ...base, path: 'sameHardwareAs.1', after: twin('a'), checks: { 'sameHardwareAs.1.source': ok } }])
+  const renamed = diff([twin('a'), twin('b')], [twin('b', 'B 2'), twin('a')])
+  expect(renamed).toEqual([{ ...base, path: 'sameHardwareAs.1', before: twin('b'), after: twin('b', 'B 2'), checks: {} }])
+  const removed = diff([twin('a'), twin('b')], [twin('b')])
+  expect(removed).toEqual([{ ...base, path: 'sameHardwareAs.0', before: twin('a'), after: null, checks: { 'sameHardwareAs.0': [] } }])
+  for (const change of [...added, ...renamed, ...removed]) expect(route(change, [])).toBe('pending')
+
+  // A source that names no twins at all (a brand page) says nothing about the stored ones.
+  expect(diff([twin('a'), twin('b')], [])).toEqual([])
+})
+
 describe('route', () => {
   test('price change with passing checks → auto', () => {
     expect(route(change({}), [])).toBe('auto')
