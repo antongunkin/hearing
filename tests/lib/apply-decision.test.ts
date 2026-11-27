@@ -55,6 +55,7 @@ const dataset = (items: PendingChange[], extra: Partial<Dataset> = {}): Dataset 
       website: 'https://www.jabraenhance.com',
       imageLicense: 'none',
       defaultType: 'otc',
+      status: 'active',
       scraper: { catalogUrls: [], modelUrlPattern: '', render: false },
     },
   ],

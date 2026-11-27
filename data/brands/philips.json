@@ -4,10 +4,13 @@
   "imageLicense": "none",
   "name": "Philips",
   "scraper": {
-    "catalogUrls": ["https://www.hearingsolutions.philips.com/en-us/products/hearing-aids"],
+    "catalogUrls": [
+      "https://www.hearingsolutions.philips.com/en-us/products/hearing-aids"
+    ],
     "modelUrlPattern": "^https://www\\.hearingsolutions\\.philips\\.com/en-us/products/\\d+/hearlink-(?!30-)[a-z0-9-]+$",
     "render": false
   },
   "slug": "philips",
+  "status": "active",
   "website": "https://www.hearingsolutions.philips.com/en-us"
 }

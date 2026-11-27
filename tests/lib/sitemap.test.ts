@@ -36,6 +36,7 @@ const dataset = (fields: Partial<Dataset> = {}): Dataset => ({
       website: 'https://maker.example',
       imageLicense: 'none',
       defaultType: 'rx',
+      status: 'active',
       scraper: { catalogUrls: [], modelUrlPattern: '/x/', render: false },
     }),
   ],

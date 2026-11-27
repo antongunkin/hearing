@@ -4,10 +4,13 @@
   "imageLicense": "none",
   "name": "Signia",
   "scraper": {
-    "catalogUrls": ["https://www.signia.net/en-us/hearing-aids/integrated-xperience/"],
+    "catalogUrls": [
+      "https://www.signia.net/en-us/hearing-aids/integrated-xperience/"
+    ],
     "modelUrlPattern": "^https://www\\.signia\\.net/en-us/hearing-aids/integrated-xperience/[a-z0-9-]+/(?:bluetooth-connectivity-transformed/)?$",
     "render": false
   },
   "slug": "signia",
+  "status": "active",
   "website": "https://www.signia.net/en-us"
 }

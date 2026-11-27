@@ -5,15 +5,18 @@
   "name": "Phonak",
   "scraper": {
     "catalogUrls": [
-      "https://www.phonak.com/en-us/hearing-devices/hearing-aids",
+      "https://www.phonak.com/en-us/hearing-devices/hearing-aids"
+    ],
+    "documentUrlPattern": "^https://www\\.phonak\\.com/content/dam/celum/phonak/.*(?:[Dd]atasheet|[Uu]ser-?[Gg]uide).*\\.pdf$",
+    "modelUrlPattern": "^https://www\\.phonak\\.com/en-us/hearing-devices/hearing-aids/(?!product-comparison$)[a-z0-9-]+$",
+    "render": false,
+    "supportUrls": [
       "https://www.phonak.com/en-us/support/datasheets",
       "https://www.phonak.com/en-us/support/user-guides/infinio",
       "https://www.phonak.com/en-us/support/user-guides/eon"
-    ],
-    "datasheetUrlPattern": "^https://www\\.phonak\\.com/content/dam/celum/phonak/.*(?:[Dd]atasheet|[Uu]ser-?[Gg]uide).*\\.pdf$",
-    "modelUrlPattern": "^https://www\\.phonak\\.com/en-us/hearing-devices/hearing-aids/(?!product-comparison$)[a-z0-9-]+$",
-    "render": false
+    ]
   },
   "slug": "phonak",
+  "status": "active",
   "website": "https://www.phonak.com/en-us"
 }

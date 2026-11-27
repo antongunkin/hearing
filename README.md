@@ -234,8 +234,11 @@ One file per brand in `data/brands/<slug>.json`:
 - `defaultType`: `rx`, `otc` or `consumer`, the type of a model whose pages do not state one.
 - `catalogUrls`: pages that link to model pages.
 - `modelUrlPattern`: regular expression for the full URL of a model page.
-- `datasheetUrlPattern` (optional): documents to read together with the model page they name.
+- `supportUrls` (optional): support pages that link to documents and model pages, read like `catalogUrls`.
+- `documentUrlPattern` (optional): documents to read together with the model page they name.
 - `render`: run the page's scripts in a headless browser.
+- `status`: `active`, or `gone` when the brand's own site no longer answers; a `gone` brand is not scraped live.
+- `archive` (optional): `catalogUrls` and `modelUrlPattern` for the Web Archive copies of a gone brand's pages.
 - `imageLicense`: `none` unless the brand's press kit grants editorial use.
 
 When a brand redesigns its site, `npm run scrape -- --brand <slug> --limit 1 --refresh` finds nothing or

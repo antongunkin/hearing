@@ -73,6 +73,7 @@ const brand = {
   website: 'https://www.jabraenhance.com',
   imageLicense: 'none',
   defaultType: 'otc',
+  status: 'active',
   scraper: { catalogUrls: [BASE], modelUrlPattern: '', render: false },
 }
 
@@ -203,6 +204,15 @@ test('scrape: the pages of one family give one new model with the variants of al
   expect((card.after as Model).variants.map((v) => v.id)).toEqual(['minirite-r', 'minirite-t'])
   expect(Object.keys(card.checks).sort()).toEqual(['variants.0.weightG', 'variants.1.weightG'])
   expect(log.at(-1)).toBe('Summary: auto 0, pending 1, dropped 0, skipped sources 0, failed 0')
+})
+
+test('a gone brand is not scraped live', async () => {
+  await writeJson(join(dataDir, 'brands', 'jabra-enhance.json'), { ...brand, status: 'gone' })
+
+  expect(await main(['scrape'], opts)).toBe(0)
+
+  expect(discoverModelUrls).not.toHaveBeenCalled()
+  expect(log).toContain('jabra-enhance: gone, not scraped live')
 })
 
 test('a proposal that replaces another made earlier in the same run is reported', async () => {

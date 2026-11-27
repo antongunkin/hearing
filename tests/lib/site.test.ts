@@ -38,6 +38,7 @@ const brand = Brand.parse({
   website: 'https://maker.example',
   imageLicense: 'none',
   defaultType: 'rx',
+  status: 'active',
   scraper: { catalogUrls: [], modelUrlPattern: '/x/', render: false },
 })
 

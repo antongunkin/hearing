@@ -65,6 +65,7 @@ const brand = {
   website: 'https://www.jabraenhance.com',
   imageLicense: 'none' as const,
   defaultType: 'otc' as const,
+  status: 'active' as const,
   scraper: { catalogUrls: [], modelUrlPattern: '', render: false },
 }
 

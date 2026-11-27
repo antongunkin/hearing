@@ -4,10 +4,13 @@
   "imageLicense": "none",
   "name": "Unitron",
   "scraper": {
-    "catalogUrls": ["https://www.unitron.com/en-us/hearing-solutions/hearing-aids"],
+    "catalogUrls": [
+      "https://www.unitron.com/en-us/hearing-solutions/hearing-aids"
+    ],
     "modelUrlPattern": "^https://www\\.unitron\\.com/en-us/hearing-solutions/hearing-aids/(?!product-comparison$)[a-z0-9-]+$",
     "render": false
   },
   "slug": "unitron",
+  "status": "active",
   "website": "https://www.unitron.com/en-us"
 }

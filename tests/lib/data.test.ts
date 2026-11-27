@@ -26,6 +26,7 @@ const brand = {
   website: 'https://www.phonak.com',
   imageLicense: 'none',
   defaultType: 'rx',
+  status: 'active',
   scraper: { catalogUrls: ['https://www.phonak.com/en-us'], modelUrlPattern: '/hearing-aids/', render: false },
 }
 const model = { slug: 'phonak-x', brand: 'phonak', name: 'X', aliases: [], type: 'rx', sameHardwareAs: [], variants: [] }

@@ -133,6 +133,10 @@ function reviewsChange(run: Run, slug: string, kind: CandidateChange['kind'], fi
  */
 async function scrape(run: Run): Promise<void> {
   for (const brand of run.brands) {
+    if (brand.status === 'gone') {
+      console.log(`${brand.slug}: gone, not scraped live`)
+      continue
+    }
     await unit(run, `scrape:${brand.slug}`, async () => {
       const onSkip = (url: string, reason: string, detail?: string) => skippedSource(run, url, reason, detail)
       const groups = (await discoverModelUrls(brand, { refresh: run.refresh, onSkip })).slice(0, run.limit)

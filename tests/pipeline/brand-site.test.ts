@@ -35,10 +35,12 @@ const brand: Brand = {
   website: 'https://www.phonak.com',
   imageLicense: 'none',
   defaultType: 'rx',
+  status: 'active',
   scraper: {
-    catalogUrls: ['https://www.phonak.com/en-us/hearing-devices/hearing-aids', 'https://www.phonak.com/en-us/support/datasheets'],
+    catalogUrls: ['https://www.phonak.com/en-us/hearing-devices/hearing-aids'],
+    supportUrls: ['https://www.phonak.com/en-us/support/datasheets'],
     modelUrlPattern: '^https://www\\.phonak\\.com/en-us/hearing-devices/hearing-aids/(?!product-comparison$)[a-z0-9-]+$',
-    datasheetUrlPattern: '^https://www\\.phonak\\.com/content/dam/celum/phonak/.*(?:[Dd]atasheet|[Uu]ser-?[Gg]uide).*\\.pdf$',
+    documentUrlPattern: '^https://www\\.phonak\\.com/content/dam/celum/phonak/.*(?:[Dd]atasheet|[Uu]ser-?[Gg]uide).*\\.pdf$',
     render: false,
   },
 }
@@ -100,10 +102,26 @@ describe('discoverModelUrls', () => {
     // A re-run asked to refresh fetches the catalogs again, so newly listed models are seen.
     fetchMock.mockClear()
     await discoverModelUrls(brand, { refresh: true })
-    for (const url of brand.scraper.catalogUrls) expect(fetchMock).toHaveBeenCalledWith(url, { render: false, refresh: true })
+    for (const url of [...brand.scraper.catalogUrls, ...brand.scraper.supportUrls!])
+      expect(fetchMock).toHaveBeenCalledWith(url, { render: false, refresh: true })
     // Dropped: "audeo-r" names only the family "audeo"; "Virto-P" is another generation than "virto-infinio";
     // the annex names no model. The brochure does not match the document pattern at all.
     expect(warn).toHaveBeenCalledWith('phonak: 3 documents match no model page')
+  })
+
+  test('support pages give model links and documents like catalog pages', async () => {
+    const support = 'https://www.phonak.com/en-us/support/user-guides/eon'
+    const pdf = 'https://www.phonak.com/content/dam/celum/phonak/docs/ph-datasheet-audeo-eon-sphere.pdf'
+    const modelUrl = 'https://www.phonak.com/en-us/hearing-devices/hearing-aids/audeo-eon-sphere'
+    const withSupport = { ...brand, scraper: { ...brand.scraper, supportUrls: [support] } }
+    fetchMock.mockImplementation(async (url) =>
+      url === support
+        ? okPage(url, 'support', `<a href="${pdf}">sheet</a><a href="${modelUrl}">model</a>`)
+        : okPage(url, 'catalog', '<p>nothing</p>'),
+    )
+
+    expect(await discoverModelUrls(withSupport)).toEqual([{ modelUrl, documentUrls: [pdf] }])
+    expect(fetchMock).toHaveBeenCalledWith(support, { render: false })
   })
 
   test('a skipped catalog is reported to onSkip instead of the log', async () => {
@@ -113,7 +131,7 @@ describe('discoverModelUrls', () => {
 
     expect(await discoverModelUrls(brand, { onSkip })).toEqual([])
 
-    expect(onSkip.mock.calls).toEqual(brand.scraper.catalogUrls.map((url) => [url, 'bot-protection', 'HTTP 403']))
+    expect(onSkip.mock.calls).toEqual([...brand.scraper.catalogUrls, ...brand.scraper.supportUrls!].map((url) => [url, 'bot-protection', 'HTTP 403']))
     expect(warn).not.toHaveBeenCalled()
   })
 })
@@ -518,7 +536,7 @@ describe('brand configs', () => {
 
     expect(matches('phonak', MODEL_URL)).toBe(true)
     expect(matches('phonak', 'https://www.phonak.com/en-us/hearing-devices/hearing-aids/product-comparison')).toBe(false)
-    const documents = new RegExp(bySlug.phonak.scraper.datasheetUrlPattern!)
+    const documents = new RegExp(bySlug.phonak.scraper.documentUrlPattern!)
     const dam = 'https://www.phonak.com/content/dam/celum/phonak/master-assets/en/documents/hearing-instruments'
     expect(documents.test(`${dam}/infinio/audeo-sphere/ph-datasheet-audeo-i-sphere-210x297-en.pdf.coredownload.pdf`)).toBe(true)
     expect(documents.test(`${dam}/infinio-us/PH_UserGuide_Audeo-I-Sphere_92x125_EN-US_029-1356-03.pdf`)).toBe(true)

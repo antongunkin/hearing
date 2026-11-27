@@ -53,6 +53,7 @@ const brand = (slug: string, name: string, group: string): Brand => ({
   website: `https://www.${slug}.com`,
   imageLicense: 'none',
   defaultType: 'rx',
+  status: 'active',
   scraper: { catalogUrls: [], modelUrlPattern: '', render: false },
 })
 const brands = [brand('jabra-enhance', 'Jabra Enhance', 'GN'), brand('phonak', 'Phonak', 'Sonova')]

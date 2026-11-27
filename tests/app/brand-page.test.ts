@@ -14,6 +14,7 @@ const brand = (slug: string) => ({
   website: `https://${slug}.example`,
   imageLicense: 'none' as const,
   defaultType: 'rx' as const,
+  status: 'active' as const,
   scraper: { catalogUrls: [], modelUrlPattern: '', render: false },
 })
 

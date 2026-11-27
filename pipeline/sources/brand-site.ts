@@ -71,8 +71,8 @@ function linkDocuments(brand: Brand, modelUrls: string[], documentUrls: string[]
 }
 
 /**
- * Model pages linked from the brand's catalog pages, each once, with the linked documents that match
- * `datasheetUrlPattern` given to the model page they name. A catalog page that is skipped (robots, bot
+ * Model pages linked from the brand's catalog and support pages, each once, with the linked documents that match
+ * `documentUrlPattern` given to the model page they name. A catalog page that is skipped (robots, bot
  * protection, …) gives no links and is reported to `onSkip`, or logged without one; the number of
  * documents that name no model page is logged.
  */
@@ -80,13 +80,13 @@ export async function discoverModelUrls(
   brand: Brand,
   opts: { refresh?: boolean; onSkip?: (url: string, reason: string, detail?: string) => void } = {},
 ): Promise<ModelSources[]> {
-  const { catalogUrls, modelUrlPattern, datasheetUrlPattern, render } = brand.scraper
+  const { catalogUrls, supportUrls, modelUrlPattern, documentUrlPattern, render } = brand.scraper
   const isModel = new RegExp(modelUrlPattern)
-  const isDatasheet = datasheetUrlPattern === undefined ? undefined : new RegExp(datasheetUrlPattern)
+  const isDatasheet = documentUrlPattern === undefined ? undefined : new RegExp(documentUrlPattern)
   const models = new Set<string>()
   const datasheets = new Set<string>()
 
-  for (const url of catalogUrls) {
+  for (const url of [...catalogUrls, ...(supportUrls ?? [])]) {
     // `refresh` skips the cached catalog, so that a re-run sees models listed since.
     const page = await fetchPage(url, { render, refresh: opts.refresh })
     if (page.status === 'skipped') {

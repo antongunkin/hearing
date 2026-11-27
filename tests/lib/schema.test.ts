@@ -92,6 +92,7 @@ const brand = {
   website: 'https://www.phonak.com',
   imageLicense: 'none',
   defaultType: 'rx',
+  status: 'active',
   scraper: { catalogUrls: ['https://www.phonak.com/en-us'], modelUrlPattern: '/hearing-aids/', render: false },
 }
 const model = {
@@ -265,4 +266,10 @@ describe('third-party sources', () => {
 
     expect(Model.safeParse(input).error?.issues).toMatchObject([{ path: [...keys, 'sourceType'] }])
   })
+})
+
+test('a brand needs a status and no longer takes datasheetUrlPattern', () => {
+  expect(Brand.safeParse({ ...brand, status: undefined }).success).toBe(false)
+  expect(Brand.safeParse({ ...brand, scraper: { ...brand.scraper, datasheetUrlPattern: 'x' } }).success).toBe(false)
+  expect(Brand.parse({ ...brand, archive: { catalogUrls: ['https://www.eargo.com/products-hearing-aids'] } }).archive?.catalogUrls).toHaveLength(1)
 })
