@@ -5,7 +5,7 @@ import { afterEach, describe, expect, test, vi } from 'vitest'
 import { crossCheck, isRisky } from '@/pipeline/checks/crosscheck'
 import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { llm, LlmUnavailableError } from '@/pipeline/llm'
-import { discoverModelUrls, extractModel, isInScope, matchExistingModel, mergeCandidates, type ModelCandidate } from '@/pipeline/sources/brand-site'
+import { discoverModelUrls, extractModel, matchExistingModel, mergeCandidates, type ModelCandidate } from '@/pipeline/sources/brand-site'
 import { loadDataset } from '@/src/lib/data/load'
 import type { Brand } from '@/src/lib/schema/brand'
 import { Model } from '@/src/lib/schema/model'
@@ -365,11 +365,11 @@ describe('extractModel', () => {
     expect(agrees.fieldChecks.type).toEqual([{ name: 'literal', ok: true }, { name: 'brand-type', ok: true }])
   })
 
-  test('no release date: kept in scope and flagged as a failed check', async () => {
+  test('a model without a release date is no longer flagged no-release-date', async () => {
     const { model, fieldChecks } = await extractFixture((output) => delete output.releaseDate)
 
-    expect(isInScope(model)).toBe(true)
-    expect(fieldChecks.releaseDate).toEqual([{ name: 'range', ok: false, detail: 'no-release-date' }])
+    expect(model.releaseDate).toBeUndefined()
+    expect(fieldChecks.releaseDate).toBeUndefined()
   })
 
   test('the prompt holds at most ~48,000 characters of page text, documents first, spec table kept', async () => {
@@ -444,19 +444,6 @@ describe('mergeCandidates', () => {
     const [withDate] = mergeCandidates([r, dated])
     expect(withDate.model.releaseDate?.value).toBe('2024-03')
     expect(withDate.fieldChecks.releaseDate).toEqual(pass)
-  })
-})
-
-describe('isInScope', () => {
-  const at = (value: string) =>
-    ({ releaseDate: { value, sourceUrl: MODEL_URL, quote: value, fetchedAt: '2026-11-26T10:00:00.000Z', sourceType: 'official' } }) as Model
-
-  test('compares the release date with config.eventsSince at the precision given', () => {
-    expect(isInScope(at('2024-08'))).toBe(true)
-    expect(isInScope(at('2023-11'))).toBe(true)
-    expect(isInScope(at('2023-11-01'))).toBe(true)
-    expect(isInScope(at('2023-10-31'))).toBe(false)
-    expect(isInScope(at('2022-08'))).toBe(false)
   })
 })
 

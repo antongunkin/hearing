@@ -91,3 +91,26 @@ export function copiesPerYear(rows: CdxRow[], sinceYear: number): Record<string,
   }
   return counts
 }
+
+type Opts = { refresh?: boolean }
+
+/** The latest 200 copy of each year from 2018 on; the index is asked for one copy per month, and the last of each year is kept. */
+export async function yearlyCopies(url: string, opts: Opts = {}): Promise<CdxRow[]> {
+  const rows = await cdx({ url, from: '2018', filters: ['statuscode:200'], collapse: 'timestamp:6' }, opts)
+  return lastCopyPerYear(rows, 2018)
+}
+
+/** Every PDF the archive holds under the domain, one copy per URL. */
+export function pdfCopies(domain: string, opts: Opts = {}): Promise<CdxRow[]> {
+  return cdx({ url: domain, matchType: 'domain', filters: ['mimetype:application/pdf', 'statuscode:200'], collapse: 'urlkey' }, opts)
+}
+
+/** The earliest successful copy of the URL, or null when there is none. */
+export async function earliestCopy(url: string, opts: Opts = {}): Promise<CdxRow | null> {
+  return (await cdx({ url, filters: ['statuscode:200'], limit: 1 }, opts))[0] ?? null
+}
+
+/** The latest successful copy of the URL, or null when there is none. */
+export async function latestCopy(url: string, opts: Opts = {}): Promise<CdxRow | null> {
+  return (await cdx({ url, filters: ['statuscode:200'], limit: -1 }, opts))[0] ?? null
+}

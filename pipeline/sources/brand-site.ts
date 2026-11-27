@@ -2,7 +2,6 @@ import { z } from 'zod'
 import { literalCheck } from '@/pipeline/checks/literal'
 import { priceBasisCheck } from '@/pipeline/checks/price-basis'
 import { rangeCheck } from '@/pipeline/checks/ranges'
-import { config } from '@/pipeline/config'
 import { excerpt, PROMPT_TEXT_BUDGET } from '@/pipeline/excerpt'
 import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { linksIn } from '@/pipeline/fetch/html'
@@ -282,8 +281,6 @@ export async function extractModel(brand: Brand, pages: Page[]): Promise<ModelCa
   }
 
   const releaseDate = out.releaseDate && ISO_DATE.test(out.releaseDate.value) ? plain('releaseDate', out.releaseDate) : undefined
-  // Kept in scope (see isInScope), but never applied without a person looking at it.
-  if (releaseDate === undefined) fieldChecks.releaseDate = [{ name: 'range', ok: false, detail: 'no-release-date' }]
 
   const ids = new Set<string>()
   const variants = out.variants.map((variant, i): Variant => {
@@ -404,14 +401,4 @@ export function matchExistingModel(candidate: Model, models: Model[]): Model | n
         model.brand === candidate.brand && [model.name, ...model.aliases].some((name) => nameWithoutBrand(model.brand, name) === key),
     ) ?? null
   )
-}
-
-/**
- * Released on or after `config.eventsSince`, compared at the precision of the date given ("2023-11"
- * counts). Without a date the model stays in: extractModel flags it with `no-release-date` for review.
- */
-export function isInScope(m: Model): boolean {
-  const date = m.releaseDate?.value
-  if (date === undefined) return true
-  return date >= config.eventsSince.slice(0, date.length)
 }

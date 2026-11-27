@@ -2,7 +2,7 @@
 import { afterEach, describe, expect, test, vi } from 'vitest'
 import { archiveCalendarUrl, archiveMonth, archiveUrl, citableArchiveUrl, parseArchiveUrl } from '@/src/lib/archive-url'
 import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
-import { copiesPerYear, cdx, cdxUrl, lastCopyPerYear, parseCdx, WaybackError, type CdxRow } from '@/pipeline/sources/wayback'
+import { copiesPerYear, cdx, earliestCopy, latestCopy, pdfCopies, yearlyCopies, cdxUrl, lastCopyPerYear, parseCdx, WaybackError, type CdxRow } from '@/pipeline/sources/wayback'
 
 vi.mock('@/pipeline/fetch/fetcher', async (importOriginal) => ({
   ...(await importOriginal<typeof import('@/pipeline/fetch/fetcher')>()),
@@ -110,5 +110,43 @@ describe('cdx', () => {
     const error = await cdx({ url: 'eargo.com' }).catch((e: unknown) => e)
     expect(error).toBeInstanceOf(WaybackError)
     expect((error as WaybackError).reason).toBe('rate-limited')
+  })
+})
+
+const cdxJson = (rows: CdxRow[]) =>
+  JSON.stringify([['timestamp', 'original', 'statuscode', 'mimetype', 'digest'], ...rows.map((r) => [r.timestamp, r.original, r.statusCode, r.mimeType, r.digest])])
+const answer = (rows: CdxRow[]): FetchResult => ({ status: 'ok', url: 'x', text: cdxJson(rows), contentHash: 'h', fetchedAt: '2026-11-27T10:00:00.000Z' })
+const requested = () => fetchMock.mock.calls[0][0]
+
+describe('archive queries', () => {
+  test('yearlyCopies asks one 200 copy per month and keeps the latest of each year', async () => {
+    fetchMock.mockResolvedValue(answer([row('20180105000000'), row('20181205000000'), row('20190301000000'), row('20190701000000'), row('20170101000000')]))
+
+    const copies = await yearlyCopies('eargo.com/')
+
+    expect(requested()).toContain('collapse=timestamp%3A6')
+    expect(requested()).toContain('from=2018')
+    expect(requested()).toContain('filter=statuscode%3A200')
+    expect(copies.map((c) => c.timestamp)).toEqual(['20181205000000', '20190701000000'])
+  })
+
+  test('pdfCopies asks for one PDF per URL across the domain', async () => {
+    fetchMock.mockResolvedValue(answer([]))
+    expect(await pdfCopies('eargo.com')).toEqual([])
+    expect(requested()).toContain('matchType=domain')
+    expect(requested()).toContain('filter=mimetype%3Aapplication%2Fpdf')
+    expect(requested()).toContain('collapse=urlkey')
+  })
+
+  test('earliestCopy takes the first 200 copy, latestCopy the last; none gives null', async () => {
+    fetchMock.mockResolvedValue(answer([row('20190101000000')]))
+    expect((await earliestCopy('eargo.com/'))?.timestamp).toBe('20190101000000')
+    expect(requested()).toContain('limit=1&')
+    expect(requested()).toContain('filter=statuscode%3A200')
+
+    fetchMock.mockClear()
+    fetchMock.mockResolvedValue(answer([]))
+    expect(await latestCopy('eargo.com/')).toBeNull()
+    expect(requested()).toContain('limit=-1')
   })
 })

@@ -12,7 +12,8 @@ import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { LlmLimitError, LlmUnavailableError } from '@/pipeline/llm'
 import { readCache } from '@/pipeline/llm/cache'
 import { Progress } from '@/pipeline/progress'
-import { discoverModelUrls, extractModel, isInScope, matchExistingModel, mergeCandidates, type ModelCandidate } from '@/pipeline/sources/brand-site'
+import { isInScope } from '@/pipeline/archive/lifecycle'
+import { discoverModelUrls, extractModel, matchExistingModel, mergeCandidates, type ModelCandidate } from '@/pipeline/sources/brand-site'
 import { fetchIosVersion } from '@/pipeline/sources/itunes'
 import { fetchFdaEvents } from '@/pipeline/sources/openfda'
 import { extractExpertProsCons, synthesizeProsCons } from '@/pipeline/sources/pros-cons'
@@ -155,8 +156,8 @@ async function scrape(run: Run): Promise<void> {
       }
       for (const candidate of mergeCandidates(candidates)) {
         const existing = matchExistingModel(candidate.model, run.dataset.models)
-        if (existing === null && !isInScope(candidate.model)) {
-          console.log(`${candidate.model.slug}: released before ${config.eventsSince}, left out`)
+        if (existing === null && !isInScope(candidate.model, { inLiveCatalog: true })) {
+          console.log(`${candidate.model.slug}: released before ${config.onSaleSince}, left out`)
           continue
         }
         for (const change of diffModel(existing, candidate)) await handle(run, change)
