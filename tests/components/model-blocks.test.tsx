@@ -55,9 +55,9 @@ describe('ReviewSummary', () => {
     { sourceUrl: 'https://shop-a.example/p', rating: 4.6, count: 1248, fetchedAt: '2026-11-20T00:00:00.000Z' },
     { sourceUrl: 'https://shop-b.example/p', rating: 3.2, count: 1, fetchedAt: '2026-11-21T00:00:00.000Z' },
   ]
-  const complaintThemes = [{ theme: 'sound-quality', share: 0.234, n: 41 }]
+  const complaintThemes = [{ theme: 'sound-quality', share: 0.234, n: 41, of: 175 }]
 
-  test('lists each source with its own rating, and themes by share only', () => {
+  test('lists each source with its own rating, and themes by share with how many reviews they come from', () => {
     const page = parse(<ReviewSummary customer={customer} complaintThemes={complaintThemes} />)
     const text = page.body.textContent!
 
@@ -69,7 +69,7 @@ describe('ReviewSummary', () => {
     expect(text).toContain('1,248')
     expect(text).toContain('Sound quality')
     expect(text).toContain('23%')
-    expect(text).not.toContain('41')
+    expect(text).toContain('41 of 175 reviews')
     // No average across sources: 3.9 would be the mean of the two.
     expect(text).not.toContain('3.9')
     expect(page.body.innerHTML).not.toMatch(/itemprop|aggregate/i)

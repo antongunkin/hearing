@@ -1,4 +1,5 @@
 {
+  "defaultType": "consumer",
   "group": "Apple",
   "imageLicense": "none",
   "name": "Apple",

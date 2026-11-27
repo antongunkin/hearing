@@ -49,7 +49,7 @@ function failure(envelope: Envelope | undefined, stderr: string): Error {
 
   if (envelope?.subtype === 'error_max_structured_output_retries') return new LlmOutputError(message)
   if (AUTH.test(detail)) return new LlmUnavailableError(message)
-  if (envelope?.api_error_status === 429 || LIMIT.test(detail)) return new LlmLimitError(message)
+  if (envelope?.api_error_status === 429 || LIMIT.test(detail)) return new LlmLimitError('claude', message)
   return new Error(message)
 }
 
@@ -81,8 +81,16 @@ export async function callClaude(
     ...(tools ? ['--allowedTools', tools.join(',')] : []),
   ]
 
-  // Either variable would take the call off the subscription and bill an API account.
-  const { ANTHROPIC_API_KEY, ANTHROPIC_AUTH_TOKEN, ...env } = process.env
+  // Each would take the call off the subscription: an API key or token bills an API account, and the
+  // others send it to Bedrock, Vertex or another endpoint.
+  const {
+    ANTHROPIC_API_KEY,
+    ANTHROPIC_AUTH_TOKEN,
+    CLAUDE_CODE_USE_BEDROCK,
+    CLAUDE_CODE_USE_VERTEX,
+    ANTHROPIC_BASE_URL,
+    ...env
+  } = process.env
   const timeout = config.llm.timeoutMs.claude
 
   let stdout: string

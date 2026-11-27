@@ -2,7 +2,7 @@ import { z } from 'zod'
 import { IsoDateTime, Slug } from './field'
 
 export const CheckResult = z.strictObject({
-  name: z.enum(['literal', 'range', 'crosscheck', 'dedupe', 'forbidden']),
+  name: z.enum(['literal', 'range', 'crosscheck', 'dedupe', 'forbidden', 'price-basis', 'brand-type']),
   ok: z.boolean(),
   detail: z.string().optional(),
 })

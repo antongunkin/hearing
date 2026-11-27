@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { literalCheck } from '@/pipeline/checks/literal'
+import { priceBasisCheck } from '@/pipeline/checks/price-basis'
 import { rangeCheck } from '@/pipeline/checks/ranges'
 import { config } from '@/pipeline/config'
 import { excerpt, PROMPT_TEXT_BUDGET } from '@/pipeline/excerpt'
@@ -131,7 +132,7 @@ const ExtractedVariant = z.strictObject({
 
 const Extraction = z.strictObject({
   name: z.string().min(1),
-  type: field(ModelType),
+  type: field(ModelType).optional(),
   releaseDate: field(z.string()).optional(),
   platform: field(z.string()).optional(),
   materials: field(z.array(z.string())).optional(),
@@ -157,14 +158,14 @@ const PROMPT = `You extract hearing aid specifications from official manufacture
 Rules:
 - Use only the sources. Never use outside knowledge and never guess. Leave out every field the sources do not state; never output null or empty values.
 - Every field has "quote": an exact, character-for-character copy of the source text that states the value (one line or sentence, at most about 300 characters), and "sourceIndex": the number N of the [Source N] the quote comes from.
-- name: the model's product name as the sources write it, without the brand name.
-- type: "otc" if it is sold over the counter without a prescription, "rx" if it is fitted by a hearing care professional, "consumer" for earbuds with a hearing feature. Quote the text that shows it.
+- name: the model family's product name as the sources write it, without the brand name and without the style, receiver or battery suffix (such as "miniRITE R", "RIC R D", "BTE"): one family has one name across its pages, and its styles go into variants.
+- type: "otc" if it is sold over the counter without a prescription, "rx" if it is fitted by a hearing care professional, "consumer" for earbuds with a hearing feature. Only if a source says so; quote the text that shows it.
 - releaseDate: "YYYY-MM-DD" or "YYYY-MM", only if a source says when the model was released or launched.
 - variants: one per hearing aid style or model number (such as receiver-in-canal versus in-the-ear, or battery sizes). formFactor: RIC, BTE, ITE, ITC, CIC, IIC or earbud. techLevel: the performance level if named (such as "I90").
 - weightG: the weight as written, with its unit as written. Grams: no derivation. Ounces: add "derivation": {"op": "oz-to-g", "input": "<the number and unit copied from the quote, such as 0.07 oz>"}. Weight of a pair: add {"op": "pair-to-unit", "input": "<the number and unit copied from the quote>"}.
 - dimensionsMm: {"l", "w", "h"} with the unit as written. Millimetres: no derivation. Inches: add {"op": "in-to-mm", "input": "<the three numbers and the unit copied from the quote>"}.
 - power: type is "rechargeable" or the battery size "10", "312", "13" or "675"; batteryHours is the hours per charge; chargingCase is whether a charging case is included.
-- ipRating: such as "IP68". priceUsd: the listed price in US dollars, as a number.
+- ipRating: such as "IP68". priceUsd: the regular (non-sale) price in US dollars, as a number; leave it out if only a sale price is shown.
 - connectivity: mfi (Made for iPhone), asha (Audio Streaming for Hearing Aids on Android), leAudio (Bluetooth LE Audio), auracast (Auracast). Include only the flags the sources state.
 - tinnitus: true if the model has a tinnitus feature such as a sound generator.
 - platform: the chip or technology platform name. materials, colors: as the sources list them.`
@@ -232,8 +233,17 @@ export async function extractModel(brand: Brand, pages: Page[]): Promise<ModelCa
   const out = await llm({ prompt, schema: Extraction, provider: 'claude' })
   const fieldChecks: Record<string, CheckResult[]> = {}
 
-  /** The field as stored, with checks recorded under `path`; undefined when it is empty or cites a page it was not given. */
-  function cite<T>(path: string, field: Cited, value: T, converted?: Partial<Converted<T>>): Sourced<T> | undefined {
+  /**
+   * The field as stored, with checks recorded under `path`; undefined when it is empty or cites a page it was
+   * not given. `readings` are keys of the value that interpret the text (see literalCheck).
+   */
+  function cite<T>(
+    path: string,
+    field: Cited,
+    value: T,
+    converted?: Partial<Converted<T>>,
+    readings?: readonly string[],
+  ): Sourced<T> | undefined {
     const page = pages[field.sourceIndex]
     // An empty list or object would pass every check while saying nothing.
     if (page === undefined || isEmpty(value)) return undefined
@@ -246,19 +256,30 @@ export async function extractModel(brand: Brand, pages: Page[]): Promise<ModelCa
       sourceType: converted?.derivation ? 'derived' : 'official',
       ...(converted?.derivation && { derivation: converted.derivation }),
     }
-    fieldChecks[path] = [literalCheck(sourced, page.text), rangeCheck(path, sourced.value)]
+    fieldChecks[path] = [literalCheck(sourced, page.text, { readings }), rangeCheck(path, sourced.value)]
     return sourced
   }
-  const plain = <T>(path: string, field: (Cited & { value: T }) | undefined) =>
-    field === undefined ? undefined : cite(path, field, field.value)
+  const plain = <T>(path: string, field: (Cited & { value: T }) | undefined, readings?: readonly string[]) =>
+    field === undefined ? undefined : cite(path, field, field.value, undefined, readings)
   const converted = <T>(path: string, field: Cited | undefined, value: Converted<T> | undefined) =>
     field === undefined || value === undefined ? undefined : cite(path, field, value.value, value)
 
-  // The type is a reading of the text, like a boolean: only its quote can be looked up here, and the
-  // cross-check reads the value again.
-  if (cite('type', out.type, null) === undefined) {
-    fieldChecks.type = [{ name: 'literal', ok: false, detail: `cites source ${out.type.sourceIndex}, which was not given` }]
-  }
+  // The type is the brand's unless a page says otherwise; a page that does is flagged for the owner. A
+  // stated type is a reading of the text, like a boolean: only its quote can be looked up.
+  const type = out.type?.value ?? brand.defaultType
+  const typePage = out.type && pages[out.type.sourceIndex]
+  fieldChecks.type = [
+    ...(out.type === undefined
+      ? []
+      : [
+          typePage
+            ? literalCheck({ value: null, quote: out.type.quote, sourceUrl: typePage.url, fetchedAt: typePage.fetchedAt, sourceType: 'official' }, typePage.text)
+            : { name: 'literal' as const, ok: false, detail: `cites source ${out.type.sourceIndex}, which was not given` },
+        ]),
+    out.type === undefined || out.type.value === brand.defaultType
+      ? { name: 'brand-type', ok: true }
+      : { name: 'brand-type', ok: false, detail: `the page says ${out.type.value} ("${out.type.quote}"); the brand default is ${brand.defaultType}` },
+  ]
 
   const releaseDate = out.releaseDate && ISO_DATE.test(out.releaseDate.value) ? plain('releaseDate', out.releaseDate) : undefined
   // Kept in scope (see isInScope), but never applied without a person looking at it.
@@ -275,10 +296,12 @@ export async function extractModel(brand: Brand, pages: Page[]): Promise<ModelCa
     const fields = {
       weightG: converted(`${at}.weightG`, variant.weightG, variant.weightG && grams(variant.weightG)),
       dimensionsMm: converted(`${at}.dimensionsMm`, variant.dimensionsMm, variant.dimensionsMm && millimetres(variant.dimensionsMm)),
-      power: plain(`${at}.power`, variant.power),
+      // The battery type is a reading ("rechargeable" from "up to 24 hours per charge"), left to the cross-check.
+      power: plain(`${at}.power`, variant.power, ['type']),
       ipRating: plain(`${at}.ipRating`, variant.ipRating),
       priceUsd: variant.priceUsd && cite(`${at}.priceUsd`, variant.priceUsd, variant.priceUsd.value, { unit: 'USD' }),
     }
+    if (fields.priceUsd) fieldChecks[`${at}.priceUsd`].push(priceBasisCheck(fields.priceUsd.quote))
     return {
       id,
       ...(variant.techLevel !== undefined && { techLevel: variant.techLevel }),
@@ -300,7 +323,7 @@ export async function extractModel(brand: Brand, pages: Page[]): Promise<ModelCa
     brand: brand.slug,
     name: out.name,
     aliases: [],
-    type: out.type.value,
+    type,
     ...defined(fields),
     sameHardwareAs: [],
     variants,
@@ -308,7 +331,7 @@ export async function extractModel(brand: Brand, pages: Page[]): Promise<ModelCa
   return { model, fieldChecks }
 }
 
-/** A blank string, or a list or object with nothing but blanks in it. `null` (the type's quote check) is not empty. */
+/** A blank string, or a list or object with nothing but blanks in it. */
 function isEmpty(value: unknown): boolean {
   if (typeof value === 'string') return value.trim() === ''
   if (Array.isArray(value)) return value.every(isEmpty)
@@ -321,6 +344,55 @@ function defined<T extends Record<string, unknown>>(fields: T): { [K in keyof T]
   return Object.fromEntries(Object.entries(fields).filter(([, value]) => value !== undefined)) as {
     [K in keyof T]?: NonNullable<T[K]>
   }
+}
+
+/** Model-wide fields a page may state; the rest (slug, names, twins) is the same on every page of a family. */
+const FAMILY_FIELDS = ['type', 'releaseDate', 'platform', 'materials', 'colors', 'connectivity', 'tinnitus'] as const
+
+const allPass = (checks: CheckResult[] | undefined) => checks !== undefined && checks.every((check) => check.ok)
+
+/** One candidate for the pages of one family (see mergeCandidates). */
+function mergeFamily(pages: ModelCandidate[]): ModelCandidate {
+  if (pages.length === 1) return pages[0]
+  const fieldChecks: Record<string, CheckResult[]> = {}
+  const model: Record<string, unknown> = { ...pages[0].model }
+  for (const key of FAMILY_FIELDS) {
+    const has = (page: ModelCandidate) => page.model[key] !== undefined
+    // The first page whose reading passes its checks; else the first that has the field; else the checks
+    // of a field none has (such as `no-release-date`).
+    const from =
+      pages.find((page) => has(page) && allPass(page.fieldChecks[key])) ??
+      pages.find(has) ??
+      pages.find((page) => page.fieldChecks[key] !== undefined)
+    delete model[key]
+    if (from === undefined) continue
+    if (has(from)) model[key] = from.model[key]
+    if (from.fieldChecks[key] !== undefined) fieldChecks[key] = from.fieldChecks[key]
+  }
+
+  const variants: Variant[] = []
+  for (const page of pages) {
+    page.model.variants.forEach((variant, i) => {
+      if (variants.some((kept) => kept.id === variant.id)) return
+      const [from, to] = [`variants.${i}`, `variants.${variants.length}`]
+      for (const [path, checks] of Object.entries(page.fieldChecks)) {
+        if (path.startsWith(`${from}.`)) fieldChecks[to + path.slice(from.length)] = checks
+      }
+      variants.push(variant)
+    })
+  }
+  return { model: Model.parse({ ...model, variants }), fieldChecks }
+}
+
+/**
+ * One candidate per model slug, in the order first seen. A family's styles often have a page each: their
+ * variants are united by id (the first page's variant wins), each with its checks under its new index, and
+ * a model-wide field is taken from the first page whose reading of it passes its checks.
+ */
+export function mergeCandidates(candidates: ModelCandidate[]): ModelCandidate[] {
+  const bySlug = new Map<string, ModelCandidate[]>()
+  for (const candidate of candidates) bySlug.set(candidate.model.slug, [...(bySlug.get(candidate.model.slug) ?? []), candidate])
+  return [...bySlug.values()].map(mergeFamily)
 }
 
 /** The stored model of the same brand whose name or an alias is the candidate's name, written differently. */

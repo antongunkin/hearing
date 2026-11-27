@@ -125,6 +125,10 @@ describe('claude', () => {
   test('runs on the subscription: the child env has no Anthropic key or token', async () => {
     vi.stubEnv('ANTHROPIC_API_KEY', 'test-key')
     vi.stubEnv('ANTHROPIC_AUTH_TOKEN', 'test-token')
+    // Each would send the call to another endpoint or cloud account, billed apart from the subscription.
+    vi.stubEnv('CLAUDE_CODE_USE_BEDROCK', '1')
+    vi.stubEnv('CLAUDE_CODE_USE_VERTEX', '1')
+    vi.stubEnv('ANTHROPIC_BASE_URL', 'https://proxy.example')
     vi.stubEnv('UNRELATED_SETTING', 'kept')
     const exec = vi.fn<NonNullable<LlmDeps['exec']>>(async () => ({
       stdout: envelope({ structured_output: { ok: true } }),
@@ -136,6 +140,7 @@ describe('claude', () => {
     const { env, timeout } = exec.mock.calls[0][2]
     expect(env).not.toHaveProperty('ANTHROPIC_API_KEY')
     expect(env).not.toHaveProperty('ANTHROPIC_AUTH_TOKEN')
+    for (const name of ['CLAUDE_CODE_USE_BEDROCK', 'CLAUDE_CODE_USE_VERTEX', 'ANTHROPIC_BASE_URL']) expect(env).not.toHaveProperty(name)
     expect(env).toMatchObject({ UNRELATED_SETTING: 'kept', PATH: process.env.PATH })
     expect(process.env.ANTHROPIC_API_KEY).toBe('test-key')
     expect(timeout).toBe(300_000)
@@ -186,7 +191,8 @@ describe('claude', () => {
     const exec = stubExecFail('Usage limit reached')
 
     await expect(run({ exec })).rejects.toBeInstanceOf(LlmLimitError)
-    expect(exec).toHaveBeenCalledTimes(1)
+    await expect(run({ exec })).rejects.toMatchObject({ provider: 'claude' })
+    expect(exec).toHaveBeenCalledTimes(2)
   })
 
   test.each([
@@ -347,7 +353,8 @@ describe('gemini', () => {
     }
 
     await expect(gemini({ gemini: client })).rejects.toBeInstanceOf(LlmLimitError)
-    expect(client.generateContent).toHaveBeenCalledTimes(1)
+    await expect(gemini({ gemini: client })).rejects.toMatchObject({ provider: 'gemini' })
+    expect(client.generateContent).toHaveBeenCalledTimes(2)
   })
 
   test('empty response → LlmOutputError', async () => {

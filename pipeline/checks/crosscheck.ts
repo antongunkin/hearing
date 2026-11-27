@@ -4,9 +4,10 @@ import type { CheckResult } from '@/src/lib/schema/pending'
 
 /**
  * Fields a second, independent model reads again before a change is trusted. `*.` is any prefix.
- * `tinnitus` is here (Ruling T) because it is a boolean, which the literal check cannot verify.
+ * `tinnitus` is here (Ruling T) because it is a boolean, which the literal check cannot verify. The model
+ * type is not: it is checked against the brand's default type (see extractModel).
  */
-export const RISKY_PATHS = ['type', '*.weightG', '*.dimensionsMm', '*.ipRating', '*.power', 'connectivity', 'tinnitus'] as const
+export const RISKY_PATHS = ['*.weightG', '*.dimensionsMm', '*.ipRating', '*.power', 'connectivity', 'tinnitus'] as const
 
 export function isRisky(path: string): boolean {
   return RISKY_PATHS.some((pattern) => (pattern.startsWith('*.') ? path.endsWith(pattern.slice(1)) : path === pattern))
@@ -14,7 +15,6 @@ export function isRisky(path: string): boolean {
 
 /** What the re-read value must look like, by the last segment of the path. */
 const HINTS: Record<string, string> = {
-  type: 'one of "otc" (sold over the counter), "rx" (prescription, fitted by a professional), "consumer" (earbuds with a hearing feature)',
   weightG: 'the weight of ONE hearing aid in grams (convert from other units; halve the weight of a pair)',
   dimensionsMm: 'length l, width w and height h in millimetres (convert from other units)',
   ipRating: 'the IP rating code, such as "IP68"',

@@ -9,6 +9,10 @@ export const config = {
   minDelayMs: 2000,
   maxDelayMs: 5000,
   releasedAfter: '2023-11-01',
+  /** An official price that moves by more than this share is reviewed, not applied: it may be a sale or a misread. */
+  maxAutoPriceChange: 0.25,
+  /** Complaint themes are proposed only from at least this many reviews of the model. */
+  minThemeReviews: 20,
   // FDA Product Classification (21 CFR 874, panel "Ear, Nose, Throat"), read 2026-11-26 from
   // https://api.fda.gov/device/classification.json, the API of
   // https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfPCD/classification.cfm

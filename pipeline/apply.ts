@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto'
 import { join } from 'node:path'
 import { z } from 'zod'
 import { crossCheck, isRisky } from '@/pipeline/checks/crosscheck'
+import { config } from '@/pipeline/config'
 import { isDuplicateEvent } from '@/pipeline/checks/dedupe'
 import { forbiddenCheck } from '@/pipeline/checks/forbidden'
 import { llm, LlmLimitError } from '@/pipeline/llm'
@@ -65,6 +66,16 @@ export function fingerprint(c: { kind: CandidateChange['kind']; modelSlug: strin
 export const sourcedKind = (path: string, after: unknown): 'price' | 'spec-change' =>
   isSourced(after) && after.sourceType === 'official' && path.endsWith('.priceUsd') ? 'price' : 'spec-change'
 
+/** A failed check for an official price that moves by more than `config.maxAutoPriceChange`; null otherwise. */
+function priceJump(before: unknown, after: unknown): CheckResult | null {
+  if (typeof before !== 'number' || typeof after !== 'number' || before <= 0) return null
+  const change = (after - before) / before
+  if (Math.abs(change) <= config.maxAutoPriceChange) return null
+  const percent = `${change > 0 ? '+' : ''}${(change * 100).toFixed(1)}%`
+  const limit = `${config.maxAutoPriceChange * 100}%`
+  return { name: 'range', ok: false, detail: `price changes by ${percent} (from ${before} to ${after}): more than ±${limit} is reviewed` }
+}
+
 /** Lists whose entries are proposed whole, as `<list>.<index>`, and the field that tells their entries apart. */
 const ENTRY_KEYS = { variants: 'id', sameHardwareAs: 'slug' } as const
 
@@ -102,7 +113,9 @@ export function diffModel(existing: Model | null, cand: ModelCandidate): Candida
   const proposeSourced = (path: string, after: Sourced<unknown>, checks: Record<string, CheckResult[]>) => {
     const before = stored.get(path)
     if (before !== undefined && sameValue(before.value, after.value)) return
-    push(sourcedKind(path, after), path, before, after, checks)
+    const kind = sourcedKind(path, after)
+    const jump = kind === 'price' && before !== undefined && priceJump(before.value, after.value)
+    push(kind, path, before, after, jump ? { ...checks, [path]: [...checks[path], jump] } : checks)
   }
   /** A plain field the candidate states, when it differs from the stored one. */
   const proposePlain = (path: string, before: unknown, after: unknown) => {
@@ -195,11 +208,15 @@ function pendingKind(c: CandidateChange): PendingChange['kind'] {
   return c.kind === 'pros-cons' ? 'pros-cons' : 'spec-change'
 }
 
-/** Writes the change to `data/pending/`, one file per model and path: a newer proposal replaces an older one. */
-export async function enqueue(c: CandidateChange, dir = 'data'): Promise<void> {
+/**
+ * Writes the change to `data/pending/`, one file per model and path: a newer proposal replaces an older one.
+ * Returns the pending id.
+ */
+export async function enqueue(c: CandidateChange, dir = 'data'): Promise<string> {
   const id = [c.modelSlug ?? 'industry', slugify(c.path) || 'model'].join('-')
   const pending = PendingChange.parse({ ...c, id, kind: pendingKind(c), createdAt: new Date().toISOString() })
   await writeJson(join(dir, 'pending', `${id}.json`), pending)
+  return id
 }
 
 const EventSentence = z.strictObject({ text: z.string().min(1) })

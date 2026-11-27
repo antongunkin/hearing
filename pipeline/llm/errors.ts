@@ -11,9 +11,16 @@ export function timeoutError(provider: string, ms: number, options?: ErrorOption
   return error
 }
 
-/** Quota or rate limit: stop and try again later. */
+/** Quota or rate limit of `provider`: stop using it and try again later. */
 export class LlmLimitError extends Error {
   override name = 'LlmLimitError'
+  constructor(
+    readonly provider: 'claude' | 'ollama' | 'gemini',
+    message: string,
+    options?: ErrorOptions,
+  ) {
+    super(message, options)
+  }
 }
 
 /** The model answered, but not with JSON that fits the schema. */

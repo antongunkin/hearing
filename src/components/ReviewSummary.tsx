@@ -50,13 +50,15 @@ export function ReviewSummary({ customer, complaintThemes, product }: Props) {
           <h3>Common complaints</h3>
           <p className="note">Share of the collected reviews that complain about each point.</p>
           <ul className="themes">
-            {complaintThemes.map(({ theme, share }) => (
+            {complaintThemes.map(({ theme, share, n, of }) => (
               <li key={theme}>
                 <span>{themeLabel(theme)}</span>
                 <span className="bar" aria-hidden="true">
                   <span style={{ width: `${Math.round(share * 100)}%` }} />
                 </span>
-                <span>{Math.round(share * 100)}%</span>
+                <span>
+                  {Math.round(share * 100)}% <small>({formatNumber(n)} of {formatNumber(of)} reviews)</small>
+                </span>
               </li>
             ))}
           </ul>

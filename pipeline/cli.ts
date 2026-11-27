@@ -1,5 +1,5 @@
 // `npm run update`: every source in turn, each change dropped, applied or queued for review. A run stopped by
-// the Claude usage limit goes on with `--resume`. `scrape`, `fda`, `apps`, `reviews` and `youtube` run one step.
+// the Claude usage limit goes on with `--resume` (the message prints the command). `scrape`, `fda`, `apps`, `reviews` and `youtube` run one step.
 // `update` ends by recording the comparison pairs; `pairs` does only that.
 import { join, resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
@@ -11,7 +11,7 @@ import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { LlmLimitError, LlmUnavailableError } from '@/pipeline/llm'
 import { readCache } from '@/pipeline/llm/cache'
 import { Progress } from '@/pipeline/progress'
-import { discoverModelUrls, extractModel, isInScope, matchExistingModel } from '@/pipeline/sources/brand-site'
+import { discoverModelUrls, extractModel, isInScope, matchExistingModel, mergeCandidates, type ModelCandidate } from '@/pipeline/sources/brand-site'
 import { fetchIosVersion } from '@/pipeline/sources/itunes'
 import { fetchFdaEvents } from '@/pipeline/sources/openfda'
 import { extractExpertProsCons, synthesizeProsCons } from '@/pipeline/sources/pros-cons'
@@ -30,7 +30,7 @@ import { pairSlug, selectCuratedPairs } from '@/src/lib/site/pairs'
 
 type Page = Extract<FetchResult, { status: 'ok' }>
 
-const LIMIT_MESSAGE = 'Claude usage limit reached. Resume later: npm run update -- --resume'
+const PROVIDER_NAMES = { claude: 'Claude', gemini: 'Gemini', ollama: 'Ollama' } as const
 
 const STEPS = ['scrape', 'fda', 'apps', 'reviews', 'youtube'] as const
 type Step = (typeof STEPS)[number]
@@ -46,6 +46,8 @@ type Run = {
   /** The filters of the run (`--brand`, `--limit`): work done under other filters is not this run's. */
   scope: string
   progress: Progress
+  /** Pending ids written by this run: a second proposal under one id replaces the first, which is reported. */
+  queued: Set<string>
   tally: { auto: number; pending: number; dropped: number; skipped: number; failed: number }
 }
 
@@ -88,7 +90,9 @@ async function handle(run: Run, change: CandidateChange): Promise<void> {
     await applyAuto(checked, run.dataset, run.dataDir)
     run.tally.auto++
   } else {
-    await enqueue(checked, run.dataDir)
+    const id = await enqueue(checked, run.dataDir)
+    if (run.queued.has(id)) console.warn(`${id}: replaces a proposal made earlier in this run`)
+    run.queued.add(id)
     run.tally.pending++
   }
 }
@@ -119,32 +123,39 @@ function reviewsChange(run: Run, slug: string, kind: CandidateChange['kind'], fi
   return { kind, modelSlug: slug, path: `reviews.${field}`, ...(before !== undefined && { before }), after, checks: {} }
 }
 
-/** Brand sites (new models and spec changes), then third-party prices and hardware twins. */
+/**
+ * Brand sites (new models and spec changes), then third-party prices and hardware twins. A brand is one
+ * unit: the pages of a model family are merged (see mergeCandidates) before they are compared with the
+ * data, so each model is compared once. A brand stopped half-way is read again on resume, from the page
+ * and LLM caches. A page that fails is counted and left out.
+ */
 async function scrape(run: Run): Promise<void> {
   for (const brand of run.brands) {
-    let groups: Awaited<ReturnType<typeof discoverModelUrls>> = []
-    await guard(run, `${brand.slug} catalog`, async () => {
+    await unit(run, `scrape:${brand.slug}`, async () => {
       const onSkip = (url: string, reason: string, detail?: string) => skippedSource(run, url, reason, detail)
-      groups = (await discoverModelUrls(brand, { refresh: run.refresh, onSkip })).slice(0, run.limit)
-    })
-    for (const { modelUrl, documentUrls } of groups) {
-      await unit(run, `scrape:${brand.slug}:${modelUrl}`, async () => {
-        const modelPage = await page(run, modelUrl, { render: brand.scraper.render, refresh: run.refresh })
-        if (modelPage === null) return
-        const pages = [modelPage]
-        for (const url of documentUrls) {
-          const document = await page(run, url, { refresh: run.refresh })
-          if (document) pages.push(document)
-        }
-        const candidate = await extractModel(brand, pages)
+      const groups = (await discoverModelUrls(brand, { refresh: run.refresh, onSkip })).slice(0, run.limit)
+      const candidates: ModelCandidate[] = []
+      for (const { modelUrl, documentUrls } of groups) {
+        await guard(run, modelUrl, async () => {
+          const modelPage = await page(run, modelUrl, { render: brand.scraper.render, refresh: run.refresh })
+          if (modelPage === null) return
+          const pages = [modelPage]
+          for (const url of documentUrls) {
+            const document = await page(run, url, { refresh: run.refresh })
+            if (document) pages.push(document)
+          }
+          candidates.push(await extractModel(brand, pages))
+        })
+      }
+      for (const candidate of mergeCandidates(candidates)) {
         const existing = matchExistingModel(candidate.model, run.dataset.models)
         if (existing === null && !isInScope(candidate.model)) {
           console.log(`${candidate.model.slug}: released before ${config.releasedAfter}, left out`)
-          return
+          continue
         }
         for (const change of diffModel(existing, candidate)) await handle(run, change)
-      })
-    }
+      }
+    })
   }
   for (const slug of modelSlugs(run)) {
     await unit(run, `third-party:${slug}`, async () => {
@@ -232,7 +243,9 @@ async function reviews(run: Run): Promise<void> {
         )
         await handle(run, reviewsChange(run, slug, 'review-stats', 'customer', [...kept, ...customer]))
       }
-      if (texts.length > 0) {
+      // Shares of a handful of reviews say little, and they are published without review: none then, and
+      // the stored themes stay.
+      if (texts.length >= config.minThemeReviews) {
         await guard(run, `${slug} complaint themes`, async () => {
           await handle(run, reviewsChange(run, slug, 'complaint-themes', 'complaintThemes', await complaintThemes(texts)))
         })
@@ -252,9 +265,16 @@ async function reviews(run: Run): Promise<void> {
   }
 }
 
-/** Video reviews: found through the YouTube Data API, heard by Gemini. Without either, the step is skipped. */
+/**
+ * Video reviews: found through the YouTube Data API, heard by Gemini. Without either, or at Gemini's daily
+ * limit, the rest of the step is skipped and the run goes on; the next run tries again, with the videos
+ * already heard answered from the LLM cache.
+ */
 async function youtube(run: Run): Promise<void> {
-  const stopsStep = (error: unknown) => error instanceof YouTubeError || error instanceof LlmUnavailableError
+  const stopsStep = (error: unknown) =>
+    error instanceof YouTubeError ||
+    error instanceof LlmUnavailableError ||
+    (error instanceof LlmLimitError && error.provider === 'gemini')
   try {
     for (const slug of modelSlugs(run)) {
       await unit(
@@ -356,6 +376,7 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
     asOf: currentMonth(),
     scope: `brand=${values.brand ?? '*'} limit=${values.limit ?? '*'}`,
     progress: await Progress.open(progressFile, values.resume),
+    queued: new Set(),
     tally: { auto: 0, pending: 0, dropped: 0, skipped: 0, failed: 0 },
   }
   const summary = () => {
@@ -368,9 +389,14 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
   } catch (error) {
     if (!(error instanceof LlmLimitError)) throw error
     summary()
-    console.error(LIMIT_MESSAGE)
-    const filters = [values.brand && `--brand ${values.brand}`, values.limit && `--limit ${values.limit}`].filter(Boolean)
-    if (filters.length > 0) console.error(`Resume with the same filters: ${filters.join(' ')}`)
+    // The same command and filters: work done under other filters is not skipped (see `Run.scope`).
+    const flags = [
+      '--resume',
+      ...(values.brand ? ['--brand', values.brand] : []),
+      ...(values.limit ? ['--limit', values.limit] : []),
+      ...(values.refresh ? ['--refresh'] : []),
+    ]
+    console.error(`${PROVIDER_NAMES[error.provider]} usage limit reached. Resume later: npm run ${command} -- ${flags.join(' ')}`)
     return 2
   }
   await run.progress.clear()

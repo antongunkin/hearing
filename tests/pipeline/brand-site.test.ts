@@ -5,7 +5,7 @@ import { afterEach, describe, expect, test, vi } from 'vitest'
 import { crossCheck, isRisky } from '@/pipeline/checks/crosscheck'
 import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { llm, LlmUnavailableError } from '@/pipeline/llm'
-import { discoverModelUrls, extractModel, isInScope, matchExistingModel } from '@/pipeline/sources/brand-site'
+import { discoverModelUrls, extractModel, isInScope, matchExistingModel, mergeCandidates, type ModelCandidate } from '@/pipeline/sources/brand-site'
 import { loadDataset } from '@/src/lib/data/load'
 import type { Brand } from '@/src/lib/schema/brand'
 import { Model } from '@/src/lib/schema/model'
@@ -34,6 +34,7 @@ const brand: Brand = {
   group: 'Sonova',
   website: 'https://www.phonak.com',
   imageLicense: 'none',
+  defaultType: 'rx',
   scraper: {
     catalogUrls: ['https://www.phonak.com/en-us/hearing-devices/hearing-aids', 'https://www.phonak.com/en-us/support/datasheets'],
     modelUrlPattern: '^https://www\\.phonak\\.com/en-us/hearing-devices/hearing-aids/(?!product-comparison$)[a-z0-9-]+$',
@@ -279,10 +280,71 @@ describe('extractModel', () => {
     expect(fieldChecks['variants.0.priceUsd']).toEqual([
       { name: 'literal', ok: true },
       { name: 'range', ok: true },
+      { name: 'price-basis', ok: true },
     ])
     // The prompt must not ask for what the schema refuses.
     expect(llmMock.mock.calls[0][0].prompt).not.toMatch(/priceUsd[^\n]*unit/)
     await expect(extractFixture(withVariant({ priceUsd: { ...price, unit: 'USD' } }))).rejects.toThrow()
+  })
+
+  test('the battery type is a reading of the text: only the hours are looked up in the quote', async () => {
+    const power = { value: { type: 'rechargeable', batteryHours: 16 }, quote: 'up to 16 hours', sourceIndex: 1 }
+    const { fieldChecks } = await extractFixture(withVariant({ power }))
+    expect(fieldChecks['variants.0.power']).toEqual([
+      { name: 'literal', ok: true },
+      { name: 'range', ok: true },
+    ])
+    const { fieldChecks: wrong } = await extractFixture(withVariant({ power: { ...power, value: { type: '312', batteryHours: 18 } } }))
+    expect(wrong['variants.0.power'][0]).toMatchObject({ name: 'literal', ok: false, detail: 'value not in quote: [18]' })
+  })
+
+  test('a price quote with two amounts or a sale word fails price-basis, so the change waits for a person', async () => {
+    const pages = async (line: string) => [...(await fixturePages()), okPage('https://www.phonak.com/en-us/shop', line)]
+    const basis = async (quote: string, value: number) => {
+      const output = JSON.parse(await fixture('extraction.json'))
+      output.variants[0].priceUsd = { value, quote, sourceIndex: 2 }
+      llmMock.mockImplementation(async ({ schema }) => schema.parse(output))
+      const { fieldChecks } = await extractModel(brand, await pages(`Offer\n${quote}\nEnd`))
+      return fieldChecks['variants.0.priceUsd'].find((check) => check.name === 'price-basis')
+    }
+    expect(await basis('Price: $1,195 per pair', 1195)).toEqual({ name: 'price-basis', ok: true })
+    for (const [quote, value] of [
+      ['$1,695 $1,995', 1695],
+      ['$597 $447/pair', 447],
+      ['just $389/pair, save 20%', 389],
+      ['Holiday Sale: $1,299', 1299],
+      ['Black Friday deal $799 per pair', 799],
+      ['Regular price $1,995', 1995],
+    ] as const) {
+      expect(await basis(quote, value), quote).toMatchObject({ name: 'price-basis', ok: false })
+    }
+    // "Save" inside a word is not a sale word.
+    expect(await basis('Price: $1,195 per pair, Saveur edition', 1195)).toEqual({ name: 'price-basis', ok: true })
+  })
+
+  test('the prompt asks for the regular price and for the family name with styles as variants', async () => {
+    await extractFixture()
+    const { prompt } = llmMock.mock.calls[0][0]
+    expect(prompt).toMatch(/regular \(non-sale\) price[^\n]*leave it out if only a sale price is shown/i)
+    expect(prompt).toMatch(/name: the model family[^\n]*without the style/i)
+  })
+
+  test("type: the brand's default when the sources do not say; a page that says otherwise is flagged", async () => {
+    const { model, fieldChecks } = await extractFixture((output) => delete output.type)
+    expect(model.type).toBe('rx')
+    expect(fieldChecks.type).toEqual([{ name: 'brand-type', ok: true }])
+
+    const otc = { value: 'otc', quote: 'Prescription hearing aid fitted by your hearing care professional', sourceIndex: 0 }
+    const flagged = await extractFixture((output) => Object.assign(output, { type: otc }))
+    expect(flagged.model.type).toBe('otc')
+    expect(flagged.fieldChecks.type).toEqual([
+      { name: 'literal', ok: true },
+      { name: 'brand-type', ok: false, detail: `the page says otc ("${otc.quote}"); the brand default is rx` },
+    ])
+
+    const agrees = await extractFixture()
+    expect(agrees.model.type).toBe('rx')
+    expect(agrees.fieldChecks.type).toEqual([{ name: 'literal', ok: true }, { name: 'brand-type', ok: true }])
   })
 
   test('no release date: kept in scope and flagged as a failed check', async () => {
@@ -305,6 +367,65 @@ describe('extractModel', () => {
     expect(prompt.indexOf('[Source 1]')).toBeLessThan(prompt.indexOf('[Source 0]'))
     expect(prompt).toContain('SPEC-MARKER')
     expect(prompt).toContain(MODEL_URL)
+  })
+})
+
+describe('mergeCandidates', () => {
+  const at = (url: string) => ({ sourceUrl: url, fetchedAt: '2026-11-26T10:00:00.000Z', sourceType: 'official' as const })
+  const R = 'https://www.oticon.com/reveal-minirite-r'
+  const T = 'https://www.oticon.com/reveal-minirite-t'
+  const candidate = (slug: string, url: string, variant: string, extra: Partial<Model>, checks: ModelCandidate['fieldChecks']): ModelCandidate => ({
+    model: Model.parse({
+      slug,
+      brand: 'oticon',
+      name: 'Reveal',
+      aliases: [],
+      type: 'rx',
+      sameHardwareAs: [],
+      variants: [{ id: variant, formFactor: 'RIC', ipRating: { value: 'IP68', quote: 'IP68', ...at(url) } }],
+      ...extra,
+    }),
+    fieldChecks: { 'variants.0.ipRating': [{ name: 'literal', ok: url === R }], ...checks },
+  })
+  const fail = [{ name: 'literal' as const, ok: false }]
+  const pass = [{ name: 'literal' as const, ok: true }]
+
+  test('pages of one family become one candidate: variants united by id, checks re-keyed, the first passing field wins', () => {
+    const r = candidate('oticon-reveal', R, 'minirite-r', { platform: { value: 'Sirius', quote: 'Sirius', ...at(R) } }, { platform: fail, type: pass })
+    const t = candidate('oticon-reveal', T, 'minirite-t', { platform: { value: 'Sirius II', quote: 'Sirius II', ...at(T) } }, { platform: pass, type: pass })
+    // The same style on a third page: the first one read is kept.
+    const again = candidate('oticon-reveal', T, 'minirite-r', {}, { type: pass })
+    const other = candidate('oticon-intent', T, 'bte', {}, {})
+
+    const merged = mergeCandidates([r, t, other, again])
+
+    expect(merged.map((c) => c.model.slug)).toEqual(['oticon-reveal', 'oticon-intent'])
+    const [family] = merged
+    expect(family.model.variants.map((v) => v.id)).toEqual(['minirite-r', 'minirite-t'])
+    expect(family.model.variants[1].ipRating?.sourceUrl).toBe(T)
+    expect(family.model.platform?.value).toBe('Sirius II')
+    expect(family.fieldChecks).toEqual({
+      'variants.0.ipRating': pass,
+      'variants.1.ipRating': fail,
+      platform: pass,
+      type: pass,
+    })
+    expect(mergeCandidates([r])).toEqual([r])
+  })
+
+  test('a field no page passes comes from the first page that has it, with its failed checks; missing-field checks stay', () => {
+    const noDate = [{ name: 'range' as const, ok: false, detail: 'no-release-date' }]
+    const r = candidate('oticon-reveal', R, 'minirite-r', { colors: { value: ['Beige'], quote: 'Beige', ...at(R) } }, { colors: fail, releaseDate: noDate })
+    const t = candidate('oticon-reveal', T, 'minirite-t', { colors: { value: ['Black'], quote: 'Black', ...at(T) } }, { colors: fail, releaseDate: noDate })
+    const [family] = mergeCandidates([r, t])
+    expect(family.model.colors?.value).toEqual(['Beige'])
+    expect(family.fieldChecks.colors).toEqual(fail)
+    expect(family.fieldChecks.releaseDate).toEqual(noDate)
+
+    const dated = candidate('oticon-reveal', T, 'minirite-t', { releaseDate: { value: '2024-03', quote: 'March 2024', ...at(T) } }, { releaseDate: pass })
+    const [withDate] = mergeCandidates([r, dated])
+    expect(withDate.model.releaseDate?.value).toBe('2024-03')
+    expect(withDate.fieldChecks.releaseDate).toEqual(pass)
   })
 })
 
@@ -380,8 +501,9 @@ describe('crossCheck', () => {
     expect((await crossCheck('variants.0.power', 'q', { type: 'rechargeable', batteryHours: 16 })).ok).toBe(false)
   })
 
-  test('RISKY_PATHS cover type, connectivity and the risky variant fields', () => {
-    for (const path of ['type', 'connectivity', 'tinnitus', 'variants.0.weightG', 'variants.2.dimensionsMm', 'variants.0.ipRating', 'variants.1.power']) {
+  test('RISKY_PATHS cover connectivity and the risky variant fields; type is checked against the brand instead', () => {
+    expect(isRisky('type')).toBe(false)
+    for (const path of ['connectivity', 'tinnitus', 'variants.0.weightG', 'variants.2.dimensionsMm', 'variants.0.ipRating', 'variants.1.power']) {
       expect(isRisky(path)).toBe(true)
     }
     for (const path of ['colors', 'variants.0.priceUsd', 'releaseDate', 'weightG']) expect(isRisky(path)).toBe(false)

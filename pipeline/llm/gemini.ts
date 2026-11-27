@@ -38,7 +38,7 @@ export async function callGemini(
   } catch (cause) {
     if (abortSignal.aborted) throw timeoutError('Gemini', timeout, { cause })
     if (!(cause instanceof ApiError && cause.status === 429)) throw cause
-    throw new LlmLimitError(`Gemini rate limit: ${cause.message.slice(0, 500)}`, { cause })
+    throw new LlmLimitError('gemini', `Gemini rate limit: ${cause.message.slice(0, 500)}`, { cause })
   }
 
   return parseOutput('Gemini', text ?? '')

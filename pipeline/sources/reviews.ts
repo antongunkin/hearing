@@ -190,11 +190,11 @@ const tagsFor = (batch: Review[]) =>
   )
 
 /**
- * What customers complain about. The model only tags each review; how many reviews name a theme (`n`) and
- * its share of all reviews are counted here. Themes named by fewer than 3 reviews are dropped. Throws
+ * What customers complain about. The model only tags each review; how many reviews name a theme (`n`), of
+ * how many (`of`), and its share are counted here. Themes named by fewer than 3 reviews are dropped. Throws
  * `LlmOutputError` rather than count shares over reviews the model skipped.
  */
-export async function complaintThemes(texts: string[]): Promise<{ theme: string; share: number; n: number }[]> {
+export async function complaintThemes(texts: string[]): Promise<{ theme: string; share: number; n: number; of: number }[]> {
   const reviews = texts.map((text, index) => ({ index, line: `[${index}] ${collapse(text).slice(0, MAX_REVIEW_CHARS)}` }))
   const mentions = new Map<string, Set<number>>()
 
@@ -213,7 +213,7 @@ ${batch.map((review) => review.line).join('\n')}`
   }
 
   return [...mentions]
-    .map(([theme, tagged]) => ({ theme, share: tagged.size / texts.length, n: tagged.size }))
+    .map(([theme, tagged]) => ({ theme, share: tagged.size / texts.length, n: tagged.size, of: texts.length }))
     .filter(({ n }) => n >= MIN_MENTIONS)
     .sort((a, b) => b.n - a.n)
 }

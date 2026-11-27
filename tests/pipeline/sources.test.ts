@@ -52,6 +52,7 @@ const brand = (slug: string, name: string, group: string): Brand => ({
   group,
   website: `https://www.${slug}.com`,
   imageLicense: 'none',
+  defaultType: 'rx',
   scraper: { catalogUrls: [], modelUrlPattern: '', render: false },
 })
 const brands = [brand('jabra-enhance', 'Jabra Enhance', 'GN'), brand('phonak', 'Phonak', 'Sonova')]
@@ -325,7 +326,7 @@ describe('reviews', () => {
       ],
     })
 
-    expect(await complaintThemes(texts)).toEqual([{ theme: 'battery', share: 0.4, n: 4 }])
+    expect(await complaintThemes(texts)).toEqual([{ theme: 'battery', share: 0.4, n: 4, of: 10 }])
   })
 
   test('complaintThemes splits long input into prompts within the budget', async () => {
@@ -334,7 +335,7 @@ describe('reviews', () => {
       schema.parse({ reviews: [...prompt.matchAll(/^\[(\d+)\]/gm)].map((m) => ({ index: Number(m[1]), themes: ['app'] })) }),
     )
 
-    expect(await complaintThemes(texts)).toEqual([{ theme: 'app', share: 1, n: 60 }])
+    expect(await complaintThemes(texts)).toEqual([{ theme: 'app', share: 1, n: 60, of: 60 }])
     expect(llmMock.mock.calls.length).toBeGreaterThan(1)
     for (const [{ prompt }] of llmMock.mock.calls) expect(prompt.length).toBeLessThan(50_000)
   })
@@ -370,7 +371,7 @@ describe('reviews', () => {
     const result = complaintThemes(['a', 'b', 'c'])
 
     if (outcome === 'error') await expect(result).rejects.toThrow(LlmOutputError)
-    else expect(await result).toEqual([{ theme: 'app', share: 1, n: 3 }])
+    else expect(await result).toEqual([{ theme: 'app', share: 1, n: 3, of: 3 }])
     expect(calls).toBe(2)
     await rm(cacheDir, { recursive: true })
   })

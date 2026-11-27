@@ -91,6 +91,7 @@ const brand = {
   group: 'Sonova',
   website: 'https://www.phonak.com',
   imageLicense: 'none',
+  defaultType: 'rx',
   scraper: { catalogUrls: ['https://www.phonak.com/en-us'], modelUrlPattern: '/hearing-aids/', render: false },
 }
 const model = {

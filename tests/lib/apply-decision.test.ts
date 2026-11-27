@@ -54,6 +54,7 @@ const dataset = (items: PendingChange[], extra: Partial<Dataset> = {}): Dataset 
       group: 'GN',
       website: 'https://www.jabraenhance.com',
       imageLicense: 'none',
+      defaultType: 'otc',
       scraper: { catalogUrls: [], modelUrlPattern: '', render: false },
     },
   ],
@@ -270,7 +271,7 @@ describe('applyDecision: other pending kinds', () => {
 
   test.each([
     ['review-stats', 'customer', [{ sourceUrl: OTHER, rating: 4.4, count: 120, fetchedAt: NOW }]],
-    ['complaint-themes', 'complaintThemes', [{ theme: 'battery', share: 0.4, n: 10 }]],
+    ['complaint-themes', 'complaintThemes', [{ theme: 'battery', share: 0.4, n: 10, of: 25 }]],
     ['pros-cons', 'prosCons', { pros: [{ text: 'Clear sound', sources: [OTHER] }], cons: [] }],
     ['pros-cons', 'videos', [{ id: 'abc', channel: 'Channel', title: 'Review' }]],
   ] as const)('%s writes reviews.%s', (kind, name, after) => {

@@ -63,6 +63,7 @@ const brand = {
   group: 'GN',
   website: 'https://www.jabraenhance.com',
   imageLicense: 'none' as const,
+  defaultType: 'otc' as const,
   scraper: { catalogUrls: [], modelUrlPattern: '', render: false },
 }
 
@@ -100,6 +101,23 @@ describe('diffModel', () => {
 
     // The candidate has a new price and no weight: the weight stays as stored.
     expect(diffModel(model(), { model: fresh, fieldChecks })).toEqual([change({})])
+  })
+
+  test('an official price that moves by more than 25% fails a check, so it waits for a person', () => {
+    const at = (value: number) => model({ variants: [{ id: 'select-500', formFactor: 'RIC', priceUsd: price(value) }] })
+    const [drop] = diffModel(model(), { model: at(895), fieldChecks: { 'variants.0.priceUsd': ok } })
+    expect(drop.checks['variants.0.priceUsd']).toEqual([
+      ...ok,
+      { name: 'range', ok: false, detail: 'price changes by -25.1% (from 1195 to 895): more than ±25% is reviewed' },
+    ])
+    expect(route(drop, [])).toBe('pending')
+    const [rise] = diffModel(model(), { model: at(1500), fieldChecks: { 'variants.0.priceUsd': ok } })
+    expect(route(rise, [])).toBe('pending')
+    // Within 25% either way: applied.
+    for (const value of [900, 1490]) {
+      const [small] = diffModel(model(), { model: at(value), fieldChecks: { 'variants.0.priceUsd': ok } })
+      expect(route(small, []), String(value)).toBe('auto')
+    }
   })
 
   test('a value read again with a new fetch date is no change; other changed fields are spec changes', () => {
@@ -297,7 +315,7 @@ describe('applyAuto', () => {
     llmMock.mockRejectedValueOnce(new LlmOutputError('bad'))
     expect(await eventText(event, 'Jabra Enhance Select 500', { before: 1195, after: 995, variant: 'select-500' })).toBe(event.text)
 
-    llmMock.mockRejectedValueOnce(new LlmLimitError('limit'))
+    llmMock.mockRejectedValueOnce(new LlmLimitError('claude', 'limit'))
     await expect(eventText(event, 'Jabra Enhance Select 500', {})).rejects.toBeInstanceOf(LlmLimitError)
   })
 

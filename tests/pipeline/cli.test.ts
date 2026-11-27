@@ -72,6 +72,7 @@ const brand = {
   group: 'GN',
   website: 'https://www.jabraenhance.com',
   imageLicense: 'none',
+  defaultType: 'otc',
   scraper: { catalogUrls: [BASE], modelUrlPattern: '', render: false },
 }
 
@@ -134,41 +135,89 @@ async function filesUnder(root: string): Promise<string[]> {
   return entries.filter((entry) => entry.isFile()).map((entry) => join(entry.parentPath, entry.name).slice(root.length + 1))
 }
 
-test('LlmLimitError mid-run: exit 2, progress saved, no *.tmp, resume skips done models', async () => {
+test('LlmLimitError mid-run: exit 2, progress saved, no *.tmp, resume skips done brands and reads the stopped one again', async () => {
+  await writeJson(join(dataDir, 'brands', 'audien.json'), { ...brand, slug: 'audien', name: 'Audien', website: 'https://audien.com' })
   const groups = ['select-100', 'select-200', 'select-300'].map((slug) => ({ modelUrl: `${BASE}/${slug}`, documentUrls: [] }))
-  vi.mocked(discoverModelUrls).mockResolvedValue(groups)
+  vi.mocked(discoverModelUrls).mockImplementation(async (b) => (b.slug === 'audien' ? [{ modelUrl: 'https://audien.com/atom', documentUrls: [] }] : groups))
+  const atom = candidate('Atom')
+  atom.model = Model.parse({ ...atom.model, slug: 'audien-atom', brand: 'audien' })
   vi.mocked(extractModel)
+    .mockResolvedValueOnce(atom)
     .mockResolvedValueOnce(candidate('Select 100'))
-    .mockRejectedValueOnce(new LlmLimitError('usage limit'))
+    .mockRejectedValueOnce(new LlmLimitError('claude', 'usage limit'))
 
-  expect(await main(['update', '--brand', 'jabra-enhance'], opts)).toBe(2)
+  expect(await main(['update'], opts)).toBe(2)
 
   expect(log).toContain('Claude usage limit reached. Resume later: npm run update -- --resume')
-  expect(log).toContain('Resume with the same filters: --brand jabra-enhance')
-  expect(await filesUnder(dataDir)).toEqual(
-    expect.arrayContaining(['pending/jabra-enhance-select-100-model.json']),
-  )
-  expect(JSON.parse(await readFile(progressFile, 'utf8'))).toEqual({ done: [`brand=jabra-enhance limit=* scrape:jabra-enhance:${BASE}/select-100`] })
+  // Audien was done; Jabra Enhance stopped before its pages were compared with the data.
+  expect(await filesUnder(join(dataDir, 'pending'))).toEqual(['audien-atom-model.json'])
+  expect(JSON.parse(await readFile(progressFile, 'utf8'))).toEqual({ done: ['brand=* limit=* scrape:audien'] })
   expect([...(await filesUnder(dataDir)), ...(await filesUnder(join(dir, 'cache')))].filter((f) => f.endsWith('.tmp'))).toEqual([])
   expect(fetchFdaEvents).not.toHaveBeenCalled() // the run stopped
 
   vi.mocked(extractModel).mockReset()
-  vi.mocked(extractModel).mockResolvedValueOnce(candidate('Select 200')).mockResolvedValueOnce(candidate('Select 300'))
-  expect(await main(['update', '--resume', '--brand', 'jabra-enhance'], opts)).toBe(0)
+  vi.mocked(extractModel)
+    .mockResolvedValueOnce(candidate('Select 100'))
+    .mockResolvedValueOnce(candidate('Select 200'))
+    .mockResolvedValueOnce(candidate('Select 300'))
+  expect(await main(['update', '--resume'], opts)).toBe(0)
 
-  // Model pages fetched on resume: the two not done.
+  // The stopped brand is read again whole (from the page and LLM caches, in a real run); Audien is not.
   expect(vi.mocked(extractModel).mock.calls.map(([, pages]) => pages.map((page) => page.url))).toEqual([
+    [`${BASE}/select-100`],
     [`${BASE}/select-200`],
     [`${BASE}/select-300`],
   ])
   const pending = (await filesUnder(join(dataDir, 'pending'))).sort()
-  expect(pending).toEqual(['jabra-enhance-select-100-model.json', 'jabra-enhance-select-200-model.json', 'jabra-enhance-select-300-model.json'])
-  const first = PendingChange.parse(JSON.parse(await readFile(join(dataDir, 'pending', pending[0]), 'utf8')))
+  expect(pending).toEqual([
+    'audien-atom-model.json',
+    'jabra-enhance-select-100-model.json',
+    'jabra-enhance-select-200-model.json',
+    'jabra-enhance-select-300-model.json',
+  ])
+  const first = PendingChange.parse(JSON.parse(await readFile(join(dataDir, 'pending', pending[1]), 'utf8')))
   expect(first.kind).toBe('new-model')
   expect(first.checks['variants.0.weightG']).toEqual([{ name: 'literal', ok: true }, { name: 'crosscheck', ok: true }])
   expect(fetchFdaEvents).toHaveBeenCalled()
   await expect(readFile(progressFile)).rejects.toThrow() // finished: nothing to resume
-  expect(log.at(-1)).toBe('Summary: auto 0, pending 2, dropped 0, skipped sources 0, failed 0')
+  expect(log.at(-1)).toBe('Summary: auto 0, pending 3, dropped 0, skipped sources 0, failed 0')
+})
+
+test('scrape: the pages of one family give one new model with the variants of all of them', async () => {
+  const groups = ['reveal-r', 'reveal-t'].map((slug) => ({ modelUrl: `${BASE}/${slug}`, documentUrls: [] }))
+  vi.mocked(discoverModelUrls).mockResolvedValue(groups)
+  const style = (id: string): ModelCandidate => {
+    const c = candidate('Reveal')
+    c.model = Model.parse({ ...c.model, variants: [{ ...c.model.variants[0], id }] })
+    return c
+  }
+  vi.mocked(extractModel).mockResolvedValueOnce(style('minirite-r')).mockResolvedValueOnce(style('minirite-t'))
+
+  expect(await main(['scrape'], opts)).toBe(0)
+
+  expect(await filesUnder(join(dataDir, 'pending'))).toEqual(['jabra-enhance-reveal-model.json'])
+  const card = PendingChange.parse(JSON.parse(await readFile(join(dataDir, 'pending', 'jabra-enhance-reveal-model.json'), 'utf8')))
+  expect((card.after as Model).variants.map((v) => v.id)).toEqual(['minirite-r', 'minirite-t'])
+  expect(Object.keys(card.checks).sort()).toEqual(['variants.0.weightG', 'variants.1.weightG'])
+  expect(log.at(-1)).toBe('Summary: auto 0, pending 1, dropped 0, skipped sources 0, failed 0')
+})
+
+test('a proposal that replaces another made earlier in the same run is reported', async () => {
+  const stored = model('Select 300')
+  await writeJson(join(dataDir, 'models', `${stored.slug}.json`), stored)
+  const proposal = (value: number) => ({
+    kind: 'spec-change' as const,
+    modelSlug: stored.slug,
+    path: 'variants.0.weightG',
+    before: stored.variants[0].weightG,
+    after: { ...stored.variants[0].weightG!, value, quote: `${value} g` },
+    checks: {},
+  })
+  vi.mocked(discoverThirdPartyFacts).mockResolvedValue([proposal(2.2), proposal(2.3)])
+
+  expect(await main(['scrape'], opts)).toBe(0)
+
+  expect(log).toContain(`${stored.slug}-variants-0-weightg: replaces a proposal made earlier in this run`)
 })
 
 test('per-step failures are counted and the run goes on; youtube without a key is skipped', async () => {
@@ -185,7 +234,9 @@ test('per-step failures are counted and the run goes on; youtube without a key i
   vi.mocked(fetchPage).mockImplementation(async (url) =>
     url === shop ? okPage(url) : { status: 'skipped', url, reason: 'bot-protection', detail: 'HTTP 403' },
   )
-  vi.mocked(extractRetailReviews).mockResolvedValue({ rating: 4.2, count: 87, texts: ['battery died'] })
+  // Enough reviews for complaint themes (config.minThemeReviews).
+  const texts = Array.from({ length: 20 }, (_, i) => `battery died after ${i + 1} days`)
+  vi.mocked(extractRetailReviews).mockResolvedValue({ rating: 4.2, count: 87, texts })
   vi.mocked(complaintThemes).mockRejectedValue(new LlmOutputError('some reviews have no entry'))
   vi.mocked(searchVideos).mockRejectedValue(new YouTubeError('YOUTUBE_API_KEY is not set'))
 
@@ -215,6 +266,29 @@ test('subcommand runs only its step; --limit caps models per brand', async () =>
   expect(fetchFdaEvents).not.toHaveBeenCalled()
   expect(discoverReviewSources).not.toHaveBeenCalled()
   expect(await main(['update', '--brand', 'nope'], opts)).toBe(1)
+})
+
+test('reviews: complaint themes are proposed only from at least 20 reviews, with how many they come from', async () => {
+  const stored = model('Select 300')
+  await writeJson(join(dataDir, 'models', `${stored.slug}.json`), stored)
+  const shops = ['https://shop.example/a', 'https://shop.example/b']
+  vi.mocked(discoverReviewSources).mockResolvedValue({ expert: [], retail: shops })
+  const texts = (from: number, count: number) => Array.from({ length: count }, (_, i) => `review ${from + i}`)
+  vi.mocked(extractRetailReviews)
+    .mockResolvedValueOnce({ rating: 4.2, count: 87, texts: texts(0, 12) })
+    .mockResolvedValueOnce({ rating: 4.0, count: 9, texts: texts(12, 7) })
+  expect(await main(['reviews'], opts)).toBe(0)
+  expect(complaintThemes).not.toHaveBeenCalled() // 19 reviews
+
+  const themes = [{ theme: 'battery', share: 0.25, n: 5, of: 20 }]
+  vi.mocked(complaintThemes).mockResolvedValue(themes)
+  vi.mocked(extractRetailReviews)
+    .mockResolvedValueOnce({ rating: 4.2, count: 87, texts: texts(0, 13) })
+    .mockResolvedValueOnce({ rating: 4.0, count: 9, texts: texts(13, 7) })
+  expect(await main(['reviews'], opts)).toBe(0)
+  expect(vi.mocked(complaintThemes).mock.calls[0][0]).toHaveLength(20)
+  const reviews = Reviews.parse(JSON.parse(await readFile(join(dataDir, 'reviews', `${stored.slug}.json`), 'utf8')))
+  expect(reviews.complaintThemes).toEqual(themes)
 })
 
 test('apps: a new version of an app two models share gives one event, also when the run is repeated', async () => {
@@ -270,10 +344,34 @@ test('youtube: videos that review the model and the pros and cons they give go t
   expect(log.at(-1)).toBe('Summary: auto 0, pending 2, dropped 0, skipped sources 0, failed 0')
 })
 
+test('a Gemini rate limit skips the rest of the youtube step; the run goes on and ends', async () => {
+  await store('Select 100', 'Select 200')
+  vi.mocked(discoverModelUrls).mockResolvedValue([])
+  vi.mocked(searchVideos).mockResolvedValue([{ id: 'aaaaaaaaaaa', channel: 'Hear Advice', title: 'review' }])
+  vi.mocked(analyzeVideo).mockRejectedValue(new LlmLimitError('gemini', 'Gemini rate limit: RESOURCE_EXHAUSTED'))
+
+  expect(await main(['update'], opts)).toBe(0)
+
+  expect(analyzeVideo).toHaveBeenCalledTimes(1) // not tried again for the second model
+  expect(log.some((line) => line.startsWith('youtube skipped: Gemini rate limit'))).toBe(true)
+  expect(await recorded()).toEqual(['jabra-enhance-select-100-vs-jabra-enhance-select-200'])
+  await expect(readFile(progressFile)).rejects.toThrow()
+  expect(log.at(-1)).toBe('Summary: auto 0, pending 0, dropped 0, skipped sources 1, failed 0')
+})
+
+test('the usage-limit message names the provider and the exact command to resume with', async () => {
+  vi.mocked(discoverModelUrls).mockResolvedValue([{ modelUrl: `${BASE}/select-100`, documentUrls: [] }])
+  vi.mocked(extractModel).mockRejectedValue(new LlmLimitError('claude', 'usage limit'))
+
+  expect(await main(['scrape', '--brand', 'jabra-enhance', '--limit', '3', '--refresh'], opts)).toBe(2)
+
+  expect(log).toContain('Claude usage limit reached. Resume later: npm run scrape -- --resume --brand jabra-enhance --limit 3 --refresh')
+})
+
 test('--resume with other --brand or --limit does not skip work done under the old filters', async () => {
   const groups = ['select-100', 'select-200'].map((slug) => ({ modelUrl: `${BASE}/${slug}`, documentUrls: [] }))
   vi.mocked(discoverModelUrls).mockResolvedValue(groups)
-  vi.mocked(extractModel).mockResolvedValueOnce(candidate('Select 100')).mockRejectedValueOnce(new LlmLimitError('usage limit'))
+  vi.mocked(extractModel).mockResolvedValueOnce(candidate('Select 100')).mockRejectedValueOnce(new LlmLimitError('claude', 'usage limit'))
   expect(await main(['update', '--brand', 'jabra-enhance', '--limit', '2'], opts)).toBe(2)
 
   vi.mocked(extractModel).mockReset()

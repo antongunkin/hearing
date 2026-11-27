@@ -1,4 +1,5 @@
 {
+  "defaultType": "otc",
   "group": "MDHearing",
   "imageLicense": "none",
   "name": "MDHearing",

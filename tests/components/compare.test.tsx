@@ -47,6 +47,7 @@ const brand = Brand.parse({
   group: 'Acme Group',
   website: 'https://maker.example',
   imageLicense: 'none',
+  defaultType: 'rx',
   scraper: { catalogUrls: [], modelUrlPattern: '/x/', render: false },
 })
 

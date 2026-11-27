@@ -13,7 +13,10 @@ export const Reviews = z.strictObject({
       fetchedAt: IsoDateTime,
     }),
   ),
-  complaintThemes: z.array(z.strictObject({ theme: z.string(), share: z.number(), n: z.number().int().nonnegative() })),
+  /** `n` of the `of` reviews read complain about `theme`; `share` is n / of. */
+  complaintThemes: z.array(
+    z.strictObject({ theme: z.string(), share: z.number(), n: z.number().int().nonnegative(), of: z.number().int().positive() }),
+  ),
   prosCons: z.strictObject({ pros: z.array(Point), cons: z.array(Point) }).nullable(),
   videos: z.array(z.strictObject({ id: z.string(), channel: z.string(), title: z.string() })),
 })
