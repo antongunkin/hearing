@@ -28,8 +28,12 @@ CLI's environment, so these calls are not billed to an API account.
 
 ### Ollama
 
-A second, local model re-reads the risky fields (type, weight, dimensions, IP rating, power,
-connectivity, tinnitus). Install [Ollama](https://ollama.com), start it, then:
+A second, local model re-reads the risky fields (weight, dimensions, IP rating, power, connectivity,
+tinnitus). It does not re-read the device type (`rx`, `otc` or `consumer`): the type is checked only by
+its quote, that is, that the text quoted for it is on the page. Compare the type with the maker's page
+when you review a new model on `/review`.
+
+Install [Ollama](https://ollama.com), start it, then:
 
 ```bash
 ollama pull qwen3:8b
@@ -176,8 +180,9 @@ One file per brand in `data/brands/<slug>.json`:
 - `render`: run the page's scripts in a headless browser.
 - `imageLicense`: `none` unless the brand's press kit grants editorial use.
 
-When a brand redesigns its site, `npm run scrape -- --brand <slug> --limit 1` finds nothing or the wrong
-page; fix the two fields above.
+When a brand redesigns its site, `npm run scrape -- --brand <slug> --limit 1 --refresh` finds nothing or
+the wrong page; fix `catalogUrls` and `modelUrlPattern`. Without `--refresh` it reads the cached pages of
+the old site.
 
 ### Status on 2026-11-26
 
