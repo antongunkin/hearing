@@ -115,3 +115,55 @@ Cards `industry-brands-eargo` and `industry-brands-lexie` were checked against t
   - `modelUrlPattern` (in `scraper` and `archive`): `^https?://(?:www\.)?lexiehearing\.com/us/lexie-[a-z0-9-]+-hearing-aids?(?:\.html)?$`. It matches the B1, B2, B2 Plus and Lumen pages, but not `/us/accessories/…`, `support-lexie-*`, `lexie-privacy-policy` or `lexie-rewards`.
   - `documentUrlPattern`: `^https?://(?:www\.)?lexiehearing\.com/documents/.+\.pdf$`. The `supportUrls` from the card stay as they are.
   - The 2025 and 2026 home copies have no links, so B3 and H1 model pages are not reached from the catalog.
+
+## Third round: Web Archive model patterns for live brands (2026-11-27)
+
+The Web Archive step reads a live brand's archived catalog copies with `scraper.modelUrlPattern` unless
+`archive.modelUrlPattern` is set. Several live patterns match only today's model pages, so `.cache/archive-run4.log`
+found no old models. Every active brand's cached catalog copies (`.cache/raw/log.jsonl`, `web/<ts>id_/<catalogUrl>`,
+status 200) were parsed for links, and the live pattern and the new pattern were run over them. An `archive` block is added
+only where the live pattern misses archived model pages. Its `catalogUrls` equal `scraper.catalogUrls`, because the schema requires them,
+so the archive step reads the same catalogs as before. `scraper` is unchanged. Each config went through a `brand-config` card that was approved with `applyDecision`.
+
+### audien: archive pattern added
+- Pattern: `^https?://(?:www\.)?audienhearing\.com/products/(?:the-)?(?:audien-)?(?:ev\d+|atom|ion)(?:-(?!charger|dock|case|copy)[a-z0-9]+)*/?$`
+- The live 7-slug list matches 0 links in the one cached copy (2020-10-31). The new pattern matches 2:
+  `https://audienhearing.com/products/ev1` and `https://audienhearing.com/products/ev3`. `?variant=` links do not match.
+- Over the live atlas report it matches 17 hearing-aid pages (for example `atom-pro-2`, `audien-atom`, `ion-iq`). It matches no
+  charger dock, charger case, `-copy` page, ear tip, maintenance kit, shield, protection plan or gift card.
+- Note: the fetcher marks that 2020 copy `archived-wall`, but it is a real Shopify listing of EV1 and EV3. Until that is
+  fixed, the archive step reads 0 Audien catalog copies.
+
+### bernafon: archive pattern added
+- Pattern: `^https?://(?:www\.)?bernafon\.us/products/hearing-aids/family/[a-z0-9-]+/?$`
+- The archived catalog links family pages only, never `/products/{n}/{slug}` style pages. The live pattern matches 0 links in
+  3 copies. The new pattern matches 3: `/products/hearing-aids/family/alpha`, `/family/alpha-xt` and `/family/encanta`
+  (2024: 2, 2025: 3, 2026: 3). It does not match `/category/behind-the-ear`, accessories, the app page or music.
+- Bernafon models are stored per family (`bernafon-alpha`, …), so a family page is a model page. The live atlas also has
+  `/family/leox` and `/family/viron`, and the pattern matches both. The cached copies start in 2024.
+
+### jabra-enhance: archive pattern added
+- Pattern: `^https?://(?:www\.)?jabraenhance\.com/product/enhance(?:select[a-z0-9]+|plus)/?$`
+- The live pattern matches 10 of the 11 archived model links. It misses `https://www.jabraenhance.com/product/enhanceplus`
+  (Jabra Enhance Plus, in the 2023 copy). The new pattern matches all 11, from `enhanceselect50`, `50r`, `100`, `200`, `300`,
+  `500` and `700` to `m1`, `m2` and `m3`. It does not match the `/product` catalog or the `…-vs-…` comparison pages.
+
+### oticon: archive pattern added
+- Pattern: `^https?://(?:www\.)?oticon\.com/products/hearing-aids/family/[a-z0-9-]+/?$`
+- The archived catalogs (2025-11-19, 2026-09-03) link family pages only. The live pattern, with its family exclusion,
+  matches 0 links. The new pattern matches 11 families. 5 of them are old: `/family/more`, `/family/own`, `/family/play-px`,
+  `/family/real` and `/family/xceed`. The others are intent, own-si, play-si, reveal, verit and zeal. It does not match the
+  `/category/…` pages or the catalog.
+- Oticon models are stored per family (`oticon-intent`, …). Over the live atlas it also matches `opn-s`, `opn-play`,
+  `xceed-play`, `jet-px` and `cros`.
+
+### Not needed
+- apple: the live pattern `/airpods-pro/specs/` matches in all 14 copies (2019 to 2026). The other AirPods lines stay out of scope (rule 8).
+- beltone: the live pattern matches 8 `beltone-*` pages in 4 copies (2023 to 2026). `jabra-enhance-plus` is a Jabra product.
+- mdhearing: the live pattern matches 6 pages in 5 copies (2022 to 2026), including Air, Volt and Volt Max. The trailing-slash duplicates are the same pages.
+- phonak: the live pattern matches 27 links in 5 copies (2022 to 2026), including Marvel, Paradise and the Bolero, Naida Link M and Slim pages.
+  It also matches the non-model pages `/guide` (the extraction failure in run 4) and `/lumity-hearing-aids`. That is an overmatch, not a miss, so no pattern was added.
+- philips: the Web Archive does not serve the site (CDX 403, `archive-excluded`), so it has no copies and no pattern.
+- kirkland-signature, resound, rexton, sennheiser, signia, starkey, unitron, widex: no catalog copy is cached, because
+  run 4 stopped at phonak or skipped the brand. They are not decided. Their live patterns are narrow (one family or a name filter)
+  and are worth checking once copies are cached.

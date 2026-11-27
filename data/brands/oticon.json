@@ -1,4 +1,10 @@
 {
+  "archive": {
+    "catalogUrls": [
+      "https://www.oticon.com/products/hearing-aids"
+    ],
+    "modelUrlPattern": "^https?://(?:www\\.)?oticon\\.com/products/hearing-aids/family/[a-z0-9-]+/?$"
+  },
   "defaultType": "rx",
   "group": "Demant",
   "imageLicense": "none",

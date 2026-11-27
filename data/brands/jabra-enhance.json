@@ -1,4 +1,10 @@
 {
+  "archive": {
+    "catalogUrls": [
+      "https://www.jabraenhance.com/product"
+    ],
+    "modelUrlPattern": "^https?://(?:www\\.)?jabraenhance\\.com/product/enhance(?:select[a-z0-9]+|plus)/?$"
+  },
   "defaultType": "otc",
   "group": "GN",
   "imageLicense": "none",

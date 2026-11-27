@@ -1,4 +1,10 @@
 {
+  "archive": {
+    "catalogUrls": [
+      "https://audienhearing.com/collections/all"
+    ],
+    "modelUrlPattern": "^https?://(?:www\\.)?audienhearing\\.com/products/(?:the-)?(?:audien-)?(?:ev\\d+|atom|ion)(?:-(?!charger|dock|case|copy)[a-z0-9]+)*/?$"
+  },
   "defaultType": "otc",
   "group": "Audien Hearing",
   "imageLicense": "none",
