@@ -13,7 +13,8 @@ import { llm, LlmLimitError, LlmOutputError } from '@/pipeline/llm'
 import { discoverModelUrls, extractModel, type ModelCandidate } from '@/pipeline/sources/brand-site'
 import { latestCopy, WaybackError } from '@/pipeline/sources/wayback'
 import { fetchIosVersion, lookupApp } from '@/pipeline/sources/itunes'
-import { fetchFdaEvents } from '@/pipeline/sources/openfda'
+import { fetchClearances, fetchFdaEvents, type Clearance510k } from '@/pipeline/sources/openfda'
+import { readBody, readLog } from '@/pipeline/fetch/raw-store'
 import { complaintThemes, discoverReviewSources, extractRetailReviews } from '@/pipeline/sources/reviews'
 import { discoverThirdPartyFacts } from '@/pipeline/sources/third-party-facts'
 import { analyzeVideo, searchVideos, YouTubeError } from '@/pipeline/sources/youtube'
@@ -52,7 +53,16 @@ vi.mock('@/pipeline/sources/wayback', async (importOriginal) => ({
   ...(await importOriginal<typeof import('@/pipeline/sources/wayback')>()),
   latestCopy: vi.fn(),
 }))
-vi.mock('@/pipeline/sources/openfda', () => ({ fetchFdaEvents: vi.fn() }))
+vi.mock('@/pipeline/sources/openfda', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@/pipeline/sources/openfda')>()),
+  fetchFdaEvents: vi.fn(),
+  fetchClearances: vi.fn(),
+}))
+vi.mock('@/pipeline/fetch/raw-store', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@/pipeline/fetch/raw-store')>()),
+  readLog: vi.fn(),
+  readBody: vi.fn(),
+}))
 vi.mock('@/pipeline/sources/itunes', () => ({ fetchIosVersion: vi.fn(), lookupApp: vi.fn() }))
 vi.mock('@/pipeline/sources/third-party-facts', () => ({ discoverThirdPartyFacts: vi.fn() }))
 vi.mock('@/pipeline/sources/reviews', async (importOriginal) => ({
@@ -132,6 +142,7 @@ beforeEach(async () => {
   vi.mocked(fetchPage).mockImplementation(async (url) => okPage(url))
   vi.mocked(crossCheck).mockResolvedValue({ name: 'crosscheck', ok: true })
   vi.mocked(fetchFdaEvents).mockResolvedValue([])
+  vi.mocked(fetchClearances).mockResolvedValue([])
   vi.mocked(discoverThirdPartyFacts).mockResolvedValue([])
   vi.mocked(discoverReviewSources).mockResolvedValue({ expert: [], retail: [] })
   vi.mocked(searchVideos).mockResolvedValue([])
@@ -1198,5 +1209,95 @@ describe('archive', () => {
       expect(await main(['archive'], opts)).toBe(2)
       expect(log).toContain('web.archive.org refused requests. Resume later: npm run archive -- --resume')
     })
+  })
+})
+
+describe('fda status from 510(k) records', () => {
+  const DEVICE = 'Jabra Enhance Select Self-fit (Jabra Enhance Select 550)'
+  const CDRH = 'https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K254108'
+  const clearance = (overrides: Partial<Clearance510k> = {}): Clearance510k => ({
+    kNumber: 'K254108',
+    applicant: 'GN Hearing A/S',
+    deviceName: DEVICE,
+    decisionDate: '2026-06-25',
+    cdrhUrl: CDRH,
+    ref: { url: 'https://api.fda.gov/device/510k.json?search=x', fetchedAt: FETCHED_AT },
+    ...overrides,
+  })
+  /** The logged openFDA page holding the record: the body the quote is checked against. */
+  const logRecord = (text: string) => {
+    vi.mocked(readLog).mockResolvedValue([
+      { url: 'https://api.fda.gov/device/510k.json?search=x', redirects: [], fetchedAt: FETCHED_AT, status: 200, via: 'live', rendered: false, bodyHash: 'a'.repeat(64) },
+    ])
+    vi.mocked(readBody).mockResolvedValue(new TextEncoder().encode(text))
+  }
+  const RECORD = JSON.stringify({ k_number: 'K254108', device_name: DEVICE })
+
+  beforeEach(async () => {
+    await writeJson(join(dataDir, 'models', 'jabra-enhance-select-550.json'), model('Select 550'))
+    logRecord(RECORD)
+  })
+
+  test('a clearance naming a stored model proposes its fda field for review; feed events keep eventsSince', async () => {
+    vi.mocked(fetchClearances).mockResolvedValue([clearance()])
+
+    expect(await main(['fda'], opts)).toBe(0)
+
+    expect(fetchClearances).toHaveBeenCalledWith('2018-01-01')
+    expect(fetchFdaEvents).toHaveBeenCalledWith('2023-11-01', expect.anything(), expect.anything())
+    const change = await pendingCard('jabra-enhance-select-550-fda')
+    expect(change.kind).toBe('spec-change')
+    expect(change.after).toEqual({ value: { status: '510(k) cleared', k510: 'K254108' }, sourceUrl: CDRH, quote: DEVICE, fetchedAt: FETCHED_AT, sourceType: 'official' })
+    expect(change.checks.fda).toEqual([{ name: 'literal', ok: true }])
+  })
+
+  test('the latest of several matching records is the one proposed; De Novo grants say so', async () => {
+    vi.mocked(fetchClearances).mockResolvedValue([
+      clearance({ kNumber: 'K100001', decisionDate: '2024-02-01' }),
+      clearance({ kNumber: 'DEN230001', decisionDate: '2025-03-01' }),
+      clearance({ decisionDate: '2026-01-01' }),
+    ])
+
+    expect(await main(['fda'], opts)).toBe(0)
+
+    expect((await pendingCard('jabra-enhance-select-550-fda')).after).toMatchObject({ value: { status: '510(k) cleared', k510: 'K254108' } })
+  })
+
+  test('a De Novo record is named as such', async () => {
+    vi.mocked(fetchClearances).mockResolvedValue([clearance({ kNumber: 'DEN230001' })])
+    logRecord(JSON.stringify({ k_number: 'DEN230001', device_name: DEVICE }))
+
+    expect(await main(['fda'], opts)).toBe(0)
+
+    expect((await pendingCard('jabra-enhance-select-550-fda')).after).toMatchObject({ value: { status: 'De Novo granted', k510: 'DEN230001' } })
+  })
+
+  test('without a matching record fda stays empty', async () => {
+    vi.mocked(fetchClearances).mockResolvedValue([clearance({ applicant: 'Samsung Electronics Co., Ltd.', deviceName: 'Hearing Aid Feature' })])
+
+    expect(await main(['fda'], opts)).toBe(0)
+
+    expect(await filesUnder(join(dataDir, 'pending'))).toEqual([])
+  })
+
+  test('a stored fda that already says the same is not proposed again', async () => {
+    await writeJson(
+      join(dataDir, 'models', 'jabra-enhance-select-550.json'),
+      model('Select 550', { fda: { value: { status: '510(k) cleared', k510: 'K254108' }, quote: DEVICE, sourceUrl: CDRH, fetchedAt: FETCHED_AT, sourceType: 'official' } }),
+    )
+    vi.mocked(fetchClearances).mockResolvedValue([clearance()])
+
+    expect(await main(['fda'], opts)).toBe(0)
+
+    expect(await filesUnder(join(dataDir, 'pending'))).toEqual([])
+  })
+
+  test('a quote the logged record does not contain fails its literal check', async () => {
+    vi.mocked(fetchClearances).mockResolvedValue([clearance()])
+    logRecord(JSON.stringify({ k_number: 'K254108', device_name: 'Some other device' }))
+
+    expect(await main(['fda'], opts)).toBe(0)
+
+    expect((await pendingCard('jabra-enhance-select-550-fda')).checks.fda).toEqual([{ name: 'literal', ok: false, detail: 'quote not found in source text' }])
   })
 })

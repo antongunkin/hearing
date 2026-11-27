@@ -82,7 +82,7 @@ export async function fetchClearances(sinceISO: string): Promise<Clearance510k[]
  * name), and named in the device text. The longest name wins; two models with equally long names are
  * ambiguous and give none.
  */
-function matchModel(company: string, device: string, brands: Brand[], models: Model[]): Model | undefined {
+export function matchModel(company: string, device: string, brands: Brand[], models: Model[]): Model | undefined {
   const makers = new Set(
     brands.filter((brand) => [brand.name, brand.group].some((name) => containsName(company, name))).map((brand) => brand.slug),
   )

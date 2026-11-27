@@ -7,7 +7,7 @@ import { afterEach, describe, expect, test, vi } from 'vitest'
 import { fetchPage, isBlocked, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { llm, LlmOutputError } from '@/pipeline/llm'
 import { fetchIosVersion, lookupApp } from '@/pipeline/sources/itunes'
-import { fetchClearances, fetchFdaEvents } from '@/pipeline/sources/openfda'
+import { fetchClearances, fetchFdaEvents, matchModel } from '@/pipeline/sources/openfda'
 import { extractExpertProsCons, synthesizeProsCons } from '@/pipeline/sources/pros-cons'
 import { complaintThemes, discoverReviewSources, extractRetailReviews } from '@/pipeline/sources/reviews'
 import { discoverThirdPartyFacts } from '@/pipeline/sources/third-party-facts'
@@ -220,6 +220,20 @@ describe('fetchClearances', () => {
     })
     expect(fetchMock.mock.calls[0][0]).toContain('+AND+decision_date:[2023-11-01+TO+')
     expect(fetchMock.mock.calls[0][1]).toEqual({ refresh: true })
+  })
+})
+
+describe('matchModel', () => {
+  const models = [model('jabra-enhance', 'Select 500'), model('jabra-enhance', 'Select 550'), model('phonak', 'Lumity')]
+
+  test('a company named by a brand group matches that brand, and the longest model name in the device text wins', () => {
+    expect(matchModel('GN Hearing A/S', 'Jabra Enhance Select Self-fit (Jabra Enhance Select 550)', brands, models)?.slug).toBe('jabra-enhance-select-550')
+    expect(matchModel('Phonak AG', 'Lumity 30', brands, models)?.slug).toBe('phonak-lumity')
+  })
+
+  test('another company, or a device text naming no stored model, matches none', () => {
+    expect(matchModel('Samsung Electronics Co., Ltd.', 'Hearing Aid Feature', brands, models)).toBeUndefined()
+    expect(matchModel('GN Hearing A/S', 'Hearing Aid Feature', brands, models)).toBeUndefined()
   })
 })
 

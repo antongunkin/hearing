@@ -22,7 +22,9 @@ import { archiveCandidates } from '@/pipeline/archive/wayback-models'
 import { WaybackError } from '@/pipeline/sources/wayback'
 import { discoverModelUrls, extractModel, matchExistingModel, mergeCandidates, type ModelCandidate } from '@/pipeline/sources/brand-site'
 import { fetchIosVersion, lookupApp, type AppRecord } from '@/pipeline/sources/itunes'
-import { fetchFdaEvents } from '@/pipeline/sources/openfda'
+import { literalCheck } from '@/pipeline/checks/literal'
+import { fetchClearances, fetchFdaEvents, matchModel, type Clearance510k } from '@/pipeline/sources/openfda'
+import { findInLog, readBody, readLog, type FetchLogEntry, type LogRef } from '@/pipeline/fetch/raw-store'
 import { extractExpertProsCons, synthesizeProsCons } from '@/pipeline/sources/pros-cons'
 import { complaintThemes, currentMonth, discoverReviewSources, extractRetailReviews } from '@/pipeline/sources/reviews'
 import { discoverThirdPartyFacts } from '@/pipeline/sources/third-party-facts'
@@ -452,7 +454,51 @@ async function fda(run: Run): Promise<void> {
     for (const { event, matched } of found) {
       if (matched) await handle(run, { kind: 'fda-event', modelSlug: event.modelSlug, path: 'events', after: event, checks: {} })
     }
+    await fdaStatuses(run, models)
   })
+}
+
+/**
+ * The FDA status of each stored model, from its latest 510(k) or De Novo record since the catalog's start. The
+ * records only fill the `fda` field: they make no feed event. Matching is fuzzy, so every change is reviewed.
+ */
+async function fdaStatuses(run: Run, models: Model[]): Promise<void> {
+  const latest = new Map<string, Clearance510k>()
+  for (const clearance of await fetchClearances(config.onSaleSince)) {
+    const model = matchModel(clearance.applicant, clearance.deviceName, run.brands, models)
+    if (model === undefined) continue
+    const kept = latest.get(model.slug)
+    if (kept === undefined || clearance.decisionDate > kept.decisionDate) latest.set(model.slug, clearance)
+  }
+  if (latest.size === 0) return
+  const log = await readLog()
+  for (const [slug, clearance] of latest) {
+    const status = clearance.kNumber.startsWith('DEN') ? 'De Novo granted' : '510(k) cleared'
+    const before = storedModel(run, slug).fda
+    if (before?.value.status === status && before.value.k510 === clearance.kNumber) continue
+    const after: Sourced<unknown> = {
+      value: { status, k510: clearance.kNumber },
+      sourceUrl: clearance.cdrhUrl,
+      quote: clearance.deviceName,
+      fetchedAt: clearance.ref.fetchedAt,
+      sourceType: 'official',
+    }
+    await handle(run, {
+      kind: 'spec-change',
+      modelSlug: slug,
+      path: 'fda',
+      ...(before !== undefined && { before }),
+      after,
+      // Only the quote is checked against the record: the status and K-number are read from that same record.
+      checks: { fda: [literalCheck({ ...after, value: null }, await recordText(clearance.ref, log))] },
+    })
+  }
+}
+
+/** The openFDA record page as it was logged: the text the quote must occur in. Empty when the log has no body for it. */
+async function recordText(ref: LogRef, log: FetchLogEntry[]): Promise<string> {
+  const hash = findInLog(log, ref)?.bodyHash
+  return hash === undefined ? '' : new TextDecoder().decode(await readBody(hash))
 }
 
 /** iOS app versions from the App Store; models that share an app are looked up once. */
