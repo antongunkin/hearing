@@ -6,8 +6,8 @@ export const BrandStatus = z.enum(['active', 'gone'])
 export type BrandStatus = z.infer<typeof BrandStatus>
 
 const HistoryFact = z.strictObject({
-  /** `YYYY-MM` or `YYYY-MM-DD`. */
-  date: z.string().regex(/^\d{4}-\d{2}(-\d{2})?$/),
+  /** `YYYY`, `YYYY-MM` or `YYYY-MM-DD`: as exact as its source page. */
+  date: z.string().regex(/^\d{4}(-\d{2}(-\d{2})?)?$/),
   text: z.string().min(1),
   sourceUrl: HttpUrl,
   /** A quote that occurs literally in the source. */

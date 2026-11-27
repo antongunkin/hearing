@@ -8,7 +8,7 @@ import { hostOf, onDomain, verifyClaim } from '@/pipeline/atlas/relations'
 import { MAX_QUOTE_CHARS, type ProposedRelation } from '@/pipeline/atlas/relation'
 import type { OkPage } from '@/pipeline/atlas/facts'
 import { forbiddenCheck } from '@/pipeline/checks/forbidden'
-import { literalCheck } from '@/pipeline/checks/literal'
+import { dateOnPage, literalCheck } from '@/pipeline/checks/literal'
 import { config } from '@/pipeline/config'
 import { excerpt, PROMPT_TEXT_BUDGET } from '@/pipeline/excerpt'
 import { findNumbers } from '@/pipeline/units'
@@ -148,7 +148,7 @@ const Draft = z.strictObject({
   ),
 })
 
-const DATE = /^\d{4}-\d{2}(-\d{2})?$/
+const DATE = /^\d{4}(-\d{2}(-\d{2})?)?$/
 const FOCUS = /clos|bankrupt|insolven|liquidat|acquir|acquisition|sold|sale|merg|discontinu|wound|ceas|app\b|service|support|warranty|repair|rename|rebrand/gi
 const COPIED_RUN = 12
 /** Words that accuse or characterise a company: a fact may use one only when its quote does (by the stem). */
@@ -194,17 +194,17 @@ export async function draftHistory(
   const prompt = `Write what happened to the hearing aid brand "${brand.name}"${brand.group ? ` (group: ${brand.group})` : ''} from the sources below. Use only what they state.
 Cover: whether and when the brand closed or stopped selling, a sale or merger and who owns it now, whether its app still works, and where owners get service or support.
 ${appLine}
-Return "facts": 3 to 5 items, each with "date" ("YYYY-MM" or "YYYY-MM-DD", the date of the event), "text" (one sentence in your own words; never copy a sentence of a source), "sourceIndex" (the number N of the [Source N] that states it) and "quote" (an exact, character-for-character copy of one sentence of that source, at most ${MAX_QUOTE_CHARS} characters, that supports the fact).
+Return "facts": 3 to 5 items, each with "date" ("YYYY-MM", "YYYY-MM-DD", or "YYYY" when only the year is known; the date of the event), "text" (one sentence in your own words; never copy a sentence of a source), "sourceIndex" (the number N of the [Source N] that states it) and "quote" (an exact, character-for-character copy of one sentence of that source, at most ${MAX_QUOTE_CHARS} characters, that supports the fact).
 Return "relations": a company or brand that owns another ("owns", subject owns object) or a brand renamed ("renamed-to"), as the source writes the names, with their kinds, "since" ("YYYY" or "YYYY-MM") only when the source gives it, "sourceIndex" and an exact "quote" naming the subject or the object. An empty list is fine.
-State only what the quote says; do not characterise the company, give causes or motives, or use a word such as bankruptcy, fraud, lawsuit or recall unless the quote does. The quote must state the date of the fact (month and year).
+State only what the quote says; do not characterise the company, give causes or motives, or use a word such as bankruptcy, fraud, lawsuit or recall unless the quote does. The date must be one the source page states (its dateline or text); give the year alone when the page names no month.
 Never claim anything was tested or tried by us.
 
 ${sources}`
   const draft = await llm({ prompt, schema: Draft, provider: 'claude', model: config.llm.claudeModel })
 
-  const check = (quote: string, page: OkPage, value: string | null = null): CheckResult => {
+  const check = (quote: string, page: OkPage): CheckResult => {
     if (quote.length > MAX_QUOTE_CHARS) return { name: 'literal', ok: false, detail: 'quote is longer than a sentence' }
-    const field: Sourced<string | null> = { value, quote, sourceUrl: page.url, fetchedAt: page.fetchedAt, sourceType: 'official' }
+    const field: Sourced<null> = { value: null, quote, sourceUrl: page.url, fetchedAt: page.fetchedAt, sourceType: 'official' }
     return literalCheck(field, page.text)
   }
   const dropped = (fact: { date: string; text: string }, reason: string) => console.warn(`${brand.slug}: fact dropped (${reason}): ${fact.date} ${fact.text.slice(0, 80)}`)
@@ -220,10 +220,15 @@ ${sources}`
       dropped(fact, 'bad date or empty text')
       continue
     }
-    // The date is looked up in the quote too: it must state that month (or day).
-    const literal = check(fact.quote, page, fact.date)
+    const literal = check(fact.quote, page)
     if (!literal.ok) {
       dropped(fact, `${literal.detail}`)
+      continue
+    }
+    // The date is looked up on the whole page (a dateline is not part of the quote), in the archive copy's own text.
+    const date = dateOnPage(fact.date, page.text)
+    if (date === null) {
+      dropped(fact, 'the date is not on the page')
       continue
     }
     if (!forbiddenCheck(fact.text).ok) {
@@ -244,7 +249,7 @@ ${sources}`
       dropped(fact, 'copies its source')
       continue
     }
-    facts.push({ date: fact.date, text: fact.text.trim(), sourceUrl: citableArchiveUrl(page.url), quote: fact.quote, fetchedAt: page.fetchedAt })
+    facts.push({ date, text: fact.text.trim(), sourceUrl: citableArchiveUrl(page.url), quote: fact.quote, fetchedAt: page.fetchedAt })
   }
 
   const own = [hostOf(brand.website)]

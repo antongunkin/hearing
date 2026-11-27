@@ -83,7 +83,7 @@ describe('draftHistory', () => {
   test('a fact that copies its source, has a bad date or a long quote is dropped; more than 5 keep the first 5', async () => {
     drafted([
       fact(1, { text: TEXT }),
-      fact(2, { date: '2024' }),
+      fact(2, { date: 'soon' }),
       fact(3, { quote: TEXT }),
       fact(4, { sourceIndex: 2 }),
       ...[1, 2, 3, 4, 5, 6, 7].map((n) => fact(n, { text: `Own words ${WORDS[n - 1]}.` })),
@@ -122,6 +122,33 @@ describe('draftHistory', () => {
     drafted([fact(1, { text: words.slice(0, 11).join(' ') }), fact(2), fact(3, { text: words.slice(0, 12).join(' ') }), fact(4)])
     const { change } = await draftHistory(eargo, [bare])
     expect((change?.after as { facts: { text: string }[] }).facts.map((f) => f.text)).toEqual([words.slice(0, 11).join(' '), 'Fact beta in our own words.', 'Fact delta in our own words.'])
+  })
+
+  describe('the date of a fact is checked against the whole page', () => {
+    const plain = (text: string) => page(NEWS, text)
+    const quoteOnly = 'Eargo stopped selling hearing aids.'
+    const run = async (text: string, date: string) => {
+      drafted([fact(1, { date, quote: quoteOnly }), fact(2, { date, quote: quoteOnly }), fact(3, { date, quote: quoteOnly })])
+      return (await draftHistory(eargo, [plain(text)])).change?.after as { facts: { date: string }[] } | undefined
+    }
+
+    test('a date only in the page dateline is kept, in every written form', async () => {
+      for (const dateline of ['Published 2024-03-05', 'March 5, 2024', '5 March 2024', 'Mar 2024', 'March 2024']) {
+        const after = await run(`${dateline}. ${quoteOnly}`, '2024-03')
+        expect(after?.facts.map((f) => f.date), dateline).toEqual(['2024-03', '2024-03', '2024-03'])
+      }
+    })
+
+    test('a date on neither the page nor in the quote, or a wrong month on the page, drops the fact', async () => {
+      expect(await run(`${quoteOnly} No date here.`, '2024-03')).toBeUndefined()
+      expect(await run(`Published May 2024. ${quoteOnly}`, '2024-03')).toBeUndefined()
+      expect(await run(`Published May 2023. ${quoteOnly}`, '2024-03')).toBeUndefined()
+    })
+
+    test('a page that states only the year gives a year-only date', async () => {
+      const after = await run(`In 2024 the news came out. ${quoteOnly}`, '2024-03')
+      expect(after?.facts.map((f) => f.date)).toEqual(['2024', '2024', '2024'])
+    })
   })
 
   test('the draft always goes to review, with the page urls as refs and the brand path', async () => {
@@ -271,4 +298,11 @@ describe('readHistorySources', () => {
     expect(await readHistorySources({ ...eargo, status: 'active', historySources: [NEWS] }, { onSkip })).toEqual([])
     expect(onSkip).toHaveBeenCalledWith(NEWS, 'http-error', 'HTTP 404')
   })
+})
+
+test('the history schema accepts a year, a month or a day as a fact date', async () => {
+  const { BrandHistory } = await import('@/src/lib/schema/brand')
+  const f = (date: string) => ({ date, text: 't', sourceUrl: NEWS, quote: 'q', fetchedAt: AT })
+  expect(BrandHistory.safeParse({ facts: ['2024', '2024-03', '2024-03-05'].map(f) }).success).toBe(true)
+  expect(BrandHistory.safeParse({ facts: ['2024', '2024-3', '2024-03'].map(f) }).success).toBe(false)
 })

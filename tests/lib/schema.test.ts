@@ -311,7 +311,8 @@ describe('archive fields', () => {
     expect(Brand.safeParse({ ...brand, history: history(5) }).success).toBe(true)
     expect(Brand.safeParse({ ...brand, history: history(2) }).success).toBe(false)
     expect(Brand.safeParse({ ...brand, history: history(6) }).success).toBe(false)
-    expect(Brand.safeParse({ ...brand, history: { facts: [fact, fact, { ...fact, date: '2019' }] } }).success).toBe(false)
+    expect(Brand.safeParse({ ...brand, history: { facts: [fact, fact, { ...fact, date: '2019' }] } }).success).toBe(true)
+    expect(Brand.safeParse({ ...brand, history: { facts: [fact, fact, { ...fact, date: '2019-5' }] } }).success).toBe(false)
   })
 
   test('a derived release date may cite the earliest archive copy', () => {

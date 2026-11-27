@@ -38,6 +38,26 @@ function datesIn(text: string): CalendarDate[] {
   ]
 }
 
+/**
+ * The date (`YYYY`, `YYYY-MM` or `YYYY-MM-DD`) that a page's text supports, or null. A date with a month needs a
+ * date of that year and month anywhere in the text; when the text gives no month of that year at all but names the
+ * year, the year alone is supported; a different month of that year supports nothing.
+ */
+export function dateOnPage(date: string, pageText: string): string | null {
+  const match = /^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?$/.exec(date)
+  if (!match) return null
+  const [, year, month, day] = match
+  const text = normalize(pageText)
+  const dates = datesIn(text).filter((d) => d.year === Number(year))
+  if (month !== undefined) {
+    const same = dates.filter((d) => d.month === Number(month))
+    if (same.length > 0) return day !== undefined && same.some((d) => d.day === Number(day)) ? date : `${year}-${month}`
+    // Another month of that year on the page contradicts the date; no month at all leaves the year.
+    if (dates.length > 0) return null
+  }
+  return dates.length > 0 || containsWhole(text, year) ? year : null
+}
+
 /** An ISO value is supported when the quote gives the same day (or month, if the value has no day). */
 function isoDateQuoted(value: string, quote: string): boolean {
   const match = ISO_DATE.exec(value)
