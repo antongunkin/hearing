@@ -8,7 +8,9 @@ import { llm } from '@/pipeline/llm'
 import { loadDataset } from '@/src/lib/data/load'
 import { writeJson } from '@/src/lib/data/write'
 
+const request = vi.hoisted(() => ({ host: 'localhost:3000' as string | null }))
 vi.mock('next/cache', () => ({ revalidatePath: vi.fn() }))
+vi.mock('next/headers', () => ({ headers: async () => new Headers(request.host === null ? {} : { host: request.host }) }))
 vi.mock('@/pipeline/llm', async (importOriginal) => ({
   ...(await importOriginal<typeof import('@/pipeline/llm')>()),
   llm: vi.fn(),
@@ -37,6 +39,7 @@ const candidate = (slug: string) => ({
 const root = process.cwd()
 let dir: string
 beforeEach(async () => {
+  request.host = 'localhost:3000'
   // The actions use `data/` of the working directory: a copy of the fixture brands in a temp directory.
   dir = await mkdtemp(join(tmpdir(), 'review-'))
   await cp(join(root, 'data/brands'), join(dir, 'data/brands'), { recursive: true })
@@ -67,6 +70,23 @@ test('actions throw outside development', async () => {
 describe('in development', () => {
   beforeEach(() => {
     vi.stubEnv('NODE_ENV', 'development')
+  })
+
+  test('actions refuse a request addressed to any host but this machine', async () => {
+    for (const host of ['192.168.0.8:3000', 'evil.example', 'localhost.evil.example', '127.0.0.1.evil.example', 'x.localhost:3000', null]) {
+      request.host = host
+      await expect(approveChange('one-model'), String(host)).rejects.toThrow('review is local-only')
+      await expect(rejectChange('one-model'), String(host)).rejects.toThrow('review is local-only')
+    }
+    expect(await files('pending')).toEqual(['one-model.json', 'two-model.json'])
+    expect(await files('models')).toEqual([])
+
+    // Local names pass the guard, with or without a port: the refusal is then about the id.
+    for (const host of ['localhost', '127.0.0.1:3000', '[::1]', '[::1]:3123']) {
+      request.host = host
+      await expect(approveChange('nope'), host).rejects.toThrow('no pending change nope')
+      await expect(rejectChange('nope'), host).rejects.toThrow('no pending change nope')
+    }
   })
 
   test('approve writes the model and its event and removes the pending file; reject records the fingerprint', async () => {

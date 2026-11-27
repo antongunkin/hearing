@@ -1,6 +1,7 @@
 // The owner's decision on one pending change, as the files to write and delete. No I/O: see app/review/actions.ts.
 import { z } from 'zod'
 import {
+  diffModel,
   fingerprint,
   planChange,
   sameValue,
@@ -117,29 +118,36 @@ function assertCurrent(item: PendingChange, change: Change, dataset: Dataset): v
 
 /**
  * `approve` gives the writes that make the change (a new model without `skipPaths`) and the events it
- * gives; `reject` gives the fingerprint that keeps the pipeline from proposing it again. Both delete the
- * pending file.
+ * gives; `reject` gives the fingerprint that keeps the pipeline from proposing it again. What `approve`
+ * leaves out of a new model is rejected the same way. Both delete the pending file.
  */
 export function applyDecision(dataset: Dataset, pendingId: string, decision: Decision): DecisionResult {
   const item = dataset.pending.find((p) => p.id === pendingId)
   if (!item) throw new Error(`no pending change ${pendingId}`)
   const kind = changeKind(item)
   const deletes = [`pending/${item.id}.json`]
+  const unseen = (prints: string[]) => [...new Set(prints)].filter((print) => !dataset.rejections.includes(print))
 
   if (decision.action === 'reject') {
-    const print = fingerprint({ ...item, kind })
-    const rejections = dataset.rejections.includes(print) ? [] : [print]
+    const rejections = unseen([fingerprint({ ...item, kind })])
     return { writes: [], deletes, rejections, newEvents: [], eventContexts: [] }
   }
 
-  const after = kind === 'new-model' ? without(item.after, decision.skipPaths ?? []) : item.after
+  let after = item.after
+  let leftOut: string[] = []
+  if (kind === 'new-model') {
+    const model = without(item.after, decision.skipPaths ?? [])
+    // The changes the next run would find between the stored model and the same extraction: what was left out.
+    leftOut = diffModel(model, { model: item.after as Model, fieldChecks: {} }).map(fingerprint)
+    after = model
+  }
   const change: Change = { kind, modelSlug: item.modelSlug, path: item.path, before: item.before, after }
   assertCurrent(item, change, dataset)
   const { writes, events } = planChange(change, dataset)
   return {
     writes,
     deletes,
-    rejections: [],
+    rejections: unseen(leftOut),
     newEvents: events.map(({ event }) => event),
     eventContexts: events.map(({ product, facts }) => ({ product, facts })),
   }

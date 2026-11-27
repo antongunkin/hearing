@@ -92,12 +92,37 @@ describe('applyDecision: new model', () => {
     })
     expect(result.writes).toEqual([{ path: `models/${SLUG}.json`, value: expected }])
     expect(result.deletes).toEqual([`pending/${item.id}.json`])
-    expect(result.rejections).toEqual([])
+    expect(result.rejections).toHaveLength(3)
     expect(result.newEvents).toEqual([
       { type: 'new-model', modelSlug: SLUG, date: expect.stringMatching(/^\d{4}-\d{2}-\d{2}$/), key: SLUG, sources: [PAGE] },
     ])
     expect(result.eventContexts).toEqual([{ product: 'Jabra Enhance Select 500', facts: {} }])
     expect(data).toEqual(before) // pure
+  })
+
+  test('what was left out stays out: the same value later routes to drop, another value to review', () => {
+    // A price and a sourced value, on the second variant too, and a whole hardware twin.
+    const offered = model({
+      ...fresh,
+      sameHardwareAs: [{ slug: 'a', source: field('A', { sourceType: 'third-party' }) }],
+    })
+    const skip = ['platform', 'sameHardwareAs.0', 'variants.0.priceUsd', 'variants.1.weightG']
+    const result = approve(dataset([{ ...item, after: offered }], { models: [] }), skip)
+    const stored = written(result)
+
+    // The next run reads the same values from another page.
+    const recited = JSON.parse(JSON.stringify(offered).replaceAll(PAGE, OTHER)) as Model
+    const again = diffModel(stored, { model: recited, fieldChecks: {} })
+    expect(again.map((change) => change.path)).toEqual(['platform', 'sameHardwareAs.0.source', 'variants.0.priceUsd', 'variants.1.weightG'])
+    for (const change of again) expect(route(change, result.rejections), change.path).toBe('drop')
+
+    const heavier = model({ ...offered, variants: [offered.variants[0], { ...ite, weightG: weight(1.7) }] })
+    const other = diffModel(stored, { model: heavier, fieldChecks: {} }).find((change) => change.path === 'variants.1.weightG')!
+    expect(route(other, result.rejections)).toBe('pending')
+
+    // Already rejected: not stored twice.
+    const repeat = approve(dataset([{ ...item, after: offered }], { models: [], rejections: result.rejections }), skip)
+    expect(repeat.rejections).toEqual([])
   })
 
   test('a whole entry of a list can be left out without shifting the other skipped paths', () => {
