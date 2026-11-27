@@ -940,22 +940,28 @@ test('a model already discontinued that the catalog still lacks gets no new prop
   expect(await filesUnder(join(dataDir, 'pending'))).not.toContain(`${stored.slug}-discontinued.json`)
 })
 
-test('a support-only model without an official date since 2018 is left out; one with a date is left to the archive command', async () => {
-  vi.mocked(discoverModelUrls).mockResolvedValue([LISTED, { ...LISTED, modelUrl: `${BASE}/old`, inCatalog: false }, { ...LISTED, modelUrl: `${BASE}/new`, inCatalog: false }])
+test('a support-only model with an official release date before 2018 is left out; one without an official date is left to the archive command', async () => {
+  vi.mocked(discoverModelUrls).mockResolvedValue([
+    LISTED,
+    { ...LISTED, modelUrl: `${BASE}/old`, inCatalog: false },
+    { ...LISTED, modelUrl: `${BASE}/undated`, inCatalog: false },
+    { ...LISTED, modelUrl: `${BASE}/new`, inCatalog: false },
+  ])
   const dated = (name: string, value: string) =>
-    candidate(name).model.releaseDate === undefined
-      ? Model.parse({ ...candidate(name).model, releaseDate: { value, quote: value, sourceUrl: `${BASE}/new`, fetchedAt: FETCHED_AT, sourceType: 'official' } })
-      : candidate(name).model
+    Model.parse({ ...candidate(name).model, releaseDate: { value, quote: value, sourceUrl: `${BASE}/new`, fetchedAt: FETCHED_AT, sourceType: 'official' } })
   vi.mocked(extractModel)
     .mockResolvedValueOnce(candidate('Select 500'))
-    .mockResolvedValueOnce(candidate('Select 100'))
+    .mockResolvedValueOnce({ model: dated('Select 100', '2016-06'), fieldChecks: {} })
+    .mockResolvedValueOnce(candidate('Select 300'))
     .mockResolvedValueOnce({ model: dated('Select 200', '2025-02'), fieldChecks: {} })
 
   expect(await main(['scrape'], opts)).toBe(0)
 
   expect(await filesUnder(join(dataDir, 'pending'))).toEqual(['jabra-enhance-select-500-model.json'])
   expect(log).toContain('jabra-enhance-select-100: not sold since 2018 by its sources, left out')
+  expect(log).toContain('jabra-enhance-select-300: found only on support pages, left to the archive command')
   expect(log).toContain('jabra-enhance-select-200: found only on support pages, left to the archive command')
+  expect(log).not.toContain('jabra-enhance-select-300: not sold since')
 })
 
 test('a stored model that only support pages link gets no price change and no price event from them', async () => {

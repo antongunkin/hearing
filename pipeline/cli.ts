@@ -506,7 +506,8 @@ async function scrapeBrand(run: Run, brand: Brand): Promise<void> {
       const inLiveCatalog = inCatalog.get(candidate.model.slug) === true
       if (existing !== null) {
         if (inLiveCatalog) matched.add(existing.slug)
-      } else if (!isInScope(candidate.model, { inLiveCatalog })) {
+      } else if (!isInScope(candidate.model, { inLiveCatalog }) && candidate.model.releaseDate?.sourceType === 'official') {
+        // An official release date before the cut-off is the evidence that it is not sold.
         console.log(`${candidate.model.slug}: not sold since ${config.onSaleSince.slice(0, 4)} by its sources, left out`)
         continue
       } else if (!inLiveCatalog) {
