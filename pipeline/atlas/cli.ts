@@ -13,6 +13,7 @@ import { Brand } from '@/src/lib/schema/brand'
 import { crawlSite, SiteRefusedError } from './crawl'
 import { describeSite } from './describe'
 import { readGraph, upsertEntity, writeGraph } from './graph-store'
+import { writeAtlasIndex } from './index-file'
 import { queueRelation, type ProposedRelation } from './relation'
 import { appPublishers, fdaApplicants, RelationSourceError, searchClaims } from './relations'
 import { SiteReport, Sites, type Site } from './schema'
@@ -166,8 +167,10 @@ export async function atlasMain(argv: string[], opts: AtlasOptions = {}): Promis
     if (!(error instanceof SiteRefusedError || error instanceof LlmLimitError || error instanceof RelationSourceError)) throw error
     const flags = ['--resume', ...(values.site ? ['--site', values.site] : []), ...(values.refresh ? ['--refresh'] : [])]
     console.error(`${error.message}. Resume later: npm run atlas:${command} -- ${flags.join(' ')}`)
+    await writeAtlasIndex(dataDir)
     return 2
   }
+  await writeAtlasIndex(dataDir)
   if (failed.length > 0) return 1
   await progress.clear()
   return 0

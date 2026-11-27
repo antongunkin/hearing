@@ -222,7 +222,7 @@ brand's `defaultType` fixes it for the next run of that brand.
 ## Scraping rules
 
 The collector sends no custom User-Agent (no bot name, nothing browser-like), obeys the `*` rules in `robots.txt` and `Crawl-delay`, pauses between requests, and skips a
-site that answers with a captcha, a 403/429 or other bot protection. Do not work around a skip. Google
+site that answers with a captcha, a 403/429 or other bot protection. Do not work around a skip. A 429 answer is skipped as `rate-limited`: a scrape goes on without that page, and an atlas step stops (exit code `2`, resumed with `--resume`). Google
 (including Shopping and Play) and Amazon are never fetched. Add a domain to `data/blocklist.json` to stop
 all requests to it.
 
@@ -280,3 +280,36 @@ warning: the summary just shows nothing queued.
 None of the pages read stated a release date, so the cut-off date cannot filter by itself: expect to
 reject older models on `/review`. A page that shows a sale price next to the list price, or a sale word,
 gives a price change that waits for your review.
+
+## Site atlas
+
+The atlas keeps one folder per site in `data/atlas/sites/<domain>/`; `data/atlas/sites.json` lists the sites. Run the
+commands in this order, one site at a time with `--site <domain>` or all sites without it:
+
+1. `npm run atlas:crawl -- --site <domain>` reads the site within its page budget and writes `report.json`.
+2. `npm run atlas:describe` writes `describe.json`, `README.md` (the summary, with a numbered source for each
+   statement), `config-proposal.json`, and `notes.md` once. It queues the proposed brand config for `/review`.
+3. `npm run atlas:relations` looks for sourced company relations and queues them for `/review`.
+4. Decide the queued cards on `/review` (see "Review the queue").
+5. Then scrape the approved brands with `npm run scrape`.
+
+Each command rewrites `data/atlas/README.md`, the index: one row per site, and the candidate domains. A candidate is a
+domain linked from several reports that is not crawled. It is added to `sites.json` only by hand.
+
+Exit codes: `0` done, `1` bad arguments or no page of a site could be read, `2` stopped by a refusal (a 429, a captcha or
+other bot protection) or by the usage limit. Exit code `2` prints the command to resume with, which adds `--resume`.
+`--refresh` fetches the pages again.
+
+SEC EDGAR is always skipped: the pipeline sends no User-Agent, and EDGAR asks for one.
+
+What is committed: `data/atlas/` and `data/graph/`. They hold facts about a site's structure and short quotes, never
+whole pages. Raw pages and PDFs are kept in `.cache/raw/`, with the fetch log `.cache/raw/log.jsonl`. They are not in git
+(the repository is public), and they grow with each crawl; check the size with `du -sh .cache/raw`. The project does not
+back them up. A backup is the owner's job.
+
+## Company graph
+
+`data/graph/entities.json` and `data/graph/edges.json` hold companies, brands, domains, apps and FDA applicants, and the
+relations between them. An edge has a `visibility` (`public` or `internal`) and a `status` (`observed`, `proposed` or
+`verified`). Only a public, verified edge reaches the site, and only `/review` (kind `relation`) makes an edge verified.
+Internal and proposed edges stay in the data. An edge that points at a domain is always internal and never verified.

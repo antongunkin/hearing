@@ -91,7 +91,7 @@ test('crawl writes report.json and the observed edges', async () => {
 })
 
 test('a refused site keeps its old report and its unit; --resume crawls it again', async () => {
-  await writeJson(reportPath('two.test'), { old: true })
+  await writeJson(reportPath('two.test'), { ...reportFor(site('two.test')), generatedAt: '2026-11-26T10:00:00.000Z' })
   const oldReport = await readFile(reportPath('two.test'), 'utf8')
   vi.mocked(crawlSite).mockImplementationOnce(async (s) => ({ report: reportFor(s), graph: (g) => g }))
   vi.mocked(crawlSite).mockRejectedValueOnce(new SiteRefusedError('two.test', 'https://two.test/x', 'rate-limited'))
@@ -105,7 +105,7 @@ test('a refused site keeps its old report and its unit; --resume crawls it again
 })
 
 test('a crawl that read no page keeps the old report, is not done and exits 1', async () => {
-  await writeJson(reportPath('two.test'), { old: true })
+  await writeJson(reportPath('two.test'), reportFor(site('two.test')))
   const oldReport = await readFile(reportPath('two.test'), 'utf8')
   vi.spyOn(console, 'warn').mockImplementation(() => {})
   vi.mocked(crawlSite).mockImplementation(async (s) => ({ report: { ...reportFor(s), pages: s.domain === 'two.test' ? [] : [pageFor(s)] }, graph: (g) => g }))
