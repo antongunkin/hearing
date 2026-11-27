@@ -67,7 +67,51 @@ test('actions throw outside development', async () => {
   expect(await files('models')).toEqual([])
 })
 
+const relationCard = {
+  id: 'industry-graph-gn-owns-phonak',
+  kind: 'relation',
+  modelSlug: null,
+  path: 'graph/company:gn owns brand:phonak',
+  after: {
+    edge: {
+      from: 'company:gn',
+      to: 'brand:phonak',
+      kind: 'owns',
+      visibility: 'internal',
+      status: 'proposed',
+      sources: [{ url: 'https://www.gn.example/about', quote: 'GN owns Phonak', fetchedAt: '2026-11-26T10:00:00.000Z', kind: 'company-page' }],
+    },
+    entities: [
+      { id: 'company:gn', kind: 'company', name: 'GN' },
+      { id: 'brand:phonak', kind: 'brand', name: 'Phonak' },
+    ],
+  },
+  checks: {},
+  createdAt: '2026-11-26T10:00:00.000Z',
+}
+
+test('atlas cards are refused outside development and from a non-loopback host', async () => {
+  await writeJson(join(dir, `data/pending/${relationCard.id}.json`), relationCard)
+  vi.stubEnv('NODE_ENV', 'production')
+  await expect(approveChange(relationCard.id)).rejects.toThrow('review is dev-only')
+  vi.stubEnv('NODE_ENV', 'development')
+  request.host = '192.168.0.8:3000'
+  await expect(approveChange(relationCard.id)).rejects.toThrow('review is local-only')
+  await expect(rejectChange(relationCard.id)).rejects.toThrow('review is local-only')
+  expect(await files('pending')).toContain(`${relationCard.id}.json`)
+  expect(await files('graph')).toEqual([])
+})
+
 describe('in development', () => {
+  test('approving a relation card publishes the edge; rejecting another leaves the graph alone', async () => {
+    vi.stubEnv('NODE_ENV', 'development')
+    await writeJson(join(dir, `data/pending/${relationCard.id}.json`), relationCard)
+    await approveChange(relationCard.id)
+    const { graph, pending } = await loadDataset('data')
+    expect(graph.edges).toMatchObject([{ kind: 'owns', visibility: 'public', status: 'verified' }])
+    expect(pending.map((item) => item.id)).not.toContain(relationCard.id)
+  })
+
   beforeEach(() => {
     vi.stubEnv('NODE_ENV', 'development')
   })

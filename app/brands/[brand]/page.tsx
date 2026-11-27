@@ -2,8 +2,11 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { cache } from 'react'
+import { CompanyBlock } from '@/src/components/CompanyBlock'
 import { ModelList } from '@/src/components/ModelList'
 import { loadDataset } from '@/src/lib/data/load'
+import { citableArchiveUrl, parseArchiveUrl } from '@/src/lib/archive-url'
+import { companyBlock } from '@/src/lib/site/companies'
 import { addedOn, latestFirst } from '@/src/lib/site/catalog-index'
 import { hostname } from '@/src/lib/site/format'
 import { canonical } from '@/src/lib/site/url'
@@ -47,6 +50,9 @@ export default async function BrandPage({ params }: Props) {
     .map((model) => ({ model, releaseDate: model.releaseDate?.value, addedOn: addedOn(model.slug, data.events) }))
     .sort(latestFirst)
     .map(({ model }) => model)
+  const company = companyBlock(slug, data.graph)
+  const archivedCatalog = brand.archive?.catalogUrls.find((url) => parseArchiveUrl(url) !== null)
+  const archived = archivedCatalog && citableArchiveUrl(archivedCatalog)
 
   return (
     <main className="page">
@@ -54,9 +60,23 @@ export default async function BrandPage({ params }: Props) {
         <Link href="/hearing-aids">All hearing aids</Link>
       </nav>
       <h1>{brand.name} hearing aids</h1>
-      <p>
-        Maker’s website: <a href={brand.website}>{hostname(brand.website)}</a>
-      </p>
+      {brand.status === 'active' ? (
+        <p>
+          Maker’s website: <a href={brand.website}>{hostname(brand.website)}</a>
+        </p>
+      ) : (
+        // The domain of a gone brand may be parked or taken over: only archived copies are linked.
+        <p>
+          This brand’s website is gone.
+          {archived && (
+            <>
+              {' '}
+              <a href={archived}>Archived copy</a>
+            </>
+          )}
+        </p>
+      )}
+      {company && <CompanyBlock data={company} brands={data.brands} />}
       {models.length === 0 ? (
         <p>No {brand.name} models in the database yet.</p>
       ) : (

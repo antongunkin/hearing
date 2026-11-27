@@ -1,6 +1,7 @@
 // Every page for search engines: not /compare (a noindex tool), its data file, or the owner's /review.
 import type { Dataset } from '@/src/lib/data/load'
 import { buildCatalogIndex } from './catalog-index'
+import { ownershipTable } from './companies'
 import { pairSlug, publishedPairs } from './pairs'
 import { SERVICE_PAGES } from './service-pages'
 
@@ -19,7 +20,7 @@ function fetchDates(node: unknown): string[] {
  * latest fetch of what it shows, or an event's date. Never by the time of the build.
  */
 export function buildSitemapEntries(dataset: Dataset, baseUrl: string): SitemapEntry[] {
-  const { brands, models, reviews, events, comparePairs } = dataset
+  const { brands, models, reviews, events, comparePairs, graph } = dataset
   const entry = (path: string, dates: string[] = []): SitemapEntry => {
     const lastModified = [...dates].sort().at(-1)
     return { url: `${baseUrl}${path}`, ...(lastModified && { lastModified }) }
@@ -45,6 +46,10 @@ export function buildSitemapEntries(dataset: Dataset, baseUrl: string): SitemapE
     entry('/platforms', modelDates),
     entry('/news', eventDates),
     ...events.map((event) => entry(`/news/${event.id}`, [event.date])),
+    // Only with a verified ownership record; dated by the newest source of the table.
+    ...(ownershipTable(graph, brands).length === 0
+      ? []
+      : [entry('/companies', fetchDates(ownershipTable(graph, brands)))]),
     ...SERVICE_PAGES.map(([path]) => entry(path)),
   ]
 }

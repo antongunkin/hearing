@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { loadDataset } from '@/src/lib/data/load'
+import { AtlasCard } from './AtlasCard'
 import { cell, ChangeRow } from './ChangeRow'
 import { ModelCard } from './ModelCard'
 
@@ -12,12 +13,16 @@ export default async function ReviewPage() {
 
   const { pending } = await loadDataset('data')
   const models = pending.filter((item) => item.kind === 'new-model')
-  const changes = pending.filter((item) => item.kind !== 'new-model')
+  const atlas = pending.filter((item) => item.kind === 'brand-config' || item.kind === 'relation')
+  const changes = pending.filter((item) => item.kind !== 'new-model' && item.kind !== 'brand-config' && item.kind !== 'relation')
 
   return (
     <main>
       <h1>Review pending changes</h1>
       <p>{pending.length === 0 ? 'Nothing to review.' : `${pending.length} pending.`}</p>
+      {atlas.map((item) => (
+        <AtlasCard key={item.id} item={item} />
+      ))}
       {models.map((item) => (
         <ModelCard key={item.id} item={item} />
       ))}

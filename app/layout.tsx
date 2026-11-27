@@ -43,6 +43,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   {label}
                 </Link>
               ))}
+              <Link href="/companies" prefetch={false}>
+                Who owns which brand
+              </Link>
             </nav>
             <p>Not medical advice. Talk to a hearing care professional about your hearing.</p>
           </div>

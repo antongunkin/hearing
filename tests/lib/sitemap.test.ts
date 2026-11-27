@@ -78,6 +78,20 @@ describe('buildSitemapEntries', () => {
     expect(listed).not.toContain(`${BASE}/compare/m-11-vs-m-gone`)
   })
 
+  test('/companies is in the sitemap only with a verified ownership record', () => {
+    const src = { url: 'https://gn.example/about', quote: 'q', fetchedAt: '2026-05-01T00:00:00.000Z', kind: 'company-page' as const }
+    const entities = [
+      { id: 'company:gn', kind: 'company' as const, name: 'GN' },
+      { id: 'brand:acme', kind: 'brand' as const, name: 'Acme' },
+    ]
+    const edge = { from: 'company:gn', to: 'brand:acme', kind: 'owns' as const, visibility: 'public' as const, status: 'verified' as const, sources: [src] }
+
+    expect(urls(dataset())).not.toContain(`${BASE}/companies`)
+    expect(urls(dataset({ graph: { entities, edges: [{ ...edge, visibility: 'internal', status: 'proposed' }] } }))).not.toContain(`${BASE}/companies`)
+    const listed = buildSitemapEntries(dataset({ graph: { entities, edges: [edge] } }), BASE)
+    expect(listed.find((e) => e.url === `${BASE}/companies`)).toEqual({ url: `${BASE}/companies`, lastModified: src.fetchedAt })
+  })
+
   test('sitemap never includes /review', () => {
     expect(urls(dataset()).filter((url) => url.includes('/review'))).toEqual([])
   })
