@@ -31,6 +31,22 @@ export function Value({ value }: { value: unknown }): ReactNode {
   if (!isObject(value) && !Array.isArray(value)) return String(value)
   if (isCited(value)) {
     const derivation = value.derivation as { op: string; input: string } | undefined
+    // The quote of an absence is a line of the catalog page, not a statement about the model: only the finding is shown.
+    if (derivation?.op === 'absent-from-catalog') {
+      return (
+        <>
+          <strong>
+            <Value value={value.value} />
+          </strong>
+          <br />
+          Not listed on {derivation.input}
+          <br />
+          <small>
+            <Link href={String(value.sourceUrl)}>source</Link> ({String(value.sourceType)})
+          </small>
+        </>
+      )
+    }
     return (
       <>
         <strong>

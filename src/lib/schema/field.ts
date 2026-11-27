@@ -13,8 +13,8 @@ export const SourceType = z.enum(['official', 'third-party', 'derived'])
 export type SourceType = z.infer<typeof SourceType>
 
 export const Derivation = z.strictObject({
-  /** `earliest-archive-copy`: the input is the timestamp of the earliest Web Archive copy of the page. */
-  op: z.enum(['oz-to-g', 'in-to-mm', 'pair-to-unit', 'from-list', 'earliest-archive-copy']),
+  /** `earliest-archive-copy`: the input is the timestamp of the earliest Web Archive copy of the page. `absent-from-catalog`: the input is `<catalog url> on <YYYY-MM-DD>`, and the quote is a line of that page that says nothing about the model. */
+  op: z.enum(['oz-to-g', 'in-to-mm', 'pair-to-unit', 'from-list', 'earliest-archive-copy', 'absent-from-catalog']),
   input: z.string(),
 })
 export type Derivation = z.infer<typeof Derivation>

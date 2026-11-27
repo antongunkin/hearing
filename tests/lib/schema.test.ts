@@ -318,4 +318,9 @@ describe('archive fields', () => {
     const field = { ...meta, value: '2018-03', sourceType: 'derived', derivation: { op: 'earliest-archive-copy', input: '20180315120000' } }
     expect(sourced(z.string()).parse(field)).toEqual(field)
   })
+
+  test('a model absent from a catalog may cite the catalog page', () => {
+    const field = { ...meta, value: 'Select 300', sourceType: 'derived', derivation: { op: 'absent-from-catalog', input: 'https://a.test/c on 2026-11-27' } }
+    expect(sourced(z.string()).parse(field)).toEqual(field)
+  })
 })

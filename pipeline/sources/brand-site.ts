@@ -4,7 +4,7 @@ import { priceBasisCheck } from '@/pipeline/checks/price-basis'
 import { rangeCheck } from '@/pipeline/checks/ranges'
 import { excerpt, PROMPT_TEXT_BUDGET } from '@/pipeline/excerpt'
 import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
-import { linksIn } from '@/pipeline/fetch/html'
+import { linksIn, pageHeading, pageTitle } from '@/pipeline/fetch/html'
 import { llm } from '@/pipeline/llm'
 import { canonicalUnit, findNumbers, parseMeasurement, toGrams, toMm, unitFollows } from '@/pipeline/units'
 import { modelSlug, nameWithoutBrand, normalizeName, slugify } from '@/src/lib/data/slug'
@@ -74,6 +74,15 @@ function linkDocuments(
   return { sources: models.map(({ modelUrl, documentUrls }) => ({ modelUrl, documentUrls, inCatalog: inCatalog.has(modelUrl) })), unmatched }
 }
 
+/** A line of the page's visible text to quote as the page: its first heading or title that the text holds, else its first line. */
+function citableLine(page: Page): string | undefined {
+  const squash = (text: string) => text.replace(/\s+/g, ' ').trim()
+  const text = squash(page.text)
+  const heading = page.html === undefined ? undefined : pageHeading(page.html)
+  const candidates = [heading, page.html === undefined ? undefined : pageTitle(page.html)].map((c) => c && squash(c)).filter(Boolean) as string[]
+  return candidates.find((c) => text.includes(c)) ?? page.text.split('\n').map(squash).find((line) => line !== '')?.slice(0, 200)
+}
+
 /**
  * Model pages linked from the brand's catalog and support pages, each once, with the linked documents that match
  * `documentUrlPattern` given to the model page they name. A catalog page that is skipped (robots, bot
@@ -88,6 +97,8 @@ export async function discoverModelUrls(
     onSkip?: (url: string, reason: string, detail?: string) => void
     /** A catalog page that was read but gave no model link (no HTML, or a layout without them): the catalog is not whole. */
     onEmpty?: (url: string) => void
+    /** A catalog page that was read: a line of its own text to cite, and when it was fetched. */
+    onCatalog?: (url: string, page: { quote: string; fetchedAt: string }) => void
   } = {},
 ): Promise<ModelSources[]> {
   const { catalogUrls, supportUrls, modelUrlPattern, documentUrlPattern, render } = brand.scraper
@@ -109,6 +120,10 @@ export async function discoverModelUrls(
     if (page.html === undefined) {
       if (fromCatalog) opts.onEmpty?.(url)
       continue
+    }
+    if (fromCatalog) {
+      const quote = citableLine(page)
+      if (quote !== undefined) opts.onCatalog?.(page.url, { quote, fetchedAt: page.fetchedAt })
     }
     let modelLinks = 0
     for (const link of linksIn(page.html, page.url)) {

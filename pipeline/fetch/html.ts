@@ -52,6 +52,12 @@ export function pageTitle(html: string): string | undefined {
   return document.title.trim() || undefined
 }
 
+/** The text of the page's first <h1>; undefined when there is none. */
+export function pageHeading(html: string): string | undefined {
+  const { document } = new JSDOM(html, { virtualConsole: new VirtualConsole() }).window
+  return document.querySelector('h1')?.textContent?.trim() || undefined
+}
+
 const APPLE_STORE = new Set(['apps.apple.com', 'itunes.apple.com'])
 
 /**

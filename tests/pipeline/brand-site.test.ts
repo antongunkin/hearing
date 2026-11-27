@@ -157,6 +157,19 @@ describe('discoverModelUrls', () => {
     expect(onEmpty.mock.calls).toEqual([[brand.scraper.catalogUrls[0]]])
   })
 
+  test('onCatalog gives a line of the catalog page that its text holds, with the page\'s fetch time', async () => {
+    const onCatalog = vi.fn()
+    fetchMock.mockImplementation(async (url) => okPage(url, 'Menu\nHearing aids by Phonak\nBuy', '<title>Phonak</title><h1>Hearing aids by Phonak</h1><p>x</p>'))
+    await discoverModelUrls({ ...brand, scraper: { ...brand.scraper, supportUrls: [] } }, { onCatalog })
+    expect(onCatalog.mock.calls).toEqual([[brand.scraper.catalogUrls[0], { quote: 'Hearing aids by Phonak', fetchedAt: '2026-11-26T10:00:00.000Z' }]])
+
+    // A heading the text does not hold is not quoted: the first line is.
+    onCatalog.mockClear()
+    fetchMock.mockImplementation(async (url) => okPage(url, 'Menu\nBuy', '<h1>Hidden</h1>'))
+    await discoverModelUrls({ ...brand, scraper: { ...brand.scraper, supportUrls: [] } }, { onCatalog })
+    expect(onCatalog.mock.calls[0][1].quote).toBe('Menu')
+  })
+
   test('a skipped catalog is reported to onSkip instead of the log', async () => {
     fetchMock.mockImplementation(async (url) => ({ status: 'skipped', url, reason: 'bot-protection', detail: 'HTTP 403' }))
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})

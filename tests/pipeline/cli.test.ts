@@ -481,7 +481,10 @@ async function storeSelect300(extra: Partial<Model> = {}): Promise<Model> {
 
 /** A complete catalog that lists one model, Select 500. */
 function catalogLists500() {
-  vi.mocked(discoverModelUrls).mockResolvedValue([LISTED])
+  vi.mocked(discoverModelUrls).mockImplementation(async (_brand, o) => {
+    o?.onCatalog?.(BASE, { quote: 'Hearing aids', fetchedAt: '2026-11-27T09:00:00.000Z' })
+    return [LISTED]
+  })
   vi.mocked(extractModel).mockImplementation(async () => candidate('Select 500'))
 }
 
@@ -515,7 +518,12 @@ test('a model that no logged copy names is still proposed as discontinued, witho
   expect(card).toMatchObject({ kind: 'spec-change', path: 'discontinued' })
   const after = card.after as { lastListed?: string; source: Record<string, unknown> }
   expect(after.lastListed).toBeUndefined()
-  expect(after.source).toMatchObject({ value: 'Select 300', sourceUrl: BASE, sourceType: 'derived', derivation: { op: 'from-list' } })
+  expect(after.source).toMatchObject({ value: 'Select 300', quote: 'Hearing aids',
+    fetchedAt: '2026-11-27T09:00:00.000Z',
+    sourceUrl: BASE,
+    sourceType: 'derived',
+    derivation: { op: 'absent-from-catalog', input: `${BASE} on 2026-11-27` },
+  })
 })
 
 test('an earlier logged copy of the model\'s own page that names it gives a dateless discontinuation sourced to that page', async () => {
@@ -634,6 +642,14 @@ test('an own page that redirects to an address the catalog links is a listed mod
   )
   expect(await main(['scrape'], opts)).toBe(0)
   expect(await filesUnder(join(dataDir, 'pending'))).not.toContain(`${stored.slug}-discontinued.json`)
+
+  // A retired page that redirects to the catalog itself hides nothing: the model is proposed.
+  vi.mocked(fetchPage).mockImplementation(async (url) =>
+    url === `${BASE}/x` ? { ...okPage(BASE), text: 'Hearing aids' } : okPage(url),
+  )
+  await rm(join(dataDir, 'pending'), { recursive: true, force: true })
+  expect(await main(['scrape'], opts)).toBe(0)
+  expect((await pendingCard(`${stored.slug}-discontinued`)).kind).toBe('spec-change')
 
   vi.mocked(fetchPage).mockImplementation(async (url) =>
     url === `${BASE}/x` ? { ...okPage(`${BASE}/x/`), text: 'Jabra Enhance Select 300' } : okPage(url),
