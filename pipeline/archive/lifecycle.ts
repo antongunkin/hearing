@@ -24,19 +24,45 @@ function hasWhole(text: string, part: string): boolean {
   return new RegExp(`(?<![\\p{L}\\p{N}])${escaped}(?![\\p{L}\\p{N}])`, 'u').test(text)
 }
 
+/** Letters and digits only, lowercase and unaccented: "MD Hearing", "mdhearing" and "MDHEARING" compare equal. */
+const squashed = (text: string): string => fold(text).replace(/[^\p{L}\p{N}]/gu, '')
+
+/** Accents removed and spaces collapsed, case kept. */
+const unaccented = (text: string): string => text.normalize('NFD').replace(/\p{M}/gu, '').replace(/\s+/g, ' ').trim()
+
+// A line that starts with one of these is running text or a link ("Learn more"), not a model heading.
+const NOT_A_HEADING = new Set(['learn', 'read', 'see', 'view', 'find', 'discover', 'shop', 'get', 'explore', 'show', 'more', 'our', 'the', 'your'])
+
+function looksLikeHeadingFor(name: string, line: string): boolean {
+  const written = unaccented(line)
+  if (!hasCaseSensitive(written, unaccented(name))) return false
+  const words = written.split(' ')
+  if (words.length > unaccented(name).split(' ').length + 2) return false
+  return !NOT_A_HEADING.has(words[0].toLowerCase().replace(/[^\p{L}\p{N}]/gu, ''))
+}
+
+function hasCaseSensitive(text: string, part: string): boolean {
+  if (part === '') return false
+  const escaped = part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '\\s+')
+  return new RegExp(`(?<![\\p{L}\\p{N}])${escaped}(?![\\p{L}\\p{N}])`, 'u').test(text)
+}
+
 /**
- * True when `line` names the model: its name or an alias stands in the line as whole words, and the brand
- * is somewhere in `context` (the line itself unless the caller gives the page). Brand words and sub-line words
- * may sit between the brand and the name ("Phonak Audéo Paradise" names "Paradise"). A name that already
- * starts with the brand needs no brand elsewhere; a short bare name such as "Paradise" does.
+ * True when `line` names the model: its name or an alias stands in the line as whole words. A name that starts
+ * with the brand needs nothing more. Any other name ("Paradise", "More") counts when the brand is in the same
+ * line ("Phonak Audéo Paradise"), or when the line is a heading for it: the name as written (same case), at most
+ * two more words, no call to action in front ("Audéo Paradise" yes, "Learn more" no), and the brand somewhere
+ * in `context` (the line itself unless the caller gives the page).
  */
 export function namesModel(model: Named, line: string, context: string = line): boolean {
   const text = fold(line)
-  const brand = fold(model.brand.replace(/-/g, ' '))
+  const brand = squashed(model.brand)
   return [model.name, ...model.aliases].some((name) => {
     const folded = fold(name)
     if (!hasWhole(text, folded)) return false
-    return folded.startsWith(brand) || hasWhole(fold(context), brand)
+    if (folded.startsWith(fold(model.brand.replace(/-/g, ' ')))) return true
+    if (squashed(line).includes(brand)) return true
+    return squashed(context).includes(brand) && looksLikeHeadingFor(name, line)
   })
 }
 
@@ -76,27 +102,20 @@ function sourceFrom(model: Named, page: OkPage, quote: string): Sourced<string> 
   return { value: model.name, quote, sourceUrl: citableArchiveUrl(page.url), fetchedAt: page.fetchedAt, sourceType: 'official' }
 }
 
-const firstLine = (page: OkPage): string =>
-  (page.text.split('\n').map((l) => l.trim()).find((l) => l !== '') ?? '').slice(0, QUOTE_LIMIT)
-
 /** On sale if in the live catalog; an orphan if only a live product page exists; else discontinued by the latest listing or a naming page. */
 export function lifecycleOf(
   model: Named,
   e: { inLiveCatalog: boolean; listings: Listing[]; liveProductPage?: OkPage; namingPage?: OkPage },
 ): Lifecycle | null {
   if (e.inLiveCatalog) return { kind: 'on-sale' }
-  if (e.liveProductPage) {
-    const quote = listingIn(model, e.liveProductPage)?.quote ?? firstLine(e.liveProductPage)
-    return { kind: 'orphan', source: sourceFrom(model, e.liveProductPage, quote) }
-  }
+  const orphanQuote = e.liveProductPage && listingIn(model, e.liveProductPage)?.quote
+  if (e.liveProductPage && orphanQuote) return { kind: 'orphan', source: sourceFrom(model, e.liveProductPage, orphanQuote) }
   if (e.listings.length > 0) {
     const latest = e.listings.reduce((a, b) => (b.month > a.month ? b : a))
     const source: Sourced<string> = { value: model.name, quote: latest.quote, sourceUrl: latest.sourceUrl, fetchedAt: latest.fetchedAt, sourceType: 'official' }
     return { kind: 'discontinued', lastListed: latest.month, source }
   }
-  if (e.namingPage) {
-    const quote = listingIn(model, e.namingPage)?.quote ?? firstLine(e.namingPage)
-    return { kind: 'discontinued', source: sourceFrom(model, e.namingPage, quote) }
-  }
+  const namingQuote = e.namingPage && listingIn(model, e.namingPage)?.quote
+  if (e.namingPage && namingQuote) return { kind: 'discontinued', source: sourceFrom(model, e.namingPage, namingQuote) }
   return null
 }

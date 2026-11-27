@@ -29,6 +29,23 @@ describe('namesModel', () => {
     expect(namesModel(m, 'Phonak Paradisenew')).toBe(false)
   })
 
+  test('a bare name such as "More" does not match running text, even on a page that carries the brand', () => {
+    const more = { brand: 'oticon', name: 'More', aliases: [] as string[] }
+    const page = 'Oticon\nLearn more\nOticon More 1'
+    expect(namesModel(more, 'Learn more', page)).toBe(false)
+    expect(namesModel(more, 'Read More', page)).toBe(false)
+    expect(namesModel(more, 'Find your own style, more or less', page)).toBe(false)
+    expect(namesModel(more, 'Oticon More 1', page)).toBe(true)
+    expect(namesModel(m, 'Audéo Paradise', 'Phonak\nAudéo Paradise')).toBe(true)
+    expect(namesModel(m, 'paradise found', 'Phonak\nparadise found')).toBe(false)
+  })
+
+  test('the brand matches however the page spells it', () => {
+    const md = { brand: 'mdhearing', name: 'Neo', aliases: [] as string[] }
+    expect(namesModel(md, 'MD Hearing Neo')).toBe(true)
+    expect(namesModel({ brand: 'resound', name: 'Omnia', aliases: [] }, 'ReSound Omnia')).toBe(true)
+  })
+
   test('an alias counts, and a name that holds the brand needs no other', () => {
     expect(namesModel({ ...m, aliases: ['P90'] }, 'Phonak P90 charger')).toBe(true)
     expect(namesModel({ brand: 'oticon', name: 'Oticon More', aliases: [] }, 'Oticon More 1')).toBe(true)
@@ -44,6 +61,12 @@ describe('listingIn', () => {
       fetchedAt: '2026-11-27T10:00:00.000Z',
       quote: 'Phonak Audéo Paradise',
     })
+  })
+
+  test('a page with the brand in its nav and "Learn more" does not list the model "More"', () => {
+    const more = { brand: 'oticon', name: 'More', aliases: [] as string[] }
+    const copy = page('https://web.archive.org/web/20190615120000id_/https://oticon.com/', 'Oticon\nLearn more\nRead more about hearing')
+    expect(listingIn(more, copy)).toBeNull()
   })
 
   test('a live page is dated by when it was fetched; no naming line gives null', () => {
@@ -76,6 +99,7 @@ describe('lifecycleOf', () => {
     expect(named).toMatchObject({ kind: 'discontinued', source: { quote: 'Phonak Paradise user guide' } })
     expect(named).not.toHaveProperty('lastListed')
     expect(lifecycleOf(m, { inLiveCatalog: false, listings: [] })).toBeNull()
+    expect(lifecycleOf(m, { inLiveCatalog: false, listings: [], namingPage: page('https://phonak.com/s', 'Support home') })).toBeNull()
   })
 })
 
