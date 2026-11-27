@@ -128,6 +128,7 @@ describe('catalog', () => {
         powerTypes: ['rechargeable', '13'],
         connectivity: { mfi: true, asha: false, auracast: true },
         priceMin: 1495,
+        priceSource: { sourceUrl: 'https://maker.example/spec', sourceType: 'official' },
         releaseDate: '2025-03-15',
         weightGMin: 1.9,
       },
@@ -145,6 +146,22 @@ describe('catalog', () => {
     expect(index).toMatchObject({ powerTypes: [], connectivity: {} })
     expect('releaseDate' in index).toBe(false)
     expect('weightGMin' in index).toBe(false)
+  })
+
+  test('buildCatalogIndex keeps the source of the lowest price, the official one of two equals', () => {
+    const rx = (...prices: [number, 'official' | 'third-party'][]) =>
+      model({
+        type: 'rx',
+        variants: prices.map(([value, sourceType], i) => ({
+          id: `v${i}`,
+          formFactor: 'RIC',
+          priceUsd: cited(value, { sourceType, sourceUrl: `https://${sourceType}.example/${i}` }),
+        })),
+      })
+    const source = (...prices: Parameters<typeof rx>) => buildCatalogIndex([rx(...prices)])[0].priceSource?.sourceUrl
+
+    expect(source([2000, 'official'], [1000, 'third-party'])).toBe('https://third-party.example/1')
+    expect(source([1000, 'third-party'], [1000, 'official'])).toBe('https://official.example/1')
   })
 
   const items = [

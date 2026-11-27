@@ -10,7 +10,7 @@ function LinkIcon() {
 }
 
 /** Where a value comes from. A third party is named in words; the maker or the FDA is an icon. */
-export function SourceNote({ source }: { source: Sourced<unknown> }) {
+export function SourceNote({ source }: { source: Pick<Sourced<unknown>, 'sourceUrl' | 'sourceType' | 'derivation'> }) {
   const { sourceUrl, sourceType, derivation } = source
   const host = hostname(sourceUrl)
   if (sourceType === 'third-party') {

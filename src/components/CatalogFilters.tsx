@@ -5,6 +5,7 @@ import { useState } from 'react'
 import type { FormFactor, ModelType, PowerType } from '@/src/lib/schema/model'
 import { filterCatalog, latestFirst, type CatalogFilter, type CatalogItem } from '@/src/lib/site/catalog-index'
 import { formatDate, formatNumber, formatPrice, powerLabel, TYPE_LABELS } from '@/src/lib/site/format'
+import { SourceNote } from './SourceNote'
 
 type Option = [value: string, label: string]
 
@@ -112,7 +113,10 @@ export function CatalogFilters({ items, brandNames }: { items: CatalogItem[]; br
                   <td>{item.powerTypes.map(powerLabel).join(', ') || dash}</td>
                   <td>{item.connectivity.auracast === undefined ? dash : item.connectivity.auracast ? 'Yes' : 'No'}</td>
                   <td>{item.weightGMin === undefined ? dash : `${formatNumber(item.weightGMin)} g`}</td>
-                  <td>{item.priceMin === undefined ? dash : formatPrice(item.priceMin)}</td>
+                  <td>
+                    {item.priceMin === undefined ? dash : formatPrice(item.priceMin)}
+                    {item.priceSource?.sourceType === 'third-party' && <SourceNote source={item.priceSource} />}
+                  </td>
                   <td>{item.releaseDate === undefined ? dash : formatDate(item.releaseDate)}</td>
                 </tr>
               ))}
@@ -122,8 +126,8 @@ export function CatalogFilters({ items, brandNames }: { items: CatalogItem[]; br
       )}
       <p className="note">
         A dash means no source states the value. Models with unknown values stay in filtered results, except under the
-        Auracast and price filters. Prices are the lowest listed for any version; prescription prices often come from
-        third parties, and each model page names its source.
+        Auracast and price filters. Prices are the lowest listed for any version; a price from a third party says whose
+        it is, and each model page links the source of every price.
       </p>
     </div>
   )

@@ -8,7 +8,8 @@ import { CatalogFilters } from '@/src/components/CatalogFilters'
 import { ProsCons } from '@/src/components/ProsCons'
 import { ReviewSummary } from '@/src/components/ReviewSummary'
 import { YouTubeEmbed } from '@/src/components/YouTubeEmbed'
-import type { CatalogItem } from '@/src/lib/site/catalog-index'
+import { Model } from '@/src/lib/schema/model'
+import { buildCatalogIndex, type CatalogItem } from '@/src/lib/site/catalog-index'
 
 const parse = (node: ReactElement) => new DOMParser().parseFromString(renderToStaticMarkup(node), 'text/html')
 
@@ -145,6 +146,44 @@ describe('CatalogFilters', () => {
     act(() => container.querySelector<HTMLButtonElement>('button[type="reset"]')!.click())
     expect(links(container)).toHaveLength(2)
     expect(box(container, 'RIC').checked).toBe(false)
+  })
+
+  test('names the third party beside its price, and only there', () => {
+    const priced = (slug: string, type: 'rx' | 'otc', sourceType: 'official' | 'third-party', value: unknown) =>
+      Model.parse({
+        slug,
+        brand: 'acme',
+        name: slug,
+        aliases: [],
+        type,
+        sameHardwareAs: [],
+        variants: [
+          {
+            id: 'v',
+            formFactor: 'RIC',
+            priceUsd: {
+              value,
+              sourceUrl: 'https://prices.example/list',
+              quote: 'words of the third party',
+              fetchedAt: '2026-11-26T00:00:00.000Z',
+              sourceType,
+            },
+          },
+        ],
+      })
+    const index = buildCatalogIndex([
+      priced('acme-rx', 'rx', 'third-party', { min: 3000, max: 5000, perPair: true }),
+      priced('acme-otc', 'otc', 'official', 900),
+    ])
+    const container = mount(<CatalogFilters items={index} brandNames={{ acme: 'Acme' }} />)
+    const priceCell = (slug: string) => container.querySelector(`a[href="/hearing-aids/${slug}"]`)!.closest('tr')!.cells[6]
+
+    expect(priceCell('acme-rx').textContent).toBe('$3,000According to prices.example')
+    expect(priceCell('acme-rx').querySelector('a')?.getAttribute('href')).toBe('https://prices.example/list')
+    expect(priceCell('acme-otc').textContent).toBe('$900')
+    expect(priceCell('acme-otc').querySelector('a')).toBeNull()
+    // The index is sent to the browser: the quote stays behind.
+    expect(JSON.stringify(index)).not.toContain('words of the third party')
   })
 
   test('offers only the values the catalog has', () => {

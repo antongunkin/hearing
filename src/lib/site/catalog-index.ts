@@ -1,4 +1,5 @@
 // The compact list the catalog filters in the browser. Client-safe: types only from the schemas.
+import type { Sourced } from '@/src/lib/schema/field'
 import type { FormFactor, Model, ModelType, PowerType } from '@/src/lib/schema/model'
 
 export type CatalogItem = {
@@ -11,6 +12,8 @@ export type CatalogItem = {
   powerTypes: PowerType[]
   connectivity: { mfi?: boolean; asha?: boolean; leAudio?: boolean; auracast?: boolean }
   priceMin?: number
+  /** Where `priceMin` is stated. Not the quote: the index is sent to the browser. */
+  priceSource?: Pick<Sourced<unknown>, 'sourceUrl' | 'sourceType'>
   releaseDate?: string
   weightGMin?: number
 }
@@ -29,12 +32,15 @@ const lowest = (values: number[]) => (values.length === 0 ? undefined : Math.min
 
 export function buildCatalogIndex(models: Model[]): CatalogItem[] {
   return models.map((model) => {
-    const priceMin = lowest(
-      model.variants.flatMap(({ priceUsd }) => {
+    // The lowest price; of two equal ones, the one that needs no "According to".
+    const [price] = model.variants
+      .flatMap(({ priceUsd }) => {
         if (priceUsd === undefined) return []
-        return [typeof priceUsd.value === 'number' ? priceUsd.value : priceUsd.value.min]
-      }),
-    )
+        const { value, sourceUrl, sourceType } = priceUsd
+        const min = typeof value === 'number' ? value : value.min
+        return [{ min, thirdParty: Number(sourceType === 'third-party'), source: { sourceUrl, sourceType } }]
+      })
+      .sort((a, b) => a.min - b.min || a.thirdParty - b.thirdParty)
     const weightGMin = lowest(model.variants.flatMap(({ weightG }) => (weightG ? [weightG.value] : [])))
     return {
       slug: model.slug,
@@ -44,7 +50,7 @@ export function buildCatalogIndex(models: Model[]): CatalogItem[] {
       formFactors: unique(model.variants.map((variant) => variant.formFactor)),
       powerTypes: unique(model.variants.flatMap(({ power }) => (power ? [power.value.type] : []))),
       connectivity: model.connectivity?.value ?? {},
-      ...(priceMin !== undefined && { priceMin }),
+      ...(price && { priceMin: price.min, priceSource: price.source }),
       ...(model.releaseDate && { releaseDate: model.releaseDate.value }),
       ...(weightGMin !== undefined && { weightGMin }),
     }
