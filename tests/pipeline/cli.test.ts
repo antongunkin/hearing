@@ -5,6 +5,7 @@ import { join } from 'node:path'
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
 import { priorCatalogCopies } from '@/pipeline/archive/catalog-history'
 import { crossCheck } from '@/pipeline/checks/crosscheck'
+import { planChange } from '@/pipeline/apply'
 import { main } from '@/pipeline/cli'
 import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { llm, LlmLimitError, LlmOutputError } from '@/pipeline/llm'
@@ -16,6 +17,7 @@ import { complaintThemes, discoverReviewSources, extractRetailReviews } from '@/
 import { discoverThirdPartyFacts } from '@/pipeline/sources/third-party-facts'
 import { analyzeVideo, searchVideos, YouTubeError } from '@/pipeline/sources/youtube'
 import { synthesizeProsCons } from '@/pipeline/sources/pros-cons'
+import { loadDataset } from '@/src/lib/data/load'
 import { writeJson } from '@/src/lib/data/write'
 import { Model } from '@/src/lib/schema/model'
 import { PendingChange } from '@/src/lib/schema/pending'
@@ -887,8 +889,40 @@ describe('archive', () => {
     expect(card.after).toMatchObject({ discontinued: { source: { sourceUrl: SUPPORT_MODEL, quote: 'Jabra Enhance Select 200 support' } } })
     expect((card.after as Model).discontinued?.lastListed).toBeUndefined()
     expect(card.checks.discontinued).toBeUndefined() // a support page is no live product page
-    expect(await filesUnder(join(dataDir, 'events'))).toEqual([])
-    expect(vi.mocked(discoverModelUrls).mock.calls[0][0].scraper.catalogUrls).toEqual([])
+    // Approving it writes the model and no feed event.
+    const plan = planChange({ kind: card.kind as 'new-model', modelSlug: card.modelSlug, path: card.path, after: card.after, origin: card.origin }, await loadDataset(dataDir))
+    expect(plan.events).toEqual([])
+    expect(plan.writes.map((w) => w.path)).toEqual(['models/jabra-enhance-select-200.json'])
+    expect(vi.mocked(discoverModelUrls).mock.calls[0][0].scraper.catalogUrls).toEqual([BASE]) // the live catalog is asked too
+  })
+
+  test('a support-linked model that the live catalog links too is left to update, and never replaces its pending card', async () => {
+    vi.mocked(discoverModelUrls).mockResolvedValue([
+      { modelUrl: `${BASE}/select-200`, documentUrls: [], inCatalog: true },
+      { modelUrl: SUPPORT_MODEL, documentUrls: [], inCatalog: false },
+    ])
+    vi.mocked(fetchPage).mockImplementation(async (url) => ({ ...okPage(url), text: 'Jabra Enhance Select 200 support' }))
+    vi.mocked(extractModel).mockResolvedValue(dated('Select 200'))
+    await writeJson(join(dataDir, 'pending', 'jabra-enhance-select-200-model.json'), {
+      id: 'jabra-enhance-select-200-model', kind: 'new-model', modelSlug: 'jabra-enhance-select-200', path: '', after: dated('Select 200').model, checks: {}, createdAt: FETCHED_AT,
+    })
+    await main(['archive'], opts)
+    expect(vi.mocked(extractModel)).toHaveBeenCalledTimes(1) // the catalog-linked page is not read
+    expect((await pending('jabra-enhance-select-200-model')).origin).toBeUndefined() // update's card stays
+    expect(log.join('\n')).toContain('already queued by another command')
+    expect(log).toContain(`${BASE}/select-200: in the live catalog, left to update`)
+  })
+
+  test('a catalog page that was not read leaves new models unproposed', async () => {
+    supportLinks()
+    vi.mocked(discoverModelUrls).mockImplementation(async (_b, o) => {
+      o?.onSkip?.(BASE, 'http-error', 'HTTP 500')
+      return [{ modelUrl: SUPPORT_MODEL, documentUrls: [], inCatalog: false }]
+    })
+    vi.mocked(extractModel).mockResolvedValue(dated('Select 200'))
+    await main(['archive'], opts)
+    expect(await filesUnder(join(dataDir, 'pending'))).toEqual([])
+    expect(log).toContain('jabra-enhance-select-200: the live catalog was not read whole, not proposed')
   })
 
   test('a model without an official 2018+ date is left out', async () => {
@@ -905,6 +939,35 @@ describe('archive', () => {
     vi.mocked(extractModel).mockResolvedValue(dated('Select 200'))
     await main(['archive'], opts)
     expect((await pending('jabra-enhance-select-200-model')).checks.discontinued).toEqual([{ name: 'lifecycle', ok: false, detail: 'orphan-product-page' }])
+  })
+
+  test('the orphan check reads the product page fresh: a cached-live page that now answers 404 is not an orphan, a www-less host still counts', async () => {
+    const product = `${BASE}/select-200`
+    supportLinks([product])
+    vi.mocked(extractModel).mockResolvedValue(dated('Select 200'))
+    vi.mocked(fetchPage).mockImplementation(async (url, o) =>
+      url === product && o?.refresh ? { status: 'skipped', url, reason: 'http-error', detail: 'HTTP 404' } : { ...okPage(url), text: 'Jabra Enhance Select 200 page' },
+    )
+    await main(['archive'], opts)
+    expect((await pending('jabra-enhance-select-200-model')).checks.discontinued).toBeUndefined()
+    expect(vi.mocked(fetchPage)).toHaveBeenCalledWith(product, expect.objectContaining({ refresh: true }))
+
+    await rm(join(dataDir, 'pending'), { recursive: true, force: true })
+    vi.mocked(fetchPage).mockImplementation(async (url, o) =>
+      o?.refresh ? { ...okPage(url.replace('www.', '')), text: 'Jabra Enhance Select 200 page' } : { ...okPage(url), text: 'Jabra Enhance Select 200 page' },
+    )
+    await main(['archive'], opts)
+    expect((await pending('jabra-enhance-select-200-model')).checks.discontinued).toEqual([{ name: 'lifecycle', ok: false, detail: 'orphan-product-page' }])
+  })
+
+  test('a product page that cannot be read (a refusal) leaves the model undecided', async () => {
+    const product = `${BASE}/select-200`
+    supportLinks([product])
+    vi.mocked(extractModel).mockResolvedValue(dated('Select 200'))
+    vi.mocked(fetchPage).mockImplementation(async (url, o) => (o?.refresh ? { status: 'skipped', url, reason: 'http-error', detail: 'HTTP 503' } : { ...okPage(url), text: 'Jabra Enhance Select 200 page' }))
+    await main(['archive'], opts)
+    expect(await filesUnder(join(dataDir, 'pending'))).toEqual([])
+    expect(log).toContain('jabra-enhance-select-200: its product page was not read, lifecycle not decided')
   })
 
   test('a model that matches a stored one only adds its documents (all with origin archive)', async () => {
@@ -966,7 +1029,7 @@ describe('archive', () => {
       vi.mocked(fetchPage).mockImplementation(async (url) => (url === DEAD ? { status: 'skipped', url, reason: 'http-error', detail: 'HTTP 404' } : okPage(url)))
       vi.mocked(latestCopy).mockRejectedValue(new WaybackError('archive-excluded', 'HTTP 403'))
       expect(await main(['archive'], opts)).toBe(0)
-      expect(log).toContain('jabra-enhance: web.archive.org does not serve this site, documents not replaced')
+      expect(log.join('\n')).toContain('web.archive.org does not serve this site, documents not replaced')
     })
   })
 
@@ -993,7 +1056,7 @@ describe('archive', () => {
     expect(vi.mocked(latestCopy)).toHaveBeenCalledTimes(1)
   })
 
-  test('a refusal by a brand\'s own site stops only that brand: the others go on, exit 2, --resume skips it, --brand retries it', async () => {
+  test('a refusal by a brand\'s own site stops only that brand: the others go on, exit 2; --resume lists it again and keeps progress; --brand retries with its own progress file', async () => {
     await writeJson(join(dataDir, 'brands', 'audien.json'), { ...withSupport, slug: 'audien', name: 'Audien', website: 'https://audien.com', scraper: { ...withSupport.scraper, supportUrls: ['https://audien.com/support'] } })
     vi.mocked(discoverModelUrls).mockImplementation(async (b, o) => {
       if (b.slug === 'audien') {
@@ -1004,18 +1067,74 @@ describe('archive', () => {
     })
     vi.mocked(fetchPage).mockImplementation(async (url) => ({ ...okPage(url), text: 'Jabra Enhance Select 200 support' }))
     vi.mocked(extractModel).mockResolvedValue(dated('Select 200'))
+    const full = join(dir, 'cache', 'progress', 'archive.json')
 
     expect(await main(['archive'], opts)).toBe(2)
     expect(await filesUnder(join(dataDir, 'pending'))).toEqual(['jabra-enhance-select-200-model.json']) // the next brand went on
-    expect(log.join('\n')).toContain('Refused by their own sites: audien. Try one again later: npm run archive -- --brand <slug>')
+    expect(log.join('\n')).toContain('Refused by their own sites: audien.')
 
     vi.mocked(discoverModelUrls).mockClear()
-    expect(await main(['archive', '--resume'], opts)).toBe(0)
+    expect(await main(['archive', '--resume'], opts)).toBe(2) // still listed, progress kept
     expect(vi.mocked(discoverModelUrls)).not.toHaveBeenCalled() // audien refused earlier, jabra-enhance done
     expect(log).toContain('audien: refused earlier, skipped (retry it with --brand audien)')
+    const record = await readFile(full, 'utf8')
+    expect(JSON.parse(record).done).toContain('brand=* limit=* archive-refused:audien')
 
     expect(await main(['archive', '--brand', 'audien'], opts)).toBe(2) // retried, refused again
     expect(vi.mocked(discoverModelUrls)).toHaveBeenCalledTimes(1)
+    expect(await readFile(full, 'utf8')).toBe(record) // the full run's record survives
+    expect(await filesUnder(join(dir, 'cache', 'progress'))).toContain('archive-audien.json')
+
+    // The site answers now: the retry finishes and the full run stops skipping the brand.
+    vi.mocked(discoverModelUrls).mockImplementation(async () => [])
+    expect(await main(['archive', '--brand', 'audien'], opts)).toBe(0)
+    expect(JSON.parse(await readFile(full, 'utf8')).done).not.toContain('brand=* limit=* archive-refused:audien')
+  })
+
+  describe('documents: refusals', () => {
+    const DEAD = `${BASE}/docs/g.pdf`
+    const store = async () => {
+      const stored = model('Select 300', { documents: [{ kind: 'user-guide', title: 'G', url: DEAD, fetchedAt: FETCHED_AT }] })
+      await writeJson(join(dataDir, 'models', `${stored.slug}.json`), stored)
+      vi.mocked(discoverModelUrls).mockResolvedValue([])
+      vi.mocked(latestCopy).mockResolvedValue({ timestamp: '20200101000000', original: DEAD, statusCode: '200', mimeType: 'application/pdf', digest: 'd' })
+      return stored
+    }
+    const dead = (url: string): FetchResult => ({ status: 'skipped', url, reason: 'http-error', detail: 'HTTP 404' })
+
+    test('a refusal of a live document by the brand site stops that brand and records it refused', async () => {
+      await store()
+      vi.mocked(fetchPage).mockImplementation(async (url) => ({ status: 'skipped', url, reason: 'rate-limited', detail: 'HTTP 429' }))
+      expect(await main(['archive'], opts)).toBe(2)
+      expect(log.join('\n')).toContain('Refused by their own sites: jabra-enhance.')
+      expect(latestCopy).not.toHaveBeenCalled()
+    })
+
+    test('a 429 on the archived PDF stops the whole command like a CDX refusal', async () => {
+      await store()
+      vi.mocked(fetchPage).mockImplementation(async (url) => (url === DEAD ? dead(url) : { status: 'skipped', url, reason: 'rate-limited', detail: 'HTTP 429' }))
+      expect(await main(['archive'], opts)).toBe(2)
+      expect(log).toContain('web.archive.org refused requests. Resume later: npm run archive -- --resume')
+    })
+
+    test('an empty 403 on the archived PDF skips that document and the run goes on', async () => {
+      const stored = await store()
+      vi.mocked(fetchPage).mockImplementation(async (url) => (url === DEAD ? dead(url) : { status: 'skipped', url, reason: 'archive-excluded', detail: 'HTTP 403' }))
+      expect(await main(['archive'], opts)).toBe(0)
+      expect(log.join('\n')).toContain('archive-excluded')
+      expect(Model.parse(JSON.parse(await readFile(join(dataDir, 'models', `${stored.slug}.json`), 'utf8'))).documents.map((d) => d.url)).toEqual([DEAD])
+    })
+
+    test('one model that fails does not stop the others of the brand', async () => {
+      await store()
+      const other = model('Select 100', { documents: [{ kind: 'user-guide', title: 'G', url: `${BASE}/docs/h.pdf`, fetchedAt: FETCHED_AT }] })
+      await writeJson(join(dataDir, 'models', `${other.slug}.json`), other)
+      vi.mocked(fetchPage).mockImplementation(async (url) => dead(url))
+      vi.mocked(latestCopy).mockRejectedValueOnce(new WaybackError('http-error', 'HTTP 500')).mockResolvedValue(null)
+      expect(await main(['archive'], opts)).toBe(0)
+      expect(vi.mocked(latestCopy)).toHaveBeenCalledTimes(2)
+      expect(log.at(-1)).toContain('failed 1')
+    })
   })
 
   test('--brand and --limit narrow the run', async () => {

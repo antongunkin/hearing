@@ -100,6 +100,20 @@ describe('replaceDeadDocuments', () => {
     expect(await replaceDeadDocuments(stored, { brand: phonak })).toEqual([])
   })
 
+  test('every skipped fetch is reported: a live document that is refused or fails (not dead), and the archived PDF download', async () => {
+    const skips: [string, string, string | undefined][] = []
+    const onSkip = (url: string, reason: string, detail?: string) => void skips.push([url, reason, detail])
+    vi.mocked(fetchPage).mockResolvedValue({ status: 'skipped', url: LIVE, reason: 'rate-limited', detail: 'HTTP 429' })
+    expect(await replaceDeadDocuments(stored, { brand: phonak, onSkip })).toEqual([])
+    expect(skips).toEqual([[LIVE, 'rate-limited', 'HTTP 429']])
+
+    skips.length = 0
+    vi.mocked(fetchPage).mockImplementation(async (url) => (url === LIVE ? gone(LIVE, 'HTTP 404') : { status: 'skipped', url, reason: 'rate-limited', detail: 'HTTP 429' }))
+    vi.mocked(latestCopy).mockResolvedValue({ timestamp: '20240101000000', original: LIVE, statusCode: '200', mimeType: 'application/pdf', digest: 'd' })
+    expect(await replaceDeadDocuments(stored, { brand: phonak, onSkip })).toEqual([])
+    expect(skips).toEqual([[COPY, 'rate-limited', 'HTTP 429']])
+  })
+
   test('a copy that does not name the model, a live link, a redirect error or a gone brand give no change', async () => {
     vi.mocked(fetchPage).mockImplementation(async (url) => (url === COPY ? pdf(COPY, 'Phonak Lumity') : gone(LIVE, 'HTTP 404')))
     vi.mocked(latestCopy).mockResolvedValue({ timestamp: '20240101000000', original: LIVE, statusCode: '200', mimeType: 'application/pdf', digest: 'd' })

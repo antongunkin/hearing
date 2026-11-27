@@ -238,8 +238,10 @@ function pendingKind(c: CandidateChange): PendingChange['kind'] {
  * Writes the change to `data/pending/`, one file per model and path: a newer proposal replaces an older one.
  * Returns the pending id.
  */
+export const pendingId = (c: Pick<CandidateChange, 'modelSlug' | 'path'>): string => [c.modelSlug ?? 'industry', slugify(c.path) || 'model'].join('-')
+
 export async function enqueue(c: CandidateChange, dir = 'data'): Promise<string> {
-  const id = [c.modelSlug ?? 'industry', slugify(c.path) || 'model'].join('-')
+  const id = pendingId(c)
   const pending = PendingChange.parse({ ...c, id, kind: pendingKind(c), createdAt: new Date().toISOString() })
   await writeJson(join(dir, 'pending', `${id}.json`), pending)
   return id

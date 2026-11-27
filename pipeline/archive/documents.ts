@@ -41,6 +41,9 @@ export function documentTitle(url: string, text: string): string {
   return fileName(url).replace(/\.[^./]+$/, '').replace(/[-_]/g, ' ').trim()
 }
 
+/** Told of every fetch that was skipped (a refusal, a block, an error): the caller decides whether that stops anything. */
+export type OnSkip = (url: string, reason: string, detail?: string) => void
+
 type Checked = { document: ModelDocument; checks: CheckResult[] }
 
 /** The URL to download: an archive copy is read raw, without the archive's frame. */
@@ -57,9 +60,11 @@ async function verify(
   brand: Brand,
   model: Named,
   url: string,
-  opts: { refresh?: boolean },
+  opts: { refresh?: boolean; onSkip?: OnSkip },
 ): Promise<Checked | null> {
-  const page = await fetchPage(downloadUrl(url), opts.refresh ? { refresh: true } : {})
+  const download = downloadUrl(url)
+  const page = await fetchPage(download, opts.refresh ? { refresh: true } : {})
+  if (page.status === 'skipped') opts.onSkip?.(download, page.reason, page.detail)
   // A PDF that was logged as answered but gave no text is not a document.
   if (page.status !== 'ok' || page.text.trim() === '') return null
 
@@ -93,7 +98,7 @@ export function checkDocument(
   brand: Brand,
   model: Named,
   url: string,
-  opts: { refresh?: boolean } = {},
+  opts: { refresh?: boolean; onSkip?: OnSkip } = {},
 ): Promise<Checked | null> {
   return verify(brand, model, url, opts)
 }
@@ -104,14 +109,19 @@ export function checkDocument(
  */
 export async function replaceDeadDocuments(
   model: Model,
-  opts: { brand: Brand; refresh?: boolean; gone?: boolean },
+  opts: { brand: Brand; refresh?: boolean; gone?: boolean; onSkip?: OnSkip },
 ): Promise<CandidateChange[]> {
   if (opts.gone) return []
   const changes: CandidateChange[] = []
   for (const [i, before] of model.documents.entries()) {
     if (parseArchiveUrl(before.url) !== null) continue
     const live = await fetchPage(before.url, { refresh: true })
-    if (live.status !== 'skipped' || (live.detail !== 'HTTP 404' && live.detail !== 'HTTP 410')) continue
+    if (live.status !== 'skipped') continue
+    // Only a plain "not found" says the link is dead; any other skip (a refusal, a timeout) is reported and the document left alone.
+    if (live.detail !== 'HTTP 404' && live.detail !== 'HTTP 410') {
+      opts.onSkip?.(before.url, live.reason, live.detail)
+      continue
+    }
     const copy = await latestCopy(before.url, opts.refresh ? { refresh: true } : {})
     if (copy === null) continue
     const checked = await verify(opts.brand, model, archiveUrl(copy.timestamp, copy.original), opts)

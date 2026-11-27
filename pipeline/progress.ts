@@ -37,6 +37,11 @@ export class Progress {
     await writeJson(this.file, { done: [...this.finished] })
   }
 
+  /** Takes a unit back: a later run does it again. Nothing is written when it was not recorded. */
+  async forget(key: string): Promise<void> {
+    if (this.finished.delete(key)) await writeJson(this.file, { done: [...this.finished] })
+  }
+
   /** The run is complete: a later `--resume` starts from the beginning. */
   async clear(): Promise<void> {
     await deleteJson(this.file)

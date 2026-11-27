@@ -473,6 +473,12 @@ describe('applyDecision: lifecycle, documents, lineage and brand history', () =>
     const replaced = item({ kind: 'document', path: 'documents.0', before: doc, after: { ...next, url: doc.url, title: 'Guide v2' } })
     const stored = dataset([replaced], { models: [model({ documents: [doc] })] })
     expect(written(applyDecision(stored, replaced.id, { action: 'approve' })).documents).toEqual([{ ...doc, title: 'Guide v2' }])
+
+    // A dead link replaced by its archive copy: another URL, the same place.
+    const copy = { ...doc, url: `https://web.archive.org/web/20200101000000/${doc.url}` }
+    const archived = item({ kind: 'document', path: 'documents.0', before: doc, after: copy })
+    const kept = dataset([archived], { models: [model({ documents: [doc] })] })
+    expect(written(applyDecision(kept, archived.id, { action: 'approve' })).documents).toEqual([copy])
   })
 
   test('approving a successor writes both models', () => {
