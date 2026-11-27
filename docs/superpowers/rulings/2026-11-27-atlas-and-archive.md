@@ -67,3 +67,4 @@ Each line is copied from the execution ledger, in order; most say what it costs 
 - Final: parked — ownHosts doesn't unwrap web.archive.org catalogUrls (would block the archive) — Ruling: latent, no such config today; fix when a gone brand's config is first approved
 - Final: parked — archive-support live-name lookup misses the LLM cache for models with PDFs — Ruling: cost only
 - Final: parked — findStored ambiguity falls through to a proposal; item-7 permanent skips re-run once-lookups; atlas CLI lacks blockDomains — Ruling: reviewed cards / cost only; atlas only reads gone brands via archive mode
+Archive run 1: stopped on web.archive.org 503 'Temporarily Offline' (outage, correctly a stop); Eargo shop copies are JS shells (no text) → now skipped (5d46e32). Ruling: keep 503 from the archive as a run stop — the archive is down, waiting is the polite answer — cost if wrong: manual --resume
