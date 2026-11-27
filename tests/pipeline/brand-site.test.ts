@@ -434,6 +434,60 @@ describe('extractModel', () => {
   })
 })
 
+describe('extractModel lineage and app links', () => {
+  const PAGE = 'Audéo Sphere is the successor to Paradise.\nIt replaces the Lumity line.\nAudéo Sphere is great.'
+  const APPS = '<a href="https://apps.apple.com/us/app/myphonak/id1234567890">App</a><a href="https://play.google.com/store/apps/details?id=com.phonak.my">Play</a><a href="https://example.com/id999">no</a>'
+  async function read(output: Record<string, unknown>, html = '<html></html>') {
+    llmMock.mockImplementation(async ({ schema }) => schema.parse({ name: 'Audéo Sphere', variants: [{ name: 'A', formFactor: 'RIC' }], ...output }))
+    return extractModel(brand, [okPage(MODEL_URL, PAGE, html)])
+  }
+
+  test('an official quote with a cue word and the other name is kept as sourced lineage', async () => {
+    const { lineage } = await read({
+      successor: { name: 'Lumity', quote: 'It replaces the Lumity line.', sourceIndex: 0 },
+      predecessor: { name: 'Paradise', quote: 'Audéo Sphere is the successor to Paradise.', sourceIndex: 0 },
+    })
+    expect(lineage?.predecessor).toEqual({
+      name: 'Paradise',
+      source: { value: 'Paradise', quote: 'Audéo Sphere is the successor to Paradise.', sourceUrl: MODEL_URL, fetchedAt: '2026-11-26T10:00:00.000Z', sourceType: 'official' },
+    })
+    expect(lineage?.successor?.name).toBe('Lumity')
+  })
+
+  test('a quote without a cue word, without the name, or not on the page is dropped', async () => {
+    const { lineage } = await read({
+      predecessor: { name: 'Paradise', quote: 'Audéo Sphere is great.', sourceIndex: 0 },
+      successor: { name: 'Lumity', quote: 'It replaces the Marvel line.', sourceIndex: 0 },
+    })
+    expect(lineage).toBeUndefined()
+    const invented = await read({ predecessor: { name: 'Paradise', quote: 'Successor to Paradise, invented.', sourceIndex: 0 } })
+    expect(invented.lineage).toBeUndefined()
+    const nowhere = await read({ predecessor: { name: 'Paradise', quote: 'Audéo Sphere is the successor to Paradise.', sourceIndex: 3 } })
+    expect(nowhere.lineage).toBeUndefined()
+  })
+
+  test('App Store and Google Play ids come from the page links by code; other links are ignored', async () => {
+    expect((await read({}, APPS)).appIds).toEqual({ ios: ['1234567890'], android: ['com.phonak.my'] })
+    expect((await read({})).appIds).toBeUndefined()
+  })
+
+  test('mergeCandidates keeps the first page\'s lineage claim and the union of app ids', () => {
+    const base = (appIds: ModelCandidate['appIds'], lineage?: ModelCandidate['lineage']): ModelCandidate => ({
+      model: Model.parse({ slug: 'phonak-x', brand: 'phonak', name: 'X', aliases: [], type: 'rx', sameHardwareAs: [], variants: [{ id: 'a', formFactor: 'RIC' }] }),
+      fieldChecks: {},
+      appIds,
+      lineage,
+    })
+    const claim = (name: string) => ({ name, source: { value: name, quote: `successor to ${name}`, sourceUrl: MODEL_URL, fetchedAt: '2026-11-26T10:00:00.000Z', sourceType: 'official' as const } })
+    const [merged] = mergeCandidates([
+      base({ ios: ['1'], android: [] }),
+      { ...base({ ios: ['1', '2'], android: ['a'] }, { predecessor: claim('Old') }), model: Model.parse({ slug: 'phonak-x', brand: 'phonak', name: 'X', aliases: [], type: 'rx', sameHardwareAs: [], variants: [{ id: 'b', formFactor: 'BTE' }] }) },
+    ])
+    expect(merged.appIds).toEqual({ ios: ['1', '2'], android: ['a'] })
+    expect(merged.lineage?.predecessor?.name).toBe('Old')
+  })
+})
+
 describe('mergeCandidates', () => {
   const at = (url: string) => ({ sourceUrl: url, fetchedAt: '2026-11-26T10:00:00.000Z', sourceType: 'official' as const })
   const R = 'https://www.oticon.com/reveal-minirite-r'

@@ -15,7 +15,7 @@ import { Progress } from '@/pipeline/progress'
 import { priorCatalogCopies } from '@/pipeline/archive/catalog-history'
 import { isInScope, lifecycleOf, listingIn } from '@/pipeline/archive/lifecycle'
 import { discoverModelUrls, extractModel, matchExistingModel, mergeCandidates, type ModelCandidate } from '@/pipeline/sources/brand-site'
-import { fetchIosVersion } from '@/pipeline/sources/itunes'
+import { fetchIosVersion, lookupApp, type AppRecord } from '@/pipeline/sources/itunes'
 import { fetchFdaEvents } from '@/pipeline/sources/openfda'
 import { extractExpertProsCons, synthesizeProsCons } from '@/pipeline/sources/pros-cons'
 import { complaintThemes, currentMonth, discoverReviewSources, extractRetailReviews } from '@/pipeline/sources/reviews'
@@ -204,6 +204,64 @@ function plain(url: string): string {
   return parsed.href.replace(/\/$/, '')
 }
 
+/** `lookupApp` answers of one run, by App Store id: models of a brand share their app. */
+type AppLookups = Map<string, AppRecord | 'removed' | null>
+
+/**
+ * Predecessor, successor and app of a stored model, from what its official pages say. Only stored models
+ * are linked (a name that matches none is logged and dropped); the quote was checked when the page was read.
+ * An app needs exactly one App Store id, different from the stored one, named by the App Store. Returns
+ * false when an iTunes lookup was skipped: that says nothing about the app, so the caller stops the unit.
+ */
+async function linkChanges(run: Run, existing: Model, candidate: ModelCandidate, lookups: AppLookups): Promise<boolean> {
+  for (const path of ['predecessor', 'successor'] as const) {
+    const claim = candidate.lineage?.[path]
+    if (claim === undefined) continue
+    const other = matchExistingModel({ ...candidate.model, name: claim.name }, run.dataset.models)
+    if (other === null) {
+      console.log(`${existing.slug}: ${path} "${claim.name}" is no stored model, left out`)
+      continue
+    }
+    if (other.slug === existing.slug || existing[path]?.slug === other.slug) continue
+    const reverse = path === 'predecessor' ? 'successor' : 'predecessor'
+    if (other[reverse] !== undefined && other[reverse].slug !== existing.slug) {
+      console.log(`${existing.slug}: ${other.slug} already has ${other[reverse].slug} as its ${reverse}, ${path} left out`)
+      continue
+    }
+    const before = existing[path]
+    await handle(run, {
+      kind: 'spec-change',
+      modelSlug: existing.slug,
+      path,
+      ...(before !== undefined && { before }),
+      after: { slug: other.slug, source: claim.source },
+      checks: { [path]: [{ name: 'literal', ok: true }] },
+    })
+  }
+
+  const { ios = [], android = [] } = candidate.appIds ?? {}
+  if (ios.length !== 1 || android.length > 1) {
+    if (ios.length > 1) console.log(`${existing.slug}: ${ios.length} App Store ids on its pages, app not proposed`)
+    return true
+  }
+  const [iosId] = ios
+  if (iosId === existing.app?.iosId) return true
+  if (!lookups.has(iosId)) lookups.set(iosId, await lookupApp(iosId))
+  const app = lookups.get(iosId)
+  if (app === null) return false
+  if (app === undefined || app === 'removed') return true
+  const androidUrl = android.length === 1 ? `https://play.google.com/store/apps/details?id=${android[0]}` : undefined
+  await handle(run, {
+    kind: 'spec-change',
+    modelSlug: existing.slug,
+    path: 'app',
+    ...(existing.app !== undefined && { before: existing.app }),
+    after: { name: app.name, iosId, ...(androidUrl !== undefined && { androidUrl }) },
+    checks: { app: [] },
+  })
+  return true
+}
+
 type CatalogPage = { url: string; quote: string; fetchedAt: string }
 
 /**
@@ -274,6 +332,8 @@ async function scrape(run: Run): Promise<void> {
       }
 
       const matched = new Set<string>()
+      const lookups: AppLookups = new Map()
+      let lookupSkipped = false
       for (const candidate of mergeCandidates(candidates)) {
         const existing = matchExistingModel(candidate.model, run.dataset.models)
         const inLiveCatalog = inCatalog.get(candidate.model.slug) === true
@@ -288,6 +348,7 @@ async function scrape(run: Run): Promise<void> {
           continue
         }
         for (const change of diffModel(existing, candidate)) await handle(run, change)
+        if (existing !== null && !(await linkChanges(run, existing, candidate, lookups))) lookupSkipped = true
       }
 
       if (complete && groups.some((group) => group.inCatalog)) {
@@ -295,6 +356,8 @@ async function scrape(run: Run): Promise<void> {
       } else {
         console.log(`${brand.slug}: catalog incomplete, lifecycle not checked`)
       }
+      // A skipped lookup is not "no app": the brand is not done, and a resumed run asks again.
+      if (lookupSkipped) throw new Error(`${brand.slug}: an iTunes lookup was skipped, app links not decided`)
     })
   }
   for (const slug of modelSlugs(run)) {

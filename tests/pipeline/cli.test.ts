@@ -2,14 +2,14 @@
 import { mkdtemp, readdir, readFile, rm, stat } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { afterEach, beforeEach, expect, test, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
 import { priorCatalogCopies } from '@/pipeline/archive/catalog-history'
 import { crossCheck } from '@/pipeline/checks/crosscheck'
 import { main } from '@/pipeline/cli'
 import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { llm, LlmLimitError, LlmOutputError } from '@/pipeline/llm'
 import { discoverModelUrls, extractModel, type ModelCandidate } from '@/pipeline/sources/brand-site'
-import { fetchIosVersion } from '@/pipeline/sources/itunes'
+import { fetchIosVersion, lookupApp } from '@/pipeline/sources/itunes'
 import { fetchFdaEvents } from '@/pipeline/sources/openfda'
 import { complaintThemes, discoverReviewSources, extractRetailReviews } from '@/pipeline/sources/reviews'
 import { discoverThirdPartyFacts } from '@/pipeline/sources/third-party-facts'
@@ -44,7 +44,7 @@ vi.mock('@/pipeline/sources/pros-cons', async (importOriginal) => ({
   synthesizeProsCons: vi.fn(),
 }))
 vi.mock('@/pipeline/sources/openfda', () => ({ fetchFdaEvents: vi.fn() }))
-vi.mock('@/pipeline/sources/itunes', () => ({ fetchIosVersion: vi.fn() }))
+vi.mock('@/pipeline/sources/itunes', () => ({ fetchIosVersion: vi.fn(), lookupApp: vi.fn() }))
 vi.mock('@/pipeline/sources/third-party-facts', () => ({ discoverThirdPartyFacts: vi.fn() }))
 vi.mock('@/pipeline/sources/reviews', async (importOriginal) => ({
   ...(await importOriginal<typeof import('@/pipeline/sources/reviews')>()),
@@ -207,6 +207,81 @@ test('scrape: the pages of one family give one new model with the variants of al
   expect((card.after as Model).variants.map((v) => v.id)).toEqual(['minirite-r', 'minirite-t'])
   expect(Object.keys(card.checks).sort()).toEqual(['variants.0.weightG', 'variants.1.weightG'])
   expect(log.at(-1)).toBe('Summary: auto 0, pending 1, dropped 0, skipped sources 0, failed 0')
+})
+
+describe('scrape: predecessor, successor and app links', () => {
+  const SOURCE = {
+    value: 'Select 200',
+    quote: 'Select 300 is the successor to Select 200.',
+    sourceUrl: `${BASE}/select-300`,
+    fetchedAt: FETCHED_AT,
+    sourceType: 'official' as const,
+  }
+  const record = (iosId: string) => ({ iosId, name: 'Jabra Enhance Pro', seller: 'GN', url: `https://apps.apple.com/app/id${iosId}`, lookupUrl: 'https://itunes.apple.com/lookup', fetchedAt: FETCHED_AT })
+  const pendingFile = async (id: string) => PendingChange.parse(JSON.parse(await readFile(join(dataDir, 'pending', `${id}.json`), 'utf8')))
+
+  async function scrapeWith(extra: Partial<ModelCandidate>, stored: Model[] = [model('Select 200'), model('Select 300')]) {
+    for (const m of stored) await writeJson(join(dataDir, 'models', `${m.slug}.json`), m)
+    vi.mocked(discoverModelUrls).mockResolvedValue([{ modelUrl: `${BASE}/select-300`, documentUrls: [], inCatalog: true }])
+    vi.mocked(extractModel).mockResolvedValue({ ...candidate('Select 300'), ...extra })
+    return main(['scrape', '--limit', '5'], opts)
+  }
+
+  test('a predecessor named by a checked quote and stored gives a pending spec-change with the source', async () => {
+    expect(await scrapeWith({ lineage: { predecessor: { name: 'Select 200', source: SOURCE } } })).toBe(0)
+
+    const card = await pendingFile('jabra-enhance-select-300-predecessor')
+    expect(card).toMatchObject({ kind: 'spec-change', modelSlug: 'jabra-enhance-select-300', path: 'predecessor', after: { slug: 'jabra-enhance-select-200', source: SOURCE } })
+  })
+
+  test('a name that is no stored model, or the model itself, gives no proposal', async () => {
+    await scrapeWith({ lineage: { predecessor: { name: 'Select 50', source: SOURCE }, successor: { name: 'Select 300', source: SOURCE } } })
+
+    expect(await filesUnder(join(dataDir, 'pending'))).toEqual([])
+    expect(log).toContain('jabra-enhance-select-300: predecessor "Select 50" is no stored model, left out')
+  })
+
+  test('a link the other model already holds differently is not proposed', async () => {
+    const other = model('Select 200', { successor: { slug: 'jabra-enhance-select-400', source: SOURCE } })
+    await scrapeWith({ lineage: { predecessor: { name: 'Select 200', source: SOURCE } } }, [other, model('Select 300'), model('Select 400')])
+    expect(await filesUnder(join(dataDir, 'pending'))).toEqual([])
+  })
+
+  test('one App Store id gives an app proposal named by the lookup, with the Play link', async () => {
+    vi.mocked(lookupApp).mockResolvedValue(record('1234567890'))
+
+    await scrapeWith({ appIds: { ios: ['1234567890'], android: ['com.jabra.enhance'] } })
+
+    expect(lookupApp).toHaveBeenCalledTimes(1)
+    const card = await pendingFile('jabra-enhance-select-300-app')
+    expect(card).toMatchObject({
+      path: 'app',
+      after: { name: 'Jabra Enhance Pro', iosId: '1234567890', androidUrl: 'https://play.google.com/store/apps/details?id=com.jabra.enhance' },
+    })
+  })
+
+  test('two App Store ids, the stored id, or a removed app give no proposal and no lookup is made for the first two', async () => {
+    await scrapeWith({ appIds: { ios: ['1', '2'], android: [] } })
+    expect(lookupApp).not.toHaveBeenCalled()
+    await scrapeWith({ appIds: { ios: ['7'], android: [] } }, [model('Select 200'), model('Select 300', { app: { name: 'App', iosId: '7' } })])
+    expect(lookupApp).not.toHaveBeenCalled()
+    vi.mocked(lookupApp).mockResolvedValue('removed')
+    await scrapeWith({ appIds: { ios: ['8'], android: [] } })
+    expect(await filesUnder(join(dataDir, 'pending'))).toEqual([])
+  })
+
+  test('a skipped iTunes lookup stops the brand unit, so a resumed run asks again; it never means no app', async () => {
+    vi.mocked(lookupApp).mockResolvedValueOnce(null)
+
+    expect(await scrapeWith({ appIds: { ios: ['1234567890'], android: [] } })).toBe(0)
+    expect(log.some((line) => line.includes('an iTunes lookup was skipped'))).toBe(true)
+    expect(log.at(-1)).toBe('Summary: auto 0, pending 0, dropped 0, skipped sources 0, failed 1')
+    expect(await filesUnder(join(dataDir, 'pending'))).toEqual([])
+
+    vi.mocked(lookupApp).mockResolvedValue(record('1234567890'))
+    expect(await main(['scrape', '--limit', '5', '--resume'], opts)).toBe(0)
+    expect(await filesUnder(join(dataDir, 'pending'))).toEqual(['jabra-enhance-select-300-app.json'])
+  })
 })
 
 test('a gone brand is not scraped live', async () => {

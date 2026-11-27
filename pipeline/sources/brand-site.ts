@@ -4,10 +4,10 @@ import { priceBasisCheck } from '@/pipeline/checks/price-basis'
 import { rangeCheck } from '@/pipeline/checks/ranges'
 import { excerpt, PROMPT_TEXT_BUDGET } from '@/pipeline/excerpt'
 import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
-import { linksIn, pageHeading, pageTitle } from '@/pipeline/fetch/html'
+import { appStoreLinks, linksIn, pageHeading, pageTitle } from '@/pipeline/fetch/html'
 import { llm } from '@/pipeline/llm'
 import { canonicalUnit, findNumbers, parseMeasurement, toGrams, toMm, unitFollows } from '@/pipeline/units'
-import { modelSlug, nameWithoutBrand, normalizeName, slugify } from '@/src/lib/data/slug'
+import { containsName, modelSlug, nameWithoutBrand, normalizeName, slugify } from '@/src/lib/data/slug'
 import type { Brand } from '@/src/lib/schema/brand'
 import type { Derivation, Sourced } from '@/src/lib/schema/field'
 import { FormFactor, Model, ModelType, PowerType, type Variant } from '@/src/lib/schema/model'
@@ -15,7 +15,20 @@ import type { CheckResult } from '@/src/lib/schema/pending'
 
 type Page = Extract<FetchResult, { status: 'ok' }>
 
-export type ModelCandidate = { model: Model; fieldChecks: Record<string, CheckResult[]> }
+/** A model another model replaces or is replaced by: its name as the page writes it, with the official quote that says so. */
+export type LineageClaim = { name: string; source: Sourced<string> }
+
+export type ModelCandidate = {
+  model: Model
+  fieldChecks: Record<string, CheckResult[]>
+  /** Predecessor and successor named by an official quote that passed its checks; resolved to stored models by `scrape`. */
+  lineage?: { predecessor?: LineageClaim; successor?: LineageClaim }
+  /** App Store and Google Play ids the model's pages link, read from the HTML by code. */
+  appIds?: { ios: string[]; android: string[] }
+}
+
+/** Words that say one model follows another. A quote without one is not lineage. */
+const LINEAGE_CUE = /\b(?:successor|succeeds|replaces|replacing|predecessor|next generation of|follow-up to)\b/i
 
 /** One model page and the documents (datasheets, user guides) that name it. `inCatalog`: a catalog page links the model page (support pages alone do not count). */
 export type ModelSources = { modelUrl: string; documentUrls: string[]; inCatalog: boolean }
@@ -165,8 +178,12 @@ const ExtractedVariant = z.strictObject({
   priceUsd: field(z.number()).optional(),
 })
 
+const related = z.strictObject({ name: z.string().min(1), ...cited })
+
 const Extraction = z.strictObject({
   name: z.string().min(1),
+  predecessor: related.optional(),
+  successor: related.optional(),
   type: field(ModelType).optional(),
   releaseDate: field(z.string()).optional(),
   platform: field(z.string()).optional(),
@@ -203,6 +220,7 @@ Rules:
 - ipRating: such as "IP68". priceUsd: the regular (non-sale) price in US dollars, as a number; leave it out if only a sale price is shown.
 - connectivity: mfi (Made for iPhone), asha (Audio Streaming for Hearing Aids on Android), leAudio (Bluetooth LE Audio), auracast (Auracast). Include only the flags the sources state.
 - tinnitus: true if the model has a tinnitus feature such as a sound generator.
+- predecessor / successor: only if a source says this model replaces or is replaced by another model (such as "successor to Paradise", "replaces"); name that model as written.
 - platform: the chip or technology platform name. materials, colors: as the sources list them.`
 
 const SPEC_WORDS = /\b(?:technical data|specifications?|weight|dimensions?|battery|grams?|mm|hours|IP\d{2}|bluetooth)\b/gi
@@ -351,6 +369,32 @@ export async function extractModel(brand: Brand, pages: Page[]): Promise<ModelCa
     connectivity: plain('connectivity', out.connectivity),
     tinnitus: plain('tinnitus', out.tinnitus),
   }
+  // A lineage claim is kept only when its quote is on the page, holds the other model's name and a cue word.
+  const lineage: NonNullable<ModelCandidate['lineage']> = {}
+  for (const key of ['predecessor', 'successor'] as const) {
+    const claim = out[key]
+    const page = claim && pages[claim.sourceIndex]
+    if (!claim || !page) continue
+    const source: Sourced<string> = {
+      value: claim.name,
+      quote: claim.quote,
+      sourceUrl: page.url,
+      fetchedAt: page.fetchedAt,
+      sourceType: 'official',
+    }
+    if (literalCheck(source, page.text).ok && containsName(claim.quote, claim.name) && LINEAGE_CUE.test(claim.quote)) {
+      lineage[key] = { name: claim.name, source }
+    }
+  }
+  const ios = new Set<string>()
+  const android = new Set<string>()
+  for (const page of pages) {
+    if (page.html === undefined) continue
+    const found = appStoreLinks(page.html, page.url)
+    found.ios.forEach((id) => ios.add(id))
+    found.android.forEach((id) => android.add(id))
+  }
+
   const model = Model.parse({
     slug: modelSlug(brand.slug, out.name),
     brand: brand.slug,
@@ -361,7 +405,12 @@ export async function extractModel(brand: Brand, pages: Page[]): Promise<ModelCa
     sameHardwareAs: [],
     variants,
   })
-  return { model, fieldChecks }
+  return {
+    model,
+    fieldChecks,
+    ...(Object.keys(lineage).length > 0 && { lineage }),
+    ...(ios.size + android.size > 0 && { appIds: { ios: [...ios], android: [...android] } }),
+  }
 }
 
 /** A blank string, or a list or object with nothing but blanks in it. */
@@ -414,7 +463,19 @@ function mergeFamily(pages: ModelCandidate[]): ModelCandidate {
       variants.push(variant)
     })
   }
-  return { model: Model.parse({ ...model, variants }), fieldChecks }
+  const lineage: NonNullable<ModelCandidate['lineage']> = {}
+  for (const key of ['predecessor', 'successor'] as const) {
+    const claim = pages.find((page) => page.lineage?.[key] !== undefined)?.lineage?.[key]
+    if (claim !== undefined) lineage[key] = claim
+  }
+  const ios = [...new Set(pages.flatMap((page) => page.appIds?.ios ?? []))]
+  const android = [...new Set(pages.flatMap((page) => page.appIds?.android ?? []))]
+  return {
+    model: Model.parse({ ...model, variants }),
+    fieldChecks,
+    ...(Object.keys(lineage).length > 0 && { lineage }),
+    ...(ios.length + android.length > 0 && { appIds: { ios, android } }),
+  }
 }
 
 /**
