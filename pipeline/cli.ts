@@ -364,14 +364,6 @@ export async function main(argv: string[], opts: CliOptions = {}): Promise<numbe
     await recordPairs(dataDir)
     return 0
   }
-  // Every step sends requests, and the bot does not go out without saying where to read about it.
-  try {
-    void config.userAgent
-  } catch (error) {
-    console.error(message(error))
-    return 1
-  }
-
   const dataset = await loadDataset(dataDir)
   const brands = values.brand === undefined ? dataset.brands : dataset.brands.filter((brand) => brand.slug === values.brand)
   if (brands.length === 0) {

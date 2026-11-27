@@ -371,25 +371,6 @@ test('the usage-limit message names the provider and the exact command to resume
   expect(log).toContain('Claude usage limit reached. Resume later: npm run scrape -- --resume --brand jabra-enhance --limit 3 --refresh')
 })
 
-test('a step command without NEXT_PUBLIC_SITE_URL stops before any work, with exit 1', async () => {
-  vi.stubEnv('NEXT_PUBLIC_SITE_URL', '')
-  await store('Select 100', 'Select 200')
-  await writeJson(progressFile, { done: ['x'] })
-
-  for (const command of ['update', 'scrape', 'fda', 'apps', 'reviews', 'youtube']) {
-    expect(await main([command], opts), command).toBe(1)
-  }
-
-  expect(log.filter((line) => line.includes('NEXT_PUBLIC_SITE_URL is not set'))).toHaveLength(6)
-  for (const source of [discoverModelUrls, fetchPage, fetchFdaEvents, fetchIosVersion, discoverReviewSources, searchVideos]) {
-    expect(source).not.toHaveBeenCalled()
-  }
-  expect(JSON.parse(await readFile(progressFile, 'utf8'))).toEqual({ done: ['x'] })
-  await expect(stat(pairsFile())).rejects.toThrow()
-  // Pairs need no requests.
-  expect(await main(['pairs'], opts)).toBe(0)
-})
-
 test("a single step run between a stopped update and its resume leaves the update's progress alone", async () => {
   vi.mocked(discoverModelUrls).mockResolvedValue([{ modelUrl: `${BASE}/select-100`, documentUrls: [] }])
   vi.mocked(extractModel).mockResolvedValue(candidate('Select 100'))

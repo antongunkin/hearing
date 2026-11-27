@@ -116,7 +116,6 @@ async function follow(
  * and no attempt to get past a refusal. Raw results are cached; skips are not.
  */
 export async function fetchPage(url: string, opts: FetchOptions = {}): Promise<FetchResult> {
-  void config.userAgent // Throws before anything happens when the bot cannot name itself.
   const blocklist = opts.blocklist ?? (listed ??= await loadBlocklist())
 
   const refuse = (target: URL): Refusal | undefined => {

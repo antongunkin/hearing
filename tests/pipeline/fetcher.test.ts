@@ -395,13 +395,18 @@ describe('politeness', () => {
     expect(site.hits.map((hit) => hit.userAgent)).toEqual([USER_AGENT, USER_AGENT])
   })
 
-  test('without NEXT_PUBLIC_SITE_URL nothing is fetched', async () => {
-    vi.stubEnv('NEXT_PUBLIC_SITE_URL', '')
-    const fetch = vi.fn()
-    vi.stubGlobal('fetch', fetch)
+  test('without NEXT_PUBLIC_SITE_URL the bot sends its plain name, with no URL', async () => {
+    vi.stubEnv('NEXT_PUBLIC_SITE_URL', '  ')
+    const site = await serve({ '/a': page('a') })
 
-    await expect(get('https://anything.test/a')).rejects.toThrow(/NEXT_PUBLIC_SITE_URL/)
-    expect(fetch).not.toHaveBeenCalled()
+    expect(config.userAgent).toBe('HearingDBBot/0.1')
+    await get(`${site.origin}/a`)
+
+    expect(site.hits.map((hit) => hit.userAgent)).toEqual(['HearingDBBot/0.1', 'HearingDBBot/0.1'])
+  })
+
+  test('with NEXT_PUBLIC_SITE_URL the User-Agent names the about-bot page', () => {
+    expect(config.userAgent).toBe('HearingDBBot/0.1 (+https://hearing.test/about-bot)')
   })
 })
 

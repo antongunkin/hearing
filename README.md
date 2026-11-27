@@ -64,13 +64,13 @@ cp .env.example .env.local
 
 | Key | Used by | If empty |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | pipeline and site | Every pipeline step stops with exit code 1 before sending a request: its User-Agent names the site (`<url>/about-bot`). `npm run pairs` still runs. A local site build has no canonical URLs and no sitemap URLs; a production build on Vercel fails. |
+| `NEXT_PUBLIC_SITE_URL` | pipeline and site | The bot's User-Agent is the plain `HearingDBBot/0.1`, with no URL, so the pipeline runs before the site has a domain; once set it is `HearingDBBot/0.1 (+<url>/about-bot)`. A local site build has no canonical URLs and no sitemap URLs; a production build on Vercel fails. |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | site (`/corrections`) | No address is shown, so a company has no way to ask for a correction or removal. |
 | `GEMINI_API_KEY` | `youtube` step (free tier) | Video analysis is skipped. |
 | `YOUTUBE_API_KEY` | `youtube` step | Video search is skipped. |
 | `NEXT_PUBLIC_GA_ID` | site analytics | No analytics. |
 
-Set `NEXT_PUBLIC_SITE_URL` to your real domain before the first full run. Set it and
+Set `NEXT_PUBLIC_SITE_URL` to your real domain as soon as you have one, so the bot points to its `/about-bot` page. Set it and
 `NEXT_PUBLIC_CONTACT_EMAIL` on Vercel too: they are not read from your computer there.
 
 ## Run the pipeline
@@ -140,7 +140,7 @@ fetched again.
 Gemini's free tier has a daily limit. When it is reached, the rest of the `youtube` step is skipped with a
 warning and the run goes on; the next run tries the remaining videos again.
 
-Exit codes: `0` done, `1` bad arguments or `NEXT_PUBLIC_SITE_URL` not set, `2` stopped by the usage limit.
+Exit codes: `0` done, `1` bad arguments, `2` stopped by the usage limit.
 A source that is skipped or fails does not stop a run; the summary line counts them.
 
 ## Review the queue

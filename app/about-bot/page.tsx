@@ -15,7 +15,7 @@ export default function AboutBotPage() {
       <h1>About our bot</h1>
       <p>
         HearingDBBot reads public web pages to collect the facts in this database. It identifies itself with this
-        User-Agent, where the address is that of this site:
+        User-Agent, where the address is that of this site (before the site had an address it sent only HearingDBBot/0.1):
       </p>
       <pre>
         <code>{'HearingDBBot/0.1 (+<site address>/about-bot)'}</code>
