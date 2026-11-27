@@ -2,10 +2,11 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { cache } from 'react'
+import { BrandHistory } from '@/src/components/BrandHistory'
 import { CompanyBlock } from '@/src/components/CompanyBlock'
 import { ModelList } from '@/src/components/ModelList'
 import { loadDataset } from '@/src/lib/data/load'
-import { citableArchiveUrl, parseArchiveUrl } from '@/src/lib/archive-url'
+import { archiveCalendarUrl, citableArchiveUrl, parseArchiveUrl } from '@/src/lib/archive-url'
 import { companyBlock } from '@/src/lib/site/companies'
 import { addedOn, latestFirst } from '@/src/lib/site/catalog-index'
 import { hostname } from '@/src/lib/site/format'
@@ -65,18 +66,20 @@ export default async function BrandPage({ params }: Props) {
           Maker’s website: <a href={brand.website}>{hostname(brand.website)}</a>
         </p>
       ) : (
-        // The domain of a gone brand may be parked or taken over: only archived copies are linked.
+        // The domain of a gone brand may be parked or taken over: only archive copies are linked.
         <p>
-          This brand’s website is gone.
+          No longer sold under this name.{' '}
+          <a href={archiveCalendarUrl(brand.website)}>Archived website (Internet Archive)</a>
           {archived && (
             <>
-              {' '}
-              <a href={archived}>Archived copy</a>
+              {' · '}
+              <a href={archived}>Archived catalog</a>
             </>
           )}
         </p>
       )}
       {company && <CompanyBlock data={company} brands={data.brands} goneHost={brand.status === 'gone' ? hostname(brand.website) : undefined} />}
+      <BrandHistory brand={brand} />
       {models.length === 0 ? (
         <p>No {brand.name} models in the database yet.</p>
       ) : (

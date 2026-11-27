@@ -31,7 +31,8 @@ const render = async (status: 'active' | 'gone', edges: Edge[]) => {
 
 test('a gone brand never links its live website; only an archive copy', async () => {
   const html = await render('gone', [])
-  expect(html).not.toContain('https://parked.example"')
+  expect(html).not.toContain('href="https://parked.example')
+  expect(html).toContain('href="https://web.archive.org/web/*/https://parked.example"')
   expect(html).toContain('href="https://web.archive.org/web/20190301/https://parked.example/products"')
   expect(await render('active', [])).toContain('href="https://parked.example"')
 })
@@ -45,4 +46,37 @@ test('a gone brand\'s Company block does not link a source on its own domain', a
   const html = await render('gone', [edge({ sources: [{ ...src, url: 'https://parked.example/about' }] })])
   expect(html).toContain('Owned by GN')
   expect(html).not.toContain('href="https://parked.example/about"')
+})
+
+test('the brand page shows What happened with dated, sourced facts and the app status, for any status', async () => {
+  const facts = [
+    { date: '2019-03', text: 'Old was sold to Big.', sourceUrl: 'https://web.archive.org/web/20190301id_/https://news.example/a', quote: 'Big buys Old', fetchedAt: '2026-11-26T10:00:00.000Z' },
+    { date: '2020', text: 'The brand was retired.', sourceUrl: 'https://shop.parked.example/b', quote: 'retired', fetchedAt: '2026-11-26T10:00:00.000Z' },
+    { date: '2021-05', text: 'The site closed.', sourceUrl: 'https://news.example/c', quote: 'closed', fetchedAt: '2026-11-26T10:00:00.000Z' },
+  ]
+  const app = { name: 'Old App', iosId: '1', available: false, checkedAt: '2026-11-26T10:00:00.000Z', sourceUrl: 'https://itunes.apple.com/lookup?id=1' }
+  const withHistory = async (status: 'active' | 'gone', history: unknown) => {
+    data.value = {
+      brands: [{ ...brand(status), history } as never], models: [], reviews: [], events: [], pending: [], rejections: [], blocklist: [], comparePairs: [],
+      graph: { entities: [], edges: [] },
+    }
+    return renderToStaticMarkup(await BrandPage({ params: Promise.resolve({ brand: 'old' }) }))
+  }
+  const html = await withHistory('gone', { facts, app })
+  expect(html).toContain('id="what-happened"')
+  expect(html).toContain('What happened to Old')
+  expect(html).toContain('Mar 2019')
+  expect(html).toContain('href="https://web.archive.org/web/20190301/https://news.example/a"')
+  expect(html).toContain('href="https://news.example/c"')
+  // A live page on the gone brand's own domain is named, not linked.
+  expect(html).not.toContain('href="https://shop.parked.example/b"')
+  expect(html).toContain('Old App is no longer on the App Store (checked Nov 26, 2026).')
+  expect(html).toContain('No longer sold under this name')
+  expect(html).toContain('Archived website (Internet Archive)')
+  expect(html).not.toContain('This brand’s website is gone')
+
+  const active = await withHistory('active', { facts, app: { ...app, available: true } })
+  expect(active).toContain('What happened to Old')
+  expect(active).toContain('Old App is on the App Store')
+  expect((await withHistory('gone', undefined))).not.toContain('What happened')
 })

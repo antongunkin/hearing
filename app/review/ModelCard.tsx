@@ -15,10 +15,11 @@ type Field = {
  * The fields of a model by path. Sourced values and hardware twins are optional; everything else
  * (names, type, form factor, …) is part of the model.
  */
-function fieldsOf(node: unknown, path = ''): Field[] {
+export function fieldsOf(node: unknown, path = ''): Field[] {
   if (isCited(node)) return [{ path, value: node, optional: true }]
   // A twin is kept or left out whole: its source is not optional on its own.
-  if (/^sameHardwareAs\.\d+$/.test(path)) return [{ path, value: node, optional: true }]
+  // Likewise lineage, a document and the discontinued flag: one checkbox each.
+  if (/^(sameHardwareAs\.\d+|documents\.\d+|discontinued|predecessor|successor)$/.test(path)) return [{ path, value: node, optional: true }]
   const nested = isObject(node) || (Array.isArray(node) && node.some(isObject))
   if (!nested) return [{ path, value: node, optional: false }]
   return Object.entries(node as object).flatMap(([key, child]) => fieldsOf(child, path === '' ? key : `${path}.${key}`))

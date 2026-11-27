@@ -11,6 +11,7 @@ export const metadata: Metadata = { alternates: canonical('/') }
 export default async function Home() {
   const { brands, models, events } = await loadDataset()
   const latestModels = models
+    .filter((model) => model.discontinued === undefined)
     .map((model) => ({ model, releaseDate: model.releaseDate?.value, addedOn: addedOn(model.slug, events) }))
     .sort(latestFirst)
     .slice(0, 12)

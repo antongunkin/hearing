@@ -13,8 +13,8 @@ export default async function ReviewPage() {
 
   const { pending } = await loadDataset('data')
   const models = pending.filter((item) => item.kind === 'new-model')
-  const atlas = pending.filter((item) => item.kind === 'brand-config' || item.kind === 'relation')
-  const changes = pending.filter((item) => item.kind !== 'new-model' && item.kind !== 'brand-config' && item.kind !== 'relation')
+  const atlas = pending.filter((item) => item.kind === 'brand-config' || item.kind === 'relation' || item.kind === 'brand-history')
+  const changes = pending.filter((item) => item.kind !== 'new-model' && item.kind !== 'brand-config' && item.kind !== 'relation' && item.kind !== 'brand-history')
 
   return (
     <main>

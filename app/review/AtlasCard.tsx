@@ -1,8 +1,10 @@
 // A proposal of the site atlas: a brand's config as a diff, or a relation between companies, brands and apps.
 import { citableArchiveUrl } from '@/src/lib/archive-url'
+import { formatDate } from '@/src/lib/site/format'
 import { configDiff } from '@/src/lib/review/config-diff'
 import { failed } from '@/src/lib/review/card'
 import { z } from 'zod'
+import { BrandHistory } from '@/src/lib/schema/brand'
 import { Edge, Entity } from '@/src/lib/schema/graph'
 import type { PendingChange } from '@/src/lib/schema/pending'
 import { approveChange, rejectChange } from './actions'
@@ -43,6 +45,30 @@ function AllChecks({ checks }: { checks: PendingChange['checks'] }) {
   )
 }
 
+/** The facts of a proposed brand history, each with its date, quote and source, and the app's status. */
+function HistoryProposal({ history, brand }: { history: BrandHistory; brand: string }) {
+  const { facts, app } = history
+  return (
+    <>
+      <h3>Brand history: {brand}</h3>
+      <ol aria-label="Facts">
+        {facts.map((fact) => (
+          <li key={`${fact.date}-${fact.text}`}>
+            <strong>{formatDate(fact.date)}</strong> {fact.text}
+            <br />
+            <q>{fact.quote}</q> <Value value={citableArchiveUrl(fact.sourceUrl)} /> <small>(fetched {fact.fetchedAt})</small>
+          </li>
+        ))}
+      </ol>
+      <p>
+        {app === undefined
+          ? 'No app found.'
+          : `App: ${app.name} (${app.iosId}) is ${app.available ? 'on' : 'no longer on'} the App Store, App Store checked ${app.checkedAt}.`}
+      </p>
+    </>
+  )
+}
+
 const Proposed = z.strictObject({ edge: Edge, entities: z.array(Entity) })
 
 export function AtlasCard({ item }: { item: PendingChange }) {
@@ -59,11 +85,21 @@ export function AtlasCard({ item }: { item: PendingChange }) {
   const parsed = item.kind === 'relation' ? Proposed.safeParse(item.after) : null
   const relation = parsed?.success ? parsed.data : null
   const nameOf = (entityId: string) => relation?.entities.find((e) => e.id === entityId)?.name ?? entityId
+  const history = item.kind === 'brand-history' ? BrandHistory.safeParse(item.after) : null
   const anyFailed = Object.values(item.checks).some((results) => results.some(failed))
 
   return (
     <article style={{ marginBottom: 32, ...(anyFailed && { borderLeft: '4px solid #7a0000', paddingLeft: 8 }) }}>
-      {parsed && !parsed.success ? (
+      {history ? (
+        history.success ? (
+          <HistoryProposal history={history.data} brand={item.path.replace(/^brands\/|\.history$/g, '')} />
+        ) : (
+          <>
+            <h3>Brand history: {item.path}</h3>
+            <p style={failedStyle}>Malformed proposal, reject it: {history.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join('; ')}</p>
+          </>
+        )
+      ) : parsed && !parsed.success ? (
         <>
           <h3>Relation: {item.path}</h3>
           <p style={failedStyle}>Malformed proposal, reject it: {parsed.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join('; ')}</p>

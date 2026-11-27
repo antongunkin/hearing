@@ -5,15 +5,18 @@ import { notFound } from 'next/navigation'
 import { cache } from 'react'
 import { AdSlot } from '@/src/components/AdSlot'
 import { BuyBoxSlot } from '@/src/components/BuyBoxSlot'
+import { DiscontinuedBanner } from '@/src/components/DiscontinuedBanner'
+import { DocumentList } from '@/src/components/DocumentList'
 import { FormFactorIcon } from '@/src/components/FormFactorIcon'
 import { HardwareTwin } from '@/src/components/HardwareTwin'
 import { ProsCons } from '@/src/components/ProsCons'
 import { ReviewSummary } from '@/src/components/ReviewSummary'
+import { SourceNote } from '@/src/components/SourceNote'
 import { SpecTable } from '@/src/components/SpecTable'
 import { YouTubeEmbed } from '@/src/components/YouTubeEmbed'
 import { loadDataset } from '@/src/lib/data/load'
 import { buildCatalogIndex } from '@/src/lib/site/catalog-index'
-import { TYPE_LABELS } from '@/src/lib/site/format'
+import { hostname, TYPE_LABELS } from '@/src/lib/site/format'
 import { isIndexable } from '@/src/lib/site/indexing'
 import { productJsonLd } from '@/src/lib/site/jsonld'
 import { competitorsOf, pairSlug } from '@/src/lib/site/pairs'
@@ -48,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${product} specifications`,
     description: `${product}: specifications, price, battery and published review summaries, with sources.`,
     alternates: canonical(`/hearing-aids/${slug}`),
-    ...(!isIndexable(model) && { robots: { index: false } }),
+    ...(!isIndexable(model) && { robots: { index: false, follow: true } }),
   }
 }
 
@@ -63,6 +66,14 @@ export default async function ModelPage({ params }: Props) {
     pair: pairSlug(slug, other),
     name: productName(data.models.find((m) => m.slug === other)!, data.brands),
   }))
+
+  const lineage = [
+    { label: 'Predecessor', link: model.predecessor },
+    { label: 'Successor', link: model.successor },
+  ].flatMap(({ label, link }) => {
+    const other = link && data.models.find((m) => m.slug === link.slug)
+    return link && other ? [{ label, link, name: productName(other, data.brands) }] : []
+  })
 
   return (
     <main className="page">
@@ -79,6 +90,13 @@ export default async function ModelPage({ params }: Props) {
       <div className="model-header">
         <div>
           <h1>{product}</h1>
+          {model.discontinued && <DiscontinuedBanner brand={brand.name} lastListed={model.discontinued.lastListed} />}
+          {brand.status === 'gone' && (
+            <p>
+              {brand.name} no longer sells hearing aids under its own name.{' '}
+              <Link href={`/brands/${brand.slug}#what-happened`}>What happened to {brand.name}</Link>
+            </p>
+          )}
           <dl className="facts">
             <div>
               <dt>Brand</dt>
@@ -122,6 +140,30 @@ export default async function ModelPage({ params }: Props) {
           <SpecTable columns={specColumns([model]).map((column) => column.label)} rows={specs} />
         )}
       </section>
+
+      {model.documents.length > 0 && (
+        <section aria-labelledby="documents-heading">
+          <h2 id="documents-heading">Manuals &amp; datasheets</h2>
+          <DocumentList documents={model.documents} goneHost={brand.status === 'gone' ? hostname(brand.website) : undefined} />
+        </section>
+      )}
+
+      {lineage.length > 0 && (
+        <section aria-labelledby="lineage-heading">
+          <h2 id="lineage-heading">Predecessor and successor</h2>
+          <ul>
+            {lineage.map(({ label, link, name }) => (
+              <li key={label}>
+                {label}:{' '}
+                <Link href={`/hearing-aids/${link.slug}`} prefetch={false}>
+                  {name}
+                </Link>{' '}
+                <SourceNote source={link.source} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <AdSlot id="model-after-specs" minHeight={280} />
 

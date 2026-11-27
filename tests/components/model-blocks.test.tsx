@@ -4,6 +4,8 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { afterEach, beforeAll, describe, expect, test, vi } from 'vitest'
 import { AdSlot } from '@/src/components/AdSlot'
 import { BuyBoxSlot } from '@/src/components/BuyBoxSlot'
+import { DiscontinuedBanner } from '@/src/components/DiscontinuedBanner'
+import { DocumentList } from '@/src/components/DocumentList'
 import { CatalogFilters } from '@/src/components/CatalogFilters'
 import { SourceNote } from '@/src/components/SourceNote'
 import { ProsCons } from '@/src/components/ProsCons'
@@ -195,6 +197,71 @@ describe('CatalogFilters', () => {
     expect(labels).toContain('BTE')
     expect(labels).not.toContain('CIC')
     expect(labels).toContain('Acme')
+  })
+})
+
+describe('discontinued models', () => {
+  test('the banner names the month the maker last listed the model', () => {
+    expect(renderToStaticMarkup(<DiscontinuedBanner brand="Phonak" lastListed="2022-09" />)).toContain(
+      'Discontinued — last listed by Phonak in Sep 2022',
+    )
+    const bare = parse(<DiscontinuedBanner brand="Phonak" />).body.textContent
+    expect(bare).toBe('Discontinued')
+  })
+
+  test('an archived document says so with its month; a live one is a plain link', () => {
+    const page = parse(
+      <DocumentList
+        documents={[
+          { kind: 'datasheet', title: 'Datasheet', url: 'https://web.archive.org/web/20190512id_/https://maker.example/a.pdf', fetchedAt: '2026-11-26T10:00:00.000Z' },
+          { kind: 'user-guide', title: 'Guide', url: 'https://maker.example/b.pdf', fetchedAt: '2026-11-26T10:00:00.000Z' },
+        ]}
+      />,
+    )
+    const items = [...page.querySelectorAll('li')]
+    expect(items[0].textContent).toContain('archived copy, May 2019, via Internet Archive')
+    expect(items[0].querySelector('a')?.getAttribute('href')).toBe('https://web.archive.org/web/20190512/https://maker.example/a.pdf')
+    expect(items[1].textContent).not.toContain('archived')
+    expect(items[1].querySelector('a')?.getAttribute('href')).toBe('https://maker.example/b.pdf')
+  })
+
+  test('a live document of a gone brand is named, not linked', () => {
+    const page = parse(
+      <DocumentList
+        goneHost="www.parked.example"
+        documents={[{ kind: 'other', title: 'Leaflet', url: 'https://shop.parked.example/l.pdf', fetchedAt: '2026-11-26T10:00:00.000Z' }]}
+      />,
+    )
+    expect(page.querySelector('a')).toBeNull()
+    expect(page.body.textContent).toContain('Leaflet')
+  })
+
+  test('the catalog hides discontinued models until the toggle, and shows their last listed price apart from the price filter', () => {
+    const items: CatalogItem[] = [
+      { slug: 'acme-a', brand: 'acme', name: 'Alpha', type: 'otc', formFactors: [], powerTypes: [], connectivity: {}, indexable: true, priceMin: 900 },
+      {
+        slug: 'acme-old', brand: 'acme', name: 'Old', type: 'otc', formFactors: [], powerTypes: [], connectivity: {}, indexable: true,
+        discontinued: { lastListed: '2022-09' }, lastListedPrice: { min: 700, month: '2022-08' },
+      },
+    ]
+    const container = mount(<CatalogFilters items={items} brandNames={{ acme: 'Acme' }} />)
+    const links = () => [...container.querySelectorAll('tbody a')].map((a) => a.getAttribute('href'))
+    expect(links()).toEqual(['/hearing-aids/acme-a'])
+
+    const toggle = [...container.querySelectorAll('label')].find((l) => l.textContent === 'Include discontinued')!.querySelector('input')!
+    act(() => toggle.click())
+    expect(links()).toEqual(['/hearing-aids/acme-a', '/hearing-aids/acme-old'])
+    expect(container.textContent).toContain('Discontinued')
+    expect(container.textContent).toContain('$700')
+    expect(container.textContent).toContain('last listed price, Aug 2022')
+
+    // A last listed price is not a price: the price filter drops the row.
+    const max = container.querySelector('input[name="priceMax"]') as HTMLInputElement
+    act(() => {
+      Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')!.set!.call(max, '800')
+      max.dispatchEvent(new Event('input', { bubbles: true }))
+    })
+    expect(links()).toEqual([])
   })
 })
 

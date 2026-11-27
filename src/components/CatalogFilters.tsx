@@ -34,6 +34,7 @@ function readFilter(form: HTMLFormElement): CatalogFilter {
     power: all<PowerType>('power'),
     brand: all('brand'),
     auracast: data.has('auracast'),
+    includeDiscontinued: data.has('includeDiscontinued'),
     ...(priceMax !== '' && { priceMax: Number(priceMax) }),
   }
 }
@@ -75,6 +76,10 @@ export function CatalogFilters({ items, brandNames }: { items: CatalogItem[]; br
             Auracast
           </label>
           <label>
+            <input type="checkbox" name="includeDiscontinued" />
+            Include discontinued
+          </label>
+          <label>
             Price up to, $
             <input type="number" name="priceMax" min="0" step="100" inputMode="numeric" />
           </label>
@@ -114,7 +119,21 @@ export function CatalogFilters({ items, brandNames }: { items: CatalogItem[]; br
                   <td>{item.connectivity.auracast === undefined ? dash : item.connectivity.auracast ? 'Yes' : 'No'}</td>
                   <td>{item.weightGMin === undefined ? dash : `${formatNumber(item.weightGMin)} g`}</td>
                   <td>
-                    {item.priceMin === undefined ? dash : formatPrice(item.priceMin)}
+                    {item.discontinued ? (
+                      <>
+                        Discontinued
+                        {item.lastListedPrice && (
+                          <>
+                            <br />
+                            {formatPrice(item.lastListedPrice.min)} <small>last listed price, {formatDate(item.lastListedPrice.month)}</small>
+                          </>
+                        )}
+                      </>
+                    ) : item.priceMin === undefined ? (
+                      dash
+                    ) : (
+                      formatPrice(item.priceMin)
+                    )}
                     {item.priceSource?.sourceType === 'third-party' && <SourceNote source={item.priceSource} />}
                   </td>
                   <td>{item.releaseDate === undefined ? dash : formatDate(item.releaseDate)}</td>
@@ -126,7 +145,8 @@ export function CatalogFilters({ items, brandNames }: { items: CatalogItem[]; br
       )}
       <p className="note">
         A dash means no source states the value. Models with unknown values stay in filtered results, except under the
-        Auracast and price filters. Prices are the lowest listed for any version; a price from a third party says whose
+        Auracast and price filters. Discontinued models are hidden unless included; their last listed price is not
+        part of the price filter. Prices are the lowest listed for any version; a price from a third party says whose
         it is, and each model page links the source of every price.
       </p>
     </div>
