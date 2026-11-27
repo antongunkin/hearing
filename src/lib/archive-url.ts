@@ -1,6 +1,8 @@
 // Web Archive URLs of archived copies. Client-safe: the site labels archived sources with these.
 
 const ARCHIVE = 'https://web.archive.org'
+/** The Web Archive's host: never a brand's own site. */
+export const ARCHIVE_HOST = 'web.archive.org'
 const ARCHIVE_URL = /^https?:\/\/web\.archive\.org\/web\/(\d{4,14})(id_|if_|im_)?\/(.+)$/
 
 /** The copy of `original` taken at `timestamp`; `raw` asks for the page as it was served, without the archive's frame. */
@@ -30,4 +32,14 @@ export function archiveMonth(timestamp: string): string {
 /** The archive's calendar of every copy of `original`. */
 export function archiveCalendarUrl(original: string): string {
   return `${ARCHIVE}/web/*/${original}`
+}
+
+/** `url` as the original it is a copy of; a URL that is not a Web Archive copy is returned as it is. */
+export function originalUrl(url: string): string {
+  return parseArchiveUrl(url)?.original ?? url
+}
+
+/** True for any URL on the Web Archive's host, a copy URL or not. */
+export function isArchiveHostUrl(url: string): boolean {
+  return URL.parse(url)?.hostname.toLowerCase() === ARCHIVE_HOST
 }

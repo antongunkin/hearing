@@ -1,6 +1,7 @@
 import type { Brand } from '../schema/brand'
 import type { Graph } from '../schema/graph'
 import type { Dataset } from './load'
+import { isArchiveHostUrl, originalUrl } from '../archive-url'
 import { normalizeName } from './slug'
 
 /** One message per brand whose current verified owner (a company) is not the brand's group. */
@@ -19,10 +20,11 @@ export function groupMismatches(brands: Brand[], graph: Graph): string[] {
 
 const hostOf = (url: string): string => URL.parse(url)?.hostname.replace(/^www\./, '').replace(/\.$/, '').toLowerCase() ?? ''
 
-/** The hosts of a brand's own site: its website, catalog, support and archive catalog pages, without `www.`. */
+/** The hosts of a brand's own site: its website, catalog, support and archive catalog pages, without `www.`. A Web Archive copy URL counts as its original; the Web Archive itself is never a host. */
 export function ownHosts(brand: Pick<Brand, 'website' | 'scraper' | 'archive'>): string[] {
   const urls = [brand.website, ...(brand.scraper?.catalogUrls ?? []), ...(brand.scraper?.supportUrls ?? []), ...(brand.archive?.catalogUrls ?? [])]
-  return [...new Set(urls.map(hostOf).filter((host) => host !== ''))]
+  const originals = urls.map(originalUrl).filter((url) => !isArchiveHostUrl(url))
+  return [...new Set(originals.map(hostOf).filter((host) => host !== ''))]
 }
 
 /** Every link in the value, at any depth: a `sourceUrl`, a document `url`, an entry of `sources`. */

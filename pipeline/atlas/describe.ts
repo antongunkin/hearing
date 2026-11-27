@@ -12,7 +12,7 @@ import { pdfText } from '@/pipeline/fetch/pdf'
 import { findInLog, RAW_DIR, readBody, readLog, type FetchLogEntry } from '@/pipeline/fetch/raw-store'
 import { llm } from '@/pipeline/llm'
 import { escapeRegExp } from '@/pipeline/units'
-import { archiveUrl, parseArchiveUrl } from '@/src/lib/archive-url'
+import { archiveUrl, isArchiveHostUrl, originalUrl, parseArchiveUrl } from '@/src/lib/archive-url'
 import type { Dataset } from '@/src/lib/data/load'
 import type { Brand } from '@/src/lib/schema/brand'
 import type { Sourced } from '@/src/lib/schema/field'
@@ -132,6 +132,20 @@ function patternUrls(report: SiteReport): string[] {
       ...report.pdfHosts.flatMap((host) => host.examples),
     ]),
   ]
+}
+
+/**
+ * The proposal with every Web Archive copy URL replaced by its original (the config fields hold originals), duplicates
+ * removed. A web.archive.org URL that names no original is dropped.
+ */
+export function originalUrls(proposal: ConfigProposal): ConfigProposal {
+  const originals = (list: string[]) => [...new Set(list.map(originalUrl).filter((url) => !isArchiveHostUrl(url)))]
+  return {
+    ...proposal,
+    catalogUrls: originals(proposal.catalogUrls),
+    supportUrls: originals(proposal.supportUrls),
+    ...(proposal.archive && { archive: { ...proposal.archive, catalogUrls: originals(proposal.archive.catalogUrls) } }),
+  }
 }
 
 /**
@@ -426,7 +440,7 @@ export async function describeSite(
     sections,
     openQuestions: out.openQuestions,
   }
-  const proposal = out.proposal
+  const proposal = out.proposal ? originalUrls(out.proposal) : null
   return { description, proposal, checks: proposal ? checkProposal(proposal, report, log) : {}, relations, dropped, keyPages }
 }
 

@@ -6,7 +6,7 @@ import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
 import { z } from 'zod'
 import { atlasMain } from '@/pipeline/atlas/cli'
 import { ArchiveRefusedError, SiteRefusedError } from '@/pipeline/atlas/crawl'
-import { checkProposal, describeSite, pickKeyPages } from '@/pipeline/atlas/describe'
+import { checkProposal, describeSite, originalUrls, pickKeyPages } from '@/pipeline/atlas/describe'
 import { entityFor, queueRelation } from '@/pipeline/atlas/relation'
 import { renderSiteReadme, saveDescription } from '@/pipeline/atlas/site-files'
 import { SECTION_KEYS, Sites, type ConfigProposal, type Description, type PageFacts, type Site, type SiteReport } from '@/pipeline/atlas/schema'
@@ -245,6 +245,19 @@ const proposal: ConfigProposal = {
   render: false,
   status: 'active',
 }
+
+test('the proposal holds originals: Web Archive copy URLs are unwrapped and deduplicated', () => {
+  const copy = (url: string) => `https://web.archive.org/web/20200102030405/${url}`
+  const fixed = originalUrls({
+    ...proposal,
+    catalogUrls: [copy(`${O}/hearing-aids`), `${O}/hearing-aids`],
+    supportUrls: [copy(`${O}/support`)],
+    archive: { catalogUrls: [copy(`${O}/hearing-aids`), 'https://web.archive.org/web/*/x.test'], modelUrlPattern: '^x' },
+  })
+  expect(fixed.catalogUrls).toEqual([`${O}/hearing-aids`])
+  expect(fixed.supportUrls).toEqual([`${O}/support`])
+  expect(fixed.archive).toEqual({ catalogUrls: [`${O}/hearing-aids`], modelUrlPattern: '^x' })
+})
 
 test('patterns in the proposal are checked against the report URLs', async () => {
   const log = await readLog(rawDir)
@@ -678,7 +691,7 @@ test('a gone brand without a file gets a full brand proposal from newBrand', asy
       documentUrlPattern: proposal.documentUrlPattern,
       render: false,
     },
-    archive,
+    archive: { catalogUrls: [`${O}/hearing-aids`] },
   })
 })
 

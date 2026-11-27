@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { groupMismatches, liveLinksOfGoneBrands } from '@/src/lib/data/consistency'
+import { groupMismatches, liveLinksOfGoneBrands, ownHosts } from '@/src/lib/data/consistency'
 import type { Brand } from '@/src/lib/schema/brand'
 import type { Edge, Graph } from '@/src/lib/schema/graph'
 import { loadDataset, type Dataset } from '@/src/lib/data/load'
@@ -16,6 +16,17 @@ test('an ended owner is not compared with the group', () => {
   const graph = (e: Edge): Graph => ({ entities: [{ id: 'company:gn', kind: 'company', name: 'GN' }], edges: [e] })
   expect(groupMismatches([brand], graph(edge()))).toHaveLength(1)
   expect(groupMismatches([brand], graph(edge('2021')))).toEqual([])
+})
+
+describe('ownHosts', () => {
+  test('a gone brand with an archive copy URL gets its original host, never web.archive.org', () => {
+    const brand = {
+      website: 'https://www.acme.test',
+      scraper: { catalogUrls: [], modelUrlPattern: '', render: false },
+      archive: { catalogUrls: ['https://web.archive.org/web/20200101000000/https://shop.acme.test/store', 'https://web.archive.org/web/*/x'] },
+    } as unknown as Brand
+    expect(ownHosts(brand)).toEqual(['acme.test', 'shop.acme.test'])
+  })
 })
 
 describe('liveLinksOfGoneBrands', () => {

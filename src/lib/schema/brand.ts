@@ -1,6 +1,12 @@
 import { z } from 'zod'
 import { HttpUrl, IsoDateTime, Slug } from './field'
 import { ModelType } from './model'
+import { isArchiveHostUrl } from '../archive-url'
+
+/** A page of the brand's own site: a Web Archive copy URL is not (the archive fields hold originals). */
+const OriginalUrl = HttpUrl.refine((url) => !isArchiveHostUrl(url), {
+  message: 'must be the original URL of the page, not a web.archive.org copy',
+})
 
 export const BrandStatus = z.enum(['active', 'gone'])
 export type BrandStatus = z.infer<typeof BrandStatus>
@@ -35,15 +41,15 @@ export const Brand = z.strictObject({
   /** `gone`: the brand's own site no longer answers, so it is not scraped live. */
   status: BrandStatus,
   scraper: z.strictObject({
-    catalogUrls: z.array(HttpUrl),
+    catalogUrls: z.array(OriginalUrl),
     modelUrlPattern: z.string(),
     /** Pages that link to documents (datasheets, user guides) and model pages, like catalog pages. */
-    supportUrls: z.array(HttpUrl).optional(),
+    supportUrls: z.array(OriginalUrl).optional(),
     documentUrlPattern: z.string().optional(),
     render: z.boolean(),
   }),
   /** Where the Web Archive copies of a gone brand's model pages are found. */
-  archive: z.strictObject({ catalogUrls: z.array(HttpUrl), modelUrlPattern: z.string().optional() }).optional(),
+  archive: z.strictObject({ catalogUrls: z.array(OriginalUrl), modelUrlPattern: z.string().optional() }).optional(),
   /** What happened to the brand, in 3 to 5 sourced facts. */
   history: BrandHistory.optional(),
   historySources: z.array(HttpUrl).optional(),

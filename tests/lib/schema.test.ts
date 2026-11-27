@@ -325,3 +325,19 @@ describe('archive fields', () => {
     expect(sourced(z.string()).parse(field)).toEqual(field)
   })
 })
+
+describe('Brand archive URLs', () => {
+  const base = {
+    slug: 'acme', name: 'Acme', group: 'Acme', website: 'https://acme.test', imageLicense: 'none', defaultType: 'rx', status: 'gone',
+    scraper: { catalogUrls: ['https://acme.test/c'], modelUrlPattern: '^x', render: false },
+  }
+  const copy = 'https://web.archive.org/web/20200101000000/https://acme.test/c'
+  test('rejects a web.archive.org URL in scraper and archive URL lists', () => {
+    expect(Brand.safeParse(base).success).toBe(true)
+    expect(Brand.safeParse({ ...base, scraper: { ...base.scraper, catalogUrls: [copy] } }).success).toBe(false)
+    expect(Brand.safeParse({ ...base, scraper: { ...base.scraper, supportUrls: [copy] } }).success).toBe(false)
+    const result = Brand.safeParse({ ...base, archive: { catalogUrls: [copy] } })
+    expect(result.success).toBe(false)
+    expect(JSON.stringify(result.error?.issues)).toContain('not a web.archive.org copy')
+  })
+})
