@@ -1,5 +1,8 @@
 // Official manuals and datasheets of a model: which PDFs are documents of it, and what replaces a dead link.
-import { fetchPage } from '@/pipeline/fetch/fetcher'
+import { createHash } from 'node:crypto'
+import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
+import { pdfText } from '@/pipeline/fetch/pdf'
+import { readManualDownload } from '@/pipeline/fetch/raw-store'
 import { latestCopy } from '@/pipeline/sources/wayback'
 import { archiveUrl, citableArchiveUrl, parseArchiveUrl } from '@/src/lib/archive-url'
 import { aLineNamesModel } from '@/src/lib/data/slug'
@@ -57,6 +60,17 @@ type CheckOpts = {
   onSkip?: OnSkip
   /** The stored model the candidate was merged into: the document is given to it, so it must name it too. */
   stored?: Named
+  /** Where the raw store is; the owner's hand-saved files are read from it (default `.cache/raw`). */
+  rawDir?: string
+}
+
+/** The PDF at `url`: a copy the owner saved by hand, else a fetch. */
+async function readPage(url: string, opts: CheckOpts): Promise<FetchResult> {
+  const manual = await readManualDownload(url, opts.rawDir)
+  if (manual === undefined) return fetchPage(url, opts.refresh ? { refresh: true } : {})
+  const isPdf = new TextDecoder().decode(manual.body.subarray(0, 5)) === '%PDF-'
+  const text = isPdf ? await pdfText(manual.body) : ''
+  return { status: 'ok', url, text, contentHash: createHash('sha256').update(text).digest('hex'), fetchedAt: manual.savedAt, contentType: isPdf ? 'application/pdf' : 'application/octet-stream' }
 }
 
 /**
@@ -66,7 +80,7 @@ type CheckOpts = {
  */
 async function verify(brand: Brand, model: Named, url: string, opts: CheckOpts): Promise<Checked | null> {
   const download = downloadUrl(url)
-  const page = await fetchPage(download, opts.refresh ? { refresh: true } : {})
+  const page = await readPage(download, opts)
   if (page.status === 'skipped') opts.onSkip?.(download, page.reason, page.detail)
   // A PDF that was logged as answered but gave no text is not a document.
   if (page.status !== 'ok' || page.text.trim() === '') return null

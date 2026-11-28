@@ -168,3 +168,33 @@ describe('replaceDeadDocuments', () => {
     expect(fetchPage).not.toHaveBeenCalled()
   })
 })
+
+describe('a file the owner saved by hand', () => {
+  test('is read from the raw store instead of fetched, and checked like any other PDF', async () => {
+    const { mkdtemp, writeFile } = await import('node:fs/promises')
+    const { tmpdir } = await import('node:os')
+    const { join } = await import('node:path')
+    const { storeBody } = await import('@/pipeline/fetch/raw-store')
+    const dir = await mkdtemp(join(tmpdir(), 'raw-'))
+    // A one-page PDF with the line "Phonak Paradise user guide".
+    const body = new TextEncoder().encode(
+      '%PDF-1.1\n1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj\n2 0 obj<</Type/Pages/Kids[3 0 R]/Count 1>>endobj\n' +
+        '3 0 obj<</Type/Page/Parent 2 0 R/MediaBox[0 0 300 100]/Contents 4 0 R/Resources<</Font<</F1 5 0 R>>>>>>endobj\n' +
+        '4 0 obj<</Length 60>>stream\nBT /F1 12 Tf 10 50 Td (Phonak Paradise user guide) Tj ET\nendstream endobj\n' +
+        '5 0 obj<</Type/Font/Subtype/Type1/BaseFont/Helvetica>>endobj\ntrailer<</Root 1 0 R/Size 6>>\n%%EOF',
+    )
+    const bodyHash = await storeBody(body, dir)
+    const line = { url: LIVE, bodyHash, bytes: body.length, savedAt: AT, via: 'the owner\'s Chrome' }
+    await writeFile(join(dir, 'manual-downloads.jsonl'), `${JSON.stringify(line)}\n`)
+
+    const result = await checkDocument(phonak, paradise, LIVE, { rawDir: dir })
+    expect(fetchPage).not.toHaveBeenCalled()
+    expect(result?.checks.every((c) => c.ok)).toBe(true)
+    expect(result?.document).toMatchObject({ url: LIVE, fetchedAt: AT })
+
+    // Not saved by hand: fetched as before.
+    vi.mocked(fetchPage).mockResolvedValue(pdf('https://x.test/a.pdf', 'Phonak Paradise guide'))
+    await checkDocument(phonak, paradise, 'https://x.test/a.pdf', { rawDir: dir })
+    expect(fetchPage).toHaveBeenCalledTimes(1)
+  })
+})

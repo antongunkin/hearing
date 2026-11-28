@@ -88,3 +88,22 @@ export function findInLog(
       (ref.fetchedAt === undefined || e.fetchedAt === ref.fetchedAt),
   )
 }
+
+const MANUAL_FILE = 'manual-downloads.jsonl'
+const ManualDownload = z.strictObject({ url: z.string(), bodyHash: z.string().regex(/^[0-9a-f]{64}$/), bytes: z.number(), savedAt: IsoDateTime, via: z.string() })
+
+/**
+ * A file the owner saved by hand in their own browser, because the site refuses the pipeline: the body from the
+ * raw store and the day it was saved. These are not requests of the pipeline, so they are not in the fetch log.
+ */
+export async function readManualDownload(url: string, dir = RAW_DIR): Promise<{ body: Uint8Array; savedAt: string } | undefined> {
+  let text: string
+  try {
+    text = await readFile(join(dir, MANUAL_FILE), 'utf8')
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return undefined
+    throw error
+  }
+  const entry = text.split('\n').filter(Boolean).map((line) => ManualDownload.parse(JSON.parse(line))).findLast((e) => e.url === url)
+  return entry && { body: await readBody(entry.bodyHash, dir), savedAt: entry.savedAt }
+}
