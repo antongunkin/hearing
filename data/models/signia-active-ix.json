@@ -37,6 +37,18 @@
           "chargingCase": true,
           "type": "rechargeable"
         }
+      },
+      "priceUsd": {
+        "fetchedAt": "2026-11-27T23:56:54.287Z",
+        "quote": "Online price\n$2,698\nCall or chat for price\nfor the set",
+        "sourceType": "third-party",
+        "sourceUrl": "https://injoyhearing.com/products/signia-active-ix",
+        "unit": "USD",
+        "value": {
+          "max": 2698,
+          "min": 2698,
+          "perPair": true
+        }
       }
     }
   ]

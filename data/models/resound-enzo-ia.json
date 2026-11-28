@@ -31,7 +31,18 @@
   },
   "documents": [],
   "name": "Enzo IA",
-  "sameHardwareAs": [],
+  "sameHardwareAs": [
+    {
+      "slug": "jabra-enhance-max",
+      "source": {
+        "fetchedAt": "2026-11-28T00:06:50.798Z",
+        "quote": "I have a few questions on my Jabra Enhance Max (ReSound Enzo IA) aids if anyone can answer.",
+        "sourceType": "third-party",
+        "sourceUrl": "https://forum.hearingtracker.com/t/resound-enzo-ia-any-feedback-from-new-owners/110678?page=5",
+        "value": "Enhance Max"
+      }
+    }
+  ],
   "slug": "resound-enzo-ia",
   "type": "rx",
   "variants": []

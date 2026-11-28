@@ -1,0 +1,35 @@
+{
+  "aliases": [],
+  "brand": "resound",
+  "discontinued": {
+    "lastListed": "2023-12",
+    "source": {
+      "fetchedAt": "2026-11-27T20:39:43.301Z",
+      "quote": "ReSound ONE",
+      "sourceType": "official",
+      "sourceUrl": "https://web.archive.org/web/20231207135003/https://www.resound.com/en-us/hearing-aids/resound-hearing-aids",
+      "value": "ONE"
+    }
+  },
+  "documents": [],
+  "name": "ONE",
+  "sameHardwareAs": [],
+  "slug": "resound-one",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "BTE",
+      "id": "behind-the-ear-bte",
+      "power": {
+        "fetchedAt": "2026-11-27T20:40:40.407Z",
+        "quote": "Perfect for a bedside table or nightstand, simply place your hearing aids in the charger at night and wake up to a full-day of reliable battery life.",
+        "sourceType": "official",
+        "sourceUrl": "https://web.archive.org/web/20240803021529/https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-one",
+        "value": {
+          "chargingCase": true,
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

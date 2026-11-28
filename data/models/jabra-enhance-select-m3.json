@@ -28,14 +28,23 @@
       "formFactor": "RIC",
       "id": "select-m3",
       "power": {
-        "fetchedAt": "2026-11-27T17:16:14.435Z",
+        "fetchedAt": "2026-11-28T00:12:42.765Z",
         "quote": "3-hour charge 24-hour power",
         "sourceType": "official",
         "sourceUrl": "https://www.jabraenhance.com/product/enhanceselectm3",
         "value": {
           "batteryHours": 24,
+          "chargingCase": true,
           "type": "rechargeable"
         }
+      },
+      "priceUsd": {
+        "fetchedAt": "2026-11-28T00:12:42.765Z",
+        "quote": "$1,695 $1,995",
+        "sourceType": "official",
+        "sourceUrl": "https://www.jabraenhance.com/product/enhanceselectm3",
+        "unit": "USD",
+        "value": 1995
       },
       "weightG": {
         "fetchedAt": "2026-11-27T17:16:14.435Z",

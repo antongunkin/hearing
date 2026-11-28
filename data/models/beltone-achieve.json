@@ -1,5 +1,10 @@
 {
   "aliases": [],
+  "app": {
+    "androidUrl": "https://play.google.com/store/apps/details?id=com.beltone.hearmax",
+    "iosId": "1161360579",
+    "name": "Beltone HearMax"
+  },
   "brand": "beltone",
   "documents": [],
   "name": "Achieve",

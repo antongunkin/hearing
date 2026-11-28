@@ -32,7 +32,18 @@
   },
   "documents": [],
   "name": "Savi",
-  "sameHardwareAs": [],
+  "sameHardwareAs": [
+    {
+      "slug": "beltone-commence",
+      "source": {
+        "fetchedAt": "2026-11-28T00:08:49.016Z",
+        "quote": "Savi (and its Beltone twin, Commence) are roughly in the $1500-$3000 range per pair for the average retail purchase.",
+        "sourceType": "third-party",
+        "sourceUrl": "https://www.hearingtracker.com/hearing-aids/resound-savi",
+        "value": "Commence"
+      }
+    }
+  ],
   "slug": "resound-savi",
   "type": "rx",
   "variants": [

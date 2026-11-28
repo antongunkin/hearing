@@ -27,7 +27,17 @@
   "variants": [
     {
       "formFactor": "RIC",
-      "id": "pure-charge-go-bct-ix"
+      "id": "pure-charge-go-bct-ix",
+      "power": {
+        "fetchedAt": "2026-11-27T23:56:11.633Z",
+        "quote": "with an unprecedented runtime of 36 hours on one charge (with 5 hours of streaming)",
+        "sourceType": "official",
+        "sourceUrl": "https://www.signia.net/en-us/hearing-aids/integrated-xperience/pure-charge-go-ix/",
+        "value": {
+          "batteryHours": 36,
+          "type": "rechargeable"
+        }
+      }
     }
   ]
 }

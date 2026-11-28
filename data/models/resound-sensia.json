@@ -50,6 +50,18 @@
         "sourceType": "official",
         "sourceUrl": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-sensia",
         "value": "IP68"
+      },
+      "priceUsd": {
+        "fetchedAt": "2026-11-28T00:09:20.427Z",
+        "quote": "$3,398per pair",
+        "sourceType": "third-party",
+        "sourceUrl": "https://www.hearingtracker.com/hearing-aids/resound-sensia",
+        "unit": "USD",
+        "value": {
+          "max": 3398,
+          "min": 3398,
+          "perPair": true
+        }
       }
     },
     {
@@ -61,6 +73,18 @@
         "sourceType": "official",
         "sourceUrl": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-sensia",
         "value": "IP68"
+      },
+      "priceUsd": {
+        "fetchedAt": "2026-11-28T00:09:35.882Z",
+        "quote": "$ 5,398.00 $ 4,098.00 / pair",
+        "sourceType": "third-party",
+        "sourceUrl": "https://www.soundly.com/product/resound-sensia-ric",
+        "unit": "USD",
+        "value": {
+          "max": 4098,
+          "min": 4098,
+          "perPair": true
+        }
       }
     },
     {

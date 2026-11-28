@@ -24,7 +24,18 @@
     "sourceUrl": "https://web.archive.org/web/20231201093636/https://www.jabraenhance.com/product/enhanceselect300",
     "value": "2023-12"
   },
-  "sameHardwareAs": [],
+  "sameHardwareAs": [
+    {
+      "slug": "resound-nexia-5s",
+      "source": {
+        "fetchedAt": "2026-11-28T00:16:23.264Z",
+        "quote": "They confirmed for me that the Jabra Enhance Select 500s are the same thing as the ReSound Nexia 5s.",
+        "sourceType": "third-party",
+        "sourceUrl": "https://forum.hearingtracker.com/t/new-otc-hearing-aid-from-jabra-enhance/88777",
+        "value": "Nexia 5s"
+      }
+    }
+  ],
   "slug": "jabra-enhance-select",
   "tinnitus": {
     "fetchedAt": "2026-11-27T20:18:47.639Z",

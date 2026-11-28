@@ -31,6 +31,18 @@
           "chargingCase": true,
           "type": "rechargeable"
         }
+      },
+      "priceUsd": {
+        "fetchedAt": "2026-11-27T23:57:24.476Z",
+        "quote": "Clinic price (pair)\nDiscount network (pair)\nHearSilk\nInsio Charge&Go CIC/ITC 7IX\n$5,500–$7,000",
+        "sourceType": "third-party",
+        "sourceUrl": "https://www.hearsilk.com/blogs/news/signia-hearing-aids-cost-2026",
+        "unit": "USD",
+        "value": {
+          "max": 7000,
+          "min": 5500,
+          "perPair": true
+        }
       }
     }
   ]

@@ -1,5 +1,10 @@
 {
   "aliases": [],
+  "app": {
+    "androidUrl": "https://play.google.com/store/apps/details?id=com.beltone.hearmax",
+    "iosId": "1161360579",
+    "name": "Beltone HearMax"
+  },
   "brand": "beltone",
   "connectivity": {
     "fetchedAt": "2026-11-27T17:08:13.649Z",
@@ -19,31 +24,115 @@
   "variants": [
     {
       "formFactor": "RIC",
-      "id": "rie"
+      "id": "rie",
+      "priceUsd": {
+        "fetchedAt": "2026-11-28T00:05:23.325Z",
+        "quote": "Beispielsweise werden die Serene-Produkte Sie wahrscheinlich zwischen $4,500-$7,000 pro Paar kosten.",
+        "sourceType": "third-party",
+        "sourceUrl": "https://www.hearingtracker.com/de/hearing-aids/beltone-serene",
+        "unit": "USD",
+        "value": {
+          "max": 7000,
+          "min": 4500,
+          "perPair": true
+        }
+      }
     },
     {
       "formFactor": "RIC",
-      "id": "microrie"
+      "id": "microrie",
+      "priceUsd": {
+        "fetchedAt": "2026-11-28T00:05:23.325Z",
+        "quote": "Beispielsweise werden die Serene-Produkte Sie wahrscheinlich zwischen $4,500-$7,000 pro Paar kosten.",
+        "sourceType": "third-party",
+        "sourceUrl": "https://www.hearingtracker.com/de/hearing-aids/beltone-serene",
+        "unit": "USD",
+        "value": {
+          "max": 7000,
+          "min": 4500,
+          "perPair": true
+        }
+      }
     },
     {
       "formFactor": "CIC",
-      "id": "cic"
+      "id": "cic",
+      "priceUsd": {
+        "fetchedAt": "2026-11-28T00:05:23.325Z",
+        "quote": "Beispielsweise werden die Serene-Produkte Sie wahrscheinlich zwischen $4,500-$7,000 pro Paar kosten.",
+        "sourceType": "third-party",
+        "sourceUrl": "https://www.hearingtracker.com/de/hearing-aids/beltone-serene",
+        "unit": "USD",
+        "value": {
+          "max": 7000,
+          "min": 4500,
+          "perPair": true
+        }
+      }
     },
     {
       "formFactor": "ITE",
-      "id": "ite"
+      "id": "ite",
+      "priceUsd": {
+        "fetchedAt": "2026-11-28T00:05:23.325Z",
+        "quote": "Beispielsweise werden die Serene-Produkte Sie wahrscheinlich zwischen $4,500-$7,000 pro Paar kosten.",
+        "sourceType": "third-party",
+        "sourceUrl": "https://www.hearingtracker.com/de/hearing-aids/beltone-serene",
+        "unit": "USD",
+        "value": {
+          "max": 7000,
+          "min": 4500,
+          "perPair": true
+        }
+      }
     },
     {
       "formFactor": "ITC",
-      "id": "itc"
+      "id": "itc",
+      "priceUsd": {
+        "fetchedAt": "2026-11-28T00:05:23.325Z",
+        "quote": "Beispielsweise werden die Serene-Produkte Sie wahrscheinlich zwischen $4,500-$7,000 pro Paar kosten.",
+        "sourceType": "third-party",
+        "sourceUrl": "https://www.hearingtracker.com/de/hearing-aids/beltone-serene",
+        "unit": "USD",
+        "value": {
+          "max": 7000,
+          "min": 4500,
+          "perPair": true
+        }
+      }
     },
     {
       "formFactor": "BTE",
-      "id": "bte"
+      "id": "bte",
+      "priceUsd": {
+        "fetchedAt": "2026-11-28T00:05:23.325Z",
+        "quote": "Beispielsweise werden die Serene-Produkte Sie wahrscheinlich zwischen $4,500-$7,000 pro Paar kosten.",
+        "sourceType": "third-party",
+        "sourceUrl": "https://www.hearingtracker.com/de/hearing-aids/beltone-serene",
+        "unit": "USD",
+        "value": {
+          "max": 7000,
+          "min": 4500,
+          "perPair": true
+        }
+      }
     },
     {
       "formFactor": "BTE",
-      "id": "powerbte"
+      "id": "powerbte",
+      "priceUsd": {
+        "fetchedAt": "2026-11-28T00:05:23.325Z",
+        "quote": "Beispielsweise werden die Serene-Produkte Sie wahrscheinlich zwischen $4,500-$7,000 pro Paar kosten.",
+        "sourceType": "third-party",
+        "sourceUrl": "https://www.hearingtracker.com/de/hearing-aids/beltone-serene",
+        "unit": "USD",
+        "value": {
+          "max": 7000,
+          "min": 4500,
+          "perPair": true
+        }
+      }
     }
   ]
 }

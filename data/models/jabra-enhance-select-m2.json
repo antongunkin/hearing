@@ -1,0 +1,27 @@
+{
+  "aliases": [],
+  "brand": "jabra-enhance",
+  "connectivity": {
+    "fetchedAt": "2026-11-28T00:13:09.375Z",
+    "quote": "The Select M2 features Bluetooth LE Audio & Auracast™",
+    "sourceType": "official",
+    "sourceUrl": "https://www.jabraenhance.com/product/enhanceselectm2",
+    "value": {
+      "auracast": true,
+      "leAudio": true
+    }
+  },
+  "documents": [],
+  "name": "Select M2",
+  "platform": {
+    "fetchedAt": "2026-11-28T00:13:09.375Z",
+    "quote": "Advanced hearing technology powered by SoundScape™ delivers next-level listening",
+    "sourceType": "official",
+    "sourceUrl": "https://www.jabraenhance.com/product/enhanceselectm2",
+    "value": "SoundScape"
+  },
+  "sameHardwareAs": [],
+  "slug": "jabra-enhance-select-m2",
+  "type": "otc",
+  "variants": []
+}
