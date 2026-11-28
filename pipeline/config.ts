@@ -37,12 +37,10 @@ export const config = {
   llm: {
     claudeModel: 'haiku',
     describeModel: 'sonnet',
-    ollamaModel: 'qwen3:8b',
-    ollamaUrl: 'http://localhost:11434',
-    // Ollama's default context is small and silently truncates long pages.
-    ollamaNumCtx: 16384,
+    /** Re-reads the risky fields; a stronger model than the extractor (`claudeModel`). */
+    crossCheckModel: 'sonnet',
     /** Deadline for one call to each provider. */
-    timeoutMs: { claude: 300_000, ollama: 600_000, gemini: 300_000 },
+    timeoutMs: { claude: 300_000, gemini: 300_000 },
     // Newest model named "Flash" with a free tier and video input, checked 2026-11-26:
     // https://ai.google.dev/gemini-api/docs/models (pricing: /docs/pricing, YouTube URLs: /docs/video-understanding#youtube)
     geminiModel: 'gemini-3.8-flash',

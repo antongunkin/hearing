@@ -85,7 +85,7 @@ export function Value({ value }: { value: unknown }): ReactNode {
 export function Checks({ checks }: { checks: CheckResult[] }) {
   return checks.map((check, i) =>
     notRun(check) ? (
-      <div key={i}>– not checked: {check.name} (Ollama is not available)</div>
+      <div key={i}>– not checked: {check.name} (Claude is not available)</div>
     ) : (
       <div key={i} style={check.ok ? undefined : failedStyle}>
         {check.ok ? '✓' : '✗ failed:'} {check.name}

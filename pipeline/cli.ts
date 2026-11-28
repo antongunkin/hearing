@@ -45,7 +45,7 @@ import { pairSlug, selectCuratedPairs } from '@/src/lib/site/pairs'
 
 type Page = Extract<FetchResult, { status: 'ok' }>
 
-const PROVIDER_NAMES = { claude: 'Claude', gemini: 'Gemini', ollama: 'Ollama' } as const
+const PROVIDER_NAMES = { claude: 'Claude', gemini: 'Gemini' } as const
 
 const STEPS = ['scrape', 'fda', 'apps', 'reviews', 'youtube'] as const
 type Step = (typeof STEPS)[number]

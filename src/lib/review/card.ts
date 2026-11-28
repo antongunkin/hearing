@@ -1,8 +1,8 @@
 // How the new-model card reads its checks and its form. No I/O: client-safe.
 import type { CheckResult } from '@/src/lib/schema/pending'
 
-/** A check that could not run (Ollama is not installed): the field is "not checked", not failed. */
-export const notRun = (check: CheckResult) => check.name === 'crosscheck' && check.detail === 'ollama-unavailable'
+/** A check that could not run (the cross-check model could not be reached): the field is "not checked", not failed. */
+export const notRun = (check: CheckResult) => check.name === 'crosscheck' && check.detail === 'crosscheck-unavailable'
 
 /** True when a check ran and failed. */
 export const failed = (check: CheckResult) => !check.ok && !notRun(check)

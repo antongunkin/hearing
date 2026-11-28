@@ -27,27 +27,15 @@ Extraction runs `claude -p` on your Claude subscription (model alias `haiku`). I
 `ANTHROPIC_BASE_URL`, `CLAUDE_CODE_USE_BEDROCK` and `CLAUDE_CODE_USE_VERTEX` from the CLI's environment, so
 these calls stay on the subscription and are not billed to an API or cloud account.
 
-### Ollama
+### Cross-check
 
-A second, local model re-reads the risky fields (weight, dimensions, IP rating, power, connectivity,
-tinnitus). Install it **before the first full `update`**: without it those fields are not cross-checked
-at all.
+A second model re-reads the risky fields (weight, dimensions, IP rating, power, connectivity, tinnitus) from
+the quote alone. Extraction runs on Haiku; the cross-check runs on Sonnet (`crossCheckModel` in
+`pipeline/config.ts`), through the same `claude -p` login and subscription as above. Nothing else to install.
 
-Install [Ollama](https://ollama.com), start it, then:
-
-```bash
-ollama pull qwen3:8b
-```
-
-Check that it answers (it should print a short reply within a minute):
-
-```bash
-ollama run qwen3:8b "Reply with the word OK."
-```
-
-Without Ollama the pipeline still runs. On `/review` each of those fields shows "not checked: crosscheck
-(Ollama is not available)"; that is not a failure, so the field still starts ticked when its other checks
-pass. Any other change to such a field waits for your review.
+If the CLI cannot be reached, `/review` shows "not checked: crosscheck (Claude is not available)" for those
+fields. That is not a failure, so the field still starts ticked when its other checks pass. Any other change
+to such a field waits for your review.
 
 The device type (`rx`, `otc` or `consumer`) is not re-read. Each brand config has a `defaultType`, which a
 model gets when its pages do not say. When a page states another type, the model takes the page's type and
@@ -86,12 +74,11 @@ npm run update -- --refresh
 The `reviews`, `youtube`, `apps` and third-party parts of `scrape` work on stored models only, so the first
 `update` finds new models and nothing else. Load the data in two passes:
 
-1. Install and check Ollama (see [Ollama](#ollama)).
-2. `npm run update -- --refresh`: new models go to `data/pending/`.
-3. Approve or reject them on `/review` (see [Review the queue](#review-the-queue)).
-4. `npm run update -- --refresh` again: ratings, complaint themes, pros and cons, videos, third-party Rx
+1. `npm run update -- --refresh`: new models go to `data/pending/`.
+2. Approve or reject them on `/review` (see [Review the queue](#review-the-queue)).
+3. `npm run update -- --refresh` again: ratings, complaint themes, pros and cons, videos, third-party Rx
    prices and hardware twins of the approved models. Review what this queues too.
-5. `npm run pairs`, then commit and deploy (see [Publish](#publish)).
+4. `npm run pairs`, then commit and deploy (see [Publish](#publish)).
 
 After that, one `update` a week and a review of its queue is the routine.
 

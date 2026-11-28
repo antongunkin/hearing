@@ -3,6 +3,7 @@ import { readFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { afterEach, describe, expect, test, vi } from 'vitest'
 import { crossCheck, isRisky } from '@/pipeline/checks/crosscheck'
+import { config } from '@/pipeline/config'
 import { fetchPage, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { llm, LlmUnavailableError } from '@/pipeline/llm'
 import { discoverModelUrls, extractModel, matchExistingModel, mergeCandidates, type ModelCandidate } from '@/pipeline/sources/brand-site'
@@ -578,21 +579,21 @@ describe('matchExistingModel', () => {
 })
 
 describe('crossCheck', () => {
-  test('crossCheck mismatch beyond 2% fails; ollama down → ollama-unavailable', async () => {
+  test('crossCheck mismatch beyond 2% fails; Claude down → crosscheck-unavailable', async () => {
     llmMock.mockResolvedValueOnce({ value: 3.15 })
     expect(await crossCheck('variants.0.weightG', 'Weight: 0.11 oz', 3.12)).toEqual({ name: 'crosscheck', ok: true })
-    expect(llmMock.mock.calls[0][0]).toMatchObject({ provider: 'ollama' })
+    expect(llmMock.mock.calls[0][0]).toMatchObject({ provider: 'claude', model: config.llm.crossCheckModel })
     expect(llmMock.mock.calls[0][0].prompt).toContain('Weight: 0.11 oz')
     expect(llmMock.mock.calls[0][0].prompt).not.toContain('3.12')
 
     llmMock.mockResolvedValueOnce({ value: 3.2 })
     expect(await crossCheck('variants.0.weightG', 'Weight: 0.11 oz', 3.12)).toMatchObject({ name: 'crosscheck', ok: false })
 
-    llmMock.mockRejectedValueOnce(new LlmUnavailableError('Ollama is not running'))
+    llmMock.mockRejectedValueOnce(new LlmUnavailableError('claude CLI not found in PATH'))
     expect(await crossCheck('variants.0.weightG', 'Weight: 0.11 oz', 3.12)).toEqual({
       name: 'crosscheck',
       ok: false,
-      detail: 'ollama-unavailable',
+      detail: 'crosscheck-unavailable',
     })
   })
 

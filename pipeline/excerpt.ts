@@ -1,4 +1,4 @@
-/** Source text in one prompt (Ruling M: Ollama's context and Claude's budget). */
+/** Source text in one prompt (Ruling M: Claude's budget). */
 export const PROMPT_TEXT_BUDGET = 48_000
 
 /** The part of the text that fits `max`, placed where matches of `words` (a global pattern) are densest. */

@@ -4,15 +4,15 @@ import { cardDecision, failed, startsTicked } from '@/src/lib/review/card'
 import type { CheckResult } from '@/src/lib/schema/pending'
 
 const ok = (name: CheckResult['name']): CheckResult => ({ name, ok: true })
-const noOllama: CheckResult = { name: 'crosscheck', ok: false, detail: 'ollama-unavailable' }
+const noCrossCheck: CheckResult = { name: 'crosscheck', ok: false, detail: 'crosscheck-unavailable' }
 
 test('a cross-check that could not run counts as not checked, not as a failure', () => {
-  expect(startsTicked([ok('literal'), ok('range'), noOllama])).toBe(true)
-  expect(failed(noOllama)).toBe(false)
-  expect(startsTicked([noOllama])).toBe(false) // nothing ran: not checked
+  expect(startsTicked([ok('literal'), ok('range'), noCrossCheck])).toBe(true)
+  expect(failed(noCrossCheck)).toBe(false)
+  expect(startsTicked([noCrossCheck])).toBe(false) // nothing ran: not checked
   expect(startsTicked([])).toBe(false)
-  expect(startsTicked([ok('literal'), { name: 'crosscheck', ok: false, detail: 'ollama read 3' }])).toBe(false)
-  expect(startsTicked([{ name: 'literal', ok: false }, noOllama])).toBe(false)
+  expect(startsTicked([ok('literal'), { name: 'crosscheck', ok: false, detail: 'sonnet read 3' }])).toBe(false)
+  expect(startsTicked([{ name: 'literal', ok: false }, noCrossCheck])).toBe(false)
 })
 
 test('only fields that started ticked and were unticked are rejected', () => {

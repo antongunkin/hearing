@@ -5,14 +5,13 @@ import { cachePath, readCache } from './cache'
 import { callClaude, type Exec } from './claude-cli'
 import { LlmOutputError } from './errors'
 import { callGemini, type GeminiClient } from './gemini'
-import { callOllama } from './ollama'
 
 export { LlmLimitError, LlmOutputError, LlmUnavailableError } from './errors'
 
 export interface LlmOptions<T> {
   prompt: string
   schema: ZodType<T>
-  provider: 'claude' | 'ollama' | 'gemini'
+  provider: 'claude' | 'gemini'
   /** Claude only. */
   tools?: ['WebSearch']
   /** Claude only: the model to use instead of `config.llm.claudeModel`. */
@@ -24,7 +23,6 @@ export interface LlmOptions<T> {
 /** Replacements for tests. */
 export interface LlmDeps {
   exec?: Exec
-  fetch?: typeof fetch
   gemini?: GeminiClient
   cacheDir?: string
 }
@@ -48,8 +46,6 @@ export async function llm<T>(options: LlmOptions<T>, deps: LlmDeps = {}): Promis
     switch (provider) {
       case 'claude':
         return callClaude({ prompt, jsonSchema, tools, model }, deps.exec)
-      case 'ollama':
-        return callOllama({ prompt, jsonSchema }, deps.fetch)
       case 'gemini':
         return callGemini({ prompt, jsonSchema, youtubeUrl }, deps.gemini)
     }

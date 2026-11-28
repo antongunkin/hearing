@@ -268,58 +268,6 @@ describe('claude', () => {
   })
 })
 
-describe('ollama', () => {
-  const reply = (content: string) => vi.fn<typeof fetch>(async () => Response.json({ message: { content } }))
-  const ollama = (deps: LlmDeps) => run(deps, { provider: 'ollama' })
-
-  test('posts the chat request with the schema as format', async () => {
-    const fetch = reply('{"ok":true}')
-
-    await expect(ollama({ fetch })).resolves.toEqual({ ok: true })
-
-    const [url, init] = fetch.mock.calls[0]
-    expect(url).toBe(`${config.llm.ollamaUrl}/api/chat`)
-    expect(init?.method).toBe('POST')
-    expect(JSON.parse(init?.body as string)).toEqual({
-      model: config.llm.ollamaModel,
-      messages: [{ role: 'user', content: 'Return ok=true' }],
-      format: z.toJSONSchema(schema),
-      stream: false,
-      options: { num_ctx: 16384 },
-    })
-  })
-
-  test('no answer by the deadline → LlmUnavailableError with detail timeout, no retry', async () => {
-    expect(config.llm.timeoutMs.ollama).toBe(600_000)
-    config.llm.timeoutMs.ollama = 20
-    const fetch = vi.fn<typeof globalThis.fetch>((_url, init) => hang(init?.signal))
-
-    await expect(ollama({ fetch })).rejects.toMatchObject(timedOut)
-    expect(fetch).toHaveBeenCalledTimes(1)
-  })
-
-  test('ECONNREFUSED → LlmUnavailableError', async () => {
-    const fetch = vi.fn(async (): Promise<Response> => {
-      throw new TypeError('fetch failed', { cause: Object.assign(new Error(), { code: 'ECONNREFUSED' }) })
-    })
-
-    await expect(ollama({ fetch })).rejects.toBeInstanceOf(LlmUnavailableError)
-  })
-
-  test('model not pulled (404) → LlmUnavailableError', async () => {
-    const fetch = vi.fn(async () => Response.json({ error: 'model not found' }, { status: 404 }))
-
-    await expect(ollama({ fetch })).rejects.toBeInstanceOf(LlmUnavailableError)
-  })
-
-  test('invalid JSON content → LlmOutputError', async () => {
-    const fetch = reply('sure! ok=true')
-
-    await expect(ollama({ fetch })).rejects.toBeInstanceOf(LlmOutputError)
-    expect(fetch).toHaveBeenCalledTimes(2)
-  })
-})
-
 describe('gemini', () => {
   const youtubeUrl = 'https://www.youtube.com/watch?v=9hE5-98ZeCg'
   const stubGemini = (text: string) => ({ generateContent: vi.fn(async () => ({ text })) })

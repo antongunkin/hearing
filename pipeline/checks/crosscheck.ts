@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { config } from '@/pipeline/config'
 import { llm, LlmOutputError, LlmUnavailableError } from '@/pipeline/llm'
 import type { CheckResult } from '@/src/lib/schema/pending'
 
@@ -54,28 +55,28 @@ function agrees(expected: unknown, actual: unknown): boolean {
 
 const Reread = z.strictObject({ value: z.unknown() })
 
-/** Ollama reads the value again from the quote alone; numbers may differ by 2%. */
+/** Sonnet reads the value again from the quote alone (extraction runs on Haiku); numbers may differ by 2%. */
 export async function crossCheck(path: string, quote: string, value: unknown): Promise<CheckResult> {
   const field = path.split('.').at(-1) ?? path
   const prompt = [
     `Read the value of the hearing aid spec field "${field}" from the quote below. Use only the quote.`,
     HINTS[field] ? `Meaning: ${HINTS[field]}.` : '',
-    `Answer as JSON {"value": ...} where value has this shape: ${JSON.stringify(shapeOf(value))}.`,
-    'Leave out object keys the quote does not state. If the quote does not state the value at all, answer {"value": null}.',
+    `Put what you read in the "value" field of your answer. It has this shape: ${JSON.stringify(shapeOf(value))}.`,
+    'Leave out object keys the quote does not state. If the quote does not state the value at all, set "value" to null.',
     '',
     `Quote: """${quote}"""`,
   ].join('\n')
 
   let reread: unknown
   try {
-    ;({ value: reread } = await llm({ prompt, schema: Reread, provider: 'ollama' }))
+    ;({ value: reread } = await llm({ prompt, schema: Reread, provider: 'claude', model: config.llm.crossCheckModel }))
   } catch (error) {
-    if (error instanceof LlmUnavailableError) return { name: 'crosscheck', ok: false, detail: 'ollama-unavailable' }
-    if (error instanceof LlmOutputError) return { name: 'crosscheck', ok: false, detail: 'ollama-output-invalid' }
+    if (error instanceof LlmUnavailableError) return { name: 'crosscheck', ok: false, detail: 'crosscheck-unavailable' }
+    if (error instanceof LlmOutputError) return { name: 'crosscheck', ok: false, detail: 'crosscheck-output-invalid' }
     throw error
   }
 
   return agrees(value, reread)
     ? { name: 'crosscheck', ok: true }
-    : { name: 'crosscheck', ok: false, detail: `ollama read ${JSON.stringify(reread ?? null)}` }
+    : { name: 'crosscheck', ok: false, detail: `sonnet read ${JSON.stringify(reread ?? null)}` }
 }

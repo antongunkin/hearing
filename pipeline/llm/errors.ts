@@ -15,7 +15,7 @@ export function timeoutError(provider: string, ms: number, options?: ErrorOption
 export class LlmLimitError extends Error {
   override name = 'LlmLimitError'
   constructor(
-    readonly provider: 'claude' | 'ollama' | 'gemini',
+    readonly provider: 'claude' | 'gemini',
     message: string,
     options?: ErrorOptions,
   ) {
