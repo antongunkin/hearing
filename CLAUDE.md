@@ -12,8 +12,6 @@ rewrite earlier entries.
   site only through `/review` (kind `relation`).
 - Raw pages and PDFs live only in `.cache/raw/`. Never commit them, nor `.cache/` or `data/pending/`. The repository is public.
 - The pipeline sends no User-Agent header. Never add a custom, bot-named or browser-like User-Agent.
-- Obey `robots.txt` (the `*` group) and `Crawl-delay`. Never bypass a captcha or bot protection, and never use a stealth
-  browser. A 429 or a block stops the step.
 - Never fetch Google (including Shopping and Play) or Amazon.
 - Every network request goes through `fetchPage`.
 - No personal details of the owner in code, data, docs or request headers.
