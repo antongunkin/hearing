@@ -115,6 +115,7 @@ export async function renderPage(url: URL, allows: (url: URL) => boolean): Promi
     return { ...reply!, contentType: 'text/html', body: new TextEncoder().encode(await page.content()), rendered: true }
   } finally {
     await context?.close().catch(() => {})
-    await browser.disconnect()
+    // Over CDP this only disconnects: the shared server stays up.
+    await browser.close()
   }
 }

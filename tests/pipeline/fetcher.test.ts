@@ -528,7 +528,7 @@ describe('render', () => {
   function stubBrowser(document: Document, rendered: string, further: { url: string; navigation?: boolean }[] = []) {
     const seen: { url: string; outcome: string }[] = []
     const ran = vi.fn()
-    const disconnect = vi.fn()
+    const close = vi.fn()
     const navigated = vi.fn()
     let handler: (route: unknown) => Promise<void>
     let contextOptions: unknown
@@ -557,7 +557,7 @@ describe('render', () => {
     }
 
     connectOverCDP.mockResolvedValue({
-      disconnect,
+      close,
       newContext: async (options: unknown) => {
         contextOptions = options
         return {
@@ -576,7 +576,7 @@ describe('render', () => {
         }
       },
     })
-    return { seen, ran, disconnect, navigated, options: () => contextOptions }
+    return { seen, ran, close, navigated, options: () => contextOptions }
   }
 
   test('returns the page as it stands after scripts ran', async () => {
@@ -588,7 +588,7 @@ describe('render', () => {
     expect(result.text).toBe('Weight 2.1 g')
     expect(browser.options()).toMatchObject({ serviceWorkers: 'block' })
     expect(browser.options()).not.toHaveProperty('userAgent')
-    expect(browser.disconnect).toHaveBeenCalled()
+    expect(browser.close).toHaveBeenCalled()
     // Waiting for "load" hangs in Chromium when the refused navigation came from a script during it.
     expect(browser.navigated).toHaveBeenCalledWith({ waitUntil: 'commit' })
   })
@@ -775,7 +775,7 @@ describe('raw store and fetch log', () => {
     const site = await serve({})
     const rendered = '<html><body><p>Weight 2.1 g</p></body></html>'
     connectOverCDP.mockResolvedValue({
-      disconnect: vi.fn(),
+      close: vi.fn(),
       newContext: async () => {
         let handler: (route: unknown) => Promise<void>
         return {
