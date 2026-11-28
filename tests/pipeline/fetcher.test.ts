@@ -12,8 +12,8 @@ import { looksLikeBotWall } from '@/pipeline/fetch/bot-detect'
 import { blockDomains, fetchPage, isBlocked, type FetchResult } from '@/pipeline/fetch/fetcher'
 import { readBody, readLog } from '@/pipeline/fetch/raw-store'
 
-const launch = vi.hoisted(() => vi.fn())
-vi.mock('playwright', () => ({ chromium: { launch } }))
+const connectOverCDP = vi.hoisted(() => vi.fn())
+vi.mock('playwright', () => ({ chromium: { connectOverCDP } }))
 
 const fixture = (name: string) => readFile(fileURLToPath(new URL(`../fixtures/pages/${name}`, import.meta.url)))
 
@@ -35,6 +35,7 @@ afterAll(async () => {
 const servers: Server[] = []
 beforeEach(() => {
   vi.stubEnv('NEXT_PUBLIC_SITE_URL', 'https://hearing.test/')
+  vi.stubEnv('OBSCURA_ENDPOINT', 'ws://127.0.0.1:9222')
   Object.assign(config, { minDelayMs: 0, maxDelayMs: 0 })
 })
 afterEach(async () => {
@@ -43,7 +44,7 @@ afterEach(async () => {
   vi.unstubAllEnvs()
   vi.unstubAllGlobals()
   vi.restoreAllMocks()
-  launch.mockReset()
+  connectOverCDP.mockReset()
   await Promise.all(
     servers.splice(0).map((server) => {
       server.closeAllConnections()
@@ -527,7 +528,7 @@ describe('render', () => {
   function stubBrowser(document: Document, rendered: string, further: { url: string; navigation?: boolean }[] = []) {
     const seen: { url: string; outcome: string }[] = []
     const ran = vi.fn()
-    const close = vi.fn()
+    const disconnect = vi.fn()
     const navigated = vi.fn()
     let handler: (route: unknown) => Promise<void>
     let contextOptions: unknown
@@ -555,11 +556,12 @@ describe('render', () => {
       return outcome
     }
 
-    launch.mockResolvedValue({
-      close,
+    connectOverCDP.mockResolvedValue({
+      disconnect,
       newContext: async (options: unknown) => {
         contextOptions = options
         return {
+          close: async () => {},
           route: async (_pattern: string, given: typeof handler) => void (handler = given),
           newPage: async () => ({
             goto: async (url: string, options: unknown) => {
@@ -574,7 +576,7 @@ describe('render', () => {
         }
       },
     })
-    return { seen, ran, close, navigated, options: () => contextOptions }
+    return { seen, ran, disconnect, navigated, options: () => contextOptions }
   }
 
   test('returns the page as it stands after scripts ran', async () => {
@@ -586,7 +588,7 @@ describe('render', () => {
     expect(result.text).toBe('Weight 2.1 g')
     expect(browser.options()).toMatchObject({ serviceWorkers: 'block' })
     expect(browser.options()).not.toHaveProperty('userAgent')
-    expect(browser.close).toHaveBeenCalled()
+    expect(browser.disconnect).toHaveBeenCalled()
     // Waiting for "load" hangs in Chromium when the refused navigation came from a script during it.
     expect(browser.navigated).toHaveBeenCalledWith({ waitUntil: 'commit' })
   })
@@ -643,14 +645,14 @@ describe('render', () => {
     stubBrowser({ status: 302, location: 'https://www.amazon.com/dp/B0' }, '<p>never</p>')
 
     expect(await get(`${site.origin}/app`, { render: true })).toMatchObject({ reason: 'blocklist' })
-    expect(launch).toHaveBeenCalledTimes(1)
+    expect(connectOverCDP).toHaveBeenCalledTimes(1)
   })
 
   test('a browser that cannot start is an error, not a skipped source', async () => {
     const site = await serve({})
-    launch.mockRejectedValue(new Error("Executable doesn't exist"))
+    connectOverCDP.mockRejectedValue(new Error('Connection refused'))
 
-    await expect(get(`${site.origin}/app`, { render: true })).rejects.toThrow(/playwright install chromium/)
+    await expect(get(`${site.origin}/app`, { render: true })).rejects.toThrow(/obscura/)
   })
 
   test('a plain cached copy does not answer a render request', async () => {
@@ -660,7 +662,7 @@ describe('render', () => {
 
     expect(ok(await get(`${site.origin}/app`, { render: true })).text).toBe('rendered')
     expect(ok(await get(`${site.origin}/app`)).text).toBe('rendered')
-    expect(launch).toHaveBeenCalledTimes(1)
+    expect(connectOverCDP).toHaveBeenCalledTimes(1)
   })
 })
 
@@ -772,11 +774,12 @@ describe('raw store and fetch log', () => {
   test('a rendered page is stored as rendered HTML with rendered: true', async () => {
     const site = await serve({})
     const rendered = '<html><body><p>Weight 2.1 g</p></body></html>'
-    launch.mockResolvedValue({
-      close: vi.fn(),
+    connectOverCDP.mockResolvedValue({
+      disconnect: vi.fn(),
       newContext: async () => {
         let handler: (route: unknown) => Promise<void>
         return {
+          close: async () => {},
           route: async (_pattern: string, given: typeof handler) => void (handler = given),
           newPage: async () => ({
             goto: async () => {
