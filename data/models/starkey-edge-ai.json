@@ -13,7 +13,18 @@
   },
   "documents": [],
   "name": "Edge AI",
-  "sameHardwareAs": [],
+  "sameHardwareAs": [
+    {
+      "slug": "starkey-soundgear-amp",
+      "source": {
+        "fetchedAt": "2026-11-28T00:01:23.852Z",
+        "quote": "Starkey built SoundGear AMP on its Edge AI platform.",
+        "sourceType": "third-party",
+        "sourceUrl": "https://injoyhearing.com/blogs/news/costco-soundgear-amp-vs-omega-ai-compared",
+        "value": "SoundGear AMP"
+      }
+    }
+  ],
   "slug": "starkey-edge-ai",
   "type": "rx",
   "variants": []

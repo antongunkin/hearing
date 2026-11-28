@@ -15,6 +15,15 @@
       "Sand (Shimmering)"
     ]
   },
+  "connectivity": {
+    "fetchedAt": "2026-11-28T00:02:22.933Z",
+    "quote": "Beltone Commence hearing aids use Auracast™ broadcast audio",
+    "sourceType": "official",
+    "sourceUrl": "https://www.beltone.com/en-us/products/hearing-aids/beltone-commence",
+    "value": {
+      "auracast": true
+    }
+  },
   "documents": [],
   "name": "Commence",
   "sameHardwareAs": [],

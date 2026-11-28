@@ -51,6 +51,15 @@
         "sourceUrl": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-sensia",
         "value": "IP68"
       },
+      "power": {
+        "fetchedAt": "2026-11-28T00:05:57.797Z",
+        "quote": "Yes! Our microRIE is rechargeable.",
+        "sourceType": "official",
+        "sourceUrl": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/resound-sensia",
+        "value": {
+          "type": "rechargeable"
+        }
+      },
       "priceUsd": {
         "fetchedAt": "2026-11-28T00:09:20.427Z",
         "quote": "$3,398per pair",

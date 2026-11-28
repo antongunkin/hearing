@@ -1,5 +1,10 @@
 {
   "aliases": [],
+  "app": {
+    "androidUrl": "https://play.google.com/store/apps/details?id=com.lively.app",
+    "iosId": "1502033340",
+    "name": "Jabra Enhance Select"
+  },
   "brand": "jabra-enhance",
   "connectivity": {
     "fetchedAt": "2026-11-27T17:16:14.435Z",

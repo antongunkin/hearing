@@ -1,0 +1,25 @@
+{
+  "aliases": [],
+  "brand": "rexton",
+  "documents": [],
+  "name": "Reach R Plus",
+  "sameHardwareAs": [],
+  "slug": "rexton-reach-r-plus",
+  "type": "rx",
+  "variants": [
+    {
+      "formFactor": "RIC",
+      "id": "reach-r-plus",
+      "power": {
+        "fetchedAt": "2026-11-28T00:10:17.576Z",
+        "quote": "Up to 54 hours of battery runtime, or 36 hours with 5 hours of streaming",
+        "sourceType": "official",
+        "sourceUrl": "https://www.rexton.com/en-us/hearing-aids/reach/r-plus/",
+        "value": {
+          "batteryHours": 54,
+          "type": "rechargeable"
+        }
+      }
+    }
+  ]
+}

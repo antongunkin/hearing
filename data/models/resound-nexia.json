@@ -1,5 +1,10 @@
 {
   "aliases": [],
+  "app": {
+    "androidUrl": "https://play.google.com/store/apps/details?id=dk.resound.smart3d",
+    "iosId": "1134918918",
+    "name": "ReSound Smart 3D"
+  },
   "brand": "resound",
   "connectivity": {
     "fetchedAt": "2026-11-27T17:45:47.952Z",

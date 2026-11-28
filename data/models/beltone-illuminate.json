@@ -15,6 +15,15 @@
       "Sand"
     ]
   },
+  "connectivity": {
+    "fetchedAt": "2026-11-28T00:02:14.435Z",
+    "quote": "Beltone Illuminate hearing aids use Bluetooth® Low Energy (LE) Audio",
+    "sourceType": "official",
+    "sourceUrl": "https://www.beltone.com/en-us/products/hearing-aids/beltone-illuminate",
+    "value": {
+      "leAudio": true
+    }
+  },
   "documents": [],
   "name": "Beltone Illuminate",
   "sameHardwareAs": [],

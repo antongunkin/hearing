@@ -18,7 +18,18 @@
   },
   "documents": [],
   "name": "Serene",
-  "sameHardwareAs": [],
+  "sameHardwareAs": [
+    {
+      "slug": "resound-nexia",
+      "source": {
+        "fetchedAt": "2026-11-28T00:05:23.325Z",
+        "quote": "Obwohl es einige Unterschiede zwischen Serene und dem ReSound Nexia geben kann, verfügen diese beiden Geräte über dieselbe Chipplattform und dieselben physischen Eigenschaften und sollten daher ähnlich leistungsfähig sein.",
+        "sourceType": "third-party",
+        "sourceUrl": "https://www.hearingtracker.com/de/hearing-aids/beltone-serene",
+        "value": "Nexia"
+      }
+    }
+  ],
   "slug": "beltone-serene",
   "type": "rx",
   "variants": [

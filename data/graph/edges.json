@@ -85,9 +85,9 @@
         "url": "https://itunes.apple.com/lookup?id=1502033340"
       }
     ],
-    "status": "proposed",
+    "status": "verified",
     "to": "app:ios-1502033340",
-    "visibility": "internal"
+    "visibility": "public"
   },
   {
     "from": "brand:oticon",
