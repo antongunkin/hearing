@@ -1,7 +1,20 @@
 {
   "aliases": [],
   "brand": "mdhearing",
-  "documents": [],
+  "documents": [
+    {
+      "fetchedAt": "2026-11-28T04:51:40.638Z",
+      "kind": "user-guide",
+      "title": "App Manual",
+      "url": "https://static.mdhearingaid.com/collateral/NEOXSPRO-SeriesH-AppManual_Web.pdf"
+    },
+    {
+      "fetchedAt": "2026-11-28T04:51:40.638Z",
+      "kind": "user-guide",
+      "title": "User Manual",
+      "url": "https://static.mdhearingaid.com/collateral/NEOXSPRO-SeriesH-Manual_Web.pdf"
+    }
+  ],
   "materials": {
     "fetchedAt": "2026-11-27T17:23:57.136Z",
     "quote": "with flexible silicone domes designed for a secure, comfortable fit",

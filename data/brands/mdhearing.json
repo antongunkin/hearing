@@ -4,7 +4,10 @@
   "imageLicense": "none",
   "name": "MDHearing",
   "scraper": {
-    "catalogUrls": ["https://www.mdhearingaid.com/hearing-aid-comparisons/"],
+    "catalogUrls": [
+      "https://www.mdhearingaid.com/hearing-aid-comparisons/"
+    ],
+    "documentUrlPattern": "^https://static\\.mdhearingaid\\.com/collateral/.+\\.pdf$",
     "modelUrlPattern": "^https://www\\.mdhearingaid\\.com/hearing-aids/mdhearing-[a-z0-9-]+$",
     "render": false
   },

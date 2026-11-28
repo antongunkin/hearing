@@ -1,7 +1,20 @@
 {
   "aliases": [],
   "brand": "mdhearing",
-  "documents": [],
+  "documents": [
+    {
+      "fetchedAt": "2026-11-28T04:51:40.638Z",
+      "kind": "user-guide",
+      "title": "User Manual",
+      "url": "https://static.mdhearingaid.com/collateral/VOLTMAX2-SeriesAV-Manual_Web.pdf"
+    },
+    {
+      "fetchedAt": "2026-11-28T04:51:40.638Z",
+      "kind": "user-guide",
+      "title": "App Manual",
+      "url": "https://static.mdhearingaid.com/collateral/VOLTMAX2-SeriesAV-AppManual_Web.pdf"
+    }
+  ],
   "name": "VOLT MAX 2",
   "sameHardwareAs": [],
   "slug": "mdhearing-volt-max-2",

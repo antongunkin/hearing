@@ -1,7 +1,14 @@
 {
   "aliases": [],
   "brand": "mdhearing",
-  "documents": [],
+  "documents": [
+    {
+      "fetchedAt": "2026-11-28T04:51:40.638Z",
+      "kind": "user-guide",
+      "title": "User Manual",
+      "url": "https://static.mdhearingaid.com/collateral/NEOXS-SeriesR-Manual_Web.pdf"
+    }
+  ],
   "materials": {
     "fetchedAt": "2026-11-27T17:24:03.690Z",
     "quote": "It utilizes flexible silicone domes for a snug fit in your ear canal",
