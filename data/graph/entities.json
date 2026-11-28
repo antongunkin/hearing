@@ -107,11 +107,6 @@
     "name": "Lexie Hearing app"
   },
   {
-    "id": "app:resound-smart-3d",
-    "kind": "app",
-    "name": "ReSound Smart 3D"
-  },
-  {
     "id": "brand:apple",
     "kind": "brand",
     "name": "Apple"
@@ -150,11 +145,6 @@
     "id": "brand:lexie",
     "kind": "brand",
     "name": "Lexie"
-  },
-  {
-    "id": "brand:lexie-hearing",
-    "kind": "brand",
-    "name": "Lexie Hearing"
   },
   {
     "id": "brand:oticon",
@@ -227,11 +217,6 @@
     "name": "GN Hearing A/S"
   },
   {
-    "id": "company:gn-store-nord-a-s",
-    "kind": "company",
-    "name": "GN Store Nord A/S"
-  },
-  {
     "id": "company:hear-the-world-foundation",
     "kind": "company",
     "name": "Hear the World Foundation"
@@ -240,11 +225,6 @@
     "id": "company:lxe-hearing",
     "kind": "company",
     "name": "LXE Hearing"
-  },
-  {
-    "id": "company:lxe-hearing-inc",
-    "kind": "company",
-    "name": "LXE Hearing, Inc."
   },
   {
     "id": "company:phonak-holding-ag",
@@ -275,11 +255,6 @@
     "id": "company:ws-audiology",
     "kind": "company",
     "name": "WS Audiology"
-  },
-  {
-    "id": "company:wsa",
-    "kind": "company",
-    "name": "WSA"
   },
   {
     "id": "domain:apple.com",

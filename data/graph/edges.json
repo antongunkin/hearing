@@ -135,21 +135,6 @@
     "visibility": "public"
   },
   {
-    "from": "brand:resound",
-    "kind": "publishes",
-    "sources": [
-      {
-        "fetchedAt": "2026-11-27T19:00:15.308Z",
-        "kind": "company-page",
-        "quote": "The new ReSound Smart 3D app allows you to personalize and control your hearing aids in all kinds of environments and situations.",
-        "url": "https://www.resound.com/en-us/help/apps/smart-3d"
-      }
-    ],
-    "status": "verified",
-    "to": "app:resound-smart-3d",
-    "visibility": "public"
-  },
-  {
     "from": "brand:sennheiser",
     "kind": "publishes",
     "sources": [
@@ -375,21 +360,6 @@
     "visibility": "public"
   },
   {
-    "from": "company:gn-hearing-a-s",
-    "kind": "operates",
-    "sources": [
-      {
-        "fetchedAt": "2026-11-27T18:59:37.103Z",
-        "kind": "company-page",
-        "quote": "GN Hearing A/S - Lautrupbjerg 7 - 2750 Ballerup - Denmark | 2026 GN Hearing, All Rights Reserved.",
-        "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/enzo-q"
-      }
-    ],
-    "status": "verified",
-    "to": "brand:resound",
-    "visibility": "public"
-  },
-  {
     "from": "company:gn",
     "kind": "owns",
     "sources": [
@@ -405,7 +375,7 @@
     "visibility": "public"
   },
   {
-    "from": "company:gn-store-nord-a-s",
+    "from": "company:gn",
     "kind": "owns",
     "sources": [
       {
@@ -420,7 +390,7 @@
     "visibility": "public"
   },
   {
-    "from": "company:gn-store-nord-a-s",
+    "from": "company:gn",
     "kind": "owns",
     "sources": [
       {
@@ -443,6 +413,21 @@
         "kind": "company-page",
         "quote": "GN-owned brands that are responsible for bringing these technologies to life:",
         "url": "https://www.gn.com/About/GN-Group"
+      }
+    ],
+    "status": "verified",
+    "to": "brand:resound",
+    "visibility": "public"
+  },
+  {
+    "from": "company:gn-hearing-a-s",
+    "kind": "operates",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:59:37.103Z",
+        "kind": "company-page",
+        "quote": "GN Hearing A/S - Lautrupbjerg 7 - 2750 Ballerup - Denmark | 2026 GN Hearing, All Rights Reserved.",
+        "url": "https://www.resound.com/en-us/hearing-aids/resound-hearing-aids/enzo-q"
       }
     ],
     "status": "verified",
@@ -477,26 +462,11 @@
       }
     ],
     "status": "verified",
-    "to": "brand:lexie-hearing",
-    "visibility": "public"
-  },
-  {
-    "from": "company:lxe-hearing",
-    "kind": "owns",
-    "sources": [
-      {
-        "fetchedAt": "2026-11-27T19:20:34.565Z",
-        "kind": "company-page",
-        "quote": "LXE Hearing, Inc., a Delaware Corporation and its affiliates and subsidiaries (“we”, “us”, “our”, “hearX USA”, “Lexie Hearing”, the “Company”), owns and/or licenses this website;",
-        "url": "https://web.archive.org/web/20261015074000id_/https://lexiehearing.com/us/terms-web"
-      }
-    ],
-    "status": "verified",
     "to": "brand:lexie",
     "visibility": "public"
   },
   {
-    "from": "company:lxe-hearing-inc",
+    "from": "company:lxe-hearing",
     "kind": "publishes",
     "sources": [
       {
@@ -619,6 +589,21 @@
   {
     "from": "company:ws-audiology",
     "kind": "owns",
+    "sources": [
+      {
+        "fetchedAt": "2026-11-27T18:37:03.652Z",
+        "kind": "company-page",
+        "quote": "Signia",
+        "url": "https://www.wsa.com/brands/"
+      }
+    ],
+    "status": "verified",
+    "to": "brand:signia",
+    "visibility": "public"
+  },
+  {
+    "from": "company:ws-audiology",
+    "kind": "owns",
     "since": "2026",
     "sources": [
       {
@@ -630,21 +615,6 @@
     ],
     "status": "verified",
     "to": "brand:widex",
-    "visibility": "public"
-  },
-  {
-    "from": "company:ws-audiology",
-    "kind": "owns",
-    "sources": [
-      {
-        "fetchedAt": "2026-11-27T18:37:03.652Z",
-        "kind": "company-page",
-        "quote": "Signia",
-        "url": "https://www.wsa.com/brands/"
-      }
-    ],
-    "status": "verified",
-    "to": "brand:signia",
     "visibility": "public"
   },
   {
